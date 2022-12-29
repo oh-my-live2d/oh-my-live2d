@@ -1,11 +1,12 @@
-import { Live2DModel } from 'pixi-live2d-display';
-import { Application } from 'pixi.js';
+// import { Live2DModel } from 'pixi-live2d-display';
+// import { Application } from 'pixi.js';
 
 type ImportType = 'complete' | 'cubism2' | 'cubism4';
-
-
+type EventType = 'ready' | 'load';
 
 interface IConfig {
+  canvasElId?: string;
+  wrapperElId?: string;
   modelSource?: string;
   size?: number;
   sayHello?: boolean;
@@ -16,22 +17,26 @@ interface IConfig {
   backgroundColor?: string;
 }
 
-interface IOML2D {
-  version: string;
-  importType: ImportType;
-  application?: Application;
-  live2dModel?: Live2DModel;
-  canvasEl: {
-    element?: HTMLCanvasElement;
-    id: string;
-  };
-  wrapperEl: {
-    element?: HTMLDivElement;
-    id: string;
-  };
-
-  config: IConfig;
+interface IWrapperContentEls {
+  canvasEl: HTMLCanvasElement;
 }
+
+// interface IOhMyLive2DConfig {
+//   version: string;
+//   importType: ImportType;
+//   application?: Application;
+//   live2dModel?: Live2DModel;
+//   canvasEl: {
+//     element?: HTMLCanvasElement;
+//     id: string;
+//   };
+//   wrapperEl: {
+//     element?: HTMLDivElement;
+//     id: string;
+//   };
+
+//   config: IConfig;
+// }
 
 // interface ILifecycle {
 //   beforeCreate?: () => void;
@@ -40,4 +45,4 @@ interface IOML2D {
 //   mounted?: () => void;
 // }
 
-export type { IOML2D, IConfig,  ImportType };
+export type { IConfig, ImportType, IWrapperContentEls, EventType };

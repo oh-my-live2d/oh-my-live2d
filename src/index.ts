@@ -2,12 +2,13 @@ import './library/live2dcubism2core';
 import './library/live2dcubism4core';
 import * as PIXI from 'pixi.js';
 import { Live2DModel } from 'pixi-live2d-display';
-import { setup } from './modules/initialization';
-import { defineConfig } from './utils/index';
+import { setupOhMyLive2d } from './modules/setup';
 
 (window as any).PIXI = PIXI;
 PIXI.utils.skipHello();
 
-setup(Live2DModel, 'complete');
+// 全量
+const defineConfig = setupOhMyLive2d('complete', Live2DModel);
+
 
 export { defineConfig };

@@ -1,13 +1,12 @@
 import type * as CSS from 'csstype';
-import { _OML2D } from '../config';
-
-// style元素
-const styleEl = document.createElement('style');
+import { IConfig } from '../types/index';
+import { OhMyLive2D } from './setup';
 
 // 加入样式标签
-const appendGlobalStyle = () => {
+const appendGlobalStyle = function (this: OhMyLive2D) {
+  const styleEl = document.createElement('style');
   document.head.appendChild(styleEl);
-  return styleEl;
+  setGlobalInitialStyle(styleEl, this.config);
 };
 
 // 设置指定元素样式
@@ -16,36 +15,33 @@ const setElStyle = (el: HTMLElement | undefined | null, style: CSS.Properties) =
   Object.assign(el.style, style);
 };
 
-// 显示
-const displayLive2d = () => {
+// 显示live2d组件
+const displayLive2d = function (this: OhMyLive2D) {
   return new Promise((resolve) => {
-    setElStyle(_OML2D.wrapperEl.element, {
+    setElStyle(this.wrapperEl, {
       transform: 'translateY(0)'
     });
+
     setTimeout(() => {
       resolve(true);
-    }, _OML2D.config.transitionTime);
+    }, this.config.transitionTime);
   });
 };
 
-// 隐藏
-const hiddenLive2d = async () => {
-  return new Promise((resolve) => {
-    setElStyle(_OML2D.wrapperEl.element, {
-      transform: 'translateY(100%)'
-    });
-    setTimeout(() => {
-      resolve(true);
-    }, _OML2D.config.transitionTime);
-  });
-};
+// 隐藏live2d组件
+// const hiddenLive2d = async () => {
+//   return new Promise((resolve) => {
+//     setElStyle(_OML2D.wrapperEl.element, {
+//       transform: 'translateY(100%)'
+//     });
+//     setTimeout(() => {
+//       resolve(true);
+//     }, _OML2D.config.transitionTime);
+//   });
+// };
 
 // 设置全局初始样式
-const setGlobalStyle = () => {
-  setElStyle(_OML2D.wrapperEl.element, {
-    backgroundColor: _OML2D.config.backgroundColor
-  });
-
+const setGlobalInitialStyle = (styleEl, config: IConfig) => {
   styleEl.innerHTML = `
     .icon {
       width: 1em; 
@@ -55,17 +51,18 @@ const setGlobalStyle = () => {
       overflow: hidden;
     }
 
-    #${_OML2D.wrapperEl.id} {
+    #${config.wrapperElId} {
       position: fixed;
       bottom: 0;
       left: 0;
-      width: ${_OML2D.config.size}px;
-      height: ${_OML2D.config.size}px;
+      width: ${config.size}px;
+      height: ${config.size}px;
       transform: translateY(100%);
-      transition: transform ${_OML2D.config.transitionTime}ms;
-      z-index: 999;
+      transition: transform ${config.transitionTime}ms;
+      background-color: ${config.backgroundColor};
+      z-index: 9997;
     }
   `;
 };
 
-export { appendGlobalStyle, setGlobalStyle, setElStyle, displayLive2d, hiddenLive2d };
+export { appendGlobalStyle, setGlobalInitialStyle, setElStyle, displayLive2d };

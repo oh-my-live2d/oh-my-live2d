@@ -1,17 +1,16 @@
-let wrapperEl: HTMLDivElement; // 包装器元素
-let canvasEl: HTMLCanvasElement; // 画布元素
+import { OhMyLive2D } from './setup';
 
 // 加入包装器元素
-const appendWrapperEl = (wrapperElId: string) => {
-  wrapperEl = document.createElement('div');
-  wrapperEl.id = wrapperElId;
+const appendWrapperEl = function (this: OhMyLive2D) {
+  const wrapperEl = document.createElement('div');
+  wrapperEl.id = this.config.wrapperElId!;
   document.body.appendChild(wrapperEl);
   return wrapperEl;
 };
 
 // 创建包装器元素内容
-const createWrapperElContent = (canvasElId: string) => {
-  const canvasNode = `<canvas id=${canvasElId}></canvas>`;
+const createWrapperElContent = function (this: OhMyLive2D) {
+  const canvasNode = `<canvas id=${this.config.canvasElId}></canvas>`;
   // const iconNode = (className: string) => {
   //   return `
   //     <svg class="icon" aria-hidden="true">
@@ -19,12 +18,13 @@ const createWrapperElContent = (canvasElId: string) => {
   //     </svg>
   //   `;
   // };
+  if (this.wrapperEl) {
+    this.wrapperEl.innerHTML = `
+      ${canvasNode}
+    `;
+  }
 
-  wrapperEl.innerHTML = `
-    ${canvasNode}
-  `;
-
-  canvasEl = document.getElementById(canvasElId) as HTMLCanvasElement;
+  const canvasEl = document.getElementById(this.config.canvasElId!) as HTMLCanvasElement;
   return { canvasEl };
 };
 
