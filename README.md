@@ -58,6 +58,29 @@
 
 在 `vite` 或者 `webpack` 构建的项目中使用此引入方式
 
+#### 安装模块
+
+通过 npm 安装
+
+```shell
+npm install oh-my-live2d
+```
+
+通过 yarn 安装
+
+```shell
+yarn add oh-my-live2d
+```
+
+通过 pnpm 安装
+
+```shell
+pnpm add oh-my-live2d
+
+```
+
+#### 引入模块
+
 ```ts
 import 'oh-my-live2d';
 ```
