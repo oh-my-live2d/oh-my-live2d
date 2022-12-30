@@ -1,4 +1,5 @@
-import { defineConfig } from '../../dist/oml-cubism2.es.js';
-defineConfig({
+import { loadModel } from '../../dist/oml-cubism2.es.js';
+
+loadModel({
   backgroundColor: '#000'
 });

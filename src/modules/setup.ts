@@ -62,7 +62,7 @@ class OhMyLive2D {
     this.config = defaultConfig;
     this.importType = importType;
     this.onEvents = {};
-
+    this.config.modelSource = handleDefaultModelSource(importType);
     // 同步创建模型
     this.model = this.L2DModel.fromSync(this.config.modelSource);
 
@@ -92,13 +92,13 @@ const setupOhMyLive2d = (importType: ImportType, L2DModel) => {
 
   //  自动装载方法 将在HTML解析完毕后执行
   window.document.addEventListener('DOMContentLoaded', () => {
-    // 如果已被手动装载则不再装载
+    // 如果已被手动装载则不再实例化装载类
     omlInstance ?? new OhMyLive2D(defaultConfig, L2DModel, importType, 'auto');
   });
 
   // 暴露出去的手动装载方法  手动装载时将不再自动装载
   const loadModel = (config?: IConfig) => {
-    defaultConfig.modelSource = handleDefaultModelSource(importType);
+    
     Object.assign(defaultConfig, config);
     omlInstance = new OhMyLive2D(defaultConfig, L2DModel, importType, 'manual');
     return {
