@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.3](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.2...v0.0.3) (2022-12-30)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复了默认modelSource错误的bug ([58466b7](https://github.com/oh-my-live2d/oh-my-live2d/commit/58466b7d08a6f3dadc450e97b28f18213428b855))
+
 ### [0.0.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.1...v0.0.2) (2022-12-30)
 
 
