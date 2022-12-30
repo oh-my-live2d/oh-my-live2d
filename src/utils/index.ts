@@ -1,3 +1,4 @@
+import { OhMyLive2D } from '../modules/setup';
 import { ImportType } from '../types/index';
 
 const handleDefaultModelSource = (importType: ImportType) => {
@@ -18,4 +19,17 @@ const handleDefaultModelSource = (importType: ImportType) => {
   }
   return modelSource;
 };
-export { handleDefaultModelSource };
+
+const sayHello = function (this: OhMyLive2D) {
+  if (!this.config.sayHello) return;
+  const args = [
+    `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${this.importType} ✨ %c %c 🎉🎉🎉 \n`,
+    'background: #fff; padding:5px 0;',
+    'background: #ff66a5; padding:5px 0;',
+    'color: #fff; background: #030307; padding:5px 0;',
+    'background: #ff66a5; padding:5px 0;',
+    'background: #fff; padding:5px 0;'
+  ];
+  console.log(...args);
+};
+export { handleDefaultModelSource, sayHello };

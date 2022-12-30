@@ -1,2 +1,1 @@
-export * from './dist/src/index';
-declare module './cubism2';
+export * from './dist/index';

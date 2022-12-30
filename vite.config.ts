@@ -9,12 +9,5 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src')
     }
-  },
-  build: {
-    lib: {
-      entry: './src/index.ts',
-      name: 'OML',
-      fileName: 'index'
-    }
   }
 });

@@ -8,7 +8,6 @@ import { setupOhMyLive2d } from './modules/setup';
 PIXI.utils.skipHello();
 
 // 全量
-const defineConfig = setupOhMyLive2d('complete', Live2DModel);
+const loadModel = setupOhMyLive2d('complete', Live2DModel);
 
-
-export { defineConfig };
+export { loadModel };

@@ -24,6 +24,8 @@ const displayLive2d = function (this: OhMyLive2D) {
 
     setTimeout(() => {
       resolve(true);
+      // 调用显示完成后事件
+      this.onEvents.afterDisplay && this.onEvents.afterDisplay();
     }, this.config.transitionTime);
   });
 };

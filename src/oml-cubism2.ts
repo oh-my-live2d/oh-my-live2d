@@ -8,6 +8,6 @@ import { setupOhMyLive2d } from './modules/setup';
 PIXI.utils.skipHello();
 
 // cubism2
-const defineConfig = setupOhMyLive2d('cubism2', Live2DModel);
+const loadModel = setupOhMyLive2d('cubism2', Live2DModel);
 
-export { defineConfig };
+export { loadModel };

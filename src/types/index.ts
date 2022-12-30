@@ -3,6 +3,7 @@
 
 type ImportType = 'complete' | 'cubism2' | 'cubism4';
 type EventType = 'ready' | 'load';
+type LoadType = 'manual' | 'auto';
 
 interface IConfig {
   canvasElId?: string;
@@ -21,28 +22,8 @@ interface IWrapperContentEls {
   canvasEl: HTMLCanvasElement;
 }
 
-// interface IOhMyLive2DConfig {
-//   version: string;
-//   importType: ImportType;
-//   application?: Application;
-//   live2dModel?: Live2DModel;
-//   canvasEl: {
-//     element?: HTMLCanvasElement;
-//     id: string;
-//   };
-//   wrapperEl: {
-//     element?: HTMLDivElement;
-//     id: string;
-//   };
+interface IEvents {
+  afterDisplay?: () => void;
+}
 
-//   config: IConfig;
-// }
-
-// interface ILifecycle {
-//   beforeCreate?: () => void;
-//   created?: () => void;
-//   beforeMount?: () => void;
-//   mounted?: () => void;
-// }
-
-export type { IConfig, ImportType, IWrapperContentEls, EventType };
+export type { IConfig, ImportType, IWrapperContentEls, EventType, IEvents, LoadType };
