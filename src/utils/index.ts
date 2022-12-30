@@ -1,4 +1,4 @@
-import { OhMyLive2D } from '../modules/setup';
+import CSS from 'csstype';
 import { ImportType } from '../types/index';
 
 const handleDefaultModelSource = (importType: ImportType) => {
@@ -20,10 +20,9 @@ const handleDefaultModelSource = (importType: ImportType) => {
   return modelSource;
 };
 
-const sayHello = function (this: OhMyLive2D) {
-  if (!this.config.sayHello) return;
+const sayHello = (importType: ImportType) => {
   const args = [
-    `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${this.importType} ✨ %c %c 🎉🎉🎉 \n`,
+    `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${importType} ✨ %c %c 🎉🎉🎉 \n`,
     'background: #fff; padding:5px 0;',
     'background: #ff66a5; padding:5px 0;',
     'color: #fff; background: #030307; padding:5px 0;',
@@ -32,4 +31,11 @@ const sayHello = function (this: OhMyLive2D) {
   ];
   console.log(...args);
 };
-export { handleDefaultModelSource, sayHello };
+
+// 设置指定元素样式
+const setElStyle = (el: HTMLElement | undefined | null, style: CSS.Properties) => {
+  if (!el) return;
+  Object.assign(el.style, style);
+};
+
+export { handleDefaultModelSource, sayHello, setElStyle };

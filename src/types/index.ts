@@ -6,8 +6,6 @@ type EventType = 'ready' | 'load';
 type LoadType = 'manual' | 'auto';
 
 interface IConfig {
-  canvasElId?: string;
-  wrapperElId?: string;
   modelSource?: string;
   size?: number;
   sayHello?: boolean;

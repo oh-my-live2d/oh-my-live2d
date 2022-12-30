@@ -6,7 +6,7 @@
     "index.d.ts"
   ],
   "types": "./index.d.ts",
-  "main": "./dist/index.js",
+  "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "exports": {
     ".": {

@@ -18,7 +18,7 @@ const profiles = entries.flatMap(({ entry, name }) => {
         formats: minify === 'terser' ? ['umd'] : ['es'],
         entry: path.resolve(__dirname, '..', entry),
         fileName: (format) => `${name}.${format}.js`
-      }
+      },
     }
   }));
 });

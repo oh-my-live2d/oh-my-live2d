@@ -1,27 +1,30 @@
-import type * as CSS from 'csstype';
-import { IConfig } from '../types/index';
 import { OhMyLive2D } from './setup';
+import { setElStyle } from '../utils';
 
-// 加入样式标签
-const appendGlobalStyle = function (this: OhMyLive2D) {
+// 设置默认样式
+const setDefaultStyle = function (this: OhMyLive2D) {
   const styleEl = document.createElement('style');
   document.head.appendChild(styleEl);
-  setGlobalInitialStyle(styleEl, this.config);
-};
+  setGlobalInitialStyle(styleEl);
 
-// 设置指定元素样式
-const setElStyle = (el: HTMLElement | undefined | null, style: CSS.Properties) => {
-  if (!el) return;
-  Object.assign(el.style, style);
+  setElStyle(this.wrapperEl, {
+    position: 'fixed',
+    left: '0px',
+    bottom: `-${this.config.size}px`,
+    width: `${this.config.size}px`,
+    height: `${this.config.size}px`,
+    zIndex: '9999',
+    transition: `bottom ${this.config.transitionTime}ms`,
+    backgroundColor: this.config.backgroundColor
+  });
 };
 
 // 显示live2d组件
 const displayLive2d = function (this: OhMyLive2D) {
+  setElStyle(this.wrapperEl, {
+    bottom: '0px'
+  });
   return new Promise((resolve) => {
-    setElStyle(this.wrapperEl, {
-      transform: 'translateY(0)'
-    });
-
     setTimeout(() => {
       resolve(true);
       // 调用显示完成后事件
@@ -43,7 +46,7 @@ const displayLive2d = function (this: OhMyLive2D) {
 // };
 
 // 设置全局初始样式
-const setGlobalInitialStyle = (styleEl, config: IConfig) => {
+const setGlobalInitialStyle = (styleEl) => {
   styleEl.innerHTML = `
     .icon {
       width: 1em; 
@@ -52,19 +55,7 @@ const setGlobalInitialStyle = (styleEl, config: IConfig) => {
       fill: currentColor;
       overflow: hidden;
     }
-
-    #${config.wrapperElId} {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: ${config.size}px;
-      height: ${config.size}px;
-      transform: translateY(100%);
-      transition: transform ${config.transitionTime}ms;
-      background-color: ${config.backgroundColor};
-      z-index: 9997;
-    }
   `;
 };
 
-export { appendGlobalStyle, setGlobalInitialStyle, setElStyle, displayLive2d };
+export {  displayLive2d, setDefaultStyle };
