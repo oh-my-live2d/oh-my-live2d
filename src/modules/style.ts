@@ -1,20 +1,12 @@
 import { OhMyLive2D } from './setup';
 import { setElStyle } from '../utils';
+import { defaultConfig } from '../config/index';
 
 // 设置默认样式
-const setDefaultStyle = function (this: OhMyLive2D) {
-  const styleEl = document.createElement('style');
-  document.head.appendChild(styleEl);
-  setGlobalInitialStyle(styleEl);
-
+const setInitialStyle = function (this: OhMyLive2D) {
   setElStyle(this.wrapperEl, {
-    position: 'fixed',
-    left: '0px',
-    bottom: `-${this.config.size}px`,
     width: `${this.config.size}px`,
     height: `${this.config.size}px`,
-    zIndex: '9999',
-    transition: `bottom ${this.config.transitionTime}ms`,
     backgroundColor: this.config.backgroundColor
   });
 };
@@ -22,8 +14,12 @@ const setDefaultStyle = function (this: OhMyLive2D) {
 // 显示live2d组件
 const displayLive2d = function (this: OhMyLive2D) {
   setElStyle(this.wrapperEl, {
-    bottom: '0px'
+    visibility: 'visible',
+    animationName: 'move',
+    animationDuration: `${this.config.transitionTime}ms`,
+    animationFillMode: 'forwards'
   });
+
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true);
@@ -46,7 +42,8 @@ const displayLive2d = function (this: OhMyLive2D) {
 // };
 
 // 设置全局初始样式
-const setGlobalInitialStyle = (styleEl) => {
+const setGlobalInitialStyle = () => {
+  const styleEl = document.createElement('style');
   styleEl.innerHTML = `
     .icon {
       width: 1em; 
@@ -55,7 +52,34 @@ const setGlobalInitialStyle = (styleEl) => {
       fill: currentColor;
       overflow: hidden;
     }
+
+    #oml-wrapper {
+      width: ${defaultConfig.size}px;
+      height: ${defaultConfig.size}px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+      background-color: ${defaultConfig.backgroundColor};
+      transform: translateY(100%);
+      visibility: hidden;
+
+    }
+  
+    @keyframes move {
+      from {
+        transform: translateY(100%);
+        visibility: hidden;
+
+      }
+      to {
+        transform: translateY(0%);
+        visibility: visible;
+
+      }
+    }
   `;
+  document.head.appendChild(styleEl);
 };
 
-export {  displayLive2d, setDefaultStyle };
+export { displayLive2d, setInitialStyle, setGlobalInitialStyle };

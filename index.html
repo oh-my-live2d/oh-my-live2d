@@ -7,7 +7,7 @@
     <style>
       html,
       body {
-        background-color: #333;
+        background-color: #999;
         width: 100vw;
         height: 100vh;
         margin: 0;
@@ -17,10 +17,28 @@
         transform: translateY(-100%);
         transition: transform 500ms;
         background-color: rgba(0, 0, 0, 0);
+        opacity: 0;
+        visibility: visible;
+      }
+
+      .oml-wrapper111111 {
+        position: fixed;
+        left: 0;
+        width: 280px;
+        height: 280px;
+        z-index: 9999;
+        transform: translateY(100%);
+        transition: transform 1000ms;
+        background-color: #0000;
+        visibility: hidden;
       }
     </style>
   </head>
   <body>
+    <div>
+      <a href="http://localhost:3000">test</a>
+    </div>
+    <canvas style="background-color: rgba(0, 0, 0, 0)"></canvas>
     <script type="module" src="src/index.ts"></script>
   </body>
 </html>

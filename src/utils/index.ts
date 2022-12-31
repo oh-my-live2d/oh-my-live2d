@@ -38,4 +38,11 @@ const setElStyle = (el: HTMLElement | undefined | null, style: CSS.Properties) =
   Object.assign(el.style, style);
 };
 
-export { handleDefaultModelSource, sayHello, setElStyle };
+const delayTime = (time: number) => {
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+};
+export { handleDefaultModelSource, sayHello, setElStyle, delayTime };

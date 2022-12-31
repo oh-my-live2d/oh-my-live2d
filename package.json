@@ -28,7 +28,7 @@
   "scripts": {
     "dev": "vite",
     "build": "rimraf ./dist/* && tsc && node ./scripts/build.js",
-    "release": "dotenv release-it",
+    "release": "dotenv release-it && npm run build",
     "test": "rimraf ./test/dist/* && cc copy ./dist ./test/dist &&  vite preview --outDir ./test/  --port 7777"
   },
   "license": "MIT",

@@ -1,15 +1,10 @@
-import { OhMyLive2D } from './setup';
-
 // 加入包装器元素
-const appendWrapperEl = function (this: OhMyLive2D) {
+const appendWrapperEl = function () {
   const wrapperEl = document.createElement('div');
   wrapperEl.id = 'oml-wrapper';
-  document.body.appendChild(wrapperEl);
-  return wrapperEl;
-};
+  const fragment = new DocumentFragment();
+  fragment.appendChild(wrapperEl);
 
-// 创建包装器元素内容
-const createWrapperElContent = function (this: OhMyLive2D) {
   // const iconNode = (className: string) => {
   //   return `
   //     <svg class="icon" aria-hidden="true">
@@ -17,12 +12,16 @@ const createWrapperElContent = function (this: OhMyLive2D) {
   //     </svg>
   //   `;
   // };
-  this.wrapperEl.innerHTML = `
-    <canvas id="oml-canvas"></canvas>
+
+  wrapperEl.innerHTML = `
+    <canvas id="oml-canvas" style="background-color: rgba(0, 0, 0, 0);"></canvas>
   `;
 
-  const canvasEl = document.getElementById('oml-canvas') as HTMLCanvasElement;
-  return { canvasEl };
+  const canvasEl = fragment.getElementById('oml-canvas') as HTMLCanvasElement;
+
+  document.body.appendChild(fragment);
+
+  return { wrapperEl, canvasEl };
 };
 
-export { appendWrapperEl, createWrapperElContent };
+export { appendWrapperEl };

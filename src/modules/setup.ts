@@ -1,9 +1,9 @@
 import { Application } from 'pixi.js';
 import { defaultConfig } from '@/config';
-import { appendWrapperEl, createWrapperElContent } from './element';
-import { displayLive2d, setDefaultStyle } from './style';
+import { appendWrapperEl } from './element';
+import { displayLive2d, setInitialStyle, setGlobalInitialStyle } from './style';
 import { IConfig, IEvents, ImportType, IWrapperContentEls, LoadType } from '@/types/index';
-import { handleDefaultModelSource, sayHello } from '@/utils/index';
+import { delayTime, handleDefaultModelSource, sayHello } from '@/utils/index';
 import type { Live2DModel } from 'pixi-live2d-display';
 import '@/assets/icon/iconfont';
 
@@ -15,9 +15,9 @@ class SetupLive2DModel {
     this.model = model;
     this.setModel(config);
 
-    this.model.once('load', () => {
-      this.app.stage.addChild(this.model);
-    });
+    // this.model.once('load', () => {
+    //   this.app.stage.addChild(this.model);
+    // });
   }
 
   // 创建PIXI APP
@@ -46,53 +46,56 @@ class OhMyLive2D {
   L2DModel: any;
   model: Live2DModel;
   wrapperContentEls: IWrapperContentEls;
-  wrapperEl: HTMLDivElement;
+  wrapperEl?: HTMLDivElement;
   config: IConfig;
   onEvents: IEvents;
   importType: ImportType;
   // method
   displayLive2d = displayLive2d;
   appendWrapperEl = appendWrapperEl;
-  createWrapperElContent = createWrapperElContent;
-  setDefaultStyle = setDefaultStyle;
+  setInitialStyle = setInitialStyle;
 
   constructor(defaultConfig: IConfig, L2DModel, loadType: LoadType, importType: ImportType) {
     this.L2DModel = L2DModel;
     this.config = defaultConfig;
     this.importType = importType;
     this.onEvents = {};
+    this.wrapperContentEls = { canvasEl: null };
     // 同步创建模型
     this.model = this.L2DModel.fromSync(this.config.modelSource);
-    this.wrapperEl = this.appendWrapperEl();
-    this.wrapperContentEls = this.createWrapperElContent();
-
-    this.setDefaultStyle();
 
     loadType === 'auto'
       ? this.initialization()
       : window.document.addEventListener('DOMContentLoaded', this.initialization.bind(this));
   }
 
-  initialization() {
+  async initialization() {
     this.config.sayHello && sayHello(this.importType);
-    // 加入全局样式表
-
-    // 监听刷新前 - 移除元素 - 解决空白滞留问题
+    const { wrapperEl, canvasEl } = this.appendWrapperEl();
+    this.wrapperEl = wrapperEl;
+    this.wrapperContentEls.canvasEl = canvasEl;
+    this.setInitialStyle();
     window.onbeforeunload = () => {
-      document.body.removeChild(this.wrapperEl!);
+      this.wrapperEl && document.body.removeChild(this.wrapperEl);
     };
 
     // 安装live2d模型
-    new SetupLive2DModel(this.wrapperEl, this.wrapperContentEls.canvasEl, this.config, this.model);
+    const appInstance = new SetupLive2DModel(this.wrapperEl, this.wrapperContentEls.canvasEl, this.config, this.model);
 
     // 所有资源准备完毕后
-    this.model.once('ready', this.displayLive2d.bind(this));
+    this.model.once('ready', async () => {
+      appInstance.app.stage.addChild(this.model);
+      await delayTime(100);
+      this.displayLive2d();
+    });
   }
 }
 
 // 入口函数
 const setupOhMyLive2d = (importType: ImportType, L2DModel) => {
   let omlInstance: OhMyLive2D;
+
+  setGlobalInitialStyle();
 
   // 根据引入类型设置默认模型来源
   defaultConfig.modelSource = handleDefaultModelSource(importType);

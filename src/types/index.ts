@@ -17,7 +17,7 @@ interface IConfig {
 }
 
 interface IWrapperContentEls {
-  canvasEl: HTMLCanvasElement;
+  canvasEl: HTMLCanvasElement | null;
 }
 
 interface IEvents {
