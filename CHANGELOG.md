@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.5](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.4...v0.0.5) (2022-12-31)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 优化了刷新时闪现空白的问题 ([34a634f](https://github.com/oh-my-live2d/oh-my-live2d/commit/34a634fad7e5d56938353befb637003c798aef2f))
+
 ### [0.0.4](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.3...v0.0.4) (2022-12-30)
 
 
