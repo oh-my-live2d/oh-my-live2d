@@ -28,6 +28,7 @@
   "scripts": {
     "dev": "vite",
     "build": "rimraf ./dist/* && tsc && node ./scripts/build.js",
+    "refresh": "node ./scripts/refresh-cdn.js",
     "release": "dotenv release-it && npm run build",
     "test": "rimraf ./test/dist/* && cc copy ./dist ./test/dist &&  vite preview --outDir ./test/  --port 7777"
   },
@@ -42,6 +43,7 @@
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
+    "axios": "^1.2.2",
     "cli-cat": "^0.0.2",
     "csstype": "^3.1.1",
     "dotenv-cli": "^6.0.0",
