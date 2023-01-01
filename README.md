@@ -186,7 +186,7 @@ loadModel({
 
 ## 方法：
 
-你可以通过 `loadModel` 方法拿到它返回的`oml`对象，该对象中包含了一些可调用的 `api`方法，可以帮助你完成一些额外的操作。
+你可以通过 `loadModel` 方法拿到它返回的`oml`对象，该对象中包含了一些可调用的 `api`方法，帮助你完成一些额外的操作。
 
 CDN 导入方式的使用：
 
@@ -224,9 +224,8 @@ oml.onAfterDisplay(() => {
 ### oml 对象属性说明：
 
 1. `onAfterDisplay: (callback: () => void) => void` : 模型在完全显示之后的回调函数。即加载完出现直到过渡动画结束之后才会回调。
-
-- params ：
-  - `callback: () => void`
+   - params ：
+     - `callback: () => void`
 
 ## 按需导入：
 
