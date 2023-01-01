@@ -1,6 +1,6 @@
 # oh-my-live2d
 
-![](https://img.shields.io/badge/version-0.0.5-blue) ![](https://img.shields.io/badge/Live2D-Component-red) ![](https://img.shields.io/badge/pixi.js-v6.5.2-yellowgreen) ![](https://img.shields.io/badge/pixi--live2d--display-v0.4.0-brightgreen) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
+![](https://img.shields.io/badge/version-0.0.7-blue) ![](https://img.shields.io/badge/Live2D-Component-red) ![](https://img.shields.io/badge/pixi.js-v6.5.2-yellowgreen) ![](https://img.shields.io/badge/pixi--live2d--display-v0.4.0-brightgreen) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
 
 `oh-my-live2d` 是一个开箱即用的 `Live2D 看板娘 web 应用组件`，支持在 Vite 或 webpack 管理的项目中使用该组件，例如：`vue`、`react` 等项目，它不仅支持所有版本的 Live2D 模型，使用方式更是简单到令人不禁发出惊叹。
 
