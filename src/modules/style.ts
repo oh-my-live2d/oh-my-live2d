@@ -111,12 +111,10 @@ const setGlobalInitialStyle = () => {
       from {
         transform: translateY(100%);
         visibility: hidden;
-
       }
       to {
         transform: translateY(0%);
         visibility: visible;
-
       }
     }
 
@@ -134,7 +132,7 @@ const setGlobalInitialStyle = () => {
         transform: translateX(0%);
       }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(-110%);
       }
     }
   `;
