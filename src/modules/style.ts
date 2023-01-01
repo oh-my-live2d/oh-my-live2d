@@ -1,6 +1,7 @@
 import { OhMyLive2D } from './setup';
 import { setElStyle } from '../utils';
 import { defaultConfig } from '../config/index';
+import '@/assets/icon/iconfont';
 
 // 设置默认样式
 const setInitialStyle = function (this: OhMyLive2D) {
@@ -9,13 +10,27 @@ const setInitialStyle = function (this: OhMyLive2D) {
     height: `${this.config.size}px`,
     backgroundColor: this.config.backgroundColor
   });
+
+  // setElStyle(this.suspendBtnEl, {
+  //   height: '90px',
+  //   width: '50px',
+  //   backgroundColor: '#2196f3'
+  // })
+};
+
+const hiddenSuspendBtn = function (this: OhMyLive2D) {
+  setElStyle(this.suspendBtnEl, {
+    animationName: 'oml-loading-hidden',
+    animationDuration: `${this.config.transitionTime}ms`,
+    animationFillMode: 'forwards'
+  });
 };
 
 // 显示live2d组件
 const displayLive2d = function (this: OhMyLive2D) {
   setElStyle(this.wrapperEl, {
     visibility: 'visible',
-    animationName: 'move',
+    animationName: 'oml-display',
     animationDuration: `${this.config.transitionTime}ms`,
     animationFillMode: 'forwards'
   });
@@ -59,14 +74,40 @@ const setGlobalInitialStyle = () => {
       position: fixed;
       left: 0;
       bottom: 0;
-      z-index: 1;
+      z-index: 9997;
       background-color: ${defaultConfig.backgroundColor};
       transform: translateY(100%);
       visibility: hidden;
-
     }
   
-    @keyframes move {
+
+    #oml-suspend-btn {
+      position: fixed;
+      left: 0;
+      bottom: 80px;
+      padding: 7px 5px;
+      z-index: 9998;
+      background-color: #86c8ff;
+      border-radius: 0 5px 5px 0;
+      box-shadow: 0 0 5px #999;
+      color: #fff;
+      writing-mode: vertical-lr;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .oml-loading{
+      animation-name: oml-loading-rotate;
+      animation-duration: 600ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    @keyframes oml-display {
       from {
         transform: translateY(100%);
         visibility: hidden;
@@ -78,8 +119,26 @@ const setGlobalInitialStyle = () => {
 
       }
     }
+
+    @keyframes oml-loading-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes oml-loading-hidden {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
   `;
   document.head.appendChild(styleEl);
 };
 
-export { displayLive2d, setInitialStyle, setGlobalInitialStyle };
+export { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn };

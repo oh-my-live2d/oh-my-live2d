@@ -1,11 +1,10 @@
 import { Application } from 'pixi.js';
 import { defaultConfig } from '@/config';
 import { appendWrapperEl } from './element';
-import { displayLive2d, setInitialStyle, setGlobalInitialStyle } from './style';
+import { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
 import { IConfig, IEvents, ImportType, IWrapperContentEls, LoadType } from '@/types/index';
 import { delayTime, handleDefaultModelSource, sayHello } from '@/utils/index';
 import type { Live2DModel } from 'pixi-live2d-display';
-import '@/assets/icon/iconfont';
 
 class SetupLive2DModel {
   app: Application;
@@ -14,10 +13,6 @@ class SetupLive2DModel {
     this.app = this.createApp(wrapperEl, canvasEl);
     this.model = model;
     this.setModel(config);
-
-    // this.model.once('load', () => {
-    //   this.app.stage.addChild(this.model);
-    // });
   }
 
   // 创建PIXI APP
@@ -47,13 +42,16 @@ class OhMyLive2D {
   model: Live2DModel;
   wrapperContentEls: IWrapperContentEls;
   wrapperEl?: HTMLDivElement;
+  suspendBtnEl?: HTMLDivElement;
   config: IConfig;
   onEvents: IEvents;
   importType: ImportType;
+
   // method
   displayLive2d = displayLive2d;
   appendWrapperEl = appendWrapperEl;
   setInitialStyle = setInitialStyle;
+  hiddenSuspendBtn = hiddenSuspendBtn;
 
   constructor(defaultConfig: IConfig, L2DModel, loadType: LoadType, importType: ImportType) {
     this.L2DModel = L2DModel;
@@ -71,7 +69,8 @@ class OhMyLive2D {
 
   async initialization() {
     this.config.sayHello && sayHello(this.importType);
-    const { wrapperEl, canvasEl } = this.appendWrapperEl();
+    const { wrapperEl, canvasEl, suspendBtnEl } = this.appendWrapperEl();
+    this.suspendBtnEl = suspendBtnEl;
     this.wrapperEl = wrapperEl;
     this.wrapperContentEls.canvasEl = canvasEl;
     this.setInitialStyle();
@@ -85,6 +84,8 @@ class OhMyLive2D {
     // 所有资源准备完毕后
     this.model.once('ready', async () => {
       appInstance.app.stage.addChild(this.model);
+      this.suspendBtnEl!.innerHTML = `加载完成`;
+      this.hiddenSuspendBtn();
       await delayTime(100);
       this.displayLive2d();
     });

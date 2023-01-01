@@ -88,7 +88,7 @@ CDN 的引入并不限制在`<body>`或是在`<head>`标签中，但考虑到性
   tyarn add oh-my-live2d
   ```
 
-- `pnpm` 安装（推荐）：
+- `pnpm` 安装：
 
   ```shell
   pnpm add oh-my-live2d

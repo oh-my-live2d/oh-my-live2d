@@ -1,23 +1,16 @@
 {
-  "id": "3344888",
-  "name": "spry-mark",
+  "id": "3847283",
+  "name": "oh-my-live2d",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
     {
-      "icon_id": "158874",
-      "name": "people",
-      "font_class": "people",
-      "unicode": "e736",
-      "unicode_decimal": 59190
-    },
-    {
-      "icon_id": "1496055",
-      "name": "favor_light",
-      "font_class": "favor_light",
-      "unicode": "e7e1",
-      "unicode_decimal": 59361
+      "icon_id": "13253782",
+      "name": "loading",
+      "font_class": "loading",
+      "unicode": "fff",
+      "unicode_decimal": 4095
     }
   ]
 }
