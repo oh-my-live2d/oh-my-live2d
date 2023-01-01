@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.7](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.6...v0.0.7) (2023-01-01)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 修改悬浮按钮隐藏时的移动距离，避免阴影部分露出 ([fface7d](https://github.com/oh-my-live2d/oh-my-live2d/commit/fface7d81289b7909bd9961f2f3677e38a531e97))
+
 ### [0.0.6](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.5...v0.0.6) (2023-01-01)
 
 
