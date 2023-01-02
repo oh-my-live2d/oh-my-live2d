@@ -267,7 +267,7 @@ import 'oh-my-live2d/cubism2';
 
 ### 依赖 Cubism 4 包导入：
 
-如果你的项目中使用了 Live2D Model 2 或 Live2D Model 4，请使用依赖 Cubism 4 包导入。  
+如果你的项目中使用了 Live2D Model 3 或 Live2D Model 4，请使用依赖 Cubism 4 包导入。  
 该导入方式默认使用的模型来源为：https://oml-api.tj520.top/m950a_4302/normal/normal.model3.json
 
 #### CDN 方式：
