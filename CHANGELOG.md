@@ -1,5 +1,17 @@
 # Changelog
 
+### [0.0.10](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.9...v0.0.10) (2023-01-03)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* 模块导入方法名由loadModel正式更改为loadLive2dModel ([12caa0c](https://github.com/oh-my-live2d/oh-my-live2d/commit/12caa0ce3923c58752cdd8cd57c0f89305ea910d))
+
+
+### 📝 Documentation | 文档
+
+* 更新自述文件 ([dd80853](https://github.com/oh-my-live2d/oh-my-live2d/commit/dd808531cf380248752a3e9f8094c9567a2d15fc))
+
 ### [0.0.9](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.8...v0.0.9) (2023-01-03)
 
 
