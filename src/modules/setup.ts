@@ -4,7 +4,7 @@ import { appendWrapperEl } from './element';
 import { showTooltipMessage, displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
 import { IConfig, IEvents, ImportType, IOml, IWrapperContentEls, LoadType } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello, getTipsConfig } from '@/utils/index';
-import { MotionPreloadStrategy } from 'pixi-live2d-display';
+// import { MotionPreloadStrategy } from 'pixi-live2d-display';
 import type { Live2DModel } from 'pixi-live2d-display';
 
 class SetupLive2DModel {
@@ -62,7 +62,9 @@ class OhMyLive2D {
     this.onEvents = {};
     this.wrapperContentEls = { canvasEl: null, tooltipEl: null };
     // 同步创建模型
-    this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: MotionPreloadStrategy.ALL });
+    // this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: MotionPreloadStrategy.ALL });
+
+    this.model = this.L2DModel.fromSync(this.config.modelSource)
 
     loadType === 'auto'
       ? this.initialization()
