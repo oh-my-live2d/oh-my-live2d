@@ -1,5 +1,28 @@
 # Changelog
 
+### [0.0.8](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.7...v0.0.8) (2023-01-03)
+
+
+### 📦 Chores | 其他更新
+
+* 修改刷新cdn缓存脚本逻辑，由刷新1个文件改为刷新3个 ([c6696b5](https://github.com/oh-my-live2d/oh-my-live2d/commit/c6696b5a414ed3fbaa8db0e1cef56a4742403932))
+
+
+### 📝 Documentation | 文档
+
+* 修改自述文件按需导入的错误描述 ([c228f72](https://github.com/oh-my-live2d/oh-my-live2d/commit/c228f7210f3a1c12258a433a60d0bd0284294398))
+* 更新自述文档 ([1a1a123](https://github.com/oh-my-live2d/oh-my-live2d/commit/1a1a123c0e6d2fe5327a466ad63f80e5007fb68c))
+
+
+### ✨ Features | 新功能
+
+* 新增小提示弹框，加入了循环自动提示功能，加入了出场欢迎提示功能 ([b59d428](https://github.com/oh-my-live2d/oh-my-live2d/commit/b59d428f4c285566838495a17afd5626f519b950))
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 去除额外的非必要依赖，大量减少了包体积 ([d03a85a](https://github.com/oh-my-live2d/oh-my-live2d/commit/d03a85a0a9d88a7683f2856580769273ec6a0f52))
+
 ### [0.0.7](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.6...v0.0.7) (2023-01-01)
 
 
