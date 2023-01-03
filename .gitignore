@@ -24,3 +24,4 @@ public/*
 *.sln
 *.sw?
 .env
+src/assets/model

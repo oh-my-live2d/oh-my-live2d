@@ -4,6 +4,7 @@
 type ImportType = 'complete' | 'cubism2' | 'cubism4';
 type EventType = 'ready' | 'load';
 type LoadType = 'manual' | 'auto';
+type TipsType = 'welcome' | 'idle';
 
 interface IConfig {
   modelSource?: string;
@@ -18,10 +19,15 @@ interface IConfig {
 
 interface IWrapperContentEls {
   canvasEl: HTMLCanvasElement | null;
+  tooltipEl: HTMLDivElement | null;
+}
+
+interface IOml {
+  onAfterDisplay: (callback: () => void) => void;
 }
 
 interface IEvents {
   afterDisplay?: () => void;
 }
 
-export type { IConfig, ImportType, IWrapperContentEls, EventType, IEvents, LoadType };
+export type { TipsType, IOml, IConfig, ImportType, IWrapperContentEls, EventType, IEvents, LoadType };

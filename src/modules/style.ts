@@ -1,5 +1,5 @@
 import { OhMyLive2D } from './setup';
-import { setElStyle } from '../utils';
+import { sleep, setElStyle } from '../utils';
 import { defaultConfig } from '../config/index';
 import '@/assets/icon/iconfont';
 
@@ -10,14 +10,24 @@ const setInitialStyle = function (this: OhMyLive2D) {
     height: `${this.config.size}px`,
     backgroundColor: this.config.backgroundColor
   });
-
-  // setElStyle(this.suspendBtnEl, {
-  //   height: '90px',
-  //   width: '50px',
-  //   backgroundColor: '#2196f3'
-  // })
 };
 
+// 显示 tooltip message
+const showTooltipMessage = async function (this: OhMyLive2D, message: string, showTime: number) {
+  setElStyle(this.wrapperContentEls.tooltipEl, {
+    animationName: 'oml-display-tooltip,oml-shake-tooltip',
+    animationDuration: '1000ms,1000ms',
+    animationFillMode: 'forwards, none',
+    animationIterationCount: '1, infinite'
+  });
+  this.wrapperContentEls.tooltipEl!.innerHTML = message;
+  await sleep(showTime);
+  setElStyle(this.wrapperContentEls.tooltipEl, {
+    animationName: 'oml-hidden-tooltip,oml-shake-tooltip'
+  });
+};
+
+// 隐藏悬浮按钮
 const hiddenSuspendBtn = function (this: OhMyLive2D) {
   setElStyle(this.suspendBtnEl, {
     animationName: 'oml-loading-hidden',
@@ -80,6 +90,10 @@ const setGlobalInitialStyle = () => {
       visibility: hidden;
     }
   
+    #oml-canvas{
+      position: relative;
+      z-index: 9997;
+    }
 
     #oml-suspend-btn {
       position: fixed;
@@ -87,7 +101,7 @@ const setGlobalInitialStyle = () => {
       bottom: 80px;
       padding: 7px 5px;
       z-index: 9998;
-      background-color: #86c8ff;
+      background-color: #58b0fc;
       border-radius: 0 5px 5px 0;
       box-shadow: 0 0 5px #999;
       color: #fff;
@@ -100,11 +114,47 @@ const setGlobalInitialStyle = () => {
       font-size: 14px;
     }
 
+
+    
     .oml-loading{
       animation-name: oml-loading-rotate;
       animation-duration: 600ms;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
+    }
+
+
+    #oml-tooltip {
+      min-width: 80%;
+      min-height: 80px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #999;
+      transform: translateX(-50%);
+      background-color: #58b0fc;
+      border: 3px solid #add7fb;
+      font-size: 14px;
+      color: #fff;
+      padding: 3px 5px;
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @keyframes oml-shake-tooltip{
+      0% {
+        transform: translate(-50%, -37%) scale(0.99);
+      }
+      50% {
+     
+        transform: translate(-50%, -35%) scale(1);
+      }
+      100% {
+        transform: translate(-50%, -37%) scale(0.99);
+      }
     }
 
     @keyframes oml-display {
@@ -135,8 +185,36 @@ const setGlobalInitialStyle = () => {
         transform: translateX(-110%);
       }
     }
+
+
+
+    @keyframes oml-display-tooltip {
+      0% {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      100% {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @keyframes oml-hidden-tooltip {
+      0% {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+   
   `;
   document.head.appendChild(styleEl);
 };
 
-export { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn };
+export { showTooltipMessage, displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn };

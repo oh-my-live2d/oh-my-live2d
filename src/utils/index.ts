@@ -1,11 +1,13 @@
 import CSS from 'csstype';
-import { ImportType } from '../types/index';
+import { TIPS } from '../config/tips';
+import { ImportType, TipsType } from '../types/index';
 
 const handleDefaultModelSource = (importType: ImportType) => {
   let modelSource;
   switch (importType) {
     case 'complete':
       modelSource = 'https://oml-api.tj520.top/Pio/animal-02/index.json';
+      // modelSource = '/model/animal-02/index.json';
       break;
     case 'cubism2':
       modelSource = 'https://oml-api.tj520.top/Pio/animal-02/index.json';
@@ -38,11 +40,62 @@ const setElStyle = (el: HTMLElement | undefined | null, style: CSS.Properties) =
   Object.assign(el.style, style);
 };
 
-const delayTime = (time: number) => {
-  return new Promise<void>((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, time);
-  });
+// 延时
+const sleep = (time: number) => {
+  return new Promise<void>((resolve) => setTimeout(resolve, time));
 };
-export { handleDefaultModelSource, sayHello, setElStyle, delayTime };
+
+// 处理欢迎提示信息
+const handleWelcomeMessage = () => {
+  let message = '';
+  const nowHours = new Date().getHours().toString();
+  // 早晨
+  const daybreakRange = /^[5-7]$/;
+  // 早上
+  const morningRange = /^(?:[8-9]|1[0-1])$/;
+  // 中午
+  const noonRange = /^(1[2-3])$/;
+  // 下午
+  const afternoonRange = /^1[4-7]$/;
+  // 傍晚
+  const duskRange = /^1[8-9]&/;
+  // 晚上
+  const nightRange = /^2[0-1]$/;
+  // 深夜
+  const lateNightRange = /^2[2-3]$/;
+
+  if (daybreakRange.test(nowHours)) message = TIPS.welcomeTips.message.daybreak;
+  else if (morningRange.test(nowHours)) message = TIPS.welcomeTips.message.morning;
+  else if (noonRange.test(nowHours)) message = TIPS.welcomeTips.message.noon;
+  else if (afternoonRange.test(nowHours)) message = TIPS.welcomeTips.message.afternoon;
+  else if (duskRange.test(nowHours)) message = TIPS.welcomeTips.message.dusk;
+  else if (nightRange.test(nowHours)) message = TIPS.welcomeTips.message.night;
+  else if (lateNightRange.test(nowHours)) message = TIPS.welcomeTips.message.lateNight;
+  else message = TIPS.welcomeTips.message.weeHours;
+  return message;
+};
+
+const getTipsConfig = (tipsType: TipsType) => {
+  console.log();
+  let message = '';
+  let showTime = 0;
+  let priority = 0;
+
+  switch (tipsType) {
+    case 'welcome':
+      message = handleWelcomeMessage();
+      showTime = TIPS.welcomeTips.showTime;
+      priority = TIPS.welcomeTips.priority;
+      break;
+    case 'idle':
+      message = TIPS.idleTips.message[Math.floor(Math.random() * (TIPS.idleTips.message.length - 0))];
+      showTime = TIPS.idleTips.showTime;
+      priority = TIPS.idleTips.priority;
+      break;
+    default:
+      break;
+  }
+
+  return { message, priority, showTime };
+};
+export { handleDefaultModelSource, sayHello, setElStyle, sleep, handleWelcomeMessage, getTipsConfig };

@@ -1,9 +1,10 @@
 import { Application } from 'pixi.js';
 import { defaultConfig } from '@/config';
 import { appendWrapperEl } from './element';
-import { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
-import { IConfig, IEvents, ImportType, IWrapperContentEls, LoadType } from '@/types/index';
-import { delayTime, handleDefaultModelSource, sayHello } from '@/utils/index';
+import { showTooltipMessage, displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
+import { IConfig, IEvents, ImportType, IOml, IWrapperContentEls, LoadType } from '@/types/index';
+import { sleep, handleDefaultModelSource, sayHello, getTipsConfig } from '@/utils/index';
+import { MotionPreloadStrategy } from 'pixi-live2d-display';
 import type { Live2DModel } from 'pixi-live2d-display';
 
 class SetupLive2DModel {
@@ -48,6 +49,7 @@ class OhMyLive2D {
   importType: ImportType;
 
   // method
+  showTooltipMessage = showTooltipMessage;
   displayLive2d = displayLive2d;
   appendWrapperEl = appendWrapperEl;
   setInitialStyle = setInitialStyle;
@@ -58,9 +60,9 @@ class OhMyLive2D {
     this.config = defaultConfig;
     this.importType = importType;
     this.onEvents = {};
-    this.wrapperContentEls = { canvasEl: null };
+    this.wrapperContentEls = { canvasEl: null, tooltipEl: null };
     // 同步创建模型
-    this.model = this.L2DModel.fromSync(this.config.modelSource);
+    this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: MotionPreloadStrategy.ALL });
 
     loadType === 'auto'
       ? this.initialization()
@@ -68,12 +70,17 @@ class OhMyLive2D {
   }
 
   async initialization() {
+    const { wrapperEl, canvasEl, suspendBtnEl, tooltipEl } = this.appendWrapperEl();
     this.config.sayHello && sayHello(this.importType);
-    const { wrapperEl, canvasEl, suspendBtnEl } = this.appendWrapperEl();
     this.suspendBtnEl = suspendBtnEl;
     this.wrapperEl = wrapperEl;
     this.wrapperContentEls.canvasEl = canvasEl;
+    this.wrapperContentEls.tooltipEl = tooltipEl;
+
+    // 设置初始样式
     this.setInitialStyle();
+
+    // 刷新前卸载元素
     window.onbeforeunload = () => {
       this.wrapperEl && document.body.removeChild(this.wrapperEl);
     };
@@ -84,11 +91,31 @@ class OhMyLive2D {
     // 所有资源准备完毕后
     this.model.once('ready', async () => {
       appInstance.app.stage.addChild(this.model);
-      this.suspendBtnEl!.innerHTML = `加载完成`;
+      this.suspendBtnEl!.innerHTML = `<div>加载完成</div>`;
       this.hiddenSuspendBtn();
-      await delayTime(100);
-      this.displayLive2d();
+      const { showTime, message } = getTipsConfig('welcome');
+      await sleep(100);
+      await this.displayLive2d();
+      await this.showTooltipMessage(message, showTime);
+      this.loopPlaybackTipMessage(5000);
     });
+
+    // this.model.on('hit', (hitAreaNames) => {
+    //   console.log(hitAreaNames);
+    //   this.model.motion('flick_head');
+    // });
+  }
+
+  // 循环播放消息提示
+  async loopPlaybackTipMessage(intervalTime: number) {
+    // 首次执行不等待定时器 - 只等待间隔时间
+    const { showTime, message } = getTipsConfig('idle');
+    await sleep(intervalTime);
+    await this.showTooltipMessage(message, showTime);
+    setInterval(() => {
+      const { showTime, message } = getTipsConfig('idle');
+      this.showTooltipMessage(message, showTime);
+    }, showTime + intervalTime);
   }
 }
 
@@ -96,6 +123,11 @@ class OhMyLive2D {
 const setupOhMyLive2d = (importType: ImportType, L2DModel) => {
   let omlInstance: OhMyLive2D;
 
+  const oml: IOml = {
+    onAfterDisplay: (callback: () => void) => (omlInstance.onEvents.afterDisplay = callback)
+  };
+
+  // 设置全局初始样式
   setGlobalInitialStyle();
 
   // 根据引入类型设置默认模型来源
@@ -111,9 +143,7 @@ const setupOhMyLive2d = (importType: ImportType, L2DModel) => {
   const loadModel = (config?: IConfig) => {
     Object.assign(defaultConfig, config);
     omlInstance = new OhMyLive2D(defaultConfig, L2DModel, 'manual', importType);
-    return {
-      onAfterDisplay: (callback: () => void) => (omlInstance.onEvents.afterDisplay = callback)
-    };
+    return oml;
   };
 
   return loadModel;

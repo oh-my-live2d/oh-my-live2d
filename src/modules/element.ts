@@ -4,23 +4,13 @@ const appendWrapperEl = function () {
   const suspendBtnEl = document.createElement('div');
   suspendBtnEl.id = 'oml-suspend-btn';
   wrapperEl.id = 'oml-wrapper';
-
   const fragment = new DocumentFragment();
   fragment.appendChild(wrapperEl);
   fragment.appendChild(suspendBtnEl);
-
-  // const iconNode = (className: string) => {
-  //   return `
-  //     <svg class="icon" aria-hidden="true">
-  //       <use xlink:href="#${className}"></use>
-  //     </svg>
-  //   `;
-  // };
-
   wrapperEl.innerHTML = `
+    <div id="oml-tooltip" class="oml-shake-tooltip-animation"></div>
     <canvas id="oml-canvas" style="background-color: rgba(0, 0, 0, 0);"></canvas>
   `;
-
   suspendBtnEl.innerHTML = `
     <div style="margin-bottom:3px;">加载中</div>
     <svg class="icon oml-loading" aria-hidden="true" style="stroke: #fff;">
@@ -29,9 +19,11 @@ const appendWrapperEl = function () {
   `;
 
   const canvasEl = fragment.getElementById('oml-canvas') as HTMLCanvasElement;
+  const tooltipEl = fragment.getElementById('oml-tooltip') as HTMLDivElement;
+
   document.body.appendChild(fragment);
 
-  return { wrapperEl, canvasEl, suspendBtnEl };
+  return { wrapperEl, canvasEl, suspendBtnEl, tooltipEl };
 };
 
 export { appendWrapperEl };
