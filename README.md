@@ -1,13 +1,16 @@
 # oh-my-live2d
 
-![](https://img.shields.io/badge/version-0.0.7-blue) ![](https://img.shields.io/badge/Live2D-Component-red) ![](https://img.shields.io/badge/pixi.js-v6.5.2-yellowgreen) ![](https://img.shields.io/badge/pixi--live2d--display-v0.4.0-brightgreen) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
+![](https://img.shields.io/badge/version-0.0.10-blue) ![](https://img.shields.io/badge/Live2D-Component-red) ![](https://img.shields.io/badge/pixi.js-v6.5.2-yellowgreen) ![](https://img.shields.io/badge/pixi--live2d--display-v0.4.0-brightgreen) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
 
 `oh-my-live2d` 是一个开箱即用的 `Live2D 看板娘 web 应用组件`，支持在 Vite 或 webpack 管理的项目中使用该组件，例如：`vue`、`react` 等项目，它不仅支持所有版本的 Live2D 模型，使用方式更是简单到令人不禁发出惊叹。
+
+## 预览：
+![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%8A%A8%E7%94%BB8.gif)
 
 ## 特征：
 
 - 支持所有版本的 Live2D 模型。
-- 支持 **CDN** 方式引入组件，或在 **webpack** 以及 **vite** 管理的项目中以 **Es6 Module** 的方式引入组件，例如：`vue`、`react` 等项目。
+- 支持 **CDN** 方式引入组件，或在 **webpack** 以及 **vite** 管理的项目中以 **ES6 Module** 的方式引入组件，例如：`vue`、`react` 等项目。
 - 默认集成 `Cubism 2 SDK` 和 `Cubism 4 SDK` 运行库，无需额外引入其他外部依赖。
 - 支持使用自定义的本地或远程的 `Live2D Model` 来源 `（model.json）`。
 - 本项目完全使用 `TypeScript` 开发，具有完整的类型推导。
