@@ -5,7 +5,7 @@
 `oh-my-live2d` 是一个开箱即用的 `Live2D 看板娘 web 应用组件`，支持在 Vite 或 webpack 管理的项目中使用该组件，例如：`vue`、`react` 等项目，它不仅支持所有版本的 Live2D 模型，使用方式更是简单到令人不禁发出惊叹。
 
 ## 预览：
-![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%8A%A8%E7%94%BB8.gif)
+![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/11.gif)
 
 ## 特征：
 
