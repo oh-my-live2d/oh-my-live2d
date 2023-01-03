@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.9](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.8...v0.0.9) (2023-01-03)
+
+
+### ✨ Features | 新功能
+
+* 设置动作预加载策略为全部动作 ([330c43e](https://github.com/oh-my-live2d/oh-my-live2d/commit/330c43e64f9ab87d7b45e8bda241a9daa14e28c2))
+
 ### [0.0.8](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.7...v0.0.8) (2023-01-03)
 
 
