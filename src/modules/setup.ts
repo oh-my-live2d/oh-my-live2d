@@ -5,7 +5,7 @@ import { showTooltipMessage, displayLive2d, setInitialStyle, setGlobalInitialSty
 import { IConfig, IEvents, ImportType, IOml, IWrapperContentEls, LoadType } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello, getTipsConfig } from '@/utils/index';
 // import { MotionPreloadStrategy } from 'pixi-live2d-display';
-import type { Live2DModel } from 'pixi-live2d-display';
+import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
 
 class SetupLive2DModel {
   app: Application;
@@ -47,6 +47,7 @@ class OhMyLive2D {
   config: IConfig;
   onEvents: IEvents;
   importType: ImportType;
+  motionPreloadStrategy: MotionPreloadStrategy;
 
   // method
   showTooltipMessage = showTooltipMessage;
@@ -55,16 +56,23 @@ class OhMyLive2D {
   setInitialStyle = setInitialStyle;
   hiddenSuspendBtn = hiddenSuspendBtn;
 
-  constructor(defaultConfig: IConfig, L2DModel, loadType: LoadType, importType: ImportType) {
+  constructor(
+    defaultConfig: IConfig,
+    L2DModel,
+    loadType: LoadType,
+    importType: ImportType,
+    motionPreloadStrategy: MotionPreloadStrategy
+  ) {
     this.L2DModel = L2DModel;
     this.config = defaultConfig;
     this.importType = importType;
     this.onEvents = {};
+    this.motionPreloadStrategy = motionPreloadStrategy;
     this.wrapperContentEls = { canvasEl: null, tooltipEl: null };
     // 同步创建模型
     // this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: MotionPreloadStrategy.ALL });
 
-    this.model = this.L2DModel.fromSync(this.config.modelSource)
+    this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: motionPreloadStrategy });
 
     loadType === 'auto'
       ? this.initialization()
@@ -122,7 +130,7 @@ class OhMyLive2D {
 }
 
 // 入口函数
-const setupOhMyLive2d = (importType: ImportType, L2DModel) => {
+const setupOhMyLive2d = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPreloadStrategy) => {
   let omlInstance: OhMyLive2D;
 
   const oml: IOml = {
@@ -138,13 +146,13 @@ const setupOhMyLive2d = (importType: ImportType, L2DModel) => {
   //  自动装载方法 将在HTML解析完毕后执行
   window.document.addEventListener('DOMContentLoaded', () => {
     // 如果已被手动装载则不再实例化装载类
-    omlInstance ?? new OhMyLive2D(defaultConfig, L2DModel, 'auto', importType);
+    omlInstance ?? new OhMyLive2D(defaultConfig, L2DModel, 'auto', importType, motionPreloadStrategy);
   });
 
   // 暴露出去的手动装载方法  手动装载时将不再自动装载
   const loadModel = (config?: IConfig) => {
     Object.assign(defaultConfig, config);
-    omlInstance = new OhMyLive2D(defaultConfig, L2DModel, 'manual', importType);
+    omlInstance = new OhMyLive2D(defaultConfig, L2DModel, 'manual', importType, motionPreloadStrategy);
     return oml;
   };
 

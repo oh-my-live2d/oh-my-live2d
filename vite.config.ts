@@ -8,6 +8,7 @@ export default defineConfig({
   },
   build: {
     target: 'es6',
+    copyPublicDir: false
     // minify: true,
     // lib: {
     //   entry: 'src/index.ts',
