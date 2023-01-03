@@ -7,6 +7,6 @@ import { setupOhMyLive2d } from './modules/setup';
 PIXI.utils.skipHello();
 
 // cubism2
-const loadModel = setupOhMyLive2d('cubism2', Live2DModel, MotionPreloadStrategy.ALL);
+const loadLive2DModel = setupOhMyLive2d('cubism2', Live2DModel, MotionPreloadStrategy.ALL);
 
-export { loadModel };
+export { loadLive2DModel };

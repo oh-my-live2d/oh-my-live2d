@@ -8,6 +8,6 @@ import { setupOhMyLive2d } from './modules/setup';
 PIXI.utils.skipHello();
 
 // 全量
-const loadModel = setupOhMyLive2d('complete', Live2DModel, MotionPreloadStrategy.ALL);
+const loadLive2DModel = setupOhMyLive2d('complete', Live2DModel, MotionPreloadStrategy.ALL);
 
-export { loadModel };
+export { loadLive2DModel };

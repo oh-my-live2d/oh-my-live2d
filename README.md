@@ -131,7 +131,7 @@ reportWebVitals();
 
 ## 自定义配置
 
-需要注意的是，通过自动装载的 Live2D 组件是无法自定义配置的，如果你希望修改某些配置属性来调整组件样式，则需要调用手动装载方法： `loadModel`。
+需要注意的是，通过自动装载的 Live2D 组件是无法自定义配置的，如果你希望修改某些配置属性来调整组件样式，则需要调用手动装载方法： `loadLive2DModel`。
 
 通过 CDN 方式导入时，你可以在全局变量中可以使用：`OML2D` 对象中调用手动装载方法：
 
@@ -141,7 +141,7 @@ CDN 示例：
 <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.umd.js"></script>
 
 <script>
-  OML2D.loadModel({
+  OML2D.loadLive2DModel({
     size: 400,
     scale: 1.2,
     x: 1,
@@ -152,14 +152,14 @@ CDN 示例：
 </script>
 ```
 
-通过 ES6 Module 方式导入时，你可以直接从 `oh-my-live2d` 包中导入模块： `loadModel`。
+通过 ES6 Module 方式导入时，你可以直接从 `oh-my-live2d` 包中导入模块： `loadLive2DModel`。
 
 ES6 Module 示例：
 
 ```ts
-import { loadModel } from 'oh-my-live2d';
+import { loadLive2DModel } from 'oh-my-live2d';
 
-loadModel({
+loadLive2DModel({
   size: 400,
   scale: 1.2,
   x: 1,
@@ -169,7 +169,7 @@ loadModel({
 });
 ```
 
-关于属性的详细描述请查看[配置属性](#配置属性：)。
+关于属性的详细描述请查看[配置属性](#配置属性)。
 
 ## 配置属性：
 
@@ -186,13 +186,13 @@ loadModel({
 
 ## 方法：
 
-你可以通过 `loadModel` 方法拿到它返回的`oml`对象，该对象中包含了一些可调用的 `api`方法，帮助你完成一些额外的操作。
+你可以通过调用 `loadLive2DModel` 方法并获取它的返回值：`oml`对象，该对象提供了以下`api`，可帮助你完成一些额外操作。
 
 CDN 导入方式的使用：
 
 ```html
 <script>
-  const oml = OML2D.loadModel({
+  const oml = OML2D.loadLive2DModel({
     // ... config
   });
 
@@ -205,9 +205,9 @@ CDN 导入方式的使用：
 ES6 Module 导入方式的使用
 
 ```ts
-import { loadModel } from 'oh-my-live2d';
+import { loadLive2DModel } from 'oh-my-live2d';
 
-const oml = loadModel({
+const oml = loadLive2DModel({
   size: 400,
   scale: 1.2,
   x: 1,

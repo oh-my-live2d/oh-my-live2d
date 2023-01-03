@@ -4,7 +4,6 @@ import { appendWrapperEl } from './element';
 import { showTooltipMessage, displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
 import { IConfig, IEvents, ImportType, IOml, IWrapperContentEls, LoadType } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello, getTipsConfig } from '@/utils/index';
-// import { MotionPreloadStrategy } from 'pixi-live2d-display';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
 
 class SetupLive2DModel {
@@ -69,9 +68,7 @@ class OhMyLive2D {
     this.onEvents = {};
     this.motionPreloadStrategy = motionPreloadStrategy;
     this.wrapperContentEls = { canvasEl: null, tooltipEl: null };
-    // 同步创建模型
-    // this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: MotionPreloadStrategy.ALL });
-
+    // 同步创建模型 - 设置动作预加载
     this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: motionPreloadStrategy });
 
     loadType === 'auto'
@@ -150,13 +147,13 @@ const setupOhMyLive2d = (importType: ImportType, L2DModel, motionPreloadStrategy
   });
 
   // 暴露出去的手动装载方法  手动装载时将不再自动装载
-  const loadModel = (config?: IConfig) => {
+  const loadLive2DModel = (config?: IConfig) => {
     Object.assign(defaultConfig, config);
     omlInstance = new OhMyLive2D(defaultConfig, L2DModel, 'manual', importType, motionPreloadStrategy);
     return oml;
   };
 
-  return loadModel;
+  return loadLive2DModel;
 };
 
 export { setupOhMyLive2d, OhMyLive2D };
