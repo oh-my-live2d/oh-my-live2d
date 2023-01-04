@@ -75,11 +75,17 @@ const handleWelcomeMessage = () => {
   return message;
 };
 
+const getTipsMessage = (message: string | string[]) => {
+  if (typeof message === 'string') return message;
+  else if (message.length) return message[Math.floor(Math.random() * message.length)];
+  else return;
+};
+
 const getTipsConfig = (tipsType: TipsType) => {
-  console.log();
-  let message = '';
-  let showTime = 0;
-  let priority = 0;
+  let message;
+  let showTime;
+  let priority;
+  let intervalTime
 
   switch (tipsType) {
     case 'welcome':
@@ -88,14 +94,15 @@ const getTipsConfig = (tipsType: TipsType) => {
       priority = TIPS.welcomeTips.priority;
       break;
     case 'idle':
-      message = TIPS.idleTips.message[Math.floor(Math.random() * TIPS.idleTips.message.length)];
-      showTime = TIPS.idleTips.showTime;
-      priority = TIPS.idleTips.priority;
+      message = getTipsMessage(TIPS.idleTips.message!);
+      showTime = TIPS.idleTips.showTime!;
+      priority = TIPS.idleTips.priority!;
+      intervalTime = TIPS.idleTips.interval
       break;
     default:
       break;
   }
 
-  return { message, priority, showTime };
+  return { message, priority, showTime, intervalTime };
 };
 export { handleDefaultModelSource, sayHello, setElStyle, sleep, handleWelcomeMessage, getTipsConfig };

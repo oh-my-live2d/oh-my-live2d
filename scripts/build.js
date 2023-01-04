@@ -18,7 +18,7 @@ const profiles = entries.flatMap(({ entry, name }) => {
         formats: minify === 'terser' ? ['umd'] : ['es'],
         entry: path.resolve(__dirname, '..', entry),
         fileName: (format) => `${name}.${format}.js`
-      },
+      }
     }
   }));
 });
@@ -32,7 +32,7 @@ async function main() {
     await build(profile);
   }
 
-  console.log('--- 构建结束 ---');
+  console.log('--- 构建完成 ---');
 }
 
 main();

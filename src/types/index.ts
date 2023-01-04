@@ -6,6 +6,10 @@ type EventType = 'ready' | 'load';
 type LoadType = 'manual' | 'auto';
 type TipsType = 'welcome' | 'idle';
 
+interface TipsConfig {
+  idleTips: IdleTipsConfig | false;
+}
+
 interface IConfig {
   modelSource?: string;
   size?: number;
@@ -15,19 +19,59 @@ interface IConfig {
   y?: number;
   scale?: number | [x: number, y: number];
   backgroundColor?: string;
+  tips?: TipsConfig
 }
 
-interface IWrapperContentEls {
+interface WrapperContentEls {
   canvasEl: HTMLCanvasElement | null;
   tooltipEl: HTMLDivElement | null;
 }
 
-interface IOml {
+interface IdleTipsConfig {
+  message?: string | string[];
+  showTime?: number;
+  priority?: number;
+  interval?: number;
+}
+
+interface WelcomeTipsConfig {
+  message: {
+    daybreak: string;
+    morning: string;
+    noon: string;
+    afternoon: string;
+    dusk: string;
+    night: string;
+    lateNight: string;
+    weeHours: string;
+  };
+  showTime: number;
+  priority: number;
+}
+
+interface Tips {
+  idleTips: IdleTipsConfig;
+  welcomeTips: WelcomeTipsConfig;
+}
+
+interface Oml {
   onAfterDisplay: (callback: () => void) => void;
 }
 
-interface IEvents {
+interface Events {
   afterDisplay?: () => void;
 }
 
-export type { TipsType, IOml, IConfig, ImportType, IWrapperContentEls, EventType, IEvents, LoadType };
+export type {
+  TipsType,
+  Oml,
+  IConfig,
+  ImportType,
+  WrapperContentEls,
+  EventType,
+  Events,
+  LoadType,
+  Tips,
+  IdleTipsConfig,
+  WelcomeTipsConfig
+};

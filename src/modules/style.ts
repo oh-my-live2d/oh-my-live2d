@@ -1,5 +1,5 @@
 import { OhMyLive2D } from './setup';
-import { sleep, setElStyle } from '../utils';
+import { setElStyle } from '../utils';
 import { defaultConfig } from '../config/index';
 import '@/assets/icon/iconfont';
 
@@ -29,14 +29,7 @@ const displayLive2d = function (this: OhMyLive2D) {
     animationDuration: `${this.config.transitionTime}ms`,
     animationFillMode: 'forwards'
   });
-
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-      // 调用显示完成后事件
-      this.onEvents.afterDisplay && this.onEvents.afterDisplay();
-    }, this.config.transitionTime);
-  });
+  return new Promise<void>((resolve) => setTimeout(resolve, this.config.transitionTime));
 };
 
 // 隐藏live2d组件
@@ -98,8 +91,6 @@ const setGlobalInitialStyle = () => {
       flex-wrap: wrap;
       font-size: 14px;
     }
-
-
     
     .oml-loading{
       animation-name: oml-loading-rotate;
@@ -107,7 +98,6 @@ const setGlobalInitialStyle = () => {
       animation-iteration-count: infinite;
       animation-timing-function: linear;
     }
-
 
     #oml-tooltip {
       min-width: 80%;
@@ -129,6 +119,7 @@ const setGlobalInitialStyle = () => {
       align-items: center;
       justify-content: center;
     }
+
     @keyframes oml-shake-tooltip{
       0% {
         transform: translate(-50%, -37%) scale(0.99);
@@ -171,14 +162,11 @@ const setGlobalInitialStyle = () => {
       }
     }
 
-
-
     @keyframes oml-display-tooltip {
       0% {
         opacity: 0;
         visibility: hidden;
       }
-
       100% {
         opacity: 1;
         visibility: visible;
@@ -190,14 +178,11 @@ const setGlobalInitialStyle = () => {
         opacity: 1;
         visibility: visible;
       }
-
       100% {
         opacity: 0;
         visibility: hidden;
       }
     }
-
-   
   `;
   document.head.appendChild(styleEl);
 };
