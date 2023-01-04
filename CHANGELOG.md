@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.0.11](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.10...v0.0.11) (2023-01-04)
+
+
+### ✨ Features | 新功能
+
+* 新增提示框显示优先级 ([df20235](https://github.com/oh-my-live2d/oh-my-live2d/commit/df202356007ecbaaf8cdcf7c02a5df6a86143f34))
+* 闲置状态的消息提示配置，可通过loadLive2DModel方法传入的配置修改 ([421eab1](https://github.com/oh-my-live2d/oh-my-live2d/commit/421eab11426d4b17a97bf01d47684548975c598d))
+
 ### [0.0.10](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.9...v0.0.10) (2023-01-03)
 
 
