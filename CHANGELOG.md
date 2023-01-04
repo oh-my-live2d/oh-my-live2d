@@ -5,7 +5,7 @@
 
 ### ♻ Code Refactoring | 代码重构
 
-* 模块导入方法名由loadModel正式更改为loadLive2dModel ([12caa0c](https://github.com/oh-my-live2d/oh-my-live2d/commit/12caa0ce3923c58752cdd8cd57c0f89305ea910d))
+* 模块导出方法名由loadModel正式更改为loadLive2DModel  ([12caa0c](https://github.com/oh-my-live2d/oh-my-live2d/commit/12caa0ce3923c58752cdd8cd57c0f89305ea910d))
 
 
 ### 📝 Documentation | 文档
