@@ -31,6 +31,12 @@ const TIPS: Tips = {
     },
     showTime: 5000,
     priority: 2
+  },
+
+  copyTips: {
+    message: ['复制的内容如果需要转载记得注明出处哦~'],
+    showTime: 5000,
+    priority: 9
   }
 };
 

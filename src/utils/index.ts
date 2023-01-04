@@ -85,7 +85,7 @@ const getTipsConfig = (tipsType: TipsType) => {
   let message;
   let showTime;
   let priority;
-  let intervalTime
+  let intervalTime;
 
   switch (tipsType) {
     case 'welcome':
@@ -97,7 +97,12 @@ const getTipsConfig = (tipsType: TipsType) => {
       message = getTipsMessage(TIPS.idleTips.message!);
       showTime = TIPS.idleTips.showTime!;
       priority = TIPS.idleTips.priority!;
-      intervalTime = TIPS.idleTips.interval
+      intervalTime = TIPS.idleTips.interval;
+      break;
+    case 'copy':
+      message = getTipsMessage(TIPS.copyTips.message);
+      showTime = TIPS.copyTips.showTime;
+      priority = TIPS.copyTips.priority;
       break;
     default:
       break;

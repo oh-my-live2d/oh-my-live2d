@@ -15,9 +15,7 @@ const showTipsFrameMessage = function (this: OhMyLive2D, message: string, showTi
         animationName: 'oml-hidden-tooltip,oml-shake-tooltip'
       });
       tipsPriority = 0;
-      resolve();
     }, showTime);
-
     this.wrapperContentEls.tooltipEl!.innerHTML = message;
     setElStyle(this.wrapperContentEls.tooltipEl, {
       animationName: 'oml-display-tooltip,oml-shake-tooltip',
@@ -25,11 +23,13 @@ const showTipsFrameMessage = function (this: OhMyLive2D, message: string, showTi
       animationFillMode: 'forwards, none',
       animationIterationCount: '1, infinite'
     });
+    setTimeout(resolve, showTime);
   });
 };
 
 const playIdleTips = async function (this: OhMyLive2D) {
   const { showTime, priority, message, intervalTime } = getTipsConfig('idle');
+
   if (!message) return;
   setInterval(() => {
     const { message } = getTipsConfig('idle');

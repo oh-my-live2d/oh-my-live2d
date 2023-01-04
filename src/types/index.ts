@@ -4,13 +4,13 @@
 type ImportType = 'complete' | 'cubism2' | 'cubism4';
 type EventType = 'ready' | 'load';
 type LoadType = 'manual' | 'auto';
-type TipsType = 'welcome' | 'idle';
+type TipsType = 'welcome' | 'idle' | 'copy';
 
 interface TipsConfig {
   idleTips: IdleTipsConfig | false;
 }
 
-interface IConfig {
+interface Config {
   modelSource?: string;
   size?: number;
   sayHello?: boolean;
@@ -19,7 +19,7 @@ interface IConfig {
   y?: number;
   scale?: number | [x: number, y: number];
   backgroundColor?: string;
-  tips?: TipsConfig
+  tips?: TipsConfig;
 }
 
 interface WrapperContentEls {
@@ -49,9 +49,16 @@ interface WelcomeTipsConfig {
   priority: number;
 }
 
+interface CopyTipsConfig {
+  message: string | string[];
+  showTime?: number;
+  priority?: number;
+}
+
 interface Tips {
   idleTips: IdleTipsConfig;
   welcomeTips: WelcomeTipsConfig;
+  copyTips: CopyTipsConfig;
 }
 
 interface Oml {
@@ -65,7 +72,7 @@ interface Events {
 export type {
   TipsType,
   Oml,
-  IConfig,
+  Config,
   ImportType,
   WrapperContentEls,
   EventType,

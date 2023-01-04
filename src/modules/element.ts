@@ -1,3 +1,4 @@
+import { getTipsConfig } from '../utils/index';
 import { OhMyLive2D } from './setup';
 
 // 加入包装器元素
@@ -35,6 +36,10 @@ const registerEvent = function (this: OhMyLive2D) {
     this.wrapperEl && document.body.removeChild(this.wrapperEl);
   };
 
+  window.document.addEventListener('copy', () => {
+    const { message, showTime, priority } = getTipsConfig('copy');
+    this.showTipsFrameMessage(message, showTime, priority);
+  });
   // this.wrapperEl?.addEventListener('click', () => {
   //   this.showTipsFrameMessage('hello', 8000, 4);
   // });

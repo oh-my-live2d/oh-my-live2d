@@ -2,7 +2,7 @@ import { Application } from 'pixi.js';
 import { defaultConfig, TIPS } from '@/config';
 import { appendWrapperEl, registerEvent } from './element';
 import { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
-import { IConfig, Events, ImportType, Oml, WrapperContentEls, LoadType } from '@/types/index';
+import { Config, Events, ImportType, Oml, WrapperContentEls, LoadType } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello } from '@/utils/index';
 import { playIdleTips, showTipsFrameMessage, playWelcomeTips } from './tips-frame';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
@@ -10,7 +10,7 @@ import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
 class SetupLive2DModel {
   app: Application;
   model: Live2DModel;
-  constructor(wrapperEl, canvasEl, config: IConfig, model: Live2DModel) {
+  constructor(wrapperEl, canvasEl, config: Config, model: Live2DModel) {
     this.app = this.createApp(wrapperEl, canvasEl);
     this.model = model;
     this.setModel(config);
@@ -27,7 +27,7 @@ class SetupLive2DModel {
   }
 
   // 设置模型
-  setModel(config: IConfig) {
+  setModel(config: Config) {
     this.model.x = config.x!;
     this.model.y = config.y!;
     if (Array.isArray(config.scale)) {
@@ -44,7 +44,7 @@ class OhMyLive2D {
   wrapperContentEls: WrapperContentEls;
   wrapperEl?: HTMLDivElement;
   suspendBtnEl?: HTMLDivElement;
-  config: IConfig;
+  config: Config;
   onEvents: Events;
   importType: ImportType;
   motionPreloadStrategy: MotionPreloadStrategy;
@@ -59,7 +59,7 @@ class OhMyLive2D {
   playWelcomeTips = playWelcomeTips;
 
   constructor(
-    defaultConfig: IConfig,
+    defaultConfig: Config,
     L2DModel,
     loadType: LoadType,
     importType: ImportType,
@@ -136,7 +136,7 @@ const setupOhMyLive2d = (importType: ImportType, L2DModel, motionPreloadStrategy
   });
 
   // 导出的手动装载方法  手动装载时将不再自动装载
-  const loadLive2DModel = (config?: IConfig) => {
+  const loadLive2DModel = (config?: Config) => {
     Object.assign(defaultConfig, config);
     if (defaultConfig.tips?.idleTips) Object.assign(TIPS.idleTips, defaultConfig.tips.idleTips);
     else if (defaultConfig.tips?.idleTips === false) TIPS.idleTips.message = [];
