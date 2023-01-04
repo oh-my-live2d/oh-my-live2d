@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.12](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.11...v0.0.12) (2023-01-04)
+
+
+### ✨ Features | 新功能
+
+* 新增复制事件被调用时触发copy类型消息提示，优化了消息提示方法 ([13ca5fe](https://github.com/oh-my-live2d/oh-my-live2d/commit/13ca5fe5fd2fa4b64603407ee10f2b83edf8bb03))
+
 ### [0.0.11](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.10...v0.0.11) (2023-01-04)
 
 
