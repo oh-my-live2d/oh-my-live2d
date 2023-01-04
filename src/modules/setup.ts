@@ -1,10 +1,11 @@
 import { Application } from 'pixi.js';
 import { defaultConfig } from '@/config';
-import { appendWrapperEl } from './element';
-import { showTooltipMessage, displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
+import { appendWrapperEl, registerEvent } from './element';
+import { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
 import { IConfig, IEvents, ImportType, IOml, IWrapperContentEls, LoadType } from '@/types/index';
-import { sleep, handleDefaultModelSource, sayHello, getTipsConfig } from '@/utils/index';
+import { sleep, handleDefaultModelSource, sayHello } from '@/utils/index';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
+import { playIdleTips, showTipsFrameMessage, playWelcomeTips } from './tips-frame';
 
 class SetupLive2DModel {
   app: Application;
@@ -47,14 +48,16 @@ class OhMyLive2D {
   onEvents: IEvents;
   importType: ImportType;
   motionPreloadStrategy: MotionPreloadStrategy;
-
+  tipsPriority: number;
   // method
-  showTooltipMessage = showTooltipMessage;
+  showTipsFrameMessage = showTipsFrameMessage;
   displayLive2d = displayLive2d;
   appendWrapperEl = appendWrapperEl;
   setInitialStyle = setInitialStyle;
   hiddenSuspendBtn = hiddenSuspendBtn;
-
+  registerEvent = registerEvent;
+  playIdleTips = playIdleTips;
+  playWelcomeTips = playWelcomeTips;
   constructor(
     defaultConfig: IConfig,
     L2DModel,
@@ -67,7 +70,9 @@ class OhMyLive2D {
     this.importType = importType;
     this.onEvents = {};
     this.motionPreloadStrategy = motionPreloadStrategy;
+    this.tipsPriority = 0;
     this.wrapperContentEls = { canvasEl: null, tooltipEl: null };
+
     // 同步创建模型 - 设置动作预加载
     this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: motionPreloadStrategy });
 
@@ -87,10 +92,8 @@ class OhMyLive2D {
     // 设置初始样式
     this.setInitialStyle();
 
-    // 刷新前卸载元素
-    window.onbeforeunload = () => {
-      this.wrapperEl && document.body.removeChild(this.wrapperEl);
-    };
+    // 注册事件
+    this.registerEvent();
 
     // 安装live2d模型
     const appInstance = new SetupLive2DModel(this.wrapperEl, this.wrapperContentEls.canvasEl, this.config, this.model);
@@ -100,29 +103,16 @@ class OhMyLive2D {
       appInstance.app.stage.addChild(this.model);
       this.suspendBtnEl!.innerHTML = `<div>加载完成</div>`;
       this.hiddenSuspendBtn();
-      const { showTime, message } = getTipsConfig('welcome');
       await sleep(100);
       await this.displayLive2d();
-      await this.showTooltipMessage(message, showTime);
-      this.loopPlaybackTipMessage(5000);
+      this.playWelcomeTips();
+      this.playIdleTips(5000);
     });
 
     // this.model.on('hit', (hitAreaNames) => {
     //   console.log(hitAreaNames);
     //   this.model.motion('flick_head');
     // });
-  }
-
-  // 循环播放消息提示
-  async loopPlaybackTipMessage(intervalTime: number) {
-    // 首次执行不等待定时器 - 只等待间隔时间
-    const { showTime, message } = getTipsConfig('idle');
-    await sleep(intervalTime);
-    await this.showTooltipMessage(message, showTime);
-    setInterval(() => {
-      const { showTime, message } = getTipsConfig('idle');
-      this.showTooltipMessage(message, showTime);
-    }, showTime + intervalTime);
   }
 }
 
@@ -146,7 +136,7 @@ const setupOhMyLive2d = (importType: ImportType, L2DModel, motionPreloadStrategy
     omlInstance ?? new OhMyLive2D(defaultConfig, L2DModel, 'auto', importType, motionPreloadStrategy);
   });
 
-  // 暴露出去的手动装载方法  手动装载时将不再自动装载
+  // 导出的手动装载方法  手动装载时将不再自动装载
   const loadLive2DModel = (config?: IConfig) => {
     Object.assign(defaultConfig, config);
     omlInstance = new OhMyLive2D(defaultConfig, L2DModel, 'manual', importType, motionPreloadStrategy);

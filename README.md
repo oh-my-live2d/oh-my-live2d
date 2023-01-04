@@ -2,25 +2,26 @@
 
 ![](https://img.shields.io/badge/version-0.0.10-blue) ![](https://img.shields.io/badge/Live2D-Component-red) ![](https://img.shields.io/badge/pixi.js-v6.5.2-yellowgreen) ![](https://img.shields.io/badge/pixi--live2d--display-v0.4.0-brightgreen) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
 
-`oh-my-live2d` 是一个开箱即用的 `Live2D 看板娘 web 应用组件`，支持在 Vite 或 webpack 管理的项目中使用该组件，例如：`vue`、`react` 等项目，它不仅支持所有版本的 Live2D 模型，使用方式更是简单到令人不禁发出惊叹。
+`oh-my-live2d`是一个开箱即用的 `Live2D 看板娘 web 应用组件`，支持在 Vite 或 Webpack 管理的项目中使用该组件，例如：`vue`、`react` 等项目，它还支持在`html`文件中以`CDN`方式导入，在使用过程中你无需添加其他任何外部依赖包括 SDK，即可获得一个具备完整功能的`Live2D`组件。
 
 ## 预览：
+
 ![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/11.gif)
 
-## 特征：
+## 特点：
 
-- 支持所有版本的 Live2D 模型。
-- 支持 **CDN** 方式引入组件，或在 **webpack** 以及 **vite** 管理的项目中以 **ES6 Module** 的方式引入组件，例如：`vue`、`react` 等项目。
-- 默认集成 `Cubism 2 SDK` 和 `Cubism 4 SDK` 运行库，无需额外引入其他外部依赖。
-- 支持使用自定义的本地或远程的 `Live2D Model` 来源 `（model.json）`。
-- 本项目完全使用 `TypeScript` 开发，具有完整的类型推导。
-- 可选择全量引入或者按需引入指定版本的 `Cubism SDK`。
+- 支持所有版本的`Live2D`模型。
+- 支持 **CDN** 方式引入组件，或在 **webpack** 以及 **vite** 管理的项目中以 **ES6 Module** 的方式引入组件，例如：`vue`、`react`等项目。
+- 默认集成`Cubism 2 SDK`和`Cubism 4 SDK`运行库，无需额外引入其他外部依赖。
+- 支持使用自定义的本地或远程的`Live2D Model`来源`（model.json）`。
+- 本项目完全使用`TypeScript`开发，具有完整的类型推导。
+- 提供多种导入方式，可选导入指定版本的`Cubism SDK`依赖模块或全量导入所有依赖模块。
 
 ## Cubism 是什么：
 
-`Cubism` 是 `Live2D SDK` 的名称，截至目前它一共存在三个版本：`Cubism 2`、`Cubism 3`、`Cubism 4`。
+`Cubism`是`Live2D SDK`的名称，截至目前它一共存在三个版本：`Cubism 2`、`Cubism 3`、`Cubism 4`。
 
-- `Cubism 2` 是只能驱动 `Live2D Model` 版本为 2 的 `SDK`，它无法驱动 `Live2D Model 3` 和 `Live2D Model 4`。
+- `Cubism 2`是只能驱动`Live2D Model`版本为 2 的`SDK`，它无法驱动`Live2D Model 3`和`Live2D Model 4`。
 
 - `Cubism 4` 向后兼容了`Live2D Model 3` 并支持 `Live2D Model 4`，但它无法驱动 `Live2D Model 2`。
 
@@ -67,7 +68,7 @@ CDN 的引入并不限制在`<body>`或是在`<head>`标签中，但考虑到性
 
 ### 通过 ES6 Module 方式导入：
 
-在 `vite` 或 `webpack` 构建管理的项目中使用该引入方式。
+在 `vite` 或 `webpack` 构建管理的项目中使用此导入方式。
 
 #### 安装模块：
 
@@ -97,7 +98,7 @@ CDN 的引入并不限制在`<body>`或是在`<head>`标签中，但考虑到性
   pnpm add oh-my-live2d
   ```
 
-#### 导入模块
+#### 导入模块：
 
 安装完成后你只需要在项目的入口文件中导入包即可：
 
@@ -132,11 +133,11 @@ reportWebVitals();
 
 ![img1](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/oml1.gif)
 
-## 自定义配置
+## 自定义配置：
 
-需要注意的是，通过自动装载的 Live2D 组件是无法自定义配置的，如果你希望修改某些配置属性来调整组件样式，则需要调用手动装载方法： `loadLive2DModel`。
+需要注意的是，通过自动装载的 Live2D 组件是无法自定义配置的，如果你希望修改某些配置属性来调整组件样式，则需要调用手动装载方法：`loadLive2DModel`。
 
-通过 CDN 方式导入时，你可以在全局变量中可以使用：`OML2D` 对象中调用手动装载方法：
+通过 CDN 方式导入时，所有成员变量都可以在 `OML2D` 命名空间下使用，例如：`OML2D.loadLive2DModel`
 
 CDN 示例：
 
@@ -155,7 +156,7 @@ CDN 示例：
 </script>
 ```
 
-通过 ES6 Module 方式导入时，你可以直接从 `oh-my-live2d` 包中导入模块： `loadLive2DModel`。
+通过 ES6 Module 方式导入时，你可以直接从`oh-my-live2d`包中导入模块：`loadLive2DModel`。
 
 ES6 Module 示例：
 
@@ -205,7 +206,7 @@ CDN 导入方式的使用：
 </script>
 ```
 
-ES6 Module 导入方式的使用
+ES6 Module 导入方式的使用：
 
 ```ts
 import { loadLive2DModel } from 'oh-my-live2d';
@@ -226,7 +227,7 @@ oml.onAfterDisplay(() => {
 
 ### oml 对象属性说明：
 
-1. `onAfterDisplay: (callback: () => void) => void` : 模型在完全显示之后的回调函数。即加载完出现直到过渡动画结束之后才会回调。
+1. `onAfterDisplay: (callback: () => void) => void` : 模型在完全显示之后的回调函数。即加载完出现直到显示动画结束之后。
    - params ：
      - `callback: () => void`
 
@@ -289,7 +290,7 @@ import 'oh-my-live2d/cubism4';
 
 本项目主要依赖于 `pixi-live2d-display`, 感谢 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display) 为 `Live2D` 社区做出的贡献。
 
-## 关于
+## 关于：
 
 由于版权原因，本项目中所使用的默认模型仅用作学习参考，本项目不提供任何 Live2D Model 资源的相关下载地址，如有需要，请自行前往 GitHub 搜索关键字寻找。
 

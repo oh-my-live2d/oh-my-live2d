@@ -12,21 +12,6 @@ const setInitialStyle = function (this: OhMyLive2D) {
   });
 };
 
-// 显示 tooltip message
-const showTooltipMessage = async function (this: OhMyLive2D, message: string, showTime: number) {
-  setElStyle(this.wrapperContentEls.tooltipEl, {
-    animationName: 'oml-display-tooltip,oml-shake-tooltip',
-    animationDuration: '1000ms,1000ms',
-    animationFillMode: 'forwards, none',
-    animationIterationCount: '1, infinite'
-  });
-  this.wrapperContentEls.tooltipEl!.innerHTML = message;
-  await sleep(showTime);
-  setElStyle(this.wrapperContentEls.tooltipEl, {
-    animationName: 'oml-hidden-tooltip,oml-shake-tooltip'
-  });
-};
-
 // 隐藏悬浮按钮
 const hiddenSuspendBtn = function (this: OhMyLive2D) {
   setElStyle(this.suspendBtnEl, {
@@ -217,4 +202,4 @@ const setGlobalInitialStyle = () => {
   document.head.appendChild(styleEl);
 };
 
-export { showTooltipMessage, displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn };
+export { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn, setElStyle };

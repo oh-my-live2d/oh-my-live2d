@@ -88,7 +88,7 @@ const getTipsConfig = (tipsType: TipsType) => {
       priority = TIPS.welcomeTips.priority;
       break;
     case 'idle':
-      message = TIPS.idleTips.message[Math.floor(Math.random() * (TIPS.idleTips.message.length - 0))];
+      message = TIPS.idleTips.message[Math.floor(Math.random() * TIPS.idleTips.message.length)];
       showTime = TIPS.idleTips.showTime;
       priority = TIPS.idleTips.priority;
       break;
