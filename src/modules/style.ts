@@ -1,10 +1,10 @@
-import { OhMyLive2D } from './setup';
+import { LoadOhMyLive2D } from './setup';
 import { setElStyle } from '../utils';
 import { defaultConfig } from '../config/index';
 import '@/assets/icon/iconfont';
 
 // 设置默认样式
-const setInitialStyle = function (this: OhMyLive2D) {
+const setInitialStyle = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
     width: `${this.config.size}px`,
     height: `${this.config.size}px`,
@@ -13,7 +13,7 @@ const setInitialStyle = function (this: OhMyLive2D) {
 };
 
 // 隐藏悬浮按钮
-const hiddenSuspendBtn = function (this: OhMyLive2D) {
+const hiddenSuspendBtn = function (this: LoadOhMyLive2D) {
   setElStyle(this.suspendBtnEl, {
     animationName: 'oml-loading-hidden',
     animationDuration: `${this.config.transitionTime}ms`,
@@ -22,7 +22,7 @@ const hiddenSuspendBtn = function (this: OhMyLive2D) {
 };
 
 // 显示live2d组件
-const displayLive2d = function (this: OhMyLive2D) {
+const displayLive2d = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
     visibility: 'visible',
     animationName: 'oml-display',

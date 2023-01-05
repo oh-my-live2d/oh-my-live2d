@@ -2,7 +2,7 @@ import { Application } from 'pixi.js';
 import { defaultConfig, TIPS } from '@/config';
 import { appendWrapperEl, registerEvent } from './element';
 import { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
-import { Config, Events, ImportType, Oml, WrapperContentEls, LoadType } from '@/types/index';
+import { Config, Events, ImportType, Oml, WrapperContentEls } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello } from '@/utils/index';
 import { playIdleTips, showTipsFrameMessage, playWelcomeTips } from './tips-frame';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
@@ -38,7 +38,7 @@ class SetupLive2DModel {
   }
 }
 
-class OhMyLive2D {
+class LoadOhMyLive2D {
   L2DModel: any;
   model: Live2DModel;
   wrapperContentEls: WrapperContentEls;
@@ -58,26 +58,17 @@ class OhMyLive2D {
   playIdleTips = playIdleTips;
   playWelcomeTips = playWelcomeTips;
 
-  constructor(
-    defaultConfig: Config,
-    L2DModel,
-    loadType: LoadType,
-    importType: ImportType,
-    motionPreloadStrategy: MotionPreloadStrategy
-  ) {
+  constructor(defaultConfig: Config, L2DModel, importType: ImportType, motionPreloadStrategy: MotionPreloadStrategy) {
     this.L2DModel = L2DModel;
     this.config = defaultConfig;
     this.importType = importType;
     this.onEvents = {};
     this.motionPreloadStrategy = motionPreloadStrategy;
     this.wrapperContentEls = { canvasEl: null, tooltipEl: null };
-
     // 同步创建模型 - 设置动作预加载
     this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: motionPreloadStrategy });
 
-    loadType === 'auto'
-      ? this.initialization()
-      : window.document.addEventListener('DOMContentLoaded', this.initialization.bind(this));
+    this.initialization();
   }
 
   async initialization() {
@@ -116,9 +107,8 @@ class OhMyLive2D {
 }
 
 // 入口函数
-const setupOhMyLive2d = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPreloadStrategy) => {
-  let omlInstance: OhMyLive2D;
-
+const setup = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPreloadStrategy) => {
+  let omlInstance: LoadOhMyLive2D;
   const oml: Oml = {
     onAfterDisplay: (callback: () => void) => (omlInstance.onEvents.afterDisplay = callback)
   };
@@ -132,7 +122,7 @@ const setupOhMyLive2d = (importType: ImportType, L2DModel, motionPreloadStrategy
   //  自动装载方法 将在HTML解析完毕后执行
   window.document.addEventListener('DOMContentLoaded', () => {
     // 如果已被手动装载则不再实例化装载类
-    omlInstance ?? new OhMyLive2D(defaultConfig, L2DModel, 'auto', importType, motionPreloadStrategy);
+    omlInstance ?? new LoadOhMyLive2D(defaultConfig, L2DModel, importType, motionPreloadStrategy);
   });
 
   // 导出的手动装载方法  手动装载时将不再自动装载
@@ -141,11 +131,11 @@ const setupOhMyLive2d = (importType: ImportType, L2DModel, motionPreloadStrategy
     if (defaultConfig.tips?.idleTips) Object.assign(TIPS.idleTips, defaultConfig.tips.idleTips);
     else if (defaultConfig.tips?.idleTips === false) TIPS.idleTips.message = [];
 
-    omlInstance = new OhMyLive2D(defaultConfig, L2DModel, 'manual', importType, motionPreloadStrategy);
+    omlInstance = new LoadOhMyLive2D(defaultConfig, L2DModel, importType, motionPreloadStrategy);
     return oml;
   };
 
   return loadLive2DModel;
 };
 
-export { setupOhMyLive2d, OhMyLive2D };
+export { setup, LoadOhMyLive2D };

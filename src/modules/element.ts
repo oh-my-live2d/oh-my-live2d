@@ -1,5 +1,5 @@
 import { getTipsConfig } from '../utils/index';
-import { OhMyLive2D } from './setup';
+import { LoadOhMyLive2D } from './setup';
 
 // 加入包装器元素
 const appendWrapperEl = function () {
@@ -30,7 +30,7 @@ const appendWrapperEl = function () {
   return { wrapperEl, canvasEl, suspendBtnEl, tooltipEl };
 };
 
-const registerEvent = function (this: OhMyLive2D) {
+const registerEvent = function (this: LoadOhMyLive2D) {
   // 刷新前卸载元素
   window.onbeforeunload = () => {
     this.wrapperEl && document.body.removeChild(this.wrapperEl);
@@ -40,6 +40,7 @@ const registerEvent = function (this: OhMyLive2D) {
     const { message, showTime, priority } = getTipsConfig('copy');
     this.showTipsFrameMessage(message, showTime, priority);
   });
+
   // this.wrapperEl?.addEventListener('click', () => {
   //   this.showTipsFrameMessage('hello', 8000, 4);
   // });
