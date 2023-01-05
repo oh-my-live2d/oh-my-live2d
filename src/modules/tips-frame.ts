@@ -1,11 +1,11 @@
 import { getTipsConfig } from '../utils/index';
 import { setElStyle } from './style';
-import type { OhMyLive2D } from './setup';
+import type { LoadOhMyLive2D } from './setup';
 
 let tipsTimer: any = 0;
 let tipsPriority = 0;
 
-const showTipsFrameMessage = function (this: OhMyLive2D, message: string, showTime: number, priority: number) {
+const showTipsFrameMessage = function (this: LoadOhMyLive2D, message: string, showTime: number, priority: number) {
   if (tipsPriority > priority) return;
   return new Promise<void>((resolve) => {
     tipsPriority = priority;
@@ -27,7 +27,7 @@ const showTipsFrameMessage = function (this: OhMyLive2D, message: string, showTi
   });
 };
 
-const playIdleTips = async function (this: OhMyLive2D) {
+const playIdleTips = async function (this: LoadOhMyLive2D) {
   const { showTime, priority, message, intervalTime } = getTipsConfig('idle');
 
   if (!message) return;
@@ -37,7 +37,7 @@ const playIdleTips = async function (this: OhMyLive2D) {
   }, showTime + intervalTime);
 };
 
-const playWelcomeTips = async function (this: OhMyLive2D) {
+const playWelcomeTips = async function (this: LoadOhMyLive2D) {
   const { showTime, message, priority } = getTipsConfig('welcome');
   await this.showTipsFrameMessage(message, showTime, priority);
 };
