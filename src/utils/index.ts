@@ -25,11 +25,11 @@ const handleDefaultModelSource = (importType: ImportType) => {
 const sayHello = (importType: ImportType) => {
   const args = [
     `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${importType} ✨ %c %c 🎉🎉🎉 \n`,
-    'background: #fff; padding:5px 0;',
-    'background: #ff66a5; padding:5px 0;',
+    'background: #add7fb; padding:5px 0;',
+    'background: #58b0fc; padding:5px 0;',
     'color: #fff; background: #030307; padding:5px 0;',
-    'background: #ff66a5; padding:5px 0;',
-    'background: #fff; padding:5px 0;'
+    'background: #58b0fc; padding:5px 0;',
+    'background: #add7fb; padding:5px 0;'
   ];
   console.log(...args);
 };
@@ -83,31 +83,31 @@ const getTipsMessage = (message: string | string[]) => {
 
 const getTipsConfig = (tipsType: TipsType) => {
   let message;
-  let showTime;
+  let persistTime;
   let priority;
   let intervalTime;
 
   switch (tipsType) {
     case 'welcome':
       message = handleWelcomeMessage();
-      showTime = TIPS.welcomeTips.showTime;
+      persistTime = TIPS.welcomeTips.persistTime;
       priority = TIPS.welcomeTips.priority;
       break;
     case 'idle':
       message = getTipsMessage(TIPS.idleTips.message!);
-      showTime = TIPS.idleTips.showTime!;
+      persistTime = TIPS.idleTips.persistTime!;
       priority = TIPS.idleTips.priority!;
       intervalTime = TIPS.idleTips.interval;
       break;
     case 'copy':
       message = getTipsMessage(TIPS.copyTips.message);
-      showTime = TIPS.copyTips.showTime;
+      persistTime = TIPS.copyTips.persistTime;
       priority = TIPS.copyTips.priority;
       break;
     default:
       break;
   }
 
-  return { message, priority, showTime, intervalTime };
+  return { message, priority, persistTime, intervalTime };
 };
 export { handleDefaultModelSource, sayHello, setElStyle, sleep, handleWelcomeMessage, getTipsConfig };

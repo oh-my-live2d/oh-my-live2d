@@ -14,7 +14,7 @@ const TIPS: Tips = {
       '头顶凉飕飕的？',
       '了解真相，才能获得真正的自由~'
     ],
-    showTime: 5000,
+    persistTime: 5000,
     interval: 5000,
     priority: 2
   },
@@ -29,13 +29,13 @@ const TIPS: Tips = {
       lateNight: '已经这么晚了呀，早点休息吧，晚安~',
       weeHours: '这么晚还不睡吗？当心熬夜秃头哦！'
     },
-    showTime: 5000,
+    persistTime: 5000,
     priority: 2
   },
 
   copyTips: {
     message: ['复制的内容如果需要转载记得注明出处哦~'],
-    showTime: 5000,
+    persistTime: 5000,
     priority: 9
   }
 };

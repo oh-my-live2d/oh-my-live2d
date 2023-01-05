@@ -4,11 +4,19 @@ import { defaultConfig } from '../config/index';
 import '@/assets/icon/iconfont';
 
 // 设置默认样式
-const setInitialStyle = function (this: LoadOhMyLive2D) {
+// const setInitialStyle = function (this: LoadOhMyLive2D) {
+//   setElStyle(this.wrapperEl, {
+//     width: `${this.config.size}px`,
+//     height: `${this.config.size}px`,
+//     backgroundColor: this.config.backgroundColor
+//   });
+// };
+
+const setStageStyle = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
-    width: `${this.config.size}px`,
-    height: `${this.config.size}px`,
-    backgroundColor: this.config.backgroundColor
+    width: `${this.config.stage![this.screenSize]?.size}px`,
+    height: `${this.config.stage![this.screenSize]?.size}px`,
+    backgroundColor: this.config.stage!.backgroundColor,
   });
 };
 
@@ -57,8 +65,6 @@ const setGlobalInitialStyle = () => {
     }
 
     #oml-wrapper {
-      width: ${defaultConfig.size}px;
-      height: ${defaultConfig.size}px;
       position: fixed;
       left: 0;
       bottom: 0;
@@ -103,14 +109,14 @@ const setGlobalInitialStyle = () => {
       min-width: 80%;
       min-height: 80px;
       position: absolute;
-      top: 0;
+      top: 0%;
       left: 50%;
       border-radius: 10px;
       box-shadow: 0 0 5px #999;
-      transform: translateX(-50%);
+      transform: translate(-50%,-40%);
       background-color: #58b0fc;
       border: 3px solid #add7fb;
-      font-size: 14px;
+      font-size: 1vw;
       color: #fff;
       padding: 3px 5px;
       opacity: 0;
@@ -122,14 +128,14 @@ const setGlobalInitialStyle = () => {
 
     @keyframes oml-shake-tooltip{
       0% {
-        transform: translate(-50%, -37%) scale(0.99);
+        transform: translate(-50%, -42%) scale(0.99);
       }
       50% {
      
-        transform: translate(-50%, -35%) scale(1);
+        transform: translate(-50%, -40%) scale(1);
       }
       100% {
-        transform: translate(-50%, -37%) scale(0.99);
+        transform: translate(-50%, -42%) scale(0.99);
       }
     }
 
@@ -187,4 +193,4 @@ const setGlobalInitialStyle = () => {
   document.head.appendChild(styleEl);
 };
 
-export { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn, setElStyle };
+export { setStageStyle, displayLive2d, setGlobalInitialStyle, hiddenSuspendBtn, setElStyle };

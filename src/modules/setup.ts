@@ -1,42 +1,11 @@
 import { Application } from 'pixi.js';
 import { defaultConfig, TIPS } from '@/config';
 import { appendWrapperEl, registerEvent } from './element';
-import { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
-import { Config, Events, ImportType, OhMyLive2D, WrapperContentEls } from '@/types/index';
+import { displayLive2d, setGlobalInitialStyle, hiddenSuspendBtn, setStageStyle } from './style';
+import { AdaptiveConfig, Config, Events, ImportType, OhMyLive2D, WrapperContentEls } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello } from '@/utils/index';
 import { playIdleTips, showTipsFrameMessage, playWelcomeTips } from './tips-frame';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
-
-class SetupLive2DModel {
-  app: Application;
-  model: Live2DModel;
-  constructor(wrapperEl, canvasEl, config: Config, model: Live2DModel) {
-    this.app = this.createApp(wrapperEl, canvasEl);
-    this.model = model;
-    this.setModel(config);
-  }
-
-  // 创建PIXI APP
-  createApp(wrapperEl, canvasEl) {
-    return new Application({
-      view: canvasEl,
-      autoStart: true,
-      backgroundAlpha: 0,
-      resizeTo: wrapperEl
-    });
-  }
-
-  // 设置模型
-  setModel(config: Config) {
-    this.model.x = config.x!;
-    this.model.y = config.y!;
-    if (Array.isArray(config.scale)) {
-      this.model.scale.set(config.scale[0], config.scale[1]);
-    } else {
-      this.model.scale.set(config.scale);
-    }
-  }
-}
 
 class LoadOhMyLive2D {
   L2DModel: any;
@@ -48,11 +17,12 @@ class LoadOhMyLive2D {
   onEvents: Events;
   importType: ImportType;
   motionPreloadStrategy: MotionPreloadStrategy;
+  screenSize: 'xs' | 'md' | 'xl';
   // method
   showTipsFrameMessage = showTipsFrameMessage;
   displayLive2d = displayLive2d;
   appendWrapperEl = appendWrapperEl;
-  setInitialStyle = setInitialStyle;
+  setStageStyle = setStageStyle;
   hiddenSuspendBtn = hiddenSuspendBtn;
   registerEvent = registerEvent;
   playIdleTips = playIdleTips;
@@ -62,9 +32,10 @@ class LoadOhMyLive2D {
     this.L2DModel = L2DModel;
     this.config = defaultConfig;
     this.importType = importType;
+    this.screenSize = 'xl';
     this.onEvents = {};
     this.motionPreloadStrategy = motionPreloadStrategy;
-    this.wrapperContentEls = { canvasEl: null, tooltipEl: null };
+    this.wrapperContentEls = {};
     // 同步创建模型 - 设置动作预加载
     this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: motionPreloadStrategy });
 
@@ -79,18 +50,16 @@ class LoadOhMyLive2D {
     this.wrapperContentEls.canvasEl = canvasEl;
     this.wrapperContentEls.tooltipEl = tooltipEl;
 
-    // 设置初始样式
-    this.setInitialStyle();
-
     // 注册事件
     this.registerEvent();
-
-    // 安装live2d模型
-    const appInstance = new SetupLive2DModel(this.wrapperEl, this.wrapperContentEls.canvasEl, this.config, this.model);
+    this.setStageStyle();
+    this.setStageConfig();
+    this.setModelPosition();
+    const app = this.createPixiApp();
 
     // 所有资源准备完毕后
     this.model.once('ready', async () => {
-      appInstance.app.stage.addChild(this.model);
+      app.stage.addChild(this.model);
       this.suspendBtnEl!.innerHTML = `<div>加载完成</div>`;
       this.hiddenSuspendBtn();
       await sleep(100);
@@ -103,6 +72,49 @@ class LoadOhMyLive2D {
     //   console.log(hitAreaNames);
     //   this.model.motion('flick_head');
     // });
+  }
+
+  setModelPosition() {
+    this.model.x = this.config.modelPosition![0];
+    this.model.y = this.config.modelPosition![1];
+  }
+
+  // 设置舞台配置
+  setStageConfig() {
+    let adaptiveConfig: AdaptiveConfig | undefined;
+    switch (this.screenSize) {
+      case 'xs':
+        adaptiveConfig = this.config.stage?.xs;
+        break;
+      case 'md':
+        adaptiveConfig = this.config.stage?.md;
+        break;
+      case 'xl':
+        adaptiveConfig = this.config.stage?.xl;
+        break;
+      default:
+        break;
+    }
+    if (Array.isArray(adaptiveConfig!.scale)) {
+      this.model.scale.set(adaptiveConfig!.scale[0], adaptiveConfig!.scale[1]);
+    } else {
+      this.model.scale.set(adaptiveConfig!.scale);
+    }
+  }
+
+  updateStage() {
+    this.setStageStyle();
+    this.setStageConfig();
+  }
+
+  // 创建app
+  createPixiApp() {
+    return new Application({
+      view: this.wrapperContentEls.canvasEl,
+      autoStart: true,
+      backgroundAlpha: 0,
+      resizeTo: this.wrapperEl
+    });
   }
 }
 
@@ -125,7 +137,6 @@ const setup = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPr
     omlInstance ?? new LoadOhMyLive2D(defaultConfig, L2DModel, importType, motionPreloadStrategy);
   });
 
-  // 导出的手动装载方法  手动装载时将不再自动装载
   const loadLive2DModel = (config?: Config) => {
     Object.assign(defaultConfig, config);
     if (defaultConfig.tips?.idleTips) Object.assign(TIPS.idleTips, defaultConfig.tips.idleTips);

@@ -10,8 +10,14 @@ interface TipsConfig {
   idleTips: IdleTipsConfig | false;
 }
 
+interface AdaptiveConfig {
+  size?: number;
+  scale?: number | [x: number, y: number];
+}
+
 interface Config {
   modelSource?: string;
+  modelPosition?: [x: number, y: number];
   size?: number;
   sayHello?: boolean;
   transitionTime?: number;
@@ -20,16 +26,24 @@ interface Config {
   scale?: number | [x: number, y: number];
   backgroundColor?: string;
   tips?: TipsConfig;
+  stage?: {
+    backgroundColor?: string;
+    
+    xs?: AdaptiveConfig;
+    md?: AdaptiveConfig;
+    xl?: AdaptiveConfig;
+  };
+
 }
 
 interface WrapperContentEls {
-  canvasEl: HTMLCanvasElement | null;
-  tooltipEl: HTMLDivElement | null;
+  canvasEl?: HTMLCanvasElement;
+  tooltipEl?: HTMLDivElement;
 }
 
 interface IdleTipsConfig {
   message?: string | string[];
-  showTime?: number;
+  persistTime?: number;
   priority?: number;
   interval?: number;
 }
@@ -45,13 +59,13 @@ interface WelcomeTipsConfig {
     lateNight: string;
     weeHours: string;
   };
-  showTime: number;
+  persistTime: number;
   priority: number;
 }
 
 interface CopyTipsConfig {
   message: string | string[];
-  showTime?: number;
+  persistTime?: number;
   priority?: number;
 }
 
@@ -80,5 +94,6 @@ export type {
   LoadType,
   Tips,
   IdleTipsConfig,
-  WelcomeTipsConfig
+  WelcomeTipsConfig,
+  AdaptiveConfig
 };

@@ -28,18 +28,18 @@ const showTipsFrameMessage = function (this: LoadOhMyLive2D, message: string, sh
 };
 
 const playIdleTips = async function (this: LoadOhMyLive2D) {
-  const { showTime, priority, message, intervalTime } = getTipsConfig('idle');
+  const { persistTime, priority, message, intervalTime } = getTipsConfig('idle');
 
   if (!message) return;
   setInterval(() => {
     const { message } = getTipsConfig('idle');
-    this.showTipsFrameMessage(message, showTime, priority);
-  }, showTime + intervalTime);
+    this.showTipsFrameMessage(message, persistTime, priority);
+  }, persistTime + intervalTime);
 };
 
 const playWelcomeTips = async function (this: LoadOhMyLive2D) {
-  const { showTime, message, priority } = getTipsConfig('welcome');
-  await this.showTipsFrameMessage(message, showTime, priority);
+  const { persistTime, message, priority } = getTipsConfig('welcome');
+  await this.showTipsFrameMessage(message, persistTime, priority);
 };
 
 export { showTipsFrameMessage, playIdleTips, playWelcomeTips };
