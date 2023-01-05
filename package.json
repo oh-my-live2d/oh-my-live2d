@@ -35,6 +35,8 @@
   "license": "MIT",
   "keywords": [
     "Live2D",
+    "Live2D for Web",
+    "Live2D Component",
     "cubism2",
     "cubism4"
   ],
@@ -52,9 +54,7 @@
     "rimraf": "^3.0.2",
     "terser": "^5.16.1",
     "typescript": "^4.9.4",
-    "vite": "^4.0.0"
-  },
-  "dependencies": {
+    "vite": "^4.0.0",
     "pixi-live2d-display": "^0.4.0",
     "pixi.js": "6.5.2"
   }
