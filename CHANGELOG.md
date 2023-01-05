@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.14](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.13...v0.0.14) (2023-01-05)
+
+
+### 📦 Chores | 其他更新
+
+* 修改包解析策略为Node，加入模块类型 ([68fb1fe](https://github.com/oh-my-live2d/oh-my-live2d/commit/68fb1fe36bd3bcc2076de9abaa5d7114cdfe0e24))
+
 ### [0.0.13](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.12...v0.0.13) (2023-01-05)
 
 
