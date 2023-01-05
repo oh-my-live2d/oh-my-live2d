@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.15](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.14...v0.0.15) (2023-01-05)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* 初始化操作不再区分手动或自动 ([b7635f7](https://github.com/oh-my-live2d/oh-my-live2d/commit/b7635f7b923ef48c393bc00cbba6f734e581d6a7))
+
 ### [0.0.14](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.13...v0.0.14) (2023-01-05)
 
 
