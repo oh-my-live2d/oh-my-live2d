@@ -28,8 +28,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "rimraf ./dist/* && tsc && node ./scripts/build.js",
-    "refresh": "node ./scripts/refresh-cdn.js",
+    "build": "rimraf ./dist/* && tsc && node ./scripts/build.cjs",
+    "refresh": "node ./scripts/refresh-cdn.cjs",
     "release": "dotenv release-it && npm run build",
     "test": "rimraf ./test/dist/* && cc copy ./dist ./test/dist &&  vite preview --outDir ./test/  --port 7777"
   },
