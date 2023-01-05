@@ -1,5 +1,14 @@
 # Changelog
 
+### [0.0.13](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.12...v0.0.13) (2023-01-05)
+
+
+### 📦 Chores | 其他更新
+
+* 修改package.json的type为module ([ead7991](https://github.com/oh-my-live2d/oh-my-live2d/commit/ead7991137b91d5e8cb7095e6e70e57c2788e18b))
+* 新增package.json的keywords ([399daff](https://github.com/oh-my-live2d/oh-my-live2d/commit/399daffac5c7d2afac3838ce8fb6ae16ce2c9fbe))
+* 更新项目依赖 ([81df6fe](https://github.com/oh-my-live2d/oh-my-live2d/commit/81df6fea5bb3e567df34eabcc3e21f152d8087ed))
+
 ### [0.0.12](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.11...v0.0.12) (2023-01-04)
 
 
