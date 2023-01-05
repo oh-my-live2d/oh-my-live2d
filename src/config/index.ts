@@ -10,17 +10,14 @@ const defaultConfig: Config = {
   stage: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
     xs: {
-      // 屏幕 < 768px
       scale: 0.5,
       size: 140
     },
     md: {
-      // 屏幕 >= 768px 且 > 1200px
       scale: 0.7,
       size: 196
     },
     xl: {
-      // 屏幕 >= 1200px
       scale: 1,
       size: 280
     }

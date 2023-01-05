@@ -62,7 +62,6 @@
 
 ![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%8A%A8%E7%94%BB7.gif)
 
-
 **如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.umd.js)并导入到项目是你的最佳选择，打开链接后右键鼠标另存为即可完成下载。**
 
 ### 通过 ES6 Module 方式导入：
@@ -147,11 +146,28 @@ CDN 示例：
 
 <script>
   const oml = OML2D.loadLive2DModel({
-    size: 400,
-    scale: 1.2,
-    x: 1,
-    y: 1,
-    backgroundColor: '#000'
+    modelSource: 'https://oml-api.tj520.top/model/get?model_id=1&textures_id=2',
+    modelPosition: [0, 0],
+    sayHello: true,
+    transitionTime: 1000,
+    stage: {
+      backgroundColor: 'rgba(0, 0, 0, 0)',
+      xs: {
+        // 屏幕 < 768px
+        scale: 0.5,
+        size: 140
+      },
+      md: {
+        // 屏幕 >= 768px 且 > 1200px
+        scale: 0.7,
+        size: 196
+      },
+      xl: {
+        // 屏幕 >= 1200px
+        scale: 1,
+        size: 280
+      }
+    }
     // ...more
   });
 </script>
@@ -165,18 +181,37 @@ ES6 Module 示例：
 import { loadLive2DModel } from 'oh-my-live2d';
 
 const oml = loadLive2DModel({
-  size: 400,
-  scale: 1.2,
-  x: 1,
-  y: 1,
-  backgroundColor: '#000'
+  modelSource: 'https://oml-api.tj520.top/model/get?model_id=1&textures_id=2',
+  modelPosition: [0, 0],
+  sayHello: true,
+  transitionTime: 1000,
+  stage: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    xs: {
+      // 屏幕 < 768px
+      scale: 0.5,
+      size: 140
+    },
+    md: {
+      // 屏幕 >= 768px 且 < 1200px
+      scale: 0.7,
+      size: 196
+    },
+    xl: {
+      // 屏幕 >= 1200px
+      scale: 1,
+      size: 280
+    }
+  }
   // ...more
 });
 ```
 
-有关配置属性的详细描述请查看[配置说明](#配置说明)。
+有关配置属性的详细描述请查看[配置属性说明](#配置属性说明)。
 
-## 配置说明：
+## 配置属性说明：
+
+所有手动装载 model 的配置属性都是可选的。
 
 ### modelSource
 
@@ -190,39 +225,12 @@ Live2D 的模型来源，支持本地路径或远程 `url`，默认为远程路�
 
 ---
 
-### size
+### modelPosition
 
-- 类型：`number`
-- 默认值：`280`
+- 类型：`[x: number, y: number]`
+- 默认值：`[0, 0]`
 
-Live2D 模型包装器大小，可以理解为装载 Live2D 模型的 `div` 元素大小。
-
----
-
-### x
-
-- 类型：`number`
-- 默认值：`0`
-
-`live2d model` 相对于画布的 `x` 轴距离，值越大越靠右。
-
----
-
-### y
-
-- 类型：`number`
-- 默认值：`0`
-
-`live2d model` 相对于画布的 `y` 轴距离，值越大越靠上。
-
----
-
-### scale
-
-- 类型：`number | [x: number, y: number]`
-- 默认值：`1`
-
-`live2d model` 的缩放比例，当值为 1 时表示缩放比例是 100%，小数则表示缩小。值可以是一个 `number` 类型或一个由`x`和`y`组成的数组类型。当为`number`类型时，表示同时作用 x 轴 和 y 轴，当值为数组类型时，索引 0 作用于 x 轴方向，索引 1 作用于 y 轴方向。
+Live2D 模型对于舞台的相对位置，索引 0 为 `x` 轴距离，值越大越靠右；索引 1 为`y`轴距离，值越大越靠上。
 
 ---
 
@@ -240,16 +248,65 @@ Live2D 模型包装器大小，可以理解为装载 Live2D 模型的 `div` 元�
 - 类型：`number`
 - 默认值：`1000`
 
-模型装载完成后显示的过渡动画时长，单位为 ms
+模型装载完成后出现或隐藏的过渡动画时长，单位为 ms
 
 ---
 
-### backgroundColor
+### stage
+
+- 类型：`object`
+- 默认值：
+  ```ts
+  {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    xs: {
+      // 屏幕 < 768px
+      scale: 0.5,
+      size: 140
+    },
+    md: {
+      // 屏幕 >= 768px 且 < 1200px
+      scale: 0.7,
+      size: 196
+    },
+    xl: {
+      // 屏幕 >= 1200px
+      scale: 1,
+      size: 280
+    }
+  }
+  ```
+
+配置舞台相关属性。
+
+---
+
+### stage.backgroundColor
 
 - 类型：`string`
 - 默认值：`rgba(0, 0, 0, 0)`
 
-模型包装器的背景颜色，方便开发调试时查看画布大小，值可以是表示颜色的 `rgb` 或 `rgba` 或 `16 进制`，默认为透明。
+舞台的背景颜色，方便开发调试时查看包装器的大小，值可以是 `rgb` 或 `rgba` 或 `16 进制`等代表颜色的字符串类型，默认为透明。
+
+---
+
+### stage.xs || stage.md || stage.xl
+
+- 类型：`AdaptiveConfig`
+
+  可分别根据屏幕大小配置舞台大小和模型缩放比例，`xs` 表示 `屏幕 < 768px`，`md` 表示 `屏幕 >= 768px 且 < 1200px`，`xl`，表示`屏幕 >= 1200px`。
+
+  - **scale**
+
+    - 类型：`number | [x: number, y: number]`
+
+    `live2d model` 的缩放比例，当值为 1 时表示缩放比例是 100%，小数则表示缩小。值可以是一个 `number` 类型或一个由`x`和`y`组成的数组类型。当为`number`类型时，表示同时作用 x 轴 和 y 轴，当值为数组类型时，索引 0 作用于 x 轴方向，索引 1 作用于 y 轴方向。
+
+  - **size**
+
+    - 类型：`number`
+
+    配置舞台的大小，值为`number`类型，且同时作用于舞台的宽度和高度。
 
 ---
 
@@ -293,7 +350,7 @@ Live2D 模型包装器大小，可以理解为装载 Live2D 模型的 `div` 元�
       '头顶凉飕飕的？',
       '了解真相，才能获得真正的自由~'
     ],
-    showTime: 5000,
+    persistTime: 5000,
     interval: 5000,
     priority: 2
   }
@@ -311,7 +368,7 @@ Live2D 模型包装器大小，可以理解为装载 Live2D 模型的 `div` 元�
 
 ---
 
-### tips.idleTips.showTime
+### tips.idleTips.persistTime
 
 - 类型：`number`
 - 默认：`5000`
