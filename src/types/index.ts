@@ -18,22 +18,15 @@ interface AdaptiveConfig {
 interface Config {
   modelSource?: string;
   modelPosition?: [x: number, y: number];
-  size?: number;
   sayHello?: boolean;
   transitionTime?: number;
-  x?: number;
-  y?: number;
-  scale?: number | [x: number, y: number];
-  backgroundColor?: string;
-  tips?: TipsConfig;
   stage?: {
     backgroundColor?: string;
-    
     xs?: AdaptiveConfig;
     md?: AdaptiveConfig;
     xl?: AdaptiveConfig;
   };
-
+  tips?: TipsConfig;
 }
 
 interface WrapperContentEls {

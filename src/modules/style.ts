@@ -1,6 +1,5 @@
 import { LoadOhMyLive2D } from './setup';
 import { setElStyle } from '../utils';
-import { defaultConfig } from '../config/index';
 import '@/assets/icon/iconfont';
 
 // 设置默认样式
@@ -16,7 +15,7 @@ const setStageStyle = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
     width: `${this.config.stage![this.screenSize]?.size}px`,
     height: `${this.config.stage![this.screenSize]?.size}px`,
-    backgroundColor: this.config.stage!.backgroundColor,
+    backgroundColor: this.config.stage!.backgroundColor
   });
 };
 
@@ -69,7 +68,6 @@ const setGlobalInitialStyle = () => {
       left: 0;
       bottom: 0;
       z-index: 9997;
-      background-color: ${defaultConfig.backgroundColor};
       transform: translateY(100%);
       visibility: hidden;
     }
