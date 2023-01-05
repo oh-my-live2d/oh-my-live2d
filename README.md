@@ -62,9 +62,8 @@
 
 ![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%8A%A8%E7%94%BB7.gif)
 
-CDN 的引入并不限制在`<body>`或是在`<head>`标签中，但考虑到性能问题，还是推荐你在`<body>`标签的最底部引入脚本，避免 `DOM` 在渲染时造成一定程度的阻塞。
 
-> 如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.umd.js)并导入到项目是你的最佳选择，打开链接后右键鼠标另存为即可完成下载。
+**如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.umd.js)并导入到项目是你的最佳选择，打开链接后右键鼠标另存为即可完成下载。**
 
 ### 通过 ES6 Module 方式导入：
 

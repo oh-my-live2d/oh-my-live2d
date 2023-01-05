@@ -2,7 +2,7 @@ import { Application } from 'pixi.js';
 import { defaultConfig, TIPS } from '@/config';
 import { appendWrapperEl, registerEvent } from './element';
 import { displayLive2d, setInitialStyle, setGlobalInitialStyle, hiddenSuspendBtn } from './style';
-import { Config, Events, ImportType, Oml, WrapperContentEls } from '@/types/index';
+import { Config, Events, ImportType, OhMyLive2D, WrapperContentEls } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello } from '@/utils/index';
 import { playIdleTips, showTipsFrameMessage, playWelcomeTips } from './tips-frame';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
@@ -109,7 +109,7 @@ class LoadOhMyLive2D {
 // 入口函数
 const setup = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPreloadStrategy) => {
   let omlInstance: LoadOhMyLive2D;
-  const oml: Oml = {
+  const oml: OhMyLive2D = {
     onAfterDisplay: (callback: () => void) => (omlInstance.onEvents.afterDisplay = callback)
   };
 

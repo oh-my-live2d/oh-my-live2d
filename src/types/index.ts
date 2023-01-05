@@ -61,7 +61,7 @@ interface Tips {
   copyTips: CopyTipsConfig;
 }
 
-interface Oml {
+interface OhMyLive2D {
   onAfterDisplay: (callback: () => void) => void;
 }
 
@@ -71,7 +71,7 @@ interface Events {
 
 export type {
   TipsType,
-  Oml,
+  OhMyLive2D,
   Config,
   ImportType,
   WrapperContentEls,

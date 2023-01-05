@@ -33,11 +33,15 @@
     "release": "dotenv release-it && npm run build",
     "test": "rimraf ./test/dist/* && cc copy ./dist ./test/dist &&  vite preview --outDir ./test/  --port 7777"
   },
+  "description": "一个live2d for web 看板娘组件，支持所有版本的模型，开箱即用。",
+  "homepage": "https://github.com/oh-my-live2d/oh-my-live2d",
+  "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
   "license": "MIT",
+  "author": "loclink",
   "keywords": [
     "Live2D",
-    "Live2D for Web",
-    "Live2D Component",
+    "pxix.js",
+    "pixi-live2d-display",
     "cubism2",
     "cubism4"
   ],
