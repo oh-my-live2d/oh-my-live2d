@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.16](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.15...v0.0.16) (2023-01-05)
+
+
+### ✨ Features | 新功能
+
+* 加入了屏幕自适应：xl、md、xs 三种大小，修改了配置属性名，可根据屏幕尺寸分别配置。 ([9bcdc5b](https://github.com/oh-my-live2d/oh-my-live2d/commit/9bcdc5bd06f367de01d9e5591db2b72bf9cf9b81))
+
 ### [0.0.15](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.14...v0.0.15) (2023-01-05)
 
 
