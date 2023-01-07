@@ -114,7 +114,6 @@ const setGlobalInitialStyle = () => {
       transform: translate(-50%,-40%);
       background-color: #58b0fc;
       border: 3px solid #add7fb;
-      font-size: 1vw;
       color: #fff;
       padding: 3px 5px;
       opacity: 0;
@@ -122,6 +121,24 @@ const setGlobalInitialStyle = () => {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    @media screen and (min-width: 1200px) {
+      #oml-tooltip {
+        font-size: 16px;
+      }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+      #oml-tooltip {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      #oml-tooltip {
+        font-size: 12px;
+      }
     }
 
     @keyframes oml-shake-tooltip{
