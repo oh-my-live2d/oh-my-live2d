@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.17](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.16...v0.0.17) (2023-01-07)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复了移动端下字体太小的bug ([bde3f14](https://github.com/oh-my-live2d/oh-my-live2d/commit/bde3f14ad6b8dacb053c5a43fb7673be6bef5270))
+
 ### [0.0.16](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.15...v0.0.16) (2023-01-05)
 
 
