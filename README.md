@@ -1,6 +1,6 @@
 # oh-my-live2d
 
-![](https://img.shields.io/badge/version-0.0.16-blue) ![](https://img.shields.io/badge/Live2D-Component-red) ![](https://img.shields.io/badge/pixi.js-v6.5.2-yellowgreen) ![](https://img.shields.io/badge/pixi--live2d--display-v0.4.0-brightgreen) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/oh-my-live2d/oh-my-live2d) ![](https://img.shields.io/npm/dm/oh-my-live2d.svg) ![](https://img.shields.io/badge/Live2D-Component-red) ![](https://img.shields.io/badge/pixi.js-v6.5.2-yellowgreen) ![](https://img.shields.io/badge/pixi--live2d--display-v0.4.0-brightgreen) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
 
 `oh-my-live2d`是一个开箱即用的 **Live2D 看板娘 web 应用组件**，支持在 Vite 或 Webpack 管理的项目中使用该组件，例如：`vue`、`react` 等项目，它还支持在`html`文件中以`CDN`方式导入，在使用过程中你无需添加其他任何外部依赖包括 SDK，即可获得一个具备完整功能的`Live2D`组件。
 
@@ -12,10 +12,10 @@
 
 - 支持所有版本的`Live2D`模型。
 - 支持 **CDN** 方式引入组件，或在 **webpack** 以及 **vite** 管理的项目中以 **ES6 Module** 的方式引入组件，例如：`vue`、`react`等项目。
-- 默认集成`Cubism 2 SDK`和`Cubism 4 SDK`运行库，无需额外引入其他外部依赖。
+- 默认集成 `Cubism 2 SDK` 和 `Cubism 4 SDK` 运行库，无需额外引入其他外部依赖。
 - 支持使用自定义的本地或远程的`Live2D Model`来源`（model.json）`。
 - 本项目完全使用`TypeScript`开发，具有完整的类型推导。
-- 提供多种导入方式，可选导入指定版本的`Cubism SDK`依赖模块或全量导入所有依赖模块。
+- 提供多种导入方式，可选导入指定版本的 `Cubism SDK` 依赖组件或全量导入所有依赖组件。
 
 ## Cubism 是什么：
 
@@ -57,10 +57,6 @@
   </body>
 </html>
 ```
-
-### 效果预览：
-
-![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%8A%A8%E7%94%BB7.gif)
 
 **如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.umd.js)并导入到项目是你的最佳选择，打开链接后右键鼠标另存为即可完成下载。**
 
@@ -130,6 +126,10 @@ reportWebVitals();
 默认情况下，无论你是使用 CDN 或 ES6 Module 的方式导入，都无需导出任何模块或从全局变量中调用任何方法，即可得到一个完整的 `Live2D` 组件，这个过程属于**自动装载**，自动装载的 Live2D 组件将使用默认配置加载，并在加载完成后挂载到`<body>`标签中，之后你可以在浏览器中看到以下效果：
 
 ![img1](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/oml1.gif)
+
+### 在 vuepress2 中使用 oh-my-live2d
+
+本项目已为 vuepress2 开发了对应的扩展插件，浏览 [vuepress-plugin-oh-my-live2d](https://github.com/oh-my-live2d/vuepress-plugin-oh-my-live2d) 查看使用方法。
 
 ## 自定义配置：
 
@@ -211,7 +211,7 @@ const oml = loadLive2DModel({
 
 ## 配置属性说明：
 
-所有手动装载 model 的配置属性都是可选的。
+所有手动装载 model 的配置属性都存在一个默认值且都是可选的。
 
 ### modelSource
 
@@ -417,11 +417,28 @@ ES6 Module 导入方式的使用：
 import { loadLive2DModel } from 'oh-my-live2d';
 
 const oml = loadLive2DModel({
-  size: 400,
-  scale: 1.2,
-  x: 1,
-  y: 1,
-  backgroundColor: '#000'
+  modelSource: 'https://oml-api.tj520.top/model/get?model_id=1&textures_id=2',
+  modelPosition: [0, 0],
+  sayHello: true,
+  transitionTime: 1000,
+  stage: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    xs: {
+      // 屏幕 < 768px
+      scale: 0.5,
+      size: 140
+    },
+    md: {
+      // 屏幕 >= 768px 且 > 1200px
+      scale: 0.7,
+      size: 196
+    },
+    xl: {
+      // 屏幕 >= 1200px
+      scale: 1,
+      size: 280
+    }
+  }
   // ...more
 });
 
@@ -498,7 +515,7 @@ import 'oh-my-live2d/cubism4';
 
 ## 关于：
 
-由于版权原因，本项目中所使用的默认模型仅用作学习参考，本项目不提供任何 Live2D Model 资源的相关下载地址，如有需要，请自行前往 GitHub 搜索关键字寻找。
+由于版权原因，本项目中所使用的所有 Live2D 模型仅用作参考或学习，本项目不提供任何 Live2D Model 资源的相关下载地址，如有需要，请自行寻找。
 
 ## 许可证书：
 
