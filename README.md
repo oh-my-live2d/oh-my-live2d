@@ -21,15 +21,15 @@
 
 `Cubism`是`Live2D SDK`的名称，截至目前它一共存在三个版本：`Cubism 2`、`Cubism 3`、`Cubism 4`。
 
-- `Cubism 2`是只能驱动`Live2D Model`版本为 2 的`SDK`，它无法驱动`Live2D Model 3`和`Live2D Model 4`。
+- `Cubism 2` 是只能驱动 `Live2D Model` 版本为 2 的 `SDK`，它无法驱动 `Live2D Model 3` 和 `Live2D Model 4`。
 
-- `Cubism 4` 向后兼容了`Live2D Model 3` 并支持 `Live2D Model 4`，但它无法驱动 `Live2D Model 2`。
+- `Cubism 4` 向后兼容了 `Live2D Model 3` 并支持 `Live2D Model 4`，但它无法驱动 `Live2D Model 2`。
 
 > **本项目已集成 `Cubism 2.1` 与 `Cubism 4.2.2` ，完整覆盖了 `Live2D Model` 的所有版本。**
 
 ## 使用：
 
-`oh-my-live2d` 的使用非常简单，无论你是零基础开发者还是初体验尝鲜，你只需要在项目入口的 `html` 文件中以`CDN`的方式导入它即可。
+`oh-my-live2d` 的使用非常简单，无论你是初学者还是初体验尝鲜，你只需要在项目入口的 `html` 文件中以`CDN`的方式导入它即可。
 
 在 `<body>` 标签中加入以下内容:
 
