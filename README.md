@@ -146,28 +146,7 @@ CDN 示例：
 
 <script>
   const oml = OML2D.loadLive2DModel({
-    modelSource: 'https://oml-api.tj520.top/model/get?model_id=1&textures_id=2',
-    modelPosition: [0, 0],
-    sayHello: true,
-    transitionTime: 1000,
-    stage: {
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      xs: {
-        // 屏幕 < 768px
-        scale: 0.5,
-        size: 140
-      },
-      md: {
-        // 屏幕 >= 768px 且 > 1200px
-        scale: 0.7,
-        size: 196
-      },
-      xl: {
-        // 屏幕 >= 1200px
-        scale: 1,
-        size: 280
-      }
-    }
+    modelPosition: [-10, 0]
     // ...more
   });
 </script>
@@ -181,28 +160,7 @@ ES6 Module 示例：
 import { loadLive2DModel } from 'oh-my-live2d';
 
 const oml = loadLive2DModel({
-  modelSource: 'https://oml-api.tj520.top/model/get?model_id=1&textures_id=2',
-  modelPosition: [0, 0],
-  sayHello: true,
-  transitionTime: 1000,
-  stage: {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    xs: {
-      // 屏幕 < 768px
-      scale: 0.5,
-      size: 140
-    },
-    md: {
-      // 屏幕 >= 768px 且 < 1200px
-      scale: 0.7,
-      size: 196
-    },
-    xl: {
-      // 屏幕 >= 1200px
-      scale: 1,
-      size: 280
-    }
-  }
+  modelPosition: [-10, 0]
   // ...more
 });
 ```
@@ -217,11 +175,9 @@ const oml = loadLive2DModel({
 
 - 类型：`string`
 - 默认值：
-  - 导入全量包，默认为：`https://oml-api.tj520.top/Pio/animal-02/index.json`
-  - 仅导入依赖 `cubism 2` 的组件，`默认为：https://oml-api.tj520.top/Pio/animal-02/index.json`
-  - 仅导入依赖 `cubism 4` 的组件，默认为：`https://oml-api.tj520.top/m950a_4302/normal/normal.model3.json`
+  - 导入全量包，默认为：`https://oml-api.tj520.top/pa15_3701/normal/normal.model3.json`
 
-Live2D 的模型来源，支持本地路径或远程 `url`，默认为远程路径，组件已自带。
+Live2D 的模型来源，支持本地路径或远程 `url`，默认已提供远程模型资源。
 
 ---
 
@@ -261,18 +217,15 @@ Live2D 模型对于舞台的相对位置，索引 0 为 `x` 轴距离，值越�
     backgroundColor: 'rgba(0, 0, 0, 0)',
     xs: {
       // 屏幕 < 768px
-      scale: 0.5,
-      size: 140
+      scale: 0.05,
     },
     md: {
       // 屏幕 >= 768px 且 < 1200px
-      scale: 0.7,
-      size: 196
+      scale: 0.08,
     },
     xl: {
       // 屏幕 >= 1200px
-      scale: 1,
-      size: 280
+      scale: 0.1,
     }
   }
   ```
@@ -300,13 +253,19 @@ Live2D 模型对于舞台的相对位置，索引 0 为 `x` 轴距离，值越�
 
     - 类型：`number | [x: number, y: number]`
 
-    `live2d model` 的缩放比例，当值为 1 时表示缩放比例是 100%，小数则表示缩小。值可以是一个 `number` 类型或一个由`x`和`y`组成的数组类型。当为`number`类型时，表示同时作用 x 轴 和 y 轴，当值为数组类型时，索引 0 作用于 x 轴方向，索引 1 作用于 y 轴方向。
+    模型的缩放比例，默认值为 0.1 表示缩放比例是 10%，值可以是一个 `number` 类型或一个由`x`和`y`组成的数组类型。当为`number`类型时，表示同时作用 x 轴 和 y 轴，当值为数组类型时，可依次设置 x 轴和 y 轴缩放比例，**该值会影响模型边界的宽高**。
 
-  - **size**
+  - **width**
 
     - 类型：`number`
 
-    配置舞台的大小，值为`number`类型，且同时作用于舞台的宽度和高度。
+    舞台宽度，默认自动设置为模型边界的宽度。
+
+  - **height**
+
+    - 类型：`number`
+
+    舞台高度，默认自动设置为模型边界的高度。
 
 ---
 
