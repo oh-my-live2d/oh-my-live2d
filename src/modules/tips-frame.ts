@@ -11,13 +11,13 @@ const showTipsFrameMessage = function (this: LoadOhMyLive2D, message: string, sh
     tipsPriority = priority;
     clearTimeout(tipsTimer);
     tipsTimer = setTimeout(() => {
-      setElStyle(this.wrapperContentEls.tooltipEl, {
+      setElStyle(this.wrapperContentEls!.tooltipEl, {
         animationName: 'oml-hidden-tooltip,oml-shake-tooltip'
       });
       tipsPriority = 0;
     }, showTime);
-    this.wrapperContentEls.tooltipEl!.innerHTML = message;
-    setElStyle(this.wrapperContentEls.tooltipEl, {
+    this.wrapperContentEls!.tooltipEl!.innerHTML = message;
+    setElStyle(this.wrapperContentEls!.tooltipEl, {
       animationName: 'oml-display-tooltip,oml-shake-tooltip',
       animationDuration: '1000ms,1000ms',
       animationFillMode: 'forwards, none',
