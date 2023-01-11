@@ -1,6 +1,6 @@
 import { Application } from 'pixi.js';
 import { defaultConfig, TIPS } from '@/config';
-import { appendWrapperEl, registerEvent } from './element';
+import { appendWrapperEl, createSuspendBtnEl, registerEvent } from './element';
 import { displayLive2d, setGlobalInitialStyle, hiddenSuspendBtn, setStageStyle } from './style';
 import { AdaptiveConfig, Config, Events, ImportType, OhMyLive2D, WrapperContentEls } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello } from '@/utils/index';
@@ -10,12 +10,13 @@ import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
 class LoadOhMyLive2D {
   L2DModel: any;
   model: Live2DModel;
-  wrapperContentEls: WrapperContentEls;
+  wrapperContentEls?: WrapperContentEls;
   wrapperEl?: HTMLDivElement;
-  suspendBtnEl?: HTMLDivElement;
+  suspendBtnEl: HTMLDivElement;
   config: Config;
   onEvents: Events;
   importType: ImportType;
+  adaptiveConfig?: AdaptiveConfig;
   motionPreloadStrategy: MotionPreloadStrategy;
   screenSize: 'xs' | 'md' | 'xl';
   // method
@@ -35,7 +36,9 @@ class LoadOhMyLive2D {
     this.screenSize = 'xl';
     this.onEvents = {};
     this.motionPreloadStrategy = motionPreloadStrategy;
-    this.wrapperContentEls = {};
+
+    this.suspendBtnEl = createSuspendBtnEl();
+
     // 同步创建模型 - 设置动作预加载
     this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: motionPreloadStrategy });
 
@@ -43,24 +46,26 @@ class LoadOhMyLive2D {
   }
 
   async initialization() {
-    const { wrapperEl, canvasEl, suspendBtnEl, tooltipEl } = this.appendWrapperEl();
     this.config.sayHello && sayHello(this.importType);
-    this.suspendBtnEl = suspendBtnEl;
-    this.wrapperEl = wrapperEl;
-    this.wrapperContentEls.canvasEl = canvasEl;
-    this.wrapperContentEls.tooltipEl = tooltipEl;
-
-    // 注册事件
-    this.registerEvent();
-    this.setStageStyle();
-    this.setStageConfig();
-    this.setModelPosition();
-    const app = this.createPixiApp();
 
     // 所有资源准备完毕后
     this.model.once('ready', async () => {
+      const { wrapperEl, canvasEl, tooltipEl } = this.appendWrapperEl();
+
+      this.wrapperEl = wrapperEl;
+      this.wrapperContentEls = { canvasEl, tooltipEl };
+
+      // 注册事件
+      this.registerEvent();
+
+      this.setModelPosition();
+
+      this.updateOml();
+
+      const app = this.createPixiApp();
+
       app.stage.addChild(this.model);
-      this.suspendBtnEl!.innerHTML = `<div>加载完成</div>`;
+      
       this.hiddenSuspendBtn();
       await sleep(100);
       await this.displayLive2d().then(() => this.onEvents.afterDisplay && this.onEvents.afterDisplay());
@@ -74,43 +79,30 @@ class LoadOhMyLive2D {
     // });
   }
 
+  // 设置模型位置
   setModelPosition() {
     this.model.x = this.config.modelPosition![0];
     this.model.y = this.config.modelPosition![1];
   }
 
-  // 设置舞台配置
-  setStageConfig() {
-    let adaptiveConfig: AdaptiveConfig | undefined;
-    switch (this.screenSize) {
-      case 'xs':
-        adaptiveConfig = this.config.stage?.xs;
-        break;
-      case 'md':
-        adaptiveConfig = this.config.stage?.md;
-        break;
-      case 'xl':
-        adaptiveConfig = this.config.stage?.xl;
-        break;
-      default:
-        break;
-    }
-    if (Array.isArray(adaptiveConfig!.scale)) {
-      this.model.scale.set(adaptiveConfig!.scale[0], adaptiveConfig!.scale[1]);
+  // 设置缩放比例
+  setModelScale() {
+    if (Array.isArray(this.adaptiveConfig!.scale)) {
+      this.model.scale.set(this.adaptiveConfig!.scale[0], this.adaptiveConfig!.scale[1]);
     } else {
-      this.model.scale.set(adaptiveConfig!.scale);
+      this.model.scale.set(this.adaptiveConfig!.scale);
     }
   }
 
-  updateStage() {
+  updateOml() {
+    this.setModelScale();
     this.setStageStyle();
-    this.setStageConfig();
   }
 
   // 创建app
   createPixiApp() {
     return new Application({
-      view: this.wrapperContentEls.canvasEl,
+      view: this.wrapperContentEls!.canvasEl,
       autoStart: true,
       backgroundAlpha: 0,
       resizeTo: this.wrapperEl
