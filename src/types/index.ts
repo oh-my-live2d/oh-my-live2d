@@ -11,7 +11,8 @@ interface TipsConfig {
 }
 
 interface AdaptiveConfig {
-  size?: number;
+  width?: number;
+  height?: number;
   scale?: number | [x: number, y: number];
 }
 

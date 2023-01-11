@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.18](///compare/v0.0.17...v0.0.18) (2023-01-11)
+
+
+### ⚡ Improvements | 优化
+
+* 移除size选项，新增width和height选项，调整默认大小为模型边界大小 78312d9
+
 ### [0.0.17](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.16...v0.0.17) (2023-01-07)
 
 

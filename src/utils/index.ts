@@ -6,17 +6,16 @@ const handleDefaultModelSource = (importType: ImportType) => {
   let modelSource;
   switch (importType) {
     case 'complete':
-      modelSource = 'https://oml-api.tj520.top/Pio/animal-02/index.json';
-      // modelSource = '/model/animal-02/index.json';
+      modelSource = 'https://oml-api.tj520.top/pa15_3701/normal/normal.model3.json';
       break;
     case 'cubism2':
-      modelSource = 'https://oml-api.tj520.top/Pio/animal-02/index.json';
+      modelSource = 'https://oml-api.tj520.top/pio/index.json';
       break;
     case 'cubism4':
-      modelSource = 'https://oml-api.tj520.top/m950a_4302/normal/normal.model3.json';
+      modelSource = 'https://oml-api.tj520.top/pa15_3701/normal/normal.model3.json';
       break;
     default:
-      modelSource = 'https://oml-api.tj520.top/Pio/animal-02/index.json';
+      modelSource = 'https://oml-api.tj520.top/pio/index.json';
       break;
   }
   return modelSource;

@@ -13,14 +13,18 @@ import '@/assets/icon/iconfont';
 
 const setStageStyle = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
-    width: `${this.config.stage![this.screenSize]?.size}px`,
-    height: `${this.config.stage![this.screenSize]?.size}px`,
+    width: `${this.adaptiveConfig!.width ?? this.model.width}px`,
+    height: `${this.adaptiveConfig!.height ?? this.model.height}px`,
     backgroundColor: this.config.stage!.backgroundColor
   });
+  this.wrapperContentEls!.canvasEl!.width = this.adaptiveConfig!.width ?? this.model.width;
+  this.wrapperContentEls!.canvasEl!.height = this.adaptiveConfig!.height ?? this.model.height;
 };
 
 // 隐藏悬浮按钮
 const hiddenSuspendBtn = function (this: LoadOhMyLive2D) {
+  this.suspendBtnEl!.innerHTML = `<div>加载完成</div>`;
+
   setElStyle(this.suspendBtnEl, {
     animationName: 'oml-loading-hidden',
     animationDuration: `${this.config.transitionTime}ms`,
