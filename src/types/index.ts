@@ -18,15 +18,13 @@ interface AdaptiveConfig {
 
 interface Config {
   modelSource?: string;
-  modelPosition?: [x: number, y: number];
+  position?: [x: number, y: number];
   sayHello?: boolean;
   transitionTime?: number;
-  stage?: {
-    backgroundColor?: string;
-    xs?: AdaptiveConfig;
-    md?: AdaptiveConfig;
-    xl?: AdaptiveConfig;
-  };
+  backgroundColor?: string;
+  width?: number;
+  height?: number;
+  scale?: number | [x: number, y: number];
   tips?: TipsConfig;
 }
 

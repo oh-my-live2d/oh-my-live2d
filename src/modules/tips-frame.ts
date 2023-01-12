@@ -6,7 +6,7 @@ let tipsTimer: any = 0;
 let tipsPriority = 0;
 
 const showTipsFrameMessage = function (this: LoadOhMyLive2D, message: string, showTime: number, priority: number) {
-  if (tipsPriority > priority) return;
+  if (tipsPriority > priority || !this.isTips) return;
   return new Promise<void>((resolve) => {
     tipsPriority = priority;
     clearTimeout(tipsTimer);
@@ -23,7 +23,7 @@ const showTipsFrameMessage = function (this: LoadOhMyLive2D, message: string, sh
       animationFillMode: 'forwards, none',
       animationIterationCount: '1, infinite'
     });
-    setTimeout(resolve, showTime);
+    setTimeout(resolve, showTime + 1000);
   });
 };
 

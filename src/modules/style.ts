@@ -11,22 +11,28 @@ import '@/assets/icon/iconfont';
 //   });
 // };
 
-const setStageStyle = function (this: LoadOhMyLive2D) {
+const setWrapperStyle = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
-    width: `${this.adaptiveConfig!.width ?? this.model.width}px`,
-    height: `${this.adaptiveConfig!.height ?? this.model.height}px`,
-    backgroundColor: this.config.stage!.backgroundColor
+    width: `${this.config!.width ?? this.model.width}px`,
+    height: `${this.config!.height ?? this.model.height}px`,
+    backgroundColor: this.config!.backgroundColor
   });
-  this.wrapperContentEls!.canvasEl!.width = this.adaptiveConfig!.width ?? this.model.width;
-  this.wrapperContentEls!.canvasEl!.height = this.adaptiveConfig!.height ?? this.model.height;
+  this.wrapperContentEls!.canvasEl!.width = this.config!.width ?? this.model.width;
+  this.wrapperContentEls!.canvasEl!.height = this.config!.height ?? this.model.height;
 };
 
 // 隐藏悬浮按钮
-const hiddenSuspendBtn = function (this: LoadOhMyLive2D) {
-  this.suspendBtnEl!.innerHTML = `<div>加载完成</div>`;
+const hiddenLevitatedSphere = function (this: LoadOhMyLive2D) {
+  setElStyle(this.levitatedSphereEl, {
+    animationName: 'oml-levitated-sphere-hidden',
+    animationDuration: `${this.config.transitionTime}ms`,
+    animationFillMode: 'forwards'
+  });
+};
 
-  setElStyle(this.suspendBtnEl, {
-    animationName: 'oml-loading-hidden',
+const displayLevitatedSphere = function (this: LoadOhMyLive2D) {
+  setElStyle(this.levitatedSphereEl, {
+    animationName: 'oml-levitated-sphere-display',
     animationDuration: `${this.config.transitionTime}ms`,
     animationFillMode: 'forwards'
   });
@@ -35,25 +41,28 @@ const hiddenSuspendBtn = function (this: LoadOhMyLive2D) {
 // 显示live2d组件
 const displayLive2d = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
-    visibility: 'visible',
     animationName: 'oml-display',
+    animationDuration: `${this.config.transitionTime}ms`,
+    animationFillMode: 'forwards'
+  });
+
+  return new Promise<void>((resolve) =>
+    setTimeout(() => {
+      resolve();
+      this.onEvents.afterDisplay && this.onEvents.afterDisplay();
+    }, this.config.transitionTime)
+  );
+};
+
+// 隐藏live2d组件
+const hiddenLive2d = function (this: LoadOhMyLive2D) {
+  setElStyle(this.wrapperEl, {
+    animationName: 'oml-hidden',
     animationDuration: `${this.config.transitionTime}ms`,
     animationFillMode: 'forwards'
   });
   return new Promise<void>((resolve) => setTimeout(resolve, this.config.transitionTime));
 };
-
-// 隐藏live2d组件
-// const hiddenLive2d = async () => {
-//   return new Promise((resolve) => {
-//     setElStyle(_OML2D.wrapperEl.element, {
-//       transform: 'translateY(100%)'
-//     });
-//     setTimeout(() => {
-//       resolve(true);
-//     }, _OML2D.config.transitionTime);
-//   });
-// };
 
 // 设置全局初始样式
 const setGlobalInitialStyle = () => {
@@ -81,8 +90,9 @@ const setGlobalInitialStyle = () => {
       z-index: 9997;
     }
 
-    #oml-suspend-btn {
+    #oml-levitated-sphere {
       position: fixed;
+      transform: translateX(-110%);
       left: 0;
       bottom: 80px;
       padding: 7px 5px;
@@ -113,6 +123,7 @@ const setGlobalInitialStyle = () => {
       position: absolute;
       top: 0%;
       left: 50%;
+      font-size: 18px;
       border-radius: 10px;
       box-shadow: 0 0 5px #999;
       transform: translate(-50%,-40%);
@@ -127,23 +138,7 @@ const setGlobalInitialStyle = () => {
       justify-content: center;
     }
 
-    @media screen and (min-width: 1200px) {
-      #oml-tooltip {
-        font-size: 16px;
-      }
-    }
 
-    @media screen and (min-width: 768px) and (max-width: 1200px) {
-      #oml-tooltip {
-        font-size: 14px;
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      #oml-tooltip {
-        font-size: 12px;
-      }
-    }
 
     @keyframes oml-shake-tooltip{
       0% {
@@ -169,6 +164,18 @@ const setGlobalInitialStyle = () => {
       }
     }
 
+    @keyframes oml-hidden {
+      from {
+        transform: translateY(0%);
+        visibility: hidden;
+      }
+      to {
+        transform: translateY(100%);
+        visibility: visible;
+      }
+    }
+
+
     @keyframes oml-loading-rotate {
       0% {
         transform: rotate(0deg);
@@ -178,12 +185,22 @@ const setGlobalInitialStyle = () => {
       }
     }
 
-    @keyframes oml-loading-hidden {
+    @keyframes oml-levitated-sphere-hidden {
       0% {
         transform: translateX(0%);
       }
       100% {
         transform: translateX(-110%);
+      }
+    }
+
+
+    @keyframes oml-levitated-sphere-display {
+      0% {
+        transform: translateX(-110%);
+      }
+      100% {
+        transform: translateX(0%);
       }
     }
 
@@ -212,4 +229,12 @@ const setGlobalInitialStyle = () => {
   document.head.appendChild(styleEl);
 };
 
-export { setStageStyle, displayLive2d, setGlobalInitialStyle, hiddenSuspendBtn, setElStyle };
+export {
+  hiddenLive2d,
+  setWrapperStyle,
+  displayLive2d,
+  setGlobalInitialStyle,
+  hiddenLevitatedSphere,
+  setElStyle,
+  displayLevitatedSphere
+};

@@ -1,7 +1,21 @@
 import { Application } from 'pixi.js';
 import { defaultConfig, TIPS } from '@/config';
-import { appendWrapperEl, createSuspendBtnEl, registerEvent } from './element';
-import { displayLive2d, setGlobalInitialStyle, hiddenSuspendBtn, setStageStyle } from './style';
+import {
+  appendWrapperEl,
+  createSuspendBtnEl,
+  getScreenSize,
+  mediaSearchChange,
+  registerEvent,
+  setLevitatedSphereContent
+} from './element';
+import {
+  displayLive2d,
+  setGlobalInitialStyle,
+  hiddenLevitatedSphere,
+  setWrapperStyle,
+  hiddenLive2d,
+  displayLevitatedSphere
+} from './style';
 import { AdaptiveConfig, Config, Events, ImportType, OhMyLive2D, WrapperContentEls } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello } from '@/utils/index';
 import { playIdleTips, showTipsFrameMessage, playWelcomeTips } from './tips-frame';
@@ -12,32 +26,39 @@ class LoadOhMyLive2D {
   model: Live2DModel;
   wrapperContentEls?: WrapperContentEls;
   wrapperEl?: HTMLDivElement;
-  suspendBtnEl: HTMLDivElement;
+  levitatedSphereEl: HTMLDivElement;
   config: Config;
   onEvents: Events;
   importType: ImportType;
   adaptiveConfig?: AdaptiveConfig;
   motionPreloadStrategy: MotionPreloadStrategy;
-  screenSize: 'xs' | 'md' | 'xl';
+  isTips: boolean;
+
   // method
+  mediaSearchChange = mediaSearchChange;
   showTipsFrameMessage = showTipsFrameMessage;
   displayLive2d = displayLive2d;
   appendWrapperEl = appendWrapperEl;
-  setStageStyle = setStageStyle;
-  hiddenSuspendBtn = hiddenSuspendBtn;
+  setWrapperStyle = setWrapperStyle;
+  hiddenLevitatedSphere = hiddenLevitatedSphere;
+  displayLevitatedSphere = displayLevitatedSphere;
   registerEvent = registerEvent;
   playIdleTips = playIdleTips;
   playWelcomeTips = playWelcomeTips;
+  hiddenLive2d = hiddenLive2d;
+  setLevitatedSphereContent = setLevitatedSphereContent;
 
   constructor(defaultConfig: Config, L2DModel, importType: ImportType, motionPreloadStrategy: MotionPreloadStrategy) {
     this.L2DModel = L2DModel;
     this.config = defaultConfig;
     this.importType = importType;
-    this.screenSize = 'xl';
     this.onEvents = {};
     this.motionPreloadStrategy = motionPreloadStrategy;
+    this.isTips = true;
 
-    this.suspendBtnEl = createSuspendBtnEl();
+    this.levitatedSphereEl = createSuspendBtnEl();
+    this.displayLevitatedSphere();
+    this.setLevitatedSphereContent('loading');
 
     // 同步创建模型 - 设置动作预加载
     this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: motionPreloadStrategy });
@@ -55,20 +76,31 @@ class LoadOhMyLive2D {
       this.wrapperEl = wrapperEl;
       this.wrapperContentEls = { canvasEl, tooltipEl };
 
-      // 注册事件
       this.registerEvent();
 
       this.setModelPosition();
 
-      this.updateOml();
+      this.setModelScale();
+
+      this.setWrapperStyle();
 
       const app = this.createPixiApp();
 
       app.stage.addChild(this.model);
-      
-      this.hiddenSuspendBtn();
+
+      this.setLevitatedSphereContent('text', '加载完成');
+
       await sleep(100);
-      await this.displayLive2d().then(() => this.onEvents.afterDisplay && this.onEvents.afterDisplay());
+
+      if (getScreenSize() === 'xl') {
+        this.hiddenLevitatedSphere();
+        await this.displayLive2d();
+      } else {
+        await sleep(500);
+        this.setLevitatedSphereContent('text', '休息中');
+        this.isTips = false;
+      }
+
       await this.playWelcomeTips();
       this.playIdleTips();
     });
@@ -81,22 +113,17 @@ class LoadOhMyLive2D {
 
   // 设置模型位置
   setModelPosition() {
-    this.model.x = this.config.modelPosition![0];
-    this.model.y = this.config.modelPosition![1];
+    this.model.x = this.config.position![0];
+    this.model.y = this.config.position![1];
   }
 
   // 设置缩放比例
   setModelScale() {
-    if (Array.isArray(this.adaptiveConfig!.scale)) {
-      this.model.scale.set(this.adaptiveConfig!.scale[0], this.adaptiveConfig!.scale[1]);
+    if (Array.isArray(this.config!.scale)) {
+      this.model.scale.set(this.config!.scale[0], this.config!.scale[1]);
     } else {
-      this.model.scale.set(this.adaptiveConfig!.scale);
+      this.model.scale.set(this.config!.scale);
     }
-  }
-
-  updateOml() {
-    this.setModelScale();
-    this.setStageStyle();
   }
 
   // 创建app

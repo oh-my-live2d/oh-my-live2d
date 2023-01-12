@@ -1,20 +1,36 @@
-import { getTipsConfig } from '../utils/index';
+import { getTipsConfig, sleep } from '../utils/index';
 import { LoadOhMyLive2D } from './setup';
 
 const createSuspendBtnEl = function () {
-  const suspendBtnEl = document.createElement('div');
-  suspendBtnEl.id = 'oml-suspend-btn';
+  const levitatedSphereEl = document.createElement('div');
+  levitatedSphereEl.id = 'oml-levitated-sphere';
 
-  suspendBtnEl.innerHTML = `
+  levitatedSphereEl.innerHTML = `
     <div style="margin-bottom:3px;">加载中</div>
     <svg class="icon oml-loading" aria-hidden="true" style="stroke: #fff;">
       <use xlink:href="#icon-loading"></use>
     </svg>
   `;
 
-  window.document.body.appendChild(suspendBtnEl);
+  window.document.body.appendChild(levitatedSphereEl);
 
-  return suspendBtnEl;
+  return levitatedSphereEl;
+};
+
+const setLevitatedSphereContent = function (this: LoadOhMyLive2D, contentType: 'loading' | 'text', text?: string) {
+  switch (contentType) {
+    case 'loading':
+      this.levitatedSphereEl.innerHTML = `
+      <div style="margin-bottom:3px;">加载中</div>
+      <svg class="icon oml-loading" aria-hidden="true" style="stroke: #fff;">
+        <use xlink:href="#icon-loading"></use>
+      </svg>
+    `;
+      break;
+    case 'text':
+      this.levitatedSphereEl.innerHTML = `<div>${text}</div>`;
+      break;
+  }
 };
 
 // 加入包装器元素
@@ -37,44 +53,46 @@ const appendWrapperEl = function () {
   return { wrapperEl, canvasEl, tooltipEl };
 };
 
-const handleMediaSearchEvent = (l2dInstance: LoadOhMyLive2D) => {
+const getScreenSize = () => {
+  let sizeType;
   const xs = window.matchMedia('screen and (max-width: 768px)');
-  const md = window.matchMedia('screen and (min-width: 768px) and (max-width: 1200px)');
-  const xl = window.matchMedia('screen and (min-width: 1200px)');
+  const xl = window.matchMedia('screen and (min-width: 768px)');
 
-  if (xs.matches) l2dInstance.screenSize = 'xs';
-  if (md.matches) l2dInstance.screenSize = 'md';
-  if (xl.matches) l2dInstance.screenSize = 'xl';
+  if (xs.matches) sizeType = 'xs';
+  if (xl.matches) sizeType = 'xl';
 
-  xs.addEventListener('change', (e) => {
+  return sizeType;
+};
+
+const mediaSearchChange = function (this: LoadOhMyLive2D) {
+  const xs = window.matchMedia('screen and (max-width: 768px)');
+  const xl = window.matchMedia('screen and (min-width: 768px');
+
+  xs.addEventListener('change', async (e) => {
     if (e.matches) {
-      l2dInstance.screenSize = 'xs';
-      l2dInstance.adaptiveConfig = l2dInstance.config.stage!['xs']!;
-      l2dInstance.updateOml();
+      await this.showTipsFrameMessage('屏幕装不下啦~', 1000, 9);
+      await this.hiddenLive2d();
+      await this.displayLevitatedSphere();
+      this.setLevitatedSphereContent('text', '休息中');
+      this.isTips = false;
     }
   });
 
-  md.addEventListener('change', (e) => {
+  xl.addEventListener('change', async (e) => {
     if (e.matches) {
-      l2dInstance.screenSize = 'md';
-      l2dInstance.adaptiveConfig = l2dInstance.config.stage!['md']!;
-      l2dInstance.updateOml();
+      this.isTips = true;
+      this.setLevitatedSphereContent('text', '闪亮登场');
+      await sleep(500);
+      this.hiddenLevitatedSphere();
+      await await this.displayLive2d();
+      await this.playWelcomeTips();
     }
   });
-
-  xl.addEventListener('change', (e) => {
-    if (e.matches) {
-      l2dInstance.screenSize = 'xl';
-      l2dInstance.adaptiveConfig = l2dInstance.config.stage!['xl']!;
-      l2dInstance.updateOml();
-    }
-  });
-  l2dInstance.adaptiveConfig = l2dInstance.config.stage![l2dInstance.screenSize]!;
 };
 
 const registerEvent = function (this: LoadOhMyLive2D) {
   // 处理媒体查询
-  handleMediaSearchEvent(this);
+  this.mediaSearchChange();
 
   // 刷新前卸载元素
   window.onbeforeunload = () => {
@@ -90,4 +108,11 @@ const registerEvent = function (this: LoadOhMyLive2D) {
   //   this.showTipsFrameMessage('hello', 8000, 4);
   // });
 };
-export { appendWrapperEl, registerEvent, createSuspendBtnEl };
+export {
+  appendWrapperEl,
+  registerEvent,
+  createSuspendBtnEl,
+  getScreenSize,
+  setLevitatedSphereContent,
+  mediaSearchChange
+};
