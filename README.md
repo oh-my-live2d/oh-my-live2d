@@ -2,7 +2,7 @@
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/oh-my-live2d/oh-my-live2d) ![](https://img.shields.io/npm/dm/oh-my-live2d.svg) ![](https://img.shields.io/badge/Live2D-Component-red) ![](https://img.shields.io/badge/pixi.js-v6.5.2-yellowgreen) ![](https://img.shields.io/badge/pixi--live2d--display-v0.4.0-brightgreen) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
 
-`oh-my-live2d`是一个开箱即用的 **Live2D 看板娘 web 应用组件**，支持在 Vite 或 Webpack 管理的项目中使用该组件，例如：`vue`、`react` 等项目，它还支持在`html`文件中以`CDN`方式导入，在使用过程中你无需添加其他任何外部依赖包括 SDK，即可获得一个具备完整功能的`Live2D`组件。
+`oh-my-live2d` 是一个开箱即用的 **Live2D 看板娘 web 应用组件**，支持在 Vite 或 Webpack 管理的项目中使用该组件，例如：`vue`、`react` 等项目，它还支持在 `html` 文件中以 `CDN` 方式导入，在使用过程中你无需添加其他任何外部依赖包括 SDK，即可获得一个具备完整功能的 `Live2D` 组件。
 
 ## 预览：
 
@@ -29,7 +29,7 @@
 
 ## 使用：
 
-`oh-my-live2d` 的使用非常简单，无论你是初学者还是初体验尝鲜，你只需要在项目入口的 `html` 文件中以`CDN`的方式导入它即可。
+`oh-my-live2d` 的使用非常简单，无论你是初学者还是初体验尝鲜，你只需要在项目入口的 `html` 文件中以 `CDN` 的方式导入它即可。
 
 在 `<body>` 标签中加入以下内容:
 
@@ -146,7 +146,7 @@ CDN 示例：
 
 <script>
   const oml = OML2D.loadLive2DModel({
-    modelPosition: [-10, 0]
+    position: [-10, 0]
     // ...more
   });
 </script>
@@ -160,7 +160,7 @@ ES6 Module 示例：
 import { loadLive2DModel } from 'oh-my-live2d';
 
 const oml = loadLive2DModel({
-  modelPosition: [-10, 0]
+  position: [-10, 0]
   // ...more
 });
 ```
@@ -168,8 +168,6 @@ const oml = loadLive2DModel({
 有关配置属性的详细描述请查看[配置属性说明](#配置属性说明)。
 
 ## 配置属性说明：
-
-所有手动装载 model 的配置属性都存在一个默认值且都是可选的。
 
 ### modelSource
 
@@ -181,7 +179,7 @@ Live2D 的模型来源，支持本地路径或远程 `url`，默认已提供远�
 
 ---
 
-### modelPosition
+### position
 
 - 类型：`[x: number, y: number]`
 - 默认值：`[0, 0]`
@@ -208,64 +206,37 @@ Live2D 模型对于舞台的相对位置，索引 0 为 `x` 轴距离，值越�
 
 ---
 
-### stage
+### scale
 
-- 类型：`object`
-- 默认值：
-  ```ts
-  {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    xs: {
-      // 屏幕 < 768px
-      scale: 0.05,
-    },
-    md: {
-      // 屏幕 >= 768px 且 < 1200px
-      scale: 0.08,
-    },
-    xl: {
-      // 屏幕 >= 1200px
-      scale: 0.1,
-    }
-  }
-  ```
+- 类型：`number | [x: number, y: number]`
+- 默认值：`0.1`
 
-配置舞台相关属性。
+模型的缩放比例，默认值为 0.1 表示缩放比例是 10%，值可以是一个 `number` 类型或一个由`x`和`y`组成的数组类型。当为`number`类型时，表示同时作用 x 轴 和 y 轴，当值为数组类型时，可依次设置 x 轴和 y 轴缩放比例，**该值会影响模型边界的宽高**。
 
 ---
 
-### stage.backgroundColor
+### backgroundColor
 
 - 类型：`string`
 - 默认值：`rgba(0, 0, 0, 0)`
 
-舞台的背景颜色，方便开发调试时查看包装器的大小，值可以是 `rgb` 或 `rgba` 或 `16 进制`等代表颜色的字符串类型，默认为透明。
+舞台的背景颜色，方便开发调试时查看舞台大小，值可以是 `rgb` 或 `rgba` 或 `16 进制`等代表颜色的字符串类型，默认为透明。
 
 ---
 
-### stage.xs || stage.md || stage.xl
+### width
 
-- 类型：`AdaptiveConfig`
+- 类型：`number`
+- 默认值：模型边界的宽度
 
-  可分别根据屏幕大小配置舞台大小和模型缩放比例，`xs` 表示 `屏幕 < 768px`，`md` 表示 `屏幕 >= 768px 且 < 1200px`，`xl` 表示 `屏幕 >= 1200px`。
+舞台宽度。
 
-  - **scale**
+### height
 
-    - 类型：`number | [x: number, y: number]`
+- 类型：`number`
+- 默认值：模型边界的高度
 
-    模型的缩放比例，默认值为 0.1 表示缩放比例是 10%，值可以是一个 `number` 类型或一个由`x`和`y`组成的数组类型。当为`number`类型时，表示同时作用 x 轴 和 y 轴，当值为数组类型时，可依次设置 x 轴和 y 轴缩放比例，**该值会影响模型边界的宽高**。
-
-  - **width**
-
-    - 类型：`number`
-
-    舞台宽度，默认自动设置为模型边界的宽度。
-
-  - **height**
-
-    - 类型：`number`
-
-    舞台高度，默认自动设置为模型边界的高度。
+舞台高度。
 
 ---
 
@@ -376,28 +347,11 @@ ES6 Module 导入方式的使用：
 import { loadLive2DModel } from 'oh-my-live2d';
 
 const oml = loadLive2DModel({
-  modelSource: 'https://oml-api.tj520.top/model/get?model_id=1&textures_id=2',
-  modelPosition: [0, 0],
+  position: [0, 0],
   sayHello: true,
   transitionTime: 1000,
-  stage: {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    xs: {
-      // 屏幕 < 768px
-      scale: 0.5,
-      size: 140
-    },
-    md: {
-      // 屏幕 >= 768px 且 > 1200px
-      scale: 0.7,
-      size: 196
-    },
-    xl: {
-      // 屏幕 >= 1200px
-      scale: 1,
-      size: 280
-    }
-  }
+  backgroundColor: 'rgba(0, 0, 0, 0)',
+  scale: 0.1
   // ...more
 });
 
@@ -474,7 +428,11 @@ import 'oh-my-live2d/cubism4';
 
 ## 关于：
 
-由于版权原因，本项目中所使用的所有 Live2D 模型仅用作参考或学习，本项目不提供任何 Live2D Model 资源的相关下载地址，如有需要，请自行寻找。
+本项目中所使用的所有 Live2D 模型仅用作参考或学习，本项目不提供任何 Live2D Model 资源的相关下载地址，如有需要请自行寻找。
+
+### 讨论：
+
+- Q 群：474032914
 
 ## 许可证书：
 
