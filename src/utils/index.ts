@@ -1,5 +1,5 @@
 import CSS from 'csstype';
-import { TIPS } from '../config/tips';
+import { tips } from '../config/tips';
 import { ImportType, TipsType } from '../types/index';
 
 const handleDefaultModelSource = (importType: ImportType) => {
@@ -63,14 +63,14 @@ const handleWelcomeMessage = () => {
   // 深夜
   const lateNightRange = /^2[2-3]$/;
 
-  if (daybreakRange.test(nowHours)) message = TIPS.welcomeTips.message.daybreak;
-  else if (morningRange.test(nowHours)) message = TIPS.welcomeTips.message.morning;
-  else if (noonRange.test(nowHours)) message = TIPS.welcomeTips.message.noon;
-  else if (afternoonRange.test(nowHours)) message = TIPS.welcomeTips.message.afternoon;
-  else if (duskRange.test(nowHours)) message = TIPS.welcomeTips.message.dusk;
-  else if (nightRange.test(nowHours)) message = TIPS.welcomeTips.message.night;
-  else if (lateNightRange.test(nowHours)) message = TIPS.welcomeTips.message.lateNight;
-  else message = TIPS.welcomeTips.message.weeHours;
+  if (daybreakRange.test(nowHours)) message = tips.welcomeTips.message.daybreak;
+  else if (morningRange.test(nowHours)) message = tips.welcomeTips.message.morning;
+  else if (noonRange.test(nowHours)) message = tips.welcomeTips.message.noon;
+  else if (afternoonRange.test(nowHours)) message = tips.welcomeTips.message.afternoon;
+  else if (duskRange.test(nowHours)) message = tips.welcomeTips.message.dusk;
+  else if (nightRange.test(nowHours)) message = tips.welcomeTips.message.night;
+  else if (lateNightRange.test(nowHours)) message = tips.welcomeTips.message.lateNight;
+  else message = tips.welcomeTips.message.weeHours;
   return message;
 };
 
@@ -89,19 +89,19 @@ const getTipsConfig = (tipsType: TipsType) => {
   switch (tipsType) {
     case 'welcome':
       message = handleWelcomeMessage();
-      persistTime = TIPS.welcomeTips.persistTime;
-      priority = TIPS.welcomeTips.priority;
+      persistTime = tips.welcomeTips.persistTime;
+      priority = tips.welcomeTips.priority;
       break;
     case 'idle':
-      message = getTipsMessage(TIPS.idleTips.message!);
-      persistTime = TIPS.idleTips.persistTime!;
-      priority = TIPS.idleTips.priority!;
-      intervalTime = TIPS.idleTips.interval;
+      message = getTipsMessage(tips.idleTips.message!);
+      persistTime = tips.idleTips.persistTime!;
+      priority = tips.idleTips.priority!;
+      intervalTime = tips.idleTips.interval;
       break;
     case 'copy':
-      message = getTipsMessage(TIPS.copyTips.message);
-      persistTime = TIPS.copyTips.persistTime;
-      priority = TIPS.copyTips.priority;
+      message = getTipsMessage(tips.copyTips.message);
+      persistTime = tips.copyTips.persistTime;
+      priority = tips.copyTips.priority;
       break;
     default:
       break;

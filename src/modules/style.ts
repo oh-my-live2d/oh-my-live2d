@@ -1,6 +1,6 @@
 import { LoadOhMyLive2D } from './setup';
 import { setElStyle } from '../utils';
-import '@/assets/icon/iconfont';
+import '@/library/iconfont';
 
 // 设置默认样式
 // const setInitialStyle = function (this: LoadOhMyLive2D) {

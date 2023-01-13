@@ -1,5 +1,5 @@
 import { Application } from 'pixi.js';
-import { defaultConfig, TIPS } from '@/config';
+import { defaultConfig, tips } from '@/config';
 import {
   appendWrapperEl,
   createSuspendBtnEl,
@@ -158,8 +158,8 @@ const setup = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPr
 
   const loadLive2DModel = (config?: Config) => {
     Object.assign(defaultConfig, config);
-    if (defaultConfig.tips?.idleTips) Object.assign(TIPS.idleTips, defaultConfig.tips.idleTips);
-    else if (defaultConfig.tips?.idleTips === false) TIPS.idleTips.message = [];
+    if (defaultConfig.tips?.idleTips) Object.assign(tips.idleTips, defaultConfig.tips.idleTips);
+    else if (defaultConfig.tips?.idleTips === false) tips.idleTips.message = [];
 
     omlInstance = new LoadOhMyLive2D(defaultConfig, L2DModel, importType, motionPreloadStrategy);
     return oml;

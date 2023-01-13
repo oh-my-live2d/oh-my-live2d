@@ -1,5 +1,5 @@
 import { Config } from '../types/index';
-import { TIPS } from './tips';
+import { tips } from './tips';
 
 // 配置默认值
 const defaultConfig: Config = {
@@ -10,4 +10,4 @@ const defaultConfig: Config = {
   scale: 0.1
 };
 
-export { defaultConfig, TIPS };
+export { defaultConfig, tips };

@@ -5,13 +5,6 @@ const createSuspendBtnEl = function () {
   const levitatedSphereEl = document.createElement('div');
   levitatedSphereEl.id = 'oml-levitated-sphere';
 
-  levitatedSphereEl.innerHTML = `
-    <div style="margin-bottom:3px;">加载中</div>
-    <svg class="icon oml-loading" aria-hidden="true" style="stroke: #fff;">
-      <use xlink:href="#icon-loading"></use>
-    </svg>
-  `;
-
   window.document.body.appendChild(levitatedSphereEl);
 
   return levitatedSphereEl;
@@ -22,7 +15,7 @@ const setLevitatedSphereContent = function (this: LoadOhMyLive2D, contentType: '
     case 'loading':
       this.levitatedSphereEl.innerHTML = `
       <div style="margin-bottom:3px;">加载中</div>
-      <svg class="icon oml-loading" aria-hidden="true" style="stroke: #fff;">
+      <svg class="icon oml-loading" aria-hidden="true"">
         <use xlink:href="#icon-loading"></use>
       </svg>
     `;

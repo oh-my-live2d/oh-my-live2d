@@ -1,6 +1,6 @@
 import { Tips } from '../types/index';
 
-const TIPS: Tips = {
+const tips: Tips = {
   idleTips: {
     message: [
       '今天学习了吗？',
@@ -40,4 +40,4 @@ const TIPS: Tips = {
   }
 };
 
-export { TIPS };
+export { tips };
