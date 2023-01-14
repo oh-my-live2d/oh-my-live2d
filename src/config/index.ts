@@ -1,14 +1,15 @@
-import { Config } from '../types/index';
+import { Options } from '../types/index';
 import { tips } from './tips';
 
 // 配置默认值
-const defaultConfig: Config = {
+const defaultOptions: Options = {
   source: '',
   sayHello: true,
   transitionTime: 1000,
   position: [0, 0],
   scale: 0.1,
-  backgroundColor: 'rgba(0, 0, 0, 0)'
+  backgroundColor: 'rgba(0, 0, 0, 0)',
+  tips
 };
 
 const modelSources = {
@@ -17,4 +18,4 @@ const modelSources = {
   cubism4Model: 'https://oml-api.tj520.top/pa15_3701/normal/normal.model3.json'
 };
 
-export { defaultConfig, tips, modelSources };
+export { defaultOptions,  modelSources };

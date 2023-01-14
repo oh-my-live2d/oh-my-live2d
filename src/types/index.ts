@@ -4,23 +4,13 @@
 type ImportType = 'complete' | 'cubism2' | 'cubism4';
 type EventType = 'ready' | 'load';
 type LoadType = 'manual' | 'auto';
-type TipsType = 'welcome' | 'idle' | 'copy';
+type TipsType = 'welcomeTips' | 'idleTips' | 'copyTips';
 
 interface OmlStyle {
   themeColor: string;
 }
 
-interface TipsConfig {
-  idleTips: IdleTipsConfig | false;
-}
-
-interface AdaptiveConfig {
-  width?: number;
-  height?: number;
-  scale?: number | [x: number, y: number];
-}
-
-interface Config {
+interface Options {
   source?: string;
   position?: [x: number, y: number];
   sayHello?: boolean;
@@ -29,7 +19,7 @@ interface Config {
   width?: number;
   height?: number;
   scale?: number | [x: number, y: number];
-  tips?: TipsConfig;
+  tips?: Tips | false;
 }
 
 interface WrapperContentEls {
@@ -37,14 +27,14 @@ interface WrapperContentEls {
   tooltipEl?: HTMLDivElement;
 }
 
-interface IdleTipsConfig {
-  message?: string | string[];
-  persistTime?: number;
-  priority?: number;
-  interval?: number;
+interface IdleTips {
+  message: string | string[];
+  persistTime: number;
+  priority: number;
+  interval: number;
 }
 
-interface WelcomeTipsConfig {
+interface WelcomeTips {
   message: {
     daybreak: string;
     morning: string;
@@ -59,16 +49,16 @@ interface WelcomeTipsConfig {
   priority: number;
 }
 
-interface CopyTipsConfig {
+interface CopyTips {
   message: string | string[];
-  persistTime?: number;
-  priority?: number;
+  persistTime: number;
+  priority: number;
 }
 
 interface Tips {
-  idleTips: IdleTipsConfig;
-  welcomeTips: WelcomeTipsConfig;
-  copyTips: CopyTipsConfig;
+  idleTips: IdleTips;
+  welcomeTips: WelcomeTips;
+  copyTips: CopyTips;
 }
 
 interface OhMyLive2D {
@@ -82,15 +72,14 @@ interface Events {
 export type {
   TipsType,
   OhMyLive2D,
-  Config,
+  Options,
   ImportType,
   WrapperContentEls,
   EventType,
   Events,
   LoadType,
   Tips,
-  IdleTipsConfig,
-  WelcomeTipsConfig,
-  AdaptiveConfig,
+  IdleTips,
+  WelcomeTips,
   OmlStyle
 };

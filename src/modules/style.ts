@@ -4,19 +4,19 @@ import '@/library/iconfont';
 
 const setWrapperStyle = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
-    width: `${this.config!.width ?? this.model.width}px`,
-    height: `${this.config!.height ?? this.model.height}px`,
-    backgroundColor: this.config!.backgroundColor
+    width: `${this.options!.width ?? this.model.width}px`,
+    height: `${this.options!.height ?? this.model.height}px`,
+    backgroundColor: this.options!.backgroundColor
   });
-  this.wrapperContentEls!.canvasEl!.width = this.config!.width ?? this.model.width;
-  this.wrapperContentEls!.canvasEl!.height = this.config!.height ?? this.model.height;
+  this.wrapperContentEls!.canvasEl!.width = this.options!.width ?? this.model.width;
+  this.wrapperContentEls!.canvasEl!.height = this.options!.height ?? this.model.height;
 };
 
 // 隐藏悬浮按钮
 const hiddenLevitatedSphere = function (this: LoadOhMyLive2D) {
   setElStyle(this.levitatedSphereEl, {
     animationName: 'oml-levitated-sphere-hidden',
-    animationDuration: `${this.config.transitionTime}ms`,
+    animationDuration: `${this.options.transitionTime}ms`,
     animationFillMode: 'forwards'
   });
 };
@@ -24,7 +24,7 @@ const hiddenLevitatedSphere = function (this: LoadOhMyLive2D) {
 const displayLevitatedSphere = function (this: LoadOhMyLive2D) {
   setElStyle(this.levitatedSphereEl, {
     animationName: 'oml-levitated-sphere-display',
-    animationDuration: `${this.config.transitionTime}ms`,
+    animationDuration: `${this.options.transitionTime}ms`,
     animationFillMode: 'forwards'
   });
 };
@@ -33,7 +33,7 @@ const displayLevitatedSphere = function (this: LoadOhMyLive2D) {
 const displayLive2d = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
     animationName: 'oml-display',
-    animationDuration: `${this.config.transitionTime}ms`,
+    animationDuration: `${this.options.transitionTime}ms`,
     animationFillMode: 'forwards'
   });
 
@@ -41,7 +41,7 @@ const displayLive2d = function (this: LoadOhMyLive2D) {
     setTimeout(() => {
       resolve();
       this.onEvents.afterDisplay && this.onEvents.afterDisplay();
-    }, this.config.transitionTime)
+    }, this.options.transitionTime)
   );
 };
 
@@ -49,10 +49,10 @@ const displayLive2d = function (this: LoadOhMyLive2D) {
 const hiddenLive2d = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
     animationName: 'oml-hidden',
-    animationDuration: `${this.config.transitionTime}ms`,
+    animationDuration: `${this.options.transitionTime}ms`,
     animationFillMode: 'forwards'
   });
-  return new Promise<void>((resolve) => setTimeout(resolve, this.config.transitionTime));
+  return new Promise<void>((resolve) => setTimeout(resolve, this.options.transitionTime));
 };
 
 // 设置全局初始样式
@@ -111,9 +111,28 @@ const setGlobalInitialStyle = () => {
       animation-timing-function: linear;
     }
 
-
-
-
+    #oml-tooltip {
+      max-width: 280px;
+      width: 80%;
+      min-height: 100px;
+      position: absolute;
+      top: 0px;
+      font-size: 18px;
+      border-radius: 10px;
+      filter: drop-shadow(0 0 5px #999);
+      transform: translate(0%, -40%);
+      background-color: #58b0fc;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 3px 5px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     @keyframes oml-shake-tooltip{
       0% {

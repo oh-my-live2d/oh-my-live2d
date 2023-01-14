@@ -7,31 +7,15 @@
   ],
   "type": "module",
   "types": "./index.d.ts",
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.es.js",
-  "exports": {
-    ".": {
-      "types": "./index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
-    },
-    "./cubism2": {
-      "types": "./index.d.ts",
-      "import": "./dist/oml-cubism2.es.js",
-      "require": "./dist/oml-cubism2.umd.js"
-    },
-    "./cubism4": {
-      "types": "./index.d.ts",
-      "import": "./dist/oml-cubism4.es.js",
-      "require": "./dist/oml-cubism4.umd.js"
-    }
-  },
+  "main": "./dist/index.min.js",
+  "module": "./dist/index.js",
+  
   "scripts": {
     "dev": "cross-env OML_ENV=dev vite",
     "start": "pnpm dev",
     "build": "rimraf ./dist/* && tsc && node ./scripts/build.cjs",
     "refresh": "node ./scripts/refresh-cdn.cjs",
-    "release": "dotenv release-it && npm run build",
+    "release": "dotenv tsc && release-it && npm run build",
     "test": "rimraf ./test/dist/* && cc copy ./dist ./test/dist &&  vite preview --outDir ./test/  --port 7777"
   },
   "description": "一个live2d for web 看板娘组件，支持所有版本的模型，开箱即用。",

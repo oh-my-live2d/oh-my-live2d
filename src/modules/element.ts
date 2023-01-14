@@ -1,4 +1,4 @@
-import { getTipsConfig, sleep } from '../utils/index';
+import { sleep } from '../utils/index';
 import { LoadOhMyLive2D } from './setup';
 
 const createSuspendBtnEl = function () {
@@ -64,21 +64,21 @@ const mediaSearchChange = function (this: LoadOhMyLive2D) {
   xs.addEventListener('change', async (e) => {
     if (e.matches) {
       await this.showTipsFrameMessage('屏幕装不下啦~', 1000, 9);
+      this.disableTips();
       await this.hiddenLive2d();
       await this.displayLevitatedSphere();
       this.setLevitatedSphereContent('text', '休息中');
-      this.isTips = false;
     }
   });
 
   xl.addEventListener('change', async (e) => {
     if (e.matches) {
-      this.isTips = true;
       this.setLevitatedSphereContent('text', '闪亮登场');
       await sleep(500);
+      this.enableTips();
       this.hiddenLevitatedSphere();
-      await await this.displayLive2d();
-      await this.playWelcomeTips();
+      await this.displayLive2d();
+      await this.onTips('welcomeTips');
     }
   });
 };
@@ -93,8 +93,7 @@ const registerEvent = function (this: LoadOhMyLive2D) {
   };
 
   window.addEventListener('copy', () => {
-    const { message, persistTime, priority } = getTipsConfig('copy');
-    this.showTipsFrameMessage(message, persistTime, priority);
+    this.onTips('copyTips');
   });
 
   // this.wrapperEl?.addEventListener('click', () => {

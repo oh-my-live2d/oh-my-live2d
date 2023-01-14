@@ -6,7 +6,7 @@ const { OML_ENV } = process.env;
 export default defineConfig({
   define: {
     __VERSION__: JSON.stringify(project.version),
-    __ENV__: OML_ENV
+    __ENV__: JSON.stringify(OML_ENV)
   },
   build: {
     target: 'es6',

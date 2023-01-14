@@ -17,7 +17,7 @@ const profiles = entries.flatMap(({ entry, name }) => {
         name: 'OML2D',
         formats: minify === 'terser' ? ['umd'] : ['es'],
         entry: path.resolve(__dirname, '..', entry),
-        fileName: (format) => `${name}.${format}.js`
+        fileName: (format) => `${name}.${format === 'umd' ? 'min.js' : 'js'}`
       }
     }
   }));

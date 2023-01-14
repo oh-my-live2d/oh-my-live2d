@@ -1,2 +1,2 @@
 export * from './dist/index';
-export type { Config } from './dist/types/index';
+export type { Options } from './dist/types/index';

@@ -1,5 +1,5 @@
 import { Application } from 'pixi.js';
-import { defaultConfig, tips } from '@/config';
+import { defaultOptions } from '@/config';
 import {
   appendWrapperEl,
   createSuspendBtnEl,
@@ -16,9 +16,17 @@ import {
   hiddenLive2d,
   displayLevitatedSphere
 } from './style';
-import { AdaptiveConfig, Config, Events, ImportType, OhMyLive2D, WrapperContentEls } from '@/types/index';
+import { Options, Events, ImportType, OhMyLive2D, WrapperContentEls } from '@/types/index';
 import { sleep, handleDefaultModelSource, sayHello, setElStyle } from '@/utils/index';
-import { playIdleTips, showTipsFrameMessage, playWelcomeTips } from './tips-frame';
+import {
+  playIdleTips,
+  showTipsFrameMessage,
+  onTips,
+  getWelcomeMessage,
+  getTipsConfig,
+  enableTips,
+  disableTips
+} from './tips';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
 
 class LoadOhMyLive2D {
@@ -27,14 +35,15 @@ class LoadOhMyLive2D {
   wrapperContentEls?: WrapperContentEls;
   wrapperEl?: HTMLDivElement;
   levitatedSphereEl: HTMLDivElement;
-  config: Config;
+  options: Options;
   onEvents: Events;
   importType: ImportType;
-  adaptiveConfig?: AdaptiveConfig;
   motionPreloadStrategy: MotionPreloadStrategy;
   isTips: boolean;
-
   // method
+  stopIdleTips?: () => void;
+  enableTips = enableTips;
+  disableTips = disableTips;
   mediaSearchChange = mediaSearchChange;
   showTipsFrameMessage = showTipsFrameMessage;
   displayLive2d = displayLive2d;
@@ -44,30 +53,32 @@ class LoadOhMyLive2D {
   displayLevitatedSphere = displayLevitatedSphere;
   registerEvent = registerEvent;
   playIdleTips = playIdleTips;
-  playWelcomeTips = playWelcomeTips;
+  onTips = onTips;
   hiddenLive2d = hiddenLive2d;
   setLevitatedSphereContent = setLevitatedSphereContent;
+  getWelcomeMessage = getWelcomeMessage;
+  getTipsConfig = getTipsConfig;
 
-  constructor(defaultConfig: Config, L2DModel, importType: ImportType, motionPreloadStrategy: MotionPreloadStrategy) {
+  constructor(options: Options, L2DModel, importType: ImportType, motionPreloadStrategy: MotionPreloadStrategy) {
     this.L2DModel = L2DModel;
-    this.config = defaultConfig;
     this.importType = importType;
     this.onEvents = {};
     this.motionPreloadStrategy = motionPreloadStrategy;
     this.isTips = true;
+    this.options = Object.assign(defaultOptions, options);
 
     this.levitatedSphereEl = createSuspendBtnEl();
     this.displayLevitatedSphere();
     this.setLevitatedSphereContent('loading');
 
     // 同步创建模型 - 设置动作预加载
-    this.model = this.L2DModel.fromSync(this.config.modelSource, { motionPreload: motionPreloadStrategy });
+    this.model = this.L2DModel.fromSync(this.options.source, { motionPreload: motionPreloadStrategy });
 
     this.initialization();
   }
 
   async initialization() {
-    this.config.sayHello && sayHello(this.importType);
+    this.options.sayHello && sayHello(this.importType);
 
     // 所有资源准备完毕后
     this.model.once('ready', async () => {
@@ -101,8 +112,8 @@ class LoadOhMyLive2D {
         this.isTips = false;
       }
 
-      await this.playWelcomeTips();
-      this.playIdleTips();
+      await this.onTips('welcomeTips');
+      this.enableTips();
     });
 
     // this.model.on('hit', (hitAreaNames) => {
@@ -113,19 +124,19 @@ class LoadOhMyLive2D {
 
   // 设置模型位置
   setModelPosition() {
-    this.model.x = this.config.position![0];
-    this.model.y = this.config.position![1];
+    this.model.x = this.options.position![0];
+    this.model.y = this.options.position![1];
   }
 
   // 设置缩放比例
   setModelScale() {
-    if (Array.isArray(this.config!.scale)) {
-      this.model.scale.set(this.config!.scale[0], this.config!.scale[1]);
+    if (Array.isArray(this.options!.scale)) {
+      this.model.scale.set(this.options!.scale[0], this.options!.scale[1]);
     } else {
-      this.model.scale.set(this.config!.scale);
+      this.model.scale.set(this.options!.scale);
     }
 
-    setElStyle(this.wrapperContentEls!.tooltipEl, { left: `${this.model.width / 2 + this.config.position![0]}px` });
+    setElStyle(this.wrapperContentEls!.tooltipEl, { left: `${this.model.width / 2 + this.options.position![0]}px` });
   }
 
   // 创建app
@@ -150,20 +161,16 @@ const setup = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPr
   setGlobalInitialStyle();
 
   // 根据引入类型设置默认模型来源
-  defaultConfig.modelSource = handleDefaultModelSource(importType);
+  defaultOptions.source = handleDefaultModelSource(importType);
 
   //  自动装载方法 将在HTML解析完毕后执行
   window.document.addEventListener('DOMContentLoaded', () => {
     // 如果已被手动装载则不再实例化装载类
-    omlInstance ?? new LoadOhMyLive2D(defaultConfig, L2DModel, importType, motionPreloadStrategy);
+    omlInstance ?? new LoadOhMyLive2D(defaultOptions, L2DModel, importType, motionPreloadStrategy);
   });
 
-  const loadLive2DModel = (config?: Config) => {
-    Object.assign(defaultConfig, config);
-    if (defaultConfig.tips?.idleTips) Object.assign(tips.idleTips, defaultConfig.tips.idleTips);
-    else if (defaultConfig.tips?.idleTips === false) tips.idleTips.message = [];
-
-    omlInstance = new LoadOhMyLive2D(defaultConfig, L2DModel, importType, motionPreloadStrategy);
+  const loadLive2DModel = (options: Options = {}) => {
+    omlInstance = new LoadOhMyLive2D(options, L2DModel, importType, motionPreloadStrategy);
     return oml;
   };
 
