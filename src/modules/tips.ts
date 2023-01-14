@@ -97,7 +97,7 @@ const getWelcomeMessage = function (this: LoadOhMyLive2D) {
   // 下午
   const afternoonRange = /^1[4-7]$/;
   // 傍晚
-  const duskRange = /^1[8-9]&/;
+  const duskRange = /^1[8-9]$/;
   // 晚上
   const nightRange = /^2[0-1]$/;
   // 深夜

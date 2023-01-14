@@ -1,4 +1,5 @@
 import { Application } from 'pixi.js';
+import { merge } from 'lodash-es';
 import { defaultOptions } from '@/config';
 import {
   appendWrapperEl,
@@ -65,7 +66,7 @@ class LoadOhMyLive2D {
     this.onEvents = {};
     this.motionPreloadStrategy = motionPreloadStrategy;
     this.isTips = true;
-    this.options = Object.assign(defaultOptions, options);
+    this.options = merge(defaultOptions, options);
 
     this.levitatedSphereEl = createSuspendBtnEl();
     this.displayLevitatedSphere();
@@ -79,7 +80,6 @@ class LoadOhMyLive2D {
 
   async initialization() {
     this.options.sayHello && sayHello(this.importType);
-
     // 所有资源准备完毕后
     this.model.once('ready', async () => {
       const { wrapperEl, canvasEl, tooltipEl } = this.appendWrapperEl();

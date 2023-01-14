@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@release-it/conventional-changelog': ^5.1.1
+  '@types/lodash-es': ^4.17.6
   '@types/node': ^18.11.18
   '@typescript-eslint/eslint-plugin': ^5.47.0
   '@typescript-eslint/parser': ^5.47.0
@@ -11,6 +12,7 @@ specifiers:
   csstype: ^3.1.1
   dotenv-cli: ^6.0.0
   eslint: ^8.30.0
+  lodash-es: ^4.17.21
   pixi-live2d-display: ^0.4.0
   pixi.js: 6.5.2
   release-it: ^15.5.1
@@ -19,8 +21,12 @@ specifiers:
   typescript: ^4.9.4
   vite: ^4.0.0
 
+dependencies:
+  lodash-es: 4.17.21
+
 devDependencies:
   '@release-it/conventional-changelog': 5.1.1_release-it@15.5.1
+  '@types/lodash-es': 4.17.6
   '@types/node': 18.11.18
   '@typescript-eslint/eslint-plugin': 5.47.0_ncmi6noazr3nzas7jxykisekym
   '@typescript-eslint/parser': 5.47.0_lzzuuodtsqwxnvqeq4g4likcqa
@@ -972,6 +978,16 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/lodash-es/4.17.6:
+    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: true
 
   /@types/minimist/1.2.2:
@@ -3259,6 +3275,10 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
+
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
 
   /lodash.ismatch/4.4.0:
     resolution: {integrity: sha512-fPMfXjGQEV9Xsq/8MTSgUf255gawYRbjwMyDbcvDhXgV7enSZA0hynz6vMPnpAb5iONEzBHBPsT+0zes5Z301g==}
