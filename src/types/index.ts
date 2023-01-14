@@ -27,38 +27,35 @@ interface WrapperContentEls {
   tooltipEl?: HTMLDivElement;
 }
 
-interface IdleTips {
-  message: string | string[];
-  persistTime: number;
-  priority: number;
-  interval: number;
+interface IdleTips extends CopyTips {
+  interval?: number;
 }
 
 interface WelcomeTips {
-  message: {
-    daybreak: string;
-    morning: string;
-    noon: string;
-    afternoon: string;
-    dusk: string;
-    night: string;
-    lateNight: string;
-    weeHours: string;
+  message?: {
+    daybreak?: string;
+    morning?: string;
+    noon?: string;
+    afternoon?: string;
+    dusk?: string;
+    night?: string;
+    lateNight?: string;
+    weeHours?: string;
   };
-  persistTime: number;
-  priority: number;
+  persistTime?: number;
+  priority?: number;
 }
 
 interface CopyTips {
-  message: string | string[];
-  persistTime: number;
-  priority: number;
+  message?: string | string[];
+  persistTime?: number;
+  priority?: number;
 }
 
 interface Tips {
-  idleTips: IdleTips;
-  welcomeTips: WelcomeTips;
-  copyTips: CopyTips;
+  idleTips?: IdleTips;
+  welcomeTips?: WelcomeTips;
+  copyTips?: CopyTips;
 }
 
 interface OhMyLive2D {
