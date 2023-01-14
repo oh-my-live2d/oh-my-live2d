@@ -27,7 +27,8 @@
     }
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "cross-env OML_ENV=dev vite",
+    "start": "pnpm dev",
     "build": "rimraf ./dist/* && tsc && node ./scripts/build.cjs",
     "refresh": "node ./scripts/refresh-cdn.cjs",
     "release": "dotenv release-it && npm run build",
@@ -52,15 +53,16 @@
     "@typescript-eslint/parser": "^5.47.0",
     "axios": "^1.2.2",
     "cli-cat": "^0.0.2",
+    "cross-env": "^7.0.3",
     "csstype": "^3.1.1",
     "dotenv-cli": "^6.0.0",
     "eslint": "^8.30.0",
+    "pixi-live2d-display": "^0.4.0",
+    "pixi.js": "6.5.2",
     "release-it": "^15.5.1",
     "rimraf": "^3.0.2",
     "terser": "^5.16.1",
     "typescript": "^4.9.4",
-    "vite": "^4.0.0",
-    "pixi-live2d-display": "^0.4.0",
-    "pixi.js": "6.5.2"
+    "vite": "^4.0.0"
   }
 }
