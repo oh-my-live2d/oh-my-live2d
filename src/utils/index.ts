@@ -1,4 +1,5 @@
 import CSS from 'csstype';
+import { modelSources } from '../config';
 import { tips } from '../config/tips';
 import { ImportType, TipsType } from '../types/index';
 
@@ -6,16 +7,16 @@ const handleDefaultModelSource = (importType: ImportType) => {
   let modelSource;
   switch (importType) {
     case 'complete':
-      modelSource = 'https://oml-api.tj520.top/pa15_3701/normal/normal.model3.json';
+      modelSource = modelSources.completeModel;
       break;
     case 'cubism2':
-      modelSource = 'https://oml-api.tj520.top/pio/index.json';
+      modelSource = modelSources.cubism2Model;
       break;
     case 'cubism4':
-      modelSource = 'https://oml-api.tj520.top/pa15_3701/normal/normal.model3.json';
+      modelSource = modelSources.cubism4Model;
       break;
     default:
-      modelSource = 'https://oml-api.tj520.top/pio/index.json';
+      modelSource = modelSources.completeModel;
       break;
   }
   return modelSource;

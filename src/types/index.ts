@@ -6,6 +6,10 @@ type EventType = 'ready' | 'load';
 type LoadType = 'manual' | 'auto';
 type TipsType = 'welcome' | 'idle' | 'copy';
 
+interface OmlStyle {
+  themeColor: string;
+}
+
 interface TipsConfig {
   idleTips: IdleTipsConfig | false;
 }
@@ -17,7 +21,7 @@ interface AdaptiveConfig {
 }
 
 interface Config {
-  modelSource?: string;
+  source?: string;
   position?: [x: number, y: number];
   sayHello?: boolean;
   transitionTime?: number;
@@ -87,5 +91,6 @@ export type {
   Tips,
   IdleTipsConfig,
   WelcomeTipsConfig,
-  AdaptiveConfig
+  AdaptiveConfig,
+  OmlStyle
 };

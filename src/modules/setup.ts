@@ -17,7 +17,7 @@ import {
   displayLevitatedSphere
 } from './style';
 import { AdaptiveConfig, Config, Events, ImportType, OhMyLive2D, WrapperContentEls } from '@/types/index';
-import { sleep, handleDefaultModelSource, sayHello } from '@/utils/index';
+import { sleep, handleDefaultModelSource, sayHello, setElStyle } from '@/utils/index';
 import { playIdleTips, showTipsFrameMessage, playWelcomeTips } from './tips-frame';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
 
@@ -124,6 +124,8 @@ class LoadOhMyLive2D {
     } else {
       this.model.scale.set(this.config!.scale);
     }
+
+    setElStyle(this.wrapperContentEls!.tooltipEl, { left: `${this.model.width / 2 + this.config.position![0]}px` });
   }
 
   // 创建app

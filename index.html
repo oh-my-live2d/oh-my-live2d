@@ -6,27 +6,71 @@
     <title>OhMyLive2D</title>
     <style>
       body {
-        background-color: #ccc;
+      }
+      .test {
+        border-style: solid;
+        border-width: 2px 2px 2px 0px;
+        border-color: #fff;
       }
 
-      #oml-levitated-sphere {
-        position: fixed;
-        left: 0;
-        bottom: 80px;
-        padding: 7px 5px;
-        z-index: 9998;
+      #oml-tooltip {
+        max-width: 280px;
+        width: 80%;
+        min-height: 100px;
+        position: absolute;
+        top: 0px;
+        font-size: 18px;
+        border-radius: 10px;
+        filter: drop-shadow(0 0 5px #999);
+        transform: translate(0%, -40%);
         background-color: #58b0fc;
-        border-radius: 0 5px 5px 0;
-        box-shadow: 0 0 5px #999;
+        border: 2px solid #fff;
         color: #fff;
-        writing-mode: vertical-lr;
+        padding: 3px 5px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%);
+        text-align: center;
         display: flex;
         align-items: center;
-        text-align: center;
-        align-items: center;
-        flex-wrap: wrap;
-        font-size: 14px;
+        justify-content: center;
       }
+
+      /* .pop-with-border {
+        margin: 30px;
+        width: 200px;
+        height: 100px;
+        padding: 10px;
+        background: #58affc94;
+        border-radius: 8px;
+        position: relative;
+        border: 2px solid #fff;
+        filter: drop-shadow(0 0 5px #999);
+        color: #fff;
+      }
+
+      .pop-with-border:before,
+      .pop-with-border:after {
+        border: 8px solid;
+        border-color: #58affc94 transparent transparent transparent;
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+        position: absolute;
+        z-index: 101;
+        bottom: -15px;
+      }
+
+      .pop-with-border:before {
+        bottom: -20px;
+        z-index: 99;
+        border-color: #fff transparent transparent transparent;
+        border-width: 10px;
+      } */
     </style>
   </head>
   <body>

@@ -3,11 +3,18 @@ import { tips } from './tips';
 
 // 配置默认值
 const defaultConfig: Config = {
-  modelSource: '',
-  position: [0, 0],
+  source: '',
   sayHello: true,
   transitionTime: 1000,
-  scale: 0.1
+  position: [0, 0],
+  scale: 0.1,
+  backgroundColor: 'rgba(0, 0, 0, 0)'
 };
 
-export { defaultConfig, tips };
+const modelSources = {
+  completeModel: 'https://oml-api.tj520.top/pa15_3701/normal/normal.model3.json',
+  cubism2Model: 'https://oml-api.tj520.top/pio/index.json',
+  cubism4Model: 'https://oml-api.tj520.top/pa15_3701/normal/normal.model3.json'
+};
+
+export { defaultConfig, tips, modelSources };

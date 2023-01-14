@@ -1,3 +1,0 @@
-const theme = {};
-
-export { theme };

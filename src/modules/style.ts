@@ -2,15 +2,6 @@ import { LoadOhMyLive2D } from './setup';
 import { setElStyle } from '../utils';
 import '@/library/iconfont';
 
-// 设置默认样式
-// const setInitialStyle = function (this: LoadOhMyLive2D) {
-//   setElStyle(this.wrapperEl, {
-//     width: `${this.config.size}px`,
-//     height: `${this.config.size}px`,
-//     backgroundColor: this.config.backgroundColor
-//   });
-// };
-
 const setWrapperStyle = function (this: LoadOhMyLive2D) {
   setElStyle(this.wrapperEl, {
     width: `${this.config!.width ?? this.model.width}px`,
@@ -98,6 +89,9 @@ const setGlobalInitialStyle = () => {
       padding: 7px 5px;
       z-index: 9998;
       background-color: #58b0fc;
+      border-style: solid;
+      border-width: 2px 2px 2px 0px;
+      border-color: #fff;
       border-radius: 0 5px 5px 0;
       box-shadow: 0 0 5px #999;
       color: #fff;
@@ -117,39 +111,20 @@ const setGlobalInitialStyle = () => {
       animation-timing-function: linear;
     }
 
-    #oml-tooltip {
-      min-width: 80%;
-      min-height: 80px;
-      position: absolute;
-      top: 0%;
-      left: 50%;
-      font-size: 18px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px #999;
-      transform: translate(-50%,-40%);
-      background-color: #58b0fc;
-      border: 3px solid #add7fb;
-      color: #fff;
-      padding: 3px 5px;
-      opacity: 0;
-      visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+
 
 
 
     @keyframes oml-shake-tooltip{
       0% {
-        transform: translate(-50%, -42%) scale(0.99);
+        transform: translate(-50%, 5%) scale(0.99);
       }
       50% {
      
-        transform: translate(-50%, -40%) scale(1);
+        transform: translate(-50%, 0%) scale(1);
       }
       100% {
-        transform: translate(-50%, -42%) scale(0.99);
+        transform: translate(-50%, 5%) scale(0.99);
       }
     }
 
