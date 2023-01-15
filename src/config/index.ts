@@ -7,7 +7,7 @@ const defaultOptions: Options = {
   sayHello: true,
   transitionTime: 1000,
   position: [0, 0],
-  scale: 0.1,
+  scale: 0.04,
   backgroundColor: 'rgba(0, 0, 0, 0)',
   tips
 };

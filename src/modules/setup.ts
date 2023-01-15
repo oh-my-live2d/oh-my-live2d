@@ -103,14 +103,16 @@ class LoadOhMyLive2D {
 
       await sleep(100);
 
-      if (getScreenSize() === 'xl') {
-        this.hiddenLevitatedSphere();
-        await this.displayLive2d();
-      } else {
-        await sleep(500);
-        this.setLevitatedSphereContent('text', '休息中');
-        this.isTips = false;
-      }
+      // if (getScreenSize() === 'xl') {
+      //   this.hiddenLevitatedSphere();
+      //   await this.displayLive2d();
+      // } else {
+      //   await sleep(500);
+      //   this.setLevitatedSphereContent('text', '休息中');
+      //   this.isTips = false;
+      // }
+      this.hiddenLevitatedSphere();
+      await this.displayLive2d();
 
       await this.onTips('welcomeTips');
       this.enableTips();
@@ -143,8 +145,10 @@ class LoadOhMyLive2D {
   createPixiApp() {
     return new Application({
       view: this.wrapperContentEls!.canvasEl,
+      resolution: 2,
       autoStart: true,
       backgroundAlpha: 0,
+      autoDensity: true,
       resizeTo: this.wrapperEl
     });
   }
