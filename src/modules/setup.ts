@@ -80,6 +80,7 @@ class LoadOhMyLive2D {
 
   async initialization() {
     this.options.sayHello && sayHello(this.importType);
+
     // 所有资源准备完毕后
     this.model.once('ready', async () => {
       const { wrapperEl, canvasEl, tooltipEl } = this.appendWrapperEl();
@@ -102,19 +103,16 @@ class LoadOhMyLive2D {
 
       await sleep(100);
 
-      // if (getScreenSize() === 'xl') {
-      //   this.hiddenLevitatedSphere();
-      //   await this.displayLive2d();
-      // } else {
-      //   await sleep(500);
-      //   this.setLevitatedSphereContent('text', '休息中');
-      //   this.isTips = false;
-      // }
-      this.hiddenLevitatedSphere();
-      await this.displayLive2d();
-
-      await this.onTips('welcomeTips');
-      this.enableTips();
+      if (getScreenSize() === 'xl') {
+        this.hiddenLevitatedSphere();
+        await this.displayLive2d();
+        await this.onTips('welcomeTips');
+        this.enableTips();
+      } else {
+        await sleep(500);
+        this.setLevitatedSphereContent('text', '休息中');
+        this.disableTips();
+      }
     });
 
     // this.model.on('hit', (hitAreaNames) => {
