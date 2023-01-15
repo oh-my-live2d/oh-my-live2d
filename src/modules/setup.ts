@@ -98,7 +98,6 @@ class LoadOhMyLive2D {
       const app = this.createPixiApp();
 
       app.stage.addChild(this.model);
-      app.renderer.resize(wrapperEl.offsetWidth, wrapperEl.offsetHeight);
       this.setLevitatedSphereContent('text', '加载完成');
 
       await sleep(100);
