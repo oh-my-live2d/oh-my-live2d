@@ -1,33 +1,20 @@
 import { Application } from 'pixi.js';
 import { merge } from 'lodash-es';
-import { defaultOptions } from '@/config';
-import {
-  appendWrapperEl,
-  createSuspendBtnEl,
-  getScreenSize,
-  mediaSearchChange,
-  registerEvent,
-  setLevitatedSphereContent
-} from './element';
+import { defaultJsonPath, defaultOptions } from '@/config';
+import { appendWrapperEl, createSuspendBtnEl, getScreenSize, mediaSearchChange, registerEvent, setLevitatedSphereContent } from './element';
+
+import { Options, Events, ImportType, OhMyLive2D, WrapperContentEls, DefaultOptions } from '@/types/index';
+import { sleep, sayHello, handleSplicingModelSource } from '@/utils/index';
+import { playIdleTips, showTipsFrameMessage, onTips, getWelcomeMessage, getTipsConfig, enableTips, disableTips } from './tips';
 import {
   displayLive2d,
   setGlobalInitialStyle,
   hiddenLevitatedSphere,
   setWrapperStyle,
   hiddenLive2d,
-  displayLevitatedSphere
+  displayLevitatedSphere,
+  setTooltipStyle
 } from './style';
-import { Options, Events, ImportType, OhMyLive2D, WrapperContentEls } from '@/types/index';
-import { sleep, handleDefaultModelSource, sayHello, setElStyle } from '@/utils/index';
-import {
-  playIdleTips,
-  showTipsFrameMessage,
-  onTips,
-  getWelcomeMessage,
-  getTipsConfig,
-  enableTips,
-  disableTips
-} from './tips';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
 
 class LoadOhMyLive2D {
@@ -36,7 +23,7 @@ class LoadOhMyLive2D {
   wrapperContentEls?: WrapperContentEls;
   wrapperEl?: HTMLDivElement;
   levitatedSphereEl: HTMLDivElement;
-  options: Options;
+  options: DefaultOptions;
   onEvents: Events;
   importType: ImportType;
   motionPreloadStrategy: MotionPreloadStrategy;
@@ -59,6 +46,7 @@ class LoadOhMyLive2D {
   setLevitatedSphereContent = setLevitatedSphereContent;
   getWelcomeMessage = getWelcomeMessage;
   getTipsConfig = getTipsConfig;
+  setTooltipStyle = setTooltipStyle;
 
   constructor(options: Options, L2DModel, importType: ImportType, motionPreloadStrategy: MotionPreloadStrategy) {
     this.L2DModel = L2DModel;
@@ -72,8 +60,10 @@ class LoadOhMyLive2D {
     this.displayLevitatedSphere();
     this.setLevitatedSphereContent('loading');
 
+    const modelSource = handleSplicingModelSource(this.options.source, this.options.models.path);
+
     // 同步创建模型 - 设置动作预加载
-    this.model = this.L2DModel.fromSync(this.options.source, { motionPreload: motionPreloadStrategy });
+    this.model = this.L2DModel.fromSync(modelSource, { motionPreload: motionPreloadStrategy });
 
     this.initialization();
   }
@@ -95,6 +85,8 @@ class LoadOhMyLive2D {
       this.setModelScale();
 
       this.setWrapperStyle();
+
+      this.setTooltipStyle();
 
       const app = this.createPixiApp();
 
@@ -123,19 +115,17 @@ class LoadOhMyLive2D {
 
   // 设置模型位置
   setModelPosition() {
-    this.model.x = this.options.position![0];
-    this.model.y = this.options.position![1];
+    this.model.x = this.options.models.x;
+    this.model.y = this.options.models.y;
   }
 
   // 设置缩放比例
   setModelScale() {
-    if (Array.isArray(this.options!.scale)) {
-      this.model.scale.set(this.options!.scale[0], this.options!.scale[1]);
+    if (Array.isArray(this.options.models.scale)) {
+      this.model.scale.set(this.options.models.scale[0] * 0.1, this.options.models.scale[1] * 0.1);
     } else {
-      this.model.scale.set(this.options!.scale);
+      this.model.scale.set(this.options.models.scale * 0.1);
     }
-
-    setElStyle(this.wrapperContentEls!.tooltipEl, { left: `${this.model.width / 2 + this.options.position![0]}px` });
   }
 
   // 创建app
@@ -162,7 +152,7 @@ const setup = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPr
   setGlobalInitialStyle();
 
   // 根据引入类型设置默认模型来源
-  defaultOptions.source = handleDefaultModelSource(importType);
+  defaultOptions.models.path = defaultJsonPath[importType];
 
   //  自动装载方法 将在HTML解析完毕后执行
   window.document.addEventListener('DOMContentLoaded', () => {

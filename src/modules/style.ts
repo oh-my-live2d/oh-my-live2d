@@ -2,14 +2,26 @@ import { LoadOhMyLive2D } from './setup';
 import { setElStyle } from '../utils';
 import '@/library/iconfont';
 
-const setWrapperStyle = function (this: LoadOhMyLive2D) {
-  setElStyle(this.wrapperEl, {
-    width: `${this.options!.width ?? this.model.width}px`,
-    height: `${this.options!.height ?? this.model.height}px`,
-    backgroundColor: this.options!.backgroundColor
+const setTooltipStyle = function (this: LoadOhMyLive2D) {
+  if (!this.options.tips) return;
+  setElStyle(this.wrapperContentEls?.tooltipEl, {
+    width: `${this.options.tips.style.width}px`,
+    height: `${this.options.tips.style.height}px`,
+    top: `${0 - this.options.tips.style.offsetY}px`,
+    left: `${this.model.width / 2 + this.options.models.x + this.options.tips.style.offsetX}px`
   });
-  this.wrapperContentEls!.canvasEl!.width = this.options!.width ?? this.model.width;
-  this.wrapperContentEls!.canvasEl!.height = this.options!.height ?? this.model.height;
+};
+
+const setWrapperStyle = function (this: LoadOhMyLive2D) {
+  const width = this.options.models.stageStyle.width === 'auto' ? this.model.width : this.options.models.stageStyle.width;
+  const height = this.options.models.stageStyle.height === 'auto' ? this.model.height : this.options.models.stageStyle.height;
+  setElStyle(this.wrapperEl, {
+    width: `${width}px`,
+    height: `${height}px`,
+    backgroundColor: this.options.models.stageStyle.backgroundColor
+  });
+  this.wrapperContentEls!.canvasEl!.width = width;
+  this.wrapperContentEls!.canvasEl!.height = height;
 };
 
 // 隐藏悬浮按钮
@@ -112,9 +124,6 @@ const setGlobalInitialStyle = () => {
     }
 
     #oml-tooltip {
-      max-width: 280px;
-      width: 80%;
-      min-height: 100px;
       position: absolute;
       top: 0px;
       font-size: 18px;
@@ -168,7 +177,6 @@ const setGlobalInitialStyle = () => {
         visibility: visible;
       }
     }
-
 
     @keyframes oml-loading-rotate {
       0% {
@@ -230,5 +238,6 @@ export {
   setGlobalInitialStyle,
   hiddenLevitatedSphere,
   setElStyle,
-  displayLevitatedSphere
+  displayLevitatedSphere,
+  setTooltipStyle
 };

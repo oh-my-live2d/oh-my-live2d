@@ -100,11 +100,4 @@ const registerEvent = function (this: LoadOhMyLive2D) {
   //   this.showTipsFrameMessage('hello', 8000, 4);
   // });
 };
-export {
-  appendWrapperEl,
-  registerEvent,
-  createSuspendBtnEl,
-  getScreenSize,
-  setLevitatedSphereContent,
-  mediaSearchChange
-};
+export { appendWrapperEl, registerEvent, createSuspendBtnEl, getScreenSize, setLevitatedSphereContent, mediaSearchChange };

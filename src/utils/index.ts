@@ -1,24 +1,16 @@
 import CSS from 'csstype';
-import { modelSources } from '../config';
 import { ImportType } from '../types/index';
 
-const handleDefaultModelSource = (importType: ImportType) => {
-  let modelSource;
-  switch (importType) {
-    case 'complete':
-      modelSource = modelSources.completeModel;
-      break;
-    case 'cubism2':
-      modelSource = modelSources.cubism2Model;
-      break;
-    case 'cubism4':
-      modelSource = modelSources.cubism4Model;
-      break;
-    default:
-      modelSource = modelSources.completeModel;
-      break;
-  }
-  return modelSource;
+const handleSplicingModelSource = (source: string, path: string) => {
+  let finalSource = '';
+  let finalPath = '';
+  if (source.endsWith('/')) finalSource = source;
+  else finalSource = source + '/';
+
+  if (!(path[0] === '/')) finalPath = path;
+  else finalPath = path.slice(1);
+
+  return finalSource + finalPath;
 };
 
 const sayHello = (importType: ImportType) => {
@@ -44,9 +36,4 @@ const sleep = (time: number) => {
   return new Promise<void>((resolve) => setTimeout(resolve, time));
 };
 
-export {
-  handleDefaultModelSource,
-  sayHello,
-  setElStyle,
-  sleep,
-};
+export { sayHello, setElStyle, sleep, handleSplicingModelSource };

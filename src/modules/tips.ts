@@ -4,12 +4,7 @@ import type { TipsType } from '../types';
 let tipsTimer: any = 0;
 let tipsPriority = 0;
 
-const showTipsFrameMessage = function (
-  this: LoadOhMyLive2D,
-  message: string | undefined,
-  showTime: number,
-  priority: number
-) {
+const showTipsFrameMessage = function (this: LoadOhMyLive2D, message: string | undefined, showTime: number, priority: number) {
   if (tipsPriority > priority || !this.isTips || !message) return;
   return new Promise<void>((resolve) => {
     tipsPriority = priority;
@@ -30,6 +25,7 @@ const showTipsFrameMessage = function (
     setTimeout(resolve, showTime + 1000);
   });
 };
+
 const enableTips = function (this: LoadOhMyLive2D) {
   this.isTips = true;
   this.stopIdleTips = this.playIdleTips();
@@ -68,10 +64,9 @@ const onTips = async function (this: LoadOhMyLive2D, tipsType: TipsType) {
 
 const getTipsConfig = function (this: LoadOhMyLive2D, tipsType: TipsType) {
   if (!this.options.tips) return;
-  const message =
-    tipsType === 'welcomeTips' ? this.getWelcomeMessage() : getTipsMessage(this.options.tips[tipsType]!.message!);
-  const persistTime = this.options.tips[tipsType]!.persistTime!;
-  const priority = this.options.tips[tipsType]!.priority!;
+  const message = tipsType === 'welcomeTips' ? this.getWelcomeMessage() : getTipsMessage(this.options.tips[tipsType].message!);
+  const persistTime = this.options.tips[tipsType]!.persistTime;
+  const priority = this.options.tips[tipsType].priority!;
   const interval = tipsType === 'idleTips' ? this.options.tips[tipsType]!.interval : undefined;
   return { message, priority, persistTime, interval };
 };
@@ -103,14 +98,14 @@ const getWelcomeMessage = function (this: LoadOhMyLive2D) {
   // 深夜
   const lateNightRange = /^2[2-3]$/;
 
-  if (daybreakRange.test(nowHours)) message = welcomeTips!.message!.daybreak!;
-  else if (morningRange.test(nowHours)) message = welcomeTips!.message!.morning!;
-  else if (noonRange.test(nowHours)) message = welcomeTips!.message!.noon!;
-  else if (afternoonRange.test(nowHours)) message = welcomeTips!.message!.afternoon!;
-  else if (duskRange.test(nowHours)) message = welcomeTips!.message!.dusk!;
-  else if (nightRange.test(nowHours)) message = welcomeTips!.message!.night!;
-  else if (lateNightRange.test(nowHours)) message = welcomeTips!.message!.lateNight!;
-  else message = welcomeTips!.message!.weeHours!;
+  if (daybreakRange.test(nowHours)) message = welcomeTips.message.daybreak;
+  else if (morningRange.test(nowHours)) message = welcomeTips.message.morning;
+  else if (noonRange.test(nowHours)) message = welcomeTips.message.noon;
+  else if (afternoonRange.test(nowHours)) message = welcomeTips.message.afternoon;
+  else if (duskRange.test(nowHours)) message = welcomeTips.message.dusk;
+  else if (nightRange.test(nowHours)) message = welcomeTips.message!.night!;
+  else if (lateNightRange.test(nowHours)) message = welcomeTips.message.lateNight;
+  else message = welcomeTips.message.weeHours;
   return message;
 };
 
