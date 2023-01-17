@@ -17,7 +17,7 @@
     "start": "pnpm dev",
     "build": "rimraf ./dist/* && tsc && node ./scripts/build.cjs",
     "refresh": "node ./scripts/refresh-cdn.cjs",
-    "release": "dotenv tsc && release-it && npm run build",
+    "release": "tsc && dotenv release-it && npm run build",
     "test": "rimraf ./test/dist/* && cc copy ./dist ./test/dist &&  vite preview --outDir ./test/  --port 7777"
   },
   "description": "一个live2d for web 看板娘组件，支持所有版本的模型，开箱即用。",
