@@ -61,7 +61,7 @@ interface Options {
    */
   models?: Models;
   /**
-   * 调整提示框
+   * 定义提示框
    */
   tips?: Tips | false;
 }

@@ -10,6 +10,9 @@
   "main": "./dist/index.min.js",
   "module": "./dist/index.js",
   "scripts": {
+    "docs:dev": "vuepress dev docs/src",
+    "docs:build": "vuepress build docs/src",
+    "docs:clean-dev": "vuepress dev docs/src --clean-cache",
     "dev": "cross-env OML_ENV=dev vite",
     "start": "pnpm dev",
     "build": "rimraf ./dist/* && tsc && node ./scripts/build.cjs",
@@ -35,8 +38,8 @@
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
+    "@vuepress/client": "2.0.0-beta.60",
     "axios": "^1.2.2",
-    "cli-cat": "^0.0.2",
     "cross-env": "^7.0.3",
     "csstype": "^3.1.1",
     "dotenv-cli": "^6.0.0",
@@ -47,7 +50,10 @@
     "rimraf": "^3.0.2",
     "terser": "^5.16.1",
     "typescript": "^4.9.4",
-    "vite": "^4.0.0"
+    "vite": "^4.0.0",
+    "vue": "^3.2.45",
+    "vuepress": "2.0.0-beta.60",
+    "vuepress-theme-hope": "2.0.0-beta.160"
   },
   "dependencies": {
     "lodash-es": "^4.17.21"

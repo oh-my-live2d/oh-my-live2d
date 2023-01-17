@@ -24,4 +24,6 @@ public/*
 *.sln
 *.sw?
 .env
-src/assets/model
+src/assets/model.temp
+.cache
+.temp
