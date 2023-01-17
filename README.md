@@ -30,7 +30,7 @@ oh-my-live2d 是一个开箱即用的 **Live2D 看板娘 web 应用组件**，�
 在 `<body>` 标签中加入以下内容:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
 ```
 
 ### 通过 `CDN` 方式导入：
@@ -46,7 +46,7 @@ oh-my-live2d 是一个开箱即用的 **Live2D 看板娘 web 应用组件**，�
   </head>
   <body>
     <div id="app"></div>
-    <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
     <script>
       // ...业务代码
     </script>
