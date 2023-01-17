@@ -10,8 +10,8 @@
   "main": "./dist/index.min.js",
   "module": "./dist/index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs/src",
-    "docs:build": "vuepress build docs/src",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "docs:clean-dev": "vuepress dev docs/src --clean-cache",
     "dev": "cross-env OML_ENV=dev vite",
     "start": "pnpm dev",
