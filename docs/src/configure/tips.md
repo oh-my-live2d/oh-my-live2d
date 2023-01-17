@@ -192,7 +192,7 @@ const oml = loadLive2DModel({
 ## copyTips.priority
 
 - 类型：`number`
-- 默认值：`2`
+- 默认值：`9`
 - 详情：
 
   提示优先级，优先级大的提示将覆盖小的并优先展示。
