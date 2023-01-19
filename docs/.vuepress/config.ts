@@ -6,7 +6,7 @@ export default defineUserConfig({
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'OhMyLive2D',
+      title: 'oh-my-live2d',
       description: 'The Oh My Live2D Documents'
     },
     '/zh/': {
