@@ -13,8 +13,7 @@ export default hopeTheme({
   logo: '/logo-black.png',
   logoDark: '/logo-white.png',
 
-  repo: 'oh-my-live2d/oh-my-live2d',
-
+  repo: 'oh-my-live2d/vuepress-plugin-oh-my-live2d',
 
   locales: {
     '/': {
@@ -23,7 +22,6 @@ export default hopeTheme({
 
       // sidebar
       sidebar: enSidebar,
-
 
       displayFooter: true,
 
@@ -42,7 +40,6 @@ export default hopeTheme({
       // sidebar
       sidebar: zhSidebar,
 
-
       displayFooter: true,
 
       // page meta
@@ -52,12 +49,6 @@ export default hopeTheme({
     }
   },
 
-  encrypt: {
-    config: {
-      '/demo/encrypt.html': ['1234'],
-      '/zh/demo/encrypt.html': ['1234']
-    }
-  },
 
   plugins: {
     // If you don’t need comment feature, you can remove following option

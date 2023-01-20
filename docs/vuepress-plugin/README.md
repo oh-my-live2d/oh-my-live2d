@@ -25,22 +25,18 @@ features:
     link: /configure/
     details: 可自定义模型来源，以及多个控件的样式。
 
-  - title: 支持 Vuepress2
+  - title: 同步更新
     icon: creative
-    link: /vuepress-plugin/
-    details: 在 Vuepress2 中使用 oh-my-live2d 扩展插件
+    link: https://oh-my-live2d.netlify.app/
+    details: 插件核心依赖于 oh-my-live2d 并与之同步更新。
 
 copyright: false
 footer: 使用 <a href="https://github.com/oh-my-live2d/oh-my-live2d" target="_blank">oh-my-live2d</a> MIT 协议, 版权所有 © 2023-present Loclink
 ---
 
-# vuepress-plugin-oh-my-live2d
+# 快速开始：
 
-vuepress-plugin-oh-my-live2d 是一个用于 vuepress 2 的 live2d 看板娘插件，基于 [oh-my-live2d](https://github.com/oh-my-live2d/oh-my-live2d) 扩展开发，并与之同步更新。
-
-## 快速开始：
-
-### 安装：
+## 安装：
 
 ::: code-tabs#shell
 
@@ -64,7 +60,7 @@ yarn add vuepress-plugin-oh-my-live2d@next
 
 :::
 
-### 使用：
+## 使用：
 
 ```ts
 // .vuepress/config.ts
@@ -80,6 +76,6 @@ export default defineUserConfig({
 });
 ```
 
-### 配置：
+## 配置选项：
 
-参考：[基础配置](/configure/)
+请参考：[基础配置](/configure/)

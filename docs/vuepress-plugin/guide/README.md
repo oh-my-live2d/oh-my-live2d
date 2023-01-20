@@ -1,10 +1,6 @@
 # 介绍
 
-OhMyLive2D 是一个支持所有 Live2D 模型版本的 [Live2d For Web](https://www.live2d.com/download/cubism-sdk/) 应用组件。
-
-OhMyLive2D 的初衷是为了解决官方 Cubism SDK 在使用时还需要额外通过 script 标签外部引入以及使用和学习成本较高的缺点。而现在它在被 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display) 驱动的同时又提供了多种导入方式和按需导入的模式，以及更加方便自定义配置的 API。现在你完全可以在 **vite** 或者 **webpack** 中更快捷的使用它，并且无需其他导入任何 SDK。
-
-本项目主要是依赖于 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display)，感谢 **pixi-live2d-display** 为 **Live2D** 社区做出的贡献。
+vuepress-plugin-oh-my-live2d 是一个用于 vuepress 2 的 live2d 看板娘插件，基于 [oh-my-live2d](https://github.com/oh-my-live2d/oh-my-live2d) 扩展开发，并与之同步更新。
 
 # Live2D 是什么
 
@@ -23,7 +19,3 @@ Cubism 4 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
 :::tip
 本项目已集成 Cubism 2.1 与 Cubism 4.2.2 ，完整覆盖了 Live2D Model 的所有版本。
 :::
-
-# 扩展内容
-
-- [vuepress-plugin-oh-my-live2d](https://github.com/oh-my-live2d/vuepress-plugin-oh-my-live2d)：在 vuepress2 中通过插件开发，现已得到支持。
