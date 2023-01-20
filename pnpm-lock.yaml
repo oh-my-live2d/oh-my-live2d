@@ -25,7 +25,7 @@ importers:
       vite: ^4.0.0
       vue: ^3.2.45
       vuepress: 2.0.0-beta.60
-      vuepress-plugin-oh-my-live2d: ^0.0.14
+      vuepress-plugin-oh-my-live2d: ^0.0.15
       vuepress-theme-hope: 2.0.0-beta.158
     dependencies:
       lodash-es: 4.17.21
@@ -50,7 +50,7 @@ importers:
       vite: 4.0.4_qfz55zahqkp66vn23sxaaw3yfe
       vue: 3.2.45
       vuepress: 2.0.0-beta.60_pvquqe426tgrtnj6nzye3srvmy
-      vuepress-plugin-oh-my-live2d: 0.0.14
+      vuepress-plugin-oh-my-live2d: 0.0.15
       vuepress-theme-hope: 2.0.0-beta.158_e7jwb2ulu5orbkux7obq5onfau
 
   docs:
@@ -8766,8 +8766,8 @@ packages:
       - supports-color
     dev: true
 
-  /vuepress-plugin-oh-my-live2d/0.0.14:
-    resolution: {integrity: sha512-7hoVMIgWUi3+UWoBb1ITaCjrmLwtTDDKsF2abYQUFYtsXejHGzlDEMG8xSsA/F33wjFDn9weA5V75l+AYyhBhg==}
+  /vuepress-plugin-oh-my-live2d/0.0.15:
+    resolution: {integrity: sha512-wDR1HXJZjHgk26rKE60OBDaZ0VrXa/RLYMyEymrlcSAZrI9oCK6QAHXaqq6bm5lrODUbqWlqoeBMlAz7C7bZjQ==}
     dependencies:
       oh-my-live2d: 0.0.21
     dev: true
