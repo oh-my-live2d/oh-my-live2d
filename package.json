@@ -10,9 +10,12 @@
   "main": "./dist/index.min.js",
   "module": "./dist/index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "docs:clean-dev": "vuepress dev docs/src --clean-cache",
+    "docs:dev": "vuepress dev docs/self",
+    "docs:build": "vuepress build docs/self",
+    "docs:clean-dev": "vuepress dev docs/self --clean-cache",
+    "docs:plugin-dev": "vuepress dev docs/vuepress-plugin",
+    "docs:plugin-build": "vuepress build docs/vuepress-plugin",
+    "docs:plugin-clean-dev": "vuepress dev docs/vuepress-plugin --clean-cache",
     "dev": "cross-env OML_ENV=dev vite",
     "start": "pnpm dev",
     "build": "rimraf ./dist/* && tsc && node ./scripts/build.cjs",
@@ -53,7 +56,7 @@
     "vite": "^4.0.0",
     "vue": "^3.2.45",
     "vuepress": "2.0.0-beta.60",
-    "vuepress-theme-hope": "2.0.0-beta.160"
+    "vuepress-theme-hope": "2.0.0-beta.165"
   },
   "dependencies": {
     "lodash-es": "^4.17.21"

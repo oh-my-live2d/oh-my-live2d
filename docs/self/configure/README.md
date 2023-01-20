@@ -16,13 +16,13 @@ order: 1
   该选项所填地址为固定地址，即不包含 model.json 文件具体路径的地址，该地址在加载时将与 models.path 选项中所填写的具体路径拼接为完整路径，例如：
 
   ```ts
-  const oml = loadLive2DModel({
+  {
     source: 'https://oml-api.tj520.top',
     models: {
       path: '/Pio/index.json'
     }
     // ...more
-  });
+  }
   ```
 
   在这个配置中，模型的加载路径会自动拼接为：`https://oml-api.tj520.top/Pio/index.json`
@@ -52,7 +52,7 @@ order: 1
   自定义模型相关属性
 
 - 参考：
-  - [配置 > models](/zh/configure/models.md)
+  - [配置 > models](/configure/models.md)
 
 ## tips
 
@@ -62,4 +62,4 @@ order: 1
   自定义提示框相关属性，为 `false` 时关闭提示框。
 
 - 参考：
-  - [配置 > tips](/zh/configure/tips.md)
+  - [配置 > tips](/configure/tips.md)

@@ -8,7 +8,6 @@ export default hopeTheme({
     name: 'Loclink',
     url: 'https://www.tj520.top'
   },
-
   iconAssets: 'iconfont',
 
   logo: '/logo-black.png',
@@ -16,7 +15,6 @@ export default hopeTheme({
 
   repo: 'oh-my-live2d/oh-my-live2d',
 
-  docsDir: 'demo/theme-docs/src',
 
   locales: {
     '/': {
@@ -26,7 +24,6 @@ export default hopeTheme({
       // sidebar
       sidebar: enSidebar,
 
-      footer: 'Default footer',
 
       displayFooter: true,
 
@@ -45,7 +42,6 @@ export default hopeTheme({
       // sidebar
       sidebar: zhSidebar,
 
-      footer: '默认页脚',
 
       displayFooter: true,
 

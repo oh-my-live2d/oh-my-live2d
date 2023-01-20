@@ -6,10 +6,32 @@
 
 并且该方法接收一个 `options` 配置选项对象，在调用后返回 `oml` 对象，示例如下。
 
-## CDN 导入方式
+::: code-tabs#ts
+
+@tab:active CDN
+
+```js
+const oml = OML2D.loadLive2DModel({
+  // 在此进行配置
+});
+```
+
+@tab ESM
+
+```ts
+import { loadLive2DModel } from 'oh-my-live2d';
+
+const oml = loadLive2DModel({
+  // 在此进行配置
+});
+```
+
+:::
+
+## CDN 导入示例：
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
 
 <script>
   const oml = OML2D.loadLive2DModel({
@@ -23,7 +45,7 @@
 </script>
 ```
 
-## ESM 导入方式
+## ESM 导入示例：
 
 ```ts
 import { loadLive2DModel } from 'oh-my-live2d';
@@ -39,5 +61,5 @@ const oml = loadLive2DModel({
 ```
 
 ::: tip
-详细的配置，请前往[配置详情](/zh/configure/)
+更多自定义配置请前往[配置详情](/zh/configure/)
 :::
