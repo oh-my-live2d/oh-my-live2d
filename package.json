@@ -1,6 +1,6 @@
 {
   "name": "oh-my-live2d",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "files": [
     "dist",
     "index.d.ts"
