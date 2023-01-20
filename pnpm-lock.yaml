@@ -53,9 +53,9 @@ importers:
 
   docs:
     specifiers:
-      vuepress-plugin-oh-my-live2d: ^0.0.13
+      vuepress-plugin-oh-my-live2d: ^0.0.14
     dependencies:
-      vuepress-plugin-oh-my-live2d: 0.0.13
+      vuepress-plugin-oh-my-live2d: 0.0.14
 
 packages:
 
@@ -6707,8 +6707,8 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /oh-my-live2d/0.0.20:
-    resolution: {integrity: sha512-loWOXv2qgDpE0UVN5j99FRHbALmyn+JGhZrrnnvywD42s98YFpDqLl0anfLGlv91PqW2E3U+4GUybofxtM+lAQ==}
+  /oh-my-live2d/0.0.21:
+    resolution: {integrity: sha512-WTdMgX+b4R/rOYpLGIZmhlH5CH9isMpIoz3FtrIRe9HjHFcjYwIua4i0S6u8LOXOnaEAtoVFlG70fj+1396BVw==}
     dependencies:
       lodash-es: 4.17.21
     dev: false
@@ -8768,10 +8768,10 @@ packages:
       - supports-color
     dev: true
 
-  /vuepress-plugin-oh-my-live2d/0.0.13:
-    resolution: {integrity: sha512-F62e/jM88z3odi6ofEKNAshl4c86jjPl/Dum4k28rYBW0jpYD7QY3j+LPTlbkf1QgpSJl9JLFYYlZNtEz4t7PA==}
+  /vuepress-plugin-oh-my-live2d/0.0.14:
+    resolution: {integrity: sha512-7hoVMIgWUi3+UWoBb1ITaCjrmLwtTDDKsF2abYQUFYtsXejHGzlDEMG8xSsA/F33wjFDn9weA5V75l+AYyhBhg==}
     dependencies:
-      oh-my-live2d: 0.0.20
+      oh-my-live2d: 0.0.21
     dev: false
 
   /vuepress-plugin-photo-swipe/2.0.0-beta.165_e7jwb2ulu5orbkux7obq5onfau:

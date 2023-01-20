@@ -1,5 +1,6 @@
 ---
 home: true
+icon: home
 title: 主页
 heroImage: /logo-black.png
 heroImageDark: /logo-white.png

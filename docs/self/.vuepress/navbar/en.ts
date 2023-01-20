@@ -5,6 +5,7 @@ export const enNavbar = navbar([
   // { text: "案例", icon: "discover", link: "/zh/demo/" },
   {
     text: '指南',
+    icon: 'creative',
     link: '/guide/'
     // children: [
     //   {
@@ -23,6 +24,7 @@ export const enNavbar = navbar([
   },
   {
     text: '配置',
+    icon: 'config',
     link: '/configure/'
   }
 ]);
