@@ -71,7 +71,7 @@ const hiddenLive2d = function (this: LoadOhMyLive2D) {
 const setGlobalInitialStyle = () => {
   const styleEl = document.createElement('style');
   styleEl.innerHTML = `
-    .icon {
+    .oml-icon {
       width: 1em; 
       height: 1em;
       vertical-align: -0.15em;

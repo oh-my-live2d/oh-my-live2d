@@ -15,7 +15,7 @@ const setLevitatedSphereContent = function (this: LoadOhMyLive2D, contentType: '
     case 'loading':
       this.levitatedSphereEl.innerHTML = `
       <div style="margin-bottom:3px;">加载中</div>
-      <svg class="icon oml-loading" aria-hidden="true"">
+      <svg class="oml-icon oml-loading" aria-hidden="true"">
         <use xlink:href="#icon-loading"></use>
       </svg>
     `;
