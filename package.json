@@ -23,7 +23,7 @@
     "release": "tsc && dotenv release-it && npm run build",
     "test": "rimraf ./test/dist/* && cc copy ./dist ./test/dist &&  vite preview --outDir ./test/  --port 7777"
   },
-  "description": "一个live2d for web 看板娘组件，支持所有版本的模型，开箱即用。",
+  "description": "live2d for web 看板娘组件，支持所有版本模型，开箱即用。",
   "homepage": "https://github.com/oh-my-live2d/oh-my-live2d",
   "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
   "license": "MIT",
@@ -56,7 +56,7 @@
     "vite": "^4.0.0",
     "vue": "^3.2.45",
     "vuepress": "2.0.0-beta.60",
-    "vuepress-plugin-oh-my-live2d": "^0.0.15",
+    "vuepress-plugin-oh-my-live2d": "^0.0.16",
     "vuepress-theme-hope": "2.0.0-beta.158"
   },
   "dependencies": {
