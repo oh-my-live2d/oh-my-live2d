@@ -64,10 +64,10 @@ const mediaSearchChange = function (this: LoadOhMyLive2D) {
   xs.addEventListener('change', async (e) => {
     if (e.matches) {
       await this.showTipsFrameMessage('屏幕装不下啦~', 1000, 9);
-      this.disableTips();
       await this.hiddenLive2d();
       await this.displayLevitatedSphere();
       this.setLevitatedSphereContent('text', '休息中');
+      this.disableTips();
     }
   });
 

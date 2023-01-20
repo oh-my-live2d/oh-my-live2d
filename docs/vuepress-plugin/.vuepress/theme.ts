@@ -80,7 +80,6 @@ export default hopeTheme({
       figure: true,
       flowchart: true,
       gfm: true,
-      imgLazyload: true,
       imgSize: true,
       include: true,
       katex: true,
