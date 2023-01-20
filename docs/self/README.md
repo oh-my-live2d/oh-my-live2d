@@ -27,7 +27,7 @@ features:
 
   - title: 支持 Vuepress2
     icon: creative
-    link: /vuepress-plugin/
+    link: https://plugin-oh-my-live2d.netlify.app/
     details: 在 Vuepress2 中使用 oh-my-live2d 扩展插件
 
 copyright: false

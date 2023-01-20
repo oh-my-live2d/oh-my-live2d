@@ -3,16 +3,14 @@ import { enNavbar, zhNavbar } from './navbar/index.js';
 import { enSidebar, zhSidebar } from './sidebar/index.js';
 
 export default hopeTheme({
-  hostname: 'https://vuepress-theme-hope-docs-demo.netlify.app',
+  hostname: 'https://plugin-oh-my-live2d.netlify.app',
   author: {
     name: 'Loclink',
     url: 'https://www.tj520.top'
   },
   iconAssets: 'iconfont',
-
   logo: '/logo-black.png',
   logoDark: '/logo-white.png',
-
   repo: 'oh-my-live2d/vuepress-plugin-oh-my-live2d',
 
   locales: {
@@ -22,8 +20,6 @@ export default hopeTheme({
 
       // sidebar
       sidebar: enSidebar,
-
-      displayFooter: true,
 
       metaLocales: {
         editLink: 'Edit this page on GitHub'
@@ -40,15 +36,12 @@ export default hopeTheme({
       // sidebar
       sidebar: zhSidebar,
 
-      displayFooter: true,
-
       // page meta
       metaLocales: {
         editLink: '在 GitHub 上编辑此页'
       }
     }
   },
-
 
   plugins: {
     // If you don’t need comment feature, you can remove following option
@@ -99,19 +92,6 @@ export default hopeTheme({
       presentation: {
         plugins: ['highlight', 'math', 'search', 'notes', 'zoom']
       },
-      stylize: [
-        {
-          matcher: 'Recommended',
-          replacer: ({ tag }) => {
-            if (tag === 'em')
-              return {
-                tag: 'Badge',
-                attrs: { type: 'tip' },
-                content: 'Recommended'
-              };
-          }
-        }
-      ],
       sub: true,
       sup: true,
       tabs: true,

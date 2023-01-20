@@ -10,6 +10,5 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vuepress-plugin-oh-my-live2d": "^0.0.14"
   }
 }
