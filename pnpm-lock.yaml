@@ -11,6 +11,7 @@ importers:
       '@typescript-eslint/parser': ^5.47.0
       '@vuepress/client': 2.0.0-beta.60
       axios: ^1.2.2
+      cli-cat: ^0.0.2
       cross-env: ^7.0.3
       csstype: ^3.1.1
       dotenv-cli: ^6.0.0
@@ -37,6 +38,7 @@ importers:
       '@typescript-eslint/parser': 5.48.2_7uibuqfxkfaozanbtbziikiqje
       '@vuepress/client': 2.0.0-beta.60
       axios: 1.2.3
+      cli-cat: 0.0.2
       cross-env: 7.0.3
       csstype: 3.1.1
       dotenv-cli: 6.0.0
@@ -3631,6 +3633,14 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /cli-cat/0.0.2:
+    resolution: {integrity: sha512-lMjzqWpVohQmpA0R28WBklJi2HK/QlATQ8EKUgOyojuFSnPemKL6GM/+2kpuoKtlMinhb+nUUP0WaptGT6bj+g==}
+    hasBin: true
+    dependencies:
+      commander: 9.5.0
+      fs-extra: 10.1.0
+    dev: true
+
   /cli-cursor/4.0.0:
     resolution: {integrity: sha512-VGtlMu3x/4DOtIUwEkRezxUZ2lBacNJCHash0N0WeZDBS+7Ux1dm3XWAgWYxLJFMMdOeXMHXorshEFhbMSGelg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -3709,6 +3719,11 @@ packages:
 
   /commander/9.2.0:
     resolution: {integrity: sha512-e2i4wANQiSXgnrBlIatyHtP1odfUp0BbV5Y5nEGbxtIrStkEOAAzCUirvLBNXHLr7kwLvJl6V+4V3XV9x7Wd9w==}
+    engines: {node: ^12.20.0 || >=14}
+    dev: true
+
+  /commander/9.5.0:
+    resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
     engines: {node: ^12.20.0 || >=14}
     dev: true
 
@@ -5105,6 +5120,15 @@ packages:
 
   /fraction.js/4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
+    dev: true
+
+  /fs-extra/10.1.0:
+    resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.10
+      jsonfile: 6.1.0
+      universalify: 2.0.0
     dev: true
 
   /fs-extra/11.1.0:
