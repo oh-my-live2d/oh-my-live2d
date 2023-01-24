@@ -19,7 +19,7 @@ const oml = loadLive2DModel({
   ```ts
     {
       width: 230,
-      height: 120,
+      height: 100,
       offsetX: 0,
       offsetY: 0
     }
@@ -40,7 +40,7 @@ const oml = loadLive2DModel({
 ## style.height
 
 - 类型：`number`
-- 默认值：`120`
+- 默认值：`100`
 - 详情：
 
   设置提示框高度。
