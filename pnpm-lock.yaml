@@ -55,8 +55,11 @@ importers:
       vuepress-plugin-oh-my-live2d: 0.0.16
       vuepress-theme-hope: 2.0.0-beta.158_e7jwb2ulu5orbkux7obq5onfau
 
-  docs:
-    specifiers: {}
+  test:
+    specifiers:
+      oh-my-live2d: ^0.0.22
+    dependencies:
+      oh-my-live2d: link:..
 
 packages:
 
