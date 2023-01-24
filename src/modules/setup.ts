@@ -107,10 +107,12 @@ class LoadOhMyLive2D {
       }
     });
 
-    // this.model.on('hit', (hitAreaNames) => {
-    //   console.log(hitAreaNames);
-    //   this.model.motion('flick_head');
-    // });
+    this.model.on('hit', (hitAreaNames) => {
+      ['Tap', 'tap_'].map((item) => {
+        this.model.motion(`${item}${hitAreaNames[0]}`);
+      });
+      // this.model.motion('TapHitAreaHead');
+    });
   }
 
   // 设置模型位置

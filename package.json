@@ -22,7 +22,7 @@
     "build": "rimraf ./dist/* && tsc && node ./scripts/build.cjs",
     "refresh": "node ./scripts/refresh-cdn.cjs",
     "release": "tsc && dotenv release-it && npm run build",
-    "test": "vite test/vite-app"
+    "test": "npm run build && vite test/vite-app --port 7777"
   },
   "description": "live2d for web 看板娘组件，支持所有版本模型，开箱即用。",
   "homepage": "https://github.com/oh-my-live2d/oh-my-live2d",
