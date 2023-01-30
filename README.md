@@ -2,9 +2,9 @@
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/oh-my-live2d/oh-my-live2d) ![](https://img.shields.io/npm/dm/oh-my-live2d.svg) ![](https://img.shields.io/badge/Live2D-Component-red) ![](https://img.shields.io/badge/pixi.js-v6.5.2-yellowgreen) ![](https://img.shields.io/badge/pixi--live2d--display-v0.4.0-brightgreen) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
 
-**oh-my-live2d** 是一个开箱即用的 **Live2D 看板娘 web 应用组件**，它在可自定义配置的同时，更是支持所有版本的Live2D模型。
+**oh-my-live2d** 是一个开箱即用的 **Live2D 看板娘 web 应用组件**，它不仅支持所有版本的Live2D模型，还提供多个可自定义配置来定制属于自己的看板娘。
 
- 详细的使用教程请[查阅文档](https://oh-my-live2d.netlify.app/)。
+在阅读完以下内容后，请[查阅文档](https://oh-my-live2d.netlify.app/)来了解更多详细的使用教程。
 
 ## 特点：
 
@@ -21,9 +21,9 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
 
 - Cubism 2 是只能驱动 Live2D Model 版本为 2 的 SDK，它无法驱动 Live2D Model 3 和 Live2D Model 4。
 
-- `Cubism 4` 向后兼容了 `Live2D Model 3` 并支持 `Live2D Model 4`，但它无法驱动 `Live2D Model 2`。
+- Cubism 4 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法驱动 Live2D Model 2。
 
-> **本项目已集成 `Cubism 2.1` 与 `Cubism 4.2.2` ，完整覆盖了 `Live2D Model` 的所有版本。**
+**本项目已集成 `Cubism 2.1` 与 `Cubism 4.2.2` ，完整覆盖了 `Live2D Model` 的所有版本。**
 
 ## 使用：
 
@@ -56,7 +56,7 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
 </html>
 ```
 
-**如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.umd.js)并导入到项目是你的最佳选择，打开链接后右键鼠标另存为即可完成下载。**
+**如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js)并导入到项目是你的最佳选择，打开链接后右键鼠标另存为即可完成下载。**
 
 ### 通过 ES6 Module 方式导入：
 
