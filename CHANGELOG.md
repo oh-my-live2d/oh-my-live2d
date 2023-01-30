@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.22...v0.1.0) (2023-01-30)
+
+
+### ✨ Features | 新功能
+
+* 新增点击区域触发动作 ([f670372](https://github.com/oh-my-live2d/oh-my-live2d/commit/f6703720218c33d39b689d654eaa90cf0c3c16e5))
+
+
+### 🔧 Continuous Integration | CI 配置
+
+* 修改构建配置 ([3e39e11](https://github.com/oh-my-live2d/oh-my-live2d/commit/3e39e1145037437781f7bee423287d4fad16844a))
+* 更新lock文件 ([3cdfd7c](https://github.com/oh-my-live2d/oh-my-live2d/commit/3cdfd7cce2f3ae499870b347be3039e1ea636f91))
+* 移除lock文件的跟踪 ([b800680](https://github.com/oh-my-live2d/oh-my-live2d/commit/b800680e4e05e637cfb7f5b026e0052df971f9f3))
+
 ### [0.0.22](///compare/v0.0.21...v0.0.22) (2023-01-20)
 
 
