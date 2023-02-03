@@ -4,7 +4,7 @@ on:
     branches: ['release'] # 监听 release 分支
 
 jobs:
-  Release expansion package:
+  ReleaseExpansionPackage:
     runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
     steps:
       - name: pull vuepress-plugin-oh-my-live2d # 步骤名字
