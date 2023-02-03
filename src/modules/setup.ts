@@ -63,7 +63,12 @@ class LoadOhMyLive2D {
     const modelSource = handleSplicingModelSource(this.options.source, this.options.models.path);
 
     // 同步创建模型 - 设置动作预加载
-    this.model = this.L2DModel.fromSync(modelSource, { motionPreload: motionPreloadStrategy });
+    this.model = this.L2DModel.fromSync(modelSource, {
+      motionPreload: motionPreloadStrategy,
+      onError: () => {
+        this.setLevitatedSphereContent('text', '加载失败');
+      }
+    });
 
     this.initialization();
   }
@@ -145,7 +150,6 @@ class LoadOhMyLive2D {
 
 // 入口函数
 const setup = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPreloadStrategy) => {
-  console.log('aaaa');
   let omlInstance: LoadOhMyLive2D;
   const oml: OhMyLive2D = {
     onAfterDisplay: (callback: () => void) => (omlInstance.onEvents.afterDisplay = callback)

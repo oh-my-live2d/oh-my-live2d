@@ -4,9 +4,9 @@
     "releaseName": "Release v${version}"
   },
   "git": {
+    "push": true,
     "tagName": "v${version}",
     "commitMessage": "release: v${version}",
-    "push": true,
     "requireUpstream": false
   },
   "hooks": {
