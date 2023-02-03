@@ -28,8 +28,6 @@ importers:
       vuepress: 2.0.0-beta.60
       vuepress-plugin-oh-my-live2d: ^0.0.16
       vuepress-theme-hope: 2.0.0-beta.158
-    dependencies:
-      lodash-es: 4.17.21
     devDependencies:
       '@release-it/conventional-changelog': 5.1.1_release-it@15.6.0
       '@types/lodash-es': 4.17.6
@@ -43,6 +41,7 @@ importers:
       csstype: 3.1.1
       dotenv-cli: 6.0.0
       eslint: 8.33.0
+      lodash-es: 4.17.21
       pixi-live2d-display: 0.4.0
       pixi.js: 6.5.2
       release-it: 15.6.0
@@ -6326,6 +6325,7 @@ packages:
 
   /lodash-es/4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: true
 
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}

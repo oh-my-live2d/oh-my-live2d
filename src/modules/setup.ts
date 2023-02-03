@@ -3,7 +3,6 @@ import { merge } from 'lodash-es';
 import { defaultJsonPath, defaultOptions } from '@/config';
 import { appendWrapperEl, createSuspendBtnEl, getScreenSize, mediaSearchChange, registerEvent, setLevitatedSphereContent } from './element';
 
-import { Options, Events, ImportType, OhMyLive2D, WrapperContentEls, DefaultOptions } from '@/types/index';
 import { sleep, sayHello, handleSplicingModelSource } from '@/utils/index';
 import { playIdleTips, showTipsFrameMessage, onTips, getWelcomeMessage, getTipsConfig, enableTips, disableTips } from './tips';
 import {
@@ -16,6 +15,7 @@ import {
   setTooltipStyle
 } from './style';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
+import type { Options, Events, ImportType, OhMyLive2D, WrapperContentEls, DefaultOptions } from '@/types/index';
 
 class LoadOhMyLive2D {
   L2DModel: any;
@@ -145,6 +145,7 @@ class LoadOhMyLive2D {
 
 // 入口函数
 const setup = (importType: ImportType, L2DModel, motionPreloadStrategy: MotionPreloadStrategy) => {
+  console.log('aaaa');
   let omlInstance: LoadOhMyLive2D;
   const oml: OhMyLive2D = {
     onAfterDisplay: (callback: () => void) => (omlInstance.onEvents.afterDisplay = callback)

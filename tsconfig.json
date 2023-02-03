@@ -25,6 +25,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["src/library/*", "dist/**/*", "src/assets/*", "src/public/*"]
+  "files": ["src/index.ts", "src/vite-env.d.ts"]
 }

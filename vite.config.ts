@@ -10,13 +10,8 @@ export default defineConfig({
   },
   build: {
     target: 'es6',
-    copyPublicDir: false
-    // minify: true,
-    // lib: {
-    //   entry: 'src/index.ts',
-    //   formats: ['es'],
-    //   fileName: 'live2dcubism4core.js'
-    // }
+    copyPublicDir: false,
+    watch: OML_ENV === 'dev' ? { include: 'src/**' } : null
   },
   resolve: {
     alias: {
