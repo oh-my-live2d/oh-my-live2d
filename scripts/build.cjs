@@ -42,14 +42,10 @@ const profiles = entries.flatMap(({ entry, name }) => {
 
 // 入口
 async function main() {
-  console.log('--- 开始构建 ---');
-
   // 遍历配置选项，手动调用build方法
   for (const profile of profiles) {
     await build(profile);
   }
-
-  console.log('--- 构建完成 ---');
 }
 
 main();

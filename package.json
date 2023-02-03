@@ -21,7 +21,7 @@
     "start": "vite",
     "build": "rimraf dist && tsc && node ./scripts/build.cjs",
     "refresh": "node ./scripts/refresh-cdn.cjs",
-    "release": "dotenv release-it",
+    "release": "dotenv release-it && npm run refresh",
     "test": "vite test/vite-app --port 7777"
   },
   "description": "live2d for web 看板娘组件，支持所有版本模型，开箱即用。",
