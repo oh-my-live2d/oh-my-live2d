@@ -4,16 +4,14 @@
     "releaseName": "Release v${version}"
   },
   "git": {
+    "push": true,
     "tagName": "v${version}",
     "commitMessage": "release: v${version}",
-    "push": true,
     "requireUpstream": false
   },
-  "npm": {
-    "publish": false
-  },
   "hooks": {
-    "after:bump": "echo 更新版本成功"
+    "after:bump": "npm run build",
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
   "plugins": {
     "@release-it/conventional-changelog": {
@@ -27,13 +25,13 @@
           { "type": "fix", "section": "🐛 Bug Fixes | Bug 修复" },
           { "type": "perf", "section": "⚡ Improvements | 优化" },
           { "type": "revert", "section": "⏪ Reverts | 回退" },
-          { "type": "chore", "section": "📦 Chores | 其他更新", "hidden": true },
+          { "type": "chore", "section": "📦 Chores | 其他更新" },
           { "type": "docs", "section": "📝 Documentation | 文档", "hidden": true },
           { "type": "style", "section": "💄 Styles | 风格", "hidden": true },
-          { "type": "refactor", "section": "♻ Code Refactoring | 代码重构" },
-          { "type": "test", "section": "✅ Tests | 测试" },
-          { "type": "build", "section": "👷‍ Build System | 构建" },
-          { "type": "ci", "section": "🔧 Continuous Integration | CI 配置" }
+          { "type": "refactor", "section": "♻ Code Refactoring | 代码重构", "hidden": true },
+          { "type": "test", "section": "✅ Tests | 测试", "hidden": true },
+          { "type": "build", "section": "👷‍ Build System | 构建", "hidden": true },
+          { "type": "ci", "section": "🔧 Continuous Integration | CI 配置", "hidden": true }
         ]
       }
     }

@@ -3,7 +3,6 @@ import { merge } from 'lodash-es';
 import { defaultJsonPath, defaultOptions } from '@/config';
 import { appendWrapperEl, createSuspendBtnEl, getScreenSize, mediaSearchChange, registerEvent, setLevitatedSphereContent } from './element';
 
-import { Options, Events, ImportType, OhMyLive2D, WrapperContentEls, DefaultOptions } from '@/types/index';
 import { sleep, sayHello, handleSplicingModelSource } from '@/utils/index';
 import { playIdleTips, showTipsFrameMessage, onTips, getWelcomeMessage, getTipsConfig, enableTips, disableTips } from './tips';
 import {
@@ -16,6 +15,7 @@ import {
   setTooltipStyle
 } from './style';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
+import type { Options, Events, ImportType, OhMyLive2D, WrapperContentEls, DefaultOptions } from '@/types/index';
 
 class LoadOhMyLive2D {
   L2DModel: any;
@@ -63,7 +63,12 @@ class LoadOhMyLive2D {
     const modelSource = handleSplicingModelSource(this.options.source, this.options.models.path);
 
     // 同步创建模型 - 设置动作预加载
-    this.model = this.L2DModel.fromSync(modelSource, { motionPreload: motionPreloadStrategy });
+    this.model = this.L2DModel.fromSync(modelSource, {
+      motionPreload: motionPreloadStrategy,
+      onError: () => {
+        this.setLevitatedSphereContent('text', '加载失败');
+      }
+    });
 
     this.initialization();
   }
