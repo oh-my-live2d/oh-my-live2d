@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.1.0...v0.1.1) (2023-02-03)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复了加载失败时悬浮按钮仍然显示正在加载的bug ([8ed290a](https://github.com/oh-my-live2d/oh-my-live2d/commit/8ed290a21d940accfc518ddd9a3146c2575eedba))
+
 ## [0.1.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.0.22...v0.1.0) (2023-01-30)
 
 
