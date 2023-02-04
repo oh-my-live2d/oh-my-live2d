@@ -10,12 +10,12 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支�
 <img align="right" height="260" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302041451147.gif"/>
 
 - 支持所有版本的`Live2D`模型。
-- 导入方式支持 `CDN` 或 `ES6 Module` ，现在你可以在 `webpack`以及`vite`项目中使用它。
-- 默认集成 `Cubism 2 SDK` 和 `Cubism 4 SDK` 运行库，无需额外引入其他外部依赖。
-- 支持使用自定义的本地或远程的`Live2D Model`来源`（model.json）`。
-- 本项目完全使用`TypeScript`开发，具有完整的类型推导。
-- 提供多种导入方式，可选导入指定版本的 `Cubism SDK` 依赖组件或全量导入所有依赖组件。
-- 扩展支持了 vuepress2，前往[vuepress-plugin-oh-my-live2d](https://github.com/oh-my-live2d/vuepress-plugin-oh-my-live2d)了解更多相关内容。
+- 支持 `CDN` 或 `ES6 Module` 导入，现在你可以在 `webpack`以及`vite`项目中使用它。
+- 默认集成 `Cubism 2 SDK` 和 `Cubism 4 SDK`，无需额外引入其他外部依赖。
+- 自定义的本地或远程的 `Live2D Model` 来源`（model.json）`。
+- 完全使用 `TypeScript` 开发，具有完整的类型推导。
+- 多种导入模式，导入指定版本的 `Cubism SDK` 依赖或全量导入所有依赖。
+- 支持在 vuepress2 中使用，前往[vuepress-plugin-oh-my-live2d](https://github.com/oh-my-live2d/vuepress-plugin-oh-my-live2d)了解更多相关内容。
 
 ## 🤔 Cubism 是什么：
 
@@ -89,8 +89,6 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
 **如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js)并导入到项目是你的最佳选择，打开链接后右键鼠标另存为即可完成下载。**
 
 ### ESM 使用示例：
-
-
 
 在 `vite` 或 `webpack` 构建管理的项目中使用此导入方式。
 
