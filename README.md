@@ -2,16 +2,12 @@
 
 ![npm](https://img.shields.io/npm/v/oh-my-live2d?label=version) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
 
-<div style="display: flex;">
-<div style="height: 100%; flex-shrink: 0;margin-right: 20px;">
-
-OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支持所有版本的 Live2D 模型，开箱即用且可定制化。
-
-如果你还在苦于寻找一个支持所有版本模型的 Live2D For Web 组件，为你的个人网站增加一个看板娘，那么请看看这个！🥳
-
+OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支持所有版本的 Live2D 模型，开箱即用且可定制化。   
+如果你还在苦于寻找一个支持所有版本模型的 Live2D For Web 组件，为你的个人网站增加一个看板娘，那么请看看这个！🥳   
 [查阅文档](https://oh-my-live2d.netlify.app/)了解更多详细的使用教程 🎉。
 
 ## ✨ 特点：
+<img align="right" height="240" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302041451147.gif"/>
 
 - 支持所有版本的`Live2D`模型。
 - 导入方式支持 `CDN` 或 `ES6 Module` ，现在你可以在 `webpack`以及`vite`项目中使用它。
@@ -20,11 +16,6 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支�
 - 本项目完全使用`TypeScript`开发，具有完整的类型推导。
 - 提供多种导入方式，可选导入指定版本的 `Cubism SDK` 依赖组件或全量导入所有依赖组件。
 - 扩展支持了 vuepress2，前往[vuepress-plugin-oh-my-live2d](https://github.com/oh-my-live2d/vuepress-plugin-oh-my-live2d)了解更多相关内容。
-</div>
-<img style="width: 300px;" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302041451147.gif"/>
-</div>
-
----
 
 ## 🤔 Cubism 是什么：
 
@@ -48,7 +39,7 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
 <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
 ```
 
-### 使用 node 包管理工具安装：
+### 使用 Node 包管理工具安装：
 
 - 使用 `npm` 安装：
 
@@ -74,7 +65,7 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
   pnpm add oh-my-live2d
   ```
 
-### `CDN` 使用示例：
+### CDN 使用示例：
 
 ```html
 <!DOCTYPE html>
@@ -99,6 +90,8 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
 
 ### ESM 使用示例：
 
+
+
 在 `vite` 或 `webpack` 构建管理的项目中使用此导入方式。
 
 ```ts
@@ -106,6 +99,8 @@ import 'oh-my-live2d';
 ```
 
 这里以 `webpack 5` 管理的 `react 18` 项目为例，在入口文件 `src/index.tsx` 中导入 `oh-my-live2d`：
+
+<img height="400px" align="right" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302041507232.gif"/>
 
 ```ts
 // src/index.tsx
@@ -128,20 +123,10 @@ root.render(
 reportWebVitals();
 ```
 
-<div style="display: flex;">
-<div  style=" margin-right: 20px">
-
 默认情况下，无论你是使用 `CDN` 或 `ES6 Module` 的方式导入，都无需导出任何模块或从全局变量中调用任何方法，即可得到一个完整的 `Live2D` 组件，这个过程属于**自动装载**。
+自动装载的 Live2D 组件将使用默认配置加载，并在加载完成后挂载到`<body>`标签中。     
+如果你想更换自己的模型或对其进行自定义，请[查阅文档](https://oh-my-live2d.netlify.app/)中自定义章节的相关内容。   
 
-自动装载的 Live2D 组件将使用默认配置加载，并在加载完成后挂载到`<body>`标签中。
-
-如果你想更换自己的模型或对其进行自定义，请[查阅文档](https://oh-my-live2d.netlify.app/)中自定义章节的相关内容。
-
-</div>
-
-<img width="260px" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302041507232.gif"/>
-
-</div>
 
 ## 💕 鸣谢：
 
