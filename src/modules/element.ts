@@ -1,29 +1,11 @@
 import { sleep } from '../utils/index';
 import { LoadOhMyLive2D } from './setup';
 
-const createSuspendBtnEl = function () {
+const createLevitatedSphereEl = function () {
   const levitatedSphereEl = document.createElement('div');
   levitatedSphereEl.id = 'oml-levitated-sphere';
-
   window.document.body.appendChild(levitatedSphereEl);
-
   return levitatedSphereEl;
-};
-
-const setLevitatedSphereContent = function (this: LoadOhMyLive2D, contentType: 'loading' | 'text', text?: string) {
-  switch (contentType) {
-    case 'loading':
-      this.levitatedSphereEl.innerHTML = `
-      <div style="margin-bottom:3px;">加载中</div>
-      <svg class="oml-icon oml-loading" aria-hidden="true">
-        <use xlink:href="#icon-loading"></use>
-      </svg>
-    `;
-      break;
-    case 'text':
-      this.levitatedSphereEl.innerHTML = `<div>${text}</div>`;
-      break;
-  }
 };
 
 // 加入包装器元素
@@ -94,19 +76,17 @@ const mediaSearchChange = function (this: LoadOhMyLive2D) {
   xs.addEventListener('change', async (e) => {
     if (e.matches) {
       await this.showTipsFrameMessage('屏幕装不下啦~', 1000, 9);
-      await this.hiddenLive2d();
-      await this.displayLevitatedSphere();
-      this.setLevitatedSphereContent('text', '休息中');
       this.disableTips();
+      await this.hiddenLive2d();
+      await this.displayLevitatedSphere('text', '休息中');
     }
   });
 
   xl.addEventListener('change', async (e) => {
     if (e.matches) {
-      this.setLevitatedSphereContent('text', '闪亮登场');
       await sleep(500);
       this.enableTips();
-      this.hiddenLevitatedSphere();
+      this.displayLevitatedSphere('text', '闪亮登场', 3000);
       await this.displayLive2d();
       await this.onTips('welcomeTips');
     }
@@ -130,19 +110,21 @@ const registerEvent = function (this: LoadOhMyLive2D) {
   this.wrapperContentEls?.sideMenuEl?.addEventListener('click', (e) => {
     if (e.target === e.currentTarget) return;
     let target: any = e.target;
+
     while (target.parentNode !== e.currentTarget) {
       target = target.parentNode;
     }
 
     switch (target.getAttribute('data-name')) {
       case 'SwitchModel':
-        this.showTipsFrameMessage('施工中', 3000, 10);
+        this.displayLevitatedSphere('text', '施工中', 3000);
         break;
       case 'Setting':
-        this.showTipsFrameMessage('施工中', 3000, 10);
+        this.displayLevitatedSphere('text', '施工中', 3000);
         break;
       case 'About':
-        this.showTipsFrameMessage('施工中', 3000, 10);
+        this.displayLevitatedSphere('text', '施工中', 3000);
+
         break;
     }
   });
@@ -150,4 +132,4 @@ const registerEvent = function (this: LoadOhMyLive2D) {
   //   this.showTipsFrameMessage('hello', 8000, 4);
   // });
 };
-export { appendWrapperEl, registerEvent, createSuspendBtnEl, getScreenSize, setLevitatedSphereContent, mediaSearchChange };
+export { appendWrapperEl, registerEvent, createLevitatedSphereEl, getScreenSize, mediaSearchChange };

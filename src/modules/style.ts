@@ -24,25 +24,9 @@ const setWrapperStyle = function (this: LoadOhMyLive2D) {
   this.wrapperContentEls!.canvasEl!.height = height;
 };
 
-// 隐藏悬浮按钮
-const hiddenLevitatedSphere = function (this: LoadOhMyLive2D) {
-  setElStyle(this.levitatedSphereEl, {
-    animationName: 'oml-levitated-sphere-hidden',
-    animationDuration: `${this.options.transitionTime}ms`,
-    animationFillMode: 'forwards'
-  });
-};
-
-const displayLevitatedSphere = function (this: LoadOhMyLive2D) {
-  setElStyle(this.levitatedSphereEl, {
-    animationName: 'oml-levitated-sphere-display',
-    animationDuration: `${this.options.transitionTime}ms`,
-    animationFillMode: 'forwards'
-  });
-};
-
 // 显示live2d组件
 const displayLive2d = function (this: LoadOhMyLive2D) {
+  this.omlStatus = 'display'
   setElStyle(this.wrapperEl, {
     animationName: 'oml-display',
     animationDuration: `${this.options.transitionTime}ms`,
@@ -59,6 +43,7 @@ const displayLive2d = function (this: LoadOhMyLive2D) {
 
 // 隐藏live2d组件
 const hiddenLive2d = function (this: LoadOhMyLive2D) {
+  this.omlStatus = 'hidden'
   setElStyle(this.wrapperEl, {
     animationName: 'oml-hidden',
     animationDuration: `${this.options.transitionTime}ms`,
@@ -234,14 +219,14 @@ const setGlobalInitialStyle = () => {
         transform: translateX(0%);
       }
       100% {
-        transform: translateX(-110%);
+        transform: translateX(-120%);
       }
     }
 
 
     @keyframes oml-levitated-sphere-display {
       0% {
-        transform: translateX(-110%);
+        transform: translateX(-120%);
       }
       100% {
         transform: translateX(0%);
@@ -273,13 +258,4 @@ const setGlobalInitialStyle = () => {
   document.head.appendChild(styleEl);
 };
 
-export {
-  hiddenLive2d,
-  setWrapperStyle,
-  displayLive2d,
-  setGlobalInitialStyle,
-  hiddenLevitatedSphere,
-  setElStyle,
-  displayLevitatedSphere,
-  setTooltipStyle
-};
+export { hiddenLive2d, setWrapperStyle, displayLive2d, setGlobalInitialStyle, setElStyle, setTooltipStyle };

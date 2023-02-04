@@ -1,19 +1,11 @@
 import { Application } from 'pixi.js';
 import { merge } from 'lodash-es';
 import { defaultJsonPath, defaultOptions } from '@/config';
-import { appendWrapperEl, createSuspendBtnEl, getScreenSize, mediaSearchChange, registerEvent, setLevitatedSphereContent } from './element';
-
-import { sleep, sayHello, handleSplicingModelSource } from '@/utils/index';
+import { appendWrapperEl, createLevitatedSphereEl, getScreenSize, mediaSearchChange, registerEvent } from './element';
+import { setLevitatedSphereContent, displayLevitatedSphere, hiddenLevitatedSphere } from './levitated-sphere';
+import { sleep, sayHello, handleSplicingModelSource } from '@/utils';
 import { playIdleTips, showTipsFrameMessage, onTips, getWelcomeMessage, getTipsConfig, enableTips, disableTips } from './tips';
-import {
-  displayLive2d,
-  setGlobalInitialStyle,
-  hiddenLevitatedSphere,
-  setWrapperStyle,
-  hiddenLive2d,
-  displayLevitatedSphere,
-  setTooltipStyle
-} from './style';
+import { displayLive2d, setGlobalInitialStyle, setWrapperStyle, hiddenLive2d, setTooltipStyle } from './style';
 import type { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
 import type { Options, Events, ImportType, OhMyLive2D, WrapperContentEls, DefaultOptions } from '@/types/index';
 
@@ -29,6 +21,7 @@ class LoadOhMyLive2D {
   importType: ImportType;
   motionPreloadStrategy: MotionPreloadStrategy;
   isTips: boolean;
+  omlStatus: 'display' | 'hidden';
   // method
   stopIdleTips?: () => void;
   enableTips = enableTips;
@@ -38,8 +31,8 @@ class LoadOhMyLive2D {
   displayLive2d = displayLive2d;
   appendWrapperEl = appendWrapperEl;
   setWrapperStyle = setWrapperStyle;
-  hiddenLevitatedSphere = hiddenLevitatedSphere;
   displayLevitatedSphere = displayLevitatedSphere;
+  hiddenLevitatedSphere = hiddenLevitatedSphere;
   registerEvent = registerEvent;
   playIdleTips = playIdleTips;
   onTips = onTips;
@@ -56,11 +49,10 @@ class LoadOhMyLive2D {
     this.motionPreloadStrategy = motionPreloadStrategy;
     this.isTips = true;
     this.options = merge(defaultOptions, options);
+    this.omlStatus = 'hidden';
+    this.levitatedSphereEl = createLevitatedSphereEl();
 
-    this.levitatedSphereEl = createSuspendBtnEl();
-    this.displayLevitatedSphere();
-    this.setLevitatedSphereContent('loading');
-
+    getScreenSize() === 'xl' ? (this.omlStatus = 'display') : (this.omlStatus = 'hidden');
     const modelSource = handleSplicingModelSource(this.options.source, this.options.models.path);
 
     // 同步创建模型 - 设置动作预加载
@@ -76,16 +68,14 @@ class LoadOhMyLive2D {
 
   async initialization() {
     this.options.sayHello && sayHello(this.importType);
+    const { wrapperEl, canvasEl, tooltipEl, sideMenuEl } = this.appendWrapperEl();
+    this.wrapperEl = wrapperEl;
+    this.wrapperContentEls = { canvasEl, tooltipEl, sideMenuEl };
+    this.registerEvent();
+    this.displayLevitatedSphere('loading');
 
     // 所有资源准备完毕后
     this.model.once('ready', async () => {
-      const { wrapperEl, canvasEl, tooltipEl, sideMenuEl } = this.appendWrapperEl();
-
-      this.wrapperEl = wrapperEl;
-      this.wrapperContentEls = { canvasEl, tooltipEl, sideMenuEl };
-
-      this.registerEvent();
-
       this.setModelPosition();
 
       this.setModelScale();
@@ -97,19 +87,18 @@ class LoadOhMyLive2D {
       const app = this.createPixiApp();
 
       app.stage.addChild(this.model);
-      this.setLevitatedSphereContent('text', '加载完成');
 
       await sleep(100);
 
-      if (getScreenSize() === 'xl') {
-        this.hiddenLevitatedSphere();
-        await this.displayLive2d();
-        await this.onTips('welcomeTips');
-        this.enableTips();
-      } else {
-        await sleep(500);
-        this.setLevitatedSphereContent('text', '休息中');
-        this.disableTips();
+      switch (this.omlStatus) {
+        case 'display':
+          await this.displayLive2d();
+          await this.onTips('welcomeTips');
+          this.enableTips();
+          break;
+        case 'hidden':
+          this.disableTips();
+          break;
       }
     });
 
