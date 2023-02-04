@@ -21,6 +21,7 @@ class LoadOhMyLive2D {
   L2DModel: any;
   model: Live2DModel;
   wrapperContentEls?: WrapperContentEls;
+  sideMenuEl?: HTMLDivElement;
   wrapperEl?: HTMLDivElement;
   levitatedSphereEl: HTMLDivElement;
   options: DefaultOptions;
@@ -78,10 +79,10 @@ class LoadOhMyLive2D {
 
     // 所有资源准备完毕后
     this.model.once('ready', async () => {
-      const { wrapperEl, canvasEl, tooltipEl } = this.appendWrapperEl();
+      const { wrapperEl, canvasEl, tooltipEl, sideMenuEl } = this.appendWrapperEl();
 
       this.wrapperEl = wrapperEl;
-      this.wrapperContentEls = { canvasEl, tooltipEl };
+      this.wrapperContentEls = { canvasEl, tooltipEl, sideMenuEl };
 
       this.registerEvent();
 

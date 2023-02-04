@@ -73,6 +73,7 @@ type DefaultOptions = DeepRequired<Options>;
 interface WrapperContentEls {
   canvasEl?: HTMLCanvasElement;
   tooltipEl?: HTMLDivElement;
+  sideMenuEl?: HTMLDivElement;
 }
 
 interface IdleTips extends CopyTips {

@@ -143,6 +143,48 @@ const setGlobalInitialStyle = () => {
       justify-content: center;
     }
 
+
+    #oml-side-menu {
+      transition: all 500ms;
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      bottom: 10%;
+      z-index: 9999;
+      font-size: 26px;
+      /* transform: translateY(-50%); */
+    }
+
+    #oml-wrapper:hover > #oml-side-menu {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    #oml-side-menu .oml-menu-item {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+      align-items: center;
+      transition: all 300ms;
+      color: #58b0fc;
+      cursor: pointer;
+      background-color: #fff;
+    }
+
+    #oml-side-menu .oml-menu-item:hover {
+      background-color: #58b0fc;
+      color: #fff;
+      box-shadow: 0 0 5px #000;
+    }
+
+    #oml-side-menu .oml-menu-item:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
     @keyframes oml-shake-tooltip{
       0% {
         transform: translate(-50%, 5%) scale(0.99);
