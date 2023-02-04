@@ -24,11 +24,9 @@
     "release": "dotenv release-it && npm run refresh",
     "test": "vite test/vite-app --port 7777"
   },
-  "description": "live2d for web 看板娘组件，支持所有版本模型，开箱即用。",
-  "homepage": "https://github.com/oh-my-live2d/oh-my-live2d",
-  "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
   "license": "MIT",
   "author": "loclink",
+  "description": "live2d for web 看板娘组件，支持所有版本模型，开箱即用。",
   "keywords": [
     "Live2D",
     "pxix.js",
@@ -36,6 +34,13 @@
     "cubism2",
     "cubism4"
   ],
+  "homepage": "https://github.com/oh-my-live2d/oh-my-live2d#readme",
+  "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oh-my-live2d/oh-my-live2d.git"
+  },
+
   "devDependencies": {
     "@release-it/conventional-changelog": "^5.1.1",
     "@types/lodash-es": "^4.17.6",
