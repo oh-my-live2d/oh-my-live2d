@@ -19,10 +19,11 @@
     "docs-plugin:clean-dev": "npm run docs:copy &&  vuepress dev docs/vuepress-plugin --clean-cache",
     "dev": "rimraf dist && pnpm link --global && cross-env OML_ENV=dev esno ./scripts/build.ts",
     "start": "vite",
-    "build": "rimraf dist && tsc && node ./scripts/build.cjs",
+    "build": "rimraf dist && esno ./scripts/build.ts",
     "refresh": "esno ./scripts/refresh-cdn.ts",
     "release": "dotenv release-it && npm run refresh",
-    "test": "vite test/vite-app --port 7777"
+    "test:vite": "vite test/vite-app --port 3001",
+    "test:webpack": "cd test/webpack-app && pnpm start"
   },
   "license": "MIT",
   "author": "loclink",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^5.1.1",
+    "@types/fs-extra": "^11.0.1",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.47.0",

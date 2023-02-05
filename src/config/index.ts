@@ -1,7 +1,7 @@
 import { DefaultOptions } from '../types/index';
 import { copyTipsMessage, idleTipsMessage, welcomeTipsMessage } from './tips-message';
 
-const DEV_SOURCE = 'http://localhost:8080/models';
+const DEV_SOURCE = 'http://localhost:8080';
 const PRO_SOURCE = 'https://oml-api.tj520.top';
 
 const defaultJsonPath = {
