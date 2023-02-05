@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import project from './package.json';
-
 const { OML_ENV } = process.env;
 export default defineConfig({
   define: {
@@ -13,6 +12,7 @@ export default defineConfig({
     copyPublicDir: false,
     watch: OML_ENV === 'dev' ? { include: 'src/**' } : null
   },
+
   resolve: {
     alias: {
       '@': resolve(__dirname, './src')

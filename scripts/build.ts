@@ -1,5 +1,11 @@
-const path = require('path');
-const { build } = require('vite');
+import { InlineConfig, build } from 'vite';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import dts from 'vite-plugin-dts';
+import fs from 'fs-extra';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const entries = [
   { entry: 'src/index.ts', name: 'index' },
@@ -25,7 +31,7 @@ const entries = [
 // });
 
 // 动态生成配置build配置选项
-const profiles = entries.flatMap(({ entry, name }) => {
+const profiles = entries.flatMap(({ entry, name }): InlineConfig => {
   return {
     build: {
       // sourcemap: true,
@@ -33,10 +39,26 @@ const profiles = entries.flatMap(({ entry, name }) => {
       lib: {
         name: 'OML2D',
         formats: ['umd', 'es'],
-        entry: path.resolve(__dirname, '..', entry),
+        entry: resolve(__dirname, '..', entry),
         fileName: (format) => `${name}.${format === 'umd' ? 'min.js' : 'js'}`
       }
-    }
+    },
+    plugins: [
+      entry === 'src/index.ts' &&
+        dts({
+          entryRoot: 'src',
+          copyDtsFiles: false,
+          insertTypesEntry: true
+        }),
+      {
+        name: 'copy-min-file',
+        writeBundle(outOptions) {
+          if (outOptions.format === 'umd') {
+            fs.copyFile(resolve(__dirname, '..', `dist/${name}.min.js`), resolve(__dirname, '..', `test/vite-app/public/${name}.min.js`));
+          }
+        }
+      }
+    ]
   };
 });
 

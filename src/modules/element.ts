@@ -124,7 +124,6 @@ const registerEvent = function (this: LoadOhMyLive2D) {
         break;
       case 'About':
         this.displayLevitatedSphere('text', '施工中', 3000);
-
         break;
     }
   });
