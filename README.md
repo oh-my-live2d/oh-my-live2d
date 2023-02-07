@@ -15,6 +15,7 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支�
 - 自定义的本地或远程的 `Live2D Model` 来源`（model.json）`。
 - 完全使用 `TypeScript` 开发，具有完整的类型推导。
 - 多种导入模式，导入指定版本的 `Cubism SDK` 依赖或全量导入所有依赖。
+- 支持配置多个模型，使用控件对其切换。
 - 支持在 vuepress2 中使用，前往[vuepress-plugin-oh-my-live2d](https://github.com/oh-my-live2d/vuepress-plugin-oh-my-live2d)了解更多相关内容。
 
 ## 🤔 Cubism 是什么：
@@ -128,7 +129,7 @@ reportWebVitals();
 
 ## 💕 鸣谢：
 
-本项目主要依赖于 `pixi-live2d-display`, 感谢 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display) 为 `Live2D` 社区做出的贡献。
+本项目主要依赖于 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display), 感谢其为 `Live2D` 社区做出的贡献。
 
 ## 🔗 关于：
 
