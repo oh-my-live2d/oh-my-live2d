@@ -1,2 +1,2 @@
-import 'oh-my-live2d';
+import { loadOhMyLive2D } from 'oh-my-live2d';
 

@@ -243,7 +243,7 @@ class OhMyLive2D {
         this.app.stage.removeChildAt(0);
         this.model && this.app.stage.addChild(this.model);
       }
-      this.app.resize()
+      this.app.resize();
       this.screenSize = getScreenSize();
     });
   }
@@ -293,29 +293,33 @@ class OhMyLive2D {
 }
 
 /**
- * 根据自定义选项加载oml2d组件
- * @param options
- * @returns
- */
-const loadOhMyLive2D = (options: Options) => {
-  mergeOptions(defaultOptions, options);
-  return {};
-};
-
-/**
  * 安装入口程序
  * @returns
  */
 const setup = (importType: ImportType, loadLive2DModel) => {
-  // let omlInstance: OhMyLive2D;
+  let omlInstance: OhMyLive2D;
   (defaultOptions.models as DefaultModel).path = defaultJsonPath[importType];
+
+  const createOml2d = () => {
+    defaultOptions.models = Array.isArray(defaultOptions.models) ? defaultOptions.models : [defaultOptions.models];
+    omlInstance = new OhMyLive2D(defaultOptions as DeepRequired<Options<[DefaultModel, ...DefaultModel[]]>>, loadLive2DModel, importType);
+  };
 
   //  自动加载 将在HTML解析完毕后执行
   window.document.addEventListener('DOMContentLoaded', () => {
-    defaultOptions.models = Array.isArray(defaultOptions.models) ? defaultOptions.models : [defaultOptions.models];
-    new OhMyLive2D(defaultOptions as DeepRequired<Options<[DefaultModel, ...DefaultModel[]]>>, loadLive2DModel, importType);
+    omlInstance ?? createOml2d();
   });
 
+  /**
+   * 根据自定义选项加载oml2d组件
+   * @param options
+   * @returns
+   */
+  const loadOhMyLive2D = (options: Options) => {
+    mergeOptions(defaultOptions, options);
+    createOml2d();
+    return {};
+  };
   return loadOhMyLive2D;
 };
 export { setup, OhMyLive2D };
