@@ -5,11 +5,11 @@ order: 3
 # 提示框配置
 
 ```ts
-const oml = loadLive2DModel({
+{
   tips: {
     // 在这里进行配置
   }
-});
+};
 ```
 
 ## style
@@ -158,7 +158,7 @@ const oml = loadLive2DModel({
 ## welcomeTips.priority
 
 - 类型：`number`
-- 默认值：`2`
+- 默认值：`3`
 - 详情：
 
   提示优先级，优先级大的提示将覆盖小的并优先展示。
