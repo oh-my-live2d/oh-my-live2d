@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { loadLive2DModel } from 'oh-my-live2d/dist/oml-cubism4';
+import { loadLive2DModel } from 'oh-my-live2d';
 
 loadLive2DModel({
   tips: false

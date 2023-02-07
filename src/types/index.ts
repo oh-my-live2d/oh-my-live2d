@@ -6,7 +6,45 @@ type EventType = 'ready' | 'load';
 type LoadType = 'manual' | 'auto';
 type TipsType = 'welcomeTips' | 'idleTips' | 'copyTips';
 
-interface Models {
+type ControlID = 'SwitchModel' | 'Setting' | 'About'
+type ControlName = 'icon-a-userswitch-fill' | 'icon-setting-fill' | 'icon-info-circle-fill';
+
+interface ElConfig {
+  id: string;
+  className?: string;
+  tagName: string;
+  childrens?: ElConfig[];
+  innerHtml?: string;
+}
+
+interface Controls {
+  id: ControlID;
+  name: ControlName;
+  title: string;
+}
+
+interface ElementList {
+  stageEl: HTMLDivElement;
+  canvasEl: HTMLCanvasElement;
+  controlsEl: HTMLDivElement;
+  levitatedBtnEl: HTMLDivElement;
+  tipsEl: HTMLDivElement;
+}
+
+interface Elements {
+  canvasEl: ElConfig;
+  stageEl: ElConfig;
+  tipsEl: ElConfig;
+  levitatedBtnEl: ElConfig;
+  controlsEl: ElConfig;
+}
+interface OmlConfig {
+  globalStyle: string;
+  elements: Elements;
+  controls: Controls[];
+}
+
+interface Model {
   /**
    * 来源地中具体的模型json配置文件路径
    */
@@ -43,7 +81,7 @@ interface Models {
   };
 }
 
-interface Options {
+interface Options<T = Model | [Model, ...Model[]]> {
   /**
    * 模型来源，固定的远程或本地路径
    */
@@ -57,9 +95,9 @@ interface Options {
    */
   transitionTime?: number;
   /**
-   * 定义模型
+   * 定义一个或一组模型
    */
-  models?: Models;
+  models?: T;
   /**
    * 定义提示框
    */
@@ -67,8 +105,8 @@ interface Options {
 }
 
 type DeepRequired<T> = T extends Function ? T : T extends object ? { [P in keyof T]-?: DeepRequired<T[P]> } : T;
-
-type DefaultOptions = DeepRequired<Options>;
+type DefaultModel = DeepRequired<Model>;
+type DefaultOptions = DeepRequired<Options<DefaultModel | [DefaultModel, ...DefaultModel[]]>>;
 
 interface WrapperContentEls {
   canvasEl?: HTMLCanvasElement;
@@ -207,5 +245,13 @@ export type {
   IdleTips,
   WelcomeTips,
   DefaultOptions,
-  DeepRequired
+  DeepRequired,
+  Model,
+  DefaultModel,
+  ElementList,
+  OmlConfig,
+  Elements,
+  ElConfig,
+  Controls,
+  ControlID
 };
