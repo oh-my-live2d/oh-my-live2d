@@ -5,11 +5,27 @@ order: 2
 # 模型配置
 
 ```ts
-const oml = loadLive2DModel({
+{
   models: {
     // 在这里进行配置
   }
-});
+}
+```
+
+现在模型配置已支持配置多个，之后可以在面板的控件中对其切换：
+
+```ts
+{
+  models: [
+    {
+      path: '/Pio/index.json'
+    },
+    {
+      // ...
+    }
+    // more...
+  ];
+}
 ```
 
 ## path
