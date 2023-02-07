@@ -4,7 +4,7 @@
 
 OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支持所有版本的 Live2D 模型，开箱即用且可定制化。   
 如果你还在苦于寻找一个支持所有版本模型的 Live2D For Web 组件，为你的个人网站增加一个看板娘，那么请看看这个！🥳   
-[查阅文档](https://oh-my-live2d.netlify.app/)了解更多详细的使用教程 🎉。
+[查阅文档](https://oml2d.com/)了解更多详细的使用教程 🎉。
 
 ## ✨ 特点：
 <img align="right" height="260" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302041451147.gif"/>
@@ -45,25 +45,25 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
 - 使用 `npm` 安装：
 
   ```shell
-  npm install oh-my-live2d
+  npm install oh-my-live2d@latest
   ```
 
 - 使用 `yarn` 安装：
 
   ```shell
-  yarn add oh-my-live2d
+  yarn add oh-my-live2d@latest
   ```
 
 - 国内源安装可使用 `tyarn`：
 
   ```shell
-  tyarn add oh-my-live2d
+  tyarn add oh-my-live2d@latest
   ```
 
 - 使用 `pnpm` 安装：
 
   ```shell
-  pnpm add oh-my-live2d
+  pnpm add oh-my-live2d@latest
   ```
 
 ### CDN 使用示例：
@@ -87,7 +87,7 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
 </html>
 ```
 
-**如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js)并导入到项目是你的最佳选择，打开链接后右键鼠标另存为即可完成下载。**
+**如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js)并导入到项目是你的最佳选择。**
 
 ### ESM 使用示例：
 
@@ -124,7 +124,7 @@ reportWebVitals();
 
 默认情况下，无论你是使用 `CDN` 或 `ES6 Module` 的方式导入，都无需导出任何模块或从全局变量中调用任何方法，即可得到一个完整的 `Live2D` 组件，这个过程属于**自动装载**。
 自动装载的 Live2D 组件将使用默认配置加载，并在加载完成后挂载到`<body>`标签中。     
-如果你想更换自己的模型或对其进行自定义，请[查阅文档](https://oh-my-live2d.netlify.app/)中自定义章节的相关内容。   
+如果你想更换自己的模型或对其进行自定义，请[查阅文档](https://oml2d.com/)中自定义章节的相关内容。   
 
 
 ## 💕 鸣谢：
@@ -139,6 +139,6 @@ reportWebVitals();
 
 - Q 群：474032914
 
-## 📃 许可证书：
+## 📃 许可证：
 
 - [MIT](https://github.com/oh-my-live2d/oh-my-live2d/blob/master/license)

@@ -1,0 +1,71 @@
+name: DeployDocs# Actions名称
+on:
+  push: # 监听调用时机为push事件
+    branches: ['deploy-docs'] # 监听master分支
+jobs:
+  build:
+    runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
+    steps:
+      - name: 拉取代码 # 步骤名字
+        uses: actions/checkout@master # 使用 actions/checkout 库拉取最新源码
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+
+      - name: 安装依赖
+        run: pnpm install vuepress-plugin-oh-my-live2d@latest -w -D
+
+      - name: 打包文档
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+        run: |
+          pnpm docs:build
+          pnpm docs-plugin:build
+
+
+      - name: 上传oh-my-live2d文档代码
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: 'docs/self/.vuepress/dist'
+          target: '~/projects/oml/'
+          rm: true
+          strip_components: 4
+
+      - name: 上传vuepress-plugin-oh-my-live2d文档代码
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: 'docs/vuepress-plugin/.vuepress/dist'
+          target: '~/projects/vuepress-plugin-oml/'
+          rm: true
+          strip_components: 4
+
+
+      - name: 执行远程脚本命令
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            rm -rf /loclink-project/production-code/oh-my-live2d
+            rm -rf /loclink-project/production-code/vuepress-oh-my-live2d
+            mkdir -p /loclink-project/production-code/oh-my-live2d
+            mkdir -p /loclink-project/production-code/vuepress-oh-my-live2d
+
+            cp -rf ~/projects/oml/*  /loclink-project/production-code/oh-my-live2d
+            cp -rf ~/projects/vuepress-plugin-oml/*  /loclink-project/production-code/vuepress-oh-my-live2d
+      - run: echo "项目部署完成！"
