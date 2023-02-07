@@ -7,7 +7,7 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支�
 [查阅文档](https://oh-my-live2d.netlify.app/)了解更多详细的使用教程 🎉。
 
 ## ✨ 特点：
-<img align="right" height="260" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302041451147.gif"/>
+<img align="right" height="270" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302080219383.gif"/>
 
 - 支持所有版本的`Live2D`模型。
 - 支持 `CDN` 或 `ES6 Module` 导入，现在你可以在 `webpack`以及`vite`项目中使用它。
@@ -45,25 +45,25 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
 - 使用 `npm` 安装：
 
   ```shell
-  npm install oh-my-live2d
+  npm install oh-my-live2d@latest
   ```
 
 - 使用 `yarn` 安装：
 
   ```shell
-  yarn add oh-my-live2d
+  yarn add oh-my-live2d@latest
   ```
 
 - 国内源安装可使用 `tyarn`：
 
   ```shell
-  tyarn add oh-my-live2d
+  tyarn add oh-my-live2d@latest
   ```
 
 - 使用 `pnpm` 安装：
 
   ```shell
-  pnpm add oh-my-live2d
+  pnpm add oh-my-live2d@latest
   ```
 
 ### CDN 使用示例：
