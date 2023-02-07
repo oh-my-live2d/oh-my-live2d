@@ -27,11 +27,11 @@ features:
 
   - title: 支持 Vuepress2
     icon: creative
-    link: https://plugin-oh-my-live2d.netlify.app/
+    link: https://vuepress.oml2d.com
     details: 在 Vuepress2 中使用 oh-my-live2d 扩展插件
 
 copyright: false
-footer: 使用 <a href="https://github.com/oh-my-live2d/oh-my-live2d" target="_blank">oh-my-live2d</a> MIT 协议, 版权所有 © 2023-present Loclink
+footer: <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2021019656号</a> <div>使用 <a href="https://github.com/oh-my-live2d/oh-my-live2d">oh-my-live2d</a> MIT 协议, 版权所有 © 2023-present Loclink</div>
 ---
 
 ![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202301191529042.gif)
@@ -157,7 +157,7 @@ root.render(
 reportWebVitals();
 ```
 
-## 更多内容：
+## 快速开始：
 
 参考：[介绍](/guide/README.md)
 
