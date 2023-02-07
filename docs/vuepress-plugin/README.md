@@ -27,11 +27,11 @@ features:
 
   - title: 同步更新
     icon: creative
-    link: https://oh-my-live2d.netlify.app/
+    link: https://oml2d.com
     details: 插件核心依赖于 oh-my-live2d 并与之同步更新。
 
 copyright: false
-footer: 使用 <a href="https://github.com/oh-my-live2d/oh-my-live2d" target="_blank">oh-my-live2d</a> MIT 协议, 版权所有 © 2023-present Loclink
+footer: 使用 <a href="https://github.com/oh-my-live2d/vuepress-plugin-oh-my-live2d" target="_blank">oh-my-live2d</a> MIT 协议, 版权所有 © 2023-present Loclink
 ---
 
 # 快速开始：

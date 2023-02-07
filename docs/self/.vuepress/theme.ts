@@ -3,10 +3,10 @@ import { enNavbar, zhNavbar } from './navbar/index.js';
 import { enSidebar, zhSidebar } from './sidebar/index.js';
 
 export default hopeTheme({
-  hostname: 'https://vuepress-theme-hope-docs-demo.netlify.app',
+  hostname: 'https://oml2d.com',
   author: {
     name: 'Loclink',
-    url: 'https://www.tj520.top'
+    url: 'https://loclink.cn'
   },
   iconAssets: 'iconfont',
 
