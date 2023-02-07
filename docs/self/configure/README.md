@@ -46,10 +46,10 @@ order: 1
 
 ## models
 
-- 类型：`Models`
+- 类型：`Model | Model[]`
 - 详情：
 
-  自定义模型相关属性
+  自定义一个或一组模型相关属性
 
 - 参考：
   - [配置 > models](/configure/models.md)

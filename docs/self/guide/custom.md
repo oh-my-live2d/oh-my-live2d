@@ -11,7 +11,7 @@
 @tab:active CDN
 
 ```js
-const oml = OML2D.loadLive2DModel({
+OML2D.loadOhMyLive2D({
   // 在此进行配置
 });
 ```
@@ -19,9 +19,9 @@ const oml = OML2D.loadLive2DModel({
 @tab ESM
 
 ```ts
-import { loadLive2DModel } from 'oh-my-live2d';
+import { loadOhMyLive2D } from 'oh-my-live2d';
 
-const oml = loadLive2DModel({
+loadOhMyLive2D({
   // 在此进行配置
 });
 ```
@@ -34,7 +34,7 @@ const oml = loadLive2DModel({
 <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
 
 <script>
-  const oml = OML2D.loadLive2DModel({
+   OML2D.loadOhMyLive2D({
     sayHello: false,
     transitionTime: 2000,
     models: {
@@ -48,9 +48,9 @@ const oml = loadLive2DModel({
 ## ESM 导入示例：
 
 ```ts
-import { loadLive2DModel } from 'oh-my-live2d';
+import { loadOhMyLive2D } from 'oh-my-live2d';
 
-const oml = loadLive2DModel({
+loadOhMyLive2D({
   sayHello: false,
   transitionTime: 2000,
   models: {

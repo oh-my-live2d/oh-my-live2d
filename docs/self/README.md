@@ -159,7 +159,7 @@ reportWebVitals();
 
 ## 更多内容：
 
-参考：[介绍](/guide)
+参考：[介绍](/guide/README.md)
 
 ## 关于：
 
