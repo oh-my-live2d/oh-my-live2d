@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.2.0...v0.2.1) (2023-02-07)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复了在vuepress中因为加载顺序问题，调用方法无效的bug ([0e8f385](https://github.com/oh-my-live2d/oh-my-live2d/commit/0e8f38574ef3986a132283a94b870d1aa31e3ab7))
+
 ## [0.2.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.1.1...v0.2.0) (2023-02-07)
 
 
