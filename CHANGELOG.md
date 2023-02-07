@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.1.1...v0.2.0) (2023-02-07)
+
+
+### ⚡ Improvements | 优化
+
+* 优化了悬浮按钮的交互效果 ([2d9be10](https://github.com/oh-my-live2d/oh-my-live2d/commit/2d9be1062f36df4cff6ab9c41287818f2ea51116))
+
+
+### ✨ Features | 新功能
+
+* 新增了面板控件功能 - 模型切换，现在可以配置多个模型。代码整体重构，优化了大部分逻辑。手动装载方法名称由loadLive2DModel修改为loadOhMyLive2D，移除了方法返回的oml对象 ([957ee80](https://github.com/oh-my-live2d/oh-my-live2d/commit/957ee80268580a2d8b5b75bbf55c3e00b8e398ff))
+* 新增侧边菜单 ([618ef4a](https://github.com/oh-my-live2d/oh-my-live2d/commit/618ef4a565e27d2729883a16d66b7ef935c78175))
+
 ### [0.1.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.1.0...v0.1.1) (2023-02-03)
 
 
