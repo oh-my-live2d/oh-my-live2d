@@ -31,7 +31,7 @@ importers:
       vite-plugin-dts: ^1.7.2
       vue: ^3.2.45
       vuepress: 2.0.0-beta.60
-      vuepress-plugin-oh-my-live2d: ^0.0.16
+      vuepress-plugin-oh-my-live2d: ^0.4.0
       vuepress-theme-hope: 2.0.0-beta.158
     devDependencies:
       '@release-it/conventional-changelog': 5.1.1_release-it@15.6.0
@@ -61,7 +61,7 @@ importers:
       vite-plugin-dts: 1.7.2_7rbuztiipedpplj3l6jjehnwyi
       vue: 3.2.47
       vuepress: 2.0.0-beta.60_6muckccbo3rxy3rz4ckq5whliq
-      vuepress-plugin-oh-my-live2d: 0.0.16
+      vuepress-plugin-oh-my-live2d: 0.4.0
       vuepress-theme-hope: 2.0.0-beta.158_e7jwb2ulu5orbkux7obq5onfau
 
   test/vite-app:
@@ -11129,10 +11129,8 @@ packages:
     resolution: {integrity: sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==}
     dev: true
 
-  /oh-my-live2d/0.0.22:
-    resolution: {integrity: sha512-sZ0Li3oaqh1OrZ/MwflAJSmiysnpaRd+MHufMZdi0cEg3b6U8khuTiQGUcMBT0x3QZPM4gpbDcuyDAArDSdbOg==}
-    dependencies:
-      lodash-es: 4.17.21
+  /oh-my-live2d/0.2.1:
+    resolution: {integrity: sha512-yuZDjae0WtKQpMJAk5O2PFR0NpZLTyNvS08Cm3q09vixi/Li3kGLjIx3Ji7aPMuKwjVsTnEtUoF0mTU+KOoLDg==}
     dev: true
 
   /on-finished/2.4.1:
@@ -15025,10 +15023,10 @@ packages:
       - supports-color
     dev: true
 
-  /vuepress-plugin-oh-my-live2d/0.0.16:
-    resolution: {integrity: sha512-+oiNyI0y5kqBEk3hOGzkEZVE/VuLnyEXysFlOz7rvNhqVq2W7AAqzvEmQo87dFXq9zfAWcMbGTEr7HXiEPoy4w==}
+  /vuepress-plugin-oh-my-live2d/0.4.0:
+    resolution: {integrity: sha512-uiNQP/oohBykSb7L6jULjYVeRnknRLOxSzxlXKNYt7+0fo6RWdQGT7Mu+CDpo4AIWr9nvBV6zS4TLkrkrlgW5w==}
     dependencies:
-      oh-my-live2d: 0.0.22
+      oh-my-live2d: 0.2.1
     dev: true
 
   /vuepress-plugin-photo-swipe/2.0.0-beta.158_e7jwb2ulu5orbkux7obq5onfau:

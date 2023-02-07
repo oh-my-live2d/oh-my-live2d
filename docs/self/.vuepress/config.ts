@@ -3,7 +3,18 @@ import { ohmylive2dPlugin } from 'vuepress-plugin-oh-my-live2d';
 import theme from './theme.js';
 
 export default defineUserConfig({
-  plugins: [ohmylive2dPlugin()],
+  plugins: [
+    ohmylive2dPlugin({
+      models: [
+        {
+          path: '/pa15_3701/normal/normal.model3.json'
+        },
+        {
+          path: '/pio/index.json'
+        }
+      ]
+    })
+  ],
   base: '/',
   locales: {
     '/': {
