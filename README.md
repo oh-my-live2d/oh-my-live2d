@@ -7,7 +7,7 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支�
 [查阅文档](https://oml2d.com/)了解更多详细的使用教程 🎉。
 
 ## ✨ 特点：
-<img align="right" height="260" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302041451147.gif"/>
+<img align="right" height="270" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302080219383.gif"/>
 
 - 支持所有版本的`Live2D`模型。
 - 支持 `CDN` 或 `ES6 Module` 导入，现在你可以在 `webpack`以及`vite`项目中使用它。
