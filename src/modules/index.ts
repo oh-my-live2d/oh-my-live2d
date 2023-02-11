@@ -140,11 +140,6 @@ class OhMyLive2D {
       height: `${height}px`,
       backgroundColor: this.options.models[this.currentModelIndex].stageStyle.backgroundColor
     });
-
-    // this.changeCanvasStyle({
-    //   width: `${this.model.width}px`,
-    //   height: `${this.model.height}px`
-    // });
   }
 
   reloadModelTransform() {
@@ -215,6 +210,9 @@ class OhMyLive2D {
       case 'SwitchModel':
         await this.loadNextModel();
         break;
+      case 'About':
+        window.open('https://oml2d.com');
+        break;
       default:
         // this.stopPlayIdleTips();
         this.displayLevitatedBtn('text', '施工中', 3000);
@@ -252,7 +250,6 @@ class OhMyLive2D {
         this.model?.motion(`${item}${hitAreaNames[0]}`);
       });
     });
-  
   }
 
   addEventListen() {
