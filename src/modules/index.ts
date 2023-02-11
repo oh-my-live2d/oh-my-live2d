@@ -246,6 +246,13 @@ class OhMyLive2D {
       this.app.resize();
       this.screenSize = getScreenSize();
     });
+
+    this.model?.on('hit', (hitAreaNames) => {
+      ['Tap', 'tap_'].map((item) => {
+        this.model?.motion(`${item}${hitAreaNames[0]}`);
+      });
+    });
+  
   }
 
   addEventListen() {
