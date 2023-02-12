@@ -45,25 +45,25 @@ Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubi
 - 使用 `npm` 安装：
 
   ```shell
-  npm install oh-my-live2d@latest
+  npm install oh-my-live2d
   ```
 
 - 使用 `yarn` 安装：
 
   ```shell
-  yarn add oh-my-live2d@latest
+  yarn add oh-my-live2d
   ```
 
 - 国内源安装可使用 `tyarn`：
 
   ```shell
-  tyarn add oh-my-live2d@latest
+  tyarn add oh-my-live2d
   ```
 
 - 使用 `pnpm` 安装：
 
   ```shell
-  pnpm add oh-my-live2d@latest
+  pnpm add oh-my-live2d
   ```
 
 ### CDN 使用示例：

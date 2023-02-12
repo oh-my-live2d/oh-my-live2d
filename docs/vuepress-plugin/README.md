@@ -43,19 +43,19 @@ footer: 使用 <a href="https://github.com/oh-my-live2d/vuepress-plugin-oh-my-li
 @tab:active npm
 
 ```bash
-npm install vuepress-plugin-oh-my-live2d@next
+npm install vuepress-plugin-oh-my-live2d
 ```
 
 @tab pnpm
 
 ```bash
-pnpm add vuepress-plugin-oh-my-live2d@next
+pnpm add vuepress-plugin-oh-my-live2d
 ```
 
 @tab yarn
 
 ```bash
-yarn add vuepress-plugin-oh-my-live2d@next
+yarn add vuepress-plugin-oh-my-live2d
 ```
 
 :::

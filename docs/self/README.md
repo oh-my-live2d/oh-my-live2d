@@ -45,19 +45,19 @@ footer: <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2021019656
 @tab:active npm
 
 ```bash
-npm i oh-my-live2d@next
+npm i oh-my-live2d
 ```
 
 @tab pnpm
 
 ```bash
-pnpm add oh-my-live2d@next
+pnpm add oh-my-live2d
 ```
 
 @tab yarn
 
 ```bash
-yarn add oh-my-live2d@next
+yarn add oh-my-live2d
 ```
 
 :::
