@@ -1,5 +1,17 @@
 # Changelog
 
+### [0.2.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.2.1...v0.2.2) (2023-02-11)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复hit事件失效的bug ([7b4816e](https://github.com/oh-my-live2d/oh-my-live2d/commit/7b4816ed10c0b6cf6ee9fea71414cc616fdb98bf))
+
+
+### ✨ Features | 新功能
+
+* 新增了点击关于按钮后跳转至官方文档的功能 ([fd0649b](https://github.com/oh-my-live2d/oh-my-live2d/commit/fd0649bb29e073267b2d4157177564465e3cc808))
+
 ### [0.2.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.2.0...v0.2.1) (2023-02-07)
 
 
