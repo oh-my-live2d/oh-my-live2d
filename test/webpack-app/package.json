@@ -10,7 +10,7 @@
     "@types/node": "^16.18.11",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "oh-my-live2d": "workspace:^0.1.1",
+    "oh-my-live2d": "workspace:",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",

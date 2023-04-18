@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "oh-my-live2d": "workspace:^0.1.1"
+    "oh-my-live2d": "workspace:"
   }
 }
