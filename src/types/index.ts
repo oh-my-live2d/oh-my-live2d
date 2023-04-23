@@ -123,11 +123,11 @@ interface IdleTips extends CopyTips {
   interval?: number;
 
   /**
-   * 提供远程提示
+   * 提供异步加载提示方法
    * @param arg
    * @returns
    */
-  remote?: ((...arg) => Promise<{ text: string }>) | false;
+  remote?: (() => Promise<{ text: string }>) | false;
 }
 
 interface WelcomeTips {

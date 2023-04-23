@@ -28,6 +28,14 @@ order: 1
   在这个配置中，模型的加载路径会自动拼接为：`https://oml-api.tj520.top/Pio/index.json`
   :::
 
+## mobileShow
+
+- 类型：`boolean`
+- 默认值：false
+- 详情：
+
+  是否在移动端显示器大小展示模型，默认 false
+
 ## sayHello
 
 - 类型：`boolean`

@@ -17,7 +17,7 @@ const handleSplicingModelSource = (source: string, path: string) => {
 
 const sayHello = (importType: ImportType) => {
   const args = [
-    `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${importType} ✨ %c %c 🎉🎉🎉 \n`,
+    `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${`https://oml2d.com/`} ✨ %c %c 🎉🎉🎉 \n`,
     'background: #add7fb; padding:5px 0;',
     'background: #58b0fc; padding:5px 0;',
     'color: #fff; background: #030307; padding:5px 0;',
