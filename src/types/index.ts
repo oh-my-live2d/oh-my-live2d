@@ -121,6 +121,13 @@ interface IdleTips extends CopyTips {
    * 闲置状态循环播放消息的间隔时间
    */
   interval?: number;
+
+  /**
+   * 提供远程提示
+   * @param arg
+   * @returns
+   */
+  remote?: ((...arg) => Promise<{ text: string }>) | false;
 }
 
 interface WelcomeTips {

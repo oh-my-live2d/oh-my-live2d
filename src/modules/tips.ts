@@ -35,11 +35,13 @@ const showTipsFrameMessage = function (el: HTMLDivElement, tips: BasicTips) {
   });
 };
 
+// 开始播放闲置时提示
 const startPlayIdleTips = function (this: OhMyLive2D) {
   if (!this.options.tips) return;
   stopTimer = playIdleTips(this.options.tips.idleTips, this);
 };
 
+// 停止播放
 const stopPlayIdleTips = function (this: OhMyLive2D) {
   stopTimer && stopTimer();
 };
@@ -54,18 +56,28 @@ const playIdleTips = function (idleTips: DeepRequired<IdleTips>, self) {
   return stopTimer;
 };
 
+// 弹出提示事件
 const onTips = async function (this: OhMyLive2D, tipsType: TipsType) {
   if (!this.options.tips) return;
-  const tips = getTips(tipsType, this.options.tips);
+  const tips = await getTips(tipsType, this.options.tips);
   return await showTipsFrameMessage(this.elementList.tipsEl, tips);
 };
 
-const getTips = function (tipsType: TipsType, tips: DeepRequired<Tips>) {
+// 获取提示
+const getTips = async function (tipsType: TipsType, tips: DeepRequired<Tips>) {
   let message;
   let interval;
   switch (tipsType) {
     case 'welcomeTips':
       message = getWelcomeMessage(tips.welcomeTips);
+      break;
+    case 'idleTips':
+      if (tips['idleTips']?.remote) {
+        const result = await tips['idleTips'].remote?.();
+        message = result.text;
+      } else {
+        message = getTipsMessage(tips[tipsType].message);
+      }
       break;
     default:
       message = getTipsMessage(tips[tipsType].message);
