@@ -172,6 +172,7 @@ class OhMyLive2D {
     this.reloadStageStyle();
     this.reloadTipsStyle();
   }
+
   /**
    * 模型加载器
    * @param modelConfig

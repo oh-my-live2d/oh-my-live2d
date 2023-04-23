@@ -50,15 +50,16 @@ const profiles = entries.flatMap(({ entry, name }): InlineConfig => {
           copyDtsFiles: false,
           insertTypesEntry: true,
           afterBuild() {
-            fs.copyFile(resolve(__dirname, '..', 'dist/index.d.ts'), resolve(__dirname, '..', `dist/oml-cubism2.d.ts`));
-            fs.copyFile(resolve(__dirname, '..', 'dist/index.d.ts'), resolve(__dirname, '..', `dist/oml-cubism4.d.ts`));
+            fs.copyFile(resolve(__dirname, '../dist/index.d.ts'), resolve(__dirname, `../dist/oml-cubism2.d.ts`));
+            fs.copyFile(resolve(__dirname, '../dist/index.d.ts'), resolve(__dirname, `../dist/oml-cubism4.d.ts`));
           }
         }),
       {
         name: 'copy-min-file',
         writeBundle(outOptions) {
           if (outOptions.format === 'umd') {
-            fs.copyFile(resolve(__dirname, '..', `dist/${name}.min.js`), resolve(__dirname, '..', `test/vite-app/public/${name}.min.js`));
+            fs.ensureDirSync(resolve(__dirname, '../test/vite-app/public'));
+            fs.copyFile(resolve(__dirname, `../dist/${name}.min.js`), resolve(__dirname, `../test/vite-app/public/${name}.min.js`));
           }
         }
       }
