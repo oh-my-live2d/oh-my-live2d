@@ -78,7 +78,7 @@ class OhMyLive2D {
         this.omlStatus = 'display';
         break;
       case 'xs':
-        this.omlStatus = 'hidden';
+        this.options.mobileShow ? (this.omlStatus = 'display') : (this.omlStatus = 'hidden');
         break;
     }
   }
@@ -267,6 +267,7 @@ class OhMyLive2D {
     });
   }
 
+  // 显示舞台
   stageSlideIn() {
     this.changeStageStyle({
       animationName: 'oml-stage-slide-in',
@@ -282,6 +283,7 @@ class OhMyLive2D {
     });
   }
 
+  // 隐藏舞台
   stageSlideOut() {
     this.changeStageStyle({
       animationName: 'oml-stage-slide-out',

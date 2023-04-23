@@ -1,5 +1,35 @@
 # Changelog
 
+## [0.3.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.2.1...v0.3.0) (2023-04-23)
+
+
+### 📦 Chores | 其他更新
+
+* 修改依赖项 ([d2981e2](https://github.com/oh-my-live2d/oh-my-live2d/commit/d2981e27b83518bfbef2ec9c4a4333fa68860a6c))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复dev模式下测试文件夹路径找不到的问题 ([caa0015](https://github.com/oh-my-live2d/oh-my-live2d/commit/caa00156d43297f720adba9d0739c076844d99b0))
+
+
+### ✨ Features | 新功能
+
+* 提供异步加载闲置提示选项，现在你可以使用网络请求来自定义提示信息 ([d85e973](https://github.com/oh-my-live2d/oh-my-live2d/commit/d85e973a9a4b7569d64125e40ca9c660e6bba9dd))
+* 新增移动端是否显示模型选项 ([94b362f](https://github.com/oh-my-live2d/oh-my-live2d/commit/94b362f13dc5632c23bf4862187c8ffae51f7ee4))
+
+### [0.2.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.2.1...v0.3.0) (2023-02-11)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复hit事件失效的bug ([7b4816e](https://github.com/oh-my-live2d/oh-my-live2d/commit/7b4816ed10c0b6cf6ee9fea71414cc616fdb98bf))
+
+
+### ✨ Features | 新功能
+
+* 新增了点击关于按钮后跳转至官方文档的功能 ([fd0649b](https://github.com/oh-my-live2d/oh-my-live2d/commit/fd0649bb29e073267b2d4157177564465e3cc808))
+
 ### [0.2.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.2.1...v0.2.2) (2023-02-11)
 
 

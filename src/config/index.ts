@@ -4,7 +4,7 @@ import '@/library/iconfont';
 
 import type { DefaultOptions, OmlConfig } from '@/types';
 
-const DEV_SOURCE = 'http://localhost:8080';
+const DEV_SOURCE = 'https://oml-api.tj520.top';
 const PRO_SOURCE = 'https://oml-api.tj520.top';
 
 const defaultJsonPath = {
@@ -20,6 +20,7 @@ const defaultOptions: DefaultOptions = {
   source: modelSource,
   sayHello: true,
   transitionTime: 1000,
+  mobileShow: false,
   models: {
     path: '',
     x: 0,
@@ -42,7 +43,8 @@ const defaultOptions: DefaultOptions = {
       message: idleTipsMessage,
       persistTime: 5000,
       interval: 5000,
-      priority: 2
+      priority: 2,
+      remote: false
     },
     welcomeTips: {
       message: welcomeTipsMessage,
@@ -57,7 +59,7 @@ const defaultOptions: DefaultOptions = {
   }
 };
 
-// config
+// config 全局配置
 const omlConfig: OmlConfig = {
   globalStyle,
   elements: {

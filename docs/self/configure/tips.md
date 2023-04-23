@@ -9,7 +9,7 @@ order: 3
   tips: {
     // 在这里进行配置
   }
-};
+}
 ```
 
 ## style
@@ -110,6 +110,46 @@ order: 3
 - 详情：
 
   提示优先级，优先级大的提示将覆盖小的并优先展示
+
+## idleTips.remote
+
+- 类型：`(() => Promise<{ text: string }>) | false`
+- 默认值：false
+- 详情：
+
+  提供异步加载闲置提示信息的方法，现在你可以使用网络请求来加载提示信息了。默认为 false 关闭异步加载。
+
+示例：
+
+```ts
+import { loadOhMyLive2D } from 'oh-my-live2d';
+
+loadOhMyLive2D({
+  tips: {
+    idleTips: {
+      remote() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({ text: 'hello world' });
+          }, 3000);
+        });
+      }
+    }
+  }
+});
+
+// 或者 你还可以使用Promise的语法糖，就像这样 ：
+loadOhMyLive2D({
+  tips: {
+    idleTips: {
+      async remote() {
+        const result = await axios.get('https://url.example.com');
+        return { text: result.data.txt };
+      }
+    }
+  }
+});
+```
 
 ## welcomeTips
 
