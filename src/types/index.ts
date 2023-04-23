@@ -1,12 +1,9 @@
-// import { Live2DModel } from 'pixi-live2d-display';
-// import { Application } from 'pixi.js';
-
 type ImportType = 'complete' | 'cubism2' | 'cubism4';
 type EventType = 'ready' | 'load';
 type LoadType = 'manual' | 'auto';
 type TipsType = 'welcomeTips' | 'idleTips' | 'copyTips';
 
-type ControlID = 'SwitchModel' | 'Setting' | 'About'
+type ControlID = 'SwitchModel' | 'Setting' | 'About';
 type ControlName = 'icon-a-userswitch-fill' | 'icon-setting-fill' | 'icon-info-circle-fill';
 
 interface ElConfig {
@@ -38,6 +35,7 @@ interface Elements {
   levitatedBtnEl: ElConfig;
   controlsEl: ElConfig;
 }
+
 interface OmlConfig {
   globalStyle: string;
   elements: Elements;
@@ -82,6 +80,10 @@ interface Model {
 }
 
 interface Options<T = Model | [Model, ...Model[]]> {
+  /**
+   * 是否在移动端显示，默认为false
+   */
+  mobileShow?: boolean;
   /**
    * 模型来源，固定的远程或本地路径
    */
