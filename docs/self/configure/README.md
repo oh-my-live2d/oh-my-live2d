@@ -71,3 +71,10 @@ order: 1
 
 - 参考：
   - [配置 > tips](/configure/tips.md)
+
+## mountTarget
+
+- 类型：`HTMLElement`
+- 详情：
+
+  自定义挂载元素，默认为 `document.body`。

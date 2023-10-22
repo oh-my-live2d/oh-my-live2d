@@ -42,7 +42,7 @@ class OhMyLive2D {
     this.currentModelIndex = 0;
     this.loadLive2DModel = loadLive2DModel;
     this.importType = importType;
-    this.elementList = this.mountElement();
+    this.elementList = this.mountElement(options?.mountTarget as HTMLElement);
     this.setGlobalStyle();
     this.addEventListen();
     this.modelLoader(options.models[this.currentModelIndex]);
@@ -97,19 +97,20 @@ class OhMyLive2D {
     document.head.appendChild(styleEl);
   }
 
-  mountElement() {
+  mountElement(targetElement?: HTMLElement) {
     const omlElFragment = new DocumentFragment();
     const elementList = this.createOmlElements();
     const { stageEl, canvasEl, tipsEl, controlsEl, levitatedBtnEl } = elementList;
     stageEl.append(canvasEl, tipsEl, controlsEl);
     generateControlByConfig(controlsEl, omlConfig.controls, this.onClickControl.bind(this));
     omlElFragment.append(stageEl, levitatedBtnEl);
-    document.body.appendChild(omlElFragment);
 
+    const target = targetElement ?? document.body;
+    target.appendChild(omlElFragment);
     // 刷新前卸载元素
     window.onbeforeunload = () => {
-      document.body.removeChild(this.elementList.stageEl);
-      document.body.removeChild(this.elementList.levitatedBtnEl);
+      target.removeChild(this.elementList.stageEl);
+      target.removeChild(this.elementList.levitatedBtnEl);
     };
     return elementList;
   }
