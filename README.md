@@ -140,7 +140,7 @@ reportWebVitals();
 添加好友以加入微信群：  
 添加好友时请备注：oml2d
 
-<img width=200 src="https://cdn.jsdelivr.net/gh/loclink/picture-bed@main/img/202310231117372.png"/>
+<img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
 
 ## 📃 许可证：
 
