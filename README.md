@@ -1,12 +1,13 @@
-# oh-my-live2d
+# OhMyLive2D
 
 ![npm](https://img.shields.io/npm/v/oh-my-live2d?label=version) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
 
-OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支持所有版本的 Live2D 模型，开箱即用且可定制化。   
-如果你还在苦于寻找一个支持所有版本模型的 Live2D For Web 组件，为你的个人网站增加一个看板娘，那么请看看这个！🥳   
+OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支持所有版本的 Live2D 模型，开箱即用且可定制化。  
+如果你还在苦于寻找一个支持所有版本模型的 Live2D For Web 组件，为你的个人网站增加一个看板娘，那么请看看这个！🥳  
 [查阅文档](https://oml2d.com/)了解更多详细的使用教程 🎉。
 
 ## ✨ 特点：
+
 <img align="right" height="270" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302080219383.gif"/>
 
 - 支持所有版本的`Live2D`模型。
@@ -123,9 +124,8 @@ reportWebVitals();
 ```
 
 默认情况下，无论你是使用 `CDN` 或 `ES6 Module` 的方式导入，都无需导出任何模块或从全局变量中调用任何方法，即可得到一个完整的 `Live2D` 组件，这个过程属于**自动装载**。
-自动装载的 Live2D 组件将使用默认配置加载，并在加载完成后挂载到`<body>`标签中。     
-如果你想更换自己的模型或对其进行自定义，请[查阅文档](https://oml2d.com/)中自定义章节的相关内容。   
-
+自动装载的 Live2D 组件将使用默认配置加载，并在加载完成后挂载到`<body>`标签中。  
+如果你想更换自己的模型或对其进行自定义，请[查阅文档](https://oml2d.com/)中自定义章节的相关内容。
 
 ## 💕 鸣谢：
 
@@ -137,7 +137,10 @@ reportWebVitals();
 
 ## 📧 讨论：
 
-- Q 群：474032914
+添加好友以加入微信群：  
+添加好友时请备注：oml2d
+
+<img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
 
 ## 📃 许可证：
 
