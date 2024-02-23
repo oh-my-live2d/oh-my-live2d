@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           source: 'docs/self/.vuepress/dist'
-          target: '${{secrets.SSH_USERNAME}}/Projects/.oml2d_temp/'
+          target: '/${{secrets.SSH_USERNAME}}/Projects/.oml2d_temp/'
           rm: true
           strip_components: 4
 
@@ -48,7 +48,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           source: 'docs/vuepress-plugin/.vuepress/dist'
-          target: '${{secrets.SSH_USERNAME}}/Projects/.vuepress-plugin-oml2d_temp/'
+          target: '/${{secrets.SSH_USERNAME}}/Projects/.vuepress-plugin-oml2d_temp/'
           rm: true
           strip_components: 4
 
