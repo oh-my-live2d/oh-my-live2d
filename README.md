@@ -1,4 +1,4 @@
-# oh-my-live2d
+# OhMyLive2D
 
 ![npm](https://img.shields.io/npm/v/oh-my-live2d?label=version) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
 
