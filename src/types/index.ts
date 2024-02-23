@@ -104,6 +104,10 @@ interface Options<T = Model | [Model, ...Model[]]> {
    * 定义提示框
    */
   tips?: Tips | false;
+  /**
+   * 指定挂载元素，不指定则挂载到body
+   */
+  mountTarget?: HTMLElement;
 }
 
 type DeepRequired<T> = T extends Function ? T : T extends object ? { [P in keyof T]-?: DeepRequired<T[P]> } : T;

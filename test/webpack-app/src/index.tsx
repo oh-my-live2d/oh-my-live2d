@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { loadLive2DModel } from 'oh-my-live2d';
+import { loadOhMyLive2D } from 'oh-my-live2d';
 
-loadLive2DModel({
+loadOhMyLive2D({
   tips: false
 });
 
