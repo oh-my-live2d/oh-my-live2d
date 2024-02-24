@@ -27,3 +27,4 @@ src/assets/model.temp
 .cache
 .temp
 public
+pnpm-lock.yaml

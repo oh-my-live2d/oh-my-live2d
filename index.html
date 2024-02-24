@@ -8,11 +8,22 @@
       body {
         background-color: #333;
       }
-
-   
     </style>
   </head>
   <body>
-    <script type="module" src="src/index.ts"></script>
+    <script src="./dist/index.min.js"></script>
+    <script>
+      // console.log('---------------------');
+      // console.log(OML2D);
+      // OML2D.loadOml2d({});
+
+      OML2D.loadOhMyLive2D({
+        // 在此进行配置
+        source: 'https://cdn.jsdelivr.net',
+        models: {
+          path: '/gh/Eikanya/Live2d-model/%E5%B0%91%E5%A5%B3%E5%89%8D%E7%BA%BF%20girls%20Frontline/live2dold/gun/mk23_8/normal/model.json'
+        }
+      });
+    </script>
   </body>
 </html>
