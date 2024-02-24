@@ -22,8 +22,9 @@
     "build": "rimraf dist && esno ./scripts/build.ts",
     "refresh": "esno ./scripts/refresh-cdn.ts",
     "release": "dotenv release-it && npm run refresh",
-    "test:vite": "vite test/vite-app --port 3001",
-    "test:webpack": "cd test/webpack-app && pnpm start"
+    "test": "pnpm -F vite-app run dev",
+    "test:vite": "pnpm -F vue-app run dev",
+    "test:webpack": "pnpm -F react-app run start"
   },
   "license": "MIT",
   "author": "loclink",

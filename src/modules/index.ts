@@ -1,5 +1,5 @@
-import { Application } from 'pixi.js';
 import { defaultJsonPath, defaultOptions, omlConfig } from '@/config';
+import { Application } from 'pixi.js';
 import {
   createElementByConfig,
   generateControlByConfig,
@@ -9,12 +9,12 @@ import {
   sayHello,
   setElStyle
 } from '../utils';
-import { displayLevitatedBtn, hiddenLevitatedBtn, changeLevitatedBtnContent } from './levitated-btn';
+import { changeLevitatedBtnContent, displayLevitatedBtn, hiddenLevitatedBtn } from './levitated-btn';
 import { onTips, startPlayIdleTips, stopPlayIdleTips } from './tips';
 
-import type { ImportType, Options, ElementList, DeepRequired, DefaultModel, ControlID } from '@/types';
-import type { Live2DModel } from 'pixi-live2d-display';
+import type { ControlID, DeepRequired, DefaultModel, ElementList, ImportType, Options } from '@/types';
 import type CSS from 'csstype';
+import type { Live2DModel } from 'pixi-live2d-display';
 
 class OhMyLive2D {
   options: DeepRequired<Options<[DefaultModel, ...DefaultModel[]]>>;
@@ -38,6 +38,7 @@ class OhMyLive2D {
   _omlStatus = 'hidden';
 
   constructor(options: DeepRequired<Options<[DefaultModel, ...DefaultModel[]]>>, loadLive2DModel, importType: ImportType) {
+    console.log(importType, '------------');
     this.options = options;
     this.currentModelIndex = 0;
     this.loadLive2DModel = loadLive2DModel;
@@ -330,4 +331,4 @@ const setup = (importType: ImportType, loadLive2DModel) => {
   };
   return loadOhMyLive2D;
 };
-export { setup, OhMyLive2D };
+export { OhMyLive2D, setup };

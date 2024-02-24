@@ -1,16 +1,19 @@
+import { loadOhMyLive2D } from 'oh-my-live2d';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-import { loadOhMyLive2D } from 'oh-my-live2d';
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 loadOhMyLive2D({
-  tips: false
+  source: 'https://cdn.jsdelivr.net',
+  models: {
+    path: '/gh/Eikanya/Live2d-model/%E5%B0%91%E5%A5%B3%E5%89%8D%E7%BA%BF%20girls%20Frontline/live2dold/gun/mk23_8/normal/model.json'
+  }
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <App />
