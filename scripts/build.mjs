@@ -1,8 +1,8 @@
-import { InlineConfig, build } from 'vite';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import dts from 'vite-plugin-dts';
 import fs from 'fs-extra';
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
+import { build } from 'vite';
+import dts from 'vite-plugin-dts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -31,7 +31,7 @@ const entries = [
 // });
 
 // 动态生成配置build配置选项
-const profiles = entries.flatMap(({ entry, name }): InlineConfig => {
+const profiles = entries.flatMap(({ entry, name }) => {
   return {
     build: {
       // sourcemap: true,

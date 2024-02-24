@@ -38,7 +38,8 @@ class OhMyLive2D {
   _omlStatus = 'hidden';
 
   constructor(options: DeepRequired<Options<[DefaultModel, ...DefaultModel[]]>>, loadLive2DModel, importType: ImportType) {
-    console.log(importType, '------------');
+    console.log(importType, '------------1111');
+
     this.options = options;
     this.currentModelIndex = 0;
     this.loadLive2DModel = loadLive2DModel;
