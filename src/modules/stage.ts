@@ -12,23 +12,25 @@ enum Status {
 export class Stage {
   element: HTMLElement;
   canvasElement: HTMLCanvasElement;
+
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
+  private targetStyle: CSSProperties = {};
   private status: Status = Status.Hidden;
   private slideChangeEnd?: (status: Status) => void;
   constructor(private targetElement: HTMLElement) {
     this.element = createElement({ id: config.stageId, tagName: 'div' });
     this.canvasElement = createElement({ id: config.canvasId, tagName: 'canvas' }) as HTMLCanvasElement;
     this.create();
+    this.initStyle();
   }
 
   create() {
     const oml2dFragment = document.createDocumentFragment();
     this.element.append(this.canvasElement);
+
     oml2dFragment.append(this.element);
     this.targetElement.append(oml2dFragment);
-
-    this.initStyle();
 
     // 刷新前卸载元素
     window.onbeforeunload = () => {
@@ -39,6 +41,8 @@ export class Stage {
 
   initStyle() {
     this.setStyle({ width: '0px', height: '0px', position: 'fixed', left: 0, bottom: 0, zIndex: '9997', transform: 'translateY(130%)' });
+    this.setTargeStyle({ position: 'relative' });
+
     const styleSheet = createElement({ tagName: 'style', id: 'oml2dStyle', innerHtml: globalStyle }); // 创建全局样式表
     document.head.append(styleSheet);
   }
@@ -54,6 +58,12 @@ export class Stage {
     setStyleByElement(this.canvasStyle, this.canvasElement);
   }
 
+  setTargeStyle(style: CSSProperties) {
+    if (this.targetElement !== document.body) {
+      this.targetStyle = mergeDeep(this.targetStyle, style);
+      setStyleByElement(this.targetStyle, this.targetElement);
+    }
+  }
   /**
    * 滑入
    */

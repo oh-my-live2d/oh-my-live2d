@@ -4,15 +4,14 @@ import { Application } from 'pixi.js';
 
 export class Model {
   private model: Live2DModel<InternalModel>; // 模型实例
-  taskList: any[] = [];
+  private failEvent?: (error: Error) => void;
+
   constructor(private live2dModel: Live2DModelType, private modelOptions, private application: Application) {
     this.model = this.create();
   }
   create() {
     const model = this.live2dModel.fromSync(this.modelOptions.path, {
-      onError: (e) => {
-        console.log(e);
-      }
+      onError: (e) => this.failEvent?.(e)
     });
 
     model.once('load', () => {
@@ -22,10 +21,22 @@ export class Model {
     return model;
   }
 
-  loaded(fn: (modelInfo: { width: number; height: number }) => void) {
+  /**
+   * 模型资源全部加载完毕的事件回调
+   * @param fn
+   */
+  onLoaded(fn: (modelInfo: { width: number; height: number }) => void) {
     this.model.once('load', () => {
       fn({ width: this.model.width, height: this.model.height });
     });
+  }
+
+  /**
+   * 模型加载失败的事件回调
+   * @param fn
+   */
+  onFail(fn: (error: Error) => void) {
+    this.failEvent = fn;
   }
   /**
    * 设置缩放比例

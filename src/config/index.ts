@@ -103,6 +103,8 @@ export const defaultOptions: DefaultOptions = {
 // config 全局配置
 export const config = {
   stageId: 'oml2dStage',
-  canvasId: 'oml2dCanvas'
+  canvasId: 'oml2dCanvas',
+  statusBarId: 'oml2dStatusBar',
+  tipsId: 'oml2dTips'
 };
 // export { defaultJsonPath, defaultOptions, omlConfig };

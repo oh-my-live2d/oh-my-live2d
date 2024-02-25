@@ -2,6 +2,7 @@ import { loadOhMyLive2D } from 'oh-my-live2d';
 import { setupCounter } from '../lib/main';
 import './style.css';
 import typescriptLogo from './typescript.svg';
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">

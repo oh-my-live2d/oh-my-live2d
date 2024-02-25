@@ -2,6 +2,9 @@
 // import type { OhMyLive2D } from '@/modules';
 // import type { DeepRequired, IdleTips, Tips, TipsType, WelcomeTips } from '@/types';
 
+import { config } from '@/config';
+import { createElement } from '@/utils';
+
 // let tipsTimer: any = 0;
 // let tipsPriority = 0;
 // let stopTimer;
@@ -140,5 +143,11 @@
 
 // ------------------------------- start
 
-export class Tips {}
+export class Tips {
+  element: HTMLElement;
+  constructor(stageElement: HTMLElement) {
+    this.element = createElement({ id: config.tipsId, tagName: 'div' });
+    stageElement.append(this.element);
+  }
+}
 // ------------------------------- end

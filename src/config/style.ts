@@ -1,56 +1,20 @@
 const globalStyle = `
-.oml-icon {
+.oml2d-icon {
   width: 1em; 
   height: 1em;
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
 }
-
-#oml-stage {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 9997;
-  transform: translateY(130%);
-}
-
-#oml-canvas{
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 9997;
-}
-
-#oml-levitated-btn {
-  position: fixed;
-  transform: translateX(-110%);
-  left: 0;
-  bottom: 80px;
-  padding: 7px 5px;
-  z-index: 9998;
-  background-color: #58b0fc;
-  border-style: solid;
-  border-width: 2px 2px 2px 0px;
-  border-color: #fff;
-  border-radius: 0 5px 5px 0;
-  box-shadow: 0 0 5px #999;
-  color: #fff;
-  writing-mode: vertical-lr;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 14px;
-}
-
-.oml-loading{
+.oml2d-loading{
   animation-name: oml-loading-rotate;
   animation-duration: 600ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
+
+
 
 #oml-tips {
   position: absolute;
@@ -153,7 +117,7 @@ const globalStyle = `
   }
 }
 
-@keyframes oml-levitated-btn-hidden {
+@keyframes oml2d-status-bar-slide-out {
   0% {
     transform: translateX(0%);
   }
@@ -163,7 +127,7 @@ const globalStyle = `
 }
 
 
-@keyframes oml-levitated-btn-display {
+@keyframes oml2d-status-bar-slide-in {
   0% {
     transform: translateX(-120%);
   }

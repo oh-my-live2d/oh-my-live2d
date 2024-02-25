@@ -6,6 +6,8 @@ import { formatUnit, printProjectInfo } from '../utils';
 
 import { Model } from '@/modules/model';
 import { Stage } from '@/modules/stage';
+import { StatusBar } from '@/modules/status-bar';
+import { Tips } from '@/modules/tips';
 import type { DefaultOptions, Live2DModelType } from '@/types';
 import { Options } from '@/types/options';
 import { isNumber, mergeDeep } from 'tianjie';
@@ -13,8 +15,8 @@ import { isNumber, mergeDeep } from 'tianjie';
 class OhMyLive2D {
   // elementList: ElementList;
   // currentModelIndex: number;
-  loadLive2DModel: any;
-  app?: Application;
+  // loadLive2DModel: any;
+  // app?: Application;
 
   // method
   // displayLevitatedBtn = displayLevitatedBtn;
@@ -25,11 +27,13 @@ class OhMyLive2D {
   // startPlayIdleTips = startPlayIdleTips;
   // stopPlayIdleTips = stopPlayIdleTips;
 
-  _omlScreenSize = 'xl';
-  _omlStatus = 'hidden';
+  // _omlScreenSize = 'xl';
+  // _omlStatus = 'hidden';
 
   // ---------------------------------------------------- start
   private stage: Stage; //  舞台整体
+  private statusBar: StatusBar; // 状态条
+  private tips: Tips;
   private application: Application;
   // models: Model[] = []; // 模型实例列表
   private modelIndex = 0; // 当前模型索引
@@ -45,7 +49,10 @@ class OhMyLive2D {
     // ---------------------------------------------------------重构 start
 
     this.options.sayHello && this.sayHello();
-    this.stage = new Stage(this.options.mountTarget);
+
+    this.stage = new Stage(this.options.mountTarget); // 实例化舞台
+    this.statusBar = new StatusBar(this.options.mountTarget); // 实例化状态条
+    this.tips = new Tips(this.stage.element);
     this.application = this.createApplication();
 
     this.stage.onSlideChangeEnd((status) => {
@@ -63,10 +70,12 @@ class OhMyLive2D {
    */
   loadModel() {
     // config.logLevel = config.LOG_LEVEL_VERBOSE;
+    this.statusBar.showLoading();
     const model = new Model(this.live2dModel, this.options.models[this.modelIndex], this.application);
     model.setScale(this.currentModelOption.scale, this.currentModelOption.scale);
     model.setPosition(...(this.currentModelOption.position || []));
-    model.loaded(({ width, height }) => {
+
+    model.onLoaded(({ width, height }) => {
       this.setStageStyle({
         width: this.currentModelOption.stageStyle?.width || width,
         height: this.currentModelOption.stageStyle?.height || height,
@@ -74,6 +83,11 @@ class OhMyLive2D {
       });
 
       this.stage.slideIn(this.options.transitionTime);
+      this.statusBar.hideLoading();
+    });
+
+    model.onFail(() => {
+      this.statusBar.loadingError(this.loadModel.bind(this));
     });
   }
 
@@ -83,6 +97,9 @@ class OhMyLive2D {
     this.application.resize();
   }
 
+  /**
+   * 获取当前的模型选项配置
+   */
   get currentModelOption() {
     return this.options.models[this.modelIndex];
   }
