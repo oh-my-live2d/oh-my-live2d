@@ -1,7 +1,7 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import { setupCounter } from '../lib/main'
-
+import { loadOhMyLive2D } from 'oh-my-live2d';
+import { setupCounter } from '../lib/main';
+import './style.css';
+import typescriptLogo from './typescript.svg';
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -18,6 +18,15 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
-`
+`;
+setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+loadOhMyLive2D({
+  models: [
+    {
+      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
+      scale: 0.1,
+      position: [-100, 50]
+    }
+  ]
+});

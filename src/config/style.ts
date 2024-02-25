@@ -126,7 +126,7 @@ const globalStyle = `
   }
 }
 
-@keyframes oml-stage-slide-in {
+@keyframes oml2d-stage-slide-in {
   from {
     transform: translateY(130%);
   }
@@ -135,7 +135,7 @@ const globalStyle = `
   }
 }
 
-@keyframes oml-stage-slide-out {
+@keyframes oml2d-stage-slide-out {
   from {
     transform: translateY(0%);
   }

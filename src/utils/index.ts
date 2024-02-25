@@ -1,7 +1,8 @@
-import { merge, cloneDeep } from 'lodash-es';
 import type CSS from 'csstype';
+import { cloneDeep, merge } from 'lodash-es';
 
-import type { Controls, DefaultModel, DefaultOptions, ElConfig, ImportType, Options } from '@/types';
+import type { CSSProperties, Controls, DefaultModel, DefaultOptions, ElConfig, ImportType, Options } from '@/types';
+import { isNumber } from 'tianjie';
 
 const handleSplicingModelSource = (source: string, path: string) => {
   let finalSource = '';
@@ -15,9 +16,13 @@ const handleSplicingModelSource = (source: string, path: string) => {
   return finalSource + finalPath;
 };
 
-const sayHello = (importType: ImportType) => {
+/**
+ * 打印项目信息
+ * @param importType
+ */
+export const printProjectInfo = (importType: ImportType) => {
   const args = [
-    `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${`https://oml2d.com/`} ✨ %c %c 🎉🎉🎉 \n`,
+    `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${`https://oml2d.com/`} Happy Hacking !! ✨ %c %c 🎉🎉🎉 \n`,
     'background: #add7fb; padding:5px 0;',
     'background: #58b0fc; padding:5px 0;',
     'color: #fff; background: #030307; padding:5px 0;',
@@ -25,6 +30,21 @@ const sayHello = (importType: ImportType) => {
     'background: #add7fb; padding:5px 0;'
   ];
   console.log(...args);
+};
+
+export const formatUnit = (value: Record<string, any>) => {
+  if ('width' in value && isNumber(value.width)) {
+    value.width = `${value.width}px`;
+  }
+  if ('height' in value && isNumber(value.height)) value.height = `${value.height}px`;
+};
+/**
+ * 根据元素设置内联样式
+ * @param style
+ * @param el
+ */
+export const setStyleByElement = (style: CSSProperties, el: HTMLElement) => {
+  Object.assign(el.style, style);
 };
 
 // 设置指定元素样式
@@ -68,8 +88,8 @@ const createElementByConfig = (elConfig: ElConfig) => {
 
 /**
  * 生成控件
- * @param el 
- * @param controlsConfig 
+ * @param el
+ * @param controlsConfig
  */
 const generateControlByConfig = (el: HTMLDivElement, controlsConfig: Controls[], clickControl) => {
   el.innerHTML = controlsConfig
@@ -83,29 +103,28 @@ const generateControlByConfig = (el: HTMLDivElement, controlsConfig: Controls[],
     })
     .join('');
 
-    el.addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) return;
-      let target: any = e.target;
-  
-      while (target.parentNode !== e.currentTarget) {
-        target = target.parentNode;
-      }
+  el.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) return;
+    let target: any = e.target;
 
-      clickControl(target.getAttribute('data-name'))
-      // switch (target.getAttribute('data-name')) {
-      //   case 'SwitchModel':
-      //     this.switchModel();
-      //     break;
-      //   case 'Setting':
-      //     this.displayLevitatedSphere('text', '施工中', 3000);
-      //     break;
-      //   case 'About':
-      //     this.displayLevitatedSphere('text', '施工中', 3000);
-      //     break;
-      // }
-    });
+    while (target.parentNode !== e.currentTarget) {
+      target = target.parentNode;
+    }
+
+    clickControl(target.getAttribute('data-name'));
+    // switch (target.getAttribute('data-name')) {
+    //   case 'SwitchModel':
+    //     this.switchModel();
+    //     break;
+    //   case 'Setting':
+    //     this.displayLevitatedSphere('text', '施工中', 3000);
+    //     break;
+    //   case 'About':
+    //     this.displayLevitatedSphere('text', '施工中', 3000);
+    //     break;
+    // }
+  });
 };
-
 
 const getScreenSize = () => {
   let sizeType;
@@ -117,4 +136,20 @@ const getScreenSize = () => {
 
   return sizeType;
 };
-export { sayHello, setElStyle, sleep, handleSplicingModelSource, mergeOptions, createElementByConfig, generateControlByConfig, getScreenSize };
+
+// ----------------------------
+export const createElement = (elConfig: ElConfig) => {
+  const el = document.createElement(elConfig.tagName);
+  el.id = elConfig.id;
+  if (elConfig.className) el.className = elConfig.className;
+  if (elConfig.childrens) {
+    elConfig.childrens.forEach((item) => {
+      el.appendChild(createElementByConfig(item));
+    });
+  }
+  if (elConfig.innerHtml) el.innerHTML = elConfig.innerHtml;
+  if (elConfig.innerText) el.innerText = elConfig.innerText;
+  return el;
+};
+
+export { createElementByConfig, generateControlByConfig, getScreenSize, handleSplicingModelSource, mergeOptions, setElStyle, sleep };

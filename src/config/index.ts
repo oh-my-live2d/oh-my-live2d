@@ -1,6 +1,6 @@
-import { copyTipsMessage, idleTipsMessage, welcomeTipsMessage } from './tips-message';
-import { globalStyle } from './style';
 import '@/library/iconfont';
+import { globalStyle } from './style';
+import { idleTipsMessage, welcomeTipsMessage } from './tips-message';
 
 import type { DefaultOptions, OmlConfig } from '@/types';
 
@@ -16,22 +16,20 @@ const defaultJsonPath = {
 const modelSource = __ENV__ === 'dev' ? DEV_SOURCE : PRO_SOURCE;
 
 // 默认选项
-const defaultOptions: DefaultOptions = {
+export const defaultOptions: DefaultOptions = {
   source: modelSource,
   sayHello: true,
   transitionTime: 1000,
   mobileShow: false,
-  models: {
-    path: '',
-    x: 0,
-    y: 0,
-    scale: 1,
-    stageStyle: {
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      width: 'auto',
-      height: 'auto'
+  mountTarget: document.body,
+  models: [
+    {
+      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+      position: [0, 0],
+      scale: 1,
+      stageStyle: {}
     }
-  },
+  ],
   tips: {
     style: {
       width: 230,
@@ -43,19 +41,20 @@ const defaultOptions: DefaultOptions = {
       message: idleTipsMessage,
       persistTime: 5000,
       interval: 5000,
-      priority: 2,
-      remote: false
+      priority: 2
+      // remote: false
     },
     welcomeTips: {
       message: welcomeTipsMessage,
       persistTime: 5000,
       priority: 3
-    },
-    copyTips: {
-      message: copyTipsMessage,
-      persistTime: 5000,
-      priority: 9
     }
+
+    // copyTips: {
+    //   message: copyTipsMessage,
+    //   persistTime: 5000,
+    //   priority: 9
+    // }
   }
 };
 
@@ -102,4 +101,9 @@ const omlConfig: OmlConfig = {
     }
   ]
 };
-export { defaultOptions, defaultJsonPath, omlConfig };
+
+export const config = {
+  stageId: 'oml2dStage',
+  canvasId: 'oml2dCanvas'
+};
+// export { defaultJsonPath, defaultOptions, omlConfig };

@@ -1,28 +1,29 @@
-import { defaultJsonPath, defaultOptions, omlConfig } from '@/config';
+import { defaultOptions } from '@/config';
 import { Application } from 'pixi.js';
 import {
   createElementByConfig,
+  formatUnit,
   generateControlByConfig,
   getScreenSize,
   handleSplicingModelSource,
-  mergeOptions,
-  sayHello,
+  printProjectInfo,
   setElStyle
 } from '../utils';
 import { changeLevitatedBtnContent, displayLevitatedBtn, hiddenLevitatedBtn } from './levitated-btn';
 import { onTips, startPlayIdleTips, stopPlayIdleTips } from './tips';
 
-import type { ControlID, DeepRequired, DefaultModel, ElementList, ImportType, Options } from '@/types';
+import { Model } from '@/modules/model';
+import { Stage } from '@/modules/stage';
+import type { ControlID, DefaultModel, DefaultOptions, ElementList, ImportType, Live2DModelType } from '@/types';
+import { Options } from '@/types/options';
 import type CSS from 'csstype';
-import type { Live2DModel } from 'pixi-live2d-display';
+import { isNumber, mergeDeep } from 'tianjie';
 
 class OhMyLive2D {
-  options: DeepRequired<Options<[DefaultModel, ...DefaultModel[]]>>;
-  elementList: ElementList;
-  currentModelIndex: number;
+  // elementList: ElementList;
+  // currentModelIndex: number;
   loadLive2DModel: any;
   importType: ImportType;
-  model?: Live2DModel;
   app?: Application;
 
   // method
@@ -37,19 +38,97 @@ class OhMyLive2D {
   _omlScreenSize = 'xl';
   _omlStatus = 'hidden';
 
-  constructor(options: DeepRequired<Options<[DefaultModel, ...DefaultModel[]]>>, loadLive2DModel, importType: ImportType) {
-    console.log(importType, '------------1111');
+  // ---------------------------------------------------- start
+  private stage: Stage; //  舞台整体
+  private application: Application;
+  // models: Model[] = []; // 模型实例列表
+  private modelIndex = 0; // 当前模型索引
+  // ---------------------------------------------------- end
+  constructor(private options: DefaultOptions, private live2dModel: Live2DModelType, importType: ImportType) {
+    // this.currentModelIndex = 0;
+    // this.importType = importType;
+    // this.elementList = this.mountElement(options?.mountTarget as HTMLElement);
+    // this.setGlobalStyle();
+    // this.addEventListen();
+    // this.modelLoader(options.models[this.currentModelIndex]);
 
-    this.options = options;
-    this.currentModelIndex = 0;
-    this.loadLive2DModel = loadLive2DModel;
-    this.importType = importType;
-    this.elementList = this.mountElement(options?.mountTarget as HTMLElement);
-    this.setGlobalStyle();
-    this.addEventListen();
-    this.modelLoader(options.models[this.currentModelIndex]);
-    this.options.sayHello && sayHello(importType);
+    // ---------------------------------------------------------重构 start
+
+    this.options.sayHello && this.sayHello();
+    this.stage = new Stage(this.options.mountTarget);
+    this.application = this.createApplication();
+
+    this.stage.onSlideChangeEnd((status) => {
+      // 出场入场执行完之后的回调
+      console.log(status, '-------------------');
+    });
+
+    this.loadModel();
+    // ---------------------------------------------------------重构 end
   }
+
+  // ---------------------------------------------------------重构 start
+  /**
+   * 加载模型
+   */
+  loadModel() {
+    // config.logLevel = config.LOG_LEVEL_VERBOSE;
+    const model = new Model(this.live2dModel, this.options.models[this.modelIndex], this.application);
+    model.setScale(this.currentModelOption.scale, this.currentModelOption.scale);
+    model.setPosition(...(this.currentModelOption.position || []));
+    model.loaded(({ width, height }) => {
+      this.setStageStyle({
+        width: this.currentModelOption.stageStyle?.width || width,
+        height: this.currentModelOption.stageStyle?.height || height,
+        backgroundColor: this.currentModelOption.stageStyle?.backgroundColor || 'rgba(0, 0, 0, 0)'
+      });
+
+      this.stage.slideIn(this.options.transitionTime);
+    });
+  }
+
+  setStageStyle(style) {
+    formatUnit(style);
+    this.stage.setStyle(style);
+    this.application.resize();
+  }
+
+  get currentModelOption() {
+    return this.options.models[this.modelIndex];
+  }
+  /**
+   * 加载下一个模型
+   */
+  loadNextModel() {
+    if (isNumber(this.options.models?.length)) {
+      if (this.modelIndex < this.options.models.length) {
+        this.modelIndex++;
+      } else {
+        this.modelIndex = 0;
+      }
+      this.loadModel();
+    }
+  }
+
+  sayHello() {
+    printProjectInfo(this.importType);
+  }
+
+  /**
+   * 创建pixi应用实例
+   * @returns
+   */
+  private createApplication() {
+    return new Application({
+      view: this.stage.canvasElement,
+      resolution: 2,
+      autoStart: true,
+      autoDensity: true,
+      backgroundAlpha: 0,
+      resizeTo: this.stage.element
+    });
+  }
+  // ---------------------------------------------------------重构 end
 
   set omlStatus(val: 'hidden' | 'display') {
     switch (val) {
@@ -194,20 +273,20 @@ class OhMyLive2D {
   /**
    * 加载下个模型
    */
-  async loadNextModel() {
-    if (this.options.models.length > 1) {
-      this.stopPlayIdleTips();
-      await this.stageSlideOut();
-      if (this.currentModelIndex >= this.options.models.length - 1) {
-        this.currentModelIndex = 0;
-      } else {
-        this.currentModelIndex++;
-      }
-      this.modelLoader(this.options.models[this.currentModelIndex]);
-    } else {
-      this.displayLevitatedBtn('text', '无其他模型', 3000);
-    }
-  }
+  // async loadNextModel() {
+  //   if (this.options.models.length > 1) {
+  //     this.stopPlayIdleTips();
+  //     await this.stageSlideOut();
+  //     if (this.currentModelIndex >= this.options.models.length - 1) {
+  //       this.currentModelIndex = 0;
+  //     } else {
+  //       this.currentModelIndex++;
+  //     }
+  //     this.modelLoader(this.options.models[this.currentModelIndex]);
+  //   } else {
+  //     this.displayLevitatedBtn('text', '无其他模型', 3000);
+  //   }
+  // }
 
   async onClickControl(controlID: ControlID) {
     switch (controlID) {
@@ -269,65 +348,43 @@ class OhMyLive2D {
       else this.screenSize = 'xl';
     });
   }
-
-  // 显示舞台
-  stageSlideIn() {
-    this.changeStageStyle({
-      animationName: 'oml-stage-slide-in',
-      animationDuration: `${this.options.transitionTime}ms`,
-      animationFillMode: 'forwards'
-    });
-
-    return new Promise<void>((resolve) => {
-      setTimeout(async () => {
-        this._omlStatus = 'display';
-        resolve();
-      }, this.options.transitionTime);
-    });
-  }
-
-  // 隐藏舞台
-  stageSlideOut() {
-    this.changeStageStyle({
-      animationName: 'oml-stage-slide-out',
-      animationDuration: `${this.options.transitionTime}ms`,
-      animationFillMode: 'forwards'
-    });
-    return new Promise<void>((resolve) =>
-      setTimeout(() => {
-        this._omlStatus = 'hidden';
-        resolve();
-      }, this.options.transitionTime)
-    );
-  }
 }
 
+// --------------------- 重构
+// class OhMyLive2D {
+//   constructor(private options: Options) {
+//   }
+// }
 /**
  * 安装入口程序
  * @returns
  */
-const setup = (importType: ImportType, loadLive2DModel) => {
-  let omlInstance: OhMyLive2D;
-  (defaultOptions.models as DefaultModel).path = defaultJsonPath[importType];
+const setup = (importType: ImportType, live2dModel: Live2DModelType) => {
+  // //  自动加载 将在HTML解析完毕后执行
+  // window.document.addEventListener('DOMContentLoaded', () => {
+  //   omlInstance ?? createOml2d();
+  // });
+  const originalLog = console.log;
+  console.log = function () {
+    // 检查第一个参数是否以 '[CSM][I]' 开头
+    if (typeof arguments[0] === 'string' && arguments[0].startsWith('[CSM][I]')) {
+      return;
+    }
 
-  const createOml2d = () => {
-    defaultOptions.models = Array.isArray(defaultOptions.models) ? defaultOptions.models : [defaultOptions.models];
-    omlInstance = new OhMyLive2D(defaultOptions as DeepRequired<Options<[DefaultModel, ...DefaultModel[]]>>, loadLive2DModel, importType);
+    originalLog?.apply(console, arguments as any);
   };
-
-  //  自动加载 将在HTML解析完毕后执行
-  window.document.addEventListener('DOMContentLoaded', () => {
-    omlInstance ?? createOml2d();
-  });
-
   /**
    * 根据自定义选项加载oml2d组件
    * @param options
    * @returns
    */
   const loadOhMyLive2D = (options: Options) => {
-    mergeOptions(defaultOptions, options);
-    createOml2d();
+    // mergeOptions(defaultOptions, options);
+    // createOml2d();
+    // ------------------ 重构
+    // 重写 console.log 函数
+
+    new OhMyLive2D(mergeDeep(defaultOptions, options), live2dModel, importType);
     return {};
   };
   return loadOhMyLive2D;
