@@ -8,7 +8,6 @@ export type Live2DModelType = typeof Live2DModel;
 export type CSSProperties = CSS.Properties;
 export type DefaultOptions = Omit<DeepRequired<Options>, 'mountTarget' | 'models'> & { mountTarget: HTMLElement } & { models: Model[] };
 
-type ImportType = 'complete' | 'cubism2' | 'cubism4';
 type EventType = 'ready' | 'load';
 type LoadType = 'manual' | 'auto';
 type TipsType = 'welcomeTips' | 'idleTips' | 'copyTips';
@@ -153,7 +152,6 @@ export type {
   EventType,
   Events,
   IdleTips,
-  ImportType,
   LoadType,
   Model,
   OhMyLive2D,

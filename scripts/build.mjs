@@ -2,7 +2,6 @@ import fs from 'fs-extra';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import { build } from 'vite';
-import dts from 'vite-plugin-dts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -44,16 +43,16 @@ const profiles = entries.flatMap(({ entry, name }) => {
       }
     },
     plugins: [
-      entry === 'src/index.ts' &&
-        dts({
-          entryRoot: 'src',
-          copyDtsFiles: false,
-          insertTypesEntry: true,
-          afterBuild() {
-            fs.copyFile(resolve(__dirname, '../dist/index.d.ts'), resolve(__dirname, `../dist/oml-cubism2.d.ts`));
-            fs.copyFile(resolve(__dirname, '../dist/index.d.ts'), resolve(__dirname, `../dist/oml-cubism4.d.ts`));
-          }
-        }),
+      // entry === 'src/index.ts' &&
+      //   dts({
+      //     entryRoot: 'src',
+      //     copyDtsFiles: false,
+      //     insertTypesEntry: true,
+      //     afterBuild() {
+      //       fs.copyFile(resolve(__dirname, '../dist/index.d.ts'), resolve(__dirname, `../dist/oml-cubism2.d.ts`));
+      //       fs.copyFile(resolve(__dirname, '../dist/index.d.ts'), resolve(__dirname, `../dist/oml-cubism4.d.ts`));
+      //     }
+      //   }),
       {
         name: 'copy-min-file',
         writeBundle(outOptions) {

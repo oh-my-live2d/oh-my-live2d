@@ -1,7 +1,6 @@
 import type CSS from 'csstype';
-import { cloneDeep, merge } from 'lodash-es';
 
-import type { CSSProperties, Controls, DefaultModel, DefaultOptions, ElConfig, ImportType, Options } from '@/types';
+import type { CSSProperties, Controls, ElConfig } from '@/types';
 import { isNumber } from 'tianjie';
 
 const handleSplicingModelSource = (source: string, path: string) => {
@@ -20,7 +19,7 @@ const handleSplicingModelSource = (source: string, path: string) => {
  * 打印项目信息
  * @param importType
  */
-export const printProjectInfo = (importType: ImportType) => {
+export const printProjectInfo = () => {
   const args = [
     `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${`https://oml2d.com/`} Happy Hacking !! ✨ %c %c 🎉🎉🎉 \n`,
     'background: #add7fb; padding:5px 0;',
@@ -38,6 +37,7 @@ export const formatUnit = (value: Record<string, any>) => {
   }
   if ('height' in value && isNumber(value.height)) value.height = `${value.height}px`;
 };
+
 /**
  * 根据元素设置内联样式
  * @param style
@@ -53,20 +53,20 @@ const setElStyle = (el: HTMLElement | undefined, style: CSS.Properties) => {
   Object.assign(el.style, style);
 };
 
-const mergeOptions = (defaultOptions: DefaultOptions, options: Options) => {
-  const backupDefaultOptions: DefaultOptions = cloneDeep(defaultOptions);
-  let backupDefaultModelConfig = cloneDeep(backupDefaultOptions.models);
-  const modelConfigs: [DefaultModel, ...DefaultModel[]] = [defaultOptions.models as DefaultModel];
-  merge(defaultOptions, options);
-  if (Array.isArray(defaultOptions.models)) {
-    defaultOptions.models.map((item, i) => {
-      backupDefaultModelConfig = cloneDeep(backupDefaultOptions.models);
-      modelConfigs[i] = merge(backupDefaultModelConfig, item);
-    });
-  }
-  defaultOptions.models = modelConfigs;
-  return defaultOptions;
-};
+// const mergeOptions = (defaultOptions: DefaultOptions, options: Options) => {
+//   const backupDefaultOptions: DefaultOptions = cloneDeep(defaultOptions);
+//   let backupDefaultModelConfig = cloneDeep(backupDefaultOptions.models);
+//   const modelConfigs: [DefaultModel, ...DefaultModel[]] = [defaultOptions.models as DefaultModel];
+//   merge(defaultOptions, options);
+//   if (Array.isArray(defaultOptions.models)) {
+//     defaultOptions.models.map((item, i) => {
+//       backupDefaultModelConfig = cloneDeep(backupDefaultOptions.models);
+//       modelConfigs[i] = merge(backupDefaultModelConfig, item);
+//     });
+//   }
+//   defaultOptions.models = modelConfigs;
+//   return defaultOptions;
+// };
 
 // 延时
 const sleep = (time: number) => {
@@ -152,4 +152,4 @@ export const createElement = (elConfig: ElConfig) => {
   return el;
 };
 
-export { createElementByConfig, generateControlByConfig, getScreenSize, handleSplicingModelSource, mergeOptions, setElStyle, sleep };
+export { createElementByConfig, generateControlByConfig, getScreenSize, handleSplicingModelSource, setElStyle, sleep };

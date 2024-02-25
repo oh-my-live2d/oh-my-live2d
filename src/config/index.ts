@@ -1,17 +1,16 @@
 import '@/library/iconfont';
-import { globalStyle } from './style';
 import { idleTipsMessage, welcomeTipsMessage } from './tips-message';
 
-import type { DefaultOptions, OmlConfig } from '@/types';
+import type { DefaultOptions } from '@/types';
 
 const DEV_SOURCE = 'https://oml-api.tj520.top';
 const PRO_SOURCE = 'https://oml-api.tj520.top';
 
-const defaultJsonPath = {
-  complete: '/pa15_3701/normal/normal.model3.json',
-  cubism2: '/pio/index.json',
-  cubism4: '/pa15_3701/normal/normal.model3.json'
-};
+// const defaultJsonPath = {
+//   complete: '/pa15_3701/normal/normal.model3.json',
+//   cubism2: '/pio/index.json',
+//   cubism4: '/pa15_3701/normal/normal.model3.json'
+// };
 
 const modelSource = __ENV__ === 'dev' ? DEV_SOURCE : PRO_SOURCE;
 
@@ -58,50 +57,50 @@ export const defaultOptions: DefaultOptions = {
   }
 };
 
-// config 全局配置
-const omlConfig: OmlConfig = {
-  globalStyle,
-  elements: {
-    canvasEl: {
-      id: 'oml-canvas',
-      tagName: 'canvas'
-    },
-    stageEl: {
-      id: 'oml-stage',
-      tagName: 'div'
-    },
-    tipsEl: {
-      id: 'oml-tips',
-      tagName: 'div'
-    },
-    levitatedBtnEl: {
-      id: 'oml-levitated-btn',
-      tagName: 'div'
-    },
-    controlsEl: {
-      id: 'oml-controls',
-      tagName: 'div'
-    }
-  },
-  controls: [
-    {
-      id: 'SwitchModel',
-      name: 'icon-a-userswitch-fill',
-      title: '切换模型'
-    },
-    {
-      id: 'Setting',
-      name: 'icon-setting-fill',
-      title: '设置'
-    },
-    {
-      id: 'About',
-      name: 'icon-info-circle-fill',
-      title: '关于'
-    }
-  ]
-};
+// const omlConfig: OmlConfig = {
+//   globalStyle,
+//   elements: {
+//     canvasEl: {
+//       id: 'oml-canvas',
+//       tagName: 'canvas'
+//     },
+//     stageEl: {
+//       id: 'oml-stage',
+//       tagName: 'div'
+//     },
+//     tipsEl: {
+//       id: 'oml-tips',
+//       tagName: 'div'
+//     },
+//     levitatedBtnEl: {
+//       id: 'oml-levitated-btn',
+//       tagName: 'div'
+//     },
+//     controlsEl: {
+//       id: 'oml-controls',
+//       tagName: 'div'
+//     }
+//   },
+//   controls: [
+//     {
+//       id: 'SwitchModel',
+//       name: 'icon-a-userswitch-fill',
+//       title: '切换模型'
+//     },
+//     {
+//       id: 'Setting',
+//       name: 'icon-setting-fill',
+//       title: '设置'
+//     },
+//     {
+//       id: 'About',
+//       name: 'icon-info-circle-fill',
+//       title: '关于'
+//     }
+//   ]
+// };
 
+// config 全局配置
 export const config = {
   stageId: 'oml2dStage',
   canvasId: 'oml2dCanvas'
