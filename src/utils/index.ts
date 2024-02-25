@@ -1,19 +1,18 @@
-import type CSS from 'csstype';
-
-import type { CSSProperties, Controls, ElConfig } from '@/types';
+import { menusConfig } from '@/config';
+import type { CSSProperties, ElConfig } from '@/types';
 import { isNumber } from 'tianjie';
 
-const handleSplicingModelSource = (source: string, path: string) => {
-  let finalSource = '';
-  let finalPath = '';
-  if (source.endsWith('/')) finalSource = source;
-  else finalSource = source + '/';
+// const handleSplicingModelSource = (source: string, path: string) => {
+//   let finalSource = '';
+//   let finalPath = '';
+//   if (source.endsWith('/')) finalSource = source;
+//   else finalSource = source + '/';
 
-  if (!(path[0] === '/')) finalPath = path;
-  else finalPath = path.slice(1);
+//   if (!(path[0] === '/')) finalPath = path;
+//   else finalPath = path.slice(1);
 
-  return finalSource + finalPath;
-};
+//   return finalSource + finalPath;
+// };
 
 /**
  * 打印项目信息
@@ -47,12 +46,6 @@ export const setStyleByElement = (style: CSSProperties, el: HTMLElement) => {
   Object.assign(el.style, style);
 };
 
-// 设置指定元素样式
-const setElStyle = (el: HTMLElement | undefined, style: CSS.Properties) => {
-  if (!el) return;
-  Object.assign(el.style, style);
-};
-
 // const mergeOptions = (defaultOptions: DefaultOptions, options: Options) => {
 //   const backupDefaultOptions: DefaultOptions = cloneDeep(defaultOptions);
 //   let backupDefaultModelConfig = cloneDeep(backupDefaultOptions.models);
@@ -69,49 +62,62 @@ const setElStyle = (el: HTMLElement | undefined, style: CSS.Properties) => {
 // };
 
 // 延时
-const sleep = (time: number) => {
+export const sleep = (time: number) => {
   return new Promise<void>((resolve) => setTimeout(resolve, time));
 };
 
-const createElementByConfig = (elConfig: ElConfig) => {
-  const el = document.createElement(elConfig.tagName);
-  el.id = elConfig.id;
-  if (elConfig.className) el.className = elConfig.className;
-  if (elConfig.childrens) {
-    elConfig.childrens.forEach((item) => {
-      el.appendChild(createElementByConfig(item));
-    });
-  }
-  if (elConfig.innerHtml) el.innerHTML = elConfig.innerHtml;
-  return el;
-};
+// const createElementByConfig = (elConfig: ElConfig) => {
+//   const el = document.createElement(elConfig.tagName);
+//   el.id = elConfig.id;
+//   if (elConfig.className) el.className = elConfig.className;
+//   if (elConfig.childrens) {
+//     elConfig.childrens.forEach((item) => {
+//       el.appendChild(createElementByConfig(item));
+//     });
+//   }
+//   if (elConfig.innerHtml) el.innerHTML = elConfig.innerHtml;
+//   return el;
+// };
 
 /**
- * 生成控件
  * @param el
- * @param controlsConfig
+ * @param menusConfig
  */
-const generateControlByConfig = (el: HTMLDivElement, controlsConfig: Controls[], clickControl) => {
-  el.innerHTML = controlsConfig
-    .map((item) => {
-      return `
-    <div title="${item.title}" class="oml-control-item" data-name="${item.id}">
-      <svg class="oml-icon">
+export const generateMenusByConfig = (el: HTMLDivElement, clickMenuItem: (any) => void) => {
+  const menuItemList = menusConfig.map((item) => {
+    return createElement({
+      id: item.id,
+      tagName: 'div',
+      dataName: item.id,
+      className: 'oml2d-menus-item',
+      innerHtml: `
+      <svg class="oml2d-icon">
         <use xlink:href="#${item.name}"></use>
       </svg>
-    </div>`;
-    })
-    .join('');
+    `
+    });
+  });
+
+  el.append(...menuItemList);
+  // el.innerHTML = menusConfig
+  //   .map((item) => {
+  //     return `
+  //   <div title="${item.title}" class="oml-control-item" data-name="${item.id}">
+  //     <svg class="oml2d-icon">
+  //       <use xlink:href="#${item.name}"></use>
+  //     </svg>
+  //   </div>`;
+  //   })
+  //   .join('');
 
   el.addEventListener('click', (e) => {
     if (e.target === e.currentTarget) return;
     let target: any = e.target;
-
     while (target.parentNode !== e.currentTarget) {
       target = target.parentNode;
     }
+    clickMenuItem(target.getAttribute('data-name'));
 
-    clickControl(target.getAttribute('data-name'));
     // switch (target.getAttribute('data-name')) {
     //   case 'SwitchModel':
     //     this.switchModel();
@@ -126,7 +132,7 @@ const generateControlByConfig = (el: HTMLDivElement, controlsConfig: Controls[],
   });
 };
 
-const getScreenSize = () => {
+export const getScreenSize = () => {
   let sizeType;
   const xs = window.matchMedia('screen and (max-width: 768px)');
   const xl = window.matchMedia('screen and (min-width: 768px)');
@@ -142,9 +148,10 @@ export const createElement = (elConfig: ElConfig) => {
   const el = document.createElement(elConfig.tagName);
   el.id = elConfig.id;
   if (elConfig.className) el.className = elConfig.className;
+  if (elConfig.dataName) el.setAttribute('data-name', elConfig.dataName);
   if (elConfig.childrens) {
     elConfig.childrens.forEach((item) => {
-      el.appendChild(createElementByConfig(item));
+      el.appendChild(createElement(item));
     });
   }
   if (elConfig.innerHtml) el.innerHTML = elConfig.innerHtml;
@@ -152,4 +159,31 @@ export const createElement = (elConfig: ElConfig) => {
   return el;
 };
 
-export { createElementByConfig, generateControlByConfig, getScreenSize, handleSplicingModelSource, setElStyle, sleep };
+/**
+ *
+ * @param fn
+ * @param interval
+ * @returns
+ */
+export const setIntervalAsync = (fn: () => void, interval: number) => {
+  let timer: number | undefined = undefined;
+  return {
+    start: async function () {
+      const runner = async () => {
+        if (!timer) return;
+        await fn();
+        clearTimeout(timer);
+        timer = setTimeout(runner, interval);
+      };
+      if (timer) return;
+      clearTimeout(timer);
+      timer = setTimeout(runner, interval);
+    },
+    stop: function () {
+      clearTimeout(timer);
+      timer = undefined;
+    }
+  };
+};
+
+// export { createElementByConfig, generateControlByConfig, getScreenSize, handleSplicingModelSource, setElStyle, sleep };

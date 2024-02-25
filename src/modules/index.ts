@@ -4,6 +4,7 @@ import { formatUnit, printProjectInfo } from '../utils';
 // import { changeLevitatedBtnContent, displayLevitatedBtn, hiddenLevitatedBtn } from './levitated-btn';
 // import { onTips, startPlayIdleTips, stopPlayIdleTips } from './tips';
 
+import { Menus } from '@/modules/menus';
 import { Model } from '@/modules/model';
 import { Stage } from '@/modules/stage';
 import { StatusBar } from '@/modules/status-bar';
@@ -13,17 +14,13 @@ import { Options } from '@/types/options';
 import { isNumber, mergeDeep } from 'tianjie';
 
 class OhMyLive2D {
-  // elementList: ElementList;
   // currentModelIndex: number;
-  // loadLive2DModel: any;
-  // app?: Application;
 
   // method
   // displayLevitatedBtn = displayLevitatedBtn;
   // hiddenLevitatedBtn = hiddenLevitatedBtn;
   // changeLevitatedBtnContent = changeLevitatedBtnContent;
 
-  // onTips = onTips;
   // startPlayIdleTips = startPlayIdleTips;
   // stopPlayIdleTips = stopPlayIdleTips;
 
@@ -34,6 +31,8 @@ class OhMyLive2D {
   private stage: Stage; //  舞台整体
   private statusBar: StatusBar; // 状态条
   private tips: Tips;
+  private menus: Menus;
+  private model?: Model;
   private application: Application;
   // models: Model[] = []; // 模型实例列表
   private modelIndex = 0; // 当前模型索引
@@ -47,48 +46,25 @@ class OhMyLive2D {
     // this.modelLoader(options.models[this.currentModelIndex]);
 
     // ---------------------------------------------------------重构 start
-
     this.options.sayHello && this.sayHello();
-
     this.stage = new Stage(this.options.mountTarget); // 实例化舞台
     this.statusBar = new StatusBar(this.options.mountTarget); // 实例化状态条
-    this.tips = new Tips(this.stage.element);
+    this.tips = new Tips(this.stage.element, this.options.tips); // 提示框
+    this.menus = new Menus(this.stage.element);
     this.application = this.createApplication();
-
-    this.stage.onSlideChangeEnd((status) => {
-      // 出场入场执行完之后的回调
-      console.log(status, '-------------------');
-    });
-
     this.loadModel();
-    // ---------------------------------------------------------重构 end
+    this.registerEvents();
   }
 
-  // ---------------------------------------------------------重构 start
   /**
    * 加载模型
    */
   loadModel() {
-    // config.logLevel = config.LOG_LEVEL_VERBOSE;
     this.statusBar.showLoading();
     const model = new Model(this.live2dModel, this.options.models[this.modelIndex], this.application);
     model.setScale(this.currentModelOption.scale, this.currentModelOption.scale);
     model.setPosition(...(this.currentModelOption.position || []));
-
-    model.onLoaded(({ width, height }) => {
-      this.setStageStyle({
-        width: this.currentModelOption.stageStyle?.width || width,
-        height: this.currentModelOption.stageStyle?.height || height,
-        backgroundColor: this.currentModelOption.stageStyle?.backgroundColor || 'rgba(0, 0, 0, 0)'
-      });
-
-      this.stage.slideIn(this.options.transitionTime);
-      this.statusBar.hideLoading();
-    });
-
-    model.onFail(() => {
-      this.statusBar.loadingError(this.loadModel.bind(this));
-    });
+    this.model = model; // 保存当前的模型实例
   }
 
   setStageStyle(style) {
@@ -98,7 +74,7 @@ class OhMyLive2D {
   }
 
   /**
-   * 获取当前的模型选项配置
+   * 获取当前的模型配置选项
    */
   get currentModelOption() {
     return this.options.models[this.modelIndex];
@@ -121,6 +97,43 @@ class OhMyLive2D {
     printProjectInfo();
   }
 
+  registerEvents() {
+    // 模型所有资源加载完毕
+    this.model?.onLoaded(({ width, height }) => {
+      this.setStageStyle({
+        width: this.currentModelOption.stageStyle?.width || width,
+        height: this.currentModelOption.stageStyle?.height || height,
+        backgroundColor: this.currentModelOption.stageStyle?.backgroundColor || 'rgba(0, 0, 0, 0)'
+      });
+
+      this.stage.slideIn(this.options.transitionTime);
+      this.statusBar.hideLoading();
+    });
+
+    // 加载失败
+    this.model?.onFail((e) => {
+      this.statusBar.loadingError(this.loadModel.bind(this));
+      throw e;
+    });
+
+    // 点击菜单按钮
+    this.menus.onClickItem((name) => {
+      this.tips.notification('hhhhhhhhhh', 3000, 9);
+      switch (name) {
+      }
+      // this.tips.idlePlayer?.stop();
+      // await this.tips.popup('施工中...', 3000, 9);
+      // this.tips.idlePlayer?.start();
+    });
+
+    // 出场入场动画执行结束之后的事件回调
+    this.stage.onSlideChangeEnd(async (status) => {
+      if (status) {
+        await this.tips.welcome();
+        this.tips.idlePlayer?.start();
+      }
+    });
+  }
   /**
    * 创建pixi应用实例
    * @returns
@@ -371,15 +384,7 @@ const setup = (live2dModel: Live2DModelType) => {
   // window.document.addEventListener('DOMContentLoaded', () => {
   //   omlInstance ?? createOml2d();
   // });
-  const originalLog = console.log;
-  console.log = function () {
-    // 检查第一个参数是否以 '[CSM][I]' 开头
-    if (typeof arguments[0] === 'string' && arguments[0].startsWith('[CSM][I]')) {
-      return;
-    }
 
-    originalLog?.apply(console, arguments as any);
-  };
   /**
    * 根据自定义选项加载oml2d组件
    * @param options

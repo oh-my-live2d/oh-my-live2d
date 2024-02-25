@@ -7,10 +7,6 @@ export interface Options {
    */
   mobileShow?: boolean;
   /**
-   * 模型来源，固定的远程或本地路径
-   */
-  source?: string;
-  /**
    * 是否在初始化阶段打印项目信息
    */
   sayHello?: boolean;

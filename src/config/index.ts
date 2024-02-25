@@ -3,30 +3,15 @@ import { idleTipsMessage, welcomeTipsMessage } from './tips-message';
 
 import type { DefaultOptions } from '@/types';
 
-const DEV_SOURCE = 'https://oml-api.tj520.top';
-const PRO_SOURCE = 'https://oml-api.tj520.top';
-
-// const defaultJsonPath = {
-//   complete: '/pa15_3701/normal/normal.model3.json',
-//   cubism2: '/pio/index.json',
-//   cubism4: '/pa15_3701/normal/normal.model3.json'
-// };
-
-const modelSource = __ENV__ === 'dev' ? DEV_SOURCE : PRO_SOURCE;
-
 // 默认选项
 export const defaultOptions: DefaultOptions = {
-  source: modelSource,
   sayHello: true,
   transitionTime: 1000,
   mobileShow: false,
   mountTarget: document.body,
   models: [
     {
-      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      position: [0, 0],
-      scale: 1,
-      stageStyle: {}
+      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json'
     }
   ],
   tips: {
@@ -46,7 +31,7 @@ export const defaultOptions: DefaultOptions = {
     welcomeTips: {
       message: welcomeTipsMessage,
       persistTime: 5000,
-      priority: 3
+      priority: 2
     }
 
     // copyTips: {
@@ -105,6 +90,23 @@ export const config = {
   stageId: 'oml2dStage',
   canvasId: 'oml2dCanvas',
   statusBarId: 'oml2dStatusBar',
-  tipsId: 'oml2dTips'
+  tipsId: 'oml2dTips',
+  menusId: 'oml2dMenus'
 };
-// export { defaultJsonPath, defaultOptions, omlConfig };
+export const menusConfig = [
+  {
+    id: 'SwitchModel',
+    name: 'icon-a-userswitch-fill',
+    title: '切换模型'
+  },
+  {
+    id: 'Setting',
+    name: 'icon-setting-fill',
+    title: '设置'
+  },
+  {
+    id: 'About',
+    name: 'icon-info-circle-fill',
+    title: '关于'
+  }
+];

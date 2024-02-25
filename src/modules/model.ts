@@ -10,7 +10,7 @@ export class Model {
     this.model = this.create();
   }
   create() {
-    const model = this.live2dModel.fromSync(this.modelOptions.path, {
+    const model = this.live2dModel.fromSync(this?.modelOptions?.path, {
       onError: (e) => this.failEvent?.(e)
     });
 
@@ -43,7 +43,7 @@ export class Model {
    * @param x
    * @param y
    */
-  setScale(x = 0.3, y = 0.3) {
+  setScale(x = 0.1, y = 0.1) {
     this.model.scale.set(x, y);
   }
 

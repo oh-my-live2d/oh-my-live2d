@@ -5,8 +5,9 @@ const idleTipsMessage = [
   '最近在看什么书呢？',
   '头顶凉飕飕的？',
   '了解真相，才能获得真正的自由~',
-  '2023年了，新的一年，新的开始~',
-  '消灭人类暴政，世界属于三体！'
+  '2024年了，新的一年，新的开始~',
+  '消灭人类暴政，世界属于三体！',
+  '船新版本上线了!!!!!!!'
 ];
 
 const welcomeTipsMessage = {
@@ -22,4 +23,4 @@ const welcomeTipsMessage = {
 
 const copyTipsMessage = ['复制的内容如果需要转载记得注明出处哦~'];
 
-export { idleTipsMessage, welcomeTipsMessage, copyTipsMessage };
+export { copyTipsMessage, idleTipsMessage, welcomeTipsMessage };

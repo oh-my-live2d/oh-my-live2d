@@ -1,4 +1,4 @@
-import { loadOhMyLive2D } from 'oh-my-live2d';
+import { loadOhMyLive2D } from 'oh-my-live2d/dist/oml-cubism4';
 import { setupCounter } from '../lib/main';
 import './style.css';
 import typescriptLogo from './typescript.svg';
@@ -20,14 +20,21 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </p>
   </div>
 `;
+
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 
 loadOhMyLive2D({
   models: [
     {
       path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-      scale: 0.1,
-      position: [-100, 50]
+      // path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+      scale: 0.12,
+      position: [-10, 50]
     }
-  ]
+  ],
+  tips: {
+    idleTips: {
+      message: []
+    }
+  }
 });
