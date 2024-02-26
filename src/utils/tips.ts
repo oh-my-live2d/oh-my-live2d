@@ -1,5 +1,5 @@
 import { welcomeTipsMessage } from '@/config/tips-message';
-import { WelcomeTips } from '@/types';
+import { WelcomeTips } from '@/types/tips';
 
 export const getWelcomeMessage = function (tipsConfig: WelcomeTips) {
   const { message } = tipsConfig;

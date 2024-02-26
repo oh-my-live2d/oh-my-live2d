@@ -5,7 +5,7 @@ import type { Live2DModel } from 'pixi-live2d-display';
 
 export type Live2DModelType = typeof Live2DModel;
 export type CSSProperties = CSS.Properties;
-export type DefaultOptions = Omit<DeepRequired<Options>, 'targetElement' | 'models'> & { targetElement: HTMLElement } & { models: Model[] };
+export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models'> & { parentElement: HTMLElement } & { models: Model[] };
 
 // type EventType = 'ready' | 'load';
 // type LoadType = 'manual' | 'auto';

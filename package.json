@@ -22,8 +22,6 @@
   "description": "live2d component for web. 看板娘组件, 支持model2、model3、model4",
   "keywords": [
     "Live2D",
-    "pxix.js",
-    "pixi-live2d-display",
     "cubism2",
     "cubism4"
   ],

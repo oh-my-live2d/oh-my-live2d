@@ -24,8 +24,8 @@ class OhMyLive2D {
 
   constructor(private options: DefaultOptions, private live2dModel: Live2DModelType) {
     this.options.sayHello && this.sayHello();
-    this.stage = new Stage(this.options.targetElement); // 实例化舞台
-    this.statusBar = new StatusBar(this.options.targetElement); // 实例化状态条
+    this.stage = new Stage(this.options.parentElement); // 实例化舞台
+    this.statusBar = new StatusBar(this.options.parentElement); // 实例化状态条
     this.tips = new Tips(this.stage.element, this.options.tips); // 提示框
     this.menus = new Menus(this.stage.element); // 菜单
     this.application = this.createApplication();
@@ -175,9 +175,9 @@ export const setup = (live2dModel: Live2DModelType) => {
    * @returns
    */
   const loadOhMyLive2D = (options: Options) => {
-    const { targetElement } = options;
+    const { parentElement } = options;
     const finalOptions = mergeDeep(defaultOptions, options);
-    finalOptions.targetElement = targetElement || document.body;
+    finalOptions.parentElement = parentElement || document.body;
     new OhMyLive2D(finalOptions, live2dModel);
   };
   return loadOhMyLive2D;

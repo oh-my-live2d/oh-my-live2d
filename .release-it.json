@@ -31,7 +31,7 @@
           { "type": "chore", "section": "📦 Chores | 其他更新" },
           { "type": "docs", "section": "📝 Documentation | 文档", "hidden": true },
           { "type": "style", "section": "💄 Styles | 风格", "hidden": true },
-          { "type": "refactor", "section": "♻ Code Refactoring | 代码重构", "hidden": true },
+          { "type": "refactor", "section": "♻ Code Refactoring | 代码重构" },
           { "type": "test", "section": "✅ Tests | 测试", "hidden": true },
           { "type": "build", "section": "👷‍ Build System | 构建", "hidden": true },
           { "type": "ci", "section": "🔧 Continuous Integration | CI 配置", "hidden": true }

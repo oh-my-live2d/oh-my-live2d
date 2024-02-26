@@ -20,7 +20,7 @@ export interface Options {
    */
   tips?: Tips;
   /**
-   * 指定挂载到哪个元素中，不指定则默认挂载到body
+   * 为组件提供一个父元素，如果未指定则默认挂载到 body 中
    */
-  targetElement?: HTMLElement;
+  parentElement?: HTMLElement;
 }

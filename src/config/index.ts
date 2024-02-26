@@ -7,7 +7,7 @@ import type { DefaultOptions } from '@/types';
 export const defaultOptions: DefaultOptions = {
   sayHello: true,
   transitionTime: 1000,
-  targetElement: document.body,
+  parentElement: document.body,
   models: [],
   tips: {
     style: {
