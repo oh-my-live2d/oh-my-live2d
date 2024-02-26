@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { AxiosResponse } from 'axios';
 
-const printResult = (res: AxiosResponse) => {
+const printResult = (res) => {
   console.log(res.config.url + ' 已被刷新');
 };
 
