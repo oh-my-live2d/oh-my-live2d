@@ -1,6 +1,6 @@
 export interface Model {
   /**
-   * 模型的json文件地址
+   * 模型的json文件url地址
    */
   path?: string;
   /**

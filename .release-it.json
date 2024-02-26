@@ -9,6 +9,9 @@
     "commitMessage": "release: v${version}",
     "requireUpstream": false
   },
+  "npm": {
+    "publish": true
+  },
   "hooks": {
     "after:bump": "npm run build",
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
@@ -17,7 +20,7 @@
     "@release-it/conventional-changelog": {
       "ignoreRecommendedBump": true,
       "infile": "CHANGELOG.md",
-      "header": "# Changelog",
+      "header": "# 更新日志",
       "preset": {
         "name": "conventionalcommits",
         "types": [

@@ -7,7 +7,7 @@ import type { DefaultOptions } from '@/types';
 export const defaultOptions: DefaultOptions = {
   sayHello: true,
   transitionTime: 1000,
-  mountTarget: document.body,
+  targetElement: document.body,
   models: [],
   tips: {
     style: {
@@ -18,14 +18,14 @@ export const defaultOptions: DefaultOptions = {
     },
     idleTips: {
       message: idleTipsMessage,
-      persistTime: 3000,
+      duration: 3000,
       interval: 8000,
       priority: 2
       // remote: false
     },
     welcomeTips: {
       message: welcomeTipsMessage,
-      persistTime: 6000,
+      duration: 6000,
       priority: 3
     }
 

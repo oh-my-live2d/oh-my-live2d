@@ -20,7 +20,7 @@ export interface Options {
    */
   tips?: Tips;
   /**
-   * 指定挂载元素，不指定则挂载到body
+   * 指定挂载到哪个元素中，不指定则默认挂载到body
    */
-  mountTarget?: HTMLElement;
+  targetElement?: HTMLElement;
 }

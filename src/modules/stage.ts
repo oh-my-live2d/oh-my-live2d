@@ -15,7 +15,6 @@ export class Stage {
 
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
-  private targetStyle: CSSProperties = {};
   private status: Status = Status.Hidden;
   private slideChangeEnd?: (status: Status) => void;
   constructor(private targetElement: HTMLElement) {
@@ -32,17 +31,17 @@ export class Stage {
     oml2dFragment.append(this.element);
     this.targetElement.append(oml2dFragment);
 
+    if (this.targetElement !== document.body) {
+      document.body.append(this.targetElement);
+    }
     // 刷新前卸载元素
     window.onbeforeunload = () => {
       this.targetElement.removeChild(this.element);
-      // document.body.removeChild(this.elementList.levitatedBtnEl);
     };
   }
 
   initStyle() {
-    this.setStyle({ width: '0px', height: '0px', position: 'fixed', left: 0, bottom: 0, zIndex: '9997', transform: 'translateY(130%)' });
-    this.setTargeStyle({ position: 'relative' });
-
+    this.setStyle({ width: '0px', height: '0px', position: 'absolute', left: 0, bottom: 0, zIndex: '9997', transform: 'translateY(130%)' });
     const styleSheet = createElement({ tagName: 'style', id: 'oml2dStyle', innerHtml: globalStyle }); // 创建全局样式表
     document.head.append(styleSheet);
   }
@@ -58,12 +57,6 @@ export class Stage {
     setStyleByElement(this.canvasStyle, this.canvasElement);
   }
 
-  setTargeStyle(style: CSSProperties) {
-    if (this.targetElement !== document.body) {
-      this.targetStyle = mergeDeep(this.targetStyle, style);
-      setStyleByElement(this.targetStyle, this.targetElement);
-    }
-  }
   /**
    * 滑入
    */

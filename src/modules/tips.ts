@@ -129,8 +129,8 @@ export class Tips {
   async welcome() {
     if (!this.options) return;
     const message = getWelcomeMessage(this.options.welcomeTips || {});
-    const { persistTime = 3000, priority = 2 } = this.options.welcomeTips || {};
-    this.notification(message, persistTime, priority);
+    const { duration = 3000, priority = 2 } = this.options.welcomeTips || {};
+    this.notification(message, duration, priority);
   }
 
   /**
@@ -139,13 +139,13 @@ export class Tips {
    */
   private createIdleMessagePlayer() {
     if (!this.options) return;
-    const { message: messages, persistTime, priority } = this.options.idleTips || {};
+    const { message: messages, duration, priority } = this.options.idleTips || {};
     let message = '';
     const timer = setIntervalAsync(async () => {
       message = getRandomElement(messages || []) || '';
       if (message) {
-        await this.showMessage(message, persistTime, priority);
-        await sleep(persistTime || 3000);
+        await this.showMessage(message, duration, priority);
+        await sleep(duration || 3000);
       } else {
         timer.stop();
       }

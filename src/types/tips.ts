@@ -54,7 +54,7 @@ export interface CommonTips {
   /**
    * 提示框持续时间
    */
-  persistTime?: number;
+  duration?: number;
   /**
    * 优先级
    */
