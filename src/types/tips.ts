@@ -75,11 +75,11 @@ export interface Tips {
      */
     height?: number;
     /**
-     * 调整提示框位于画布中的x轴方向偏移量
+     * 调整提示框位于舞台中的x轴方向偏移量
      */
     offsetX?: number;
     /**
-     * 调整提示框位于画布中的y轴方向偏移量
+     * 调整提示框位于舞台中的y轴方向偏移量
      */
     offsetY?: number;
   };

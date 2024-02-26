@@ -1,4 +1,5 @@
 import { Live2DModelType } from '@/types';
+import { Model as ModelOptions } from '@/types/model';
 import { InternalModel, Live2DModel } from 'pixi-live2d-display';
 import { Application } from 'pixi.js';
 
@@ -6,18 +7,21 @@ export class Model {
   private model: Live2DModel<InternalModel>; // 模型实例
   private failEvent?: (error: Error) => void;
 
-  constructor(private live2dModel: Live2DModelType, private modelOptions, private application: Application) {
+  constructor(private live2dModel: Live2DModelType, private modelOptions: ModelOptions = {}, private application: Application) {
     this.model = this.create();
   }
   create() {
-    const model = this.live2dModel.fromSync(this?.modelOptions?.path, {
-      onError: (e) => this.failEvent?.(e)
+    const model = this.live2dModel.fromSync(this.modelOptions.path || '', {
+      onError: (e) => {
+        this.failEvent?.(e);
+      }
     });
 
     model.once('load', () => {
       this.application.stage.addChild(this.model!);
       this.application.resize();
     });
+
     return model;
   }
 

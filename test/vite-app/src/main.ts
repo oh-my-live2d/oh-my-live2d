@@ -1,4 +1,4 @@
-import { loadOhMyLive2D } from 'oh-my-live2d/dist/oml-cubism4';
+import { loadOhMyLive2D } from 'oh-my-live2d';
 import { setupCounter } from '../lib/main';
 import './style.css';
 import typescriptLogo from './typescript.svg';
@@ -30,11 +30,15 @@ loadOhMyLive2D({
       // path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
       scale: 0.12,
       position: [-10, 50]
+    },
+    {
+      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+      scale: 0.3
     }
   ],
   tips: {
     idleTips: {
-      message: []
+      // message: []
     }
   }
 });

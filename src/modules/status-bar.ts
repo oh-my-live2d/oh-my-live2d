@@ -84,8 +84,7 @@ export class StatusBar {
         animationFillMode: 'forwards'
       });
       setTimeout(() => {
-        this.clearContent();
-        this.setStyle({ backgroundColor: this.stateColor.info });
+        // this.setStyle({ backgroundColor: this.stateColor.info });
         resolve(this.status);
       }, this.transitionTime);
     });
@@ -155,9 +154,5 @@ export class StatusBar {
 
   setContent(content: string) {
     this.element.innerHTML = content;
-  }
-
-  clearContent() {
-    this.element.innerHTML = '';
   }
 }

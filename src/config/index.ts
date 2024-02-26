@@ -3,17 +3,12 @@ import { idleTipsMessage, welcomeTipsMessage } from './tips-message';
 
 import type { DefaultOptions } from '@/types';
 
-// 默认选项
+// 默认配置选项, 实例化时会与用户传进来的合并
 export const defaultOptions: DefaultOptions = {
   sayHello: true,
   transitionTime: 1000,
-  mobileShow: false,
   mountTarget: document.body,
-  models: [
-    {
-      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json'
-    }
-  ],
+  models: [],
   tips: {
     style: {
       width: 230,
@@ -23,15 +18,15 @@ export const defaultOptions: DefaultOptions = {
     },
     idleTips: {
       message: idleTipsMessage,
-      persistTime: 5000,
-      interval: 5000,
+      persistTime: 3000,
+      interval: 8000,
       priority: 2
       // remote: false
     },
     welcomeTips: {
       message: welcomeTipsMessage,
-      persistTime: 5000,
-      priority: 2
+      persistTime: 6000,
+      priority: 3
     }
 
     // copyTips: {
@@ -42,50 +37,7 @@ export const defaultOptions: DefaultOptions = {
   }
 };
 
-// const omlConfig: OmlConfig = {
-//   globalStyle,
-//   elements: {
-//     canvasEl: {
-//       id: 'oml-canvas',
-//       tagName: 'canvas'
-//     },
-//     stageEl: {
-//       id: 'oml-stage',
-//       tagName: 'div'
-//     },
-//     tipsEl: {
-//       id: 'oml-tips',
-//       tagName: 'div'
-//     },
-//     levitatedBtnEl: {
-//       id: 'oml-levitated-btn',
-//       tagName: 'div'
-//     },
-//     controlsEl: {
-//       id: 'oml-controls',
-//       tagName: 'div'
-//     }
-//   },
-//   controls: [
-//     {
-//       id: 'SwitchModel',
-//       name: 'icon-a-userswitch-fill',
-//       title: '切换模型'
-//     },
-//     {
-//       id: 'Setting',
-//       name: 'icon-setting-fill',
-//       title: '设置'
-//     },
-//     {
-//       id: 'About',
-//       name: 'icon-info-circle-fill',
-//       title: '关于'
-//     }
-//   ]
-// };
-
-// config 全局配置
+//  全局配置
 export const config = {
   stageId: 'oml2dStage',
   canvasId: 'oml2dCanvas',
@@ -93,6 +45,8 @@ export const config = {
   tipsId: 'oml2dTips',
   menusId: 'oml2dMenus'
 };
+
+// 菜单的配置
 export const menusConfig = [
   {
     id: 'SwitchModel',
@@ -100,9 +54,9 @@ export const menusConfig = [
     title: '切换模型'
   },
   {
-    id: 'Setting',
-    name: 'icon-setting-fill',
-    title: '设置'
+    id: 'Play',
+    name: 'icon-skin-fill',
+    title: '变装'
   },
   {
     id: 'About',

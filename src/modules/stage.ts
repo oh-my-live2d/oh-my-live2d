@@ -50,7 +50,7 @@ export class Stage {
   setStyle(style: CSSProperties) {
     this.style = mergeDeep(this.style, style);
     setStyleByElement(this.style, this.element);
-    this.setCanvasStyle({ width: '100%', height: '100%' });
+    this.setCanvasStyle({ width: '100%', height: '100%', zIndex: '9999', position: 'relative' });
   }
 
   setCanvasStyle(style: CSSProperties) {

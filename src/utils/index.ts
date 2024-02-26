@@ -159,31 +159,31 @@ export const createElement = (elConfig: ElConfig) => {
   return el;
 };
 
-/**
- *
- * @param fn
- * @param interval
- * @returns
- */
-export const setIntervalAsync = (fn: () => void, interval: number) => {
-  let timer: number | undefined = undefined;
-  return {
-    start: async function () {
-      const runner = async () => {
-        if (!timer) return;
-        await fn();
-        clearTimeout(timer);
-        timer = setTimeout(runner, interval);
-      };
-      if (timer) return;
-      clearTimeout(timer);
-      timer = setTimeout(runner, interval);
-    },
-    stop: function () {
-      clearTimeout(timer);
-      timer = undefined;
-    }
-  };
-};
+// /**
+//  *
+//  * @param fn
+//  * @param interval
+//  * @returns
+//  */
+// export const setIntervalAsync = (fn: () => void, interval: number) => {
+//   let timer: number | undefined = undefined;
+//   return {
+//     start: async function () {
+//       const runner = async () => {
+//         if (!timer) return;
+//         await fn();
+//         clearTimeout(timer);
+//         timer = setTimeout(runner, interval);
+//       };
+//       if (timer) return;
+//       clearTimeout(timer);
+//       timer = setTimeout(runner, interval);
+//     },
+//     stop: function () {
+//       clearTimeout(timer);
+//       timer = undefined;
+//     }
+//   };
+// };
 
 // export { createElementByConfig, generateControlByConfig, getScreenSize, handleSplicingModelSource, setElStyle, sleep };

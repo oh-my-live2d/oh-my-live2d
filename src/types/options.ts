@@ -3,15 +3,12 @@ import { Tips } from '@/types/tips';
 
 export interface Options {
   /**
-   * 是否在移动端显示，默认为false
-   */
-  mobileShow?: boolean;
-  /**
-   * 是否在初始化阶段打印项目信息
+   * @name 是否在初始化阶段打印项目信息
+   * @description 为true时会在控制台打印项目信息
    */
   sayHello?: boolean;
   /**
-   * 模型入场和离开的过渡动画时长
+   * 组件入场和离开的过渡动画时长
    */
   transitionTime?: number;
   /**
@@ -21,7 +18,7 @@ export interface Options {
   /**
    * 定义提示框
    */
-  tips?: Tips | false;
+  tips?: Tips;
   /**
    * 指定挂载元素，不指定则挂载到body
    */

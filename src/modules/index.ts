@@ -4,67 +4,84 @@ import { formatUnit, printProjectInfo } from '../utils';
 // import { changeLevitatedBtnContent, displayLevitatedBtn, hiddenLevitatedBtn } from './levitated-btn';
 // import { onTips, startPlayIdleTips, stopPlayIdleTips } from './tips';
 
+import { WindowSizeType } from '@/constants';
 import { Menus } from '@/modules/menus';
 import { Model } from '@/modules/model';
 import { Stage } from '@/modules/stage';
-import { StatusBar } from '@/modules/status-bar';
+import { StatusBar, SystemStete } from '@/modules/status-bar';
 import { Tips } from '@/modules/tips';
 import type { DefaultOptions, Live2DModelType } from '@/types';
 import { Options } from '@/types/options';
 import { isNumber, mergeDeep } from 'tianjie';
 
 class OhMyLive2D {
-  // currentModelIndex: number;
-
-  // method
-  // displayLevitatedBtn = displayLevitatedBtn;
-  // hiddenLevitatedBtn = hiddenLevitatedBtn;
-  // changeLevitatedBtnContent = changeLevitatedBtnContent;
-
-  // startPlayIdleTips = startPlayIdleTips;
-  // stopPlayIdleTips = stopPlayIdleTips;
-
-  // _omlScreenSize = 'xl';
-  // _omlStatus = 'hidden';
-
-  // ---------------------------------------------------- start
-  private stage: Stage; //  舞台整体
-  private statusBar: StatusBar; // 状态条
+  private stage: Stage;
+  private statusBar: StatusBar;
   private tips: Tips;
   private menus: Menus;
-  private model?: Model;
   private application: Application;
-  // models: Model[] = []; // 模型实例列表
   private modelIndex = 0; // 当前模型索引
-  // ---------------------------------------------------- end
-  constructor(private options: DefaultOptions, private live2dModel: Live2DModelType) {
-    // this.currentModelIndex = 0;
-    // this.importType = importType;
-    // this.elementList = this.mountElement(options?.mountTarget as HTMLElement);
-    // this.setGlobalStyle();
-    // this.addEventListen();
-    // this.modelLoader(options.models[this.currentModelIndex]);
+  private windowSizeType: WindowSizeType = WindowSizeType.PC; // 当前窗口大小
+  private mediaQuery = window.matchMedia('screen and (max-width: 768px)'); // 窗口大小的媒体查询
 
-    // ---------------------------------------------------------重构 start
+  constructor(private options: DefaultOptions, private live2dModel: Live2DModelType) {
     this.options.sayHello && this.sayHello();
     this.stage = new Stage(this.options.mountTarget); // 实例化舞台
     this.statusBar = new StatusBar(this.options.mountTarget); // 实例化状态条
     this.tips = new Tips(this.stage.element, this.options.tips); // 提示框
-    this.menus = new Menus(this.stage.element);
+    this.menus = new Menus(this.stage.element); // 菜单
     this.application = this.createApplication();
+
+    this.initialize();
+  }
+
+  // 初始化
+  initialize() {
+    this.verifyWindowSizeType();
+
+    if (this.windowSizeType !== WindowSizeType.PC) {
+      this.statusBar.popup('暂不支持移动端', SystemStete.info, 8000);
+      return;
+    }
     this.loadModel();
     this.registerEvents();
+  }
+
+  // 校验当前窗口大小
+  verifyWindowSizeType() {
+    if (this.mediaQuery.matches) this.windowSizeType = WindowSizeType.MOBILE;
+    else this.windowSizeType = WindowSizeType.PC;
+    this.mediaQuery.addEventListener('change', (e) => {
+      if (e.matches) this.windowSizeType = WindowSizeType.MOBILE;
+      else this.windowSizeType = WindowSizeType.PC;
+    });
   }
 
   /**
    * 加载模型
    */
-  loadModel() {
-    this.statusBar.showLoading();
-    const model = new Model(this.live2dModel, this.options.models[this.modelIndex], this.application);
-    model.setScale(this.currentModelOption.scale, this.currentModelOption.scale);
-    model.setPosition(...(this.currentModelOption.position || []));
-    this.model = model; // 保存当前的模型实例
+  loadModel(showLoading = true) {
+    showLoading && this.statusBar.showLoading();
+    const model = new Model(this.live2dModel, this.currentModelOption, this.application);
+
+    model?.setScale(this.currentModelOption?.scale, this.currentModelOption?.scale);
+    model?.setPosition(...(this.currentModelOption?.position || []));
+    // 模型所有资源加载完毕
+    model?.onLoaded(({ width, height }) => {
+      this.setStageStyle({
+        width: this.currentModelOption.stageStyle?.width || width,
+        height: this.currentModelOption.stageStyle?.height || height,
+        backgroundColor: this.currentModelOption.stageStyle?.backgroundColor || 'rgba(0, 0, 0, 0)'
+      });
+      this.stage.slideIn(this.options?.transitionTime);
+      this.statusBar.hideLoading();
+    });
+
+    // 加载失败
+    model?.onFail((e) => {
+      this.statusBar.loadingError(this.loadModel.bind(this));
+      console.error(e);
+    });
   }
 
   setStageStyle(style) {
@@ -82,14 +99,23 @@ class OhMyLive2D {
   /**
    * 加载下一个模型
    */
-  loadNextModel() {
+  async loadNextModel() {
+    if (this.options.models.length <= 1) {
+      await this.tips.notification('没找到其他模型哦...', 3000, 9);
+      return;
+    }
+    this.tips.clear();
+    this.statusBar.showLoading();
+    await this.stage.slideOut(this.options.transitionTime);
+    if (this.application.stage.children.length >= 1) this.application.stage.removeChildAt(0); // 从舞台移除上一个模型
+
     if (isNumber(this.options.models?.length)) {
-      if (this.modelIndex < this.options.models.length) {
+      if (this.modelIndex < this.options.models.length - 1) {
         this.modelIndex++;
       } else {
         this.modelIndex = 0;
       }
-      this.loadModel();
+      this.loadModel(false);
     }
   }
 
@@ -98,39 +124,32 @@ class OhMyLive2D {
   }
 
   registerEvents() {
-    // 模型所有资源加载完毕
-    this.model?.onLoaded(({ width, height }) => {
-      this.setStageStyle({
-        width: this.currentModelOption.stageStyle?.width || width,
-        height: this.currentModelOption.stageStyle?.height || height,
-        backgroundColor: this.currentModelOption.stageStyle?.backgroundColor || 'rgba(0, 0, 0, 0)'
-      });
-
-      this.stage.slideIn(this.options.transitionTime);
-      this.statusBar.hideLoading();
-    });
-
-    // 加载失败
-    this.model?.onFail((e) => {
-      this.statusBar.loadingError(this.loadModel.bind(this));
-      throw e;
-    });
-
     // 点击菜单按钮
     this.menus.onClickItem((name) => {
-      this.tips.notification('hhhhhhhhhh', 3000, 9);
       switch (name) {
+        // 切换模型
+        case 'SwitchModel':
+          this.loadNextModel();
+          return;
+        case 'Play':
+          this.tips.showMessage('抱歉, 这个功能还在施工中...', 3000, 9);
+          // this.tips.showMessage(getRandomNum(1, 10));
+          return;
+        case 'About':
+          window.open('https://oml2d.com');
+          return;
       }
-      // this.tips.idlePlayer?.stop();
-      // await this.tips.popup('施工中...', 3000, 9);
-      // this.tips.idlePlayer?.start();
+    });
+
+    // copy 事件
+    window.addEventListener('copy', () => {
+      console.log('copy!');
     });
 
     // 出场入场动画执行结束之后的事件回调
     this.stage.onSlideChangeEnd(async (status) => {
       if (status) {
         await this.tips.welcome();
-        this.tips.idlePlayer?.start();
       }
     });
   }
@@ -148,7 +167,6 @@ class OhMyLive2D {
       resizeTo: this.stage.element
     });
   }
-  // ---------------------------------------------------------重构 end
 
   // set omlStatus(val: 'hidden' | 'display') {
   //   switch (val) {
@@ -196,67 +214,6 @@ class OhMyLive2D {
   //   const styleEl = document.createElement('style');
   //   styleEl.innerHTML = omlConfig.globalStyle;
   //   document.head.appendChild(styleEl);
-  // }
-
-  // mountElement(targetElement?: HTMLElement) {
-  //   const omlElFragment = new DocumentFragment();
-  //   const elementList = this.createOmlElements();
-  //   const { stageEl, canvasEl, tipsEl, controlsEl, levitatedBtnEl } = elementList;
-  //   stageEl.append(canvasEl, tipsEl, controlsEl);
-  //   generateControlByConfig(controlsEl, omlConfig.controls, this.onClickControl.bind(this));
-  //   omlElFragment.append(stageEl, levitatedBtnEl);
-
-  //   const target = targetElement ?? document.body;
-  //   target.appendChild(omlElFragment);
-  //   // 刷新前卸载元素
-  //   window.onbeforeunload = () => {
-  //     target.removeChild(this.elementList.stageEl);
-  //     target.removeChild(this.elementList.levitatedBtnEl);
-  //   };
-  //   return elementList;
-  // }
-
-  // changeStageStyle(styles: CSS.Properties) {
-  //   setElStyle(this.elementList.stageEl, styles);
-  // }
-
-  // changeCanvasStyle(styles: CSS.Properties) {
-  //   setElStyle(this.elementList.canvasEl, styles);
-  // }
-
-  // changeLevitatedBtnStyle(styles: CSS.Properties) {
-  //   setElStyle(this.elementList.levitatedBtnEl, styles);
-  // }
-
-  // changeTipsStyle(styles: CSS.Properties) {
-  //   setElStyle(this.elementList.tipsEl, styles);
-  // }
-
-  // reloadStageStyle() {
-  //   let width = this.options.models[this.currentModelIndex].stageStyle.width;
-  //   let height = this.options.models[this.currentModelIndex].stageStyle.height;
-  //   width === 'auto' && this.model ? (width = this.model.width) : this.options.models[this.currentModelIndex].stageStyle.width;
-  //   height === 'auto' && this.model ? (height = this.model.height) : this.options.models[this.currentModelIndex].stageStyle.height;
-  //   this.changeStageStyle({
-  //     width: `${width}px`,
-  //     height: `${height}px`,
-  //     backgroundColor: this.options.models[this.currentModelIndex].stageStyle.backgroundColor
-  //   });
-  // }
-
-  // reloadModelTransform() {
-  //   const x = this.options.models[this.currentModelIndex].x;
-  //   const y = this.options.models[this.currentModelIndex].y;
-  //   const scale = this.options.models[this.currentModelIndex].scale;
-  //   let scaleX;
-  //   let scaleY;
-  //   if (Array.isArray(scale)) {
-  //     scaleX = scale[0] * 0.1;
-  //     scaleY = scale[1] * 0.1;
-  //   } else {
-  //     scaleX = scaleY = scale * 0.1;
-  //   }
-  //   this.model?.setTransform(x, y, scaleX, scaleY);
   // }
 
   // reloadTipsStyle() {
@@ -397,7 +354,7 @@ const setup = (live2dModel: Live2DModelType) => {
     // 重写 console.log 函数
 
     new OhMyLive2D(mergeDeep(defaultOptions, options), live2dModel);
-    return {};
+    // return {};
   };
   return loadOhMyLive2D;
 };

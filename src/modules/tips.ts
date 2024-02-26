@@ -1,23 +1,24 @@
 import { config } from '@/config';
 import { CSSProperties } from '@/types';
 import { Tips as TipsOptions } from '@/types/tips';
-import { createElement, setIntervalAsync, setStyleByElement, sleep } from '@/utils';
+import { createElement, setStyleByElement, sleep } from '@/utils';
 import { getWelcomeMessage } from '@/utils/tips';
-import { getRandomElement, mergeDeep } from 'tianjie';
+import { getRandomElement, mergeDeep, setIntervalAsync } from 'tianjie';
 
-enum Status {
-  Display = 1,
-  Hidden = 0
-}
+// enum Status {
+//   Display = 1,
+//   Hidden = 0
+// }
 
 export class Tips {
-  element: HTMLElement;
-  status: Status = Status.Hidden;
-  showCount = 0; // 调用显示计数
-  idlePlayer?: {
+  private element: HTMLElement;
+  // private status: Status = Status.Hidden;
+  private idlePlayer?: {
     start: () => Promise<void>;
     stop: () => void;
   };
+
+  private closeTimer = 0;
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
   private idleTipsInterval = 3000; // 默认的闲置消息循环播放间隔
   private style: CSSProperties = {};
@@ -82,63 +83,44 @@ export class Tips {
     this.element.innerHTML = message;
   }
 
-  private show(): Promise<Status> {
-    return new Promise((resolve) => {
-      this.status = Status.Display;
-      this.showCount++;
-      // console.log('+++++++++++++++', this.showCount);
+  showMessage(message: any, duration = 3000, priority = 0) {
+    if (priority < this.priority) return;
+    this.priority = priority;
+    if (this.closeTimer) clearTimeout(this.closeTimer);
+    this.setContent(message);
+    this.setStyle({
+      animationName: 'oml2d-display-tips,oml2d-shake-tips'
+    });
+
+    this.closeTimer = setTimeout(() => {
       this.setStyle({
-        animationName: 'oml2d-display-tips,oml2d-shake-tips'
+        animationName: 'oml2d-hidden-tips,oml2d-shake-tips'
       });
-
-      setTimeout(() => {
-        resolve(this.status);
-      }, this.transitionTime);
-    });
-  }
-
-  private hide(): Promise<Status> {
-    return new Promise((resolve) => {
-      this.status = Status.Hidden;
-
-      setTimeout(() => {
-        if (this.showCount === 1) {
-          // 一直减到最后一个才隐藏, 前面如果还有则一直展示
-          this.setStyle({
-            animationName: 'oml2d-hidden-tips,oml2d-shake-tips'
-          });
-        }
-        this.showCount--;
-        // console.log('-----------------', this.showCount);
-        resolve(this.status);
-      }, this.transitionTime);
-    });
+      this.priority = 0;
+    }, duration);
   }
 
   /**
-   * 私有的弹出消息方法,提供给闲置消息播放器使用
-   * @param message
-   * @param duration
+   * 清除提示框所有状态
    */
-  private async popup(message: string, duration = 3000, priority = 0) {
-    if (priority < this.priority) return;
-    this.priority = priority;
-    this.setContent(message);
-    await this.show();
-    await sleep(duration);
-    await this.hide();
-    // if (!this.status) this.clearContent();
+  clear() {
+    this.setStyle({
+      animationName: 'oml2d-hidden-tips,oml2d-shake-tips'
+    });
+    this.idlePlayer?.stop();
+    clearTimeout(this.closeTimer);
     this.priority = 0;
   }
 
   /**
    * 公开暴露的通知方法, 所有地方可调用, 调用时会先暂停闲置消息的循环播放
    */
-  async notification(message: string, duration: number, priority: number) {
-    console.log(message);
+  notification(message: string, duration: number, priority: number) {
     this.idlePlayer?.stop();
-    await this.popup(message, duration, priority);
-    this.idlePlayer?.start();
+    this.showMessage(message, duration, priority);
+    setTimeout(() => {
+      this.idlePlayer?.start();
+    }, duration + this.transitionTime);
   }
 
   /**
@@ -148,7 +130,7 @@ export class Tips {
     if (!this.options) return;
     const message = getWelcomeMessage(this.options.welcomeTips || {});
     const { persistTime = 3000, priority = 2 } = this.options.welcomeTips || {};
-    await this.notification(message, persistTime, priority);
+    this.notification(message, persistTime, priority);
   }
 
   /**
@@ -161,12 +143,13 @@ export class Tips {
     let message = '';
     const timer = setIntervalAsync(async () => {
       message = getRandomElement(messages || []) || '';
-      if (message) await this.popup(message, persistTime, priority);
-      else {
+      if (message) {
+        await this.showMessage(message, persistTime, priority);
+        await sleep(persistTime || 3000);
+      } else {
         timer.stop();
       }
     }, this.options.idleTips?.interval || this.idleTipsInterval);
-
     return timer;
   }
 }
