@@ -1,6 +1,7 @@
 import { config } from '@/config';
 import { globalStyle } from '@/config/style';
 import { CSSProperties } from '@/types';
+import { Options } from '@/types/options';
 import { createElement, setStyleByElement } from '@/utils';
 import { mergeDeep } from 'tianjie';
 
@@ -12,24 +13,26 @@ enum Status {
 export class Stage {
   element: HTMLElement;
   canvasElement: HTMLCanvasElement;
-
+  wrapperElement: HTMLElement;
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
   private status: Status = Status.Hidden;
   private slideChangeEnd?: (status: Status) => void;
-  constructor(private targetElement: HTMLElement) {
+  constructor(private targetElement: HTMLElement, private options: Options) {
     this.element = createElement({ id: config.stageId, tagName: 'div' });
     this.canvasElement = createElement({ id: config.canvasId, tagName: 'canvas' }) as HTMLCanvasElement;
+    this.wrapperElement = createElement({ id: 'oml2dWrapper', tagName: 'div' });
     this.create();
     this.initStyle();
   }
 
   create() {
     const oml2dFragment = document.createDocumentFragment();
+    this.wrapperElement.append(oml2dFragment);
     this.element.append(this.canvasElement);
-
     oml2dFragment.append(this.element);
-    this.targetElement.append(oml2dFragment);
+    this.wrapperElement.append(oml2dFragment);
+    this.targetElement.append(this.wrapperElement);
 
     if (this.targetElement !== document.body) {
       document.body.append(this.targetElement);
@@ -41,7 +44,21 @@ export class Stage {
   }
 
   initStyle() {
-    this.setStyle({ width: '0px', height: '0px', position: 'absolute', left: 0, bottom: 0, zIndex: '9997', transform: 'translateY(130%)' });
+    this.setStyle({
+      width: '0px',
+      height: '0px',
+      // position: 'relative'
+      // position: this.options.fixed ? 'fixed' : 'static',
+      // left: 0,
+      // bottom: 0,
+      zIndex: '9997',
+      transform: 'translateY(130%)'
+    });
+    this.wrapperElement.style.position = this.options.fixed ? 'fixed' : 'relative';
+    this.wrapperElement.style.overflow = 'hidden';
+    this.wrapperElement.style.left = '0';
+    this.wrapperElement.style.bottom = '0';
+
     const styleSheet = createElement({ tagName: 'style', id: 'oml2dStyle', innerHtml: globalStyle }); // 创建全局样式表
     document.head.append(styleSheet);
   }

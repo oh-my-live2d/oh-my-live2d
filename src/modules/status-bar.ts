@@ -2,7 +2,6 @@ import { config } from '@/config';
 import { CSSProperties } from '@/types';
 import { createElement, setStyleByElement } from '@/utils';
 import { mergeDeep } from 'tianjie';
-
 enum Status {
   Display = 1,
   Hidden = 0
@@ -25,9 +24,9 @@ export class StatusBar {
   };
 
   private style: CSSProperties = {};
-  constructor(targetElement: HTMLElement) {
+  constructor(wrapperElement: HTMLElement) {
     this.element = createElement({ id: config.statusBarId, tagName: 'div', innerText: 'hello' });
-    targetElement.append(this.element);
+    wrapperElement.append(this.element);
     this.initStyle();
   }
 

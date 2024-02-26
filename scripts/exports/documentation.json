@@ -1,0 +1,664 @@
+{
+	"id": 0,
+	"name": "oh-my-live2d",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 4,
+			"name": "Options",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 7,
+					"name": "models",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "定义一个或一组模型"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "types/options.ts",
+							"line": 17,
+							"character": 2,
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/3b3ab99/src/types/options.ts#L17"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": {
+								"sourceFileName": "src/types/model.ts",
+								"qualifiedName": "Model"
+							},
+							"name": "Model",
+							"package": "oh-my-live2d"
+						}
+					}
+				},
+				{
+					"id": 9,
+					"name": "parentElement",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "为组件提供一个父元素，如果未指定则默认挂载到 body 中"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "types/options.ts",
+							"line": 25,
+							"character": 2,
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/3b3ab99/src/types/options.ts#L25"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"sourceFileName": "node_modules/.pnpm/typescript@4.9.5/node_modules/typescript/lib/lib.dom.d.ts",
+							"qualifiedName": "HTMLElement"
+						},
+						"name": "HTMLElement",
+						"package": "typescript"
+					}
+				},
+				{
+					"id": 5,
+					"name": "sayHello",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [],
+						"blockTags": [
+							{
+								"tag": "@name",
+								"content": [
+									{
+										"kind": "text",
+										"text": "是否在初始化阶段打印项目信息"
+									}
+								]
+							},
+							{
+								"tag": "@description",
+								"content": [
+									{
+										"kind": "text",
+										"text": "为true时会在控制台打印项目信息"
+									}
+								]
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "types/options.ts",
+							"line": 9,
+							"character": 2,
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/3b3ab99/src/types/options.ts#L9"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 8,
+					"name": "tips",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "定义提示框"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "types/options.ts",
+							"line": 21,
+							"character": 2,
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/3b3ab99/src/types/options.ts#L21"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"sourceFileName": "src/types/tips.ts",
+							"qualifiedName": "Tips"
+						},
+						"name": "Tips",
+						"package": "oh-my-live2d"
+					}
+				},
+				{
+					"id": 6,
+					"name": "transitionTime",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "组件入场和离开的过渡动画时长"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "types/options.ts",
+							"line": 13,
+							"character": 2,
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/3b3ab99/src/types/options.ts#L13"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						7,
+						9,
+						5,
+						8,
+						6
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "types/options.ts",
+					"line": 4,
+					"character": 17,
+					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/3b3ab99/src/types/options.ts#L4"
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "loadOhMyLive2D",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 14,
+					"character": 6,
+					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/3b3ab99/src/index.ts#L14"
+				}
+			],
+			"signatures": [
+				{
+					"id": 2,
+					"name": "loadOhMyLive2D",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "根据自定义选项加载oml2d组件"
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@returns",
+								"content": []
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "modules/index.ts",
+							"line": 177,
+							"character": 25,
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/3b3ab99/src/modules/index.ts#L177"
+						}
+					],
+					"parameters": [
+						{
+							"id": 3,
+							"name": "options",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"target": 4,
+								"name": "Options",
+								"package": "oh-my-live2d"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "void"
+					}
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "接口",
+			"children": [
+				4
+			]
+		},
+		{
+			"title": "其他函数",
+			"children": [
+				1
+			]
+		}
+	],
+	"packageName": "oh-my-live2d",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "# OhMyLive2D\n\n![npm](https://img.shields.io/npm/v/oh-my-live2d?label=version) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)\n\nOhMyLive2D 是一个运行在浏览器环境的 Live2D 看板娘组件，它支持所有版本的 Live2D 模型，开箱即用且可定制化。  \n如果你还在苦于寻找一个支持所有版本模型的 Live2D For Web 组件，为你的个人网站增加一个看板娘，那么请看看这个！🥳  \n[查阅文档](https://oml2d.com/)了解更多详细的使用教程 🎉。\n\n## ✨ 特点：\n\n<img align=\"right\" height=\"270\" src=\"https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302080219383.gif\"/>\n\n- 支持所有版本的"
+		},
+		{
+			"kind": "code",
+			"text": "`Live2D`"
+		},
+		{
+			"kind": "text",
+			"text": "模型。\n- 支持 "
+		},
+		{
+			"kind": "code",
+			"text": "`CDN`"
+		},
+		{
+			"kind": "text",
+			"text": " 或 "
+		},
+		{
+			"kind": "code",
+			"text": "`ES6 Module`"
+		},
+		{
+			"kind": "text",
+			"text": " 导入，现在你可以在 "
+		},
+		{
+			"kind": "code",
+			"text": "`webpack`"
+		},
+		{
+			"kind": "text",
+			"text": "以及"
+		},
+		{
+			"kind": "code",
+			"text": "`vite`"
+		},
+		{
+			"kind": "text",
+			"text": "项目中使用它。\n- 默认集成 "
+		},
+		{
+			"kind": "code",
+			"text": "`Cubism 2 SDK`"
+		},
+		{
+			"kind": "text",
+			"text": " 和 "
+		},
+		{
+			"kind": "code",
+			"text": "`Cubism 4 SDK`"
+		},
+		{
+			"kind": "text",
+			"text": "，无需额外引入其他外部依赖。\n- 自定义的本地或远程的 "
+		},
+		{
+			"kind": "code",
+			"text": "`Live2D Model`"
+		},
+		{
+			"kind": "text",
+			"text": " 来源"
+		},
+		{
+			"kind": "code",
+			"text": "`（model.json）`"
+		},
+		{
+			"kind": "text",
+			"text": "。\n- 完全使用 "
+		},
+		{
+			"kind": "code",
+			"text": "`TypeScript`"
+		},
+		{
+			"kind": "text",
+			"text": " 开发，具有完整的类型推导。\n- 多种导入模式，导入指定版本的 "
+		},
+		{
+			"kind": "code",
+			"text": "`Cubism SDK`"
+		},
+		{
+			"kind": "text",
+			"text": " 依赖或全量导入所有依赖。\n- 支持配置多个模型，使用控件对其切换。\n- 支持在 vuepress2 中使用，前往[vuepress-plugin-oh-my-live2d](https://github.com/oh-my-live2d/vuepress-plugin-oh-my-live2d)了解更多相关内容。\n\n## 🤔 Cubism 是什么：\n\nCubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubism 2、Cubism 3、Cubism 4。\n\n- Cubism 2 是只能驱动 Live2D Model 版本为 2 的 SDK，它无法驱动 Live2D Model 3 和 Live2D Model 4。\n\n- Cubism 4 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法驱动 Live2D Model 2。\n\n**本项目已集成 "
+		},
+		{
+			"kind": "code",
+			"text": "`Cubism 2.1`"
+		},
+		{
+			"kind": "text",
+			"text": " 与 "
+		},
+		{
+			"kind": "code",
+			"text": "`Cubism 4.2.2`"
+		},
+		{
+			"kind": "text",
+			"text": " ，完整覆盖了 "
+		},
+		{
+			"kind": "code",
+			"text": "`Live2D Model`"
+		},
+		{
+			"kind": "text",
+			"text": " 的所有版本。**\n\n## 🌈 使用：\n\n### CDN 引入\n\n**oh-my-live2d** 的使用非常简单，无论你是初学者还是初体验尝鲜，你只需要在项目入口的 "
+		},
+		{
+			"kind": "code",
+			"text": "`html`"
+		},
+		{
+			"kind": "text",
+			"text": " 文件中以 "
+		},
+		{
+			"kind": "code",
+			"text": "`CDN`"
+		},
+		{
+			"kind": "text",
+			"text": " 的方式导入它即可。\n\n在 "
+		},
+		{
+			"kind": "code",
+			"text": "`<body>`"
+		},
+		{
+			"kind": "text",
+			"text": " 标签中加入以下内容:\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```html\n<script src=\"https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js\"></script>\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n### 使用 Node 包管理工具安装：\n\n- 使用 "
+		},
+		{
+			"kind": "code",
+			"text": "`npm`"
+		},
+		{
+			"kind": "text",
+			"text": " 安装：\n\n  "
+		},
+		{
+			"kind": "code",
+			"text": "```shell\n  npm install oh-my-live2d\n  ```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n- 使用 "
+		},
+		{
+			"kind": "code",
+			"text": "`yarn`"
+		},
+		{
+			"kind": "text",
+			"text": " 安装：\n\n  "
+		},
+		{
+			"kind": "code",
+			"text": "```shell\n  yarn add oh-my-live2d\n  ```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n- 国内源安装可使用 "
+		},
+		{
+			"kind": "code",
+			"text": "`tyarn`"
+		},
+		{
+			"kind": "text",
+			"text": "：\n\n  "
+		},
+		{
+			"kind": "code",
+			"text": "```shell\n  tyarn add oh-my-live2d\n  ```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n- 使用 "
+		},
+		{
+			"kind": "code",
+			"text": "`pnpm`"
+		},
+		{
+			"kind": "text",
+			"text": " 安装：\n\n  "
+		},
+		{
+			"kind": "code",
+			"text": "```shell\n  pnpm add oh-my-live2d\n  ```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n### CDN 使用示例：\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/vite.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Vite App</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js\"></script>\n    <script>\n      // ...业务代码\n    </script>\n  </body>\n</html>\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n**如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js)并导入到项目是你的最佳选择。**\n\n### ESM 使用示例：\n\n在 "
+		},
+		{
+			"kind": "code",
+			"text": "`vite`"
+		},
+		{
+			"kind": "text",
+			"text": " 或 "
+		},
+		{
+			"kind": "code",
+			"text": "`webpack`"
+		},
+		{
+			"kind": "text",
+			"text": " 构建管理的项目中使用此导入方式。\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```ts\nimport 'oh-my-live2d';\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n这里以 "
+		},
+		{
+			"kind": "code",
+			"text": "`webpack 5`"
+		},
+		{
+			"kind": "text",
+			"text": " 管理的 "
+		},
+		{
+			"kind": "code",
+			"text": "`react 18`"
+		},
+		{
+			"kind": "text",
+			"text": " 项目为例，在入口文件 "
+		},
+		{
+			"kind": "code",
+			"text": "`src/index.tsx`"
+		},
+		{
+			"kind": "text",
+			"text": " 中导入 "
+		},
+		{
+			"kind": "code",
+			"text": "`oh-my-live2d`"
+		},
+		{
+			"kind": "text",
+			"text": "：\n\n<img height=\"400px\" align=\"right\" src=\"https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302041507232.gif\"/>\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```ts\n// src/index.tsx\n\nimport React from 'react';\nimport ReactDOM from 'react-dom/client';\nimport './index.css';\nimport App from './App';\nimport reportWebVitals from './reportWebVitals';\n\nimport 'oh-my-live2d';\n\nconst root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);\nroot.render(\n  <React.StrictMode>\n    <App />\n  </React.StrictMode>\n);\n\nreportWebVitals();\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n默认情况下，无论你是使用 "
+		},
+		{
+			"kind": "code",
+			"text": "`CDN`"
+		},
+		{
+			"kind": "text",
+			"text": " 或 "
+		},
+		{
+			"kind": "code",
+			"text": "`ES6 Module`"
+		},
+		{
+			"kind": "text",
+			"text": " 的方式导入，都无需导出任何模块或从全局变量中调用任何方法，即可得到一个完整的 "
+		},
+		{
+			"kind": "code",
+			"text": "`Live2D`"
+		},
+		{
+			"kind": "text",
+			"text": " 组件，这个过程属于**自动装载**。\n自动装载的 Live2D 组件将使用默认配置加载，并在加载完成后挂载到"
+		},
+		{
+			"kind": "code",
+			"text": "`<body>`"
+		},
+		{
+			"kind": "text",
+			"text": "标签中。  \n如果你想更换自己的模型或对其进行自定义，请[查阅文档](https://oml2d.com/)中自定义章节的相关内容。\n\n## 💕 鸣谢：\n\n本项目主要依赖于 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display), 感谢其为 "
+		},
+		{
+			"kind": "code",
+			"text": "`Live2D`"
+		},
+		{
+			"kind": "text",
+			"text": " 社区做出的贡献。\n\n## 🔗 关于：\n\n本项目中所使用的所有 Live2D 模型仅用作参考或学习，本项目不提供任何 Live2D Model 资源的相关下载地址，如有需要请自行寻找。\n\n## 📧 讨论：\n\n添加好友以加入微信群：  \n添加好友时请备注：oml2d\n\n<img width=240 src=\"https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png\"/>\n\n## 📃 许可证：\n\n- [MIT](https://github.com/oh-my-live2d/oh-my-live2d/blob/master/license)"
+		}
+	],
+	"symbolIdMap": {
+		"0": {
+			"sourceFileName": "src/index.ts",
+			"qualifiedName": ""
+		},
+		"1": {
+			"sourceFileName": "src/index.ts",
+			"qualifiedName": "loadOhMyLive2D"
+		},
+		"2": {
+			"sourceFileName": "src/modules/index.ts",
+			"qualifiedName": "loadOhMyLive2D"
+		},
+		"3": {
+			"sourceFileName": "src/modules/index.ts",
+			"qualifiedName": "options"
+		},
+		"4": {
+			"sourceFileName": "src/types/options.ts",
+			"qualifiedName": "Options"
+		},
+		"5": {
+			"sourceFileName": "src/types/options.ts",
+			"qualifiedName": "Options.sayHello"
+		},
+		"6": {
+			"sourceFileName": "src/types/options.ts",
+			"qualifiedName": "Options.transitionTime"
+		},
+		"7": {
+			"sourceFileName": "src/types/options.ts",
+			"qualifiedName": "Options.models"
+		},
+		"8": {
+			"sourceFileName": "src/types/options.ts",
+			"qualifiedName": "Options.tips"
+		},
+		"9": {
+			"sourceFileName": "src/types/options.ts",
+			"qualifiedName": "Options.parentElement"
+		}
+	}
+}

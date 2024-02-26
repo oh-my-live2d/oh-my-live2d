@@ -45,7 +45,8 @@ setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 
 const el = document.createElement('div');
 loadOhMyLive2D({
-  targetElement: el,
+  // parentElement: el,
+  // fixed: false,
   models: [
     {
       path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',

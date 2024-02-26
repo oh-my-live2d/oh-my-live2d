@@ -5,6 +5,7 @@ import type { DefaultOptions } from '@/types';
 
 // 默认配置选项, 实例化时会与用户传进来的合并
 export const defaultOptions: DefaultOptions = {
+  fixed: true,
   sayHello: true,
   transitionTime: 1000,
   parentElement: document.body,

@@ -23,4 +23,8 @@ export interface Options {
    * 为组件提供一个父元素，如果未指定则默认挂载到 body 中
    */
   parentElement?: HTMLElement;
+  /**
+   * 组件是否使用固定定位,默认为true
+   */
+  fixed?: boolean;
 }
