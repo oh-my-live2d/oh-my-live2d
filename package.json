@@ -17,7 +17,7 @@
     "test:vite": "pnpm -F vue-app run dev",
     "test:webpack": "pnpm -F react-app run start",
     "dev:docs": "concurrently \"node ./scripts/typedoc.mjs -w\" \"vitepress dev docs\"",
-    "build:docs": "npm run build && vitepress build docs",
+    "build:docs": "vitepress build docs",
     "preview:docs": "vitepress preview docs"
   },
   "license": "MIT",
@@ -47,6 +47,7 @@
     "eslint": "^8.30.0",
     "fs-extra": "^11.1.0",
     "json2md": "^2.0.1",
+    "oh-my-live2d": "workspace:^",
     "pixi-live2d-display": "0.4.0",
     "pixi.js": "6.5.2",
     "release-it": "^15.5.1",

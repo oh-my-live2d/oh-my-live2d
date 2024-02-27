@@ -44,6 +44,9 @@ importers:
       json2md:
         specifier: ^2.0.1
         version: 2.0.1
+      oh-my-live2d:
+        specifier: workspace:^
+        version: 'link:'
       pixi-live2d-display:
         specifier: 0.4.0
         version: 0.4.0(@pixi/core@6.5.2)(@pixi/display@6.5.2)(@pixi/loaders@6.5.2)(@pixi/math@6.5.2)(@pixi/sprite@6.5.2)(@pixi/utils@6.5.2)
@@ -4491,7 +4494,7 @@ packages:
       vue: ^3.2.25
     dependencies:
       vite: 5.1.4
-      vue: 3.4.19(typescript@4.9.5)
+      vue: 3.4.19(typescript@5.3.3)
     dev: true
 
   /@volar/language-core@1.11.1:
@@ -4623,7 +4626,7 @@ packages:
     dependencies:
       '@vue/compiler-ssr': 3.4.19
       '@vue/shared': 3.4.19
-      vue: 3.4.19(typescript@4.9.5)
+      vue: 3.4.19(typescript@5.3.3)
 
   /@vue/shared@3.4.19:
     resolution: {integrity: sha512-/KliRRHMF6LoiThEy+4c1Z4KB/gbPrGjWwJR+crg2otgrf/egKzRaCPvJ51S5oetgsgXLfc4Rm5ZgrKHZrtMSw==}
@@ -14087,6 +14090,7 @@ packages:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: true
 
   /typescript@5.3.3:
     resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
@@ -14491,6 +14495,7 @@ packages:
       '@vue/server-renderer': 3.4.19(vue@3.4.19)
       '@vue/shared': 3.4.19
       typescript: 4.9.5
+    dev: true
 
   /vue@3.4.19(typescript@5.3.3):
     resolution: {integrity: sha512-W/7Fc9KUkajFU8dBeDluM4sRGc/aa4YJnOYck8dkjgZoXtVsn3OeTGni66FV1l3+nvPA7VBFYtPioaGKUmEADw==}
@@ -14506,7 +14511,6 @@ packages:
       '@vue/server-renderer': 3.4.19(vue@3.4.19)
       '@vue/shared': 3.4.19
       typescript: 5.3.3
-    dev: false
 
   /w3c-hr-time@1.0.2:
     resolution: {integrity: sha512-z8P5DvDNjKDoFIHK7q8r8lackT6l+jo/Ye3HOle7l9nICP9lf1Ci25fy9vHd0JOWewkIFzXIEig3TdKT7JQ5fQ==}
