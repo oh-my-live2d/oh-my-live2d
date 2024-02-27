@@ -3,7 +3,7 @@ export default {
   ...DefaultTheme,
   async enhanceApp() {
     if (!(import.meta as any).env.SSR) {
-      const { loadOml2d } = await import('oh-my-live2d');
+      const { loadOml2d } = await import('../../../dist');
       loadOml2d({
         models: [
           {
