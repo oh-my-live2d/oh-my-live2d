@@ -1,5 +1,12 @@
 # 更新日志
 
+### [0.4.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.0...v0.4.1) (2024-02-27)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复类型文件丢失的错误 ([d4e1034](https://github.com/oh-my-live2d/oh-my-live2d/commit/d4e1034230723a304f4af22d2077c59ba13382e3))
+
 ## [0.4.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.3.0...v0.4.0) (2024-02-27)
 
 
