@@ -28,11 +28,12 @@ export class Stage {
 
   create() {
     const oml2dFragment = document.createDocumentFragment();
-    this.wrapperElement.append(oml2dFragment);
+    // this.wrapperElement.append(oml2dFragment);
     this.element.append(this.canvasElement);
     oml2dFragment.append(this.element);
-    this.wrapperElement.append(oml2dFragment);
-    this.targetElement.append(this.wrapperElement);
+
+    // this.wrapperElement.append(oml2dFragment);
+    this.targetElement.append(oml2dFragment);
 
     if (this.targetElement !== document.body) {
       document.body.append(this.targetElement);
@@ -48,17 +49,17 @@ export class Stage {
       width: '0px',
       height: '0px',
       // position: 'relative'
-      // position: this.options.fixed ? 'fixed' : 'static',
-      // left: 0,
-      // bottom: 0,
+      position: this.options.fixed ? 'fixed' : 'relative',
+      left: 0,
+      bottom: 0,
       zIndex: '9997',
       transform: 'translateY(130%)'
     });
-    this.wrapperElement.style.position = this.options.fixed ? 'fixed' : 'relative';
-    this.wrapperElement.style.overflow = 'hidden';
-    this.wrapperElement.style.left = '0';
-    this.wrapperElement.style.bottom = '0';
-    this.wrapperElement.style.zIndex = '9999';
+    // this.wrapperElement.style.position = this.options.fixed ? 'fixed' : 'relative';
+    // this.wrapperElement.style.overflow = 'hidden';
+    // this.wrapperElement.style.left = '0';
+    // this.wrapperElement.style.bottom = '0';
+    // this.wrapperElement.style.zIndex = '9999';
 
     const styleSheet = createElement({ tagName: 'style', id: 'oml2dStyle', innerHtml: globalStyle }); // 创建全局样式表
     document.head.append(styleSheet);

@@ -25,7 +25,7 @@ class OhMyLive2D {
   constructor(private options: DefaultOptions, private live2dModel: Live2DModelType) {
     this.options.sayHello && this.sayHello();
     this.stage = new Stage(this.options.parentElement, options); // 实例化舞台
-    this.statusBar = new StatusBar(this.stage.wrapperElement); // 实例化状态条
+    this.statusBar = new StatusBar(this.options.parentElement); // 实例化状态条
     this.tips = new Tips(this.stage.element, this.options.tips); // 提示框
     this.menus = new Menus(this.stage.element); // 菜单
     this.application = this.createApplication();
