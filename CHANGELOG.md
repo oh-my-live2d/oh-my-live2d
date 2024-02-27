@@ -1,5 +1,12 @@
 # 更新日志
 
+### [0.4.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.1...v0.4.2) (2024-02-27)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 移除了包装元素, 修复刷新时组件闪烁白块的问题,修复了状态条加载显示异常的问题 ([9f35c04](https://github.com/oh-my-live2d/oh-my-live2d/commit/9f35c048d429e250fc59a2331de24c79f7807963))
+
 ### [0.4.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.0...v0.4.1) (2024-02-27)
 
 
