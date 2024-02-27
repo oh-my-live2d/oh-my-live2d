@@ -20,8 +20,8 @@ jobs:
           node-version: 18
           cache: pnpm
 
-      - name: 安装依赖
-        run: pnpm install vuepress-plugin-oh-my-live2d@latest -w -D
+      - name: 项目安装依赖
+        run: pnpm install --no-frozen-lockfile
 
       - name: 打包文档
         env:
