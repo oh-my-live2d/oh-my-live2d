@@ -11,7 +11,6 @@ dist
 test/dist/*
 dist-ssr
 *.local
-public/*
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,8 +22,7 @@ public/*
 *.sln
 *.sw?
 .env
-src/assets/model.temp
 .cache
 .temp
-public
 pnpm-lock.yaml
+cache

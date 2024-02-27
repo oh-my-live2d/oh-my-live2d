@@ -16,9 +16,9 @@
     "test": "pnpm -F vite-app run dev",
     "test:vite": "pnpm -F vue-app run dev",
     "test:webpack": "pnpm -F react-app run start",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "dev:docs": "concurrently \"node ./scripts/typedoc.mjs -w\" \"vitepress dev docs\"",
+    "build:docs": "vitepress build docs",
+    "preview:docs": "vitepress preview docs"
   },
   "license": "MIT",
   "author": "loclink",
@@ -40,7 +40,6 @@
     "@typescript-eslint/parser": "^5.47.0",
     "@vuepress/client": "2.0.0-beta.60",
     "axios": "^1.2.2",
-    "cli-cat": "^0.0.2",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "csstype": "^3.1.1",
@@ -58,11 +57,7 @@
     "typedoc-plugin-markdown": "3.15.4",
     "typescript": "^4.9.4",
     "vite": "4.0.4",
-    "vite-plugin-dts": "^1.7.2",
     "vitepress": "1.0.0-rc.44",
-    "vue": "^3.2.45",
-    "vuepress": "2.0.0-beta.60",
-    "vuepress-plugin-oh-my-live2d": "^0.4.0",
-    "vuepress-theme-hope": "2.0.0-beta.158"
+    "vue": "^3.4.19"
   }
 }

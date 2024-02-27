@@ -7,7 +7,7 @@ export class Model {
   private model: Live2DModel<InternalModel>; // 模型实例
   private failEvent?: (error: Error) => void;
 
-  constructor(private live2dModel: Live2DModelType, private modelOptions: ModelOptions = {}, private application: Application) {
+  constructor(private live2dModel: Live2DModelType, private modelOptions: ModelOptions, private application: Application) {
     this.model = this.create();
   }
   create() {

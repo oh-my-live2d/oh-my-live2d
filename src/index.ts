@@ -5,12 +5,11 @@ import { Live2DModel } from 'pixi-live2d-display';
 import * as PIXI from 'pixi.js';
 import { setup } from './modules';
 
-import type { Options } from '@/types/options';
-
 (window as any).PIXI = PIXI;
 PIXI.utils.skipHello();
 
 // 全量
-const loadOhMyLive2D = setup(Live2DModel);
+export const loadOhMyLive2D = setup(Live2DModel);
+export * from './types/options';
 
-export { Options, loadOhMyLive2D };
+// export { Options, loadOhMyLive2D };

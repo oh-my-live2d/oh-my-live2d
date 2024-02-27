@@ -1,7 +1,6 @@
 import './library/live2dcubism4core';
 
 import { setup } from '@/modules';
-import type { Options } from '@/types/options';
 import { Live2DModel } from 'pixi-live2d-display/cubism4';
 import * as PIXI from 'pixi.js';
 
@@ -9,6 +8,6 @@ import * as PIXI from 'pixi.js';
 PIXI.utils.skipHello();
 
 // cubism4
-const loadOhMyLive2D = setup(Live2DModel);
-
-export { Options, loadOhMyLive2D };
+export const loadOhMyLive2D = setup(Live2DModel);
+export * from './types/options';
+// export { Options, loadOhMyLive2D };
