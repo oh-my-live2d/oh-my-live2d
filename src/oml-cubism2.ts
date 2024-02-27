@@ -8,7 +8,7 @@ import * as PIXI from 'pixi.js';
 PIXI.utils.skipHello();
 
 // cubism2
-export const loadOhMyLive2D = setup(Live2DModel);
+export const loadOml2d = setup(Live2DModel);
 export * from './types/options';
 
 // export { Options, loadOhMyLive2D };

@@ -1,10 +1,21 @@
+/**
+ * # 提示框选项
+ *
+ * 配置提示框样式和消息内容
+ * @name 提示框选项
+ */
 export interface Tips {
   /**
-   * 调整提示框样式
+   *
+   * 自定义提示框样式
+   * @valueType object
    */
   style?: {
     /**
      * 提示框宽度
+     * @valueType number
+     *
+     *
      */
     width?: number;
     /**

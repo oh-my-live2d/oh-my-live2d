@@ -58,6 +58,7 @@ export class Stage {
     this.wrapperElement.style.overflow = 'hidden';
     this.wrapperElement.style.left = '0';
     this.wrapperElement.style.bottom = '0';
+    this.wrapperElement.style.zIndex = '9999';
 
     const styleSheet = createElement({ tagName: 'style', id: 'oml2dStyle', innerHtml: globalStyle }); // 创建全局样式表
     document.head.append(styleSheet);

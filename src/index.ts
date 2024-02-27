@@ -8,8 +8,10 @@ import { setup } from './modules';
 (window as any).PIXI = PIXI;
 PIXI.utils.skipHello();
 
-// 全量
-export const loadOhMyLive2D = setup(Live2DModel);
+/**
+ * 加载live2d组件方法
+ */
+export const loadOml2d = setup(Live2DModel);
 export * from './types/options';
 
 // export { Options, loadOhMyLive2D };

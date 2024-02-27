@@ -11,17 +11,99 @@ const __dirname = path.dirname(__filename);
 let docsData = [];
 const docsPath = path.resolve(__dirname, '../docs/options');
 const documentationPath = path.resolve(__dirname, '../docs/documentation.json');
+const sideBarDataPath = path.resolve(__dirname, '../docs/sideBarData.json');
 
 fs.ensureDirSync(docsPath);
 
 json2md.converters.mdContent = function (input, json2md) {
   return input;
 };
-
+const getType = (typeData = {}) => {
+  if (typeData.type === 'intrinsic') return `\`${typeData.name}\``;
+};
 // 根目录
 function rootPath(...args) {
   return path.join(__dirname, '..', ...args);
 }
+
+const generateDocs = (app, project) => {
+  app.generateJson(project, documentationPath).then(() => {
+    let data = fs.readJSONSync(documentationPath);
+    data.children = data.children.filter((item) => item.name !== 'loadOml2d');
+    // 处理数据-----------------------
+
+    // 存到数组, 每页数据存到分别存储, 最多两级, Options 为根
+
+    // --------------------- 开始生成文档
+    data.children.map((item) => {
+      // console.log(item);
+      let fileName = '';
+      let markdownJsonData = [];
+      if (item.name === 'Options') fileName = 'index.md';
+      else fileName = `${item.name}.md`;
+
+      //  文件头部信息
+      item.comment?.summary.map((summaryItem) => {
+        markdownJsonData.push({ mdContent: summaryItem.text });
+      });
+
+      // 分割线
+      item.comment?.summary.length && markdownJsonData.push({ mdContent: '---' });
+
+      // --------------------- 选项内容
+      const generateOptionsContent = (content, parentName = '') => {
+        content?.children?.map((optItem) => {
+          let typeText = getType(optItem.type);
+          let defaultValueText = '';
+
+          markdownJsonData.push({ h3: parentName ? `${parentName}.${optItem.name}` : `${optItem.name}` });
+
+          optItem?.comment?.blockTags?.map((tagItem) => {
+            if (tagItem.tag === '@default') {
+              let match = tagItem.content[0].text.match(/\n(.*)\n/);
+              defaultValueText = match ? match[1] : '';
+              defaultValueText = '`' + `${defaultValueText || '-'}` + '`';
+            }
+          });
+
+          optItem?.comment?.blockTags?.map((tagItem) => {
+            if (tagItem.tag === '@valueType') {
+              typeText = `\`${tagItem.content[0].text}\``;
+            }
+          });
+
+          typeText && markdownJsonData.push({ mdContent: `- 类型: ${typeText}` });
+          defaultValueText && markdownJsonData.push({ mdContent: `- 默认值: ${defaultValueText}` });
+
+          optItem.comment?.summary?.map((summaryItem) => {
+            markdownJsonData.push({ mdContent: summaryItem?.text });
+          });
+
+          markdownJsonData.push({ mdContent: '---' });
+
+          if (optItem.type.type === 'reflection') {
+            generateOptionsContent(optItem.type.declaration, parentName ? `${parentName}.${optItem.name}` : optItem.name);
+          }
+        });
+      };
+
+      generateOptionsContent(item);
+
+      fs.writeFileSync(path.resolve(docsPath, fileName), json2md(markdownJsonData));
+      console.log(path.resolve(docsPath, fileName), ' 已写入');
+    });
+
+    const sideBarData = data.children.map((item) => {
+      let title = '';
+      if (item.name === 'Options') title = 'index';
+      else title = item.name;
+      return { text: item.comment?.blockTags?.[0]?.content?.[0]?.text || item.name, link: `/options/${title}` };
+    });
+
+    fs.writeJSONSync(sideBarDataPath, sideBarData);
+    console.log(sideBarDataPath, ' 已写入');
+  });
+};
 
 // 主函数
 async function main() {
@@ -47,138 +129,14 @@ async function main() {
     // readme: 'none'
   });
 
-  const getOptionsData = (project) => {
-    let optionsData;
-    project.children.forEach((item) => {
-      if (item.name === 'Options') {
-        optionsData = item;
-      }
-    });
-
-    return optionsData;
-  };
-
-  const formatData = (data) => {
-    const newData = data.map((item) => {
-      if (item.children && item.children.length) item.children = formatData(item.children);
-      return {
-        id: item.id,
-        flags: item.flags,
-        comment: item.comment,
-        name: item.name,
-        children: item?.children,
-        type: item.type
-      };
-    });
-    return newData;
-  };
-
-  const getDocsDataItem = (data, project) => {
-    const finalData = [];
-    data.children?.map((item) => {
-      // console.log(item);
-      if (
-        (item.type.type === 'reference' && item.type.package === 'oh-my-live2d') ||
-        (item.type.type === 'array' && item.type?.elementType?.type === 'reference' && item.type?.elementType.package === 'oh-my-live2d')
-      ) {
-        let kind;
-        if (item.type.type === 'array') {
-          kind = item.type.elementType.target;
-        } else {
-          kind = item.type.target;
-        }
-
-        const res = project.children.find((item) => item.id === kind);
-
-        finalData.push(res);
-      }
-    });
-    return finalData;
-  };
-
   // 判断是否为监听模式
   if (process.argv.includes('-w') || process.argv.includes('--watch')) {
-    app.convertAndWatch(async (project) => {});
+    app.convertAndWatch(async (project) => {
+      generateDocs(app, project);
+    });
   } else {
     const project = app.convert();
-    app.generateJson(project, documentationPath);
-    const data = fs.readJSONSync(documentationPath);
-
-    // 处理数据-----------------------
-
-    let optionsData = getOptionsData(data);
-
-    const res = getDocsDataItem(optionsData, data);
-
-    // 存到数组, 每页数据存到分别存储, 最多两级, Options 为根
-    docsData = [optionsData, ...res];
-    console.log(docsData);
-
-    // --------------------- 开始生成文档
-    // docsData.map((item) => {
-    //   // console.log(item);
-    //   let fileName = '';
-    //   let markdownJsonData = [];
-    //   if (item.name === 'Options') fileName = 'index.md';
-    //   else fileName = `${item.name}.md`;
-
-    //   //  文件头部信息
-    //   item.comment?.summary.map((summaryItem) => {
-    //     markdownJsonData.push({ mdContent: summaryItem.text });
-    //   });
-
-    //   // 分割线
-    //   item.comment?.summary.length && markdownJsonData.push({ mdContent: '---' });
-
-    //   // --------------------- 选项内容
-
-    //   const generateOptionsContent = (content) => {
-    //     content?.children?.map((optItem) => {
-    //       let typeText = '';
-    //       let defaultValueText = '';
-
-    //       // let isRequire = optItem.flags.includes('Optional') ? '否' : '是';
-    //       // const optHead = ['类型', '是否必须', '默认值'];
-
-    //       // const optRows = [`\`${optItem.type.name || optItem.type.qualifiedName || optItem.type.type || '-'}\``, isRequire, '-'];
-    //       markdownJsonData.push({ h3: `${optItem.name}` });
-
-    //       optItem.comment.blockTags.map((tagItem) => {
-    //         if (tagItem.tag === '@default') {
-    //           let match = tagItem.content[0].text.match(/\n(.*)\n/);
-    //           defaultValueText = match ? match[1] : '';
-    //           defaultValueText = '`' + `${defaultValueText || '-'}` + '`';
-    //           // console.log(defaultValue);
-    //         }
-    //       });
-
-    //       optItem.comment.blockTags.map((tagItem) => {
-    //         if (tagItem.tag === '@valueType') {
-    //           typeText = `\`${tagItem.content[0].text}\``;
-    //         }
-    //       });
-
-    //       typeText && markdownJsonData.push({ mdContent: `- 类型: ${typeText}` });
-    //       defaultValueText && markdownJsonData.push({ mdContent: `- 默认值: ${defaultValueText}` });
-    //       // markdownJsonData.push({ h4: '定义:' }, { table: { headers: optHead, rows: [optRows] } }, { mdContent: '---' });
-
-    //       optItem.comment?.summary?.map((summaryItem) => {
-    //         markdownJsonData.push({ mdContent: summaryItem?.text });
-    //       });
-
-    //       markdownJsonData.push({ mdContent: '---' });
-    //       console.log(optItem.type.children);
-    //       // if(content.naem !== 'Options') {
-
-    //       // }
-    //     });
-    //   };
-
-    //   generateOptionsContent(item);
-
-    //   fs.writeFileSync(path.resolve(docsPath, fileName), json2md(markdownJsonData));
-    //   console.log(path.resolve(docsPath, fileName), ' 已写入');
-    // });
+    generateDocs(app, project);
   }
 }
 

@@ -169,16 +169,13 @@ class OhMyLive2D {
  * @returns
  */
 export const setup = (live2dModel: Live2DModelType) => {
-  /**
-   * 根据自定义选项加载oml2d组件
-   * @param options
-   * @returns
-   */
-  const loadOhMyLive2D = (options: Options) => {
+  const loadOml2d = (options: Options) => {
     const { parentElement } = options;
     const finalOptions = mergeDeep(defaultOptions, options);
     finalOptions.parentElement = parentElement || document.body;
+    if (!finalOptions.models?.length) throw new Error('至少需要一个配置一个模型');
+
     new OhMyLive2D(finalOptions, live2dModel);
   };
-  return loadOhMyLive2D;
+  return loadOml2d;
 };

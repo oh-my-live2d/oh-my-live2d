@@ -1,10 +1,12 @@
 /**
  * # 模型配置选项
  * 可配置模型地址来源以及缩放比例、舞台大小等
+ * @name 模型选项
  */
 export interface Model {
   /**
    * 模型的json文件url地址, 必填项
+   *
    */
   path: string;
   /**

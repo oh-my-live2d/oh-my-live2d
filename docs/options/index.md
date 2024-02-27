@@ -14,6 +14,8 @@ console.log('demo')
 
 ### fixed
 
+- 类型: `boolean`
+
 - 默认值: `true`
 
 组件是否使用固定定位
@@ -22,14 +24,19 @@ console.log('demo')
 
 ### models
 
+- 类型: `Model[]`
+
 - 默认值: `[]`
 
-定制模型配置, 类型是模型配置对象组成的数组, 默认值是空数组
+定制模型配置, 类型是模型配置对象组成的数组, 默认值是空数组, 请至少配置一个有效的模型配置
+
 前往[模型选项](/options/Model)查看详细内容
 
 ---
 
 ### parentElement
+
+- 类型: `HtmlElement`
 
 - 默认值: `document.body`
 
@@ -39,6 +46,8 @@ console.log('demo')
 
 ### sayHello
 
+- 类型: `boolean`
+
 - 默认值: `true`
 
 是否在初始化阶段打印项目信息
@@ -46,6 +55,8 @@ console.log('demo')
 ---
 
 ### tips
+
+- 类型: `Tips`
 
 - 默认值:
   
@@ -88,6 +99,10 @@ console.log('demo')
 
 ### transitionTime
 
-组件入场和离开的过渡动画时长
+- 类型: `number`
+
+- 默认值: `1000`
+
+组件入场和离开的过渡动画时长,单位ms
 
 ---

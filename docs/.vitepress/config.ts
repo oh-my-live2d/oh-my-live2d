@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress';
-import sidebarConfig from '../apidocConfig.json';
+import sideBarData from '../sideBarData.json';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'OhMyLive2D',
@@ -10,7 +10,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' }
     ],
-    sidebar: { '/exports/': sidebarConfig },
+    sidebar: { '/options/': sideBarData },
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
     search: {
       provider: 'local',

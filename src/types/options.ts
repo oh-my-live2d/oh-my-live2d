@@ -9,27 +9,36 @@ import { Tips } from '@/types/tips';
  * console.log('demo')
  * ```
  * 以下是所有配置选项
+ *
+ *
+ * @name 配置选项
  */
 export interface Options {
   /**
    * 是否在初始化阶段打印项目信息
+   * @valueType boolean
    * @default true
    */
   sayHello?: boolean;
 
   /**
-   * 组件入场和离开的过渡动画时长
+   * 组件入场和离开的过渡动画时长,单位ms
+   * @valueType number
+   * @default 1000
    */
   transitionTime?: number;
 
   /**
-   * 定制模型配置, 类型是模型配置对象组成的数组, 默认值是空数组
+   * 定制模型配置, 类型是模型配置对象组成的数组, 默认值是空数组, 请至少配置一个有效的模型配置
+   *
    * 前往[模型选项](/options/Model)查看详细内容
+   * @valueType Model[]
    * @default []
    */
   models?: Model[];
 
   /**
+   *
    * - 默认值:
    *   ``` ts
    *   {
@@ -62,17 +71,20 @@ export interface Options {
    *   }
    *   ```
    * 自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容
+   * @valueType Tips
    */
   tips?: Tips;
 
   /**
    * 为组件提供一个父元素，如果未指定则默认挂载到 body 中
+   * @valueType HtmlElement
    * @default document.body
    */
   parentElement?: HTMLElement;
 
   /**
    * 组件是否使用固定定位
+   * @valueType boolean
    * @default true
    *
    */
