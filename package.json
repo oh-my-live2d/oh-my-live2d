@@ -47,7 +47,7 @@
     "eslint": "^8.30.0",
     "fs-extra": "^11.1.0",
     "json2md": "^2.0.1",
-    "oh-my-live2d": "^0.4.0",
+    "oh-my-live2d": "^0.4.1",
     "pixi-live2d-display": "0.4.0",
     "pixi.js": "6.5.2",
     "release-it": "^15.5.1",
