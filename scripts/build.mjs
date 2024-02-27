@@ -8,8 +8,8 @@ const __dirname = dirname(__filename);
 
 const entries = [
   { entry: 'src/index.ts', name: 'index' },
-  { entry: 'src/oml-cubism2.ts', name: 'oml-cubism2' },
-  { entry: 'src/oml-cubism4.ts', name: 'oml-cubism4' }
+  { entry: 'src/oml2d-cubism2.ts', name: 'oml2d-cubism2' },
+  { entry: 'src/oml2d-cubism4.ts', name: 'oml2d-cubism4' }
 ];
 
 // // 动态生成配置build配置选项

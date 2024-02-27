@@ -37,10 +37,10 @@ const generateDocs = (app, project) => {
     // --------------------- 开始生成文档
     data.children.map((item) => {
       // console.log(item);
-      let fileName = '';
+      let fileName = `${item.name}.md`;
       let markdownJsonData = [];
-      if (item.name === 'Options') fileName = 'index.md';
-      else fileName = `${item.name}.md`;
+      // if (item.name === 'Options') fileName = 'index.md';
+      // else fileName = `${item.name}.md`;
 
       //  文件头部信息
       item.comment?.summary.map((summaryItem) => {
@@ -93,13 +93,18 @@ const generateDocs = (app, project) => {
       console.log(path.resolve(docsPath, fileName), ' 已写入');
     });
 
-    const sideBarData = data.children.map((item) => {
-      let title = '';
-      if (item.name === 'Options') title = 'index';
-      else title = item.name;
-      return { text: item.comment?.blockTags?.[0]?.content?.[0]?.text || item.name, link: `/options/${title}` };
+    data.children = data.children.sort((a, b) => {
+      if (a.name === 'Options') return -1;
+      if (b.name === 'Options') return 1;
+      return 0;
     });
 
+    const sideBarData = data.children.map((item) => {
+      let title = '';
+      // if (item.name === 'Options') title = 'index';
+      // else title = item.name;
+      return { text: item.comment?.blockTags?.[0]?.content?.[0]?.text || item.name, link: `/options/${item.name}` };
+    });
     fs.writeJSONSync(sideBarDataPath, sideBarData);
     console.log(sideBarDataPath, ' 已写入');
   });

@@ -4,13 +4,6 @@ import { Tips } from '@/types/tips';
 /**
  * # 配置选项
  *
- * - 示例:
- * ``` ts
- * console.log('demo')
- * ```
- * 以下是所有配置选项
- *
- *
  * @name 配置选项
  */
 export interface Options {

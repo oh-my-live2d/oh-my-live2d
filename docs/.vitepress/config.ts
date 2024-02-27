@@ -1,17 +1,54 @@
 import { defineConfig } from 'vitepress';
+import pkg from '../../package.json';
 import sideBarData from '../sideBarData.json';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'OhMyLive2D',
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   description: 'A VitePress Site',
+  appearance: 'dark',
+  locales: {
+    root: {
+      label: '简体中文',
+      lang: 'zh',
+      dir: '/',
+      title: 'OhMyLive2D',
+      description: '一个开箱即用的 Javascript 工具库'
+    }
+  },
+
+  lastUpdated: true,
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2023-present loclink'
+    },
+    logo: {
+      dark: '/logo-white.png',
+      light: '/logo-black.png'
+    },
+    sidebar: {
+      '/options/': sideBarData,
+      '/guide': [
+        { text: '快速入门', link: '/guide/' },
+        { text: 'vitepress中使用', link: '/guide/vitepress' }
+      ]
+    },
+    outline: {
+      level: [2, 4],
+      label: '本页目录'
+    },
+    socialLinks: [{ icon: 'github', link: 'https://github.com/oh-my-live2d/oh-my-live2d' }],
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      {
+        text: `v${pkg.version}`,
+        link: '/'
+      },
+      {
+        text: '配置',
+        link: '/options/Options'
+      }
     ],
-    sidebar: { '/options/': sideBarData },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
     search: {
       provider: 'local',
       options: {

@@ -138,7 +138,7 @@ class OhMyLive2D {
 
     // copy 事件
     window.addEventListener('copy', () => {
-      console.log('copy!');
+      // console.log('copy!');
     });
 
     // 出场入场动画执行结束之后的事件回调
