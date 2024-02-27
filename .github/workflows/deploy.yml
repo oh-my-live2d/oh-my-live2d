@@ -1,7 +1,7 @@
 name: DeployDocs# Actions名称
 on:
   push: # 监听调用时机为push事件
-    branches: ['deploy-docs'] # 监听master分支
+    branches: ['master'] # 监听master分支
 jobs:
   build:
     runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
@@ -27,8 +27,7 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
         run: |
-          pnpm docs:build
-          pnpm docs-plugin:build
+          pnpm build:docs
 
       - name: 上传oh-my-live2d文档代码
         uses: appleboy/scp-action@master
@@ -36,21 +35,10 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          source: 'docs/self/.vuepress/dist'
+          source: 'docs/.vitepress/dist'
           target: '/${{secrets.SSH_USERNAME}}/Projects/.oml2d_temp/'
           rm: true
-          strip_components: 4
-
-      - name: 上传vuepress-plugin-oh-my-live2d文档代码
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          source: 'docs/vuepress-plugin/.vuepress/dist'
-          target: '/${{secrets.SSH_USERNAME}}/Projects/.vuepress-plugin-oml2d_temp/'
-          rm: true
-          strip_components: 4
+          strip_components: 3
 
       - name: 执行远程脚本命令
         uses: appleboy/ssh-action@master
@@ -60,10 +48,6 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             rm -rf /${{ secrets.SSH_USERNAME }}/Projects/oml2d-docs
-            rm -rf /${{ secrets.SSH_USERNAME }}/Projects/vuepress-plugin-oml2d-docs
             mkdir -p /${{ secrets.SSH_USERNAME }}/Projects/oml2d-docs
-            mkdir -p /${{ secrets.SSH_USERNAME }}/Projects/vuepress-plugin-oml2d-docs
-
             cp -rf /${{ secrets.SSH_USERNAME }}/Projects/.oml2d_temp/*  /${{ secrets.SSH_USERNAME }}/Projects/oml2d-docs
-            cp -rf /${{ secrets.SSH_USERNAME }}/Projects/.vuepress-plugin-oml2d_temp/*  /${{ secrets.SSH_USERNAME }}/Projects/vuepress-plugin-oml2d-docs
       - run: echo "项目部署完成！"
