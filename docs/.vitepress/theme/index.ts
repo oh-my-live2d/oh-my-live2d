@@ -1,10 +1,8 @@
-// .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme';
-
 export default {
   ...DefaultTheme,
   async enhanceApp() {
-    if (!import.meta.env.SSR) {
+    if (!(import.meta as any).env.SSR) {
       const { loadOml2d } = await import('oh-my-live2d');
       loadOml2d({
         models: [
@@ -13,7 +11,7 @@ export default {
             scale: 0.12,
             position: [-10, 50],
             stageStyle: {
-              width: '350px'
+              width: 350
             }
           }
         ]

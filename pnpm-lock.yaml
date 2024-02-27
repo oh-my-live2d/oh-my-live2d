@@ -45,7 +45,7 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       oh-my-live2d:
-        specifier: ^0.4.0
+        specifier: ^0.4.1
         version: 'link:'
       pixi-live2d-display:
         specifier: 0.4.0
