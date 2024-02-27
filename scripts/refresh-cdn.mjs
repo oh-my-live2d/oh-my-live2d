@@ -5,5 +5,5 @@ const printResult = (res) => {
 };
 
 axios.get('https://purge.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js').then(printResult);
-axios.get('https://purge.jsdelivr.net/npm/oh-my-live2d/dist/oml-cubism2.min.js').then(printResult);
-axios.get('https://purge.jsdelivr.net/npm/oh-my-live2d/dist/oml-cubism4.min.js').then(printResult);
+axios.get('https://purge.jsdelivr.net/npm/oh-my-live2d/dist/oml2d-cubism2.min.js').then(printResult);
+axios.get('https://purge.jsdelivr.net/npm/oh-my-live2d/dist/oml2d-cubism4.min.js').then(printResult);
