@@ -1,3 +1,38 @@
+# 更新日志
+
+## [0.4.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.3.0...v0.4.0) (2024-02-27)
+
+
+### ⚡ Improvements | 优化
+
+* 将选项名称targetElement修改为parentElement ([3b3ab99](https://github.com/oh-my-live2d/oh-my-live2d/commit/3b3ab997ac2bd013124432e0a3e2acdb4c74dec4))
+
+
+### ✨ Features | 新功能
+
+* 新增fixed选项, 调整了组件元素结构 ([275ef59](https://github.com/oh-my-live2d/oh-my-live2d/commit/275ef59c4a83854d6e1f8fa3494e5cf7f1d7da59))
+* 整体重构完成, 新增targetElement选项 ([284290f](https://github.com/oh-my-live2d/oh-my-live2d/commit/284290f4512670ac94c7521fd476ed5c8830d247))
+* 指定挂载元素 ([65c2a63](https://github.com/oh-my-live2d/oh-my-live2d/commit/65c2a636828423fbcbe543cd9842d5a58d44b4b0))
+
+
+### ♻ Code Refactoring | 代码重构
+
+* 菜单栏和提示模块重构完毕 ([86dd9dc](https://github.com/oh-my-live2d/oh-my-live2d/commit/86dd9dcb876b4eb123140753d908a86382f1486f))
+* 场景模块重构 ([2fe648e](https://github.com/oh-my-live2d/oh-my-live2d/commit/2fe648e5dcfc109dc6368188c077ba27e29f8317))
+* 提示模块重新设计 ([7c154e3](https://github.com/oh-my-live2d/oh-my-live2d/commit/7c154e3f8632721159e08677d7483f1bc7dbfb81))
+* 文档重构 ([260acb0](https://github.com/oh-my-live2d/oh-my-live2d/commit/260acb092ad51c83b7a23ef0abde197908c9078e))
+* 文档重构完毕 ([49fd5f2](https://github.com/oh-my-live2d/oh-my-live2d/commit/49fd5f2413c1e7f070175912d05dec846d2e0270))
+* 修改加载模型的方法名,由loadOhMyLive2D更改为loadOml2d ([2dbcc04](https://github.com/oh-my-live2d/oh-my-live2d/commit/2dbcc041786ce9794ba1ddeb6e5d83f9786682d6))
+* 优化开发时构建流程 ([1dd82ba](https://github.com/oh-my-live2d/oh-my-live2d/commit/1dd82baf43c6a950e857539108410874527f1248))
+* 状态条模块重构完成 ([0c17aae](https://github.com/oh-my-live2d/oh-my-live2d/commit/0c17aae8655e14d79eadf8726f6865bbe64774a4))
+
+
+### 📝 Documentation | 文档
+
+* 更新readme ([3110d3a](https://github.com/oh-my-live2d/oh-my-live2d/commit/3110d3af71308502da366381ebe1e925d1b14116))
+* 更新readme ([75c530c](https://github.com/oh-my-live2d/oh-my-live2d/commit/75c530c6981be15444c3f9f66a30b3fc040629ff))
+* 修改文档部分描述 ([baf52dc](https://github.com/oh-my-live2d/oh-my-live2d/commit/baf52dc206d20d0adf1cd3037d15c01d0557e2a7))
+
 # Changelog
 
 ## [0.3.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.2.1...v0.3.0) (2023-04-23)
