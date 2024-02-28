@@ -7,8 +7,7 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持�
 
 [查阅文档](https://oml2d.com) 以了解更多详细的使用教程 🎉。
 
-> [!TIP]
-> **本项目目前正处于积极维护中, 急需志同道合的伙伴加入 😄**
+> [!TIP] > **本项目目前正处于积极维护中, 急需志同道合的伙伴加入 😄**
 
 ## ✨ 特点：
 
@@ -68,9 +67,19 @@ Cubism 4 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
           },
           {
             path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-            scale: 0.3
+            scale: 0.2,
+            position: [50, 100],
+            stageStyle: {
+              width: 350,
+              height: 380
+            }
           }
-        ]
+        ],
+        tips: {
+          style: {
+            offsetY: 40
+          }
+        }
       });
     </script>
   </body>
@@ -111,7 +120,7 @@ OhMyLive2D 在使用 ES6Module 方式导入时暴露了一个`loadOml2d`方法, 
 有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)
 
 ```ts
-import { loadOml2d } 'oh-my-live2d';
+import { loadOml2d } from 'oh-my-live2d';
 loadOml2d({
   models: [
     {
@@ -121,10 +130,20 @@ loadOml2d({
     },
     {
       path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.3
+      scale: 0.2,
+      position: [50, 100],
+      stageStyle: {
+        width: 350,
+        height: 380
+      }
     }
-  ]
-})
+  ],
+  tips: {
+    style: {
+      offsetY: 40
+    }
+  }
+});
 ```
 
 如果您想更换自己的模型或对其进行自定义，请[查阅文档](https://oml2d.com/)中自定义章节的相关内容。

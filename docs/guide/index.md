@@ -81,9 +81,19 @@ yarn add oh-my-live2d
           },
           {
             path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-            scale: 0.3
+            scale: 0.2,
+            position: [50, 100],
+            stageStyle: {
+              width: 350,
+              height: 380
+            }
           }
-        ]
+        ],
+        tips: {
+          style: {
+            offsetY: 40
+          }
+        }
       });
     </script>
   </body>
@@ -151,7 +161,7 @@ OhMyLive2D 在使用 ES6Module 方式导入时暴露了一个`loadOml2d`方法, 
 ::: code-group
 
 ```ts [全量]
-import { loadOml2d } 'oh-my-live2d';
+import { loadOml2d } from 'oh-my-live2d';
 loadOml2d({
   models: [
     {
@@ -161,14 +171,24 @@ loadOml2d({
     },
     {
       path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.3
+      scale: 0.2,
+      position: [50, 100],
+      stageStyle: {
+        width: 350,
+        height: 380
+      }
     }
-  ]
-})
+  ],
+  tips: {
+    style: {
+      offsetY: 40
+    }
+  }
+});
 ```
 
 ```ts [仅cubism2]
-import { loadOml2d } 'oh-my-live2d/dist/oml2d-cubism2';
+import { loadOml2d } from 'oh-my-live2d/dist/oml2d-cubism2';
 loadOml2d({
   models: [
     {
@@ -176,11 +196,11 @@ loadOml2d({
       scale: 0.3
     }
   ]
-})
+});
 ```
 
 ```ts [仅cubism4]
-import { loadOml2d } 'oh-my-live2d/dist/oml2d-cubism4';
+import { loadOml2d } from 'oh-my-live2d/dist/oml2d-cubism4';
 loadOml2d({
   models: [
     {
@@ -189,8 +209,10 @@ loadOml2d({
       position: [-10, 50]
     }
   ]
-})
+});
 ```
+
+:::
 
 以上示例的使用效果请参考本站左下角.
 
@@ -199,8 +221,6 @@ loadOml2d({
 - [在 vitepress 中使用](/guide/vitepress)
 
 - [在 vuepress2 中使用](/guide/vuepress)
-
-:::
 
 ### 版权声明:
 
