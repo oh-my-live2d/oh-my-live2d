@@ -1,5 +1,7 @@
 # Changelog
 
+### [0.6.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.3...v0.6.1) (2024-02-28)
+
 ## [0.6.0](https://github.com/oh-my-live2d/vuepress-plugin-oh-my-live2d/compare/v0.5.0...v0.6.0) (2023-04-23)
 
 
