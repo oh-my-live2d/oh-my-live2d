@@ -13,6 +13,7 @@
     "build": "rimraf dist && tsc && tsc-alias && node ./scripts/build.mjs",
     "refresh": "node ./scripts/refresh-cdn.mjs",
     "release": "dotenv release-it && npm run refresh",
+    "release:vuepress": "pnpm -F vuepress-plugin-oh-my-live2d run release",
     "test": "pnpm -F vite-app run dev",
     "test:vite": "pnpm -F vue-app run dev",
     "test:webpack": "pnpm -F react-app run start",

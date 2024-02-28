@@ -44,9 +44,6 @@ importers:
       json2md:
         specifier: ^2.0.1
         version: 2.0.1
-      oh-my-live2d:
-        specifier: ^0.4.1
-        version: 'link:'
       pixi-live2d-display:
         specifier: 0.4.0
         version: 0.4.0(@pixi/core@6.5.2)(@pixi/display@6.5.2)(@pixi/loaders@6.5.2)(@pixi/math@6.5.2)(@pixi/sprite@6.5.2)(@pixi/utils@6.5.2)

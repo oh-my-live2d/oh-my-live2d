@@ -1,0 +1,34 @@
+{
+  "name": "vuepress-plugin-oh-my-live2d",
+  "version": "0.6.0",
+  "type": "module",
+  "files": [
+    "src",
+    "index.d.ts"
+  ],
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    "types": "./index.d.ts",
+    "import": "./src/index.js"
+  },
+  "description": "用于vuepress2的live2d看板组件插件",
+  "homepage": "https://github.com/oh-my-live2d/oh-my-live2d",
+  "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
+  "license": "MIT",
+  "author": "loclink",
+  "keywords": [
+    "vuepress2",
+    "vuepress2-plugin",
+    "live2d",
+    "cubism2",
+    "cubism4"
+  ],
+  "scripts": {
+    "release": "dotenv release-it"
+  },
+  "dependencies": {
+    "oh-my-live2d": "*"
+  }
+}
