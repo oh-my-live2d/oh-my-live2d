@@ -4,7 +4,7 @@
     "releaseName": "update vuepress-plugin-oh-my-live2d"
   },
   "git": {
-    "commitMessage": "update vuepress-plugin-oh-my-live2d",
+    "commitMessage": "release vuepress-plugin-oh-my-live2d",
     "push": true,
     "requireUpstream": false,
     "commit": true,
