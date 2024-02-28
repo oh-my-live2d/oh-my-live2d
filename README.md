@@ -63,15 +63,17 @@ Cubism 4 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
           {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
             scale: 0.12,
-            position: [-10, 50]
+            position: [-50, 50],
+            stageStyle: {
+              width: 320
+            }
           },
           {
-            path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-            scale: 0.2,
+            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
             position: [50, 100],
             stageStyle: {
-              width: 350,
-              height: 380
+              width: 300,
+              height: 450
             }
           }
         ],
@@ -126,15 +128,17 @@ loadOml2d({
     {
       path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
       scale: 0.12,
-      position: [-10, 50]
+      position: [-50, 50],
+      stageStyle: {
+        width: 320
+      }
     },
     {
-      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.2,
+      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
       position: [50, 100],
       stageStyle: {
-        width: 350,
-        height: 380
+        width: 300,
+        height: 450
       }
     }
   ],

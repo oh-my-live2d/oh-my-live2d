@@ -77,15 +77,17 @@ yarn add oh-my-live2d
           {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
             scale: 0.12,
-            position: [-10, 50]
+            position: [-50, 50],
+            stageStyle: {
+              width: 320
+            }
           },
           {
-            path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-            scale: 0.2,
+            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
             position: [50, 100],
             stageStyle: {
-              width: 350,
-              height: 380
+              width: 300,
+              height: 450
             }
           }
         ],
@@ -140,9 +142,25 @@ yarn add oh-my-live2d
           {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
             scale: 0.12,
-            position: [-10, 50]
+            position: [-50, 50],
+            stageStyle: {
+              width: 320
+            }
+          },
+          {
+            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
+            position: [50, 100],
+            stageStyle: {
+              width: 300,
+              height: 450
+            }
           }
-        ]
+        ],
+        tips: {
+          style: {
+            offsetY: 40
+          }
+        }
       });
     </script>
   </body>
@@ -158,6 +176,9 @@ yarn add oh-my-live2d
 OhMyLive2D 在使用 ES6Module 方式导入时暴露了一个`loadOml2d`方法, 该方法接收一个配置选项`options`.
 有关配置选项的详细内容请查看: [配置选项](/options/Options)
 
+> [!WARNING]
+> 使用 ESM 方式时, 如果你的项目是使用 **Vite5** 构建, 那么可能出现 **model2** 的模型在项目打包后部署至线上环境后模型加载异常的情况, 切换为 **CDN** 方式引入将解决这个问题. 目前仅发现**model2**在**vite5**环境中才会出现此异常, **model3** 则不会, 具体原因不详.
+
 ::: code-group
 
 ```ts [全量]
@@ -167,15 +188,17 @@ loadOml2d({
     {
       path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
       scale: 0.12,
-      position: [-10, 50]
+      position: [-50, 50],
+      stageStyle: {
+        width: 320
+      }
     },
     {
-      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.2,
+      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
       position: [50, 100],
       stageStyle: {
-        width: 350,
-        height: 380
+        width: 300,
+        height: 450
       }
     }
   ],

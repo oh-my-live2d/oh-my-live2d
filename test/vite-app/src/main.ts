@@ -1,4 +1,3 @@
-import { loadOml2d } from 'oh-my-live2d';
 import { setupCounter } from '../lib/main';
 import './style.css';
 import typescriptLogo from './typescript.svg';
@@ -44,24 +43,24 @@ setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 // });
 
 const el = document.createElement('div');
-loadOml2d({
-  // parentElement: el,
-  // fixed: false,
-  models: [
-    {
-      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-      // path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.12,
-      position: [-10, 50]
-    },
-    {
-      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.3
-    }
-  ],
-  tips: {
-    idleTips: {
-      // message: []
-    }
-  }
-});
+// loadOml2d({
+//   // parentElement: el,
+//   // fixed: false,
+//   models: [
+//     {
+//       path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
+//       // path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+//       scale: 0.12,
+//       position: [-10, 50]
+//     },
+//     {
+//       path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+//       scale: 0.3
+//     }
+//   ],
+//   tips: {
+//     idleTips: {
+//       // message: []
+//     }
+//   }
+// });
