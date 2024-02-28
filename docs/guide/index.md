@@ -6,6 +6,9 @@
 
 本项目主要是依赖于 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display)，感谢其为 **Live2D** 社区做出的贡献。
 
+> [!TIP]  
+> **本项目目前正处于积极维护中, 急需志同道合的伙伴加入 😄**
+
 ## Live2D 是什么?
 
 Live2D 是一个向插图灌注生命力并能够进行 2D 立体表现的技术, 具体效果请参考本站左下角.
