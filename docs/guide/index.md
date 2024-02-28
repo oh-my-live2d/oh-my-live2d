@@ -189,11 +189,15 @@ loadOml2d({
 })
 ```
 
+以上示例的使用效果请参考本站左下角.
+
+### 其他支持:
+
+- [在 vitepress 中使用](/guide/vitepress)
+
+- [在 vuepress2 中使用](/guide/vuepress)
+
 :::
-
-### 效果预览:
-
-![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202301171541453.gif)
 
 ### 版权声明:
 

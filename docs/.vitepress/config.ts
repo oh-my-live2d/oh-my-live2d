@@ -31,7 +31,8 @@ export default defineConfig({
       '/options/': sideBarData,
       '/guide': [
         { text: '快速入门', link: '/guide/' },
-        { text: 'vitepress中使用', link: '/guide/vitepress' }
+        { text: '在vitepress中使用', link: '/guide/vitepress' },
+        { text: '在vuepress中使用', link: '/guide/vuepress' }
       ]
     },
     outline: {
