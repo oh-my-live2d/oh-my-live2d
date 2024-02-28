@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-oh-my-live2d",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "type": "module",
   "files": [
     "src",
