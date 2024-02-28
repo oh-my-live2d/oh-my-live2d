@@ -17,7 +17,7 @@
     "test:vite": "pnpm -F vue-app run dev",
     "test:webpack": "pnpm -F react-app run start",
     "dev:docs": "concurrently \"node ./scripts/typedoc.mjs -w\" \"vitepress dev docs\"",
-    "build:docs": "npm run build && vitepress build docs",
+    "build:docs": "npm run build && node ./scripts/typedoc.mjs && vitepress build docs",
     "preview:docs": "vitepress preview docs"
   },
   "license": "MIT",

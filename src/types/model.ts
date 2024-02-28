@@ -6,7 +6,6 @@
 export interface Model {
   /**
    * 模型的json文件url地址, 必填项
-   *
    */
   path: string;
   /**
@@ -24,18 +23,20 @@ export interface Model {
 
   /**
    * 定义舞台样式
+   * @valueType object
    */
   stageStyle?: {
     /**
-     * 舞台的背景颜色
+     * 舞台的背景颜色,取有效的颜色值, rbg 或 rbga, 默认透明未设置默认为空的
      */
     backgroundColor?: string;
     /**
-     * 舞台的宽度
+     * 舞台的宽度, 单位px, 默认不设置, 将自适应使用模型本体的宽度
+     *
      */
     width?: number;
     /**
-     * 舞台的高度
+     * 舞台的高度, 单位px, 默认不设置, 将自适应使用模型本体的高度
      */
     height?: number;
   };

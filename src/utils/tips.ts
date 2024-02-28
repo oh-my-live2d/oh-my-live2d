@@ -1,7 +1,10 @@
-import { welcomeTipsMessage } from '@/config/tips-message';
+// import { welcomeTipsMessage } from '@/config/tips-message';
 // import { WelcomeTips } from '@/types/tips';
 
+import { defaultOptions } from '@/config';
+
 export const getWelcomeMessage = function (tipsConfig) {
+  const welcomeTipsMessage = defaultOptions.tips.welcomeTips.message;
   const { message } = tipsConfig;
   let welMessage = '';
   const nowHours = new Date().getHours().toString();
