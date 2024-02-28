@@ -58,7 +58,7 @@ Cubism 4 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
   <body>
     <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
     <script>
-      OML2D.loadOhMyLive2D({
+      OML2D.loadOml2d({
         models: [
           {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
