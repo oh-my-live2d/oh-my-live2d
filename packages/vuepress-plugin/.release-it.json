@@ -8,13 +8,13 @@
     "commitMessage": "release: v${version}",
     "push": true,
     "requireUpstream": false,
-    "commit":true
+    "commit": true
   },
   "npm": {
     "publish": true
   },
   "hooks": {
-    "after:bump": "echo 版本号已变更为：${version}"
+    "after:bump": "node scripts/update-vuepress.mjs"
   },
   "plugins": {
     "@release-it/conventional-changelog": {

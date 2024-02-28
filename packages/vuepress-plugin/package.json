@@ -29,6 +29,6 @@
     "release": "dotenv release-it"
   },
   "dependencies": {
-    "oh-my-live2d": "*"
+    "oh-my-live2d": "0.4.3"
   }
 }

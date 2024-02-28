@@ -81,6 +81,12 @@ importers:
         specifier: ^3.4.19
         version: 3.4.19(typescript@4.9.5)
 
+  packages/vuepress-plugin:
+    dependencies:
+      oh-my-live2d:
+        specifier: workspace:*
+        version: link:../..
+
   test/react-app-webpack@5:
     dependencies:
       '@testing-library/jest-dom':
