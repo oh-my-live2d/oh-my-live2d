@@ -34,7 +34,7 @@ export class StatusBar {
     this.setStyle({
       minWidth: '20px',
       minHeight: '50px',
-      position: 'absolute',
+      position: 'fixed',
       transform: 'translateX(-110%)',
       left: '0',
       bottom: '80px',
