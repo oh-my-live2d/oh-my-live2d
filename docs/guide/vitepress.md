@@ -24,7 +24,7 @@ export default {
             scale: 0.12,
             position: [-10, 50],
             stageStyle: {
-              width: '350px'
+              width: 350
             }
           }
         ]
