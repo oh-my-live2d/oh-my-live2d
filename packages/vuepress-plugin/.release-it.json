@@ -14,7 +14,7 @@
     "publish": true
   },
   "hooks": {
-    "after:bump": "node scripts/update-vuepress.mjs"
+    "after:bump": "node ../../scripts/update-vuepress.mjs"
   },
   "plugins": {
     "@release-it/conventional-changelog": {
