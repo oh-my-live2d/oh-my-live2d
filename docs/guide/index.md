@@ -69,7 +69,7 @@ yarn add oh-my-live2d
   <body>
     <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
     <script>
-      OML2D.loadOhMyLive2D({
+      OML2D.loadOml2d({
         models: [
           {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
@@ -98,7 +98,7 @@ yarn add oh-my-live2d
   <body>
     <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/oml2d-cubism2.min.js"></script>
     <script>
-      OML2D.loadOhMyLive2D({
+      OML2D.loadOml2d({
         models: [
           {
             path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
@@ -122,7 +122,7 @@ yarn add oh-my-live2d
   <body>
     <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/oml2d-cubism4.min.js"></script>
     <script>
-      OML2D.loadOhMyLive2D({
+      OML2D.loadOml2d({
         models: [
           {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',

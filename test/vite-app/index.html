@@ -8,16 +8,16 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-    <!-- <script src="index.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/oml2d-cubism2.min.js"></script>
     <script>
-      // OML2D.loadOhMyLive2D({
-      //   models: [
-      //     {
-      //       path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json'
-      //     }
-      //   ]
-      // });
+      OML2D.loadOml2d({
+        models: [
+          {
+            path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+            scale: 0.3
+          }
+        ]
+      });
     </script>
   </body>
 </html>
