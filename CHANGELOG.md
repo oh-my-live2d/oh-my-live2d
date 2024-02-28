@@ -1,5 +1,17 @@
 # 更新日志
 
+### [0.4.3](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.2...v0.4.3) (2024-02-28)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 状态条定位由absolute改为fixed ([74bba8e](https://github.com/oh-my-live2d/oh-my-live2d/commit/74bba8e01d46354389c46d572888ea682d4659bc))
+
+
+### 📝 Documentation | 文档
+
+* 完善属性注释信息 ([a554773](https://github.com/oh-my-live2d/oh-my-live2d/commit/a55477343838d9d69c01ee754f9b2d59f9eb5da8))
+
 ### [0.4.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.1...v0.4.2) (2024-02-27)
 
 
