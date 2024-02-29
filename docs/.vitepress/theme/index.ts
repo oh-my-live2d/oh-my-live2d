@@ -7,6 +7,10 @@ export default {
       loadOml2d({
         models: [
           {
+            path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+            scale: 0.3
+          },
+          {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
             scale: 0.12,
             position: [-50, 50],

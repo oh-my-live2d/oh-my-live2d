@@ -1,4 +1,6 @@
-import type { CSSProperties, ElementConfig } from '@/types';
+import { SDK } from '@/config';
+import type { CSSProperties, ElementConfig, PIXI_LIVE2D_DISPLAY_MODULE } from '@/types';
+import { ImportType } from '@/types';
 import { isNumber } from 'tianjie';
 
 /**
@@ -60,4 +62,42 @@ export const createElement = (elConfig: ElementConfig) => {
   if (elConfig.innerHtml) el.innerHTML = elConfig.innerHtml;
   if (elConfig.innerText) el.innerText = elConfig.innerText;
   return el;
+};
+
+export const loadLibraryCubism = (url: string): Promise<void> => {
+  return new Promise((resolve) => {
+    const scriptElement = document.createElement('script');
+    document.head.append(scriptElement);
+    scriptElement.src = url;
+    scriptElement.addEventListener('load', () => {
+      resolve();
+    });
+  });
+};
+
+export const loadLibrary = async (importType: ImportType, urls): Promise<PIXI_LIVE2D_DISPLAY_MODULE> => {
+  switch (importType) {
+    case 'cubism2':
+      await loadLibraryCubism(urls[importType]);
+      return await import(`pixi-live2d-display/cubism2`);
+    case 'cubism4':
+      await loadLibraryCubism(urls[importType]);
+      return await import(`pixi-live2d-display/cubism4`);
+    default:
+      await Promise.all([loadLibraryCubism(urls.cubism2), loadLibraryCubism(urls.cubism4)]);
+      return await import('pixi-live2d-display');
+  }
+};
+
+export const loadUmdLibrary = async (importType: ImportType, urls) => {
+  switch (importType) {
+    case 'complete':
+      await Promise.all([loadLibraryCubism(urls.cubism2), loadLibraryCubism(urls.cubism4)]);
+      break;
+    default:
+      await loadLibraryCubism(urls[importType]);
+      break;
+  }
+  await loadLibraryCubism(SDK.PIXI);
+  await loadLibraryCubism(SDK.PIXI_LIVE2D_DISPLAY);
 };

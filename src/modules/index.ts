@@ -1,18 +1,18 @@
-import { defaultOptions } from '@/config';
-import { Application } from 'pixi.js';
+import type { Application } from 'pixi.js';
 import { formatUnit, printProjectInfo } from '../utils';
 
+import { defaultOptions } from '@/config';
 import { WindowSizeType } from '@/constants';
 import { Menus } from '@/modules/menus';
 import { Model } from '@/modules/model';
 import { Stage } from '@/modules/stage';
 import { StatusBar, SystemStete } from '@/modules/status-bar';
 import { Tips } from '@/modules/tips';
-import type { DefaultOptions, Live2DModelType } from '@/types';
+import type { ApplicationType, DefaultOptions, Live2DModelType } from '@/types';
 import { Options } from '@/types/options';
 import { isNumber, mergeDeep } from 'tianjie';
 
-class OhMyLive2D {
+export class OhMyLive2D {
   private stage: Stage;
   private statusBar: StatusBar;
   private tips: Tips;
@@ -22,7 +22,7 @@ class OhMyLive2D {
   private windowSizeType: WindowSizeType = WindowSizeType.PC; // 当前窗口大小
   private mediaQuery = window.matchMedia('screen and (max-width: 768px)'); // 窗口大小的媒体查询
 
-  constructor(private options: DefaultOptions, private live2dModel: Live2DModelType) {
+  constructor(private options: DefaultOptions, private live2dModel: Live2DModelType, private Application: ApplicationType) {
     this.options.sayHello && this.sayHello();
     this.stage = new Stage(this.options.parentElement, options); // 实例化舞台
     this.statusBar = new StatusBar(this.options.parentElement); // 实例化状态条
@@ -153,7 +153,7 @@ class OhMyLive2D {
    * @returns
    */
   private createApplication() {
-    return new Application({
+    return new this.Application({
       view: this.stage.canvasElement,
       resolution: 2,
       autoStart: true,
@@ -164,18 +164,15 @@ class OhMyLive2D {
   }
 }
 
-/**
- * 安装入口程序
- * @returns
- */
-export const setup = (live2dModel: Live2DModelType) => {
-  const loadOml2d = (options: Options) => {
+export const setup = (loadMethod) => {
+  const loadOml2d = async (options: Options) => {
     const { parentElement } = options;
     const finalOptions = mergeDeep(defaultOptions, options);
     finalOptions.parentElement = parentElement || document.body;
     if (!finalOptions.models?.length) throw new Error('至少需要一个配置一个模型');
+    const { Live2dModule, PIXI } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
 
-    new OhMyLive2D(finalOptions, live2dModel);
+    new OhMyLive2D(finalOptions, Live2dModule.Live2DModel, PIXI.Application);
   };
   return loadOml2d;
 };

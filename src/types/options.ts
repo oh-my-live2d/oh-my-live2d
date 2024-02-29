@@ -1,3 +1,4 @@
+import { ImportType } from '@/types';
 import { Model } from '@/types/model';
 import { Tips } from '@/types/tips';
 
@@ -7,6 +8,17 @@ import { Tips } from '@/types/tips';
  * @name 配置选项
  */
 export interface Options {
+  /**
+   * 导入类型, 默认使用全量导入: 'complete'
+   * @default complete
+   * @valueType complete | cubism2 | cubism4
+   */
+  importType?: ImportType;
+
+  libraryUrls?: {
+    cubism2?: string;
+    cubism4?: string;
+  };
   /**
    * 是否在初始化阶段打印项目信息
    * @valueType boolean

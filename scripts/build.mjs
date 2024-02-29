@@ -7,9 +7,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const entries = [
-  { entry: 'src/index.ts', name: 'index' },
-  { entry: 'src/oml2d-cubism2.ts', name: 'oml2d-cubism2' },
-  { entry: 'src/oml2d-cubism4.ts', name: 'oml2d-cubism4' }
+  { entry: 'src/index.ts', name: 'index', format: 'es' },
+  { entry: 'src/index.umd.ts', name: 'index', format: 'umd' }
+  // { entry: 'src/oml2d-cubism4.ts', name: 'oml2d-cubism4' }
 ];
 
 // // 动态生成配置build配置选项
@@ -30,14 +30,14 @@ const entries = [
 // });
 
 // 动态生成配置build配置选项
-const profiles = entries.flatMap(({ entry, name }) => {
+const profiles = entries.flatMap(({ entry, name, format }) => {
   return {
     build: {
       // sourcemap: true,
       emptyOutDir: false,
       lib: {
         name: 'OML2D',
-        formats: ['umd', 'es'],
+        formats: [format],
         entry: resolve(__dirname, '..', entry),
         fileName: (format) => `${name}.${format === 'umd' ? 'min.js' : 'js'}`
       }

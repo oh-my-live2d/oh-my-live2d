@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { defineConfig } from 'vite';
 import project from './package.json';
 
 const { OML_ENV } = process.env;
@@ -12,7 +12,12 @@ export default defineConfig({
   build: {
     target: 'es6',
     copyPublicDir: false,
-    watch: OML_ENV === 'dev' ? { include: 'src/**' } : null
+    watch: OML_ENV === 'dev' ? { include: 'src/**' } : null,
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'oml2d.app.js'
+      }
+    }
   },
   resolve: {
     alias: {

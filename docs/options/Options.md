@@ -14,6 +14,32 @@
 
 ---
 
+### importType
+
+- 类型: `complete | cubism2 | cubism4`
+
+- 默认值: `complete`
+
+导入类型, 默认使用全量导入: 'complete'
+
+---
+
+### libraryUrls
+
+---
+
+### libraryUrls.cubism2
+
+- 类型: `string`
+
+---
+
+### libraryUrls.cubism4
+
+- 类型: `string`
+
+---
+
 ### models
 
 - 类型: `Model[]`
