@@ -15,7 +15,7 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持�
 <img align="right" height="270" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302080219383.gif"/>
 
 - 支持 `CDN` 或 `ES6 Module` 两种导入方式。
-- 默认集成 `Cubism 2 SDK` 和 `Cubism 4 SDK`，无需额外引入其他外部依赖。
+- 默认集成 `Cubism 2 SDK` 和 `Cubism 5 SDK`，无需额外引入其他外部依赖。
 - 自定义的本地或远程的 `Live2D Model` 来源。
 - 完全使用 `TypeScript` 开发，具有完整的类型推导。
 - 按需引入 `Cubism SDK` 依赖或全量导入所有`Cubism SDK`版本依赖。
@@ -24,14 +24,14 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持�
 
 ## 🤔 Cubism 是什么：
 
-Cubism 是 Live2D SDK 的名称，截至目前它一共存在三个版本：Cubism 2、Cubism 3、Cubism 4。
+Cubism 是 Live2D SDK 的名称，截至目前它一共存在四个版本：Cubism 2、Cubism 3、Cubism 4、Cubism 5。
 
 Cubism 2 是只能驱动 Live2D Model 版本为 2 的 SDK，它无法驱动 Live2D Model 3 和 Live2D Model 4。
 
-Cubism 4 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法驱动 Live2D Model 2。
+Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法驱动 Live2D Model 2。
 
 > [!TIP]
-> 本项目已集成 Cubism 2.1 与 Cubism 4.2.2 ，完整覆盖了从 model2 到 model4 的所有版本。
+> 本项目已集成 Cubism 2.1 与 Cubism 5.0.0 ，完整覆盖了从 model2 到 model4 的所有版本。
 
 ## 🌈 使用：
 
@@ -45,8 +45,6 @@ Cubism 4 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
 并且该方法接收一个 `options` 配置选项对象，示例如下。
 
 有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)
-
-在 `<body>` 标签中加入以下内容:
 
 ```html
 <!DOCTYPE html>
@@ -166,7 +164,7 @@ loadOml2d({
 ## 📧 讨论：
 
 添加好友以加入微信群：  
-添加好友时请备注：oml2d
+添加好友时请备注：`oml2d`
 
 <img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
 
