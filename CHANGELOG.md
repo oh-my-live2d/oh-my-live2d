@@ -1,5 +1,17 @@
 # 更新日志
 
+## [0.5.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.3...v0.5.0) (2024-02-29)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **vuepress-plugin:** 修复clien定义文件报错 ([f9fffe8](https://github.com/oh-my-live2d/oh-my-live2d/commit/f9fffe8ca5c4624c65f5073fb020d80a78c420d1))
+
+
+### ✨ Features | 新功能
+
+* 将第三方sdk由本地打包混淆更改为外部地址引入, 解决了打包后在生产环境model2加载异常的问题 ([502504f](https://github.com/oh-my-live2d/oh-my-live2d/commit/502504f3ee555c1b02194ae2fc5291079f564ede))
+
 ### [0.4.3](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.2...v0.4.3) (2024-02-28)
 
 
