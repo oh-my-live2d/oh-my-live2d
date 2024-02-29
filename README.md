@@ -1,13 +1,14 @@
 # OhMyLive2D
 
-![npm](https://img.shields.io/npm/v/oh-my-live2d?label=version) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange)
+![npm](https://img.shields.io/npm/v/oh-my-live2d?label=oh-my-live2d) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange) ![GitHub package.json version](https://img.shields.io/npm/v/vuepress-plugin-oh-my-live2d?label=vuepress-plugin-oh-my-live2d) ![](https://img.shields.io/badge/vuepress2-plugin-green)
 
 OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持从 model2 到 model4 之间的所有版本的 Live2D 模型，开箱即用且可定制化。  
 如果你还在苦于寻找一个支持所有版本模型的 Live2D For Web 组件，为你的个人网站增加一个看板娘，那么请看看这个！🥳
 
 [查阅文档](https://oml2d.com) 以了解更多详细的使用教程 🎉。
 
-> [!TIP] > **本项目目前正处于积极维护中, 急需志同道合的伙伴加入 😄**
+> [!TIP]  
+> **本项目目前正处于积极维护中, 急需志同道合的伙伴加入 😄**
 
 ## ✨ 特点：
 
