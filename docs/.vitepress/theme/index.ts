@@ -8,7 +8,11 @@ export default {
         models: [
           {
             path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-            scale: 0.3
+            scale: 0.2,
+            position: [0, 100],
+            stageStyle: {
+              height: 400
+            }
           },
           {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
