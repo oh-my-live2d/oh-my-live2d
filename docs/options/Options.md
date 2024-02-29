@@ -26,17 +26,31 @@
 
 ### libraryUrls
 
+- 类型: `object`
+
+自定义 Cubism SDK外部资源地址
+> [!TIP]
+> 从 v0.5.0 版本开始, 不再以模块形式通过 vite 打包构建 SDK , 因为这会造成部分模型在生产环境中展示异常, 这在Vite5中已得到证实, 为了更稳定的加载模型, 自 v0.5.0 版本后, 将通过 script 标签的 scr 属性引入 Cubism SDK ,而这个过程是完全自动的, 您无需手动的引入此资源, 官方将长期维护这个服务器, 保证此SDK地址的安全与稳定性. 若发现SDK加载出现异常, 请及时联系作者
+
 ---
 
 ### libraryUrls.cubism2
 
 - 类型: `string`
 
+- 默认值: `oh-my-live2d提供的默认地址`
+
+自定义 Cubism2 SDK 地址
+
 ---
 
 ### libraryUrls.cubism4
 
 - 类型: `string`
+
+- 默认值: `oh-my-live2d提供的默认地址`
+
+自定义 Cubism4 SDK 地址
 
 ---
 
