@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-oh-my-live2d",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "type": "module",
   "files": [
     "src",
@@ -29,7 +29,7 @@
     "release": "dotenv release-it"
   },
   "dependencies": {
-    "oh-my-live2d": "0.4.3"
+    "oh-my-live2d": "0.5.0"
   },
   "devDependencies": {
     "dotenv-cli": "^6.0.0",
