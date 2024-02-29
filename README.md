@@ -15,11 +15,17 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持�
 <img align="right" height="270" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302080219383.gif"/>
 
 - 支持 `CDN` 或 `ES6 Module` 两种导入方式。
-- 默认集成 `Cubism 2 SDK` 和 `Cubism 5 SDK`，无需额外引入其他外部依赖。
-- 自定义的本地或远程的 `Live2D Model` 来源。
+
+- 默认自动集成 `Cubism 2 SDK` 和 `Cubism 5 SDK`，无需手动额外引入其他外部依赖。
+
+- 可自定义本地或远程 `Live2D Model` 来源。
+
 - 完全使用 `TypeScript` 开发，具有完整的类型推导。
+
 - 按需引入 `Cubism SDK` 依赖或全量导入所有`Cubism SDK`版本依赖。
-- 支持配置多个模型，使用控件对其切换。
+
+- 支持配置多个模型，使用菜单控件对其切换。
+
 - 第三方文档构建工具的支持。
 
 ## 🤔 Cubism 是什么：
