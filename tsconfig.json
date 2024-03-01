@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
+    "target": "ES2022",
     "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "outDir": "./dist",
     "baseUrl": ".",
     "declaration": true,
@@ -15,16 +14,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    // "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "useDefineForClassFields": true
   },
-  "include": ["src"],
-  "exclude": ["src/library/*"]
+  "include": ["**/*", "docs/.vitepress/**/*.ts"],
+  "exclude": ["packages/oh-my-live2d/src/library/*"]
 }

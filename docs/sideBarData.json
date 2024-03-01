@@ -1,1 +1,6 @@
-[{"text":"配置选项","link":"/options/Options"},{"text":"模型选项","link":"/options/Model"},{"text":"提示框选项","link":"/options/Tips"}]
+[
+  { "text": "配置选项", "link": "/options/Options" },
+  { "text": "模型选项", "link": "/options/ModelOptions" },
+  { "text": "提示框选项", "link": "/options/TipsOptions" },
+  { "text": "ImportType", "link": "/options/ImportType" }
+]
