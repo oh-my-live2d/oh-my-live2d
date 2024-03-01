@@ -59,9 +59,9 @@ export interface Options {
   models?: Model[];
 
   /**
+   * 自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容
    *
    * @default object
-   * 自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容
    * @valueType Tips
    */
   tips?: Tips;
