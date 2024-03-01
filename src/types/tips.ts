@@ -124,4 +124,27 @@ export interface Tips {
       weeHours?: string;
     };
   };
+
+  /**
+   * 复制网站文字内容时的提示
+   */
+  copyTips?: {
+    /**
+     * 提示框持续时间, 单位ms
+     * @default 3000
+     */
+    duration?: number;
+    /**
+     * 优先级, 高优先级消息将会覆盖低优先级的消息
+     * @default 3
+     */
+    priority?: number;
+
+    /**
+     * 播放的消息内容, 需要是一个字符串数组, 播放时会从中随机取出一条进行提示, 空数组则不播放
+     * @valueType string[]
+     * @default ['你复制了什么内容呢?记得注明出处哦~']
+     */
+    message?: string[];
+  };
 }

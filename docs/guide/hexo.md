@@ -13,7 +13,7 @@ npm install hexo-oh-my-live2d
 # _config.yml
 OhMyLive2d:
   enable: true
-  CDN: https://registry.npmmirror.com/oh-my-live2d/0.4.2/files/dist/index.min.js
+  CDN: https://unpkg.com/oh-my-live2d
   option:
     fixed: true # 组件是否使用固定定位
     models:

@@ -43,6 +43,11 @@ export const defaultOptions: DefaultOptions = {
       },
       duration: 6000,
       priority: 3
+    },
+    copyTips: {
+      duration: 3000,
+      priority: 3,
+      message: ['你复制了什么内容呢?记得注明出处哦~']
     }
   }
 };

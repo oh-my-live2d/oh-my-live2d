@@ -148,6 +148,7 @@ export class OhMyLive2D {
     // copy 事件
     window.addEventListener('copy', () => {
       // console.log('copy!');
+      this.tips.copy();
     });
 
     // 出场入场动画执行结束之后的事件回调
@@ -179,9 +180,8 @@ export const setup = (loadMethod) => {
     const { parentElement } = options;
     const finalOptions = mergeDeep(defaultOptions, options);
     finalOptions.parentElement = parentElement || document.body;
-    if (!finalOptions.models?.length) throw new Error('至少需要一个配置一个模型');
+    if (!finalOptions.models?.length) throw new Error('至少需要配置一个模型');
     const { Live2dModule, PIXI } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
-
     if (!oml2d) oml2d = new OhMyLive2D(finalOptions, Live2dModule.Live2DModel, PIXI.Application);
   };
   return loadOml2d;

@@ -24,7 +24,7 @@ export class Tips {
   private style: CSSProperties = {};
   private priority = 0;
 
-  constructor(stageElement: HTMLElement, private options: TipsOptions | false) {
+  constructor(stageElement: HTMLElement, private options: TipsOptions) {
     this.element = createElement({ id: config.tipsId, tagName: 'div' });
     stageElement.append(this.element);
     this.initStyle();
@@ -115,7 +115,7 @@ export class Tips {
   /**
    * 公开暴露的通知方法, 所有地方可调用, 调用时会先暂停闲置消息的循环播放
    */
-  notification(message: string, duration: number, priority: number) {
+  notification(message: string, duration = 3000, priority = 3) {
     this.idlePlayer?.stop();
     this.showMessage(message, duration, priority);
     setTimeout(() => {
@@ -133,6 +133,12 @@ export class Tips {
     this.notification(message, duration, priority);
   }
 
+  async copy() {
+    if (this.options.copyTips?.message?.length) {
+      const messageText = getRandomElement(this.options.copyTips.message);
+      this.notification(messageText!, this.options.copyTips.duration || 3000, this.options.copyTips.priority || 3);
+    }
+  }
   /**
    * 创建闲置消息播放器
    * @returns
