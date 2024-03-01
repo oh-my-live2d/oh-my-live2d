@@ -1,7 +1,7 @@
 import { config } from '@/config';
-import { CSSProperties } from '@/types';
+import { CSSProperties, DeepRequired } from '@/types';
 import { Tips as TipsOptions } from '@/types/tips';
-import { createElement, setStyleByElement, sleep } from '@/utils';
+import { createElement, getWordTheDay, setStyleByElement, sleep } from '@/utils';
 import { getWelcomeMessage } from '@/utils/tips';
 import { getRandomElement, mergeDeep, setIntervalAsync } from 'tianjie';
 
@@ -20,11 +20,10 @@ export class Tips {
 
   private closeTimer = 0;
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
-  private idleTipsInterval = 3000; // 默认的闲置消息循环播放间隔
   private style: CSSProperties = {};
-  private priority = 0;
+  private priority = 0; // 当前优先级
 
-  constructor(stageElement: HTMLElement, private options: TipsOptions) {
+  constructor(stageElement: HTMLElement, private tipsOptions: DeepRequired<TipsOptions>) {
     this.element = createElement({ id: config.tipsId, tagName: 'div' });
     stageElement.append(this.element);
     this.initStyle();
@@ -59,8 +58,8 @@ export class Tips {
       minHeight: '100px',
       top: 0
     });
-    if (this.options) {
-      const { width = 230, height = 100, offsetX = 0, offsetY = 0 } = this.options.style || {};
+    if (this.tipsOptions) {
+      const { width = 230, height = 100, offsetX = 0, offsetY = 0 } = this.tipsOptions.style || {};
       this.setStyle({
         minWidth: `${width}px`,
         minHeight: `${height}px`,
@@ -127,35 +126,45 @@ export class Tips {
    * 欢迎提示
    */
   async welcome() {
-    if (!this.options) return;
-    const message = getWelcomeMessage(this.options.welcomeTips || {});
-    const { duration = 3000, priority = 2 } = this.options.welcomeTips || {};
+    if (!this.tipsOptions) return;
+    const message = getWelcomeMessage(this.tipsOptions.welcomeTips || {});
+    const { duration, priority } = this.tipsOptions.welcomeTips;
     this.notification(message, duration, priority);
   }
 
+  /**
+   * 复制时提示
+   */
   async copy() {
-    if (this.options.copyTips?.message?.length) {
-      const messageText = getRandomElement(this.options.copyTips.message);
-      this.notification(messageText!, this.options.copyTips.duration || 3000, this.options.copyTips.priority || 3);
+    if (this.tipsOptions.copyTips?.message?.length) {
+      const messageText = getRandomElement(this.tipsOptions.copyTips.message);
+      this.notification(messageText!, this.tipsOptions.copyTips.duration, this.tipsOptions.copyTips.priority);
     }
   }
+
   /**
    * 创建闲置消息播放器
    * @returns
    */
   private createIdleMessagePlayer() {
-    if (!this.options) return;
-    const { message: messages, duration, priority } = this.options.idleTips || {};
+    if (!this.tipsOptions) return;
+    const { message: messages, duration, priority } = this.tipsOptions.idleTips;
     let message = '';
     const timer = setIntervalAsync(async () => {
-      message = getRandomElement(messages || []) || '';
+      // 是否开启每日一言
+      if (this.tipsOptions.idleTips.wordTheDay) {
+        message = await getWordTheDay();
+      } else {
+        message = getRandomElement(messages || []) || '';
+      }
+
       if (message) {
         await this.showMessage(message, duration, priority);
-        await sleep(duration || 3000);
+        await sleep(duration);
       } else {
         timer.stop();
       }
-    }, this.options.idleTips?.interval || this.idleTipsInterval);
+    }, this.tipsOptions.idleTips.interval);
     return timer;
   }
 }

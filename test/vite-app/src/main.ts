@@ -26,19 +26,16 @@ setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 loadOml2d({
   // parentElement: el,
   // fixed: false,
-  // importType: 'cubism2',
-  libraryUrls: {
-    // cubism2: 'http://localhost:5173/live2d.min.js'
-  },
+
   models: [
-    // {
-    //   path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-    //   scale: 0.12,
-    //   position: [-50, 50],
-    //   stageStyle: {
-    //     width: 320
-    //   }
-    // },
+    {
+      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
+      scale: 0.12,
+      position: [-50, 50],
+      stageStyle: {
+        width: 320
+      }
+    }
     // {
     //   path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
     //   position: [50, 100],
@@ -47,14 +44,15 @@ loadOml2d({
     //     height: 450
     //   }
     // },
-    {
-      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.3
-    }
+    // {
+    //   path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+    //   scale: 0.3
+    // }
   ],
   tips: {
     idleTips: {
       // message: []
+      wordTheDay: true
     }
   }
 });

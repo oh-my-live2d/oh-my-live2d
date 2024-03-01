@@ -11,7 +11,7 @@ export interface Options {
   /**
    * 导入类型, 默认使用全量导入: 'complete'
    * @default complete
-   * @valueType complete | cubism2 | cubism4
+   * @valueType complete | cubism2 | cubism5
    */
   importType?: ImportType;
 

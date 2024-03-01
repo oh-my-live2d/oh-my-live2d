@@ -25,9 +25,10 @@ export const defaultOptions: DefaultOptions = {
       offsetY: 0
     },
     idleTips: {
+      wordTheDay: false,
       message: [],
-      duration: 3000,
-      interval: 8000,
+      duration: 5000,
+      interval: 10000,
       priority: 2
     },
     welcomeTips: {

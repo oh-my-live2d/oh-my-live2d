@@ -57,8 +57,8 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2
       tianjie:
-        specifier: ^0.0.8
-        version: 0.0.8
+        specifier: ^0.0.9
+        version: 0.0.9
       tsc-alias:
         specifier: ^1.8.8
         version: 1.8.8
@@ -84,8 +84,8 @@ importers:
   packages/vuepress-plugin:
     dependencies:
       oh-my-live2d:
-        specifier: 0.4.3
-        version: 0.4.3
+        specifier: 0.6.0
+        version: link:../..
     devDependencies:
       dotenv-cli:
         specifier: ^6.0.0
@@ -4037,7 +4037,7 @@ packages:
       ignore: 5.2.4
       natural-compare-lite: 1.4.0
       regexpp: 3.2.0
-      semver: 7.6.0
+      semver: 7.3.8
       tsutils: 3.21.0(typescript@5.3.3)
       typescript: 5.3.3
     transitivePeerDependencies:
@@ -10567,10 +10567,6 @@ packages:
     resolution: {integrity: sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==}
     dev: false
 
-  /oh-my-live2d@0.4.3:
-    resolution: {integrity: sha512-svpNpuQiQKdCUxT72bAVcx3V0oMFUYpxt+kZBnb1pXG6ibAeHHghmZnbkd44uZr1uIXBnxfTmCM+R03vB08Dhw==}
-    dev: false
-
   /on-finished@2.4.1:
     resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
     engines: {node: '>= 0.8'}
@@ -12761,7 +12757,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: true
 
   /semver@7.6.0:
     resolution: {integrity: sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==}
@@ -13554,8 +13549,8 @@ packages:
     resolution: {integrity: sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==}
     dev: false
 
-  /tianjie@0.0.8:
-    resolution: {integrity: sha512-XLFcQqJZu/r6WchNbU7AOyDSwKUpg4i/bIuyPk98olXFl5ZHyYAIj+SLU0emj/m6QJ/OTllga9Qm2c9N9rxn8Q==}
+  /tianjie@0.0.9:
+    resolution: {integrity: sha512-ETZbZAZAleDq9gEYQOWtgDKaONlO5RozdlxUSKdMFehcaMSMuRHUZ45jQSAiStq9bJ5nDMuYDV+IrD0gBGzuVg==}
     dev: true
 
   /tmp@0.0.33:

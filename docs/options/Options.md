@@ -16,7 +16,7 @@
 
 ### importType
 
-- 类型: `complete | cubism2 | cubism4`
+- 类型: `complete | cubism2 | cubism5`
 
 - 默认值: `complete`
 

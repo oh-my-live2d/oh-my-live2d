@@ -40,8 +40,17 @@ export interface Tips {
    */
   idleTips?: {
     /**
+     * 是否开启每日一言, 默认为关闭状态, 开启后将从这个地址请求 https://v1.hitokoto.cn 随机信息作为闲置提示内容
+     *
+     * ::: tip
+     * 开启后将接管闲置状态下 message 选项设定的值
+     * :::
+     * @default false
+     */
+    wordTheDay?: boolean;
+    /**
      * 提示框持续时间, 单位ms
-     * @default 3000
+     * @default 5000
      */
     duration?: number;
     /**
@@ -51,12 +60,12 @@ export interface Tips {
     priority?: number;
     /**
      * 闲置状态循环播放消息的间隔时间, 单位ms
-     * @default 8000
+     * @default 10000
      */
     interval?: number;
 
     /**
-     * 播放的消息内容, 需要是一个字符串数组, 播放时会从中随机取出一条进行提示, 空数组则不播放, 默认为空数组
+     * 播放的消息内容, 需要是一个字符串组成的数组, 播放时会从中随机取出一条进行提示, 空数组则不播放, 默认为空数组
      * @valueType string[]
      */
     message?: string[];

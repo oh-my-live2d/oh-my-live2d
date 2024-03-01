@@ -80,7 +80,7 @@ export const loadLibrary = async (importType: ImportType, urls): Promise<PIXI_LI
     case 'cubism2':
       await loadLibraryCubism(urls[importType]);
       return await import(`pixi-live2d-display/cubism2`);
-    case 'cubism4':
+    case 'cubism5':
       await loadLibraryCubism(urls[importType]);
       return await import(`pixi-live2d-display/cubism4`);
     default:
@@ -113,4 +113,11 @@ export const checkVersion = async () => {
       '请前往: https://oml2d.com 以获得最新版详细信息, 并及时更新.'
     );
   }
+};
+
+// 获取每日一言
+export const getWordTheDay = async () => {
+  const fetchResult = await fetch('https://v1.hitokoto.cn/');
+  const data = await fetchResult.json();
+  return `${data.hitokoto}    -- ${data.from}`;
 };

@@ -9,12 +9,8 @@ export type Live2DModelType = typeof Live2DModel;
 export type CSSProperties = CSS.Properties;
 export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models'> & { parentElement: HTMLElement } & { models: Model[] };
 export type ApplicationType = typeof Application;
-// type EventType = 'ready' | 'load';
-// type LoadType = 'manual' | 'auto';
-// type TipsType = 'welcomeTips' | 'idleTips' | 'copyTips';
-// type ControlID = 'SwitchModel' | 'Setting' | 'About';
-// type ControlName = 'icon-a-userswitch-fill' | 'icon-setting-fill' | 'icon-info-circle-fill';
-export type ImportType = 'complete' | 'cubism2' | 'cubism4';
+
+export type ImportType = 'complete' | 'cubism2' | 'cubism5';
 
 export interface ElementConfig {
   id: string;
@@ -26,12 +22,5 @@ export interface ElementConfig {
   innerText?: string;
 }
 
-// interface Controls {
-//   id: ControlID;
-//   name: ControlName;
-//   title: string;
-// }
-
-type DeepRequired<T> = T extends Function ? T : T extends object ? { [P in keyof T]-?: DeepRequired<T[P]> } : T;
-// type DefaultModel = DeepRequired<Model>;
-// type DefaultOptions = DeepRequired<Options<DefaultModel | [DefaultModel, ...DefaultModel[]]>>;
+export type DeepRequired<T> = T extends Function ? T : T extends object ? { [P in keyof T]-?: DeepRequired<T[P]> } : T;
+// export type IdleTipsType = typeof defaultOptions.tips.idleTips;
