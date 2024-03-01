@@ -1,0 +1,15 @@
+{
+  "name": "oh-my-live2d-docs",
+  "version": "0.7.1",
+  "type": "module",
+  "scripts": {
+    "docs:build": "vitepress build .",
+    "docs:dev": "vitepress dev .",
+    "docs:preview": "vitepress preview ."
+  },
+  "devDependencies": {
+    "oh-my-live2d": "workspace:*",
+    "vitepress": "1.0.0-rc.44",
+    "vue": "^3.4.21"
+  }
+}

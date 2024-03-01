@@ -23,7 +23,7 @@ const getType = (typeData = {}) => {
 };
 // 根目录
 function rootPath(...args) {
-  return path.join(__dirname, '..', ...args);
+  return path.join(__dirname, '../packages/oh-my-live2d', ...args);
 }
 
 const generateDocs = (app, project) => {

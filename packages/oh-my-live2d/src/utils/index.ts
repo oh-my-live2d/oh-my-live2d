@@ -54,8 +54,8 @@ export const createElement = (elConfig: ElementConfig) => {
   el.id = elConfig.id;
   if (elConfig.className) el.className = elConfig.className;
   if (elConfig.dataName) el.setAttribute('data-name', elConfig.dataName);
-  if (elConfig.childrens) {
-    elConfig.childrens.forEach((item) => {
+  if (elConfig.children) {
+    elConfig.children.forEach((item) => {
       el.appendChild(createElement(item));
     });
   }

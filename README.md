@@ -10,7 +10,7 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持�
 > [!TIP]  
 > **本项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入 😄**
 
-## ✨ 特点：
+## ✨ 特点
 
 <img align="right" height="270" src="https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302080219383.gif"/>
 
@@ -28,7 +28,7 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持�
 
 - 第三方文档构建工具的支持, 如 `Vitepress`、`Vuepress`。
 
-## 🤔 Cubism 是什么：
+## 🤔 Cubism 是什么
 
 Cubism 是 Live2D SDK 的名称，截至目前它一共存在四个版本：Cubism 2、Cubism 3、Cubism 4、Cubism 5。
 
@@ -39,7 +39,7 @@ Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
 > [!TIP]
 > 本项目已集成 Cubism 2.1 与 Cubism 5.0.0 ，完整覆盖了从 model2 到 model4 的所有版本。
 
-## 🌈 快速使用：
+## 🌈 快速使用
 
 > [!WARNING]
 > 本项目从 `0.4.0` 版本开始对所有模块都进行了一次重构, 并且不再采用自动加载组件的模式, 现在你可以通过 `loadOml2d` 方法加载组件至 `body` 中, 或者使用`parentElemetn`选项为其指定一个父元素.
@@ -73,7 +73,7 @@ Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
 </html>
 ```
 
-### 使用包管理工具安装：
+### 使用包管理工具安装
 
 - 使用 `npm` 安装：
 
@@ -99,7 +99,7 @@ Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
   pnpm add oh-my-live2d
   ```
 
-### ESM 使用示例：
+### ESM 使用示例
 
 OhMyLive2D 在使用 ES6Module 方式导入时暴露了一个`loadOml2d`方法, 该方法接收一个配置选项`options`.
 有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)
@@ -117,15 +117,15 @@ loadOml2d({
 
 如果您想更换自己的模型或对其进行自定义，请[查阅文档](https://oml2d.com/)中自定义章节的相关内容。
 
-## ✨ 其他支持:
+## ✨ 其他支持
 
-- [在 vitepress 中使用](https://oml2d.com/guide/vitepress)
+- [在 VitePress 中使用](https://oml2d.com/guide/vitepress)
 
-- [在 vuepress2 中使用](https://oml2d.com/guide/vuepress)
+- [在 VuePress2 中使用](https://oml2d.com/guide/vuepress)
 
-- [在 hexo 中使用](https://oml2d.com/guide/hexo.html)
+- [在 Hexo 中使用](https://oml2d.com/guide/hexo.html)
 
-## 📧 讨论：
+## 📧 讨论
 
 - qq 群: 474032914
 
@@ -134,10 +134,10 @@ loadOml2d({
   添加好友时请备注：`oml2d`
   <img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
 
-## 📃 开源许可：
+## 📃 开源许可
 
 - [MIT](https://github.com/oh-my-live2d/oh-my-live2d/blob/master/license)
 
-## 版权声明:
+## 版权声明
 
 本项目仅提供模型加载技术支持, 不提供任何 Live2D Model 的下载地址。文档中提供的所有模型地址均来源于网路，仅供参考和学习。

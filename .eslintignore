@@ -1,6 +1,6 @@
 dist
 node_modules
-test
 lib
-src/library/*
+packages/oh-my-live2d/src/library/*
 scripts/*
+public

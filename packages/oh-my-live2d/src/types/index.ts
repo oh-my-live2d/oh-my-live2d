@@ -17,7 +17,7 @@ export interface ElementConfig {
   className?: string;
   dataName?: string;
   tagName: string;
-  childrens?: ElementConfig[];
+  children?: ElementConfig[];
   innerHtml?: string;
   innerText?: string;
 }

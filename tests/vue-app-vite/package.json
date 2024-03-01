@@ -1,20 +1,20 @@
 {
   "name": "vue-app",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc && vite build",
+    "dev": "vite",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.19",
-    "oh-my-live2d": "workspace:*"
+    "oh-my-live2d": "workspace:*",
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.3",
     "vite": "^5.1.4",
     "vue-tsc": "^1.8.27"
   }

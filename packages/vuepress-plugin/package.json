@@ -1,23 +1,7 @@
 {
   "name": "vuepress-plugin-oh-my-live2d",
   "version": "0.7.1",
-  "type": "module",
-  "files": [
-    "src",
-    "index.d.ts"
-  ],
-  "main": "./src/index.js",
-  "module": "./src/index.js",
-  "types": "./index.d.ts",
-  "exports": {
-    "types": "./index.d.ts",
-    "import": "./src/index.js"
-  },
   "description": "用于vuepress2的live2d看板组件插件",
-  "homepage": "https://github.com/oh-my-live2d/oh-my-live2d",
-  "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
-  "license": "MIT",
-  "author": "loclink",
   "keywords": [
     "vuepress2",
     "vuepress2-plugin",
@@ -25,14 +9,29 @@
     "cubism2",
     "cubism4"
   ],
+  "homepage": "https://oml2d.com/guide/vuepress",
+  "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
+  "license": "MIT",
+  "author": "loclink",
+  "type": "module",
+  "exports": {
+    "types": "./index.d.ts",
+    "import": "./src/index.js"
+  },
+  "main": "./src/index.js",
+  "types": "./index.d.ts",
+  "files": [
+    "src",
+    "index.d.ts"
+  ],
   "scripts": {
+    "build": "tsc -b tsconfig.build.json",
     "release": "dotenv release-it"
   },
   "dependencies": {
-    "oh-my-live2d": "0.7.1"
+    "oh-my-live2d": "workspace:*"
   },
-  "devDependencies": {
-    "dotenv-cli": "^6.0.0",
-    "release-it": "^15.5.1"
+  "peerDependencies": {
+    "vuepress": "^2.0.0-rc.8"
   }
 }

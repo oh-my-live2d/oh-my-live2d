@@ -15,16 +15,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    // "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["packages/oh-my-live2d/src/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["src/library/*"]
+  "include": ["**/*", "docs/.vitepress/**/*.ts"],
+  "exclude": ["packages/oh-my-live2d/src/library/*"]
 }
