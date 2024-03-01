@@ -1,5 +1,14 @@
 # 更新日志
 
+## [0.6.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.5.0...v0.6.0) (2024-03-01)
+
+
+### ✨ Features | 新功能
+
+* 新增变装功能,现在如果你的模型有多个纹理资源,可以通过右侧菜单按顺序切换 ([4c9ef00](https://github.com/oh-my-live2d/oh-my-live2d/commit/4c9ef0073f4b12381cc93fffc8be209a1f3b081e))
+* 增加版本号校验, 检查当前是否为最新版本 ([079d218](https://github.com/oh-my-live2d/oh-my-live2d/commit/079d218aa4e58c7ed3578094731ca5c7746d5798))
+* Cubism SDK更新至5.0.0 ([c200111](https://github.com/oh-my-live2d/oh-my-live2d/commit/c200111f48d88c8718b44757ab59fabda6c452a1))
+
 ## [0.5.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.3...v0.5.0) (2024-02-29)
 
 
