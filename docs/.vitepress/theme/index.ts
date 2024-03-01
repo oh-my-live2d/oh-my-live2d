@@ -7,8 +7,12 @@ export default {
       loadOml2d({
         models: [
           {
-            path: 'https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/potion-Maker-Pio/index.json',
-            scale: 0.5
+            path: 'https://model.oml2d.com/pio/model.json',
+            scale: 0.5,
+            position: [0, 95],
+            stageStyle: {
+              height: 410
+            }
           },
           {
             path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
