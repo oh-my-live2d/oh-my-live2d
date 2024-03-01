@@ -1,5 +1,13 @@
 # 更新日志
 
+## [0.7.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.6.0...v0.7.0) (2024-03-01)
+
+
+### ✨ Features | 新功能
+
+* 新增了复制网页内容时弹出提示的配置选项 ([79f13ef](https://github.com/oh-my-live2d/oh-my-live2d/commit/79f13ef56b76dd88d1a09ec1478a888177f26f98))
+* 新增每日一言选项, 现在你可以通过idleTips.wordTheDay开启每日一言服务提示随机闲置消息. 调整闲置消息duration默认值为5000, interval默认值为10000 ([1715717](https://github.com/oh-my-live2d/oh-my-live2d/commit/1715717589f1ff4a2fd317ead907777b5674588c))
+
 ## [0.6.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.5.0...v0.6.0) (2024-03-01)
 
 
