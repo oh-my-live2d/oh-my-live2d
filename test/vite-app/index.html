@@ -8,13 +8,21 @@
   </head>
   <body>
     <div id="app"></div>
-    <!-- <script src="/index.min.js"></script> -->
+    <script src="/index.min.js"></script>
     <!-- <script src="./src/main.ts" type="module"></script> -->
 
-    <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script> -->
     <script>
       OML2D.loadOml2d({
         models: [
+          {
+            path: 'https://model.oml2d.com/pio/model.json',
+            scale: 0.5,
+            position: [0, 95],
+            stageStyle: {
+              height: 410
+            }
+          },
           {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
             scale: 0.12,

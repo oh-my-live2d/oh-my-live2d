@@ -60,37 +60,7 @@ export interface Options {
 
   /**
    *
-   * - 默认值:
-   *   ``` ts
-   *   {
-   *     style: {
-   *         width: 230,
-   *         height: 100,
-   *         offsetX: 0,
-   *         offsetY: 0
-   *     },
-   *     idleTips: {
-   *       message: [],
-   *       duration: 3000,
-   *       interval: 8000,
-   *       priority: 2
-   *     },
-   *    welcomeTips: {
-   *      message: {
-   *        daybreak: '早上好！一日之计在于晨，美好的一天就要开始了。',
-   *        morning: '上午好！工作顺利嘛，不要久坐，多起来走动走动哦！',
-   *        noon: '中午了，工作了一个上午，现在是午餐时间！',
-   *        afternoon: '午后很容易犯困呢，来杯咖啡吧~',
-   *        dusk: '傍晚了！工作一天幸苦啦~',
-   *        night: '晚上好，今天过得怎么样呢？',
-   *        lateNight: '已经这么晚了呀，早点休息吧，晚安~',
-   *        weeHours: '这么晚还不睡吗？当心熬夜秃头哦！'
-   *      },
-   *      duration: 6000,
-   *      priority: 3
-   *     }
-   *   }
-   *   ```
+   * @default object
    * 自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容
    * @valueType Tips
    */

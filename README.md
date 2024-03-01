@@ -8,7 +8,7 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持�
 [查阅文档](https://oml2d.com) 以了解更多详细的使用教程 🎉。
 
 > [!TIP]  
-> **本项目目前正处于积极维护中, 急需志同道合的伙伴加入 😄**
+> **本项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入 😄**
 
 ## ✨ 特点：
 
@@ -26,7 +26,7 @@ OhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持�
 
 - 支持配置多个模型，使用菜单控件对其切换。
 
-- 第三方文档构建工具的支持。
+- 第三方文档构建工具的支持, 如 `Vitepress`、`Vuepress`。
 
 ## 🤔 Cubism 是什么：
 
@@ -39,16 +39,14 @@ Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
 > [!TIP]
 > 本项目已集成 Cubism 2.1 与 Cubism 5.0.0 ，完整覆盖了从 model2 到 model4 的所有版本。
 
-## 🌈 使用：
+## 🌈 快速使用：
 
 > [!WARNING]
-> 本项目从 `0.4.0` 版本对所有模块都进行了一次重构, 并且不再采用自动加载组件的模式, 现在你可以通过 `loadOml2d` 方法加载组件至 `body` 中, 或者为其指定一个父元素.
+> 本项目从 `0.4.0` 版本开始对所有模块都进行了一次重构, 并且不再采用自动加载组件的模式, 现在你可以通过 `loadOml2d` 方法加载组件至 `body` 中, 或者使用`parentElemetn`选项为其指定一个父元素.
 
 ### CDN 引入
 
-通过 CDN 方式导入时，所有成员变量都可以在 `OML2D` 命名空间下被使用。
-
-并且该方法接收一个 `options` 配置选项对象，示例如下。
+通过 CDN 方式导入时，所有成员变量都可以在 `OML2D` 命名空间下被使用。通过调用`OML2D.loadOml2d()`方法加载 Live2D 模型, 该方法接收一个 `options` 配置选项对象，示例如下。
 
 有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)
 
@@ -66,34 +64,14 @@ Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
       OML2D.loadOml2d({
         models: [
           {
-            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-            scale: 0.12,
-            position: [-50, 50],
-            stageStyle: {
-              width: 320
-            }
-          },
-          {
-            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
-            position: [50, 100],
-            stageStyle: {
-              width: 300,
-              height: 450
-            }
+            path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json'
           }
-        ],
-        tips: {
-          style: {
-            offsetY: 40
-          }
-        }
+        ]
       });
     </script>
   </body>
 </html>
 ```
-
-**如果你选择使用 CDN 方式导入模块，请避免在生产环境中使用远程地址加载脚本，远程地址是极为不稳定的，将脚本[下载至本地](https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js)并导入到项目是你的最佳选择。**
 
 ### 使用包管理工具安装：
 
@@ -131,27 +109,9 @@ import { loadOml2d } from 'oh-my-live2d';
 loadOml2d({
   models: [
     {
-      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-      scale: 0.12,
-      position: [-50, 50],
-      stageStyle: {
-        width: 320
-      }
-    },
-    {
-      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
-      position: [50, 100],
-      stageStyle: {
-        width: 300,
-        height: 450
-      }
+      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json'
     }
-  ],
-  tips: {
-    style: {
-      offsetY: 40
-    }
-  }
+  ]
 });
 ```
 
@@ -162,10 +122,6 @@ loadOml2d({
 - [在 vitepress 中使用](https://oml2d.com/guide/vitepress)
 
 - [在 vuepress2 中使用](https://oml2d.com/guide/vuepress)
-
-## 💕 鸣谢：
-
-本项目主要依赖于 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display), 感谢其为 `Live2D` 社区做出的贡献。
 
 ## 📧 讨论：
 

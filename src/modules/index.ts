@@ -18,6 +18,7 @@ export class OhMyLive2D {
   private tips: Tips;
   private menus: Menus;
   private application: Application;
+  private model?: Model; // 当前模型的实例
   private modelIndex = 0; // 当前模型索引
   private windowSizeType: WindowSizeType = WindowSizeType.PC; // 当前窗口大小
   private mediaQuery = window.matchMedia('screen and (max-width: 768px)'); // 窗口大小的媒体查询
@@ -58,11 +59,12 @@ export class OhMyLive2D {
    */
   loadModel(showLoading = true) {
     showLoading && this.statusBar.showLoading();
-    const model = new Model(this.live2dModel, this.currentModelOption, this.application);
-    model?.setScale(this.currentModelOption?.scale, this.currentModelOption?.scale);
-    model?.setPosition(...(this.currentModelOption?.position || []));
+    this.model = new Model(this.live2dModel, this.currentModelOption, this.application);
+    this.model?.setScale(this.currentModelOption?.scale, this.currentModelOption?.scale);
+    this.model?.setPosition(...(this.currentModelOption?.position || []));
+
     // 模型所有资源加载完毕
-    model?.onLoaded(({ width, height }) => {
+    this.model?.onLoaded(({ width, height }) => {
       this.setStageStyle({
         width: this.currentModelOption.stageStyle?.width || width,
         height: this.currentModelOption.stageStyle?.height || height,
@@ -73,7 +75,7 @@ export class OhMyLive2D {
     });
 
     // 加载失败
-    model?.onFail((e) => {
+    this.model?.onFail((e) => {
       this.statusBar.loadingError(this.loadModel.bind(this));
       console.error(e);
     });
@@ -126,9 +128,15 @@ export class OhMyLive2D {
         case 'SwitchModel':
           this.loadNextModel();
           return;
+        // 变装 (切换纹理)
         case 'Play':
-          this.tips.showMessage('抱歉, 这个功能正在施工...', 3000, 9);
-          // this.tips.showMessage(getRandomNum(1, 10));
+          this.model?.changeTexture(({ status }) => {
+            if (status) {
+              this.tips.notification('变装成功!!!', 5000, 9);
+            } else {
+              this.tips.notification('没有找到其他衣服哦...', 5000, 9);
+            }
+          });
           return;
         case 'About':
           window.open('https://oml2d.com');
@@ -165,6 +173,7 @@ export class OhMyLive2D {
 }
 
 export const setup = (loadMethod) => {
+  let oml2d;
   const loadOml2d = async (options: Options) => {
     const { parentElement } = options;
     const finalOptions = mergeDeep(defaultOptions, options);
@@ -172,7 +181,7 @@ export const setup = (loadMethod) => {
     if (!finalOptions.models?.length) throw new Error('至少需要一个配置一个模型');
     const { Live2dModule, PIXI } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
 
-    new OhMyLive2D(finalOptions, Live2dModule.Live2DModel, PIXI.Application);
+    if (!oml2d) oml2d = new OhMyLive2D(finalOptions, Live2dModule.Live2DModel, PIXI.Application);
   };
   return loadOml2d;
 };
