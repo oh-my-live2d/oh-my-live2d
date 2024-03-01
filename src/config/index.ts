@@ -14,7 +14,7 @@ export const defaultOptions: DefaultOptions = {
   importType: 'complete',
   libraryUrls: {
     cubism2: `${libServicePath}/live2d.min.js`,
-    cubism4: `${libServicePath}/live2dcubismcore.min.js`
+    cubism5: `${libServicePath}/live2dcubismcore.min.js`
   },
   models: [],
   tips: {

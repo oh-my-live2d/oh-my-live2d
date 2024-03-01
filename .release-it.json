@@ -19,7 +19,7 @@
   "plugins": {
     "@release-it/conventional-changelog": {
       "ignoreRecommendedBump": true,
-      "infile": "CHANGELOG.md",
+      "infile": "docs/CHANGELOG.md",
       "header": "# 更新日志",
       "preset": {
         "name": "conventionalcommits",

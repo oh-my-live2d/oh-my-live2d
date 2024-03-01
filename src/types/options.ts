@@ -29,10 +29,10 @@ export interface Options {
     cubism2?: string;
 
     /**
-     * 自定义 Cubism4 SDK 地址
+     * 自定义 Cubism5 SDK 地址
      * @default oh-my-live2d提供的默认地址
      */
-    cubism4?: string;
+    cubism5?: string;
   };
 
   /**

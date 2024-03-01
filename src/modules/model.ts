@@ -61,20 +61,12 @@ export class Model {
     this.model.y = y;
   }
 
-  changePlay() {
-    console.log('11111111111');
-    console.log(this.model.textures);
-    this.model.textures.shift();
-    this.model.internalModel.bindTexture(2, this.model.textures);
-    this.model.update(2);
-  }
-
   /**
    * 切换纹理
    * @param callback
    */
   changeTexture(callback) {
-    if (!this.model.textures.length) {
+    if (this.model.textures.length <= 1) {
       callback({ status: false });
     } else {
       const currentTexture = this.model.textures.shift();
