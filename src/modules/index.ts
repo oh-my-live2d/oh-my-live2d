@@ -1,5 +1,5 @@
 import type { Application } from 'pixi.js';
-import { formatUnit, printProjectInfo } from '../utils';
+import { checkVersion, formatUnit, printProjectInfo } from '../utils';
 
 import { defaultOptions } from '@/config';
 import { WindowSizeType } from '@/constants';
@@ -25,6 +25,7 @@ export class OhMyLive2D {
 
   constructor(private options: DefaultOptions, private live2dModel: Live2DModelType, private Application: ApplicationType) {
     this.options.sayHello && this.sayHello();
+    checkVersion();
     this.stage = new Stage(this.options.parentElement, options); // 实例化舞台
     this.statusBar = new StatusBar(this.options.parentElement); // 实例化状态条
     this.tips = new Tips(this.stage.element, this.options.tips); // 提示框

@@ -101,3 +101,16 @@ export const loadUmdLibrary = async (importType: ImportType, urls) => {
   await loadLibraryCubism(SDK.PIXI);
   await loadLibraryCubism(SDK.PIXI_LIVE2D_DISPLAY);
 };
+
+// 检查版本信息
+export const checkVersion = async () => {
+  const result = await fetch('https://unpkg.com/oh-my-live2d/package.json');
+  const packageInfo = await result.json();
+  if (packageInfo.version !== __VERSION__) {
+    console.warn(
+      '[oml2d] 检查到 oh-my-live2d 存在最新版:',
+      `v${packageInfo.version}`,
+      '请前往: https://oml2d.com 以获得最新版详细信息, 并及时更新.'
+    );
+  }
+};
