@@ -29,3 +29,26 @@ features:
     title: 多种使用场景
     details: 在vite、webpack项目中均得到测试, 同时还支持在多种文档构建工具中使用, 例如vitepress
 ---
+
+## 快速尝鲜
+
+在任意项目的`index.html`中使用以下示例, 立即体验 `oh-my-live2d`:
+<img align="right" style="margin-left:10px;border-radius: 10px;margin-top:23px;margin-bottom: 23px;" src="https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image%E5%BD%95%E5%B1%8F2024-02-28%2017.49.14%202.GIF"/>
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
+<script>
+  OML2D.loadOml2d({
+    models: [
+      {
+        path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
+        scale: 0.12,
+        position: [-50, 50],
+        stageStyle: {
+          width: 320
+        }
+      }
+    ]
+  });
+</script>
+```

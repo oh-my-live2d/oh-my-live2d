@@ -123,6 +123,8 @@ loadOml2d({
 
 - [在 vuepress2 中使用](https://oml2d.com/guide/vuepress)
 
+- [在 hexo 中使用](https://oml2d.com/guide/hexo.html)
+
 ## 📧 讨论：
 
 - qq 群: 474032914

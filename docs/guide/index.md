@@ -47,7 +47,25 @@ yarn add oh-my-live2d
 
 :::
 
----
+### 更新
+
+如需更新 `oh-my-live2d` 你只需要在安装命令后缀加上`@latest`即可更新至当前最新发行版, 当然 `vuepress` 等插件也同理
+
+::: code-group
+
+```bash [npm]
+npm install oh-my-live2d@latest
+```
+
+```bash [pnpm]
+pnpm add oh-my-live2d@latest
+```
+
+```bash [yarn]
+yarn add oh-my-live2d@latest
+```
+
+:::
 
 ### CDN 方式导入：
 
@@ -105,6 +123,8 @@ loadOml2d({
 - [在 vitepress 中使用](/guide/vitepress)
 
 - [在 vuepress2 中使用](/guide/vuepress)
+
+- [在 hexo 中使用](/guide/hexo.html)
 
 ## 📧 讨论：
 

@@ -44,13 +44,13 @@
 
 ---
 
-### libraryUrls.cubism4
+### libraryUrls.cubism5
 
 - 类型: `string`
 
 - 默认值: `oh-my-live2d提供的默认地址`
 
-自定义 Cubism4 SDK 地址
+自定义 Cubism5 SDK 地址
 
 ---
 
@@ -91,6 +91,8 @@
 - 类型: `Tips`
 
 - 默认值: `object`
+
+自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容
 
 ---
 

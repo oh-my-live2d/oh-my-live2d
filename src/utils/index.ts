@@ -84,7 +84,7 @@ export const loadLibrary = async (importType: ImportType, urls): Promise<PIXI_LI
       await loadLibraryCubism(urls[importType]);
       return await import(`pixi-live2d-display/cubism4`);
     default:
-      await Promise.all([loadLibraryCubism(urls.cubism2), loadLibraryCubism(urls.cubism4)]);
+      await Promise.all([loadLibraryCubism(urls.cubism2), loadLibraryCubism(urls.cubism5)]);
       return await import('pixi-live2d-display');
   }
 };
@@ -92,7 +92,7 @@ export const loadLibrary = async (importType: ImportType, urls): Promise<PIXI_LI
 export const loadUmdLibrary = async (importType: ImportType, urls) => {
   switch (importType) {
     case 'complete':
-      await Promise.all([loadLibraryCubism(urls.cubism2), loadLibraryCubism(urls.cubism4)]);
+      await Promise.all([loadLibraryCubism(urls.cubism2), loadLibraryCubism(urls.cubism5)]);
       break;
     default:
       await loadLibraryCubism(urls[importType]);

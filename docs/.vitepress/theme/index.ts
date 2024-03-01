@@ -29,14 +29,6 @@ export default {
             stageStyle: {
               width: 320
             }
-          },
-          {
-            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
-            position: [50, 100],
-            stageStyle: {
-              width: 300,
-              height: 450
-            }
           }
         ],
         tips: {
