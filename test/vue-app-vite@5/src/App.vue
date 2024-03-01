@@ -1,9 +1,24 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { loadOml2d } from 'oh-my-live2d';
+import { onMounted, ref } from 'vue';
+import HelloWorld from './components/HelloWorld.vue';
+const appRef = ref();
+
+onMounted(() => {
+  loadOml2d({
+    parentElement: appRef.value,
+    models: [
+      {
+        path: 'https://model.oml2d.com/pio/model.json',
+        scale: 0.5
+      }
+    ]
+  });
+});
 </script>
 
 <template>
-  <div>
+  <div ref="appRef">
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>

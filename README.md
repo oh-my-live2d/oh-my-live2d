@@ -125,10 +125,12 @@ loadOml2d({
 
 ## 📧 讨论：
 
-添加好友以加入微信群：  
-添加好友时请备注：`oml2d`
+- qq 群: 474032914
 
-<img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
+- 微信群:
+  添加好友以加入微信群：  
+  添加好友时请备注：`oml2d`
+  <img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
 
 ## 📃 开源许可：
 

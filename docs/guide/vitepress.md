@@ -1,6 +1,10 @@
 # 在 vitepress 项目中使用:
 
-由于 vitepress 不提供插件模式, 所以我们可以使用动态导入的形式来使用 `oh-my-live2d`, 使用时需要判断环境变量已确保编译打包时的环境为非服务端
+由于 vitepress 不提供插件模式, 所以我们可以使用动态导入的形式在主题配置中来使用 `oh-my-live2d`
+
+::: warning
+使用时注意需要判断环境变量已确保编译打包时的环境为非服务端
+:::
 
 ## 安装
 
@@ -26,12 +30,7 @@ export default {
       loadOml2d({
         models: [
           {
-            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-            scale: 0.12,
-            position: [-10, 50],
-            stageStyle: {
-              width: 350
-            }
+            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json'
           }
         ]
       });
@@ -41,3 +40,9 @@ export default {
 ```
 
 如需自定义配置, 请在[配置选项](/options/Options)中查阅详细配置内容.
+
+## 案例:
+
+以下是 `vitepress` 的一些使用案例:
+
+- [tianjie.loclink.cn](https://tianjie.loclink.cn)

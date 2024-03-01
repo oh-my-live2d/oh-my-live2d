@@ -4,10 +4,8 @@
 
 `OhMyLive2D` 的初衷是为了解决官方 Cubism SDK 在使用时还需要额外通过 `script` 标签外部引入以及使用和学习成本较高的缺点。而现在它在被 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display) 驱动的同时又提供了多种导入方式和按需导入的模式，以及更加方便自定义配置的 API。现在你完全可以在 **vite** 或者 **webpack** 中更便捷的使用它，并且无需再导入其他任何依赖或官方 SDK。
 
-本项目主要是依赖于 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display)，感谢其为 **Live2D** 社区做出的贡献。
-
 > [!TIP]  
-> **本项目目前正处于积极维护中, 急需志同道合的伙伴加入 😄**
+> **本项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入 😄**
 
 ## Live2D 是什么?
 
@@ -73,27 +71,9 @@ yarn add oh-my-live2d
       OML2D.loadOml2d({
         models: [
           {
-            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-            scale: 0.12,
-            position: [-50, 50],
-            stageStyle: {
-              width: 320
-            }
-          },
-          {
-            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
-            position: [50, 100],
-            stageStyle: {
-              width: 300,
-              height: 450
-            }
+            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json'
           }
-        ],
-        tips: {
-          style: {
-            offsetY: 40
-          }
-        }
+        ]
       });
     </script>
   </body>
@@ -112,27 +92,9 @@ import { loadOml2d } from 'oh-my-live2d';
 loadOml2d({
   models: [
     {
-      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-      scale: 0.12,
-      position: [-50, 50],
-      stageStyle: {
-        width: 320
-      }
-    },
-    {
-      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
-      position: [50, 100],
-      stageStyle: {
-        width: 300,
-        height: 450
-      }
+      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json'
     }
-  ],
-  tips: {
-    style: {
-      offsetY: 40
-    }
-  }
+  ]
 });
 ```
 
@@ -143,6 +105,15 @@ loadOml2d({
 - [在 vitepress 中使用](/guide/vitepress)
 
 - [在 vuepress2 中使用](/guide/vuepress)
+
+## 📧 讨论：
+
+- qq 群: 474032914
+
+- 微信群:
+  添加好友以加入微信群：  
+  添加好友时请备注：`oml2d`
+  <img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
 
 ### 版权声明:
 

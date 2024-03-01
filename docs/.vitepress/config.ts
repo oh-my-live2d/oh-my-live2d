@@ -32,7 +32,8 @@ export default defineConfig({
       '/guide': [
         { text: '快速入门', link: '/guide/' },
         { text: '在vitepress中使用', link: '/guide/vitepress' },
-        { text: '在vuepress中使用', link: '/guide/vuepress' }
+        { text: '在vuepress中使用', link: '/guide/vuepress' },
+        { text: '在hexo中使用', link: '/guide/hexo' }
       ]
     },
     outline: {
