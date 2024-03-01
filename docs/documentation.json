@@ -1,12 +1,12 @@
 {
-	"id": 232,
+	"id": 0,
 	"name": "oh-my-live2d",
 	"variant": "project",
 	"kind": 1,
 	"flags": {},
 	"children": [
 		{
-			"id": 248,
+			"id": 16,
 			"name": "Model",
 			"variant": "declaration",
 			"kind": 256,
@@ -32,7 +32,7 @@
 			},
 			"children": [
 				{
-					"id": 249,
+					"id": 17,
 					"name": "path",
 					"variant": "declaration",
 					"kind": 1024,
@@ -50,7 +50,7 @@
 							"fileName": "types/model.ts",
 							"line": 10,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/model.ts#L10"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L10"
 						}
 					],
 					"type": {
@@ -59,7 +59,7 @@
 					}
 				},
 				{
-					"id": 251,
+					"id": 19,
 					"name": "position",
 					"variant": "declaration",
 					"kind": 1024,
@@ -99,7 +99,7 @@
 							"fileName": "types/model.ts",
 							"line": 22,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/model.ts#L22"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L22"
 						}
 					],
 					"type": {
@@ -127,7 +127,7 @@
 					}
 				},
 				{
-					"id": 250,
+					"id": 18,
 					"name": "scale",
 					"variant": "declaration",
 					"kind": 1024,
@@ -158,7 +158,7 @@
 							"fileName": "types/model.ts",
 							"line": 15,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/model.ts#L15"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L15"
 						}
 					],
 					"type": {
@@ -167,7 +167,7 @@
 					}
 				},
 				{
-					"id": 252,
+					"id": 20,
 					"name": "stageStyle",
 					"variant": "declaration",
 					"kind": 1024,
@@ -198,20 +198,20 @@
 							"fileName": "types/model.ts",
 							"line": 28,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/model.ts#L28"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L28"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 253,
+							"id": 21,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 254,
+									"id": 22,
 									"name": "backgroundColor",
 									"variant": "declaration",
 									"kind": 1024,
@@ -231,7 +231,7 @@
 											"fileName": "types/model.ts",
 											"line": 32,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/model.ts#L32"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L32"
 										}
 									],
 									"type": {
@@ -240,7 +240,7 @@
 									}
 								},
 								{
-									"id": 256,
+									"id": 24,
 									"name": "height",
 									"variant": "declaration",
 									"kind": 1024,
@@ -260,7 +260,7 @@
 											"fileName": "types/model.ts",
 											"line": 41,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/model.ts#L41"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L41"
 										}
 									],
 									"type": {
@@ -269,7 +269,7 @@
 									}
 								},
 								{
-									"id": 255,
+									"id": 23,
 									"name": "width",
 									"variant": "declaration",
 									"kind": 1024,
@@ -289,7 +289,7 @@
 											"fileName": "types/model.ts",
 											"line": 37,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/model.ts#L37"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L37"
 										}
 									],
 									"type": {
@@ -302,9 +302,9 @@
 								{
 									"title": "Properties",
 									"children": [
-										254,
-										256,
-										255
+										22,
+										24,
+										23
 									]
 								}
 							],
@@ -313,7 +313,7 @@
 									"fileName": "types/model.ts",
 									"line": 28,
 									"character": 15,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/model.ts#L28"
+									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L28"
 								}
 							]
 						}
@@ -324,10 +324,10 @@
 				{
 					"title": "Properties",
 					"children": [
-						249,
-						251,
-						250,
-						252
+						17,
+						19,
+						18,
+						20
 					]
 				}
 			],
@@ -336,12 +336,12 @@
 					"fileName": "types/model.ts",
 					"line": 6,
 					"character": 17,
-					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/model.ts#L6"
+					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L6"
 				}
 			]
 		},
 		{
-			"id": 236,
+			"id": 4,
 			"name": "Options",
 			"variant": "declaration",
 			"kind": 256,
@@ -367,7 +367,7 @@
 			},
 			"children": [
 				{
-					"id": 247,
+					"id": 15,
 					"name": "fixed",
 					"variant": "declaration",
 					"kind": 1024,
@@ -407,7 +407,7 @@
 							"fileName": "types/options.ts",
 							"line": 84,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L84"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L84"
 						}
 					],
 					"type": {
@@ -416,7 +416,7 @@
 					}
 				},
 				{
-					"id": 237,
+					"id": 5,
 					"name": "importType",
 					"variant": "declaration",
 					"kind": 1024,
@@ -456,7 +456,7 @@
 							"fileName": "types/options.ts",
 							"line": 16,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L16"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L16"
 						}
 					],
 					"type": {
@@ -470,7 +470,7 @@
 					}
 				},
 				{
-					"id": 238,
+					"id": 6,
 					"name": "libraryUrls",
 					"variant": "declaration",
 					"kind": 1024,
@@ -501,20 +501,20 @@
 							"fileName": "types/options.ts",
 							"line": 24,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L24"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L24"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 239,
+							"id": 7,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 240,
+									"id": 8,
 									"name": "cubism2",
 									"variant": "declaration",
 									"kind": 1024,
@@ -545,7 +545,7 @@
 											"fileName": "types/options.ts",
 											"line": 29,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L29"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L29"
 										}
 									],
 									"type": {
@@ -554,7 +554,7 @@
 									}
 								},
 								{
-									"id": 241,
+									"id": 9,
 									"name": "cubism5",
 									"variant": "declaration",
 									"kind": 1024,
@@ -585,7 +585,7 @@
 											"fileName": "types/options.ts",
 											"line": 35,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L35"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L35"
 										}
 									],
 									"type": {
@@ -598,8 +598,8 @@
 								{
 									"title": "Properties",
 									"children": [
-										240,
-										241
+										8,
+										9
 									]
 								}
 							],
@@ -608,14 +608,14 @@
 									"fileName": "types/options.ts",
 									"line": 24,
 									"character": 16,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L24"
+									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L24"
 								}
 							]
 						}
 					}
 				},
 				{
-					"id": 244,
+					"id": 12,
 					"name": "models",
 					"variant": "declaration",
 					"kind": 1024,
@@ -655,21 +655,21 @@
 							"fileName": "types/options.ts",
 							"line": 59,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L59"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L59"
 						}
 					],
 					"type": {
 						"type": "array",
 						"elementType": {
 							"type": "reference",
-							"target": 248,
+							"target": 16,
 							"name": "Model",
 							"package": "oh-my-live2d"
 						}
 					}
 				},
 				{
-					"id": 246,
+					"id": 14,
 					"name": "parentElement",
 					"variant": "declaration",
 					"kind": 1024,
@@ -709,7 +709,7 @@
 							"fileName": "types/options.ts",
 							"line": 74,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L74"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L74"
 						}
 					],
 					"type": {
@@ -723,7 +723,7 @@
 					}
 				},
 				{
-					"id": 242,
+					"id": 10,
 					"name": "sayHello",
 					"variant": "declaration",
 					"kind": 1024,
@@ -763,7 +763,7 @@
 							"fileName": "types/options.ts",
 							"line": 43,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L43"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L43"
 						}
 					],
 					"type": {
@@ -772,7 +772,7 @@
 					}
 				},
 				{
-					"id": 245,
+					"id": 13,
 					"name": "tips",
 					"variant": "declaration",
 					"kind": 1024,
@@ -812,18 +812,18 @@
 							"fileName": "types/options.ts",
 							"line": 67,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L67"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L67"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 257,
+						"target": 25,
 						"name": "Tips",
 						"package": "oh-my-live2d"
 					}
 				},
 				{
-					"id": 243,
+					"id": 11,
 					"name": "transitionTime",
 					"variant": "declaration",
 					"kind": 1024,
@@ -863,7 +863,7 @@
 							"fileName": "types/options.ts",
 							"line": 50,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L50"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L50"
 						}
 					],
 					"type": {
@@ -876,14 +876,14 @@
 				{
 					"title": "Properties",
 					"children": [
-						247,
-						237,
-						238,
-						244,
-						246,
-						242,
-						245,
-						243
+						15,
+						5,
+						6,
+						12,
+						14,
+						10,
+						13,
+						11
 					]
 				}
 			],
@@ -892,12 +892,12 @@
 					"fileName": "types/options.ts",
 					"line": 10,
 					"character": 17,
-					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/options.ts#L10"
+					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L10"
 				}
 			]
 		},
 		{
-			"id": 257,
+			"id": 25,
 			"name": "Tips",
 			"variant": "declaration",
 			"kind": 256,
@@ -923,7 +923,7 @@
 			},
 			"children": [
 				{
-					"id": 285,
+					"id": 53,
 					"name": "copyTips",
 					"variant": "declaration",
 					"kind": 1024,
@@ -943,20 +943,20 @@
 							"fileName": "types/tips.ts",
 							"line": 140,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L140"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L140"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 286,
+							"id": 54,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 287,
+									"id": 55,
 									"name": "duration",
 									"variant": "declaration",
 									"kind": 1024,
@@ -987,7 +987,7 @@
 											"fileName": "types/tips.ts",
 											"line": 145,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L145"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L145"
 										}
 									],
 									"type": {
@@ -996,7 +996,7 @@
 									}
 								},
 								{
-									"id": 289,
+									"id": 57,
 									"name": "message",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1036,7 +1036,7 @@
 											"fileName": "types/tips.ts",
 											"line": 157,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L157"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L157"
 										}
 									],
 									"type": {
@@ -1048,7 +1048,7 @@
 									}
 								},
 								{
-									"id": 288,
+									"id": 56,
 									"name": "priority",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1079,7 +1079,7 @@
 											"fileName": "types/tips.ts",
 											"line": 150,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L150"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L150"
 										}
 									],
 									"type": {
@@ -1092,9 +1092,9 @@
 								{
 									"title": "Properties",
 									"children": [
-										287,
-										289,
-										288
+										55,
+										57,
+										56
 									]
 								}
 							],
@@ -1103,14 +1103,14 @@
 									"fileName": "types/tips.ts",
 									"line": 140,
 									"character": 13,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L140"
+									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L140"
 								}
 							]
 						}
 					}
 				},
 				{
-					"id": 264,
+					"id": 32,
 					"name": "idleTips",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1141,20 +1141,20 @@
 							"fileName": "types/tips.ts",
 							"line": 41,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L41"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L41"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 265,
+							"id": 33,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 267,
+									"id": 35,
 									"name": "duration",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1185,7 +1185,7 @@
 											"fileName": "types/tips.ts",
 											"line": 55,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L55"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L55"
 										}
 									],
 									"type": {
@@ -1194,7 +1194,7 @@
 									}
 								},
 								{
-									"id": 269,
+									"id": 37,
 									"name": "interval",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1225,7 +1225,7 @@
 											"fileName": "types/tips.ts",
 											"line": 65,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L65"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L65"
 										}
 									],
 									"type": {
@@ -1234,7 +1234,7 @@
 									}
 								},
 								{
-									"id": 270,
+									"id": 38,
 									"name": "message",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1265,7 +1265,7 @@
 											"fileName": "types/tips.ts",
 											"line": 71,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L71"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L71"
 										}
 									],
 									"type": {
@@ -1277,7 +1277,7 @@
 									}
 								},
 								{
-									"id": 268,
+									"id": 36,
 									"name": "priority",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1308,7 +1308,7 @@
 											"fileName": "types/tips.ts",
 											"line": 60,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L60"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L60"
 										}
 									],
 									"type": {
@@ -1317,7 +1317,7 @@
 									}
 								},
 								{
-									"id": 266,
+									"id": 34,
 									"name": "wordTheDay",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1348,7 +1348,7 @@
 											"fileName": "types/tips.ts",
 											"line": 50,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L50"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L50"
 										}
 									],
 									"type": {
@@ -1361,11 +1361,11 @@
 								{
 									"title": "Properties",
 									"children": [
-										267,
-										269,
-										270,
-										268,
-										266
+										35,
+										37,
+										38,
+										36,
+										34
 									]
 								}
 							],
@@ -1374,14 +1374,14 @@
 									"fileName": "types/tips.ts",
 									"line": 41,
 									"character": 13,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L41"
+									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L41"
 								}
 							]
 						}
 					}
 				},
 				{
-					"id": 258,
+					"id": 26,
 					"name": "style",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1412,20 +1412,20 @@
 							"fileName": "types/tips.ts",
 							"line": 13,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L13"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L13"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 259,
+							"id": 27,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 261,
+									"id": 29,
 									"name": "height",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1456,7 +1456,7 @@
 											"fileName": "types/tips.ts",
 											"line": 24,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L24"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L24"
 										}
 									],
 									"type": {
@@ -1465,7 +1465,7 @@
 									}
 								},
 								{
-									"id": 262,
+									"id": 30,
 									"name": "offsetX",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1496,7 +1496,7 @@
 											"fileName": "types/tips.ts",
 											"line": 29,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L29"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L29"
 										}
 									],
 									"type": {
@@ -1505,7 +1505,7 @@
 									}
 								},
 								{
-									"id": 263,
+									"id": 31,
 									"name": "offsetY",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1536,7 +1536,7 @@
 											"fileName": "types/tips.ts",
 											"line": 34,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L34"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L34"
 										}
 									],
 									"type": {
@@ -1545,7 +1545,7 @@
 									}
 								},
 								{
-									"id": 260,
+									"id": 28,
 									"name": "width",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1576,7 +1576,7 @@
 											"fileName": "types/tips.ts",
 											"line": 19,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L19"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L19"
 										}
 									],
 									"type": {
@@ -1589,10 +1589,10 @@
 								{
 									"title": "Properties",
 									"children": [
-										261,
-										262,
-										263,
-										260
+										29,
+										30,
+										31,
+										28
 									]
 								}
 							],
@@ -1601,14 +1601,14 @@
 									"fileName": "types/tips.ts",
 									"line": 13,
 									"character": 10,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L13"
+									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L13"
 								}
 							]
 						}
 					}
 				},
 				{
-					"id": 271,
+					"id": 39,
 					"name": "welcomeTips",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1639,20 +1639,20 @@
 							"fileName": "types/tips.ts",
 							"line": 78,
 							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L78"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L78"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 272,
+							"id": 40,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 273,
+									"id": 41,
 									"name": "duration",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1683,7 +1683,7 @@
 											"fileName": "types/tips.ts",
 											"line": 83,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L83"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L83"
 										}
 									],
 									"type": {
@@ -1692,7 +1692,7 @@
 									}
 								},
 								{
-									"id": 275,
+									"id": 43,
 									"name": "message",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1723,20 +1723,20 @@
 											"fileName": "types/tips.ts",
 											"line": 93,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L93"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L93"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 276,
+											"id": 44,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
 											"flags": {},
 											"children": [
 												{
-													"id": 280,
+													"id": 48,
 													"name": "afternoon",
 													"variant": "declaration",
 													"kind": 1024,
@@ -1767,7 +1767,7 @@
 															"fileName": "types/tips.ts",
 															"line": 113,
 															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L113"
+															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L113"
 														}
 													],
 													"type": {
@@ -1776,7 +1776,7 @@
 													}
 												},
 												{
-													"id": 277,
+													"id": 45,
 													"name": "daybreak",
 													"variant": "declaration",
 													"kind": 1024,
@@ -1807,7 +1807,7 @@
 															"fileName": "types/tips.ts",
 															"line": 98,
 															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L98"
+															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L98"
 														}
 													],
 													"type": {
@@ -1816,7 +1816,7 @@
 													}
 												},
 												{
-													"id": 281,
+													"id": 49,
 													"name": "dusk",
 													"variant": "declaration",
 													"kind": 1024,
@@ -1847,7 +1847,7 @@
 															"fileName": "types/tips.ts",
 															"line": 118,
 															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L118"
+															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L118"
 														}
 													],
 													"type": {
@@ -1856,7 +1856,7 @@
 													}
 												},
 												{
-													"id": 283,
+													"id": 51,
 													"name": "lateNight",
 													"variant": "declaration",
 													"kind": 1024,
@@ -1887,7 +1887,7 @@
 															"fileName": "types/tips.ts",
 															"line": 128,
 															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L128"
+															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L128"
 														}
 													],
 													"type": {
@@ -1896,7 +1896,7 @@
 													}
 												},
 												{
-													"id": 278,
+													"id": 46,
 													"name": "morning",
 													"variant": "declaration",
 													"kind": 1024,
@@ -1927,7 +1927,7 @@
 															"fileName": "types/tips.ts",
 															"line": 103,
 															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L103"
+															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L103"
 														}
 													],
 													"type": {
@@ -1936,7 +1936,7 @@
 													}
 												},
 												{
-													"id": 282,
+													"id": 50,
 													"name": "night",
 													"variant": "declaration",
 													"kind": 1024,
@@ -1967,7 +1967,7 @@
 															"fileName": "types/tips.ts",
 															"line": 123,
 															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L123"
+															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L123"
 														}
 													],
 													"type": {
@@ -1976,7 +1976,7 @@
 													}
 												},
 												{
-													"id": 279,
+													"id": 47,
 													"name": "noon",
 													"variant": "declaration",
 													"kind": 1024,
@@ -2007,7 +2007,7 @@
 															"fileName": "types/tips.ts",
 															"line": 108,
 															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L108"
+															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L108"
 														}
 													],
 													"type": {
@@ -2016,7 +2016,7 @@
 													}
 												},
 												{
-													"id": 284,
+													"id": 52,
 													"name": "weeHours",
 													"variant": "declaration",
 													"kind": 1024,
@@ -2047,7 +2047,7 @@
 															"fileName": "types/tips.ts",
 															"line": 133,
 															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L133"
+															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L133"
 														}
 													],
 													"type": {
@@ -2060,14 +2060,14 @@
 												{
 													"title": "Properties",
 													"children": [
-														280,
-														277,
-														281,
-														283,
-														278,
-														282,
-														279,
-														284
+														48,
+														45,
+														49,
+														51,
+														46,
+														50,
+														47,
+														52
 													]
 												}
 											],
@@ -2076,14 +2076,14 @@
 													"fileName": "types/tips.ts",
 													"line": 93,
 													"character": 14,
-													"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L93"
+													"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L93"
 												}
 											]
 										}
 									}
 								},
 								{
-									"id": 274,
+									"id": 42,
 									"name": "priority",
 									"variant": "declaration",
 									"kind": 1024,
@@ -2114,7 +2114,7 @@
 											"fileName": "types/tips.ts",
 											"line": 88,
 											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L88"
+											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L88"
 										}
 									],
 									"type": {
@@ -2127,9 +2127,9 @@
 								{
 									"title": "Properties",
 									"children": [
-										273,
-										275,
-										274
+										41,
+										43,
+										42
 									]
 								}
 							],
@@ -2138,7 +2138,7 @@
 									"fileName": "types/tips.ts",
 									"line": 78,
 									"character": 16,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L78"
+									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L78"
 								}
 							]
 						}
@@ -2149,10 +2149,10 @@
 				{
 					"title": "Properties",
 					"children": [
-						285,
-						264,
-						258,
-						271
+						53,
+						32,
+						26,
+						39
 					]
 				}
 			],
@@ -2161,12 +2161,12 @@
 					"fileName": "types/tips.ts",
 					"line": 7,
 					"character": 17,
-					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/types/tips.ts#L7"
+					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L7"
 				}
 			]
 		},
 		{
-			"id": 233,
+			"id": 1,
 			"name": "loadOml2d",
 			"variant": "declaration",
 			"kind": 64,
@@ -2176,12 +2176,12 @@
 					"fileName": "index.ts",
 					"line": 8,
 					"character": 13,
-					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/index.ts#L8"
+					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/index.ts#L8"
 				}
 			],
 			"signatures": [
 				{
-					"id": 234,
+					"id": 2,
 					"name": "loadOml2d",
 					"variant": "signature",
 					"kind": 4096,
@@ -2191,19 +2191,19 @@
 							"fileName": "modules/index.ts",
 							"line": 179,
 							"character": 20,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/c1ca25b/src/modules/index.ts#L179"
+							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/modules/index.ts#L179"
 						}
 					],
 					"parameters": [
 						{
-							"id": 235,
+							"id": 3,
 							"name": "options",
 							"variant": "param",
 							"kind": 32768,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 236,
+								"target": 4,
 								"name": "Options",
 								"package": "oh-my-live2d"
 							}
@@ -2232,15 +2232,15 @@
 		{
 			"title": "Interfaces",
 			"children": [
-				248,
-				236,
-				257
+				16,
+				4,
+				25
 			]
 		},
 		{
 			"title": "Functions",
 			"children": [
-				233
+				1
 			]
 		}
 	],
@@ -2492,235 +2492,235 @@
 		}
 	],
 	"symbolIdMap": {
-		"232": {
+		"0": {
 			"sourceFileName": "src/index.ts",
 			"qualifiedName": ""
 		},
-		"233": {
+		"1": {
 			"sourceFileName": "src/index.ts",
 			"qualifiedName": "loadOml2d"
 		},
-		"234": {
+		"2": {
 			"sourceFileName": "src/modules/index.ts",
 			"qualifiedName": "loadOml2d"
 		},
-		"235": {
+		"3": {
 			"sourceFileName": "src/modules/index.ts",
 			"qualifiedName": "options"
 		},
-		"236": {
+		"4": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "Options"
 		},
-		"237": {
+		"5": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "Options.importType"
 		},
-		"238": {
+		"6": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "Options.libraryUrls"
 		},
-		"239": {
+		"7": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "__type"
 		},
-		"240": {
+		"8": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "__type.cubism2"
 		},
-		"241": {
+		"9": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "__type.cubism5"
 		},
-		"242": {
+		"10": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "Options.sayHello"
 		},
-		"243": {
+		"11": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "Options.transitionTime"
 		},
-		"244": {
+		"12": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "Options.models"
 		},
-		"245": {
+		"13": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "Options.tips"
 		},
-		"246": {
+		"14": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "Options.parentElement"
 		},
-		"247": {
+		"15": {
 			"sourceFileName": "src/types/options.ts",
 			"qualifiedName": "Options.fixed"
 		},
-		"248": {
+		"16": {
 			"sourceFileName": "src/types/model.ts",
 			"qualifiedName": "Model"
 		},
-		"249": {
+		"17": {
 			"sourceFileName": "src/types/model.ts",
 			"qualifiedName": "Model.path"
 		},
-		"250": {
+		"18": {
 			"sourceFileName": "src/types/model.ts",
 			"qualifiedName": "Model.scale"
 		},
-		"251": {
+		"19": {
 			"sourceFileName": "src/types/model.ts",
 			"qualifiedName": "Model.position"
 		},
-		"252": {
+		"20": {
 			"sourceFileName": "src/types/model.ts",
 			"qualifiedName": "Model.stageStyle"
 		},
-		"253": {
+		"21": {
 			"sourceFileName": "src/types/model.ts",
 			"qualifiedName": "__type"
 		},
-		"254": {
+		"22": {
 			"sourceFileName": "src/types/model.ts",
 			"qualifiedName": "__type.backgroundColor"
 		},
-		"255": {
+		"23": {
 			"sourceFileName": "src/types/model.ts",
 			"qualifiedName": "__type.width"
 		},
-		"256": {
+		"24": {
 			"sourceFileName": "src/types/model.ts",
 			"qualifiedName": "__type.height"
 		},
-		"257": {
+		"25": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "Tips"
 		},
-		"258": {
+		"26": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "Tips.style"
 		},
-		"259": {
+		"27": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type"
 		},
-		"260": {
+		"28": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.width"
 		},
-		"261": {
+		"29": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.height"
 		},
-		"262": {
+		"30": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.offsetX"
 		},
-		"263": {
+		"31": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.offsetY"
 		},
-		"264": {
+		"32": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "Tips.idleTips"
 		},
-		"265": {
+		"33": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type"
 		},
-		"266": {
+		"34": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.wordTheDay"
 		},
-		"267": {
+		"35": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.duration"
 		},
-		"268": {
+		"36": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.priority"
 		},
-		"269": {
+		"37": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.interval"
 		},
-		"270": {
+		"38": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.message"
 		},
-		"271": {
+		"39": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "Tips.welcomeTips"
 		},
-		"272": {
+		"40": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type"
 		},
-		"273": {
+		"41": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.duration"
 		},
-		"274": {
+		"42": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.priority"
 		},
-		"275": {
+		"43": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.message"
 		},
-		"276": {
+		"44": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type"
 		},
-		"277": {
+		"45": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.daybreak"
 		},
-		"278": {
+		"46": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.morning"
 		},
-		"279": {
+		"47": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.noon"
 		},
-		"280": {
+		"48": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.afternoon"
 		},
-		"281": {
+		"49": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.dusk"
 		},
-		"282": {
+		"50": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.night"
 		},
-		"283": {
+		"51": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.lateNight"
 		},
-		"284": {
+		"52": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.weeHours"
 		},
-		"285": {
+		"53": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "Tips.copyTips"
 		},
-		"286": {
+		"54": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type"
 		},
-		"287": {
+		"55": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.duration"
 		},
-		"288": {
+		"56": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.priority"
 		},
-		"289": {
+		"57": {
 			"sourceFileName": "src/types/tips.ts",
 			"qualifiedName": "__type.message"
 		}

@@ -49,7 +49,8 @@ export default defineConfig({
       {
         text: '配置',
         link: '/options/Options'
-      }
+      },
+      { text: '更新日志', link: '/CHANGELOG' }
     ],
     search: {
       provider: 'local',
