@@ -21,8 +21,8 @@ jobs:
       - name: 项目安装依赖
         run: pnpm install --no-frozen-lockfile
 
-      - name: 测试构建
+      - name: 构建
         run: pnpm build
 
-      - name: 测试 Linter
-        run: pnpm lint
+      - name: 测试
+        run: pnpm test:build
