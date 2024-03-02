@@ -124,37 +124,45 @@ export interface TipsOptions {
        * @default "上午好！工作顺利嘛，不要久坐，多起来走动走动哦！"
        */
       morning?: string;
+
       /**
        * 中午 12-13 点提示信息内容
        *
        * @default "中午了，工作了一个上午，现在是午餐时间！"
        */
       noon?: string;
+
       /**
        * 下午 14-17 点提示信息内容
        *
        * @default "午后很容易犯困呢，来杯咖啡吧~"
        */
       afternoon?: string;
+
       /**
        * 傍晚 18-19 点提示信息内容
        *
        * @default "傍晚了！工作一天幸苦啦~"
        */
       dusk?: string;
+
       /**
        * 晚上 20-21 点提示信息内容
        *
        * @default "晚上好，今天过得怎么样呢？"
        */
       night?: string;
+
       /**
        * 深夜 22-23 点提示信息内容
+       *
        * @default ”已经这么晚了呀，早点休息吧，晚安~“
        */
       lateNight?: string;
+
       /**
        * 凌晨 0-4 点提示信息内容
+       *
        * @default “这么晚还不睡吗？当心熬夜秃头哦！”
        */
       weeHours?: string;
@@ -166,18 +174,21 @@ export interface TipsOptions {
    */
   copyTips?: {
     /**
-     * 提示框持续时间, 单位ms
+     * 提示框持续时间, 单位 ms
+     *
      * @default 3000
      */
     duration?: number;
     /**
      * 优先级, 高优先级消息将会覆盖低优先级的消息
+     *
      * @default 3
      */
     priority?: number;
 
     /**
      * 播放的消息内容, 需要是一个字符串数组, 播放时会从中随机取出一条进行提示, 空数组则不播放
+     *
      * @valueType string[]
      * @default ['你复制了什么内容呢?记得注明出处哦~']
      */

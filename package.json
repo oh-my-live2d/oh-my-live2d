@@ -1,17 +1,24 @@
 {
   "name": "oh-my-live2d-root",
-  "private": true,
   "version": "0.7.1",
+  "private": true,
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
     "docs:build": "pnpm build && node ./scripts/typedoc.js && pnpm -r docs:build",
     "docs:dev": "concurrently \"node ./scripts/typedoc.js -w\" \"pnpm -r docs:dev\"",
+    "lint:prettier": "prettier --check --write .",
+    "prepare": "husky",
     "refresh": "node ./scripts/refresh-cdn.js",
     "release": "pnpm -F oh-my-live2d build && pnpm refresh",
     "release:vuepress": "pnpm -F vuepress-plugin-oh-my-live2d run release",
     "test:build": "pnpm -r run test:build",
     "test:dev": "pnpm -r run test:dev"
+  },
+  "nano-staged": {
+    "**/*": "prettier --write --ignore-unknown",
+    "*.{js,ts}": "eslint --fix",
+    "package.json": "sort-package-json"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^8.0.1",
@@ -22,9 +29,12 @@
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.57.0",
     "fs-extra": "^11.2.0",
+    "husky": "^9.0.11",
     "json2md": "^2.0.1",
+    "nano-staged": "^0.8.0",
     "release-it": "^17.1.1",
     "rimraf": "^5.0.5",
+    "sort-package-json": "^2.8.0",
     "typedoc": "0.25.9",
     "typedoc-plugin-markdown": "3.17.1",
     "typescript": "^5.3.3",

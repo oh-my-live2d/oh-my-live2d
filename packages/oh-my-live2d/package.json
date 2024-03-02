@@ -17,18 +17,18 @@
   "license": "MIT",
   "author": "loclink",
   "type": "module",
-  "main": "./dist/index.min.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     }
   },
+  "main": "./dist/index.min.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rimraf dist && tsc && node ./scripts/build.js",
     "dev": "rimraf dist && tsc && (concurrently \"tsc -w\" \"cross-env OML_ENV=dev node ./scripts/build.js\" \"pnpm run test\")",
