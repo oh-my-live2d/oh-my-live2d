@@ -1,2728 +1,2668 @@
 {
-	"id": 0,
-	"name": "oh-my-live2d",
-	"variant": "project",
-	"kind": 1,
-	"flags": {},
-	"children": [
-		{
-			"id": 16,
-			"name": "Model",
-			"variant": "declaration",
-			"kind": 256,
-			"flags": {},
-			"comment": {
-				"summary": [
-					{
-						"kind": "text",
-						"text": "# 模型配置选项\n可配置模型地址来源以及缩放比例、舞台大小等"
-					}
-				],
-				"blockTags": [
-					{
-						"tag": "@name",
-						"content": [
-							{
-								"kind": "text",
-								"text": "模型选项"
-							}
-						]
-					}
-				]
-			},
-			"children": [
-				{
-					"id": 17,
-					"name": "path",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "模型的json文件url地址, 必填项"
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/model.ts",
-							"line": 10,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L10"
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "string"
-					}
-				},
-				{
-					"id": 19,
-					"name": "position",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "模型在舞台中的位置. x: 横坐标, y: 纵坐标"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "[x: number, y:number]"
-									}
-								]
-							},
-							{
-								"tag": "@default",
-								"content": [
-									{
-										"kind": "code",
-										"text": "```ts\n[0,0]\n```"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/model.ts",
-							"line": 22,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L22"
-						}
-					],
-					"type": {
-						"type": "tuple",
-						"elements": [
-							{
-								"type": "namedTupleMember",
-								"name": "x",
-								"isOptional": false,
-								"element": {
-									"type": "intrinsic",
-									"name": "number"
-								}
-							},
-							{
-								"type": "namedTupleMember",
-								"name": "y",
-								"isOptional": false,
-								"element": {
-									"type": "intrinsic",
-									"name": "number"
-								}
-							}
-						]
-					}
-				},
-				{
-					"id": 18,
-					"name": "scale",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "模型的缩放比例"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@default",
-								"content": [
-									{
-										"kind": "code",
-										"text": "```ts\n0.1\n```"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/model.ts",
-							"line": 15,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L15"
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "number"
-					}
-				},
-				{
-					"id": 20,
-					"name": "stageStyle",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "定义舞台样式"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "object"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/model.ts",
-							"line": 28,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L28"
-						}
-					],
-					"type": {
-						"type": "reflection",
-						"declaration": {
-							"id": 21,
-							"name": "__type",
-							"variant": "declaration",
-							"kind": 65536,
-							"flags": {},
-							"children": [
-								{
-									"id": 22,
-									"name": "backgroundColor",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "舞台的背景颜色,取有效的颜色值, rbg 或 rbga, 默认透明未设置默认为空的"
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/model.ts",
-											"line": 32,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L32"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									}
-								},
-								{
-									"id": 24,
-									"name": "height",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "舞台的高度, 单位px, 默认不设置, 将自适应使用模型本体的高度"
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/model.ts",
-											"line": 41,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L41"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 23,
-									"name": "width",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "舞台的宽度, 单位px, 默认不设置, 将自适应使用模型本体的宽度"
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/model.ts",
-											"line": 37,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L37"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"groups": [
-								{
-									"title": "Properties",
-									"children": [
-										22,
-										24,
-										23
-									]
-								}
-							],
-							"sources": [
-								{
-									"fileName": "types/model.ts",
-									"line": 28,
-									"character": 15,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L28"
-								}
-							]
-						}
-					}
-				}
-			],
-			"groups": [
-				{
-					"title": "Properties",
-					"children": [
-						17,
-						19,
-						18,
-						20
-					]
-				}
-			],
-			"sources": [
-				{
-					"fileName": "types/model.ts",
-					"line": 6,
-					"character": 17,
-					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L6"
-				}
-			]
-		},
-		{
-			"id": 4,
-			"name": "Options",
-			"variant": "declaration",
-			"kind": 256,
-			"flags": {},
-			"comment": {
-				"summary": [
-					{
-						"kind": "text",
-						"text": "# 配置选项"
-					}
-				],
-				"blockTags": [
-					{
-						"tag": "@name",
-						"content": [
-							{
-								"kind": "text",
-								"text": "配置选项"
-							}
-						]
-					}
-				]
-			},
-			"children": [
-				{
-					"id": 15,
-					"name": "fixed",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "组件是否使用固定定位\n> [!WARNING]\n> 注意, 关闭这个属性后舞台的定位属性将从 fixed 改为 relative, 使舞台回到文档流, 另外该属性不影响状态条定位属性, 状态条与舞台之间相互独立,样式互不干扰."
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "boolean"
-									}
-								]
-							},
-							{
-								"tag": "@default",
-								"content": [
-									{
-										"kind": "code",
-										"text": "```ts\ntrue\n```"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/options.ts",
-							"line": 84,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L84"
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "boolean"
-					}
-				},
-				{
-					"id": 5,
-					"name": "importType",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "导入类型, 默认使用全量导入: 'complete'"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@default",
-								"content": [
-									{
-										"kind": "code",
-										"text": "```ts\ncomplete\n```"
-									}
-								]
-							},
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "complete | cubism2 | cubism5"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/options.ts",
-							"line": 16,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L16"
-						}
-					],
-					"type": {
-						"type": "reference",
-						"target": {
-							"sourceFileName": "src/types/index.ts",
-							"qualifiedName": "ImportType"
-						},
-						"name": "ImportType",
-						"package": "oh-my-live2d"
-					}
-				},
-				{
-					"id": 6,
-					"name": "libraryUrls",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "自定义 Cubism SDK外部资源地址\n> [!TIP]\n> 从 v0.5.0 版本开始, 不再以模块形式通过 vite 打包构建 SDK , 因为这会造成部分模型在生产环境中展示异常, 这在Vite5中已得到证实, 为了更稳定的加载模型, 自 v0.5.0 版本后, 将通过 script 标签的 scr 属性按需去引入对应版本的 Cubism SDK , 而这个过程是完全自动的, 您无需手动的去引入这些资源, 官方将长期维护这个服务器, 保证此SDK地址的安全与稳定性. 若发现SDK加载出现异常, 请及时联系作者"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "object"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/options.ts",
-							"line": 24,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L24"
-						}
-					],
-					"type": {
-						"type": "reflection",
-						"declaration": {
-							"id": 7,
-							"name": "__type",
-							"variant": "declaration",
-							"kind": 65536,
-							"flags": {},
-							"children": [
-								{
-									"id": 8,
-									"name": "cubism2",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "自定义 Cubism2 SDK 地址"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\noh-my-live2d提供的默认地址\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/options.ts",
-											"line": 29,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L29"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									}
-								},
-								{
-									"id": 9,
-									"name": "cubism5",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "自定义 Cubism5 SDK 地址"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\noh-my-live2d提供的默认地址\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/options.ts",
-											"line": 35,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L35"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									}
-								}
-							],
-							"groups": [
-								{
-									"title": "Properties",
-									"children": [
-										8,
-										9
-									]
-								}
-							],
-							"sources": [
-								{
-									"fileName": "types/options.ts",
-									"line": 24,
-									"character": 16,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L24"
-								}
-							]
-						}
-					}
-				},
-				{
-					"id": 12,
-					"name": "models",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "定制模型配置, 类型是模型配置对象组成的数组, 默认值是空数组, 请至少配置一个有效的模型配置\n\n前往[模型选项](/options/Model)查看详细内容"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "Model[]"
-									}
-								]
-							},
-							{
-								"tag": "@default",
-								"content": [
-									{
-										"kind": "code",
-										"text": "```ts\n[]\n```"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/options.ts",
-							"line": 59,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L59"
-						}
-					],
-					"type": {
-						"type": "array",
-						"elementType": {
-							"type": "reference",
-							"target": 16,
-							"name": "Model",
-							"package": "oh-my-live2d"
-						}
-					}
-				},
-				{
-					"id": 14,
-					"name": "parentElement",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "为组件提供一个父元素，如果未指定则默认挂载到 body 中"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "HtmlElement"
-									}
-								]
-							},
-							{
-								"tag": "@default",
-								"content": [
-									{
-										"kind": "code",
-										"text": "```ts\ndocument.body\n```"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/options.ts",
-							"line": 74,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L74"
-						}
-					],
-					"type": {
-						"type": "reference",
-						"target": {
-							"sourceFileName": "node_modules/.pnpm/typescript@4.9.5/node_modules/typescript/lib/lib.dom.d.ts",
-							"qualifiedName": "HTMLElement"
-						},
-						"name": "HTMLElement",
-						"package": "typescript"
-					}
-				},
-				{
-					"id": 10,
-					"name": "sayHello",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "是否在初始化阶段打印项目信息"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "boolean"
-									}
-								]
-							},
-							{
-								"tag": "@default",
-								"content": [
-									{
-										"kind": "code",
-										"text": "```ts\ntrue\n```"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/options.ts",
-							"line": 43,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L43"
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "boolean"
-					}
-				},
-				{
-					"id": 13,
-					"name": "tips",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@default",
-								"content": [
-									{
-										"kind": "code",
-										"text": "```ts\nobject\n```"
-									}
-								]
-							},
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "Tips"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/options.ts",
-							"line": 67,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L67"
-						}
-					],
-					"type": {
-						"type": "reference",
-						"target": 25,
-						"name": "Tips",
-						"package": "oh-my-live2d"
-					}
-				},
-				{
-					"id": 11,
-					"name": "transitionTime",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "组件入场和离开的过渡动画时长,单位ms"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "number"
-									}
-								]
-							},
-							{
-								"tag": "@default",
-								"content": [
-									{
-										"kind": "code",
-										"text": "```ts\n1000\n```"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/options.ts",
-							"line": 50,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L50"
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "number"
-					}
-				}
-			],
-			"groups": [
-				{
-					"title": "Properties",
-					"children": [
-						15,
-						5,
-						6,
-						12,
-						14,
-						10,
-						13,
-						11
-					]
-				}
-			],
-			"sources": [
-				{
-					"fileName": "types/options.ts",
-					"line": 10,
-					"character": 17,
-					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L10"
-				}
-			]
-		},
-		{
-			"id": 25,
-			"name": "Tips",
-			"variant": "declaration",
-			"kind": 256,
-			"flags": {},
-			"comment": {
-				"summary": [
-					{
-						"kind": "text",
-						"text": "# 提示框选项\n\n配置提示框样式和消息内容"
-					}
-				],
-				"blockTags": [
-					{
-						"tag": "@name",
-						"content": [
-							{
-								"kind": "text",
-								"text": "提示框选项"
-							}
-						]
-					}
-				]
-			},
-			"children": [
-				{
-					"id": 53,
-					"name": "copyTips",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "复制网站文字内容时的提示"
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/tips.ts",
-							"line": 140,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L140"
-						}
-					],
-					"type": {
-						"type": "reflection",
-						"declaration": {
-							"id": 54,
-							"name": "__type",
-							"variant": "declaration",
-							"kind": 65536,
-							"flags": {},
-							"children": [
-								{
-									"id": 55,
-									"name": "duration",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "提示框持续时间, 单位ms"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n3000\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 145,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L145"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 57,
-									"name": "message",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "播放的消息内容, 需要是一个字符串数组, 播放时会从中随机取出一条进行提示, 空数组则不播放"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@valueType",
-												"content": [
-													{
-														"kind": "text",
-														"text": "string[]"
-													}
-												]
-											},
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n['你复制了什么内容呢?记得注明出处哦~']\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 157,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L157"
-										}
-									],
-									"type": {
-										"type": "array",
-										"elementType": {
-											"type": "intrinsic",
-											"name": "string"
-										}
-									}
-								},
-								{
-									"id": 56,
-									"name": "priority",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "优先级, 高优先级消息将会覆盖低优先级的消息"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n3\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 150,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L150"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"groups": [
-								{
-									"title": "Properties",
-									"children": [
-										55,
-										57,
-										56
-									]
-								}
-							],
-							"sources": [
-								{
-									"fileName": "types/tips.ts",
-									"line": 140,
-									"character": 13,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L140"
-								}
-							]
-						}
-					}
-				},
-				{
-					"id": 32,
-					"name": "idleTips",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "闲置状态下的提示"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "object"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/tips.ts",
-							"line": 41,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L41"
-						}
-					],
-					"type": {
-						"type": "reflection",
-						"declaration": {
-							"id": 33,
-							"name": "__type",
-							"variant": "declaration",
-							"kind": 65536,
-							"flags": {},
-							"children": [
-								{
-									"id": 35,
-									"name": "duration",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "提示框持续时间, 单位ms"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n5000\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 55,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L55"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 37,
-									"name": "interval",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "闲置状态循环播放消息的间隔时间, 单位ms"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n10000\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 65,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L65"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 38,
-									"name": "message",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "播放的消息内容, 需要是一个字符串组成的数组, 播放时会从中随机取出一条进行提示, 空数组则不播放, 默认为空数组"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@valueType",
-												"content": [
-													{
-														"kind": "text",
-														"text": "string[]"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 71,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L71"
-										}
-									],
-									"type": {
-										"type": "array",
-										"elementType": {
-											"type": "intrinsic",
-											"name": "string"
-										}
-									}
-								},
-								{
-									"id": 36,
-									"name": "priority",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "优先级, 高优先级消息将会覆盖低优先级的消息"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n2\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 60,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L60"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 34,
-									"name": "wordTheDay",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "是否开启每日一言, 默认为关闭状态, 开启后将从这个地址请求 https://v1.hitokoto.cn 随机信息作为闲置提示内容\n\n::: tip\n开启后将接管闲置状态下 message 选项设定的值\n:::"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\nfalse\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 50,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L50"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "boolean"
-									}
-								}
-							],
-							"groups": [
-								{
-									"title": "Properties",
-									"children": [
-										35,
-										37,
-										38,
-										36,
-										34
-									]
-								}
-							],
-							"sources": [
-								{
-									"fileName": "types/tips.ts",
-									"line": 41,
-									"character": 13,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L41"
-								}
-							]
-						}
-					}
-				},
-				{
-					"id": 26,
-					"name": "style",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "自定义提示框样式"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "object"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/tips.ts",
-							"line": 13,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L13"
-						}
-					],
-					"type": {
-						"type": "reflection",
-						"declaration": {
-							"id": 27,
-							"name": "__type",
-							"variant": "declaration",
-							"kind": 65536,
-							"flags": {},
-							"children": [
-								{
-									"id": 29,
-									"name": "height",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "提示框高度, 单位px"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n100\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 24,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L24"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 30,
-									"name": "offsetX",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "调整提示框位于舞台中的x轴方向偏移量"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n0\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 29,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L29"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 31,
-									"name": "offsetY",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "调整提示框位于舞台中的y轴方向偏移量"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n0\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 34,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L34"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 28,
-									"name": "width",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "提示框宽度, 单位px"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n230\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 19,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L19"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"groups": [
-								{
-									"title": "Properties",
-									"children": [
-										29,
-										30,
-										31,
-										28
-									]
-								}
-							],
-							"sources": [
-								{
-									"fileName": "types/tips.ts",
-									"line": 13,
-									"character": 10,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L13"
-								}
-							]
-						}
-					}
-				},
-				{
-					"id": 39,
-					"name": "welcomeTips",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {
-						"isOptional": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "模型入场后的欢迎提示"
-							}
-						],
-						"blockTags": [
-							{
-								"tag": "@valueType",
-								"content": [
-									{
-										"kind": "text",
-										"text": "object"
-									}
-								]
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "types/tips.ts",
-							"line": 78,
-							"character": 2,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L78"
-						}
-					],
-					"type": {
-						"type": "reflection",
-						"declaration": {
-							"id": 40,
-							"name": "__type",
-							"variant": "declaration",
-							"kind": 65536,
-							"flags": {},
-							"children": [
-								{
-									"id": 41,
-									"name": "duration",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "提示框持续时间, 单位ms"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n6000\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 83,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L83"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 43,
-									"name": "message",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "播放的消息内容, 每个时段播放对应消息内容"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@valueType",
-												"content": [
-													{
-														"kind": "text",
-														"text": "object"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 93,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L93"
-										}
-									],
-									"type": {
-										"type": "reflection",
-										"declaration": {
-											"id": 44,
-											"name": "__type",
-											"variant": "declaration",
-											"kind": 65536,
-											"flags": {},
-											"children": [
-												{
-													"id": 48,
-													"name": "afternoon",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {
-														"isOptional": true
-													},
-													"comment": {
-														"summary": [
-															{
-																"kind": "text",
-																"text": "下午14-17点提示信息内容"
-															}
-														],
-														"blockTags": [
-															{
-																"tag": "@default",
-																"content": [
-																	{
-																		"kind": "code",
-																		"text": "```ts\n午后很容易犯困呢，来杯咖啡吧~\n```"
-																	}
-																]
-															}
-														]
-													},
-													"sources": [
-														{
-															"fileName": "types/tips.ts",
-															"line": 113,
-															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L113"
-														}
-													],
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												},
-												{
-													"id": 45,
-													"name": "daybreak",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {
-														"isOptional": true
-													},
-													"comment": {
-														"summary": [
-															{
-																"kind": "text",
-																"text": "早晨5-7点提示信息内容"
-															}
-														],
-														"blockTags": [
-															{
-																"tag": "@default",
-																"content": [
-																	{
-																		"kind": "code",
-																		"text": "```ts\n早上好！一日之计在于晨，美好的一天就要开始了。\n```"
-																	}
-																]
-															}
-														]
-													},
-													"sources": [
-														{
-															"fileName": "types/tips.ts",
-															"line": 98,
-															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L98"
-														}
-													],
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												},
-												{
-													"id": 49,
-													"name": "dusk",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {
-														"isOptional": true
-													},
-													"comment": {
-														"summary": [
-															{
-																"kind": "text",
-																"text": "傍晚18-19点提示信息内容"
-															}
-														],
-														"blockTags": [
-															{
-																"tag": "@default",
-																"content": [
-																	{
-																		"kind": "code",
-																		"text": "```ts\n傍晚了！工作一天幸苦啦~\n```"
-																	}
-																]
-															}
-														]
-													},
-													"sources": [
-														{
-															"fileName": "types/tips.ts",
-															"line": 118,
-															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L118"
-														}
-													],
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												},
-												{
-													"id": 51,
-													"name": "lateNight",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {
-														"isOptional": true
-													},
-													"comment": {
-														"summary": [
-															{
-																"kind": "text",
-																"text": "深夜22-23点提示信息内容"
-															}
-														],
-														"blockTags": [
-															{
-																"tag": "@default",
-																"content": [
-																	{
-																		"kind": "code",
-																		"text": "```ts\n已经这么晚了呀，早点休息吧，晚安~\n```"
-																	}
-																]
-															}
-														]
-													},
-													"sources": [
-														{
-															"fileName": "types/tips.ts",
-															"line": 128,
-															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L128"
-														}
-													],
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												},
-												{
-													"id": 46,
-													"name": "morning",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {
-														"isOptional": true
-													},
-													"comment": {
-														"summary": [
-															{
-																"kind": "text",
-																"text": "早上8-11点提示信息内容"
-															}
-														],
-														"blockTags": [
-															{
-																"tag": "@default",
-																"content": [
-																	{
-																		"kind": "code",
-																		"text": "```ts\n上午好！工作顺利嘛，不要久坐，多起来走动走动哦！\n```"
-																	}
-																]
-															}
-														]
-													},
-													"sources": [
-														{
-															"fileName": "types/tips.ts",
-															"line": 103,
-															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L103"
-														}
-													],
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												},
-												{
-													"id": 50,
-													"name": "night",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {
-														"isOptional": true
-													},
-													"comment": {
-														"summary": [
-															{
-																"kind": "text",
-																"text": "晚上20-21点提示信息内容"
-															}
-														],
-														"blockTags": [
-															{
-																"tag": "@default",
-																"content": [
-																	{
-																		"kind": "code",
-																		"text": "```ts\n晚上好，今天过得怎么样呢？\n```"
-																	}
-																]
-															}
-														]
-													},
-													"sources": [
-														{
-															"fileName": "types/tips.ts",
-															"line": 123,
-															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L123"
-														}
-													],
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												},
-												{
-													"id": 47,
-													"name": "noon",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {
-														"isOptional": true
-													},
-													"comment": {
-														"summary": [
-															{
-																"kind": "text",
-																"text": "中午12-13点提示信息内容"
-															}
-														],
-														"blockTags": [
-															{
-																"tag": "@default",
-																"content": [
-																	{
-																		"kind": "code",
-																		"text": "```ts\n中午了，工作了一个上午，现在是午餐时间！\n```"
-																	}
-																]
-															}
-														]
-													},
-													"sources": [
-														{
-															"fileName": "types/tips.ts",
-															"line": 108,
-															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L108"
-														}
-													],
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												},
-												{
-													"id": 52,
-													"name": "weeHours",
-													"variant": "declaration",
-													"kind": 1024,
-													"flags": {
-														"isOptional": true
-													},
-													"comment": {
-														"summary": [
-															{
-																"kind": "text",
-																"text": "凌晨0-4点提示信息内容"
-															}
-														],
-														"blockTags": [
-															{
-																"tag": "@default",
-																"content": [
-																	{
-																		"kind": "code",
-																		"text": "```ts\n这么晚还不睡吗？当心熬夜秃头哦！\n```"
-																	}
-																]
-															}
-														]
-													},
-													"sources": [
-														{
-															"fileName": "types/tips.ts",
-															"line": 133,
-															"character": 6,
-															"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L133"
-														}
-													],
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												}
-											],
-											"groups": [
-												{
-													"title": "Properties",
-													"children": [
-														48,
-														45,
-														49,
-														51,
-														46,
-														50,
-														47,
-														52
-													]
-												}
-											],
-											"sources": [
-												{
-													"fileName": "types/tips.ts",
-													"line": 93,
-													"character": 14,
-													"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L93"
-												}
-											]
-										}
-									}
-								},
-								{
-									"id": 42,
-									"name": "priority",
-									"variant": "declaration",
-									"kind": 1024,
-									"flags": {
-										"isOptional": true
-									},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "提示优先级"
-											}
-										],
-										"blockTags": [
-											{
-												"tag": "@default",
-												"content": [
-													{
-														"kind": "code",
-														"text": "```ts\n3\n```"
-													}
-												]
-											}
-										]
-									},
-									"sources": [
-										{
-											"fileName": "types/tips.ts",
-											"line": 88,
-											"character": 4,
-											"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L88"
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"groups": [
-								{
-									"title": "Properties",
-									"children": [
-										41,
-										43,
-										42
-									]
-								}
-							],
-							"sources": [
-								{
-									"fileName": "types/tips.ts",
-									"line": 78,
-									"character": 16,
-									"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L78"
-								}
-							]
-						}
-					}
-				}
-			],
-			"groups": [
-				{
-					"title": "Properties",
-					"children": [
-						53,
-						32,
-						26,
-						39
-					]
-				}
-			],
-			"sources": [
-				{
-					"fileName": "types/tips.ts",
-					"line": 7,
-					"character": 17,
-					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L7"
-				}
-			]
-		},
-		{
-			"id": 1,
-			"name": "loadOml2d",
-			"variant": "declaration",
-			"kind": 64,
-			"flags": {},
-			"sources": [
-				{
-					"fileName": "index.ts",
-					"line": 8,
-					"character": 13,
-					"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/index.ts#L8"
-				}
-			],
-			"signatures": [
-				{
-					"id": 2,
-					"name": "loadOml2d",
-					"variant": "signature",
-					"kind": 4096,
-					"flags": {},
-					"sources": [
-						{
-							"fileName": "modules/index.ts",
-							"line": 179,
-							"character": 20,
-							"url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/modules/index.ts#L179"
-						}
-					],
-					"parameters": [
-						{
-							"id": 3,
-							"name": "options",
-							"variant": "param",
-							"kind": 32768,
-							"flags": {},
-							"type": {
-								"type": "reference",
-								"target": 4,
-								"name": "Options",
-								"package": "oh-my-live2d"
-							}
-						}
-					],
-					"type": {
-						"type": "reference",
-						"target": {
-							"sourceFileName": "node_modules/.pnpm/typescript@4.9.5/node_modules/typescript/lib/lib.es5.d.ts",
-							"qualifiedName": "Promise"
-						},
-						"typeArguments": [
-							{
-								"type": "intrinsic",
-								"name": "void"
-							}
-						],
-						"name": "Promise",
-						"package": "typescript"
-					}
-				}
-			]
-		}
-	],
-	"groups": [
-		{
-			"title": "Interfaces",
-			"children": [
-				16,
-				4,
-				25
-			]
-		},
-		{
-			"title": "Functions",
-			"children": [
-				1
-			]
-		}
-	],
-	"packageName": "oh-my-live2d",
-	"readme": [
-		{
-			"kind": "text",
-			"text": "# OhMyLive2D\n\n![npm](https://img.shields.io/npm/v/oh-my-live2d?label=oh-my-live2d) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange) ![GitHub package.json version](https://img.shields.io/npm/v/vuepress-plugin-oh-my-live2d?label=vuepress-plugin-oh-my-live2d) ![](https://img.shields.io/badge/vuepress2-plugin-green)\n\nOhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持从 model2 到 model4 之间的所有版本的 Live2D 模型，开箱即用且可定制化。  \n如果你还在苦于寻找一个支持所有版本模型的 Live2D For Web 组件，为你的个人网站增加一个看板娘，那么请看看这个！🥳\n\n[查阅文档](https://oml2d.com) 以了解更多详细的使用教程 🎉。\n\n> [!TIP]  \n> **本项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入 😄**\n\n## ✨ 特点：\n\n<img align=\"right\" height=\"270\" src=\"https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302080219383.gif\"/>\n\n- 支持 "
-		},
-		{
-			"kind": "code",
-			"text": "`CDN`"
-		},
-		{
-			"kind": "text",
-			"text": " 或 "
-		},
-		{
-			"kind": "code",
-			"text": "`ES6 Module`"
-		},
-		{
-			"kind": "text",
-			"text": " 两种导入方式。\n\n- 默认自动集成 "
-		},
-		{
-			"kind": "code",
-			"text": "`Cubism 2 SDK`"
-		},
-		{
-			"kind": "text",
-			"text": " 和 "
-		},
-		{
-			"kind": "code",
-			"text": "`Cubism 5 SDK`"
-		},
-		{
-			"kind": "text",
-			"text": "，无需手动额外引入其他外部依赖。\n\n- 可自定义本地或远程 "
-		},
-		{
-			"kind": "code",
-			"text": "`Live2D Model`"
-		},
-		{
-			"kind": "text",
-			"text": " 来源。\n\n- 完全使用 "
-		},
-		{
-			"kind": "code",
-			"text": "`TypeScript`"
-		},
-		{
-			"kind": "text",
-			"text": " 开发，具有完整的类型推导。\n\n- 按需引入 "
-		},
-		{
-			"kind": "code",
-			"text": "`Cubism SDK`"
-		},
-		{
-			"kind": "text",
-			"text": " 依赖或全量导入所有"
-		},
-		{
-			"kind": "code",
-			"text": "`Cubism SDK`"
-		},
-		{
-			"kind": "text",
-			"text": "版本依赖。\n\n- 支持配置多个模型，使用菜单控件对其切换。\n\n- 第三方文档构建工具的支持, 如 "
-		},
-		{
-			"kind": "code",
-			"text": "`Vitepress`"
-		},
-		{
-			"kind": "text",
-			"text": "、"
-		},
-		{
-			"kind": "code",
-			"text": "`Vuepress`"
-		},
-		{
-			"kind": "text",
-			"text": "。\n\n## 🤔 Cubism 是什么：\n\nCubism 是 Live2D SDK 的名称，截至目前它一共存在四个版本：Cubism 2、Cubism 3、Cubism 4、Cubism 5。\n\nCubism 2 是只能驱动 Live2D Model 版本为 2 的 SDK，它无法驱动 Live2D Model 3 和 Live2D Model 4。\n\nCubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法驱动 Live2D Model 2。\n\n> [!TIP]\n> 本项目已集成 Cubism 2.1 与 Cubism 5.0.0 ，完整覆盖了从 model2 到 model4 的所有版本。\n\n## 🌈 快速使用：\n\n> [!WARNING]\n> 本项目从 "
-		},
-		{
-			"kind": "code",
-			"text": "`0.4.0`"
-		},
-		{
-			"kind": "text",
-			"text": " 版本开始对所有模块都进行了一次重构, 并且不再采用自动加载组件的模式, 现在你可以通过 "
-		},
-		{
-			"kind": "code",
-			"text": "`loadOml2d`"
-		},
-		{
-			"kind": "text",
-			"text": " 方法加载组件至 "
-		},
-		{
-			"kind": "code",
-			"text": "`body`"
-		},
-		{
-			"kind": "text",
-			"text": " 中, 或者使用"
-		},
-		{
-			"kind": "code",
-			"text": "`parentElemetn`"
-		},
-		{
-			"kind": "text",
-			"text": "选项为其指定一个父元素.\n\n### CDN 引入\n\n通过 CDN 方式导入时，所有成员变量都可以在 "
-		},
-		{
-			"kind": "code",
-			"text": "`OML2D`"
-		},
-		{
-			"kind": "text",
-			"text": " 命名空间下被使用。通过调用"
-		},
-		{
-			"kind": "code",
-			"text": "`OML2D.loadOml2d()`"
-		},
-		{
-			"kind": "text",
-			"text": "方法加载 Live2D 模型, 该方法接收一个 "
-		},
-		{
-			"kind": "code",
-			"text": "`options`"
-		},
-		{
-			"kind": "text",
-			"text": " 配置选项对象，示例如下。\n\n有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)\n\n"
-		},
-		{
-			"kind": "code",
-			"text": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>OhMyLive2D</title>\n  </head>\n  <body>\n    <script src=\"https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js\"></script>\n    <script>\n      OML2D.loadOml2d({\n        models: [\n          {\n            path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json'\n          }\n        ]\n      });\n    </script>\n  </body>\n</html>\n```"
-		},
-		{
-			"kind": "text",
-			"text": "\n\n### 使用包管理工具安装：\n\n- 使用 "
-		},
-		{
-			"kind": "code",
-			"text": "`npm`"
-		},
-		{
-			"kind": "text",
-			"text": " 安装：\n\n  "
-		},
-		{
-			"kind": "code",
-			"text": "```shell\n  npm install oh-my-live2d\n  ```"
-		},
-		{
-			"kind": "text",
-			"text": "\n\n- 使用 "
-		},
-		{
-			"kind": "code",
-			"text": "`yarn`"
-		},
-		{
-			"kind": "text",
-			"text": " 安装：\n\n  "
-		},
-		{
-			"kind": "code",
-			"text": "```shell\n  yarn add oh-my-live2d\n  ```"
-		},
-		{
-			"kind": "text",
-			"text": "\n\n- 国内源安装可使用 "
-		},
-		{
-			"kind": "code",
-			"text": "`tyarn`"
-		},
-		{
-			"kind": "text",
-			"text": "：\n\n  "
-		},
-		{
-			"kind": "code",
-			"text": "```shell\n  tyarn add oh-my-live2d\n  ```"
-		},
-		{
-			"kind": "text",
-			"text": "\n\n- 使用 "
-		},
-		{
-			"kind": "code",
-			"text": "`pnpm`"
-		},
-		{
-			"kind": "text",
-			"text": " 安装：\n\n  "
-		},
-		{
-			"kind": "code",
-			"text": "```shell\n  pnpm add oh-my-live2d\n  ```"
-		},
-		{
-			"kind": "text",
-			"text": "\n\n### ESM 使用示例：\n\nOhMyLive2D 在使用 ES6Module 方式导入时暴露了一个"
-		},
-		{
-			"kind": "code",
-			"text": "`loadOml2d`"
-		},
-		{
-			"kind": "text",
-			"text": "方法, 该方法接收一个配置选项"
-		},
-		{
-			"kind": "code",
-			"text": "`options`"
-		},
-		{
-			"kind": "text",
-			"text": ".\n有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)\n\n"
-		},
-		{
-			"kind": "code",
-			"text": "```ts\nimport { loadOml2d } from 'oh-my-live2d';\nloadOml2d({\n  models: [\n    {\n      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json'\n    }\n  ]\n});\n```"
-		},
-		{
-			"kind": "text",
-			"text": "\n\n如果您想更换自己的模型或对其进行自定义，请[查阅文档](https://oml2d.com/)中自定义章节的相关内容。\n\n## ✨ 其他支持:\n\n- [在 vitepress 中使用](https://oml2d.com/guide/vitepress)\n\n- [在 vuepress2 中使用](https://oml2d.com/guide/vuepress)\n\n- [在 hexo 中使用](https://oml2d.com/guide/hexo.html)\n\n## 📧 讨论：\n\n- qq 群: 474032914\n\n- 微信群:\n  添加好友以加入微信群：  \n  添加好友时请备注："
-		},
-		{
-			"kind": "code",
-			"text": "`oml2d`"
-		},
-		{
-			"kind": "text",
-			"text": "\n  <img width=240 src=\"https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png\"/>\n\n## 📃 开源许可：\n\n- [MIT](https://github.com/oh-my-live2d/oh-my-live2d/blob/master/license)\n\n## 版权声明:\n\n本项目仅提供模型加载技术支持, 不提供任何 Live2D Model 的下载地址。文档中提供的所有模型地址均来源于网路，仅供参考和学习。"
-		}
-	],
-	"symbolIdMap": {
-		"0": {
-			"sourceFileName": "src/index.ts",
-			"qualifiedName": ""
-		},
-		"1": {
-			"sourceFileName": "src/index.ts",
-			"qualifiedName": "loadOml2d"
-		},
-		"2": {
-			"sourceFileName": "src/modules/index.ts",
-			"qualifiedName": "loadOml2d"
-		},
-		"3": {
-			"sourceFileName": "src/modules/index.ts",
-			"qualifiedName": "options"
-		},
-		"4": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "Options"
-		},
-		"5": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "Options.importType"
-		},
-		"6": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "Options.libraryUrls"
-		},
-		"7": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "__type"
-		},
-		"8": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "__type.cubism2"
-		},
-		"9": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "__type.cubism5"
-		},
-		"10": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "Options.sayHello"
-		},
-		"11": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "Options.transitionTime"
-		},
-		"12": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "Options.models"
-		},
-		"13": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "Options.tips"
-		},
-		"14": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "Options.parentElement"
-		},
-		"15": {
-			"sourceFileName": "src/types/options.ts",
-			"qualifiedName": "Options.fixed"
-		},
-		"16": {
-			"sourceFileName": "src/types/model.ts",
-			"qualifiedName": "Model"
-		},
-		"17": {
-			"sourceFileName": "src/types/model.ts",
-			"qualifiedName": "Model.path"
-		},
-		"18": {
-			"sourceFileName": "src/types/model.ts",
-			"qualifiedName": "Model.scale"
-		},
-		"19": {
-			"sourceFileName": "src/types/model.ts",
-			"qualifiedName": "Model.position"
-		},
-		"20": {
-			"sourceFileName": "src/types/model.ts",
-			"qualifiedName": "Model.stageStyle"
-		},
-		"21": {
-			"sourceFileName": "src/types/model.ts",
-			"qualifiedName": "__type"
-		},
-		"22": {
-			"sourceFileName": "src/types/model.ts",
-			"qualifiedName": "__type.backgroundColor"
-		},
-		"23": {
-			"sourceFileName": "src/types/model.ts",
-			"qualifiedName": "__type.width"
-		},
-		"24": {
-			"sourceFileName": "src/types/model.ts",
-			"qualifiedName": "__type.height"
-		},
-		"25": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "Tips"
-		},
-		"26": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "Tips.style"
-		},
-		"27": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type"
-		},
-		"28": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.width"
-		},
-		"29": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.height"
-		},
-		"30": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.offsetX"
-		},
-		"31": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.offsetY"
-		},
-		"32": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "Tips.idleTips"
-		},
-		"33": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type"
-		},
-		"34": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.wordTheDay"
-		},
-		"35": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.duration"
-		},
-		"36": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.priority"
-		},
-		"37": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.interval"
-		},
-		"38": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.message"
-		},
-		"39": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "Tips.welcomeTips"
-		},
-		"40": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type"
-		},
-		"41": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.duration"
-		},
-		"42": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.priority"
-		},
-		"43": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.message"
-		},
-		"44": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type"
-		},
-		"45": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.daybreak"
-		},
-		"46": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.morning"
-		},
-		"47": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.noon"
-		},
-		"48": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.afternoon"
-		},
-		"49": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.dusk"
-		},
-		"50": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.night"
-		},
-		"51": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.lateNight"
-		},
-		"52": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.weeHours"
-		},
-		"53": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "Tips.copyTips"
-		},
-		"54": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type"
-		},
-		"55": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.duration"
-		},
-		"56": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.priority"
-		},
-		"57": {
-			"sourceFileName": "src/types/tips.ts",
-			"qualifiedName": "__type.message"
-		}
-	}
+  "id": 0,
+  "name": "oh-my-live2d",
+  "variant": "project",
+  "kind": 1,
+  "flags": {},
+  "children": [
+    {
+      "id": 16,
+      "name": "Model",
+      "variant": "declaration",
+      "kind": 256,
+      "flags": {},
+      "comment": {
+        "summary": [
+          {
+            "kind": "text",
+            "text": "# 模型配置选项\n可配置模型地址来源以及缩放比例、舞台大小等"
+          }
+        ],
+        "blockTags": [
+          {
+            "tag": "@name",
+            "content": [
+              {
+                "kind": "text",
+                "text": "模型选项"
+              }
+            ]
+          }
+        ]
+      },
+      "children": [
+        {
+          "id": 17,
+          "name": "path",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {},
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "模型的json文件url地址, 必填项"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/model.ts",
+              "line": 10,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L10"
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "string"
+          }
+        },
+        {
+          "id": 19,
+          "name": "position",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "模型在舞台中的位置. x: 横坐标, y: 纵坐标"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "[x: number, y:number]"
+                  }
+                ]
+              },
+              {
+                "tag": "@default",
+                "content": [
+                  {
+                    "kind": "code",
+                    "text": "```ts\n[0,0]\n```"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/model.ts",
+              "line": 22,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L22"
+            }
+          ],
+          "type": {
+            "type": "tuple",
+            "elements": [
+              {
+                "type": "namedTupleMember",
+                "name": "x",
+                "isOptional": false,
+                "element": {
+                  "type": "intrinsic",
+                  "name": "number"
+                }
+              },
+              {
+                "type": "namedTupleMember",
+                "name": "y",
+                "isOptional": false,
+                "element": {
+                  "type": "intrinsic",
+                  "name": "number"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": 18,
+          "name": "scale",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "模型的缩放比例"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@default",
+                "content": [
+                  {
+                    "kind": "code",
+                    "text": "```ts\n0.1\n```"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/model.ts",
+              "line": 15,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L15"
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "number"
+          }
+        },
+        {
+          "id": 20,
+          "name": "stageStyle",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "定义舞台样式"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "object"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/model.ts",
+              "line": 28,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L28"
+            }
+          ],
+          "type": {
+            "type": "reflection",
+            "declaration": {
+              "id": 21,
+              "name": "__type",
+              "variant": "declaration",
+              "kind": 65536,
+              "flags": {},
+              "children": [
+                {
+                  "id": 22,
+                  "name": "backgroundColor",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "舞台的背景颜色,取有效的颜色值, rbg 或 rbga, 默认透明未设置默认为空的"
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/model.ts",
+                      "line": 32,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L32"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "string"
+                  }
+                },
+                {
+                  "id": 24,
+                  "name": "height",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "舞台的高度, 单位px, 默认不设置, 将自适应使用模型本体的高度"
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/model.ts",
+                      "line": 41,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L41"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                },
+                {
+                  "id": 23,
+                  "name": "width",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "舞台的宽度, 单位px, 默认不设置, 将自适应使用模型本体的宽度"
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/model.ts",
+                      "line": 37,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L37"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                }
+              ],
+              "groups": [
+                {
+                  "title": "Properties",
+                  "children": [22, 24, 23]
+                }
+              ],
+              "sources": [
+                {
+                  "fileName": "types/model.ts",
+                  "line": 28,
+                  "character": 15,
+                  "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L28"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "groups": [
+        {
+          "title": "Properties",
+          "children": [17, 19, 18, 20]
+        }
+      ],
+      "sources": [
+        {
+          "fileName": "types/model.ts",
+          "line": 6,
+          "character": 17,
+          "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/model.ts#L6"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Options",
+      "variant": "declaration",
+      "kind": 256,
+      "flags": {},
+      "comment": {
+        "summary": [
+          {
+            "kind": "text",
+            "text": "# 配置选项"
+          }
+        ],
+        "blockTags": [
+          {
+            "tag": "@name",
+            "content": [
+              {
+                "kind": "text",
+                "text": "配置选项"
+              }
+            ]
+          }
+        ]
+      },
+      "children": [
+        {
+          "id": 15,
+          "name": "fixed",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "组件是否使用固定定位\n> [!WARNING]\n> 注意, 关闭这个属性后舞台的定位属性将从 fixed 改为 relative, 使舞台回到文档流, 另外该属性不影响状态条定位属性, 状态条与舞台之间相互独立,样式互不干扰."
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "boolean"
+                  }
+                ]
+              },
+              {
+                "tag": "@default",
+                "content": [
+                  {
+                    "kind": "code",
+                    "text": "```ts\ntrue\n```"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/options.ts",
+              "line": 84,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L84"
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "boolean"
+          }
+        },
+        {
+          "id": 5,
+          "name": "importType",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "导入类型, 默认使用全量导入: 'complete'"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@default",
+                "content": [
+                  {
+                    "kind": "code",
+                    "text": "```ts\ncomplete\n```"
+                  }
+                ]
+              },
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "complete | cubism2 | cubism5"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/options.ts",
+              "line": 16,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L16"
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "target": {
+              "sourceFileName": "src/types/index.ts",
+              "qualifiedName": "ImportType"
+            },
+            "name": "ImportType",
+            "package": "oh-my-live2d"
+          }
+        },
+        {
+          "id": 6,
+          "name": "libraryUrls",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "自定义 Cubism SDK外部资源地址\n> [!TIP]\n> 从 v0.5.0 版本开始, 不再以模块形式通过 vite 打包构建 SDK , 因为这会造成部分模型在生产环境中展示异常, 这在Vite5中已得到证实, 为了更稳定的加载模型, 自 v0.5.0 版本后, 将通过 script 标签的 scr 属性按需去引入对应版本的 Cubism SDK , 而这个过程是完全自动的, 您无需手动的去引入这些资源, 官方将长期维护这个服务器, 保证此SDK地址的安全与稳定性. 若发现SDK加载出现异常, 请及时联系作者"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "object"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/options.ts",
+              "line": 24,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L24"
+            }
+          ],
+          "type": {
+            "type": "reflection",
+            "declaration": {
+              "id": 7,
+              "name": "__type",
+              "variant": "declaration",
+              "kind": 65536,
+              "flags": {},
+              "children": [
+                {
+                  "id": 8,
+                  "name": "cubism2",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "自定义 Cubism2 SDK 地址"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\noh-my-live2d提供的默认地址\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/options.ts",
+                      "line": 29,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L29"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "string"
+                  }
+                },
+                {
+                  "id": 9,
+                  "name": "cubism5",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "自定义 Cubism5 SDK 地址"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\noh-my-live2d提供的默认地址\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/options.ts",
+                      "line": 35,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L35"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "string"
+                  }
+                }
+              ],
+              "groups": [
+                {
+                  "title": "Properties",
+                  "children": [8, 9]
+                }
+              ],
+              "sources": [
+                {
+                  "fileName": "types/options.ts",
+                  "line": 24,
+                  "character": 16,
+                  "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L24"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 12,
+          "name": "models",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "定制模型配置, 类型是模型配置对象组成的数组, 默认值是空数组, 请至少配置一个有效的模型配置\n\n前往[模型选项](/options/Model)查看详细内容"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "Model[]"
+                  }
+                ]
+              },
+              {
+                "tag": "@default",
+                "content": [
+                  {
+                    "kind": "code",
+                    "text": "```ts\n[]\n```"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/options.ts",
+              "line": 59,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L59"
+            }
+          ],
+          "type": {
+            "type": "array",
+            "elementType": {
+              "type": "reference",
+              "target": 16,
+              "name": "Model",
+              "package": "oh-my-live2d"
+            }
+          }
+        },
+        {
+          "id": 14,
+          "name": "parentElement",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "为组件提供一个父元素，如果未指定则默认挂载到 body 中"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "HtmlElement"
+                  }
+                ]
+              },
+              {
+                "tag": "@default",
+                "content": [
+                  {
+                    "kind": "code",
+                    "text": "```ts\ndocument.body\n```"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/options.ts",
+              "line": 74,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L74"
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "target": {
+              "sourceFileName": "node_modules/.pnpm/typescript@4.9.5/node_modules/typescript/lib/lib.dom.d.ts",
+              "qualifiedName": "HTMLElement"
+            },
+            "name": "HTMLElement",
+            "package": "typescript"
+          }
+        },
+        {
+          "id": 10,
+          "name": "sayHello",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "是否在初始化阶段打印项目信息"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "boolean"
+                  }
+                ]
+              },
+              {
+                "tag": "@default",
+                "content": [
+                  {
+                    "kind": "code",
+                    "text": "```ts\ntrue\n```"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/options.ts",
+              "line": 43,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L43"
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "boolean"
+          }
+        },
+        {
+          "id": 13,
+          "name": "tips",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@default",
+                "content": [
+                  {
+                    "kind": "code",
+                    "text": "```ts\nobject\n```"
+                  }
+                ]
+              },
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "Tips"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/options.ts",
+              "line": 67,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L67"
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "target": 25,
+            "name": "Tips",
+            "package": "oh-my-live2d"
+          }
+        },
+        {
+          "id": 11,
+          "name": "transitionTime",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "组件入场和离开的过渡动画时长,单位ms"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "number"
+                  }
+                ]
+              },
+              {
+                "tag": "@default",
+                "content": [
+                  {
+                    "kind": "code",
+                    "text": "```ts\n1000\n```"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/options.ts",
+              "line": 50,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L50"
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "number"
+          }
+        }
+      ],
+      "groups": [
+        {
+          "title": "Properties",
+          "children": [15, 5, 6, 12, 14, 10, 13, 11]
+        }
+      ],
+      "sources": [
+        {
+          "fileName": "types/options.ts",
+          "line": 10,
+          "character": 17,
+          "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/options.ts#L10"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Tips",
+      "variant": "declaration",
+      "kind": 256,
+      "flags": {},
+      "comment": {
+        "summary": [
+          {
+            "kind": "text",
+            "text": "# 提示框选项\n\n配置提示框样式和消息内容"
+          }
+        ],
+        "blockTags": [
+          {
+            "tag": "@name",
+            "content": [
+              {
+                "kind": "text",
+                "text": "提示框选项"
+              }
+            ]
+          }
+        ]
+      },
+      "children": [
+        {
+          "id": 53,
+          "name": "copyTips",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "复制网站文字内容时的提示"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/tips.ts",
+              "line": 140,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L140"
+            }
+          ],
+          "type": {
+            "type": "reflection",
+            "declaration": {
+              "id": 54,
+              "name": "__type",
+              "variant": "declaration",
+              "kind": 65536,
+              "flags": {},
+              "children": [
+                {
+                  "id": 55,
+                  "name": "duration",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "提示框持续时间, 单位ms"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n3000\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 145,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L145"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                },
+                {
+                  "id": 57,
+                  "name": "message",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "播放的消息内容, 需要是一个字符串数组, 播放时会从中随机取出一条进行提示, 空数组则不播放"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@valueType",
+                        "content": [
+                          {
+                            "kind": "text",
+                            "text": "string[]"
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n['你复制了什么内容呢?记得注明出处哦~']\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 157,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L157"
+                    }
+                  ],
+                  "type": {
+                    "type": "array",
+                    "elementType": {
+                      "type": "intrinsic",
+                      "name": "string"
+                    }
+                  }
+                },
+                {
+                  "id": 56,
+                  "name": "priority",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "优先级, 高优先级消息将会覆盖低优先级的消息"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n3\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 150,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L150"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                }
+              ],
+              "groups": [
+                {
+                  "title": "Properties",
+                  "children": [55, 57, 56]
+                }
+              ],
+              "sources": [
+                {
+                  "fileName": "types/tips.ts",
+                  "line": 140,
+                  "character": 13,
+                  "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L140"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 32,
+          "name": "idleTips",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "闲置状态下的提示"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "object"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/tips.ts",
+              "line": 41,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L41"
+            }
+          ],
+          "type": {
+            "type": "reflection",
+            "declaration": {
+              "id": 33,
+              "name": "__type",
+              "variant": "declaration",
+              "kind": 65536,
+              "flags": {},
+              "children": [
+                {
+                  "id": 35,
+                  "name": "duration",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "提示框持续时间, 单位ms"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n5000\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 55,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L55"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                },
+                {
+                  "id": 37,
+                  "name": "interval",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "闲置状态循环播放消息的间隔时间, 单位ms"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n10000\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 65,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L65"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                },
+                {
+                  "id": 38,
+                  "name": "message",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "播放的消息内容, 需要是一个字符串组成的数组, 播放时会从中随机取出一条进行提示, 空数组则不播放, 默认为空数组"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@valueType",
+                        "content": [
+                          {
+                            "kind": "text",
+                            "text": "string[]"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 71,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L71"
+                    }
+                  ],
+                  "type": {
+                    "type": "array",
+                    "elementType": {
+                      "type": "intrinsic",
+                      "name": "string"
+                    }
+                  }
+                },
+                {
+                  "id": 36,
+                  "name": "priority",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "优先级, 高优先级消息将会覆盖低优先级的消息"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n2\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 60,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L60"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                },
+                {
+                  "id": 34,
+                  "name": "wordTheDay",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "是否开启每日一言, 默认为关闭状态, 开启后将从这个地址请求 https://v1.hitokoto.cn 随机信息作为闲置提示内容\n\n::: tip\n开启后将接管闲置状态下 message 选项设定的值\n:::"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\nfalse\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 50,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L50"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "boolean"
+                  }
+                }
+              ],
+              "groups": [
+                {
+                  "title": "Properties",
+                  "children": [35, 37, 38, 36, 34]
+                }
+              ],
+              "sources": [
+                {
+                  "fileName": "types/tips.ts",
+                  "line": 41,
+                  "character": 13,
+                  "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L41"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 26,
+          "name": "style",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "自定义提示框样式"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "object"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/tips.ts",
+              "line": 13,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L13"
+            }
+          ],
+          "type": {
+            "type": "reflection",
+            "declaration": {
+              "id": 27,
+              "name": "__type",
+              "variant": "declaration",
+              "kind": 65536,
+              "flags": {},
+              "children": [
+                {
+                  "id": 29,
+                  "name": "height",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "提示框高度, 单位px"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n100\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 24,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L24"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                },
+                {
+                  "id": 30,
+                  "name": "offsetX",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "调整提示框位于舞台中的x轴方向偏移量"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n0\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 29,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L29"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                },
+                {
+                  "id": 31,
+                  "name": "offsetY",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "调整提示框位于舞台中的y轴方向偏移量"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n0\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 34,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L34"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                },
+                {
+                  "id": 28,
+                  "name": "width",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "提示框宽度, 单位px"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n230\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 19,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L19"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                }
+              ],
+              "groups": [
+                {
+                  "title": "Properties",
+                  "children": [29, 30, 31, 28]
+                }
+              ],
+              "sources": [
+                {
+                  "fileName": "types/tips.ts",
+                  "line": 13,
+                  "character": 10,
+                  "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L13"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 39,
+          "name": "welcomeTips",
+          "variant": "declaration",
+          "kind": 1024,
+          "flags": {
+            "isOptional": true
+          },
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "模型入场后的欢迎提示"
+              }
+            ],
+            "blockTags": [
+              {
+                "tag": "@valueType",
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "object"
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "types/tips.ts",
+              "line": 78,
+              "character": 2,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L78"
+            }
+          ],
+          "type": {
+            "type": "reflection",
+            "declaration": {
+              "id": 40,
+              "name": "__type",
+              "variant": "declaration",
+              "kind": 65536,
+              "flags": {},
+              "children": [
+                {
+                  "id": 41,
+                  "name": "duration",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "提示框持续时间, 单位ms"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n6000\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 83,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L83"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                },
+                {
+                  "id": 43,
+                  "name": "message",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "播放的消息内容, 每个时段播放对应消息内容"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@valueType",
+                        "content": [
+                          {
+                            "kind": "text",
+                            "text": "object"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 93,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L93"
+                    }
+                  ],
+                  "type": {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 44,
+                      "name": "__type",
+                      "variant": "declaration",
+                      "kind": 65536,
+                      "flags": {},
+                      "children": [
+                        {
+                          "id": 48,
+                          "name": "afternoon",
+                          "variant": "declaration",
+                          "kind": 1024,
+                          "flags": {
+                            "isOptional": true
+                          },
+                          "comment": {
+                            "summary": [
+                              {
+                                "kind": "text",
+                                "text": "下午14-17点提示信息内容"
+                              }
+                            ],
+                            "blockTags": [
+                              {
+                                "tag": "@default",
+                                "content": [
+                                  {
+                                    "kind": "code",
+                                    "text": "```ts\n午后很容易犯困呢，来杯咖啡吧~\n```"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "sources": [
+                            {
+                              "fileName": "types/tips.ts",
+                              "line": 113,
+                              "character": 6,
+                              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L113"
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        },
+                        {
+                          "id": 45,
+                          "name": "daybreak",
+                          "variant": "declaration",
+                          "kind": 1024,
+                          "flags": {
+                            "isOptional": true
+                          },
+                          "comment": {
+                            "summary": [
+                              {
+                                "kind": "text",
+                                "text": "早晨5-7点提示信息内容"
+                              }
+                            ],
+                            "blockTags": [
+                              {
+                                "tag": "@default",
+                                "content": [
+                                  {
+                                    "kind": "code",
+                                    "text": "```ts\n早上好！一日之计在于晨，美好的一天就要开始了。\n```"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "sources": [
+                            {
+                              "fileName": "types/tips.ts",
+                              "line": 98,
+                              "character": 6,
+                              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L98"
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        },
+                        {
+                          "id": 49,
+                          "name": "dusk",
+                          "variant": "declaration",
+                          "kind": 1024,
+                          "flags": {
+                            "isOptional": true
+                          },
+                          "comment": {
+                            "summary": [
+                              {
+                                "kind": "text",
+                                "text": "傍晚18-19点提示信息内容"
+                              }
+                            ],
+                            "blockTags": [
+                              {
+                                "tag": "@default",
+                                "content": [
+                                  {
+                                    "kind": "code",
+                                    "text": "```ts\n傍晚了！工作一天幸苦啦~\n```"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "sources": [
+                            {
+                              "fileName": "types/tips.ts",
+                              "line": 118,
+                              "character": 6,
+                              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L118"
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        },
+                        {
+                          "id": 51,
+                          "name": "lateNight",
+                          "variant": "declaration",
+                          "kind": 1024,
+                          "flags": {
+                            "isOptional": true
+                          },
+                          "comment": {
+                            "summary": [
+                              {
+                                "kind": "text",
+                                "text": "深夜22-23点提示信息内容"
+                              }
+                            ],
+                            "blockTags": [
+                              {
+                                "tag": "@default",
+                                "content": [
+                                  {
+                                    "kind": "code",
+                                    "text": "```ts\n已经这么晚了呀，早点休息吧，晚安~\n```"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "sources": [
+                            {
+                              "fileName": "types/tips.ts",
+                              "line": 128,
+                              "character": 6,
+                              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L128"
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        },
+                        {
+                          "id": 46,
+                          "name": "morning",
+                          "variant": "declaration",
+                          "kind": 1024,
+                          "flags": {
+                            "isOptional": true
+                          },
+                          "comment": {
+                            "summary": [
+                              {
+                                "kind": "text",
+                                "text": "早上8-11点提示信息内容"
+                              }
+                            ],
+                            "blockTags": [
+                              {
+                                "tag": "@default",
+                                "content": [
+                                  {
+                                    "kind": "code",
+                                    "text": "```ts\n上午好！工作顺利嘛，不要久坐，多起来走动走动哦！\n```"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "sources": [
+                            {
+                              "fileName": "types/tips.ts",
+                              "line": 103,
+                              "character": 6,
+                              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L103"
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        },
+                        {
+                          "id": 50,
+                          "name": "night",
+                          "variant": "declaration",
+                          "kind": 1024,
+                          "flags": {
+                            "isOptional": true
+                          },
+                          "comment": {
+                            "summary": [
+                              {
+                                "kind": "text",
+                                "text": "晚上20-21点提示信息内容"
+                              }
+                            ],
+                            "blockTags": [
+                              {
+                                "tag": "@default",
+                                "content": [
+                                  {
+                                    "kind": "code",
+                                    "text": "```ts\n晚上好，今天过得怎么样呢？\n```"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "sources": [
+                            {
+                              "fileName": "types/tips.ts",
+                              "line": 123,
+                              "character": 6,
+                              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L123"
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        },
+                        {
+                          "id": 47,
+                          "name": "noon",
+                          "variant": "declaration",
+                          "kind": 1024,
+                          "flags": {
+                            "isOptional": true
+                          },
+                          "comment": {
+                            "summary": [
+                              {
+                                "kind": "text",
+                                "text": "中午12-13点提示信息内容"
+                              }
+                            ],
+                            "blockTags": [
+                              {
+                                "tag": "@default",
+                                "content": [
+                                  {
+                                    "kind": "code",
+                                    "text": "```ts\n中午了，工作了一个上午，现在是午餐时间！\n```"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "sources": [
+                            {
+                              "fileName": "types/tips.ts",
+                              "line": 108,
+                              "character": 6,
+                              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L108"
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        },
+                        {
+                          "id": 52,
+                          "name": "weeHours",
+                          "variant": "declaration",
+                          "kind": 1024,
+                          "flags": {
+                            "isOptional": true
+                          },
+                          "comment": {
+                            "summary": [
+                              {
+                                "kind": "text",
+                                "text": "凌晨0-4点提示信息内容"
+                              }
+                            ],
+                            "blockTags": [
+                              {
+                                "tag": "@default",
+                                "content": [
+                                  {
+                                    "kind": "code",
+                                    "text": "```ts\n这么晚还不睡吗？当心熬夜秃头哦！\n```"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "sources": [
+                            {
+                              "fileName": "types/tips.ts",
+                              "line": 133,
+                              "character": 6,
+                              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L133"
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        }
+                      ],
+                      "groups": [
+                        {
+                          "title": "Properties",
+                          "children": [48, 45, 49, 51, 46, 50, 47, 52]
+                        }
+                      ],
+                      "sources": [
+                        {
+                          "fileName": "types/tips.ts",
+                          "line": 93,
+                          "character": 14,
+                          "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L93"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": 42,
+                  "name": "priority",
+                  "variant": "declaration",
+                  "kind": 1024,
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "summary": [
+                      {
+                        "kind": "text",
+                        "text": "提示优先级"
+                      }
+                    ],
+                    "blockTags": [
+                      {
+                        "tag": "@default",
+                        "content": [
+                          {
+                            "kind": "code",
+                            "text": "```ts\n3\n```"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "sources": [
+                    {
+                      "fileName": "types/tips.ts",
+                      "line": 88,
+                      "character": 4,
+                      "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L88"
+                    }
+                  ],
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "number"
+                  }
+                }
+              ],
+              "groups": [
+                {
+                  "title": "Properties",
+                  "children": [41, 43, 42]
+                }
+              ],
+              "sources": [
+                {
+                  "fileName": "types/tips.ts",
+                  "line": 78,
+                  "character": 16,
+                  "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L78"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "groups": [
+        {
+          "title": "Properties",
+          "children": [53, 32, 26, 39]
+        }
+      ],
+      "sources": [
+        {
+          "fileName": "types/tips.ts",
+          "line": 7,
+          "character": 17,
+          "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/types/tips.ts#L7"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "loadOml2d",
+      "variant": "declaration",
+      "kind": 64,
+      "flags": {},
+      "sources": [
+        {
+          "fileName": "index.ts",
+          "line": 8,
+          "character": 13,
+          "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/index.ts#L8"
+        }
+      ],
+      "signatures": [
+        {
+          "id": 2,
+          "name": "loadOml2d",
+          "variant": "signature",
+          "kind": 4096,
+          "flags": {},
+          "sources": [
+            {
+              "fileName": "modules/index.ts",
+              "line": 179,
+              "character": 20,
+              "url": "https://github.com/oh-my-live2d/oh-my-live2d/blob/a61ba32/src/modules/index.ts#L179"
+            }
+          ],
+          "parameters": [
+            {
+              "id": 3,
+              "name": "options",
+              "variant": "param",
+              "kind": 32768,
+              "flags": {},
+              "type": {
+                "type": "reference",
+                "target": 4,
+                "name": "Options",
+                "package": "oh-my-live2d"
+              }
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "target": {
+              "sourceFileName": "node_modules/.pnpm/typescript@4.9.5/node_modules/typescript/lib/lib.es5.d.ts",
+              "qualifiedName": "Promise"
+            },
+            "typeArguments": [
+              {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            ],
+            "name": "Promise",
+            "package": "typescript"
+          }
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "title": "Interfaces",
+      "children": [16, 4, 25]
+    },
+    {
+      "title": "Functions",
+      "children": [1]
+    }
+  ],
+  "packageName": "oh-my-live2d",
+  "readme": [
+    {
+      "kind": "text",
+      "text": "# OhMyLive2D\n\n![npm](https://img.shields.io/npm/v/oh-my-live2d?label=oh-my-live2d) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange) ![GitHub package.json version](https://img.shields.io/npm/v/vuepress-plugin-oh-my-live2d?label=vuepress-plugin-oh-my-live2d) ![](https://img.shields.io/badge/vuepress2-plugin-green)\n\nOhMyLive2D 是一个运行在浏览器环境的 Live2D 看板组件，它支持从 model2 到 model4 之间的所有版本的 Live2D 模型，开箱即用且可定制化。  \n如果你还在苦于寻找一个支持所有版本模型的 Live2D For Web 组件，为你的个人网站增加一个看板娘，那么请看看这个！🥳\n\n[查阅文档](https://oml2d.com) 以了解更多详细的使用教程 🎉。\n\n> [!TIP]  \n> **本项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入 😄**\n\n## ✨ 特点：\n\n<img align=\"right\" height=\"270\" src=\"https://raw.githubusercontent.com/mihu915/picgo-images/master/images202302080219383.gif\"/>\n\n- 支持 "
+    },
+    {
+      "kind": "code",
+      "text": "`CDN`"
+    },
+    {
+      "kind": "text",
+      "text": " 或 "
+    },
+    {
+      "kind": "code",
+      "text": "`ES6 Module`"
+    },
+    {
+      "kind": "text",
+      "text": " 两种导入方式。\n\n- 默认自动集成 "
+    },
+    {
+      "kind": "code",
+      "text": "`Cubism 2 SDK`"
+    },
+    {
+      "kind": "text",
+      "text": " 和 "
+    },
+    {
+      "kind": "code",
+      "text": "`Cubism 5 SDK`"
+    },
+    {
+      "kind": "text",
+      "text": "，无需手动额外引入其他外部依赖。\n\n- 可自定义本地或远程 "
+    },
+    {
+      "kind": "code",
+      "text": "`Live2D Model`"
+    },
+    {
+      "kind": "text",
+      "text": " 来源。\n\n- 完全使用 "
+    },
+    {
+      "kind": "code",
+      "text": "`TypeScript`"
+    },
+    {
+      "kind": "text",
+      "text": " 开发，具有完整的类型推导。\n\n- 按需引入 "
+    },
+    {
+      "kind": "code",
+      "text": "`Cubism SDK`"
+    },
+    {
+      "kind": "text",
+      "text": " 依赖或全量导入所有"
+    },
+    {
+      "kind": "code",
+      "text": "`Cubism SDK`"
+    },
+    {
+      "kind": "text",
+      "text": "版本依赖。\n\n- 支持配置多个模型，使用菜单控件对其切换。\n\n- 第三方文档构建工具的支持, 如 "
+    },
+    {
+      "kind": "code",
+      "text": "`Vitepress`"
+    },
+    {
+      "kind": "text",
+      "text": "、"
+    },
+    {
+      "kind": "code",
+      "text": "`Vuepress`"
+    },
+    {
+      "kind": "text",
+      "text": "。\n\n## 🤔 Cubism 是什么：\n\nCubism 是 Live2D SDK 的名称，截至目前它一共存在四个版本：Cubism 2、Cubism 3、Cubism 4、Cubism 5。\n\nCubism 2 是只能驱动 Live2D Model 版本为 2 的 SDK，它无法驱动 Live2D Model 3 和 Live2D Model 4。\n\nCubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法驱动 Live2D Model 2。\n\n> [!TIP]\n> 本项目已集成 Cubism 2.1 与 Cubism 5.0.0 ，完整覆盖了从 model2 到 model4 的所有版本。\n\n## 🌈 快速使用：\n\n> [!WARNING]\n> 本项目从 "
+    },
+    {
+      "kind": "code",
+      "text": "`0.4.0`"
+    },
+    {
+      "kind": "text",
+      "text": " 版本开始对所有模块都进行了一次重构, 并且不再采用自动加载组件的模式, 现在你可以通过 "
+    },
+    {
+      "kind": "code",
+      "text": "`loadOml2d`"
+    },
+    {
+      "kind": "text",
+      "text": " 方法加载组件至 "
+    },
+    {
+      "kind": "code",
+      "text": "`body`"
+    },
+    {
+      "kind": "text",
+      "text": " 中, 或者使用"
+    },
+    {
+      "kind": "code",
+      "text": "`parentElemetn`"
+    },
+    {
+      "kind": "text",
+      "text": "选项为其指定一个父元素.\n\n### CDN 引入\n\n通过 CDN 方式导入时，所有成员变量都可以在 "
+    },
+    {
+      "kind": "code",
+      "text": "`OML2D`"
+    },
+    {
+      "kind": "text",
+      "text": " 命名空间下被使用。通过调用"
+    },
+    {
+      "kind": "code",
+      "text": "`OML2D.loadOml2d()`"
+    },
+    {
+      "kind": "text",
+      "text": "方法加载 Live2D 模型, 该方法接收一个 "
+    },
+    {
+      "kind": "code",
+      "text": "`options`"
+    },
+    {
+      "kind": "text",
+      "text": " 配置选项对象，示例如下。\n\n有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)\n\n"
+    },
+    {
+      "kind": "code",
+      "text": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>OhMyLive2D</title>\n  </head>\n  <body>\n    <script src=\"https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js\"></script>\n    <script>\n      OML2D.loadOml2d({\n        models: [\n          {\n            path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json'\n          }\n        ]\n      });\n    </script>\n  </body>\n</html>\n```"
+    },
+    {
+      "kind": "text",
+      "text": "\n\n### 使用包管理工具安装：\n\n- 使用 "
+    },
+    {
+      "kind": "code",
+      "text": "`npm`"
+    },
+    {
+      "kind": "text",
+      "text": " 安装：\n\n  "
+    },
+    {
+      "kind": "code",
+      "text": "```shell\n  npm install oh-my-live2d\n  ```"
+    },
+    {
+      "kind": "text",
+      "text": "\n\n- 使用 "
+    },
+    {
+      "kind": "code",
+      "text": "`yarn`"
+    },
+    {
+      "kind": "text",
+      "text": " 安装：\n\n  "
+    },
+    {
+      "kind": "code",
+      "text": "```shell\n  yarn add oh-my-live2d\n  ```"
+    },
+    {
+      "kind": "text",
+      "text": "\n\n- 国内源安装可使用 "
+    },
+    {
+      "kind": "code",
+      "text": "`tyarn`"
+    },
+    {
+      "kind": "text",
+      "text": "：\n\n  "
+    },
+    {
+      "kind": "code",
+      "text": "```shell\n  tyarn add oh-my-live2d\n  ```"
+    },
+    {
+      "kind": "text",
+      "text": "\n\n- 使用 "
+    },
+    {
+      "kind": "code",
+      "text": "`pnpm`"
+    },
+    {
+      "kind": "text",
+      "text": " 安装：\n\n  "
+    },
+    {
+      "kind": "code",
+      "text": "```shell\n  pnpm add oh-my-live2d\n  ```"
+    },
+    {
+      "kind": "text",
+      "text": "\n\n### ESM 使用示例：\n\nOhMyLive2D 在使用 ES6Module 方式导入时暴露了一个"
+    },
+    {
+      "kind": "code",
+      "text": "`loadOml2d`"
+    },
+    {
+      "kind": "text",
+      "text": "方法, 该方法接收一个配置选项"
+    },
+    {
+      "kind": "code",
+      "text": "`options`"
+    },
+    {
+      "kind": "text",
+      "text": ".\n有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)\n\n"
+    },
+    {
+      "kind": "code",
+      "text": "```ts\nimport { loadOml2d } from 'oh-my-live2d';\nloadOml2d({\n  models: [\n    {\n      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json'\n    }\n  ]\n});\n```"
+    },
+    {
+      "kind": "text",
+      "text": "\n\n如果您想更换自己的模型或对其进行自定义，请[查阅文档](https://oml2d.com/)中自定义章节的相关内容。\n\n## ✨ 其他支持:\n\n- [在 vitepress 中使用](https://oml2d.com/guide/vitepress)\n\n- [在 vuepress2 中使用](https://oml2d.com/guide/vuepress)\n\n- [在 hexo 中使用](https://oml2d.com/guide/hexo.html)\n\n## 📧 讨论：\n\n- qq 群: 474032914\n\n- 微信群:\n  添加好友以加入微信群：  \n  添加好友时请备注："
+    },
+    {
+      "kind": "code",
+      "text": "`oml2d`"
+    },
+    {
+      "kind": "text",
+      "text": "\n  <img width=240 src=\"https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png\"/>\n\n## 📃 开源许可：\n\n- [MIT](https://github.com/oh-my-live2d/oh-my-live2d/blob/master/license)\n\n## 版权声明:\n\n本项目仅提供模型加载技术支持, 不提供任何 Live2D Model 的下载地址。文档中提供的所有模型地址均来源于网路，仅供参考和学习。"
+    }
+  ],
+  "symbolIdMap": {
+    "0": {
+      "sourceFileName": "src/index.ts",
+      "qualifiedName": ""
+    },
+    "1": {
+      "sourceFileName": "src/index.ts",
+      "qualifiedName": "loadOml2d"
+    },
+    "2": {
+      "sourceFileName": "src/modules/index.ts",
+      "qualifiedName": "loadOml2d"
+    },
+    "3": {
+      "sourceFileName": "src/modules/index.ts",
+      "qualifiedName": "options"
+    },
+    "4": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "Options"
+    },
+    "5": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "Options.importType"
+    },
+    "6": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "Options.libraryUrls"
+    },
+    "7": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "__type"
+    },
+    "8": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "__type.cubism2"
+    },
+    "9": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "__type.cubism5"
+    },
+    "10": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "Options.sayHello"
+    },
+    "11": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "Options.transitionTime"
+    },
+    "12": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "Options.models"
+    },
+    "13": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "Options.tips"
+    },
+    "14": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "Options.parentElement"
+    },
+    "15": {
+      "sourceFileName": "src/types/options.ts",
+      "qualifiedName": "Options.fixed"
+    },
+    "16": {
+      "sourceFileName": "src/types/model.ts",
+      "qualifiedName": "Model"
+    },
+    "17": {
+      "sourceFileName": "src/types/model.ts",
+      "qualifiedName": "Model.path"
+    },
+    "18": {
+      "sourceFileName": "src/types/model.ts",
+      "qualifiedName": "Model.scale"
+    },
+    "19": {
+      "sourceFileName": "src/types/model.ts",
+      "qualifiedName": "Model.position"
+    },
+    "20": {
+      "sourceFileName": "src/types/model.ts",
+      "qualifiedName": "Model.stageStyle"
+    },
+    "21": {
+      "sourceFileName": "src/types/model.ts",
+      "qualifiedName": "__type"
+    },
+    "22": {
+      "sourceFileName": "src/types/model.ts",
+      "qualifiedName": "__type.backgroundColor"
+    },
+    "23": {
+      "sourceFileName": "src/types/model.ts",
+      "qualifiedName": "__type.width"
+    },
+    "24": {
+      "sourceFileName": "src/types/model.ts",
+      "qualifiedName": "__type.height"
+    },
+    "25": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "Tips"
+    },
+    "26": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "Tips.style"
+    },
+    "27": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type"
+    },
+    "28": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.width"
+    },
+    "29": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.height"
+    },
+    "30": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.offsetX"
+    },
+    "31": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.offsetY"
+    },
+    "32": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "Tips.idleTips"
+    },
+    "33": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type"
+    },
+    "34": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.wordTheDay"
+    },
+    "35": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.duration"
+    },
+    "36": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.priority"
+    },
+    "37": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.interval"
+    },
+    "38": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.message"
+    },
+    "39": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "Tips.welcomeTips"
+    },
+    "40": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type"
+    },
+    "41": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.duration"
+    },
+    "42": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.priority"
+    },
+    "43": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.message"
+    },
+    "44": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type"
+    },
+    "45": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.daybreak"
+    },
+    "46": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.morning"
+    },
+    "47": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.noon"
+    },
+    "48": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.afternoon"
+    },
+    "49": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.dusk"
+    },
+    "50": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.night"
+    },
+    "51": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.lateNight"
+    },
+    "52": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.weeHours"
+    },
+    "53": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "Tips.copyTips"
+    },
+    "54": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type"
+    },
+    "55": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.duration"
+    },
+    "56": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.priority"
+    },
+    "57": {
+      "sourceFileName": "src/types/tips.ts",
+      "qualifiedName": "__type.message"
+    }
+  }
 }

@@ -1,13 +1,13 @@
 # 在 hexo 中使用
 
-## 安装:
+## 安装
 
 ```sh
 npm install hexo-oh-my-live2d
 
 ```
 
-## 使用:
+## 使用
 
 ```yml
 # _config.yml
@@ -46,4 +46,4 @@ OhMyLive2d:
           - '欢迎'
 ```
 
-如需自定义配置, 请在[配置选项](/options/Options)中查阅详细配置内容.
+如需自定义配置, 请在[配置选项](../options/Options.md) 中查阅详细配置内容.

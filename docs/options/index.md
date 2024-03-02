@@ -2,11 +2,9 @@
 
 - 示例:
 
-
-``` ts
-console.log('demo')
+```ts
+console.log('demo');
 ```
-
 
 以下是所有配置选项
 
@@ -59,9 +57,8 @@ console.log('demo')
 - 类型: `Tips`
 
 - 默认值:
-  
 
-``` ts
+```ts
   {
     style: {
         width: 230,
@@ -90,8 +87,7 @@ console.log('demo')
      priority: 3
     }
   }
-  ```
-
+```
 
 自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容
 
@@ -103,6 +99,6 @@ console.log('demo')
 
 - 默认值: `1000`
 
-组件入场和离开的过渡动画时长,单位ms
+组件入场和离开的过渡动画时长,单位 ms
 
 ---

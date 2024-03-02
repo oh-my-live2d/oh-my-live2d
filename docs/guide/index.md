@@ -67,13 +67,13 @@ yarn add oh-my-live2d@latest
 
 :::
 
-### CDN 方式导入：
+### CDN 方式导入
 
 通过 CDN 方式导入时，所有成员变量都可以在 `OML2D` 命名空间下被使用。
 
 并且该方法接收一个 `options` 配置选项对象，示例如下。
 
-有关配置选项的详细内容请查看: [配置选项](/options/Options)
+有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
 
 ```html
 <!DOCTYPE html>
@@ -103,7 +103,7 @@ yarn add oh-my-live2d@latest
 ### ESM 导入：
 
 OhMyLive2D 在使用 ES6Module 方式导入时暴露了一个`loadOml2d`方法, 该方法接收一个配置选项`options`.
-有关配置选项的详细内容请查看: [配置选项](/options/Options)
+有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
 
 ```ts
 import { loadOml2d } from 'oh-my-live2d';
@@ -118,15 +118,15 @@ loadOml2d({
 
 以上示例的使用效果请参考本站左下角.
 
-### 其他支持:
+### 其他支持
 
-- [在 vitepress 中使用](/guide/vitepress)
+- [在 VitePress 中使用](./vitepress.md)
 
-- [在 vuepress2 中使用](/guide/vuepress)
+- [在 VuePress2 中使用](./vuepress.md)
 
-- [在 hexo 中使用](/guide/hexo.html)
+- [在 Hexo 中使用](./hexo.md)
 
-## 📧 讨论：
+## 📧 讨论
 
 - qq 群: 474032914
 
@@ -135,6 +135,6 @@ loadOml2d({
   添加好友时请备注：`oml2d`
   <img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
 
-### 版权声明:
+### 版权声明
 
 本项目仅提供模型加载技术支持, 不提供任何 Live2D Model 的下载地址。文档中提供的所有模型地址均来源于网路，仅供参考和学习。
