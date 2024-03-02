@@ -1,4 +1,3 @@
-import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import project from './package.json';
 
@@ -17,11 +16,6 @@ export default defineConfig({
       output: {
         chunkFileNames: 'oml2d.app.js'
       }
-    }
-  },
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, './src')
     }
   }
 });

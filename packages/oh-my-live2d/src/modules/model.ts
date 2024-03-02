@@ -1,7 +1,7 @@
-import { Live2DModelType } from '@/types';
-import { Model as ModelOptions } from '@/types/model';
-import { InternalModel, Live2DModel } from 'pixi-live2d-display';
 import { Application } from 'pixi.js';
+import { InternalModel, Live2DModel } from 'pixi-live2d-display';
+
+import type { Live2DModelType, ModelOptions } from '../types/index.js';
 
 export class Model {
   private model: Live2DModel<InternalModel>; // 模型实例

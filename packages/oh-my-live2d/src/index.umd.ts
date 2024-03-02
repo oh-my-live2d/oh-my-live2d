@@ -1,5 +1,9 @@
-import { setup } from '@/modules';
-import { loadUmdLibrary } from '@/utils';
+import { setup } from './modules/index.js';
+import { loadUmdLibrary } from './utils/index.js';
+
+import './library/iconfont.js';
+
+export * from './types/options.js';
 
 export const loadOml2d = setup(async (importType, urls) => {
   await loadUmdLibrary(importType, urls);
@@ -9,5 +13,3 @@ export const loadOml2d = setup(async (importType, urls) => {
     PIXI: (window as any).PIXI
   };
 });
-
-export * from './types/options';

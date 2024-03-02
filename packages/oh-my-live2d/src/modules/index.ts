@@ -1,16 +1,15 @@
 import type { Application } from 'pixi.js';
-import { checkVersion, formatUnit, printProjectInfo } from '../utils';
-
-import { defaultOptions } from '@/config';
-import { WindowSizeType } from '@/constants';
-import { Menus } from '@/modules/menus';
-import { Model } from '@/modules/model';
-import { Stage } from '@/modules/stage';
-import { StatusBar, SystemStete } from '@/modules/status-bar';
-import { Tips } from '@/modules/tips';
-import type { ApplicationType, DefaultOptions, Live2DModelType } from '@/types';
-import { Options } from '@/types/options';
 import { isNumber, mergeDeep } from 'tianjie';
+
+import { WindowSizeType } from '../constants/index.js';
+import { DEFAULT_OPTIONS } from '../config/index.js';
+import { checkVersion, formatUnit, printProjectInfo } from '../utils/index.js';
+import { Menus } from './menus.js';
+import { Model } from './model.js';
+import { Stage } from './stage.js';
+import { StatusBar, SystemState } from './status-bar.js';
+import { Tips } from './tips.js';
+import type { ApplicationType, DefaultOptions, Live2DModelType, Options } from '../types/index.js';
 
 export class OhMyLive2D {
   private stage: Stage;
@@ -38,7 +37,7 @@ export class OhMyLive2D {
   initialize() {
     this.verifyWindowSizeType();
     if (this.windowSizeType !== WindowSizeType.PC) {
-      this.statusBar.popup('暂不支持移动端', SystemStete.info, 8000);
+      this.statusBar.popup('暂不支持移动端', SystemState.info, 8000);
       return;
     }
     this.loadModel();
@@ -178,7 +177,7 @@ export const setup = (loadMethod) => {
   let oml2d;
   const loadOml2d = async (options: Options) => {
     const { parentElement } = options;
-    const finalOptions = mergeDeep(defaultOptions, options);
+    const finalOptions = mergeDeep(DEFAULT_OPTIONS, options);
     finalOptions.parentElement = parentElement || document.body;
     if (!finalOptions.models?.length) throw new Error('至少需要配置一个模型');
     const { Live2dModule, PIXI } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);

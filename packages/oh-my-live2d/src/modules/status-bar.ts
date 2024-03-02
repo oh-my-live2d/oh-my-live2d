@@ -1,12 +1,14 @@
-import { config } from '@/config';
-import { CSSProperties } from '@/types';
-import { createElement, setStyleByElement } from '@/utils';
 import { mergeDeep } from 'tianjie';
-enum Status {
+
+import { CONFIG } from '../config/index.js';
+import type { CSSProperties } from '../types/index.js';
+import { createElement, setStyleByElement } from '../utils/index.js';
+
+const enum Status {
   Display = 1,
   Hidden = 0
 }
-export enum SystemStete {
+export const enum SystemState {
   info = 'info',
   error = 'error'
 }
@@ -25,7 +27,7 @@ export class StatusBar {
 
   private style: CSSProperties = {};
   constructor(wrapperElement: HTMLElement) {
-    this.element = createElement({ id: config.statusBarId, tagName: 'div', innerText: 'hello' });
+    this.element = createElement({ id: CONFIG.statusBarId, tagName: 'div', innerText: 'hello' });
     wrapperElement.append(this.element);
     this.initStyle();
   }
@@ -112,15 +114,15 @@ export class StatusBar {
    * @param reloadFn
    */
   loadingError(reloadFn: () => any) {
-    this.popup('加载失败', SystemStete.error, false);
+    this.popup('加载失败', SystemState.error, false);
 
     // this.setStyle({})
     // 添加 mouseover 事件监听器
     const mouseover = () => {
-      this.popup('重新加载', SystemStete.info, false);
+      this.popup('重新加载', SystemState.info, false);
     };
     const mouseout = () => {
-      this.popup('加载失败', SystemStete.error, false);
+      this.popup('加载失败', SystemState.error, false);
     };
 
     const handleClick = () => {
@@ -141,7 +143,7 @@ export class StatusBar {
    * @param state
    * @param delay
    */
-  popup(message: string, state: SystemStete = SystemStete.info, delay: number | false = 1000) {
+  popup(message: string, state: SystemState = SystemState.info, delay: number | false = 1000) {
     this.setContent(message);
     this.setStyle({ backgroundColor: this.stateColor[state] });
     this.slideIn().then(() => {

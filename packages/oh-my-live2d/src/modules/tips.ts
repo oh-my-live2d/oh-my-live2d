@@ -1,14 +1,7 @@
-import { config } from '@/config';
-import { CSSProperties, DeepRequired } from '@/types';
-import { Tips as TipsOptions } from '@/types/tips';
-import { createElement, getWordTheDay, setStyleByElement, sleep } from '@/utils';
-import { getWelcomeMessage } from '@/utils/tips';
+import { CONFIG } from '../config/index.js';
+import type { CSSProperties, DeepRequired, TipsOptions } from '../types/index.js';
+import { createElement, getWordTheDay, setStyleByElement, sleep, getWelcomeMessage } from '../utils/index.js';
 import { getRandomElement, mergeDeep, setIntervalAsync } from 'tianjie';
-
-// enum Status {
-//   Display = 1,
-//   Hidden = 0
-// }
 
 export class Tips {
   private element: HTMLElement;
@@ -24,7 +17,7 @@ export class Tips {
   private priority = 0; // 当前优先级
 
   constructor(stageElement: HTMLElement, private tipsOptions: DeepRequired<TipsOptions>) {
-    this.element = createElement({ id: config.tipsId, tagName: 'div' });
+    this.element = createElement({ id: CONFIG.tipsId, tagName: 'div' });
     stageElement.append(this.element);
     this.initStyle();
     this.idlePlayer = this.createIdleMessagePlayer();
@@ -96,7 +89,7 @@ export class Tips {
         animationName: 'oml2d-hidden-tips,oml2d-shake-tips'
       });
       this.priority = 0;
-    }, duration);
+    }, duration) as unknown as number;
   }
 
   /**

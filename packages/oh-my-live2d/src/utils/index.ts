@@ -1,7 +1,9 @@
-import { SDK } from '@/config';
-import type { CSSProperties, ElementConfig, PIXI_LIVE2D_DISPLAY_MODULE } from '@/types';
-import { ImportType } from '@/types';
 import { isNumber } from 'tianjie';
+
+import { SDK } from '../config/index.js';
+import type { PIXI_LIVE2D_DISPLAY_MODULE, CSSProperties, ElementConfig, ImportType } from '../types/index.js';
+
+export * from './tips.js';
 
 /**
  * 打印项目信息

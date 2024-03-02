@@ -4,7 +4,7 @@
  * 配置提示框样式和消息内容
  * @name 提示框选项
  */
-export interface Tips {
+export interface TipsOptions {
   /**
    *
    * 自定义提示框样式

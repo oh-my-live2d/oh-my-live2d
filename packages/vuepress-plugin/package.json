@@ -29,7 +29,8 @@
     "release": "dotenv release-it"
   },
   "dependencies": {
-    "oh-my-live2d": "workspace:*"
+    "oh-my-live2d": "workspace:*",
+    "vue": "^3.4.21"
   },
   "peerDependencies": {
     "vuepress": "^2.0.0-rc.8"

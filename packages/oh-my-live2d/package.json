@@ -11,7 +11,8 @@
   "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oh-my-live2d/oh-my-live2d.git"
+    "url": "git+https://github.com/oh-my-live2d/oh-my-live2d.git",
+    "directory": "packages/oh-my-live2d"
   },
   "license": "MIT",
   "author": "loclink",
@@ -22,9 +23,15 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "scripts": {
-    "build": "rimraf dist && tsc && tsc-alias && node ./scripts/build.js",
-    "dev": "rimraf dist && tsc && (concurrently \"tsc -w\" \"tsc-alias -w\" \"cross-env OML_ENV=dev node ./scripts/build.js\" \"pnpm run test\")",
+    "build": "rimraf dist && tsc && node ./scripts/build.js",
+    "dev": "rimraf dist && tsc && (concurrently \"tsc -w\" \"cross-env OML_ENV=dev node ./scripts/build.js\" \"pnpm run test\")",
     "release": "dotenv release-it"
   },
   "devDependencies": {
@@ -32,7 +39,6 @@
     "pixi-live2d-display": "0.4.0",
     "pixi.js": "6.5.10",
     "tianjie": "^0.0.9",
-    "tsc-alias": "^1.8.8",
     "vite": "5.1.4"
   }
 }

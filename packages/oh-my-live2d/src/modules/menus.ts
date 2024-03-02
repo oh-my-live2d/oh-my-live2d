@@ -1,7 +1,8 @@
-import { config, menusConfig } from '@/config';
-import { CSSProperties } from '@/types';
-import { createElement, setStyleByElement } from '@/utils';
 import { mergeDeep } from 'tianjie';
+
+import { CONFIG, MENU_ITEMS } from '../config/index.js';
+import type { CSSProperties } from '../types/index.js';
+import { createElement, setStyleByElement } from '../utils/index.js';
 
 export class Menus {
   element: HTMLElement;
@@ -9,7 +10,7 @@ export class Menus {
   private clickItem?: (name: string) => void;
 
   constructor(private stageElement: HTMLElement) {
-    this.element = createElement({ id: config.menusId, tagName: 'div', className: config.menusId });
+    this.element = createElement({ id: CONFIG.menusId, tagName: 'div', className: CONFIG.menusId });
     this.createMenuItem();
     this.stageElement.append(this.element);
     this.ininStyle();
@@ -31,7 +32,7 @@ export class Menus {
     this.stageElement.addEventListener('mouseout', () => this.setStyle({ opacity: 0, visibility: 'hidden' }));
   }
   createMenuItem() {
-    const menuItemList = menusConfig.map((item) => {
+    const menuItemList = MENU_ITEMS.map((item) => {
       const el = createElement({
         id: item.id,
         tagName: 'div',

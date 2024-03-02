@@ -1,11 +1,10 @@
-import { config } from '@/config';
-import { globalStyle } from '@/config/style';
-import { CSSProperties } from '@/types';
-import { Options } from '@/types/options';
-import { createElement, setStyleByElement } from '@/utils';
 import { mergeDeep } from 'tianjie';
 
-enum Status {
+import { CONFIG, globalStyle } from '../config/index.js';
+import type { CSSProperties, Options } from '../types/index.js';
+import { createElement, setStyleByElement } from '../utils/index.js';
+
+const enum Status {
   Display = 1,
   Hidden = 0
 }
@@ -19,8 +18,8 @@ export class Stage {
   private status: Status = Status.Hidden;
   private slideChangeEnd?: (status: Status) => void;
   constructor(private targetElement: HTMLElement, private options: Options) {
-    this.element = createElement({ id: config.stageId, tagName: 'div' });
-    this.canvasElement = createElement({ id: config.canvasId, tagName: 'canvas' }) as HTMLCanvasElement;
+    this.element = createElement({ id: CONFIG.stageId, tagName: 'div' });
+    this.canvasElement = createElement({ id: CONFIG.canvasId, tagName: 'canvas' }) as HTMLCanvasElement;
     this.wrapperElement = createElement({ id: 'oml2dWrapper', tagName: 'div' });
     this.create();
     this.initStyle();

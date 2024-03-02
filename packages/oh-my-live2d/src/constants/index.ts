@@ -1,15 +1,8 @@
-const COMPLETE = 'complete';
-const CUBISM2 = 'cubism2';
-const CUBISM4 = 'cubism4';
+export const COMPLETE = 'complete';
+export const CUBISM2 = 'cubism2';
+export const CUBISM4 = 'cubism4';
 
-// export enum ImportType {
-//   COMPLETE = 'complete',
-//   CUBISM2 = 'cubism2',
-//   CUBISM4 = 'cubism4'
-// }
-
-export enum WindowSizeType {
+export const enum WindowSizeType {
   PC = 'PC',
   MOBILE = 'MOBILE'
 }
-export { COMPLETE, CUBISM2, CUBISM4 };

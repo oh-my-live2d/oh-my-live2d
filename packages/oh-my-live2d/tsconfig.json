@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "ES2022",
     "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "lib": ["ESNext", "DOM"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["DOM", "ESNext"],
     "outDir": "./dist",
     "baseUrl": ".",
     "declaration": true,
@@ -14,11 +14,8 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "allowJs": true,
-    "noImplicitAny": false,
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "noImplicitAny": false
   },
-  "include": ["**/*"],
+  "include": ["src/*"],
   "exclude": ["src/library/*"]
 }

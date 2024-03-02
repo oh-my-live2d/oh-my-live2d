@@ -1,6 +1,7 @@
-import { ImportType } from '@/types';
-import { Model } from '@/types/model';
-import { Tips } from '@/types/tips';
+import { ModelOptions } from './model.js';
+import { TipsOptions } from './tips.js';
+
+export type ImportType = 'complete' | 'cubism2' | 'cubism5';
 
 /**
  * # 配置选项
@@ -56,7 +57,7 @@ export interface Options {
    * @valueType Model[]
    * @default []
    */
-  models?: Model[];
+  models?: ModelOptions[];
 
   /**
    * 自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容
@@ -64,7 +65,7 @@ export interface Options {
    * @default object
    * @valueType Tips
    */
-  tips?: Tips;
+  tips?: TipsOptions;
 
   /**
    * 为组件提供一个父元素，如果未指定则默认挂载到 body 中
@@ -84,5 +85,5 @@ export interface Options {
   fixed?: boolean;
 }
 
-export * from './model';
-export * from './tips';
+export * from './model.js';
+export * from './tips.js';
