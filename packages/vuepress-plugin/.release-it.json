@@ -14,6 +14,6 @@
     "publish": true
   },
   "hooks": {
-    "after:bump": "node ../../scripts/update-vuepress.mjs"
+    "after:bump": "node ../../scripts/update-vuepress.js"
   }
 }

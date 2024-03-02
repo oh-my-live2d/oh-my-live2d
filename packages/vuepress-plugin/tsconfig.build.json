@@ -4,6 +4,7 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "lib": ["ESNext", "DOM"],
+    "outDir": "./dist",
     "strict": true
   },
   "include": ["src"]

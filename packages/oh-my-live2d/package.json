@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "build": "rimraf dist && tsc && tsc-alias && node ./scripts/build.js",
-    "dev": "rimraf dist && tsc && (concurrently \"tsc -w\" \"tsc-alias -w\" \"cross-env OML_ENV=dev node ./scripts/build.mjs\" \"pnpm run test\")",
+    "dev": "rimraf dist && tsc && (concurrently \"tsc -w\" \"tsc-alias -w\" \"cross-env OML_ENV=dev node ./scripts/build.js\" \"pnpm run test\")",
     "release": "dotenv release-it"
   },
   "devDependencies": {

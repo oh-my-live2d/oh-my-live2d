@@ -10,6 +10,8 @@
     "declaration": true,
     "skipLibCheck": true,
     "emitDeclarationOnly": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "allowJs": true,
     "noImplicitAny": false,
