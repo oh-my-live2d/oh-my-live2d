@@ -7,9 +7,7 @@ declare const __OML2D_OPTIONS__: Options;
 export default defineClientConfig({
   setup: () => {
     onMounted(() => {
-      void import('oh-my-live2d').then(({ loadOml2d }) => {
-        loadOml2d(__OML2D_OPTIONS__);
-      });
+      void import('oh-my-live2d').then(({ loadOml2d }) => loadOml2d(__OML2D_OPTIONS__));
     });
   }
 });

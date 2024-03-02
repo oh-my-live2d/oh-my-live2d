@@ -7,7 +7,8 @@ import './library/iconfont.js';
 
 export * from './types/options.js';
 
-(window as any).PIXI = PIXI;
+// @ts-ignore
+window.PIXI = PIXI;
 
 PIXI.utils.skipHello();
 

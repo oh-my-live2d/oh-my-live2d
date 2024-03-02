@@ -83,11 +83,11 @@ export const loadLibrary = async (importType: ImportType, urls: LibraryUrls): Pr
     case 'cubism2':
       await loadScript(urls[importType]);
 
-      return import(`pixi-live2d-display/cubism2`);
+      return import('pixi-live2d-display/cubism2');
     case 'cubism5':
       await loadScript(urls[importType]);
 
-      return import(`pixi-live2d-display/cubism4`);
+      return import('pixi-live2d-display/cubism4');
     default:
       await Promise.all([loadScript(urls.cubism2), loadScript(urls.cubism5)]);
 
