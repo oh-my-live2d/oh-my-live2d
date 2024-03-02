@@ -1,7 +1,8 @@
-import { loadOml2d } from '../../../dist';
-import { setupCounter } from '../lib/main';
-import './style.css';
+import { loadOml2d } from 'oh-my-live2d';
+import { setupCounter } from '../lib/main.js';
 import typescriptLogo from './typescript.svg';
+
+import './style.css';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>

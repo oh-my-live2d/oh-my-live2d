@@ -1,4 +1,4 @@
-import { loadOhMyLive2D } from 'oh-my-live2d';
+import { loadOml2d } from 'oh-my-live2d';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -7,11 +7,13 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-loadOhMyLive2D({
-  source: 'https://cdn.jsdelivr.net',
-  models: {
-    path: '/gh/Eikanya/Live2d-model/%E5%B0%91%E5%A5%B3%E5%89%8D%E7%BA%BF%20girls%20Frontline/live2dold/gun/mk23_8/normal/model.json'
-  }
+loadOml2d({
+  models: [
+    {
+      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+      scale: 0.3
+    }
+  ]
 });
 
 root.render(

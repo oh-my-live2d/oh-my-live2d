@@ -10,9 +10,9 @@
     "refresh": "node ./scripts/refresh-cdn.js",
     "release": "pnpm -F oh-my-live2d build && pnpm refresh",
     "release:vuepress": "pnpm -F vuepress-plugin-oh-my-live2d run release",
-    "test": "pnpm -F vite-app run dev",
-    "test:vite": "pnpm -F vue-app run dev",
-    "test:webpack": "pnpm -F react-app run start"
+    "test:vite": "pnpm -F vite-app run dev",
+    "test:vue": "pnpm -F vue-app run dev",
+    "test:react": "pnpm -F react-app run start"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^8.0.1",
