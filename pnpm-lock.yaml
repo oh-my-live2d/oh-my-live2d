@@ -99,8 +99,8 @@ importers:
         specifier: 6.5.10
         version: 6.5.10
       tianjie:
-        specifier: ^0.0.10
-        version: 0.0.10
+        specifier: ^0.0.11
+        version: 0.0.11
       vite:
         specifier: 5.1.4
         version: 5.1.4
@@ -13506,8 +13506,8 @@ packages:
     resolution: {integrity: sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==}
     dev: false
 
-  /tianjie@0.0.10:
-    resolution: {integrity: sha512-yrASSfeSiDXhUYUH5/3LC6T7TtUL0pIfuv4uR7zT2trQCULmyql6o/Opsy90x+NKFtatqusONRXRxhgva+Lcdw==}
+  /tianjie@0.0.11:
+    resolution: {integrity: sha512-DmRriexBHYilDCHoqteD/ZtU5T0FLktE6qF0I1ccjyTLy6qAk1JuSjJqT6RHTXqXKA96I+J81VOGTaZzSag2yA==}
     dev: true
 
   /tmp@0.0.33:
