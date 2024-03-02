@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "start": "react-scripts start",
-    "test": "react-scripts test"
+    "test:build": "react-scripts build",
+    "test:dev": "react-scripts start",
+    "test:unit": "react-scripts test"
   },
   "browserslist": {
     "production": [
