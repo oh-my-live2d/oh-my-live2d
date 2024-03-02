@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vue-tsc && vite build",
-    "dev": "vite",
-    "preview": "vite preview"
+    "test:build": "vue-tsc && vite build",
+    "test:dev": "vite",
+    "test:preview": "vite preview"
   },
   "dependencies": {
     "oh-my-live2d": "workspace:*",

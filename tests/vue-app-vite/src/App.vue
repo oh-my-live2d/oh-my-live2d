@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { loadOml2d } from 'oh-my-live2d';
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
-const appRef = ref();
 
 onMounted(() => {
   loadOml2d({
-    parentElement: appRef.value,
+    parentElement: document.body,
     models: [
       {
         path: 'https://model.oml2d.com/pio/model.json',
@@ -18,14 +17,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="appRef">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
+  <a href="https://vitejs.dev" target="_blank">
+    <img src="/vite.svg" class="logo" alt="Vite logo" />
+  </a>
+  <a href="https://vuejs.org/" target="_blank">
+    <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+  </a>
   <HelloWorld msg="Vite + Vue" />
 </template>
 
