@@ -1,4 +1,4 @@
-# 在 vitepress 项目中使用:
+# 在 VitePress 项目中使用
 
 由于 VitePress 不提供插件模式, 所以我们可以使用动态导入的形式在主题配置中来使用 `oh-my-live2d`。
 

@@ -1,4 +1,4 @@
-# 在 vuepress 中使用
+# 在 VuePress 中使用
 
 你可以 VuePress 项目中使用官方插件。
 

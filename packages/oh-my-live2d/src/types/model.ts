@@ -1,21 +1,25 @@
 /**
  * # 模型配置选项
+ *
  * 可配置模型地址来源以及缩放比例、舞台大小等
  * @name 模型选项
  */
+
 export interface ModelOptions {
   /**
-   * 模型的json文件url地址, 必填项
+   * 模型的 json 文件 url 地址, 必填项
    */
   path: string;
   /**
    * 模型的缩放比例
+   *
    * @default 0.1
    */
   scale?: number;
 
   /**
-   * 模型在舞台中的位置. x: 横坐标, y: 纵坐标
+   * 模型在舞台中的位置。x: 横坐标, y: 纵坐标
+   *
    * @valueType [x: number, y:number]
    * @default [0,0]
    */
@@ -23,6 +27,7 @@ export interface ModelOptions {
 
   /**
    * 定义舞台样式
+   *
    * @valueType object
    */
   stageStyle?: {
@@ -31,12 +36,12 @@ export interface ModelOptions {
      */
     backgroundColor?: string;
     /**
-     * 舞台的宽度, 单位px, 默认不设置, 将自适应使用模型本体的宽度
+     * 舞台的宽度, 单位 px, 默认不设置, 将自适应使用模型本体的宽度
      *
      */
     width?: number;
     /**
-     * 舞台的高度, 单位px, 默认不设置, 将自适应使用模型本体的高度
+     * 舞台的高度, 单位 px, 默认不设置, 将自适应使用模型本体的高度
      */
     height?: number;
   };

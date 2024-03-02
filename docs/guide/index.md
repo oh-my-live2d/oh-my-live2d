@@ -24,7 +24,7 @@ Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4 ，但它无法
 > [!TIP]
 > 本项目已集成 Cubism 2.1 与 Cubism 5.0.0 ，完整覆盖了从 model2 到 model4 的所有版本。
 
-## 快速开始：
+## 快速开始
 
 > [!WARNING]
 > 本项目从 `0.4.0` 版本开始将不再采用自动加载组件的模式, 现在你可以通过 `loadOml2d` 方法加载组件至 body 中, 或者为其指定一个父元素.
@@ -100,7 +100,7 @@ yarn add oh-my-live2d@latest
 
 ---
 
-### ESM 导入：
+### ESM 导入
 
 OhMyLive2D 在使用 ES6Module 方式导入时暴露了一个`loadOml2d`方法, 该方法接收一个配置选项`options`.
 有关配置选项的详细内容请查看: [配置选项](../options/Options.md)

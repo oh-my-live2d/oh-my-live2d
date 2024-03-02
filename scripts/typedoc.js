@@ -26,9 +26,10 @@ function rootPath(...args) {
   return path.join(__dirname, '../packages/oh-my-live2d', ...args);
 }
 
-const generateDocs = (app, project) => {
+const generateDocs = (app, project) =>
   app.generateJson(project, documentationPath).then(() => {
-    let data = fs.readJSONSync(documentationPath);
+    const data = fs.readJSONSync(documentationPath);
+
     data.children = data.children.filter((item) => item.name !== 'loadOml2d');
     // 处理数据-----------------------
 
@@ -108,40 +109,27 @@ const generateDocs = (app, project) => {
     fs.writeJSONSync(sideBarDataPath, sideBarData);
     console.log(sideBarDataPath, ' 已写入');
   });
-};
 
 // 主函数
 async function main() {
-  // 初始化 TypeDoc
-  const app = new TypeDoc.Application();
+  // 指定代码入口
+  const entries = [rootPath('src/index.ts')];
+
+  const app = await TypeDoc.Application.bootstrapWithPlugins({
+    entryPoints: entries,
+    tsconfig: rootPath('tsconfig.json')
+  });
 
   // 使 TypeDoc 拥有读取 tsconfig.json 的能力
   app.options.addReader(new TypeDoc.TSConfigReader());
 
-  // 指定代码入口
-  const entries = [rootPath('src/index.ts')];
-
-  // 指定 TypeDoc 配置项
-  await app.bootstrapWithPlugins({
-    entryPoints: entries,
-    tsconfig: rootPath('tsconfig.json')
-    // plugin: ['typedoc-plugin-markdown'],
-    // allReflectionsHaveOwnDocument: true,
-    // hideInPageTOC: true,
-    // hideBreadcrumbs: true
-    // namedAnchors: true,
-    // preserveAnchorCasing: true
-    // readme: 'none'
-  });
-
   // 判断是否为监听模式
   if (process.argv.includes('-w') || process.argv.includes('--watch')) {
-    app.convertAndWatch(async (project) => {
-      generateDocs(app, project);
-    });
+    app.convertAndWatch((project) => generateDocs(app, project));
   } else {
-    const project = app.convert();
-    generateDocs(app, project);
+    const project = await app.convert();
+
+    await generateDocs(app, project);
   }
 }
 

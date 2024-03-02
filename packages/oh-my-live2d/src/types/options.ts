@@ -17,9 +17,10 @@ export interface Options {
   importType?: ImportType;
 
   /**
-   * 自定义 Cubism SDK外部资源地址
+   * 自定义 Cubism SDK 外部资源地址
+   *
    * > [!TIP]
-   * > 从 v0.5.0 版本开始, 不再以模块形式通过 vite 打包构建 SDK , 因为这会造成部分模型在生产环境中展示异常, 这在Vite5中已得到证实, 为了更稳定的加载模型, 自 v0.5.0 版本后, 将通过 script 标签的 scr 属性按需去引入对应版本的 Cubism SDK , 而这个过程是完全自动的, 您无需手动的去引入这些资源, 官方将长期维护这个服务器, 保证此SDK地址的安全与稳定性. 若发现SDK加载出现异常, 请及时联系作者
+   * > 从 v0.5.0 版本开始, 不再以模块形式通过 vite 打包构建 SDK , 因为这会造成部分模型在生产环境中展示异常, 这在 Vite5 中已得到证实, 为了更稳定的加载模型, 自 v0.5.0 版本后, 将通过 script 标签的 src 属性按需去引入对应版本的 Cubism SDK , 而这个过程是完全自动的, 您无需手动的去引入这些资源, 官方将长期维护这个服务器, 保证此 SDK 地址的安全与稳定性. 若发现 SDK 加载出现异常, 请及时联系作者
    * @valueType object
    */
   libraryUrls?: {
@@ -44,7 +45,7 @@ export interface Options {
   sayHello?: boolean;
 
   /**
-   * 组件入场和离开的过渡动画时长,单位ms
+   * 组件入场和离开的过渡动画时长,单位 ms
    * @valueType number
    * @default 1000
    */
@@ -53,14 +54,14 @@ export interface Options {
   /**
    * 定制模型配置, 类型是模型配置对象组成的数组, 默认值是空数组, 请至少配置一个有效的模型配置
    *
-   * 前往[模型选项](/options/Model)查看详细内容
+   * 前往[模型选项](/options/ModelOptions)查看详细内容
    * @valueType Model[]
    * @default []
    */
   models?: ModelOptions[];
 
   /**
-   * 自定义提示框样式和内容, 前往[提示框选项](/options/Tips)查看详细内容
+   * 自定义提示框样式和内容, 前往[提示框选项](/options/TipsOptions)查看详细内容
    *
    * @default object
    * @valueType Tips
