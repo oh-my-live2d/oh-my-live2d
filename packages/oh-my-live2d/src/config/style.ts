@@ -1,4 +1,4 @@
-const globalStyle = `
+export const globalStyle = `
 @keyframes oml2d-shake-tips{
   0% {
     transform: translate(-50%, 5%) scale(0.99);
@@ -118,5 +118,3 @@ const globalStyle = `
   }
 }
 `;
-
-export { globalStyle };

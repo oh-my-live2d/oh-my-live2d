@@ -51,7 +51,7 @@ Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4，但它无法�
 有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />

@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Llnter
+      - name: Linter
         run: pnpm lint
 
       - name: Test

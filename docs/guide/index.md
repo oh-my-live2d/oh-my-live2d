@@ -76,7 +76,7 @@ yarn add oh-my-live2d@latest
 有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />

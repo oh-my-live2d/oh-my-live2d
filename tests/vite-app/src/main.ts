@@ -4,7 +4,7 @@ import typescriptLogo from './typescript.svg';
 
 import './style.css';
 
-loadOml2d({
+void loadOml2d({
   // parentElement: el,
   // fixed: false,
 

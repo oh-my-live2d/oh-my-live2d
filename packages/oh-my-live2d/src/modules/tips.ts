@@ -80,7 +80,7 @@ export class Tips {
     this.element.innerHTML = message;
   }
 
-  showMessage(message: any, duration = 3000, priority = 0) {
+  showMessage(message: string, duration = 3000, priority = 0) {
     if (priority < this.priority) {
       return;
     }
@@ -120,7 +120,7 @@ export class Tips {
     this.idlePlayer?.stop();
     this.showMessage(message, duration, priority);
     setTimeout(() => {
-      this.idlePlayer?.start();
+      void this.idlePlayer?.start();
     }, duration + this.transitionTime);
   }
 
@@ -167,7 +167,7 @@ export class Tips {
       }
 
       if (message) {
-        await this.showMessage(message, duration, priority);
+        this.showMessage(message, duration, priority);
         await sleep(duration);
       } else {
         timer.stop();

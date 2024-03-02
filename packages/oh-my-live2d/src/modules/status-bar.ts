@@ -103,7 +103,7 @@ export class StatusBar {
       </svg>
     `
     );
-    this.slideIn();
+    void this.slideIn();
   }
 
   hideLoading(): void {
@@ -147,10 +147,10 @@ export class StatusBar {
   popup(message: string, state: SystemState = SystemState.info, delay: number | false = 1000): void {
     this.setContent(message);
     this.setStyle({ backgroundColor: this.stateColor[state] });
-    this.slideIn().then(() => {
+    void this.slideIn().then(() => {
       if (delay) {
         setTimeout(() => {
-          this.slideOut();
+          void this.slideOut();
         }, delay);
       }
     });

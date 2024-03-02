@@ -8,7 +8,7 @@ import { StatusBar, SystemState } from './status-bar.js';
 import { Tips } from './tips.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
-import type { ApplicationType, DefaultOptions, Live2DModelType, ModelOptions, Options } from '../types/index.js';
+import type { ApplicationType, DefaultOptions, Live2DModelType, LoadMethod, ModelOptions, Options } from '../types/index.js';
 import { checkVersion, handleStyleSize, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
@@ -19,7 +19,7 @@ export class OhMyLive2D {
   private application: Application;
   private model?: Model; // 当前模型的实例
   private modelIndex = 0; // 当前模型索引
-  private windowSizeType: WindowSizeType = WindowSizeType.PC; // 当前窗口大小
+  private windowSizeType: WindowSizeType = WindowSizeType.pc; // 当前窗口大小
   private mediaQuery = window.matchMedia('screen and (max-width: 768px)'); // 窗口大小的媒体查询
 
   constructor(
@@ -41,7 +41,7 @@ export class OhMyLive2D {
   // 初始化
   initialize(): void {
     this.verifyWindowSizeType();
-    if (this.windowSizeType !== WindowSizeType.PC) {
+    if (this.windowSizeType !== WindowSizeType.pc) {
       this.statusBar.popup('暂不支持移动端', SystemState.info, 8000);
 
       return;
@@ -53,15 +53,15 @@ export class OhMyLive2D {
   // 校验当前窗口大小
   verifyWindowSizeType(): void {
     if (this.mediaQuery.matches) {
-      this.windowSizeType = WindowSizeType.MOBILE;
+      this.windowSizeType = WindowSizeType.mobile;
     } else {
-      this.windowSizeType = WindowSizeType.PC;
+      this.windowSizeType = WindowSizeType.pc;
     }
     this.mediaQuery.addEventListener('change', (e) => {
       if (e.matches) {
-        this.windowSizeType = WindowSizeType.MOBILE;
+        this.windowSizeType = WindowSizeType.mobile;
       } else {
-        this.windowSizeType = WindowSizeType.PC;
+        this.windowSizeType = WindowSizeType.pc;
       }
     });
   }
@@ -82,7 +82,8 @@ export class OhMyLive2D {
         height: this.currentModelOption.stageStyle?.height || height,
         backgroundColor: this.currentModelOption.stageStyle?.backgroundColor || 'rgba(0, 0, 0, 0)'
       });
-      this.stage.slideIn(this.options?.transitionTime);
+
+      void this.stage.slideIn(this.options?.transitionTime);
       this.statusBar.hideLoading();
     });
 
@@ -142,7 +143,7 @@ export class OhMyLive2D {
       switch (name) {
         // 切换模型
         case 'SwitchModel':
-          this.loadNextModel();
+          void this.loadNextModel();
 
           return;
         // 变装 (切换纹理)
@@ -170,9 +171,9 @@ export class OhMyLive2D {
     });
 
     // 出场入场动画执行结束之后的事件回调
-    this.stage.onSlideChangeEnd(async (status) => {
+    this.stage.onSlideChangeEnd((status) => {
       if (status) {
-        await this.tips.welcome();
+        this.tips.welcome();
       }
     });
   }
@@ -192,7 +193,7 @@ export class OhMyLive2D {
   }
 }
 
-export const setup = (loadMethod) => {
+export const setup = (loadMethod: LoadMethod): ((options: Options) => Promise<unknown>) => {
   let oml2d;
   const loadOml2d = async (options: Options) => {
     const { parentElement } = options;
@@ -202,10 +203,10 @@ export const setup = (loadMethod) => {
     if (!finalOptions.models?.length) {
       throw new Error('至少需要配置一个模型');
     }
-    const { Live2dModule, PIXI } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
+    const { PixiLive2dDisplay, PIXI } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
 
     if (!oml2d) {
-      oml2d = new OhMyLive2D(finalOptions, Live2dModule.Live2DModel, PIXI.Application);
+      oml2d = new OhMyLive2D(finalOptions, PixiLive2dDisplay.Live2DModel, PIXI.Application);
     }
   };
 

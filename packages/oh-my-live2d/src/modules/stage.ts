@@ -5,8 +5,8 @@ import type { CSSProperties, Options } from '../types/index.js';
 import { createElement, setStyleForElement } from '../utils/index.js';
 
 const enum Status {
-  Display = 1,
-  Hidden = 0
+  display = 1,
+  hidden = 0
 }
 
 export class Stage {
@@ -15,7 +15,7 @@ export class Stage {
   wrapperElement: HTMLElement;
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
-  private status: Status = Status.Hidden;
+  private status: Status = Status.hidden;
   private slideChangeEnd?: (status: Status) => void;
   constructor(
     private targetElement: HTMLElement,
@@ -90,10 +90,10 @@ export class Stage {
       animationDuration: `${transitionTime}ms`,
       animationFillMode: 'forwards'
     });
-    this.status = Status.Display;
+    this.status = Status.display;
 
     return new Promise<void>((resolve) => {
-      setTimeout(async () => {
+      setTimeout(() => {
         this.slideChangeEnd?.(this.status);
         resolve();
       }, transitionTime);
@@ -109,7 +109,7 @@ export class Stage {
       animationDuration: `${transitionTime}ms`,
       animationFillMode: 'forwards'
     });
-    this.status = Status.Hidden;
+    this.status = Status.hidden;
 
     return new Promise<void>((resolve) =>
       setTimeout(() => {

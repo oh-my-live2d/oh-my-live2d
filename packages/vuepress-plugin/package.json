@@ -14,7 +14,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oh-my-live2d/oh-my-live2d.git",
-    "directory": "packages/oh-my-live2d"
+    "directory": "packages/vuepress-plugin"
   },
   "license": "MIT",
   "author": "loclink",

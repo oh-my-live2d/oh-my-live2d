@@ -1,9 +1,8 @@
-import { DEFAULT_OPTIONS } from '../config/index.js';
+import type { WelcomeTipesType } from 'src/types/index.js';
 
-export const getWelcomeMessage = function (tipsConfig) {
-  const welcomeTipsMessage = DEFAULT_OPTIONS.tips.welcomeTips.message;
+export const getWelcomeMessage = function (tipsConfig: WelcomeTipesType) {
   const { message } = tipsConfig;
-  let welMessage = '';
+  let welMessage: string = '';
   const nowHours = new Date().getHours().toString();
   // 早晨
   const daybreakRange = /^[5-7]$/;
@@ -21,21 +20,21 @@ export const getWelcomeMessage = function (tipsConfig) {
   const lateNightRange = /^2[2-3]$/;
 
   if (daybreakRange.test(nowHours)) {
-    welMessage = message?.daybreak || welcomeTipsMessage.daybreak;
+    welMessage = message.daybreak;
   } else if (morningRange.test(nowHours)) {
-    welMessage = message?.morning || welcomeTipsMessage.morning;
+    welMessage = message?.morning;
   } else if (noonRange.test(nowHours)) {
-    welMessage = message?.noon || welcomeTipsMessage.noon;
+    welMessage = message?.noon;
   } else if (afternoonRange.test(nowHours)) {
-    welMessage = message?.afternoon || welcomeTipsMessage.afternoon;
+    welMessage = message?.afternoon;
   } else if (duskRange.test(nowHours)) {
-    welMessage = message?.dusk || welcomeTipsMessage.dusk;
+    welMessage = message?.dusk;
   } else if (nightRange.test(nowHours)) {
-    welMessage = message?.night || welcomeTipsMessage.night;
+    welMessage = message?.night;
   } else if (lateNightRange.test(nowHours)) {
-    welMessage = message?.lateNight || welcomeTipsMessage.lateNight;
+    welMessage = message?.lateNight;
   } else {
-    welMessage = message?.weeHours || welcomeTipsMessage.weeHours;
+    welMessage = message?.weeHours;
   }
 
   return welMessage;

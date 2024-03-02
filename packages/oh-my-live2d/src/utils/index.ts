@@ -1,7 +1,7 @@
 import { isNumber } from 'tianjie';
 
 import { SDK } from '../config/index.js';
-import type { CSSProperties, ElementConfig, ImportType, PIXI_LIVE2D_DISPLAY_MODULE } from '../types/index.js';
+import type { CSSProperties, ElementConfig, ImportType, LibraryUrls, PIXI_LIVE2D_DISPLAY_MODULE } from '../types/index.js';
 
 export * from './tips.js';
 
@@ -78,7 +78,7 @@ export const loadScript = (url: string): Promise<void> =>
     });
   });
 
-export const loadLibrary = async (importType: ImportType, urls: Record<string, string>): Promise<PIXI_LIVE2D_DISPLAY_MODULE> => {
+export const loadLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<PIXI_LIVE2D_DISPLAY_MODULE> => {
   switch (importType) {
     case 'cubism2':
       await loadScript(urls[importType]);
@@ -95,7 +95,7 @@ export const loadLibrary = async (importType: ImportType, urls: Record<string, s
   }
 };
 
-export const loadUmdLibrary = async (importType: ImportType, urls: Record<string, string>): Promise<void> => {
+export const loadUmdLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<void> => {
   switch (importType) {
     case 'complete':
       await Promise.all([loadScript(urls.cubism2), loadScript(urls.cubism5)]);

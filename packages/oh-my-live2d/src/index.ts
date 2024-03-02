@@ -12,10 +12,10 @@ export * from './types/options.js';
 PIXI.utils.skipHello();
 
 export const loadOml2d = setup(async (importType, urls) => {
-  const Live2dModule = await loadLibrary(importType, urls);
+  const PixiLive2dDisplay = await loadLibrary(importType, urls);
 
   return {
-    Live2dModule,
+    PixiLive2dDisplay,
     PIXI
   };
 });
