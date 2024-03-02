@@ -1,5 +1,6 @@
 {
   "name": "oh-my-live2d-docs",
+  "private": true,
   "version": "0.7.1",
   "type": "module",
   "scripts": {
