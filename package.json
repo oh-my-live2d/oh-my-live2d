@@ -11,7 +11,7 @@
     "lint:eslint": "eslint --ext .js,.ts --fix .",
     "lint:prettier": "prettier --check --write .",
     "new-publish": "lerna publish from-package",
-    "new-version": "dotenv lerna version --generate-release-notes",
+    "new-version": "lerna version --generate-release-notes",
     "prepare": "husky",
     "preview:new-version": "lerna version --dry-run",
     "refresh": "node ./scripts/refresh-cdn.js",
