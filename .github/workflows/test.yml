@@ -1,4 +1,4 @@
-name: 测试
+name: Test
 on:
   - push
   - pull_request
@@ -6,23 +6,26 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: 拉取代码
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 安装 pnpm
+      - name: Install pnpm
         uses: pnpm/action-setup@v2
 
-      - name: 设置 Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
 
-      - name: 项目安装依赖
+      - name: Install
         run: pnpm install --no-frozen-lockfile
 
-      - name: 构建
+      - name: Build
         run: pnpm build
 
-      - name: 测试
+      - name: Llnter
+        run: pnpm lint
+
+      - name: Test
         run: pnpm test:build
