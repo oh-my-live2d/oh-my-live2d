@@ -47,7 +47,7 @@ const profiles = entries.flatMap(({ entry, name, format }) => {
         name: 'copy-min-file',
         writeBundle(outOptions) {
           if (outOptions.format === 'umd') {
-            fs.ensureDirSync(resolve(__dirname, '../../../testd/vite-app/public'));
+            fs.ensureDirSync(resolve(__dirname, '../../../tests/vite-app/public'));
             fs.copyFile(resolve(__dirname, `../dist/${name}.min.js`), resolve(__dirname, `../../../tests/vite-app/public/${name}.min.js`));
           }
         }
