@@ -1,4 +1,4 @@
-name: DeployDocs# Actions名称
+name: 构建文档
 on:
   push: # 监听调用时机为push事件
     branches: ['master'] # 监听master分支
@@ -6,15 +6,13 @@ jobs:
   build:
     runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
     steps:
-      - name: 拉取代码 # 步骤名字
-        uses: actions/checkout@master # 使用 actions/checkout 库拉取最新源码
+      - name: 拉取代码
+        uses: actions/checkout@v4
 
-      - name: Install pnpm
+      - name: 安装 pnpm
         uses: pnpm/action-setup@v2
-        with:
-          version: 7
 
-      - name: Setup Node.js
+      - name: 设置 Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -29,7 +27,7 @@ jobs:
         run: |
           pnpm build:docs
 
-      - name: 上传oh-my-live2d文档代码
+      - name: 上传 oh-my-live2d 文档代码
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -50,4 +48,3 @@ jobs:
             rm -rf /${{ secrets.SSH_USERNAME }}/Projects/oml2d-docs
             mkdir -p /${{ secrets.SSH_USERNAME }}/Projects/oml2d-docs
             cp -rf /${{ secrets.SSH_USERNAME }}/Projects/.oml2d_temp/*  /${{ secrets.SSH_USERNAME }}/Projects/oml2d-docs
-      - run: echo "项目部署完成！"
