@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
-    "docs:build": "pnpm build && node ./scripts/typedoc.js && pnpm -F oh-my-live2d-docs docs:build",
-    "docs:dev": "concurrently \"node ./scripts/typedoc.js -w\" \"pnpm -F oh-my-live2d-docs docs:dev\"",
+    "docs:build": "pnpm build && node ./scripts/typedoc.js && pnpm -r docs:build",
+    "docs:dev": "concurrently \"node ./scripts/typedoc.js -w\" \"pnpm -r docs:dev\"",
     "refresh": "node ./scripts/refresh-cdn.js",
     "release": "pnpm -F oh-my-live2d build && pnpm refresh",
     "release:vuepress": "pnpm -F vuepress-plugin-oh-my-live2d run release",
