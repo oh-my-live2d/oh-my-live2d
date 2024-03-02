@@ -1,6 +1,0 @@
-dist
-node_modules
-lib
-packages/oh-my-live2d/src/library/*
-scripts/*
-public

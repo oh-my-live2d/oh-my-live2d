@@ -1,6 +1,7 @@
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import fs from 'fs-extra';
-import { dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
 import { build } from 'vite';
 
 const __filename = fileURLToPath(import.meta.url);

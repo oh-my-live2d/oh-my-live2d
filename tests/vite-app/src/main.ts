@@ -1,4 +1,5 @@
 import { loadOml2d } from 'oh-my-live2d';
+
 import typescriptLogo from './typescript.svg';
 
 import './style.css';

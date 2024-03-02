@@ -1,6 +1,6 @@
-import CSS from 'csstype';
-import { Application } from 'pixi.js';
+import type CSS from 'csstype';
 import type { Live2DModel } from 'pixi-live2d-display';
+import type { Application } from 'pixi.js';
 
 import type { ModelOptions } from './model.js';
 import type { Options } from './options.js';

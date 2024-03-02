@@ -2,7 +2,7 @@ import { mergeDeep } from 'tianjie';
 
 import { CONFIG, globalStyle } from '../config/index.js';
 import type { CSSProperties, Options } from '../types/index.js';
-import { createElement, setStyleByElement } from '../utils/index.js';
+import { createElement, setStyleForElement } from '../utils/index.js';
 
 const enum Status {
   Display = 1,
@@ -17,7 +17,10 @@ export class Stage {
   private canvasStyle: CSSProperties = {};
   private status: Status = Status.Hidden;
   private slideChangeEnd?: (status: Status) => void;
-  constructor(private targetElement: HTMLElement, private options: Options) {
+  constructor(
+    private targetElement: HTMLElement,
+    private options: Options
+  ) {
     this.element = createElement({ id: CONFIG.stageId, tagName: 'div' });
     this.canvasElement = createElement({ id: CONFIG.canvasId, tagName: 'canvas' }) as HTMLCanvasElement;
     this.wrapperElement = createElement({ id: 'oml2dWrapper', tagName: 'div' });
@@ -25,8 +28,9 @@ export class Stage {
     this.initStyle();
   }
 
-  create() {
+  create(): void {
     const oml2dFragment = document.createDocumentFragment();
+
     // this.wrapperElement.append(oml2dFragment);
     this.element.append(this.canvasElement);
     oml2dFragment.append(this.element);
@@ -37,13 +41,14 @@ export class Stage {
     if (this.targetElement !== document.body) {
       document.body.append(this.targetElement);
     }
+
     // 刷新前卸载元素
-    window.onbeforeunload = () => {
+    window.onbeforeunload = (): void => {
       this.targetElement.removeChild(this.element);
     };
   }
 
-  initStyle() {
+  initStyle(): void {
     this.setStyle({
       width: '0px',
       height: '0px',
@@ -61,30 +66,32 @@ export class Stage {
     // this.wrapperElement.style.zIndex = '9999';
 
     const styleSheet = createElement({ tagName: 'style', id: 'oml2dStyle', innerHtml: globalStyle }); // 创建全局样式表
+
     document.head.append(styleSheet);
   }
 
-  setStyle(style: CSSProperties) {
+  setStyle(style: CSSProperties): void {
     this.style = mergeDeep(this.style, style);
-    setStyleByElement(this.style, this.element);
+    setStyleForElement(this.style, this.element);
     this.setCanvasStyle({ width: '100%', height: '100%', zIndex: '9999', position: 'relative' });
   }
 
-  setCanvasStyle(style: CSSProperties) {
+  setCanvasStyle(style: CSSProperties): void {
     this.canvasStyle = mergeDeep(this.canvasStyle, style);
-    setStyleByElement(this.canvasStyle, this.canvasElement);
+    setStyleForElement(this.canvasStyle, this.canvasElement);
   }
 
   /**
    * 滑入
    */
-  slideIn(transitionTime: number) {
+  slideIn(transitionTime: number): Promise<void> {
     this.setStyle({
       animationName: 'oml2d-stage-slide-in',
       animationDuration: `${transitionTime}ms`,
       animationFillMode: 'forwards'
     });
     this.status = Status.Display;
+
     return new Promise<void>((resolve) => {
       setTimeout(async () => {
         this.slideChangeEnd?.(this.status);
@@ -96,13 +103,14 @@ export class Stage {
   /**
    * 滑出
    */
-  slideOut(transitionTime: number) {
+  slideOut(transitionTime: number): Promise<void> {
     this.setStyle({
       animationName: 'oml2d-stage-slide-out',
       animationDuration: `${transitionTime}ms`,
       animationFillMode: 'forwards'
     });
     this.status = Status.Hidden;
+
     return new Promise<void>((resolve) =>
       setTimeout(() => {
         this.slideChangeEnd?.(this.status);
@@ -115,8 +123,7 @@ export class Stage {
    * 场景的滑入滑出动画执行结束事件
    * @param fn
    */
-  onSlideChangeEnd(fn: (status: Status) => void) {
-    // fn(this.status);
+  onSlideChangeEnd(fn: (status: Status) => void): void {
     this.slideChangeEnd = fn;
   }
 }

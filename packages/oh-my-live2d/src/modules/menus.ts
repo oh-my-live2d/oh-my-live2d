@@ -2,7 +2,7 @@ import { mergeDeep } from 'tianjie';
 
 import { CONFIG, MENU_ITEMS } from '../config/index.js';
 import type { CSSProperties } from '../types/index.js';
-import { createElement, setStyleByElement } from '../utils/index.js';
+import { createElement, setStyleForElement } from '../utils/index.js';
 
 export class Menus {
   element: HTMLElement;
@@ -16,7 +16,7 @@ export class Menus {
     this.ininStyle();
   }
 
-  ininStyle() {
+  ininStyle(): void {
     this.setStyle({
       transition: 'all 500ms',
       visibility: 'hidden',
@@ -31,7 +31,7 @@ export class Menus {
     this.stageElement.addEventListener('mouseover', () => this.setStyle({ opacity: 1, visibility: 'visible' }));
     this.stageElement.addEventListener('mouseout', () => this.setStyle({ opacity: 0, visibility: 'hidden' }));
   }
-  createMenuItem() {
+  createMenuItem(): void {
     const menuItemList = MENU_ITEMS.map((item) => {
       const el = createElement({
         id: item.id,
@@ -44,19 +44,25 @@ export class Menus {
       </svg>
     `
       });
+
       el.title = item.title;
+
       return el;
     });
 
     this.element.append(...menuItemList);
 
     this.element.addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) return;
-      let target: any = e.target;
-      while (target.parentNode !== e.currentTarget) {
-        target = target.parentNode;
+      if (e.target === e.currentTarget) {
+        return;
       }
-      this.clickItem?.(target.getAttribute('data-name'));
+      let target = e.target as HTMLElement;
+
+      while (target.parentNode !== e.currentTarget) {
+        target = target.parentNode as HTMLElement;
+      }
+
+      this.clickItem?.(target.getAttribute('data-name')!);
 
       // switch (target.getAttribute('data-name')) {
       //   case 'SwitchModel':
@@ -72,12 +78,12 @@ export class Menus {
     });
   }
 
-  onClickItem(fn: (name) => void) {
+  onClickItem(fn: (name) => void): void {
     this.clickItem = fn;
   }
 
-  setStyle(style: CSSProperties) {
+  setStyle(style: CSSProperties): void {
     this.style = mergeDeep(this.style, style);
-    setStyleByElement(this.style, this.element);
+    setStyleForElement(this.style, this.element);
   }
 }

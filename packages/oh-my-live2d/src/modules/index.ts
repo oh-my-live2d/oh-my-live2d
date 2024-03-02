@@ -1,15 +1,15 @@
 import type { Application } from 'pixi.js';
 import { isNumber, mergeDeep } from 'tianjie';
 
-import { WindowSizeType } from '../constants/index.js';
-import { DEFAULT_OPTIONS } from '../config/index.js';
-import { checkVersion, formatUnit, printProjectInfo } from '../utils/index.js';
 import { Menus } from './menus.js';
 import { Model } from './model.js';
 import { Stage } from './stage.js';
 import { StatusBar, SystemState } from './status-bar.js';
 import { Tips } from './tips.js';
-import type { ApplicationType, DefaultOptions, Live2DModelType, Options } from '../types/index.js';
+import { DEFAULT_OPTIONS } from '../config/index.js';
+import { WindowSizeType } from '../constants/index.js';
+import type { ApplicationType, DefaultOptions, Live2DModelType, ModelOptions, Options } from '../types/index.js';
+import { checkVersion, handleStyleSize, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
   private stage: Stage;
@@ -22,8 +22,12 @@ export class OhMyLive2D {
   private windowSizeType: WindowSizeType = WindowSizeType.PC; // 当前窗口大小
   private mediaQuery = window.matchMedia('screen and (max-width: 768px)'); // 窗口大小的媒体查询
 
-  constructor(private options: DefaultOptions, private live2dModel: Live2DModelType, private Application: ApplicationType) {
-    checkVersion();
+  constructor(
+    private options: DefaultOptions,
+    private live2dModel: Live2DModelType,
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    private Application: ApplicationType
+  ) {
     this.options.sayHello && this.sayHello();
     this.stage = new Stage(this.options.parentElement, options); // 实例化舞台
     this.statusBar = new StatusBar(this.options.parentElement); // 实例化状态条
@@ -31,13 +35,15 @@ export class OhMyLive2D {
     this.menus = new Menus(this.stage.element); // 菜单
     this.application = this.createApplication();
     this.initialize();
+    void checkVersion();
   }
 
   // 初始化
-  initialize() {
+  initialize(): void {
     this.verifyWindowSizeType();
     if (this.windowSizeType !== WindowSizeType.PC) {
       this.statusBar.popup('暂不支持移动端', SystemState.info, 8000);
+
       return;
     }
     this.loadModel();
@@ -45,19 +51,25 @@ export class OhMyLive2D {
   }
 
   // 校验当前窗口大小
-  verifyWindowSizeType() {
-    if (this.mediaQuery.matches) this.windowSizeType = WindowSizeType.MOBILE;
-    else this.windowSizeType = WindowSizeType.PC;
+  verifyWindowSizeType(): void {
+    if (this.mediaQuery.matches) {
+      this.windowSizeType = WindowSizeType.MOBILE;
+    } else {
+      this.windowSizeType = WindowSizeType.PC;
+    }
     this.mediaQuery.addEventListener('change', (e) => {
-      if (e.matches) this.windowSizeType = WindowSizeType.MOBILE;
-      else this.windowSizeType = WindowSizeType.PC;
+      if (e.matches) {
+        this.windowSizeType = WindowSizeType.MOBILE;
+      } else {
+        this.windowSizeType = WindowSizeType.PC;
+      }
     });
   }
 
   /**
    * 加载模型
    */
-  loadModel(showLoading = true) {
+  loadModel(showLoading = true): void {
     showLoading && this.statusBar.showLoading();
     this.model = new Model(this.live2dModel, this.currentModelOption, this.application);
     this.model?.setScale(this.currentModelOption?.scale, this.currentModelOption?.scale);
@@ -81,8 +93,8 @@ export class OhMyLive2D {
     });
   }
 
-  setStageStyle(style) {
-    formatUnit(style);
+  setStageStyle(style: Record<string, any>): void {
+    handleStyleSize(style);
     this.stage.setStyle(style);
     this.application.resize();
   }
@@ -90,21 +102,24 @@ export class OhMyLive2D {
   /**
    * 获取当前的模型配置选项
    */
-  get currentModelOption() {
+  get currentModelOption(): ModelOptions {
     return this.options.models[this.modelIndex];
   }
   /**
    * 加载下一个模型
    */
-  async loadNextModel() {
+  async loadNextModel(): Promise<void> {
     if (this.options.models.length <= 1) {
-      await this.tips.notification('没找到其他模型哦...', 3000, 9);
+      this.tips.notification('没找到其他模型哦...', 3000, 9);
+
       return;
     }
     this.tips.clear();
     this.statusBar.showLoading();
     await this.stage.slideOut(this.options.transitionTime);
-    if (this.application.stage.children.length >= 1) this.application.stage.removeChildAt(0); // 从舞台移除上一个模型
+    if (this.application.stage.children.length >= 1) {
+      this.application.stage.removeChildAt(0);
+    } // 从舞台移除上一个模型
 
     if (isNumber(this.options.models?.length)) {
       if (this.modelIndex < this.options.models.length - 1) {
@@ -112,21 +127,23 @@ export class OhMyLive2D {
       } else {
         this.modelIndex = 0;
       }
+
       this.loadModel(false);
     }
   }
 
-  sayHello() {
+  sayHello(): void {
     printProjectInfo();
   }
 
-  registerEvents() {
+  registerEvents(): void {
     // 点击菜单按钮
     this.menus.onClickItem((name) => {
       switch (name) {
         // 切换模型
         case 'SwitchModel':
           this.loadNextModel();
+
           return;
         // 变装 (切换纹理)
         case 'Play':
@@ -137,9 +154,11 @@ export class OhMyLive2D {
               this.tips.notification('没有找到其他衣服哦...', 5000, 9);
             }
           });
+
           return;
         case 'About':
           window.open('https://oml2d.com');
+
           return;
       }
     });
@@ -161,7 +180,7 @@ export class OhMyLive2D {
    * 创建pixi应用实例
    * @returns
    */
-  private createApplication() {
+  private createApplication(): Application {
     return new this.Application({
       view: this.stage.canvasElement,
       resolution: 2,
@@ -178,10 +197,17 @@ export const setup = (loadMethod) => {
   const loadOml2d = async (options: Options) => {
     const { parentElement } = options;
     const finalOptions = mergeDeep(DEFAULT_OPTIONS, options);
+
     finalOptions.parentElement = parentElement || document.body;
-    if (!finalOptions.models?.length) throw new Error('至少需要配置一个模型');
+    if (!finalOptions.models?.length) {
+      throw new Error('至少需要配置一个模型');
+    }
     const { Live2dModule, PIXI } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
-    if (!oml2d) oml2d = new OhMyLive2D(finalOptions, Live2dModule.Live2DModel, PIXI.Application);
+
+    if (!oml2d) {
+      oml2d = new OhMyLive2D(finalOptions, Live2dModule.Live2DModel, PIXI.Application);
+    }
   };
+
   return loadOml2d;
 };

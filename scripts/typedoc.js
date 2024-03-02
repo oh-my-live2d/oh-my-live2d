@@ -1,8 +1,9 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import fs from 'fs-extra';
 import json2md from 'json2md';
-import path from 'path';
 import TypeDoc from 'typedoc';
-import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,12 +20,13 @@ json2md.converters.mdContent = function (input, json2md) {
   return input;
 };
 const getType = (typeData = {}) => {
-  if (typeData.type === 'intrinsic') return `\`${typeData.name}\``;
+  if (typeData.type === 'intrinsic') {
+    return `\`${typeData.name}\``;
+  }
 };
+
 // 根目录
-function rootPath(...args) {
-  return path.join(__dirname, '../packages/oh-my-live2d', ...args);
-}
+const rootPath = (...args) => path.join(__dirname, '../packages/oh-my-live2d', ...args);
 
 const generateDocs = (app, project) =>
   app.generateJson(project, documentationPath).then(() => {
@@ -62,6 +64,7 @@ const generateDocs = (app, project) =>
           optItem?.comment?.blockTags?.map((tagItem) => {
             if (tagItem.tag === '@default') {
               let match = tagItem.content[0].text.match(/\n(.*)\n/);
+
               defaultValueText = match ? match[1] : '';
               defaultValueText = '`' + `${defaultValueText || '-'}` + '`';
             }
@@ -95,17 +98,24 @@ const generateDocs = (app, project) =>
     });
 
     data.children = data.children.sort((a, b) => {
-      if (a.name === 'Options') return -1;
-      if (b.name === 'Options') return 1;
+      if (a.name === 'Options') {
+        return -1;
+      }
+      if (b.name === 'Options') {
+        return 1;
+      }
+
       return 0;
     });
 
     const sideBarData = data.children.map((item) => {
       let title = '';
+
       // if (item.name === 'Options') title = 'index';
       // else title = item.name;
       return { text: item.comment?.blockTags?.[0]?.content?.[0]?.text || item.name, link: `/options/${item.name}` };
     });
+
     fs.writeJSONSync(sideBarDataPath, sideBarData);
     console.log(sideBarDataPath, ' 已写入');
   });

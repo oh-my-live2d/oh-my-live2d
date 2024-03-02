@@ -1,10 +1,12 @@
+import type { Plugin } from 'vuepress';
 import { getDirname, path } from 'vuepress/utils';
 
 const __dirname = getDirname(import.meta.url);
 
-export const oml2dPlugin = (options = {}) => ({
+export const oml2dPlugin = (options = {}): Plugin => ({
   name: 'vuepress-plugin-oh-my-live2d',
   define: {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     __OML_OPTIONS__: options
   },
   multiple: false,

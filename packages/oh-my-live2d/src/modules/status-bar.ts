@@ -2,12 +2,13 @@ import { mergeDeep } from 'tianjie';
 
 import { CONFIG } from '../config/index.js';
 import type { CSSProperties } from '../types/index.js';
-import { createElement, setStyleByElement } from '../utils/index.js';
+import { createElement, setStyleForElement } from '../utils/index.js';
 
 const enum Status {
   Display = 1,
   Hidden = 0
 }
+
 export const enum SystemState {
   info = 'info',
   error = 'error'
@@ -32,7 +33,7 @@ export class StatusBar {
     this.initStyle();
   }
 
-  initStyle() {
+  initStyle(): void {
     this.setStyle({
       minWidth: '20px',
       minHeight: '50px',
@@ -59,9 +60,9 @@ export class StatusBar {
     });
   }
 
-  setStyle(style: CSSProperties) {
+  setStyle(style: CSSProperties): void {
     this.style = mergeDeep(this.style, style);
-    setStyleByElement(style, this.element);
+    setStyleForElement(style, this.element);
   }
 
   private slideIn(): Promise<Status> {
@@ -93,7 +94,7 @@ export class StatusBar {
     });
   }
 
-  showLoading() {
+  showLoading(): void {
     this.setContent(
       `
       <div style="margin-bottom:3px;">加载中</div>
@@ -105,7 +106,7 @@ export class StatusBar {
     this.slideIn();
   }
 
-  hideLoading() {
+  hideLoading(): void {
     this.popup('加载成功');
   }
 
@@ -113,19 +114,19 @@ export class StatusBar {
    * 专门处理加载失败, 需要传入一个重新加载的方法
    * @param reloadFn
    */
-  loadingError(reloadFn: () => any) {
+  loadingError(reloadFn: () => any): void {
     this.popup('加载失败', SystemState.error, false);
 
     // this.setStyle({})
     // 添加 mouseover 事件监听器
-    const mouseover = () => {
+    const mouseover = (): void => {
       this.popup('重新加载', SystemState.info, false);
     };
-    const mouseout = () => {
+    const mouseout = (): void => {
       this.popup('加载失败', SystemState.error, false);
     };
 
-    const handleClick = () => {
+    const handleClick = (): void => {
       reloadFn();
       this.element.removeEventListener('mouseout', mouseout);
       this.element.removeEventListener('mouseover', mouseover);
@@ -143,7 +144,7 @@ export class StatusBar {
    * @param state
    * @param delay
    */
-  popup(message: string, state: SystemState = SystemState.info, delay: number | false = 1000) {
+  popup(message: string, state: SystemState = SystemState.info, delay: number | false = 1000): void {
     this.setContent(message);
     this.setStyle({ backgroundColor: this.stateColor[state] });
     this.slideIn().then(() => {
@@ -155,7 +156,7 @@ export class StatusBar {
     });
   }
 
-  setContent(content: string) {
+  setContent(content: string): void {
     this.element.innerHTML = content;
   }
 }

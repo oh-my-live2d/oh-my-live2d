@@ -1,7 +1,8 @@
+import { getRandomElement, mergeDeep, setIntervalAsync } from 'tianjie';
+
 import { CONFIG } from '../config/index.js';
 import type { CSSProperties, DeepRequired, TipsOptions } from '../types/index.js';
-import { createElement, getWordTheDay, setStyleByElement, sleep, getWelcomeMessage } from '../utils/index.js';
-import { getRandomElement, mergeDeep, setIntervalAsync } from 'tianjie';
+import { createElement, getWelcomeMessage, getWordTheDay, setStyleForElement, sleep } from '../utils/index.js';
 
 export class Tips {
   private element: HTMLElement;
@@ -16,7 +17,10 @@ export class Tips {
   private style: CSSProperties = {};
   private priority = 0; // 当前优先级
 
-  constructor(stageElement: HTMLElement, private tipsOptions: DeepRequired<TipsOptions>) {
+  constructor(
+    stageElement: HTMLElement,
+    private tipsOptions: DeepRequired<TipsOptions>
+  ) {
     this.element = createElement({ id: CONFIG.tipsId, tagName: 'div' });
     stageElement.append(this.element);
     this.initStyle();
@@ -26,7 +30,7 @@ export class Tips {
   /**
    * 初始化样式
    */
-  initStyle() {
+  initStyle(): void {
     this.setStyle({
       position: 'absolute',
       fontSize: '18px',
@@ -53,6 +57,7 @@ export class Tips {
     });
     if (this.tipsOptions) {
       const { width = 230, height = 100, offsetX = 0, offsetY = 0 } = this.tipsOptions.style || {};
+
       this.setStyle({
         minWidth: `${width}px`,
         minHeight: `${height}px`,
@@ -66,19 +71,23 @@ export class Tips {
    * 设置提示框样式
    * @param style
    */
-  setStyle(style: CSSProperties) {
+  setStyle(style: CSSProperties): void {
     this.style = mergeDeep(this.style, style);
-    setStyleByElement(this.style, this.element);
+    setStyleForElement(this.style, this.element);
   }
 
-  private setContent(message: string) {
+  private setContent(message: string): void {
     this.element.innerHTML = message;
   }
 
   showMessage(message: any, duration = 3000, priority = 0) {
-    if (priority < this.priority) return;
+    if (priority < this.priority) {
+      return;
+    }
     this.priority = priority;
-    if (this.closeTimer) clearTimeout(this.closeTimer);
+    if (this.closeTimer) {
+      clearTimeout(this.closeTimer);
+    }
     this.setContent(message);
     this.setStyle({
       animationName: 'oml2d-display-tips,oml2d-shake-tips'
@@ -95,7 +104,7 @@ export class Tips {
   /**
    * 清除提示框所有状态
    */
-  clear() {
+  clear(): void {
     this.setStyle({
       animationName: 'oml2d-hidden-tips,oml2d-shake-tips'
     });
@@ -107,7 +116,7 @@ export class Tips {
   /**
    * 公开暴露的通知方法, 所有地方可调用, 调用时会先暂停闲置消息的循环播放
    */
-  notification(message: string, duration = 3000, priority = 3) {
+  notification(message: string, duration = 3000, priority = 3): void {
     this.idlePlayer?.stop();
     this.showMessage(message, duration, priority);
     setTimeout(() => {
@@ -118,19 +127,23 @@ export class Tips {
   /**
    * 欢迎提示
    */
-  async welcome() {
-    if (!this.tipsOptions) return;
+  welcome(): void {
+    if (!this.tipsOptions) {
+      return;
+    }
     const message = getWelcomeMessage(this.tipsOptions.welcomeTips || {});
     const { duration, priority } = this.tipsOptions.welcomeTips;
+
     this.notification(message, duration, priority);
   }
 
   /**
    * 复制时提示
    */
-  async copy() {
+  copy(): void {
     if (this.tipsOptions.copyTips?.message?.length) {
       const messageText = getRandomElement(this.tipsOptions.copyTips.message);
+
       this.notification(messageText!, this.tipsOptions.copyTips.duration, this.tipsOptions.copyTips.priority);
     }
   }
@@ -140,7 +153,9 @@ export class Tips {
    * @returns
    */
   private createIdleMessagePlayer() {
-    if (!this.tipsOptions) return;
+    if (!this.tipsOptions) {
+      return;
+    }
     const { message: messages, duration, priority } = this.tipsOptions.idleTips;
     let message = '';
     const timer = setIntervalAsync(async () => {
@@ -158,6 +173,7 @@ export class Tips {
         timer.stop();
       }
     }, this.tipsOptions.idleTips.interval);
+
     return timer;
   }
 }

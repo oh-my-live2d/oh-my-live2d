@@ -20,13 +20,23 @@ export const getWelcomeMessage = function (tipsConfig) {
   // 深夜
   const lateNightRange = /^2[2-3]$/;
 
-  if (daybreakRange.test(nowHours)) welMessage = message?.daybreak || welcomeTipsMessage.daybreak;
-  else if (morningRange.test(nowHours)) welMessage = message?.morning || welcomeTipsMessage.morning;
-  else if (noonRange.test(nowHours)) welMessage = message?.noon || welcomeTipsMessage.noon;
-  else if (afternoonRange.test(nowHours)) welMessage = message?.afternoon || welcomeTipsMessage.afternoon;
-  else if (duskRange.test(nowHours)) welMessage = message?.dusk || welcomeTipsMessage.dusk;
-  else if (nightRange.test(nowHours)) welMessage = message?.night || welcomeTipsMessage.night;
-  else if (lateNightRange.test(nowHours)) welMessage = message?.lateNight || welcomeTipsMessage.lateNight;
-  else welMessage = message?.weeHours || welcomeTipsMessage.weeHours;
+  if (daybreakRange.test(nowHours)) {
+    welMessage = message?.daybreak || welcomeTipsMessage.daybreak;
+  } else if (morningRange.test(nowHours)) {
+    welMessage = message?.morning || welcomeTipsMessage.morning;
+  } else if (noonRange.test(nowHours)) {
+    welMessage = message?.noon || welcomeTipsMessage.noon;
+  } else if (afternoonRange.test(nowHours)) {
+    welMessage = message?.afternoon || welcomeTipsMessage.afternoon;
+  } else if (duskRange.test(nowHours)) {
+    welMessage = message?.dusk || welcomeTipsMessage.dusk;
+  } else if (nightRange.test(nowHours)) {
+    welMessage = message?.night || welcomeTipsMessage.night;
+  } else if (lateNightRange.test(nowHours)) {
+    welMessage = message?.lateNight || welcomeTipsMessage.lateNight;
+  } else {
+    welMessage = message?.weeHours || welcomeTipsMessage.weeHours;
+  }
+
   return welMessage;
 };

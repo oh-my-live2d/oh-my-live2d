@@ -1,125 +1,127 @@
 import { isNumber } from 'tianjie';
 
 import { SDK } from '../config/index.js';
-import type { PIXI_LIVE2D_DISPLAY_MODULE, CSSProperties, ElementConfig, ImportType } from '../types/index.js';
+import type { CSSProperties, ElementConfig, ImportType, PIXI_LIVE2D_DISPLAY_MODULE } from '../types/index.js';
 
 export * from './tips.js';
 
 /**
  * 打印项目信息
- * @param importType
  */
-export const printProjectInfo = () => {
-  const args = [
+export const printProjectInfo = (): void =>
+  console.log(
     `\n %c 🎉🎉🎉 %c %c ✨ oh-my-live2d v${__VERSION__} - ${`https://oml2d.com`} Happy Hacking !! ✨ %c %c 🎉🎉🎉 \n`,
     'background: #add7fb; padding:5px 0;',
     'background: #58b0fc; padding:5px 0;',
     'color: #fff; background: #030307; padding:5px 0;',
     'background: #58b0fc; padding:5px 0;',
     'background: #add7fb; padding:5px 0;'
-  ];
-  console.log(...args);
-};
+  );
 
-export const formatUnit = (value: Record<string, any>) => {
+export const handleStyleSize = (value: Record<string, unknown>): void => {
   if ('width' in value && isNumber(value.width)) {
     value.width = `${value.width}px`;
   }
-  if ('height' in value && isNumber(value.height)) value.height = `${value.height}px`;
+
+  if ('height' in value && isNumber(value.height)) {
+    value.height = `${value.height}px`;
+  }
 };
 
 /**
  * 根据元素设置内联样式
+ *
  * @param style
  * @param el
  */
-export const setStyleByElement = (style: CSSProperties, el: HTMLElement) => {
+export const setStyleForElement = (style: CSSProperties, el: HTMLElement): void => {
   Object.assign(el.style, style);
 };
 
 // 延时
-export const sleep = (time: number) => {
-  return new Promise<void>((resolve) => setTimeout(resolve, time));
-};
+export const sleep = (time: number): Promise<void> => new Promise<void>((resolve) => setTimeout(resolve, time));
 
-export const getScreenSize = () => {
-  let sizeType;
-  const xs = window.matchMedia('screen and (max-width: 768px)');
-  const xl = window.matchMedia('screen and (min-width: 768px)');
-  if (xs.matches) sizeType = 'xs';
-  if (xl.matches) sizeType = 'xl';
-  return sizeType;
-};
-
-export const createElement = (elConfig: ElementConfig) => {
+export const createElement = (elConfig: ElementConfig): HTMLElement => {
   const el = document.createElement(elConfig.tagName);
+
   el.id = elConfig.id;
-  if (elConfig.className) el.className = elConfig.className;
-  if (elConfig.dataName) el.setAttribute('data-name', elConfig.dataName);
+  if (elConfig.className) {
+    el.className = elConfig.className;
+  }
+  if (elConfig.dataName) {
+    el.setAttribute('data-name', elConfig.dataName);
+  }
   if (elConfig.children) {
     elConfig.children.forEach((item) => {
       el.appendChild(createElement(item));
     });
   }
-  if (elConfig.innerHtml) el.innerHTML = elConfig.innerHtml;
-  if (elConfig.innerText) el.innerText = elConfig.innerText;
+
+  if (elConfig.innerHtml) {
+    el.innerHTML = elConfig.innerHtml;
+  }
+  if (elConfig.innerText) {
+    el.innerText = elConfig.innerText;
+  }
+
   return el;
 };
 
-export const loadLibraryCubism = (url: string): Promise<void> => {
-  return new Promise((resolve) => {
+export const loadScript = (url: string): Promise<void> =>
+  new Promise((resolve) => {
     const scriptElement = document.createElement('script');
+
     document.head.append(scriptElement);
     scriptElement.src = url;
     scriptElement.addEventListener('load', () => {
       resolve();
     });
   });
-};
 
-export const loadLibrary = async (importType: ImportType, urls): Promise<PIXI_LIVE2D_DISPLAY_MODULE> => {
+export const loadLibrary = async (importType: ImportType, urls: Record<string, string>): Promise<PIXI_LIVE2D_DISPLAY_MODULE> => {
   switch (importType) {
     case 'cubism2':
-      await loadLibraryCubism(urls[importType]);
-      return await import(`pixi-live2d-display/cubism2`);
+      await loadScript(urls[importType]);
+
+      return import(`pixi-live2d-display/cubism2`);
     case 'cubism5':
-      await loadLibraryCubism(urls[importType]);
-      return await import(`pixi-live2d-display/cubism4`);
+      await loadScript(urls[importType]);
+
+      return import(`pixi-live2d-display/cubism4`);
     default:
-      await Promise.all([loadLibraryCubism(urls.cubism2), loadLibraryCubism(urls.cubism5)]);
-      return await import('pixi-live2d-display');
+      await Promise.all([loadScript(urls.cubism2), loadScript(urls.cubism5)]);
+
+      return import('pixi-live2d-display');
   }
 };
 
-export const loadUmdLibrary = async (importType: ImportType, urls) => {
+export const loadUmdLibrary = async (importType: ImportType, urls: Record<string, string>): Promise<void> => {
   switch (importType) {
     case 'complete':
-      await Promise.all([loadLibraryCubism(urls.cubism2), loadLibraryCubism(urls.cubism5)]);
+      await Promise.all([loadScript(urls.cubism2), loadScript(urls.cubism5)]);
       break;
     default:
-      await loadLibraryCubism(urls[importType]);
+      await loadScript(urls[importType]);
       break;
   }
-  await loadLibraryCubism(SDK.PIXI);
-  await loadLibraryCubism(SDK.PIXI_LIVE2D_DISPLAY);
+  await loadScript(SDK.PIXI);
+  await loadScript(SDK.PIXI_LIVE2D_DISPLAY);
 };
 
 // 检查版本信息
-export const checkVersion = async () => {
+export const checkVersion = async (): Promise<void> => {
   const result = await fetch('https://unpkg.com/oh-my-live2d/package.json');
-  const packageInfo = await result.json();
-  if (packageInfo.version !== __VERSION__) {
-    console.warn(
-      '[oml2d] 检查到 oh-my-live2d 存在最新版:',
-      `v${packageInfo.version}`,
-      '请前往: https://oml2d.com 以获得最新版详细信息, 并及时更新.'
-    );
+  const { version } = <{ version: string }>await result.json();
+
+  if (version !== __VERSION__) {
+    console.warn('[oml2d] 检查到 oh-my-live2d 存在最新版:', `v${version}`, '请前往: https://oml2d.com 以获得最新版详细信息, 并及时更新.');
   }
 };
 
 // 获取每日一言
-export const getWordTheDay = async () => {
+export const getWordTheDay = async (): Promise<string> => {
   const fetchResult = await fetch('https://v1.hitokoto.cn/');
-  const data = await fetchResult.json();
+  const data = <{ hitokoto: string; from: string }>await fetchResult.json();
+
   return `${data.hitokoto}    -- ${data.from}`;
 };
