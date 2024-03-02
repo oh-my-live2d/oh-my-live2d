@@ -17,7 +17,6 @@
     "@release-it/conventional-changelog": "^8.0.1",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
-    "axios": "^1.6.7",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "dotenv-cli": "^7.3.0",
