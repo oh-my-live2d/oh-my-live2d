@@ -11,18 +11,25 @@
   ],
   "homepage": "https://oml2d.com/guide/vuepress",
   "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oh-my-live2d/oh-my-live2d.git",
+    "directory": "packages/oh-my-live2d"
+  },
   "license": "MIT",
   "author": "loclink",
   "type": "module",
   "exports": {
-    "types": "./index.d.ts",
-    "import": "./src/index.js"
+    ".": {
+      "types": "./dist/node/index.d.ts",
+      "import": "./dist/node/index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "main": "./src/index.js",
-  "types": "./index.d.ts",
+  "main":  "./dist/node/index.js",
+  "types": "./dist/node/index.d.ts",
   "files": [
-    "src",
-    "index.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
