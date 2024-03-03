@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.7.2...v0.7.3) (2024-03-03)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- **vuepress-plugin:** 修复环境变量**OML2D_OPTIONS**未定义的问题 ([56da8b2](https://github.com/oh-my-live2d/oh-my-live2d/commit/56da8b2b45f4a6b42c5625774bb8a6a92a2deef9)) by loclink
+
 ## [0.7.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.7.1...v0.7.2) (2024-03-03)
 
 ### ✨ Features | 新功能
