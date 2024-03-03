@@ -1,9 +1,14 @@
 name: 构建文档
+# on:
+#   push: # 监听调用时机为push事件
+#     branches: ['master'] # 监听master分支
 on:
-  push: # 监听调用时机为push事件
-    branches: ['master'] # 监听master分支
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
     steps:
       - name: 拉取代码
@@ -20,6 +25,16 @@ jobs:
 
       - name: 项目安装依赖
         run: pnpm install --no-frozen-lockfile
+
+      - name: 打包项目
+        run: pnpm build
+
+      - name: 更新npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
+      - name: 发布至npm仓库
+        run: pnpm new-publish
 
       - name: 打包文档
         env:

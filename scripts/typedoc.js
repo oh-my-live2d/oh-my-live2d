@@ -28,10 +28,9 @@ const getType = (typeData = {}) => {
 // 根目录
 const rootPath = (...args) => path.join(__dirname, '../packages/oh-my-live2d', ...args);
 
-const generateDocs = (app, project) =>
+const generateDocs = (app, project) => {
   app.generateJson(project, documentationPath).then(() => {
     const data = fs.readJSONSync(documentationPath);
-
     data.children = data.children.filter((item) => item.name !== 'loadOml2d');
     // 处理数据-----------------------
 
@@ -119,6 +118,9 @@ const generateDocs = (app, project) =>
     fs.writeJSONSync(sideBarDataPath, sideBarData);
     console.log(sideBarDataPath, ' 已写入');
   });
+
+  fs.copySync(path.resolve(__dirname, '../CHANGELOG.md'), path.resolve(__dirname, '../docs/CHANGELOG.md'));
+};
 
 // 主函数
 async function main() {
