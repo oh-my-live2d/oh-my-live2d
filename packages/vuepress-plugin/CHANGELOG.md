@@ -1,3 +1,14 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.7.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.7.1...v0.7.2) (2024-03-03)
+
+### ✨ Features | 新功能
+
+- update ([e754530](https://github.com/oh-my-live2d/oh-my-live2d/commit/e754530135ebde24af23e84e81f0a88aa4a9cd95)) by Mr.Hope
+
 # Changelog
 
 ### [0.6.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.4.3...v0.6.1) (2024-02-28)
