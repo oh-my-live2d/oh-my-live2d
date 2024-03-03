@@ -40,7 +40,7 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
         run: |
-          pnpm build:docs
+          pnpm docs:build
 
       - name: 上传 oh-my-live2d 文档代码
         uses: appleboy/scp-action@master
