@@ -14,7 +14,7 @@
     }
   },
   "changelogPreset": {
-    "name": "conventionalcommits",
+    "name": "conventional-changelog-conventionalcommits",
     "types": [
       {
         "type": "feat",
