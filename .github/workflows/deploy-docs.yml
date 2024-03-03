@@ -1,0 +1,50 @@
+name: 构建文档
+on:
+  push: # 监听调用时机为push事件
+    branches: ['deploy-docs'] # 监听master分支
+jobs:
+  release:
+    runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 安装 pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: 项目安装依赖
+        run: pnpm install --no-frozen-lockfile
+
+      - name: 打包文档
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+        run: |
+          pnpm docs:build
+
+      - name: 上传 oh-my-live2d 文档代码
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: 'docs/.vitepress/dist'
+          target: '/${{secrets.SSH_USERNAME}}/Projects/.oml2d_temp/'
+          rm: true
+          strip_components: 3
+
+      - name: 执行远程脚本命令
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            rm -rf /${{ secrets.SSH_USERNAME }}/Projects/oml2d-docs
+            mkdir -p /${{ secrets.SSH_USERNAME }}/Projects/oml2d-docs
+            cp -rf /${{ secrets.SSH_USERNAME }}/Projects/.oml2d_temp/*  /${{ secrets.SSH_USERNAME }}/Projects/oml2d-docs

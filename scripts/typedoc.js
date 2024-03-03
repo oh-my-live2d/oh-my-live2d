@@ -137,7 +137,9 @@ async function main() {
 
   // 判断是否为监听模式
   if (process.argv.includes('-w') || process.argv.includes('--watch')) {
-    app.convertAndWatch((project) => generateDocs(app, project));
+    app.convertAndWatch((project) => {
+      generateDocs(app, project);
+    });
   } else {
     const project = await app.convert();
 

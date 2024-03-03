@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress';
-import pkg from '../../package.json';
+import pkg from '../../lerna.json';
 import sideBarData from '../sideBarData.json';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

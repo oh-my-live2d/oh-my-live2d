@@ -34,7 +34,7 @@ features:
 
 在任意项目的 `index.html` 中使用以下示例, 立即体验 `oh-my-live2d`:
 
-<img align="right" style="margin-left:10px;border-radius: 10px;margin-top:23px;margin-bottom: 23px;" src="https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image%E5%BD%95%E5%B1%8F2024-02-28%2017.49.14%202.GIF"/>
+<img align="right" style="margin-left:10px;border-radius: 10px;height:397px" src="https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image%E5%BD%95%E5%B1%8F2024-02-28%2017.49.14%202.GIF"/>
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
