@@ -97,15 +97,24 @@ export const loadLibrary = async (importType: ImportType, urls: LibraryUrls): Pr
 
 export const loadUmdLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<void> => {
   switch (importType) {
-    case 'complete':
-      await Promise.all([loadScript(urls.cubism2), loadScript(urls.cubism5)]);
-      break;
-    default:
+    case 'cubism2':
       await loadScript(urls[importType]);
+      await loadScript(SDK.PIXI);
+      await loadScript(SDK.PIXI_LIVE2D_DISPLAY_CUBISM2);
+      break;
+
+    case 'cubism5':
+      await loadScript(urls[importType]);
+      await loadScript(SDK.PIXI);
+      await loadScript(SDK.PIXI_LIVE2D_DISPLAY_CUBISM4);
+      break;
+
+    default:
+      await Promise.all([loadScript(urls.cubism2), loadScript(urls.cubism5)]);
+      await loadScript(SDK.PIXI);
+      await loadScript(SDK.PIXI_LIVE2D_DISPLAY);
       break;
   }
-  await loadScript(SDK.PIXI);
-  await loadScript(SDK.PIXI_LIVE2D_DISPLAY);
 };
 
 // 检查版本信息

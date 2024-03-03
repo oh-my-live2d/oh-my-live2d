@@ -54,7 +54,9 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
 /** 第三方 SDK */
 export const SDK = {
   PIXI: `${libServicePath}/pixi.min.js`,
-  PIXI_LIVE2D_DISPLAY: `${libServicePath}/pixi-live2d-display.min.js`
+  PIXI_LIVE2D_DISPLAY: `${libServicePath}/pixi-live2d-display.min.js`,
+  PIXI_LIVE2D_DISPLAY_CUBISM2: `${libServicePath}/pixi-live2d-display-cubism2.min.js`,
+  PIXI_LIVE2D_DISPLAY_CUBISM4: `${libServicePath}/pixi-live2d-display-cubism4.min.js`
 };
 
 /** 全局配置 */
