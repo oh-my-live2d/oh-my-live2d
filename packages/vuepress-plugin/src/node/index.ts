@@ -7,7 +7,7 @@ export const oml2dPlugin = (options = {}): Plugin => ({
   name: 'vuepress-plugin-oh-my-live2d',
   define: {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    __OML_OPTIONS__: options
+    __OML2D_OPTIONS__: options
   },
   multiple: false,
   clientConfigFile: path.resolve(__dirname, '../client/config.js')
