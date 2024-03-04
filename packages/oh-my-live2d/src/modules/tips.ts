@@ -1,16 +1,14 @@
-import { getRandomElement, mergeDeep, setIntervalAsync } from 'tianjie';
+import { getRandomElement, isFunction, mergeDeep, setIntervalAsync } from 'tianjie';
 
 import { CONFIG } from '../config/index.js';
+import type { IdleTimer } from '../types/common.js';
 import type { CSSProperties, DeepRequired, TipsOptions } from '../types/index.js';
 import { createElement, getWelcomeMessage, getWordTheDay, setStyleForElement, sleep } from '../utils/index.js';
 
 export class Tips {
   private element: HTMLElement;
   // private status: Status = Status.Hidden;
-  private idlePlayer?: {
-    start: () => Promise<void>;
-    stop: () => void;
-  };
+  private idlePlayer?: IdleTimer;
 
   private closeTimer = 0;
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
@@ -80,7 +78,7 @@ export class Tips {
     this.element.innerHTML = message;
   }
 
-  showMessage(message: string, duration = 3000, priority = 0) {
+  showMessage(message: string, duration = 3000, priority = 0): void {
     if (priority < this.priority) {
       return;
     }
@@ -152,7 +150,7 @@ export class Tips {
    * 创建闲置消息播放器
    * @returns
    */
-  private createIdleMessagePlayer() {
+  private createIdleMessagePlayer(): undefined | IdleTimer {
     if (!this.tipsOptions) {
       return;
     }
@@ -163,7 +161,11 @@ export class Tips {
       if (this.tipsOptions.idleTips.wordTheDay) {
         message = await getWordTheDay();
       } else {
-        message = getRandomElement(messages || []) || '';
+        if (isFunction(messages)) {
+          message = await messages();
+        } else {
+          message = getRandomElement(messages || []) || '';
+        }
       }
 
       if (message) {

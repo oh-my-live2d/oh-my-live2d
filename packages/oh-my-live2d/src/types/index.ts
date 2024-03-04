@@ -4,12 +4,13 @@ import type { Application } from 'pixi.js';
 import type { DEFAULT_OPTIONS } from 'src/config/config.js';
 
 import type { ModelOptions } from './model.js';
-import type { ImportType, Options } from './options.js';
+import type { Options } from './options.js';
 import type { DeepRequired } from './utils.js';
 
 export * from './options.js';
 export * from './utils.js';
 
+export type ImportType = 'complete' | 'cubism2' | 'cubism5';
 export type PIXI_LIVE2D_DISPLAY_MODULE = typeof import('pixi-live2d-display');
 export type PIXI_MODULE = typeof import('pixi.js');
 

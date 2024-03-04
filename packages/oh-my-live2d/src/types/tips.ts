@@ -47,7 +47,7 @@ export interface TipsOptions {
    */
   idleTips?: {
     /**
-     * 是否开启每日一言, 默认为关闭状态, 开启后将从这个地址请求 <https://v1.hitokoto.cn> 随机信息作为闲置提示内容
+     * 是否开启每日一言, 默认为关闭状态, 开启后将从 <https://v1.hitokoto.cn> 发送网络请求, 并将请求到的随机信息作为闲置提示内容
      *
      * ::: tip
      *
@@ -79,11 +79,13 @@ export interface TipsOptions {
     interval?: number;
 
     /**
-     * 播放的消息内容, 需要是一个字符串组成的数组, 播放时会从中随机取出一条进行提示, 空数组则不播放, 默认为空数组
+     * 闲置时播放的消息内容, 可以是字符串数组也可以是一个返回类型为Promise<string>的异步函数
      *
-     * @valueType string[]
+     * 当为 message 为数组时会从中随机取出一条进行提示, 当 message 为异步函数时会在定时器同步执行这个函数并使用这个函数的返回值进行提示, 空数组则不播放, 默认为空数组
+     *
+     * @valueType string[] | (() => Promise<string>)
      */
-    message?: string[];
+    message?: string[] | (() => Promise<string>);
   };
   /**
    * 模型入场后的欢迎提示

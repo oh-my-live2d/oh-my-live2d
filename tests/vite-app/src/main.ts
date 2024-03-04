@@ -17,23 +17,25 @@ void loadOml2d({
     //     width: 320
     //   }
     // }
-    // {
-    //   path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
-    //   position: [50, 100],
-    //   stageStyle: {
-    //     width: 300,
-    //     height: 450
-    //   }
-    // },
     {
-      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.3
+      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json',
+      position: [50, 100],
+      stageStyle: {
+        width: 300,
+        height: 450
+      }
     }
+    // {
+    //   path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
+    //   scale: 0.3
+    // }
   ],
   tips: {
     idleTips: {
       // message: []
-      wordTheDay: true
+      message: async () => {
+        return 'asdasd';
+      }
     }
   }
 });

@@ -1,7 +1,7 @@
 import type { ModelOptions } from './model.js';
 import type { TipsOptions } from './tips.js';
 
-export type ImportType = 'complete' | 'cubism2' | 'cubism5';
+import type { ImportType } from './index.js';
 
 /**
  * # 配置选项
