@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.7.3...v0.8.0) (2024-03-04)
+
+### ✨ Features | 新功能
+
+- 新增闲置状态下message支持异步函数动态提供提示的选项, 现在你可以给idleTips.message传入一个异步函数, 并返回一个string类型 ([e37abbb](https://github.com/oh-my-live2d/oh-my-live2d/commit/e37abbb11ae6698c41af81cb3d0cab01c775f95d)) by loclink
+- **menus:** 新增了休息按钮, 现在你可以通过菜单栏手动让模型滑出屏幕外, 这在有内容被模型遮挡时非常有用 ([a34ed03](https://github.com/oh-my-live2d/oh-my-live2d/commit/a34ed03928d8b238636c9e6d79781b3e20539939)) by loclink
+- **tips:** 闲置消息的wordTheDay支持传入格式化函数, 现在您可以通过传入格式化函数定制您自己的消息模板 ([7f43e4c](https://github.com/oh-my-live2d/oh-my-live2d/commit/7f43e4c66b801774c248a80c9e20337eea26de89)) by loclink
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 关闭了变装菜单按钮, 由于不是每个模型的纹理都是非组装式可独立展示的, 所以取消了该按钮与交互, 但会在后续版本提供可主动变更纹理的api ([102e9a2](https://github.com/oh-my-live2d/oh-my-live2d/commit/102e9a2b12d4f8f71ceda2c9b2e16f419d8313df)) by loclink
+
 ## [0.7.3](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.7.2...v0.7.3) (2024-03-03)
 
 ### 🐛 Bug Fixes | Bug 修复

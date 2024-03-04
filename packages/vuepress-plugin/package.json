@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-oh-my-live2d",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "description": "VuePress2 的 live2d 看板组件插件",
   "keywords": [
     "vuepress2",
