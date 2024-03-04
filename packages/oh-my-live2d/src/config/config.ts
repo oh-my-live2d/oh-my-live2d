@@ -75,11 +75,11 @@ export const MENU_ITEMS = [
     name: 'icon-a-userswitch-fill',
     title: '切换模型'
   },
-  {
-    id: 'Play',
-    name: 'icon-skin-fill',
-    title: '变装'
-  },
+  // {
+  //   id: 'Play',
+  //   name: 'icon-skin-fill',
+  //   title: '变装'
+  // },
   {
     id: 'About',
     name: 'icon-info-circle-fill',

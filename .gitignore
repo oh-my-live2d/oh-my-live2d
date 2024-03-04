@@ -26,3 +26,4 @@ logs
 *.log
 pnpm-debug.log*
 lerna-debug.log*
+tests/vite-app/public/models/

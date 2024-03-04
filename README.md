@@ -125,6 +125,14 @@ loadOml2d({
 
 - [在 Hexo 中使用](https://oml2d.com/guide/hexo.html)
 
+## 贡献者们
+
+感谢以下所有给 oh-my-live2d 贡献过代码的 [开发者们](https://github.com/oh-my-live2d/oh-my-live2d/graphs/contributors)。
+
+<a href="https://github.com/oh-my-live2d/oh-my-live2d/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=oh-my-live2d/oh-my-live2d" />
+</a>
+
 ## 📧 讨论
 
 - qq 群: 474032914
@@ -132,7 +140,8 @@ loadOml2d({
 - 微信群:
   添加好友以加入微信群：  
   添加好友时请备注：`oml2d`
-  <img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
+
+<img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
 
 ## 📃 开源许可
 

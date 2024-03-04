@@ -1,4 +1,4 @@
-name: 构建文档
+name: 项目发布
 # on:
 #   push: # 监听调用时机为push事件
 #     branches: ['master'] # 监听master分支

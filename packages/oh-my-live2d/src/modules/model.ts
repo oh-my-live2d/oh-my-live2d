@@ -1,4 +1,5 @@
 import type { InternalModel, Live2DModel } from 'pixi-live2d-display';
+// import { HitAreaFrames } from 'pixi-live2d-display/extra';
 import type { Application } from 'pixi.js';
 
 import type { Live2DModelType, ModelOptions } from '../types/index.js';
@@ -15,16 +16,35 @@ export class Model {
     this.model = this.create();
   }
   create(): Live2DModel<InternalModel> {
+    // const hitAreaFrames = new HitAreaFrames();
     const model = this.live2dModel.fromSync(this.modelOptions.path || '', {
+      // motionPreload: 'ALL',
       onError: (e) => {
         this.failEvent?.(e);
       }
     });
 
     model.once('load', () => {
+      // model.addChild(hitAreaFrames);
+
+      // setTimeout(() => {
+      //   model.removeChildAt(0);
+      //   setTimeout(() => {
+      //     model.addChild(hitAreaFrames);
+      //   }, 1000);
+      // }, 1000);
       this.application.stage.addChild(this.model);
       this.application.resize();
+      // console.log(model.internalModel.motionManager.motionGroups);
+      // console.log(model.internalModel.motionManager.groups);
     });
+
+    // model.on('hit', (hitNames) => {
+    //   console.log(hitNames);
+
+    //   void model.motion('Tap', 0);
+    //   console.log('ddddddddddd');
+    // });
 
     return model;
   }
@@ -79,16 +99,4 @@ export class Model {
       callback({ status: true });
     }
   }
-  // addSetTask(stak) {
-  //   this.taskList.push(stak);
-  // }
-
-  // executeStakList() {
-  //   if (!this.taskList.length) return;
-  //   for (const setTask of this.taskList) {
-  //     console.log(setTask);
-  //     setTask();
-  //     this.taskList.shift();
-  //   }
-  // }
 }

@@ -71,9 +71,7 @@ yarn add oh-my-live2d@latest
 
 通过 CDN 方式导入时，所有成员变量都可以在 `OML2D` 命名空间下被使用。
 
-并且该方法接收一个 `options` 配置选项对象，示例如下。
-
-有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
+通过调用`OML2D.loadOml2d()`方法加载 Live2D 模型, 该方法接收一个 `options` 配置选项对象，示例如下:
 
 ```html
 <!doctype html>
@@ -98,12 +96,13 @@ yarn add oh-my-live2d@latest
 </html>
 ```
 
+有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)
+
 ---
 
 ### ESM 导入
 
 OhMyLive2D 在使用 ES6Module 方式导入时暴露了一个`loadOml2d`方法, 该方法接收一个配置选项`options`.
-有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
 
 ```ts
 import { loadOml2d } from 'oh-my-live2d';
@@ -116,7 +115,7 @@ loadOml2d({
 });
 ```
 
-以上示例的使用效果请参考本站左下角.
+有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
 
 ### 其他支持
 
@@ -125,6 +124,14 @@ loadOml2d({
 - [在 VuePress2 中使用](./vuepress.md)
 
 - [在 Hexo 中使用](./hexo.md)
+
+## 贡献者们
+
+感谢以下所有给 oh-my-live2d 贡献过代码的 [开发者们](https://github.com/oh-my-live2d/oh-my-live2d/graphs/contributors)。
+
+<a href="https://github.com/oh-my-live2d/oh-my-live2d/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=oh-my-live2d/oh-my-live2d" />
+</a>
 
 ## 📧 讨论
 
