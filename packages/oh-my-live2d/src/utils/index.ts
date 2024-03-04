@@ -1,3 +1,4 @@
+import type { WordTheDayData } from 'src/types/common.js';
 import { isNumber } from 'tianjie';
 
 import { SDK } from '../config/index.js';
@@ -128,9 +129,13 @@ export const checkVersion = async (): Promise<void> => {
 };
 
 // 获取每日一言
-export const getWordTheDay = async (): Promise<string> => {
+export const getWordTheDay = async (format?: (wordTheDayData: WordTheDayData) => string): Promise<string> => {
   const fetchResult = await fetch('https://v1.hitokoto.cn/');
   const data = <{ hitokoto: string; from: string }>await fetchResult.json();
+
+  if (format) {
+    return format(data as WordTheDayData);
+  }
 
   return `${data.hitokoto}    -- ${data.from}`;
 };

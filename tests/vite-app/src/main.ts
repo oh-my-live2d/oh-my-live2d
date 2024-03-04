@@ -32,9 +32,8 @@ void loadOml2d({
   ],
   tips: {
     idleTips: {
-      // message: []
-      message: async () => {
-        return 'asdasd';
+      wordTheDay(wordTheDayData) {
+        return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
       }
     }
   }

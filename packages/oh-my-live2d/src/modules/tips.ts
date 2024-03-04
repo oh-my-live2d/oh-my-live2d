@@ -159,7 +159,11 @@ export class Tips {
     const timer = setIntervalAsync(async () => {
       // 是否开启每日一言
       if (this.tipsOptions.idleTips.wordTheDay) {
-        message = await getWordTheDay();
+        if (isFunction(this.tipsOptions.idleTips.wordTheDay)) {
+          message = await getWordTheDay(this.tipsOptions.idleTips.wordTheDay);
+        } else {
+          message = await getWordTheDay();
+        }
       } else {
         if (isFunction(messages)) {
           message = await messages();

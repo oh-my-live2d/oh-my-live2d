@@ -70,9 +70,13 @@
 
 ### idleTips.message
 
-- 类型: `string[]`
+- 类型: `string[] | (() => Promise<string>)`
 
-播放的消息内容, 需要是一个字符串组成的数组, 播放时会从中随机取出一条进行提示, 空数组则不播放, 默认为空数组
+- 默认值: `[]`
+
+闲置时播放的消息内容, 可以是字符串数组也可以是一个返回类型为 string 的异步函数.
+当为 message 为数组时会从中随机取出一条进行提示, 当 message 为异步函数时会在定时器同步执行这个函数并使用这个函数的返回值进行提示, 空数组则不播放, 默认为空数组.
+但当 wordTheDay 开启时, 将接管 message 的值
 
 ---
 
@@ -88,11 +92,25 @@
 
 ### idleTips.wordTheDay
 
-- 类型: `boolean`
+- 类型: `boolean | ((wordTheDayData: WordTheDayData) => string)`
 
 - 默认值: `false`
 
-是否开启每日一言, 默认为关闭状态, 开启后将从这个地址请求 <https://v1.hitokoto.cn> 随机信息作为闲置提示内容
+是否开启每日一言, 默认为关闭状态, 开启后将从 <https://v1.hitokoto.cn> 发送网络请求, 并将请求到的随机信息作为闲置提示内容, 除了 boolean 类型之外, 它还支持您传入一个格式化函数, 这在您需要自定义消息格式时非常有用, 格式化函数的返回值必须是一个 string 类型, 其接收一个 wordTheDayData, 该参数包含了这次网络请求成功后的所有响应数据, 方便您处理格式化.
+
+以下是一个示例:
+
+```ts
+{
+  tips: {
+    idleTips: {
+      wordTheDay(wordTheDayData) {
+        return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+      }
+    }
+  }
+}
+```
 
 ::: tip
 
