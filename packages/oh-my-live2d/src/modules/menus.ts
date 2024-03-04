@@ -7,7 +7,7 @@ import { createElement, setStyleForElement } from '../utils/index.js';
 export class Menus {
   element: HTMLElement;
   private style: CSSProperties = {};
-  private clickItem?: (name: string) => void;
+  private clickItem?: ((name: string) => void) | ((name: string) => Promise<void>);
 
   constructor(private stageElement: HTMLElement) {
     this.element = createElement({ id: CONFIG.menusId, tagName: 'div', className: CONFIG.menusId });
@@ -62,7 +62,7 @@ export class Menus {
         target = target.parentNode as HTMLElement;
       }
 
-      this.clickItem?.(target.getAttribute('data-name')!);
+      void this.clickItem?.(target.getAttribute('data-name')!);
 
       // switch (target.getAttribute('data-name')) {
       //   case 'SwitchModel':
@@ -78,7 +78,7 @@ export class Menus {
     });
   }
 
-  onClickItem(fn: (name) => void): void {
+  onClickItem(fn: ((name) => void) | ((name) => Promise<void>)): void {
     this.clickItem = fn;
   }
 

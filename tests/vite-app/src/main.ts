@@ -9,10 +9,10 @@ void loadOml2d({
   // fixed: false,
 
   models: [
-    {
-      path: '/models/mikoto/model.json',
-      scale: 0.1
-    },
+    // {
+    //   path: '/models/mikoto/model.json',
+    //   scale: 0.1
+    // },
     {
       path: '/models/sat8_2601/model.json',
       scale: 0.1

@@ -141,25 +141,21 @@ export class OhMyLive2D {
     // 点击菜单按钮
     this.menus.onClickItem((name) => {
       switch (name) {
+        case 'Rest':
+          void this.stage.slideOut(this.options.transitionTime);
+          this.statusBar.popup('休息中', SystemState.info, false, () => {
+            void this.stage.slideIn(this.options.transitionTime);
+            this.statusBar.popup('闪亮登场');
+          });
+
+          return;
         // 切换模型
         case 'SwitchModel':
           void this.loadNextModel();
 
           return;
-        // 变装 (切换纹理)
-        case 'Play':
-          this.model?.changeTexture(({ status }) => {
-            if (status) {
-              this.tips.notification('变装成功!!!', 5000, 9);
-            } else {
-              this.tips.notification('没有找到其他衣服哦...', 5000, 9);
-            }
-          });
 
-          return;
         case 'About':
-          window.open('https://oml2d.com');
-
           return;
       }
     });

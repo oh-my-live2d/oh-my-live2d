@@ -71,6 +71,11 @@ export const CONFIG = {
 /** 菜单的配置 */
 export const MENU_ITEMS = [
   {
+    id: 'Rest',
+    name: 'icon-bed',
+    title: '休息'
+  },
+  {
     id: 'SwitchModel',
     name: 'icon-a-userswitch-fill',
     title: '切换模型'

@@ -5,8 +5,8 @@ import type { CSSProperties } from '../types/index.js';
 import { createElement, setStyleForElement } from '../utils/index.js';
 
 const enum Status {
-  Display = 1,
-  Hidden = 0
+  display = 1,
+  hidden = 0
 }
 
 export const enum SystemState {
@@ -20,13 +20,14 @@ export const enum SystemState {
 export class StatusBar {
   element: HTMLElement;
   transitionTime = 800;
-  status: Status = Status.Hidden;
+  status: Status = Status.hidden;
   stateColor = {
     info: '#58b0fc',
     error: '#F08080'
   };
 
   private style: CSSProperties = {};
+  private timer = 0;
   constructor(wrapperElement: HTMLElement) {
     this.element = createElement({ id: CONFIG.statusBarId, tagName: 'div', innerText: 'hello' });
     wrapperElement.append(this.element);
@@ -36,7 +37,7 @@ export class StatusBar {
   initStyle(): void {
     this.setStyle({
       minWidth: '20px',
-      minHeight: '50px',
+      minHeight: '40px',
       position: 'fixed',
       transform: 'translateX(-110%)',
       left: '0',
@@ -56,7 +57,8 @@ export class StatusBar {
       textAlign: 'center',
       flexWrap: 'wrap',
       fontSize: '14px',
-      writingMode: 'vertical-lr'
+      writingMode: 'vertical-lr',
+      cursor: 'pointer'
     });
   }
 
@@ -67,7 +69,7 @@ export class StatusBar {
 
   private slideIn(): Promise<Status> {
     return new Promise((resolve) => {
-      this.status = Status.Display;
+      this.status = Status.display;
       this.setStyle({
         animationName: 'oml2d-status-bar-slide-in',
         animationDuration: `${this.transitionTime}ms`,
@@ -81,7 +83,7 @@ export class StatusBar {
 
   private slideOut(): Promise<Status> {
     return new Promise((resolve) => {
-      this.status = Status.Hidden;
+      this.status = Status.hidden;
       this.setStyle({
         animationName: 'oml2d-status-bar-slide-out',
         animationDuration: `${this.transitionTime}ms`,
@@ -122,6 +124,7 @@ export class StatusBar {
     const mouseover = (): void => {
       this.popup('重新加载', SystemState.info, false);
     };
+
     const mouseout = (): void => {
       this.popup('加载失败', SystemState.error, false);
     };
@@ -144,14 +147,19 @@ export class StatusBar {
    * @param state
    * @param delay
    */
-  popup(message: string, state: SystemState = SystemState.info, delay: number | false = 1000): void {
+  popup(message: string, state: SystemState = SystemState.info, delay: number | false = 1000, callback?: () => void): void {
+    clearTimeout(this.timer);
     this.setContent(message);
     this.setStyle({ backgroundColor: this.stateColor[state] });
     void this.slideIn().then(() => {
       if (delay) {
-        setTimeout(() => {
+        this.timer = setTimeout(() => {
           void this.slideOut();
         }, delay);
+      } else {
+        if (callback) {
+          this.element.onclick = callback;
+        }
       }
     });
   }
