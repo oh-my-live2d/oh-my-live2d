@@ -96,7 +96,7 @@ yarn add oh-my-live2d@latest
 </html>
 ```
 
-有关配置选项的详细内容请查看: [配置选项](https://oml2d.com/options/Options)
+有关配置选项的详细内容请查看: [配置选项](../options/Options)
 
 ---
 
