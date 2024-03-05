@@ -156,6 +156,8 @@ export class OhMyLive2D {
           return;
 
         case 'About':
+          window.open('https://oml2d.com');
+
           return;
       }
     });

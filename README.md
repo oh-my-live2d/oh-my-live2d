@@ -119,9 +119,9 @@ loadOml2d({
 
 ## ✨ 其他支持
 
-- [在 VitePress 中使用](https://oml2d.com/guide/vitepress)
+- [在 VitePress 中使用](https://oml2d.com/guide/vitepress.html)
 
-- [在 VuePress2 中使用](https://oml2d.com/guide/vuepress)
+- [在 VuePress2 中使用](https://oml2d.com/guide/vuepress.html)
 
 - [在 Hexo 中使用](https://oml2d.com/guide/hexo.html)
 
