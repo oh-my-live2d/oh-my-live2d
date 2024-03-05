@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.8.0...v0.8.1) (2024-03-05)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 修复了关于按钮点击事件无响应的bug ([5f9c00f](https://github.com/oh-my-live2d/oh-my-live2d/commit/5f9c00f85d76c38fd9e3afd723c066e037004fa5)) by loclink
+
 ## [0.8.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.7.3...v0.8.0) (2024-03-04)
 
 ### ✨ Features | 新功能
