@@ -1,15 +1,16 @@
 <!-- markdownlint-disable -->
 <p align="center">
-  <img width="240" style="background-color:#FFF;border-radius: 30px;text-align: center;" src="https://oml2d.com/logo-black.png">
+  <img width="240" style="background-color:#FFF;border-radius: 30px;text-align: center;" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/121472002.jpeg"/ >
 </p>
 <h1 align="center">OhMyLive2D</h1>
-<h4 align="center">一个用于浏览器环境的Live2D模型看板组件</h4>
+<h4 align="center">应用于浏览器环境的Live2D模型看板组件</h4>
 
-![npm](https://img.shields.io/npm/v/oh-my-live2d?label=oh-my-live2d) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F3%2F4-orange) ![GitHub package.json version](https://img.shields.io/npm/v/vuepress-plugin-oh-my-live2d?label=vuepress-plugin-oh-my-live2d) ![](https://img.shields.io/badge/vuepress2-plugin-green)
+![npm](https://img.shields.io/npm/v/oh-my-live2d?label=npm) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F5-orange) ![GitHub package.json version](https://img.shields.io/npm/v/vuepress-plugin-oh-my-live2d?label=vuepress-plugin)
 
-**OhMyLive2D** 是一个应用于浏览器环境的*Live2D看板组件*, 它目前已支持所有版本的Live2D模型, 现在您可以通过更加简便的使用方式为您的个人网站增添一个Live2D看板娘, 使您的个人网站变得更具有特色.
+## 概述
 
-- 📄 [查阅文档](https://oml2d.com) 以了解更多详细的使用教程。
+**OhMyLive2D** 是一个应用于浏览器环境的*Live2D看板组件*, 它目前已支持所有版本的Live2D模型, 可以让您通过更加简便的使用方式为您的个人网站增添一个Live2D看板娘, 使您的个人网站变得更具有特色.
+[查阅文档](https://oml2d.com) 以了解更多详细的使用教程。
 
 > [!TIP]  
 > **此项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入😄**
