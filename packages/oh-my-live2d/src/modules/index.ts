@@ -146,7 +146,10 @@ export class OhMyLive2D {
           this.statusBar.popup('休息中', SystemState.info, false, () => {
             void this.stage.slideIn(this.options.transitionTime);
             this.statusBar.popup('闪亮登场');
+            void this.tips.idlePlayer?.start();
           });
+
+          this.tips.clear();
 
           return;
         // 切换模型

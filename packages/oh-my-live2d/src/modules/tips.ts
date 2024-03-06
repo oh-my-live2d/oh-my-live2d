@@ -8,7 +8,7 @@ import { createElement, getWelcomeMessage, getWordTheDay, setStyleForElement, sl
 export class Tips {
   private element: HTMLElement;
   // private status: Status = Status.Hidden;
-  private idlePlayer?: IdleTimer;
+  idlePlayer?: IdleTimer;
 
   private closeTimer = 0;
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
