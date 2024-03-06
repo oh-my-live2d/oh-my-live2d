@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 <p align="center">
-  <img width="240" style="background-color:#FFF;border-radius: 30px;" src="https://oml2d.com/logo-black.png" style="text-align: center;">
+  <img width="240" style="background-color:#FFF;border-radius: 30px;text-align: center;" src="https://oml2d.com/logo-black.png">
 </p>
 <h1 align="center">OhMyLive2D</h1>
 <h4 align="center">一个用于浏览器环境的Live2D模型看板组件</h4>
