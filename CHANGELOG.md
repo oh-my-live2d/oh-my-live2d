@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.8.1...v0.8.2) (2024-03-06)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 修复休息时还会提示闲置消息的bug ([fbee2a9](https://github.com/oh-my-live2d/oh-my-live2d/commit/fbee2a9190db20a39a5836223b34db96a0eb4aeb)) by hacxy
+
 ## [0.8.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.8.0...v0.8.1) (2024-03-05)
 
 ### 🐛 Bug Fixes | Bug 修复
