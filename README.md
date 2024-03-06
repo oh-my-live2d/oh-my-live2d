@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 <p align="center">
-  <img width="240" style="background-color:#FFF;border-radius: 30px;text-align: center;" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/121472002.jpeg"/ >
+  <img width="240" style="text-align:center;" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/121472002.png"/ >
 </p>
 <h1 align="center">OhMyLive2D</h1>
 <h4 align="center">应用于浏览器环境的Live2D模型看板组件</h4>
