@@ -21,12 +21,7 @@ export default defineConfig({
   themeConfig: {
     footer: {
       message: 'Released under the MIT License.',
-      copyright: `<div>
-      <div>
-      Copyright © 2023-present Hacxy
-      </div>
-      <a href="https://beian.miit.gov.cn/">鄂ICP备2021019656号</a>
-      </div>`
+      copyright: `Copyright © 2023-present Hacxy <a href="https://beian.miit.gov.cn/">鄂ICP备2021019656号</a>`
     },
     logo: {
       dark: '/logo-white.png',
