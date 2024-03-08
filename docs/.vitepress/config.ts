@@ -21,7 +21,12 @@ export default defineConfig({
   themeConfig: {
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023-present loclink'
+      copyright: `<div>
+      <div>
+      Copyright © 2023-present Hacxy
+      </div>
+      <a href="https://beian.miit.gov.cn/">鄂ICP备2021019656号</a>
+      </div>`
     },
     logo: {
       dark: '/logo-white.png',
