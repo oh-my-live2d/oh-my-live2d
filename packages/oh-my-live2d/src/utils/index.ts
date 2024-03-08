@@ -2,7 +2,7 @@ import type { WordTheDayData } from 'src/types/common.js';
 import { isNumber } from 'tianjie';
 
 import { SDK } from '../config/index.js';
-import type { CSSProperties, ElementConfig, ImportType, LibraryUrls, PIXI_LIVE2D_DISPLAY_MODULE } from '../types/index.js';
+import type { CSSProperties, ElementConfig, ImportType, LibraryUrls, PixiLive2dDisplayModule } from '../types/index.js';
 
 export * from './tips.js';
 
@@ -79,7 +79,7 @@ export const loadScript = (url: string): Promise<void> =>
     });
   });
 
-export const loadLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<PIXI_LIVE2D_DISPLAY_MODULE> => {
+export const loadLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<PixiLive2dDisplayModule> => {
   switch (importType) {
     case 'cubism2':
       await loadScript(urls[importType]);

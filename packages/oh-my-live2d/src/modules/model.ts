@@ -2,6 +2,7 @@ import type { InternalModel, Live2DModel } from 'pixi-live2d-display';
 // import { HitAreaFrames } from 'pixi-live2d-display/extra';
 import type { Application } from 'pixi.js';
 
+import { MotionPreloadStrategy } from '../constants/index.js';
 import type { Live2DModelType, ModelOptions } from '../types/index.js';
 
 export class Model {
@@ -18,7 +19,8 @@ export class Model {
   create(): Live2DModel<InternalModel> {
     // const hitAreaFrames = new HitAreaFrames();
     const model = this.live2dModel.fromSync(this.modelOptions.path || '', {
-      // motionPreload: 'ALL',
+      // 动作预加载策略
+      motionPreload: (this.modelOptions.motionPreloadStrategy as MotionPreloadStrategy) || MotionPreloadStrategy.IDLE,
       onError: (e) => {
         this.failEvent?.(e);
       }

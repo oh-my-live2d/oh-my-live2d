@@ -26,6 +26,12 @@ export interface ModelOptions {
   position?: [x: number, y: number];
 
   /**
+   * 动作预加载策略
+   * @valueType ALL | IDLE | NONE
+   * @default IDLE
+   */
+  motionPreloadStrategy?: 'ALL' | 'IDLE' | 'NONE';
+  /**
    * 定义舞台样式
    *
    * @valueType object

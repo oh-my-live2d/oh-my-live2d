@@ -11,19 +11,28 @@ export * from './options.js';
 export * from './utils.js';
 
 export type ImportType = 'complete' | 'cubism2' | 'cubism5';
-export type PIXI_LIVE2D_DISPLAY_MODULE = typeof import('pixi-live2d-display');
-export type PIXI_MODULE = typeof import('pixi.js');
+
+export type PixiLive2dDisplayModule = typeof import('pixi-live2d-display');
+
+export type PixiModule = typeof import('pixi.js');
+
+// export type MotionPreloadStrategy = PIXI_LIVE2D_DISPLAY_MODULE['MotionPreloadStrategy'];
 
 export type ApplicationType = typeof Application;
+
 export type CSSProperties = CSS.Properties;
+
 export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models'> & { parentElement: HTMLElement } & {
   models: ModelOptions[];
 };
+
 export type Live2DModelType = typeof Live2DModel;
+
 export type LibraryUrls = {
   cubism2: string;
   cubism5: string;
 };
+
 export interface ElementConfig {
   id: string;
   className?: string;
@@ -40,6 +49,6 @@ export type LoadMethod = (
   importType: ImportType,
   libraryUrls: LibraryUrls
 ) => Promise<{
-  PIXI: PIXI_MODULE;
-  PixiLive2dDisplay: PIXI_LIVE2D_DISPLAY_MODULE;
+  PIXI: PixiModule;
+  PixiLive2dDisplay: PixiLive2dDisplayModule;
 }>;
