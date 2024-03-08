@@ -42,7 +42,7 @@ export class OhMyLive2D {
   initialize(): void {
     this.verifyWindowSizeType();
     if (this.windowSizeType !== WindowSizeType.pc) {
-      this.statusBar.popup('暂不支持移动端', SystemState.info, 8000);
+      this.statusBar.popup('看板娘休息中', SystemState.info, 8000);
 
       return;
     }
@@ -94,7 +94,7 @@ export class OhMyLive2D {
     });
   }
 
-  setStageStyle(style: Record<string, any>): void {
+  setStageStyle(style: Record<string, string | number>): void {
     handleStyleSize(style);
     this.stage.setStyle(style);
     this.application.resize();
@@ -196,7 +196,7 @@ export class OhMyLive2D {
 
 export const setup = (loadMethod: LoadMethod): ((options: Options) => Promise<unknown>) => {
   let oml2d;
-  const loadOml2d = async (options: Options) => {
+  const loadOml2d = async (options: Options): Promise<void> => {
     const { parentElement } = options;
     const finalOptions = mergeDeep(DEFAULT_OPTIONS, options);
 

@@ -1,4 +1,4 @@
-import { getRandomElement, isFunction, mergeDeep, setIntervalAsync } from 'tianjie';
+import { getRandomArrayItem, isFunction, mergeDeep, setIntervalAsync } from 'tianjie';
 
 import { CONFIG } from '../config/index.js';
 import type { IdleTimer } from '../types/common.js';
@@ -139,10 +139,10 @@ export class Tips {
    * 复制时提示
    */
   copy(): void {
-    if (this.tipsOptions.copyTips?.message?.length) {
-      const messageText = getRandomElement(this.tipsOptions.copyTips.message);
+    if (this.tipsOptions.copyTips.message.length) {
+      const messageText = getRandomArrayItem(this.tipsOptions.copyTips.message) || '';
 
-      this.notification(messageText!, this.tipsOptions.copyTips.duration, this.tipsOptions.copyTips.priority);
+      this.notification(messageText, this.tipsOptions.copyTips.duration, this.tipsOptions.copyTips.priority);
     }
   }
 
@@ -168,7 +168,7 @@ export class Tips {
         if (isFunction(messages)) {
           message = await messages();
         } else {
-          message = getRandomElement(messages || []) || '';
+          message = getRandomArrayItem(messages || []) || '';
         }
       }
 

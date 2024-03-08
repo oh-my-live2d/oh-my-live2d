@@ -46,6 +46,7 @@
     "prettier": "3.2.5",
     "rimraf": "^5.0.5",
     "sort-package-json": "^2.8.0",
+    "tianjie": "^0.0.12",
     "typedoc": "0.25.9",
     "typedoc-plugin-markdown": "3.17.1",
     "typescript": "^5.3.3",

@@ -65,6 +65,9 @@ importers:
       sort-package-json:
         specifier: ^2.8.0
         version: 2.8.0
+      tianjie:
+        specifier: ^0.0.12
+        version: 0.0.12
       typedoc:
         specifier: 0.25.9
         version: 0.25.9(typescript@5.3.3)
@@ -101,9 +104,6 @@ importers:
       pixi.js:
         specifier: 6.5.10
         version: 6.5.10
-      tianjie:
-        specifier: ^0.0.11
-        version: 0.0.11
       vite:
         specifier: 5.1.4
         version: 5.1.4
@@ -6327,8 +6327,8 @@ packages:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
     dev: true
 
-  /tianjie@0.0.11:
-    resolution: {integrity: sha512-DmRriexBHYilDCHoqteD/ZtU5T0FLktE6qF0I1ccjyTLy6qAk1JuSjJqT6RHTXqXKA96I+J81VOGTaZzSag2yA==}
+  /tianjie@0.0.12:
+    resolution: {integrity: sha512-iXVc4RfoW1rTCBrOaAvSt3YpmsBnH6otDYSS0Y5IwvQnY0kQ1WWhpfN613vCjkrJQi7fvQxpaDdK0AXGUy8OwQ==}
     dev: true
 
   /tmp@0.0.33:
