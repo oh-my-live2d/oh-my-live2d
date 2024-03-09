@@ -13,6 +13,7 @@ void loadOml2d({
       path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
       scale: 0.12,
       position: [-50, 50],
+      showHitAreaFrames: true,
       // motionPreloadStrategy: 'NONE',
       stageStyle: {
         width: 320

@@ -14,12 +14,12 @@ export class Model {
     private live2dModel: Live2DModelType,
     private modelOptions: ModelOptions,
     private application: Application,
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     private HitAreaFrames: HitAreaFramesType
   ) {
     this.model = this.create();
   }
   create(): Live2DModel<InternalModel> {
-    const hitAreaFrames = new this.HitAreaFrames();
     const model = this.live2dModel.fromSync(this.modelOptions.path || '', {
       // 动作预加载策略
       motionPreload: (this.modelOptions.motionPreloadStrategy as MotionPreloadStrategy) || MotionPreloadStrategy.IDLE,
@@ -29,7 +29,11 @@ export class Model {
     });
 
     model.once('load', () => {
-      model.addChild(hitAreaFrames);
+      if (this.modelOptions.showHitAreaFrames) {
+        const hitAreaFrames = new this.HitAreaFrames();
+
+        model.addChild(hitAreaFrames);
+      }
       // setTimeout(() => {
       //   model.removeChildAt(0);
       //   setTimeout(() => {

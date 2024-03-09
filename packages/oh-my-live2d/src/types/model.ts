@@ -7,6 +7,10 @@
 
 export interface ModelOptions {
   /**
+   * 是否显示该模型的点击区域框, 该选项是为了方便您预览和调试模型的可点击区域, 当这个选项为true时,将显示该模型的所有可点击区域, 点击区域的大小与位置取决于模型本身
+   */
+  showHitAreaFrames?: boolean;
+  /**
    * 模型的 json 文件 url 地址, 必填项
    */
   path: string;
