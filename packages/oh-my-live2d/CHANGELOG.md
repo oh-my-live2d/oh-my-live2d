@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.8.2...v0.9.0) (2024-03-09)
+
+### ✨ Features | 新功能
+
+- 新增点击触发模型动作, 现在点击模型将会播放对应动作和声音 ([40033fa](https://github.com/oh-my-live2d/oh-my-live2d/commit/40033fae668670e5c79732e267db3433fbe7d61a)) by Hacxy
+- **model:** 模型选项加入动作预加载策略 ([7493d9b](https://github.com/oh-my-live2d/oh-my-live2d/commit/7493d9bd786857c8b51e07aff95db22c40fd762c)) by Hacxy
+- **model:** 现在您可以通过showHitAreaFrames选项来查看模型的所有可被点击区域, 所有可点击区域被点击时将触发hit事件并尽可能的播放相应动作和声音 ([2d0b647](https://github.com/oh-my-live2d/oh-my-live2d/commit/2d0b647fce318ef50e4a0e9b065217c7d31da055)) by Hacxy
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 调整移动端状态条的提示文案 ([2e35bfc](https://github.com/oh-my-live2d/oh-my-live2d/commit/2e35bfc17e9178e335bbb2a4e73c85710e12952d)) by Hacxy
+
 ## [0.8.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.8.1...v0.8.2) (2024-03-06)
 
 ### 🐛 Bug Fixes | Bug 修复
