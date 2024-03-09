@@ -7,10 +7,9 @@
 
 ![npm](https://img.shields.io/npm/v/oh-my-live2d?label=npm) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F5-orange) ![GitHub package.json version](https://img.shields.io/npm/v/vuepress-plugin-oh-my-live2d?label=vuepress-plugin)
 
-## 概述
+**OhMyLive2D** 是一个应用于浏览器环境的*Live2D看板组件*, 它目前支持所有版本的Live2D模型, 现在可以使用它快速的为您的个人网站定义一个仅属于您自己的Live2D看板娘, 使您的个人网站变得更具有特色.
 
-**OhMyLive2D** 是一个应用于浏览器环境的*Live2D看板组件*, 它目前已支持所有版本的Live2D模型, 可以让您通过更加简便的使用方式为您的个人网站增添一个Live2D看板娘, 使您的个人网站变得更具有特色.
-[查阅文档](https://oml2d.com) 以了解更多详细的使用教程。
+**[查阅文档](https://oml2d.com) 以了解更多详细的使用教程。**
 
 > [!TIP]  
 > **此项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入😄**
@@ -26,6 +25,30 @@
 - 使用 `TypeScript` 开发，具备完整的类型推导。
 
 - 第三方文档构建工具的支持, 如 `vitepress`、`vuepress`。
+
+## 快速体验
+
+使用CDN导入方式在您的任意项目中立即体验`oh-my-live2d`:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
+<script>
+  OML2D.loadOml2d({
+    models: [
+      {
+        path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
+        scale: 0.12,
+        position: [-50, 50],
+        stageStyle: {
+          width: 320
+        }
+      }
+    ]
+  });
+</script>
+```
+
+之后您可以查阅文档了解更多相关内容:[查阅文档](https://oml2d.com/guide/index.html)
 
 ## 贡献者们
 

@@ -16,6 +16,8 @@ npm install oh-my-live2d
 
 ## 使用
 
+### 在默认主题中使用
+
 - 之后需要手动创建 `.vitepress/theme/index.js` 文件, 并以如下方式使用, 效果参考本站:
 
 ```js
@@ -41,8 +43,37 @@ export default {
 
 如需自定义配置, 请在[配置选项](../options/Options.md)中查阅详细配置内容.
 
+### 在第三方主题中使用
+
+这里以`@sugarat/theme`主题为例
+
+```ts
+// .vitepress/theme/index.js
+import BlogTheme from '@sugarat/theme';
+
+export default {
+  ...BlogTheme,
+  async enhanceApp() {
+    if (!(import.meta as any).env.SSR) {
+      const { loadOml2d } = await import('oh-my-live2d');
+      loadOml2d({
+        models: [
+          {
+            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json'
+          }
+        ]
+      });
+    }
+  }
+};
+```
+
 ## 案例
 
 以下是 VitePress 的一些使用案例:
 
 - [tianjie.loclink.cn](https://tianjie.loclink.cn)
+
+:::tip
+除以上案例之外您还可以参考本站
+:::
