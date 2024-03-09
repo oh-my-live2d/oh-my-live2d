@@ -9,25 +9,19 @@ void loadOml2d({
   // fixed: false,
 
   models: [
-    // {
-    //   path: '/models/mikoto/model.json',
-    //   scale: 0.1
-    // },
-    // {
-    //   path: '/models/sat8_2601/model.json',
-    //   scale: 0.1
-    // },
     {
       path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
       scale: 0.12,
       position: [-50, 50],
+      // motionPreloadStrategy: 'NONE',
       stageStyle: {
         width: 320
       }
     },
     {
       path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.3
+      scale: 0.3,
+      motionPreloadStrategy: 'ALL'
     }
   ],
   tips: {

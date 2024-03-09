@@ -116,6 +116,8 @@ export const loadUmdLibrary = async (importType: ImportType, urls: LibraryUrls):
       await loadScript(SDK.PIXI_LIVE2D_DISPLAY);
       break;
   }
+
+  await loadScript(SDK.PIXI_LIVE2D_DISPLAY_EXTRA);
 };
 
 // 检查版本信息

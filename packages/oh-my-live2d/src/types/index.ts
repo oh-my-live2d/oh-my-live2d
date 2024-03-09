@@ -1,5 +1,6 @@
 import type CSS from 'csstype';
 import type { Live2DModel } from 'pixi-live2d-display';
+import type { HitAreaFrames } from 'pixi-live2d-display/extra';
 import type { Application } from 'pixi.js';
 import type { DEFAULT_OPTIONS } from 'src/config/config.js';
 
@@ -9,7 +10,7 @@ import type { DeepRequired } from './utils.js';
 
 export * from './options.js';
 export * from './utils.js';
-
+export type HitAreaFramesType = typeof HitAreaFrames;
 export type ImportType = 'complete' | 'cubism2' | 'cubism5';
 
 export type PixiLive2dDisplayModule = typeof import('pixi-live2d-display');
@@ -51,4 +52,5 @@ export type LoadMethod = (
 ) => Promise<{
   PIXI: PixiModule;
   PixiLive2dDisplay: PixiLive2dDisplayModule;
+  HitAreaFrames: typeof HitAreaFrames;
 }>;

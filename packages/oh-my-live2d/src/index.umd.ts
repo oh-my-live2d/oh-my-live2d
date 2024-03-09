@@ -11,6 +11,7 @@ export const loadOml2d = setup(async (importType, urls) => {
 
   return {
     PixiLive2dDisplay: window.PIXI.live2d,
-    PIXI: window.PIXI
+    PIXI: window.PIXI,
+    HitAreaFrames: window.PIXI.live2d.HitAreaFrames
   };
 });

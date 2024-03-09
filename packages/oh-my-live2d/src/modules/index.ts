@@ -8,7 +8,15 @@ import { StatusBar, SystemState } from './status-bar.js';
 import { Tips } from './tips.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
-import type { ApplicationType, DefaultOptions, Live2DModelType, LoadMethod, ModelOptions, Options } from '../types/index.js';
+import type {
+  ApplicationType,
+  DefaultOptions,
+  HitAreaFramesType,
+  LoadMethod,
+  ModelOptions,
+  Options,
+  PixiLive2dDisplayModule
+} from '../types/index.js';
 import { checkVersion, handleStyleSize, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
@@ -24,9 +32,11 @@ export class OhMyLive2D {
 
   constructor(
     private options: DefaultOptions,
-    private live2dModel: Live2DModelType,
+    private pixiLive2dDisplayModule: PixiLive2dDisplayModule,
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    private Application: ApplicationType
+    private Application: ApplicationType,
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    private HitAreaFrames: HitAreaFramesType
   ) {
     this.options.sayHello && this.sayHello();
     this.stage = new Stage(this.options.parentElement, options); // 实例化舞台
@@ -71,7 +81,7 @@ export class OhMyLive2D {
    */
   loadModel(showLoading = true): void {
     showLoading && this.statusBar.showLoading();
-    this.model = new Model(this.live2dModel, this.currentModelOption, this.application);
+    this.model = new Model(this.pixiLive2dDisplayModule.Live2DModel, this.currentModelOption, this.application, this.HitAreaFrames);
     this.model?.setScale(this.currentModelOption?.scale, this.currentModelOption?.scale);
     this.model?.setPosition(...(this.currentModelOption?.position || []));
 
@@ -201,13 +211,13 @@ export const setup = (loadMethod: LoadMethod): ((options: Options) => Promise<un
     const finalOptions = mergeDeep(DEFAULT_OPTIONS, options);
 
     finalOptions.parentElement = parentElement || document.body;
-    if (!finalOptions.models?.length) {
-      throw new Error('至少需要配置一个模型');
-    }
-    const { PixiLive2dDisplay, PIXI } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
+    // if (!finalOptions.models?.length) {
+    //   throw new Error('至少需要配置一个模型');
+    // }
+    const { PixiLive2dDisplay, PIXI, HitAreaFrames } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
 
     if (!oml2d) {
-      oml2d = new OhMyLive2D(finalOptions, PixiLive2dDisplay.Live2DModel, PIXI.Application);
+      oml2d = new OhMyLive2D(finalOptions, PixiLive2dDisplay, PIXI.Application, HitAreaFrames);
     }
   };
 

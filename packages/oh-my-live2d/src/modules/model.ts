@@ -1,9 +1,10 @@
 import type { InternalModel, Live2DModel } from 'pixi-live2d-display';
 // import { HitAreaFrames } from 'pixi-live2d-display/extra';
 import type { Application } from 'pixi.js';
+import { getRandomArrayItem } from 'tianjie';
 
 import { MotionPreloadStrategy } from '../constants/index.js';
-import type { Live2DModelType, ModelOptions } from '../types/index.js';
+import type { HitAreaFramesType, Live2DModelType, ModelOptions } from '../types/index.js';
 
 export class Model {
   private model: Live2DModel<InternalModel>; // 模型实例
@@ -12,12 +13,13 @@ export class Model {
   constructor(
     private live2dModel: Live2DModelType,
     private modelOptions: ModelOptions,
-    private application: Application
+    private application: Application,
+    private HitAreaFrames: HitAreaFramesType
   ) {
     this.model = this.create();
   }
   create(): Live2DModel<InternalModel> {
-    // const hitAreaFrames = new HitAreaFrames();
+    const hitAreaFrames = new this.HitAreaFrames();
     const model = this.live2dModel.fromSync(this.modelOptions.path || '', {
       // 动作预加载策略
       motionPreload: (this.modelOptions.motionPreloadStrategy as MotionPreloadStrategy) || MotionPreloadStrategy.IDLE,
@@ -27,8 +29,7 @@ export class Model {
     });
 
     model.once('load', () => {
-      // model.addChild(hitAreaFrames);
-
+      model.addChild(hitAreaFrames);
       // setTimeout(() => {
       //   model.removeChildAt(0);
       //   setTimeout(() => {
@@ -37,16 +38,28 @@ export class Model {
       // }, 1000);
       this.application.stage.addChild(this.model);
       this.application.resize();
-      // console.log(model.internalModel.motionManager.motionGroups);
-      // console.log(model.internalModel.motionManager.groups);
     });
 
-    // model.on('hit', (hitNames) => {
-    //   console.log(hitNames);
+    // 模型被点击
+    model.on('hit', (hitNames: string[]) => {
+      const motionKeys = Object.keys(model.internalModel.motionManager.motionGroups);
 
-    //   void model.motion('Tap', 0);
-    //   console.log('ddddddddddd');
-    // });
+      let motion = motionKeys.find((key) => {
+        return hitNames[0].includes(key.toLowerCase()) || key.toLowerCase().includes(hitNames[0]);
+      });
+
+      if (!motion) {
+        motion = getRandomArrayItem(motionKeys);
+      }
+
+      if (this.modelOptions.motionPreloadStrategy === MotionPreloadStrategy.ALL) {
+        void model.motion(motion!);
+      } else {
+        void model.internalModel.motionManager.loadMotion(motion!, 0).then(() => {
+          void model.motion(motion!);
+        });
+      }
+    });
 
     return model;
   }
