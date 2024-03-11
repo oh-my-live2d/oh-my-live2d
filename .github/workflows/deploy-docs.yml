@@ -3,7 +3,7 @@ on:
   push: # 监听调用时机为push事件
     branches: ['deploy-docs'] # 监听master分支
 jobs:
-  release:
+  deploy-docs:
     runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
     steps:
       - name: 拉取代码
