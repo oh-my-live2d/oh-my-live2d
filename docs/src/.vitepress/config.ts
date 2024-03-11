@@ -72,7 +72,7 @@ export default defineConfig({
           items: [
             {
               text: '快速入门',
-              link: '/options/Options'
+              link: '/guide/'
             }
           ]
         },

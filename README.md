@@ -50,9 +50,8 @@
 
 之后您可以查阅文档了解更多相关内容:[查阅文档](https://oml2d.com/guide/index.html)
 
-::: tip
-😃 您的 star 是我更新的动力
-:::
+> [!TIP]
+> 😃 您的 star 是我更新的动力
 
 ## 贡献者们
 
