@@ -13,7 +13,15 @@ onMounted(async () => {
     // ... configure
     models: [
       {
-        path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json'
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json'
+      },
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
+        scale: 0.4,
+        position: [0, 50],
+        stageStyle: {
+          height: 300
+        }
       }
     ]
   });

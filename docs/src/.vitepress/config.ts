@@ -79,6 +79,10 @@ export default defineConfig({
         {
           text: '使用示例',
           items: examples
+        },
+        {
+          text: '扩展',
+          items: [{ text: '模型资源', link: '/guide/models' }]
         }
       ]
     },
@@ -89,6 +93,10 @@ export default defineConfig({
       {
         text: '使用示例',
         items: examples
+      },
+      {
+        text: '模型资源',
+        link: '/guide/models'
       },
       {
         text: '更新日志',
