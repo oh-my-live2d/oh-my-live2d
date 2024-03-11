@@ -33,10 +33,10 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          source: 'docs/.vitepress/dist'
+          source: 'docs/src/.vitepress/dist'
           target: '/${{secrets.SSH_USERNAME}}/Projects/.oml2d_temp/'
           rm: true
-          strip_components: 3
+          strip_components: 4
 
       - name: 执行远程脚本命令
         uses: appleboy/ssh-action@master

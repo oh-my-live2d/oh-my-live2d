@@ -1,5 +1,9 @@
 # 在 hexo 中使用
 
+::: tip
+这是一个不受官方支持和维护的第三方插件, 具体使用方式您除了本站之外可能还需要查阅: <https://github.com/kongxiangyiren/hexo-oh-my-live2d>
+:::
+
 ## 安装
 
 ```sh

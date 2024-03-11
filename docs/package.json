@@ -1,16 +1,25 @@
 {
   "name": "oh-my-live2d-docs",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.7.1",
+  "author": "Hacxy",
+  "license": "MIT",
   "type": "module",
   "scripts": {
-    "docs:build": "vitepress build .",
-    "docs:dev": "vitepress dev .",
-    "docs:preview": "vitepress preview ."
+    "docs:dev": "vitepress dev src",
+    "docs:build": "vitepress build src",
+    "docs:preview": "vitepress preview src"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@sugarat/theme": "^0.2.24",
+    "element-plus": "^2.5.3",
+    "oh-my-live2d": "workspace:*",
+    "vue": "3.4.15"
   },
   "devDependencies": {
-    "oh-my-live2d": "workspace:*",
-    "vitepress": "1.0.0-rc.44",
-    "vue": "^3.4.21"
+    "sass": "^1.64.1",
+    "typescript": "^5.1.6",
+    "vitepress": "1.0.0-rc.45"
   }
 }

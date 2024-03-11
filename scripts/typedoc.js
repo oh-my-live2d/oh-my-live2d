@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 // 文档数据
 let docsData = [];
-const docsPath = path.resolve(__dirname, '../docs/options');
+const docsPath = path.resolve(__dirname, '../docs/src/options');
 const documentationPath = path.resolve(__dirname, '../docs/documentation.json');
 const sideBarDataPath = path.resolve(__dirname, '../docs/sideBarData.json');
 
@@ -119,7 +119,7 @@ const generateDocs = (app, project) => {
     console.log(sideBarDataPath, ' 已写入');
   });
 
-  fs.copySync(path.resolve(__dirname, '../CHANGELOG.md'), path.resolve(__dirname, '../docs/CHANGELOG.md'));
+  fs.copySync(path.resolve(__dirname, '../CHANGELOG.md'), path.resolve(__dirname, '../docs/src/CHANGELOG.md'));
 };
 
 // 主函数

@@ -1,11 +1,11 @@
 # 在 VuePress 中使用
 
-你可以 VuePress 项目中使用官方插件。
+您可以 VuePress 项目中使用官方插件。
 
 ## 安装/更新插件
 
 ```sh
-npm install vuepress-plugin-oh-my-live2d
+npm install vuepress-plugin-oh-my-live2d@latest
 ```
 
 ## 使用插件
@@ -38,9 +38,3 @@ export default defineUserConfig({
 ```
 
 如需自定义配置, 请在[配置选项](../options/Options.md)中查阅详细配置内容.
-
-## 案例
-
-以下是 VuePress 的一些使用案例:
-
-- [loclink.cn](https://loclink.cn)
