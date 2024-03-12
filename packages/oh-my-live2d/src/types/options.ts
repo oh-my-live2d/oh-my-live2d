@@ -17,6 +17,10 @@ export interface Options {
   importType?: ImportType;
 
   /**
+   * 主题色
+   */
+  primaryColor?: string;
+  /**
    * 自定义 Cubism SDK 外部资源地址
    *
    * > [!TIP]

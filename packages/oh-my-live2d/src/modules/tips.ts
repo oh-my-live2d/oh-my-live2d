@@ -9,7 +9,6 @@ export class Tips {
   private element: HTMLElement;
   // private status: Status = Status.Hidden;
   idlePlayer?: IdleTimer;
-
   private closeTimer = 0;
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
   private style: CSSProperties = {};
@@ -34,7 +33,6 @@ export class Tips {
       fontSize: '18px',
       borderRadius: '10px',
       filter: 'drop-shadow(0 0 5px #999)',
-      backgroundColor: '#58b0fc',
       border: '2px solid #fff',
       color: '#fff',
       padding: '3px 5px',

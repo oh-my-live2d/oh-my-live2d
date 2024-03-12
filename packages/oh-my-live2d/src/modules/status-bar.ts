@@ -21,16 +21,16 @@ export class StatusBar {
   element: HTMLElement;
   transitionTime = 800;
   status: Status = Status.hidden;
-  stateColor = {
-    info: '#58b0fc',
-    error: '#F08080'
-  };
 
   private style: CSSProperties = {};
   private timer = 0;
-  constructor(wrapperElement: HTMLElement) {
+  constructor(
+    private wrapperElement: HTMLElement,
+    private stateColor: { info: string; error: string }
+  ) {
     this.element = createElement({ id: CONFIG.statusBarId, tagName: 'div', innerText: 'hello' });
-    wrapperElement.append(this.element);
+    this.wrapperElement.append(this.element);
+
     this.initStyle();
   }
 
@@ -44,7 +44,6 @@ export class StatusBar {
       bottom: '80px',
       padding: '7px 5px',
       zIndex: '9998',
-      backgroundColor: '#58b0fc',
       borderStyle: 'solid',
       borderColor: '#fff',
       fontWeight: 'bold',
@@ -90,7 +89,6 @@ export class StatusBar {
         animationFillMode: 'forwards'
       });
       setTimeout(() => {
-        // this.setStyle({ backgroundColor: this.stateColor.info });
         resolve(this.status);
       }, this.transitionTime);
     });
@@ -117,7 +115,7 @@ export class StatusBar {
    * 专门处理加载失败, 需要传入一个重新加载的方法
    * @param reloadFn
    */
-  loadingError(reloadFn: () => any): void {
+  loadingError(reloadFn: () => void): void {
     this.popup('加载失败', SystemState.error, false);
 
     // this.setStyle({})

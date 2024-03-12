@@ -1,6 +1,7 @@
 import type { Application } from 'pixi.js';
 import { isNumber, mergeDeep } from 'tianjie';
 
+import { GlobalStyle } from './globalStyle.js';
 import { Menus } from './menus.js';
 import { Model } from './model.js';
 import { Stage } from './stage.js';
@@ -10,6 +11,7 @@ import { DEFAULT_OPTIONS } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import type {
   ApplicationType,
+  CSSProperties,
   DefaultOptions,
   HitAreaFramesType,
   LoadMethod,
@@ -39,12 +41,24 @@ export class OhMyLive2D {
     private HitAreaFrames: HitAreaFramesType
   ) {
     this.options.sayHello && this.sayHello();
+
+    new GlobalStyle({ primaryColor: this.options.primaryColor }); // 加载全局样式
+
     this.stage = new Stage(this.options.parentElement, options); // 实例化舞台
-    this.statusBar = new StatusBar(this.options.parentElement); // 实例化状态条
+
+    this.statusBar = new StatusBar(this.options.parentElement, {
+      info: this.options.primaryColor,
+      error: '#F08080'
+    });
+
     this.tips = new Tips(this.stage.element, this.options.tips); // 提示框
+
     this.menus = new Menus(this.stage.element); // 菜单
+
     this.application = this.createApplication();
+
     this.initialize();
+    this.setCommonStyle();
     void checkVersion();
   }
 
@@ -58,6 +72,14 @@ export class OhMyLive2D {
     }
     this.loadModel();
     this.registerEvents();
+  }
+
+  // 设置公共的样式
+  setCommonStyle(): void {
+    const commonStyle: CSSProperties = { backgroundColor: this.options.primaryColor };
+
+    this.tips.setStyle(commonStyle);
+    this.statusBar.setStyle(commonStyle);
   }
 
   // 校验当前窗口大小
@@ -168,7 +190,6 @@ export class OhMyLive2D {
 
     // copy 事件
     window.addEventListener('copy', () => {
-      // console.log('copy!');
       this.tips.copy();
     });
 

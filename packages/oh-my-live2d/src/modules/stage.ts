@@ -1,6 +1,6 @@
 import { mergeDeep } from 'tianjie';
 
-import { CONFIG, globalStyle } from '../config/index.js';
+import { CONFIG } from '../config/index.js';
 import type { CSSProperties, Options } from '../types/index.js';
 import { createElement, setStyleForElement } from '../utils/index.js';
 
@@ -52,22 +52,12 @@ export class Stage {
     this.setStyle({
       width: '0px',
       height: '0px',
-      // position: 'relative'
       position: this.options.fixed ? 'fixed' : 'relative',
       left: 0,
       bottom: 0,
       zIndex: '9997',
       transform: 'translateY(130%)'
     });
-    // this.wrapperElement.style.position = this.options.fixed ? 'fixed' : 'relative';
-    // this.wrapperElement.style.overflow = 'hidden';
-    // this.wrapperElement.style.left = '0';
-    // this.wrapperElement.style.bottom = '0';
-    // this.wrapperElement.style.zIndex = '9999';
-
-    const styleSheet = createElement({ tagName: 'style', id: 'oml2dStyle', innerHtml: globalStyle }); // 创建全局样式表
-
-    document.head.append(styleSheet);
   }
 
   setStyle(style: CSSProperties, callback?: () => void): void {

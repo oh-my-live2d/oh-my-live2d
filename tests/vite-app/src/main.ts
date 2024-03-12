@@ -7,7 +7,7 @@ import './style.css';
 void loadOml2d({
   // parentElement: el,
   // fixed: false,
-  // primaryColor: '#58b0fc',
+  primaryColor: '#38B0DE',
   models: [
     {
       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
