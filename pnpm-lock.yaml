@@ -92,9 +92,6 @@ importers:
       element-plus:
         specifier: ^2.5.3
         version: 2.6.1(vue@3.4.15)
-      oh-my-live2d:
-        specifier: workspace:*
-        version: link:../packages/oh-my-live2d
       vue:
         specifier: 3.4.15
         version: 3.4.15(typescript@5.3.3)
