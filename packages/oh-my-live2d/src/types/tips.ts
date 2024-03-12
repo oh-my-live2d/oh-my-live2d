@@ -22,6 +22,11 @@ export interface TipsOptions {
   style?: CommonStyleType;
 
   /**
+   *
+   * 移动端时的提示框样式, 支持传入CSS对象,  提示框的默认情况下, 始终与舞台保持水平居中, 默认宽度为舞台的60%, 高度自动被内容撑开.
+   */
+  mobileStyle?: CommonStyleType;
+  /**
    * 闲置状态下的提示
    *
    * @valueType object

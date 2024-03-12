@@ -13,9 +13,9 @@ export class Stage {
   element: HTMLElement;
   canvasElement: HTMLCanvasElement;
   wrapperElement: HTMLElement;
+  status: Status = Status.hidden;
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
-  private status: Status = Status.hidden;
   private slideChangeEnd?: (status: Status) => void;
   constructor(
     private targetElement: HTMLElement,

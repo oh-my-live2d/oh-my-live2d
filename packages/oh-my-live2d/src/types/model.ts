@@ -18,7 +18,6 @@ export interface ModelOptions {
   path: string;
   /**
    * 模型的缩放比例
-   *
    * @default 0.1
    */
   scale?: number;
@@ -32,14 +31,34 @@ export interface ModelOptions {
   position?: [x: number, y: number];
 
   /**
+   * 定义舞台样式, 支持传入CSS对象, 传入的样式将通过内联样式作用于舞台元素, 舞台的默认宽高将自适应模型的宽高, 舞台内Canvas元素的宽高始终与舞台保持一致
+   * @valueType object
+   */
+  stageStyle?: CommonStyleType;
+
+  /**
+   * 移动端时模型的缩放比例
+   * @default 0.1
+   */
+  mobileScale?: number;
+
+  /**
+   * 移动端时模型在舞台中的位置。x: 横坐标, y: 纵坐标
+   * @valueType [x: number, y:number]
+   * @default [0,0]
+   */
+  mobilePosition?: [x: number, y: number];
+
+  /**
+   * 移动端时舞台的样式, 支持传入CSS对象, 传入的样式将通过内联样式作用于舞台元素, 舞台的默认宽高将自适应模型的宽高, 舞台内Canvas元素的宽高始终与舞台保持一致
+   * @valueType object
+   */
+  mobileStageStyle?: CommonStyleType;
+
+  /**
    * 动作预加载策略
    * @valueType ALL | IDLE | NONE
    * @default IDLE
    */
   motionPreloadStrategy?: 'ALL' | 'IDLE' | 'NONE';
-  /**
-   * 定义舞台样式, 支持传入CSS对象, 传入的样式将通过内联样式作用于舞台元素, 舞台的默认宽高将自适应模型的宽高, 舞台内Canvas元素的宽高始终与舞台保持一致
-   * @valueType object
-   */
-  stageStyle?: CommonStyleType;
 }

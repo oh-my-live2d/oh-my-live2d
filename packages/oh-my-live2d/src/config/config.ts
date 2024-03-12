@@ -5,6 +5,7 @@ const libServicePath = 'https://lib.oml2d.com';
 
 // 默认配置选项, 实例化时会与用户传进来的合并
 export const DEFAULT_OPTIONS: DefaultOptions = {
+  mobileDisplay: false,
   fixed: true,
   primaryColor: '#38B0DE',
   sayHello: true,
@@ -18,6 +19,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   models: [],
   tips: {
     messageLine: 3,
+    mobileStyle: {},
     style: {},
     idleTips: {
       wordTheDay: false,

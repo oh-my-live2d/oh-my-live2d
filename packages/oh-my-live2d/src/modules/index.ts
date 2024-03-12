@@ -64,8 +64,8 @@ export class OhMyLive2D {
 
   // 初始化
   initialize(): void {
-    this.verifyWindowSizeType();
-    if (this.windowSizeType !== WindowSizeType.pc) {
+    this.getWindowSizeType();
+    if (this.windowSizeType !== WindowSizeType.pc && !this.options.mobileDisplay) {
       this.statusBar.popup('看板娘休息中', SystemState.info, 8000);
 
       return;
@@ -82,18 +82,30 @@ export class OhMyLive2D {
     this.statusBar.setStyle(commonStyle);
   }
 
-  // 校验当前窗口大小
-  verifyWindowSizeType(): void {
+  // 获取窗口大小
+  getWindowSizeType(): void {
     if (this.mediaQuery.matches) {
       this.windowSizeType = WindowSizeType.mobile;
     } else {
       this.windowSizeType = WindowSizeType.pc;
     }
+  }
+
+  onWindowSizeChange(onPc: () => void, onMobile: () => void): void {
+    if (this.mediaQuery.matches) {
+      this.windowSizeType = WindowSizeType.mobile;
+      onMobile();
+    } else {
+      this.windowSizeType = WindowSizeType.pc;
+      onPc();
+    }
     this.mediaQuery.addEventListener('change', (e) => {
       if (e.matches) {
         this.windowSizeType = WindowSizeType.mobile;
+        onMobile();
       } else {
         this.windowSizeType = WindowSizeType.pc;
+        onPc();
       }
     });
   }
@@ -104,14 +116,52 @@ export class OhMyLive2D {
   loadModel(showLoading = true): void {
     showLoading && this.statusBar.showLoading();
     this.model = new Model(this.pixiLive2dDisplayModule.Live2DModel, this.currentModelOption, this.application, this.HitAreaFrames);
-    this.model?.setScale(this.currentModelOption?.scale, this.currentModelOption?.scale);
-    this.model?.setPosition(...(this.currentModelOption?.position || []));
 
     // 模型所有资源加载完毕
-    this.model?.onLoaded((modelStyleInfo) => {
-      const finalStageStyle = mergeDeep(handleCommonStyle(modelStyleInfo), handleCommonStyle(this.currentModelOption.stageStyle || {}));
+    this.model?.onLoaded(() => {
+      this.onWindowSizeChange(
+        () => {
+          // pc
+          this.model?.setScale(this.currentModelOption?.scale, this.currentModelOption.scale);
+          this.model?.setPosition(...(this.currentModelOption.position || []));
+          const modelSize = {
+            width: this.model?.width,
+            height: this.model?.height
+          };
+          const finalStageStyle = mergeDeep(handleCommonStyle(modelSize), handleCommonStyle(this.currentModelOption.stageStyle || {}));
 
-      this.stage.setStyle(finalStageStyle, () => this.application.resize());
+          this.stage.setStyle(finalStageStyle, () => this.application.resize());
+          // if (!this.options.mobileDisplay) {
+          //   void this.stage.slideIn(this.options.transitionTime);
+          //   void this.tips.idlePlayer?.start();
+          //   this.statusBar.popup('闪亮登场', SystemState.info, 3000);
+          // }
+          this.tips.setStyle(handleCommonStyle(this.options.tips.style || {}));
+        },
+        () => {
+          // mobile
+          if (!this.options.mobileDisplay) {
+            this.statusBar.popup('看板娘休息中', SystemState.info, 8000);
+            void this.stage.slideOut(this.options.transitionTime);
+            this.tips.clear();
+
+            return;
+          }
+          this.model?.setScale(this.currentModelOption?.mobileScale, this.currentModelOption.mobileScale);
+          this.model?.setPosition(...(this.currentModelOption.mobilePosition || []));
+          const modelSize = {
+            width: this.model?.width,
+            height: this.model?.height
+          };
+          const finalStageStyle = mergeDeep(
+            handleCommonStyle(modelSize),
+            handleCommonStyle(this.currentModelOption.mobileStageStyle || {})
+          );
+
+          this.stage.setStyle(finalStageStyle, () => this.application.resize());
+          this.tips.setStyle(handleCommonStyle(this.options.tips.mobileStyle || {}));
+        }
+      );
       void this.stage.slideIn(this.options?.transitionTime);
       this.statusBar.hideLoading();
     });
@@ -166,7 +216,7 @@ export class OhMyLive2D {
       switch (name) {
         case 'Rest':
           void this.stage.slideOut(this.options.transitionTime);
-          this.statusBar.popup('休息中', SystemState.info, false, () => {
+          this.statusBar.popup('看板娘休息中', SystemState.info, false, () => {
             void this.stage.slideIn(this.options.transitionTime);
             this.statusBar.popup('闪亮登场');
             void this.tips.idlePlayer?.start();

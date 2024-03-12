@@ -118,4 +118,10 @@ export class Model {
       callback({ status: true });
     }
   }
+  get width(): number {
+    return this.model.width;
+  }
+  get height(): number {
+    return this.model.height;
+  }
 }

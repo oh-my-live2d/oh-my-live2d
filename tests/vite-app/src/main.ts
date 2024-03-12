@@ -6,12 +6,13 @@ import './style.css';
 
 void loadOml2d({
   // parentElement: el,
-
+  mobileDisplay: true,
   primaryColor: '#38B0DE',
   models: [
     {
       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-      stageStyle: {}
+      stageStyle: {},
+      mobileScale: 0.08
     },
     {
       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
@@ -23,6 +24,9 @@ void loadOml2d({
     }
   ],
   tips: {
+    mobileStyle: {
+      padding: '0px 5px'
+    },
     // style: {
     //   width: 300,
     //   height: '100px'

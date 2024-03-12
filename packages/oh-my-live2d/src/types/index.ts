@@ -30,8 +30,9 @@ export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'mode
 } & {
   models: ModelOptions[];
 };
-export type DefaultTipsOptions = Omit<DeepRequired<TipsOptions>, 'style'> & {
+export type DefaultTipsOptions = Omit<DeepRequired<TipsOptions>, 'style' | 'mobileStyle'> & {
   style?: CommonStyleType;
+  mobileStyle?: CommonStyleType;
 };
 
 export type Live2DModelType = typeof Live2DModel;

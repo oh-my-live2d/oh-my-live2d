@@ -1,9 +1,9 @@
 import { getRandomArrayItem, isFunction, mergeDeep, setIntervalAsync } from 'tianjie';
 
-import { CONFIG } from '../config/index.js';
+import { CONFIG, TIPS_DEFAULT_STYLE } from '../config/index.js';
 import type { IdleTimer } from '../types/common.js';
 import type { CSSProperties, DefaultTipsOptions } from '../types/index.js';
-import { createElement, getWelcomeMessage, getWordTheDay, handleCommonStyle, setStyleForElement, sleep } from '../utils/index.js';
+import { createElement, getWelcomeMessage, getWordTheDay, setStyleForElement, sleep } from '../utils/index.js';
 
 export class Tips {
   private element: HTMLElement;
@@ -11,7 +11,7 @@ export class Tips {
   idlePlayer?: IdleTimer;
   private closeTimer = 0;
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
-  private style: CSSProperties = {};
+  private style: CSSProperties = TIPS_DEFAULT_STYLE;
   private priority = 0; // 当前优先级
   private contentElement: HTMLElement;
   private contentStyle: CSSProperties = {};
@@ -31,26 +31,7 @@ export class Tips {
    * 初始化样式
    */
   initStyle(): void {
-    this.setStyle({
-      position: 'absolute',
-      fontSize: '18px',
-      borderRadius: '10px',
-      filter: 'drop-shadow(0 0 5px #999)',
-      border: '2px solid #fff',
-      color: '#fff',
-      padding: '15px 5px',
-      opacity: 0,
-      visibility: 'hidden',
-      transform: 'translateX(-50%)',
-      textAlign: 'center',
-      justifyContent: 'center',
-      animationDuration: `${this.transitionTime}ms,${this.transitionTime}ms`,
-      animationFillMode: 'forwards, none',
-      animationIterationCount: '1, infinite',
-      width: '60%',
-      left: '50%',
-      top: 0
-    });
+    // this.setStyle();
 
     this.setContentStyle({
       display: '-webkit-box',
@@ -60,18 +41,18 @@ export class Tips {
       overflow: 'hidden'
     });
 
-    if (this.tipsOptions) {
-      const style = handleCommonStyle(this.tipsOptions.style || {});
+    // if (this.tipsOptions) {
+    //   const style = handleCommonStyle(this.tipsOptions.style || {});
 
-      this.setStyle(style);
-    }
+    //   this.setStyle(style);
+    // }
   }
 
   /**
    * 设置提示框样式
    * @param style
    */
-  setStyle(style: CSSProperties): void {
+  setStyle(style: CSSProperties = {}): void {
     this.style = mergeDeep(this.style, style);
     setStyleForElement(this.style, this.element);
   }

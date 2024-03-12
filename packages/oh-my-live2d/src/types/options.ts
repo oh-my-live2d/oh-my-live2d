@@ -10,6 +10,11 @@ import type { ImportType } from './index.js';
  */
 export interface Options {
   /**
+   * 移动端是否展示, 开启后将以移动端样式展示各元素
+   * @default false
+   */
+  mobileDisplay?: boolean;
+  /**
    * 导入类型, 默认使用全量导入: complete
    * @default complete
    * @valueType complete | cubism2 | cubism5
