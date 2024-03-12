@@ -10,7 +10,7 @@ import type { ImportType } from './index.js';
  */
 export interface Options {
   /**
-   * 移动端是否展示, 开启后将以移动端样式展示各元素
+   * 移动端是否展示, 开启将会在移动端设备上以移动端样式展示各元素
    * @default false
    */
   mobileDisplay?: boolean;
