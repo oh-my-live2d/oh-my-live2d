@@ -6,7 +6,7 @@ import './style.css';
 
 void loadOml2d({
   // parentElement: el,
-  // fixed: false,
+
   primaryColor: '#38B0DE',
   models: [
     {

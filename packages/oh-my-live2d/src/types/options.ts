@@ -80,12 +80,13 @@ export interface Options {
   parentElement?: HTMLElement;
 
   /**
-   * 组件是否使用固定定位
+   * 组件是否使用固定定位 <Badge type="danger" text="已弃用将在下个版本移除" />
    *
    * > [!WARNING]
    * > 注意, 关闭这个属性后舞台的定位属性将从 fixed 改为 relative, 使舞台回到文档流, 另外该属性不影响状态条定位属性, 状态条与舞台之间相互独立,样式互不干扰.
    * @valueType boolean
    * @default true
+   * @deprecated 已弃用将在下个版本移除
    *
    */
   fixed?: boolean;
