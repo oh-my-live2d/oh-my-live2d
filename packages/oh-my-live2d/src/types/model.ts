@@ -5,6 +5,8 @@
  * @name 模型选项
  */
 
+import { CommonStyleType } from '../types/index.js';
+
 export interface ModelOptions {
   /**
    * 是否显示该模型的点击区域框, 该选项是为了方便您预览和调试模型的可点击区域, 当这个选项为true时,将显示该模型的所有可点击区域, 点击区域的大小与位置取决于模型本身
@@ -36,23 +38,8 @@ export interface ModelOptions {
    */
   motionPreloadStrategy?: 'ALL' | 'IDLE' | 'NONE';
   /**
-   * 定义舞台样式
-   *
+   * 定义舞台样式, 支持传入CSS对象, 传入的样式将通过内联样式作用于舞台元素, 舞台的默认宽高将自适应模型的宽高, 舞台内Canvas元素的宽高始终与舞台保持一致
    * @valueType object
    */
-  stageStyle?: {
-    /**
-     * 舞台的背景颜色,取有效的颜色值, rbg 或 rbga, 默认透明未设置默认为空的
-     */
-    backgroundColor?: string;
-    /**
-     * 舞台的宽度, 单位 px, 默认不设置, 将自适应使用模型本体的宽度
-     *
-     */
-    width?: number;
-    /**
-     * 舞台的高度, 单位 px, 默认不设置, 将自适应使用模型本体的高度
-     */
-    height?: number;
-  };
+  stageStyle?: CommonStyleType;
 }

@@ -86,13 +86,10 @@ export class OhMyLive2D {
     this.model?.setPosition(...(this.currentModelOption?.position || []));
 
     // 模型所有资源加载完毕
-    this.model?.onLoaded(({ width, height }) => {
-      this.setStageStyle({
-        width: this.currentModelOption.stageStyle?.width || width,
-        height: this.currentModelOption.stageStyle?.height || height,
-        backgroundColor: this.currentModelOption.stageStyle?.backgroundColor || 'rgba(0, 0, 0, 0)'
-      });
+    this.model?.onLoaded((modelStyleInfo) => {
+      const finalStageStyle = mergeDeep(handleCommonStyle(modelStyleInfo), handleCommonStyle(this.currentModelOption.stageStyle || {}));
 
+      this.stage.setStyle(finalStageStyle, () => this.application.resize());
       void this.stage.slideIn(this.options?.transitionTime);
       this.statusBar.hideLoading();
     });
@@ -102,13 +99,6 @@ export class OhMyLive2D {
       this.statusBar.loadingError(this.loadModel.bind(this));
       console.error(e);
     });
-  }
-
-  setStageStyle(style: Record<string, string | number>): void {
-    const newStyle = handleCommonStyle(style);
-
-    this.stage.setStyle(newStyle);
-    this.application.resize();
   }
 
   /**

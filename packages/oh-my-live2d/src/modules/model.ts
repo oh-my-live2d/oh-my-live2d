@@ -72,7 +72,7 @@ export class Model {
    * 模型资源全部加载完毕的事件回调
    * @param fn
    */
-  onLoaded(fn: (modelInfo: { width: number; height: number }) => void): void {
+  onLoaded(fn: (modelStyleInfo: { width: number; height: number }) => void): void {
     this.model.once('load', () => {
       fn({ width: this.model.width, height: this.model.height });
     });

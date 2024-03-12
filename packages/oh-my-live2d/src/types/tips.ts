@@ -10,7 +10,8 @@ import type { CommonStyleType } from '../types/index.js';
 export interface TipsOptions {
   /**
    *
-   * 自定义提示框样式
+   * 定义提示框样式, 支持传入CSS对象,  提示框的默认情况下, 始终与舞台保持水平居中, 默认宽度为舞台的60%, 默认高度为100px,
+   *
    * @valueType object
    */
   style?: CommonStyleType;

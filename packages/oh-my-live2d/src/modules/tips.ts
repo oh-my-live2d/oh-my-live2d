@@ -54,10 +54,7 @@ export class Tips {
       top: 0
     });
     if (this.tipsOptions) {
-      // const { width = 230, height = 100, offsetX = 0, offsetY = 0 } = this.tipsOptions.style || {};
       const style = handleCommonStyle(this.tipsOptions.style || {});
-
-      console.log(style);
 
       this.setStyle(style);
     }

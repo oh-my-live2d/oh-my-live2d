@@ -70,10 +70,11 @@ export class Stage {
     document.head.append(styleSheet);
   }
 
-  setStyle(style: CSSProperties): void {
+  setStyle(style: CSSProperties, callback?: () => void): void {
     this.style = mergeDeep(this.style, style);
     setStyleForElement(this.style, this.element);
     this.setCanvasStyle({ width: '100%', height: '100%', zIndex: '9999', position: 'relative' });
+    callback?.();
   }
 
   setCanvasStyle(style: CSSProperties): void {
