@@ -34,6 +34,7 @@ export class Tips {
     // this.setStyle();
 
     this.setContentStyle({
+      wordBreak: 'break-all',
       display: '-webkit-box',
       textOverflow: 'ellipsis',
       WebkitBoxOrient: 'vertical',

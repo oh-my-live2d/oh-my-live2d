@@ -24,6 +24,7 @@ void loadOml2d({
     }
   ],
   tips: {
+    messageLine: 2,
     mobileStyle: {
       padding: '0px 5px'
     },

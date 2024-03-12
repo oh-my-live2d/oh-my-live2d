@@ -130,7 +130,7 @@ export const TIPS_DEFAULT_STYLE: CSSProperties = {
   filter: 'drop-shadow(0 0 5px #999)',
   border: '2px solid #fff',
   color: '#fff',
-  padding: '15px 5px',
+  padding: '5px 5px',
   opacity: 0,
   visibility: 'hidden',
   transform: 'translateX(-50%)',
@@ -141,5 +141,8 @@ export const TIPS_DEFAULT_STYLE: CSSProperties = {
   animationIterationCount: '1, infinite',
   width: '60%',
   left: '50%',
-  top: 0
+  top: 0,
+  display: 'flex',
+  alignItems: 'center',
+  minHeight: '100px'
 };
