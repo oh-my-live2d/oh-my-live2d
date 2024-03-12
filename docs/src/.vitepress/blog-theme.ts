@@ -79,18 +79,16 @@ const blogTheme = getThemeConfig({
         type: 'text',
         content: '欢迎大家加群&私信交流'
       },
-      { type: 'text', content: '微信群' },
+      { type: 'text', content: '↓ 微信群 ------ QQ群 ↓' },
       {
         type: 'image',
-        src: 'https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111753229.png'
-      },
-      {
-        type: 'text',
-        content: 'QQ群'
+        src: 'https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111753229.png',
+        style: 'display: inline-block;width:46%;padding-right:6px'
       },
       {
         type: 'image',
-        src: 'https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111755979.png'
+        src: 'https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111755979.png',
+        style: 'display: inline-block;width:46%;padding-left:6px'
       },
       {
         type: 'text',
