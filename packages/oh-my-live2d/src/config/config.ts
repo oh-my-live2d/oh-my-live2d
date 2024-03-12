@@ -6,7 +6,7 @@ const libServicePath = 'https://lib.oml2d.com';
 // 默认配置选项, 实例化时会与用户传进来的合并
 export const DEFAULT_OPTIONS: DefaultOptions = {
   fixed: true,
-  primaryColor: '#58b0fc',
+  primaryColor: '#38B0DE',
   sayHello: true,
   transitionTime: 1000,
   parentElement: document.body,
