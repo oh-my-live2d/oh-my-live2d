@@ -13,12 +13,15 @@ export class Tips {
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
   private style: CSSProperties = {};
   private priority = 0; // 当前优先级
-
+  private contentElement: HTMLElement;
+  private contentStyle: CSSProperties = {};
   constructor(
     stageElement: HTMLElement,
     private tipsOptions: DefaultTipsOptions
   ) {
     this.element = createElement({ id: CONFIG.tipsId, tagName: 'div' });
+    this.contentElement = createElement({ id: 'oml2dTipsContent', tagName: 'div' });
+    this.element.append(this.contentElement);
     stageElement.append(this.element);
     this.initStyle();
     this.idlePlayer = this.createIdleMessagePlayer();
@@ -35,22 +38,28 @@ export class Tips {
       filter: 'drop-shadow(0 0 5px #999)',
       border: '2px solid #fff',
       color: '#fff',
-      padding: '3px 5px',
+      padding: '15px 5px',
       opacity: 0,
       visibility: 'hidden',
       transform: 'translateX(-50%)',
-      left: '50%',
       textAlign: 'center',
-      display: 'flex',
-      alignItems: 'center',
       justifyContent: 'center',
       animationDuration: `${this.transitionTime}ms,${this.transitionTime}ms`,
       animationFillMode: 'forwards, none',
       animationIterationCount: '1, infinite',
       width: '60%',
-      height: '100px',
+      left: '50%',
       top: 0
     });
+
+    this.setContentStyle({
+      display: '-webkit-box',
+      textOverflow: 'ellipsis',
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: this.tipsOptions.messageLine,
+      overflow: 'hidden'
+    });
+
     if (this.tipsOptions) {
       const style = handleCommonStyle(this.tipsOptions.style || {});
 
@@ -67,8 +76,13 @@ export class Tips {
     setStyleForElement(this.style, this.element);
   }
 
+  setContentStyle(style: CSSProperties): void {
+    this.contentStyle = mergeDeep(this.contentStyle, style);
+    setStyleForElement(this.contentStyle, this.contentElement);
+  }
+
   private setContent(message: string): void {
-    this.element.innerHTML = message;
+    this.contentElement.innerHTML = message;
   }
 
   showMessage(message: string, duration = 3000, priority = 0): void {

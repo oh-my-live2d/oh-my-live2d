@@ -17,6 +17,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   },
   models: [],
   tips: {
+    messageLine: 3,
     style: {},
     idleTips: {
       wordTheDay: false,

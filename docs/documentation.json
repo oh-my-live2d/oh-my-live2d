@@ -1,19 +1,19 @@
 {
-  "id": 342,
+  "id": 399,
   "name": "oh-my-live2d",
   "variant": "project",
   "kind": 1,
   "flags": {},
   "children": [
     {
-      "id": 359,
+      "id": 416,
       "name": "ModelOptions",
       "variant": "declaration",
       "kind": 256,
       "flags": {},
       "children": [
         {
-          "id": 364,
+          "id": 421,
           "name": "motionPreloadStrategy",
           "variant": "declaration",
           "kind": 1024,
@@ -75,7 +75,7 @@
           }
         },
         {
-          "id": 361,
+          "id": 418,
           "name": "path",
           "variant": "declaration",
           "kind": 1024,
@@ -102,7 +102,7 @@
           }
         },
         {
-          "id": 363,
+          "id": 420,
           "name": "position",
           "variant": "declaration",
           "kind": 1024,
@@ -170,7 +170,7 @@
           }
         },
         {
-          "id": 362,
+          "id": 419,
           "name": "scale",
           "variant": "declaration",
           "kind": 1024,
@@ -210,7 +210,7 @@
           }
         },
         {
-          "id": 360,
+          "id": 417,
           "name": "showHitAreaFrames",
           "variant": "declaration",
           "kind": 1024,
@@ -239,7 +239,7 @@
           }
         },
         {
-          "id": 365,
+          "id": 422,
           "name": "stageStyle",
           "variant": "declaration",
           "kind": 1024,
@@ -287,7 +287,7 @@
       "groups": [
         {
           "title": "Properties",
-          "children": [364, 361, 363, 362, 360, 365]
+          "children": [421, 418, 420, 419, 417, 422]
         }
       ],
       "sources": [
@@ -300,7 +300,7 @@
       ]
     },
     {
-      "id": 346,
+      "id": 403,
       "name": "Options",
       "variant": "declaration",
       "kind": 256,
@@ -326,7 +326,7 @@
       },
       "children": [
         {
-          "id": 358,
+          "id": 415,
           "name": "fixed",
           "variant": "declaration",
           "kind": 1024,
@@ -384,7 +384,7 @@
           }
         },
         {
-          "id": 347,
+          "id": 404,
           "name": "importType",
           "variant": "declaration",
           "kind": 1024,
@@ -438,7 +438,7 @@
           }
         },
         {
-          "id": 349,
+          "id": 406,
           "name": "libraryUrls",
           "variant": "declaration",
           "kind": 1024,
@@ -475,14 +475,14 @@
           "type": {
             "type": "reflection",
             "declaration": {
-              "id": 350,
+              "id": 407,
               "name": "__type",
               "variant": "declaration",
               "kind": 65536,
               "flags": {},
               "children": [
                 {
-                  "id": 351,
+                  "id": 408,
                   "name": "cubism2",
                   "variant": "declaration",
                   "kind": 1024,
@@ -522,7 +522,7 @@
                   }
                 },
                 {
-                  "id": 352,
+                  "id": 409,
                   "name": "cubism5",
                   "variant": "declaration",
                   "kind": 1024,
@@ -565,7 +565,7 @@
               "groups": [
                 {
                   "title": "Properties",
-                  "children": [351, 352]
+                  "children": [408, 409]
                 }
               ],
               "sources": [
@@ -580,7 +580,7 @@
           }
         },
         {
-          "id": 355,
+          "id": 412,
           "name": "models",
           "variant": "declaration",
           "kind": 1024,
@@ -627,14 +627,14 @@
             "type": "array",
             "elementType": {
               "type": "reference",
-              "target": 359,
+              "target": 416,
               "name": "ModelOptions",
               "package": "oh-my-live2d"
             }
           }
         },
         {
-          "id": 357,
+          "id": 414,
           "name": "parentElement",
           "variant": "declaration",
           "kind": 1024,
@@ -688,7 +688,7 @@
           }
         },
         {
-          "id": 348,
+          "id": 405,
           "name": "primaryColor",
           "variant": "declaration",
           "kind": 1024,
@@ -717,7 +717,7 @@
           }
         },
         {
-          "id": 353,
+          "id": 410,
           "name": "sayHello",
           "variant": "declaration",
           "kind": 1024,
@@ -766,7 +766,7 @@
           }
         },
         {
-          "id": 356,
+          "id": 413,
           "name": "tips",
           "variant": "declaration",
           "kind": 1024,
@@ -811,13 +811,13 @@
           ],
           "type": {
             "type": "reference",
-            "target": 366,
+            "target": 423,
             "name": "TipsOptions",
             "package": "oh-my-live2d"
           }
         },
         {
-          "id": 354,
+          "id": 411,
           "name": "transitionTime",
           "variant": "declaration",
           "kind": 1024,
@@ -869,7 +869,7 @@
       "groups": [
         {
           "title": "Properties",
-          "children": [358, 347, 349, 355, 357, 348, 353, 356, 354]
+          "children": [415, 404, 406, 412, 414, 405, 410, 413, 411]
         }
       ],
       "sources": [
@@ -882,7 +882,7 @@
       ]
     },
     {
-      "id": 366,
+      "id": 423,
       "name": "TipsOptions",
       "variant": "declaration",
       "kind": 256,
@@ -908,7 +908,7 @@
       },
       "children": [
         {
-          "id": 394,
+          "id": 451,
           "name": "copyTips",
           "variant": "declaration",
           "kind": 1024,
@@ -934,14 +934,14 @@
           "type": {
             "type": "reflection",
             "declaration": {
-              "id": 395,
+              "id": 452,
               "name": "__type",
               "variant": "declaration",
               "kind": 65536,
               "flags": {},
               "children": [
                 {
-                  "id": 396,
+                  "id": 453,
                   "name": "duration",
                   "variant": "declaration",
                   "kind": 1024,
@@ -981,7 +981,7 @@
                   }
                 },
                 {
-                  "id": 398,
+                  "id": 455,
                   "name": "message",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1033,7 +1033,7 @@
                   }
                 },
                 {
-                  "id": 397,
+                  "id": 454,
                   "name": "priority",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1076,7 +1076,7 @@
               "groups": [
                 {
                   "title": "Properties",
-                  "children": [396, 398, 397]
+                  "children": [453, 455, 454]
                 }
               ],
               "sources": [
@@ -1091,7 +1091,7 @@
           }
         },
         {
-          "id": 368,
+          "id": 425,
           "name": "idleTips",
           "variant": "declaration",
           "kind": 1024,
@@ -1128,14 +1128,14 @@
           "type": {
             "type": "reflection",
             "declaration": {
-              "id": 369,
+              "id": 426,
               "name": "__type",
               "variant": "declaration",
               "kind": 65536,
               "flags": {},
               "children": [
                 {
-                  "id": 374,
+                  "id": 431,
                   "name": "duration",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1175,7 +1175,7 @@
                   }
                 },
                 {
-                  "id": 376,
+                  "id": 433,
                   "name": "interval",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1215,7 +1215,7 @@
                   }
                 },
                 {
-                  "id": 377,
+                  "id": 434,
                   "name": "message",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1271,7 +1271,7 @@
                       {
                         "type": "reflection",
                         "declaration": {
-                          "id": 378,
+                          "id": 435,
                           "name": "__type",
                           "variant": "declaration",
                           "kind": 65536,
@@ -1286,7 +1286,7 @@
                           ],
                           "signatures": [
                             {
-                              "id": 379,
+                              "id": 436,
                               "name": "__type",
                               "variant": "signature",
                               "kind": 4096,
@@ -1322,7 +1322,7 @@
                   }
                 },
                 {
-                  "id": 375,
+                  "id": 432,
                   "name": "priority",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1362,7 +1362,7 @@
                   }
                 },
                 {
-                  "id": 370,
+                  "id": 427,
                   "name": "wordTheDay",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1423,7 +1423,7 @@
                       {
                         "type": "reflection",
                         "declaration": {
-                          "id": 371,
+                          "id": 428,
                           "name": "__type",
                           "variant": "declaration",
                           "kind": 65536,
@@ -1438,7 +1438,7 @@
                           ],
                           "signatures": [
                             {
-                              "id": 372,
+                              "id": 429,
                               "name": "__type",
                               "variant": "signature",
                               "kind": 4096,
@@ -1453,7 +1453,7 @@
                               ],
                               "parameters": [
                                 {
-                                  "id": 373,
+                                  "id": 430,
                                   "name": "wordTheDayData",
                                   "variant": "param",
                                   "kind": 32768,
@@ -1484,7 +1484,7 @@
               "groups": [
                 {
                   "title": "Properties",
-                  "children": [374, 376, 377, 375, 370]
+                  "children": [431, 433, 434, 432, 427]
                 }
               ],
               "sources": [
@@ -1499,7 +1499,7 @@
           }
         },
         {
-          "id": 367,
+          "id": 424,
           "name": "style",
           "variant": "declaration",
           "kind": 1024,
@@ -1544,7 +1544,7 @@
           }
         },
         {
-          "id": 380,
+          "id": 437,
           "name": "welcomeTips",
           "variant": "declaration",
           "kind": 1024,
@@ -1581,14 +1581,14 @@
           "type": {
             "type": "reflection",
             "declaration": {
-              "id": 381,
+              "id": 438,
               "name": "__type",
               "variant": "declaration",
               "kind": 65536,
               "flags": {},
               "children": [
                 {
-                  "id": 382,
+                  "id": 439,
                   "name": "duration",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1628,7 +1628,7 @@
                   }
                 },
                 {
-                  "id": 384,
+                  "id": 441,
                   "name": "message",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1665,14 +1665,14 @@
                   "type": {
                     "type": "reflection",
                     "declaration": {
-                      "id": 385,
+                      "id": 442,
                       "name": "__type",
                       "variant": "declaration",
                       "kind": 65536,
                       "flags": {},
                       "children": [
                         {
-                          "id": 389,
+                          "id": 446,
                           "name": "afternoon",
                           "variant": "declaration",
                           "kind": 1024,
@@ -1712,7 +1712,7 @@
                           }
                         },
                         {
-                          "id": 386,
+                          "id": 443,
                           "name": "daybreak",
                           "variant": "declaration",
                           "kind": 1024,
@@ -1752,7 +1752,7 @@
                           }
                         },
                         {
-                          "id": 390,
+                          "id": 447,
                           "name": "dusk",
                           "variant": "declaration",
                           "kind": 1024,
@@ -1792,7 +1792,7 @@
                           }
                         },
                         {
-                          "id": 392,
+                          "id": 449,
                           "name": "lateNight",
                           "variant": "declaration",
                           "kind": 1024,
@@ -1832,7 +1832,7 @@
                           }
                         },
                         {
-                          "id": 387,
+                          "id": 444,
                           "name": "morning",
                           "variant": "declaration",
                           "kind": 1024,
@@ -1872,7 +1872,7 @@
                           }
                         },
                         {
-                          "id": 391,
+                          "id": 448,
                           "name": "night",
                           "variant": "declaration",
                           "kind": 1024,
@@ -1912,7 +1912,7 @@
                           }
                         },
                         {
-                          "id": 388,
+                          "id": 445,
                           "name": "noon",
                           "variant": "declaration",
                           "kind": 1024,
@@ -1952,7 +1952,7 @@
                           }
                         },
                         {
-                          "id": 393,
+                          "id": 450,
                           "name": "weeHours",
                           "variant": "declaration",
                           "kind": 1024,
@@ -1995,7 +1995,7 @@
                       "groups": [
                         {
                           "title": "Properties",
-                          "children": [389, 386, 390, 392, 387, 391, 388, 393]
+                          "children": [446, 443, 447, 449, 444, 448, 445, 450]
                         }
                       ],
                       "sources": [
@@ -2010,7 +2010,7 @@
                   }
                 },
                 {
-                  "id": 383,
+                  "id": 440,
                   "name": "priority",
                   "variant": "declaration",
                   "kind": 1024,
@@ -2053,7 +2053,7 @@
               "groups": [
                 {
                   "title": "Properties",
-                  "children": [382, 384, 383]
+                  "children": [439, 441, 440]
                 }
               ],
               "sources": [
@@ -2071,7 +2071,7 @@
       "groups": [
         {
           "title": "Properties",
-          "children": [394, 368, 367, 380]
+          "children": [451, 425, 424, 437]
         }
       ],
       "sources": [
@@ -2084,7 +2084,7 @@
       ]
     },
     {
-      "id": 343,
+      "id": 400,
       "name": "loadOml2d",
       "variant": "declaration",
       "kind": 64,
@@ -2099,7 +2099,7 @@
       ],
       "signatures": [
         {
-          "id": 344,
+          "id": 401,
           "name": "loadOml2d",
           "variant": "signature",
           "kind": 4096,
@@ -2114,14 +2114,14 @@
           ],
           "parameters": [
             {
-              "id": 345,
+              "id": 402,
               "name": "options",
               "variant": "param",
               "kind": 32768,
               "flags": {},
               "type": {
                 "type": "reference",
-                "target": 346,
+                "target": 403,
                 "name": "Options",
                 "package": "oh-my-live2d"
               }
@@ -2149,11 +2149,11 @@
   "groups": [
     {
       "title": "Interfaces",
-      "children": [359, 346, 366]
+      "children": [416, 403, 423]
     },
     {
       "title": "Functions",
-      "children": [343]
+      "children": [400]
     }
   ],
   "packageName": "oh-my-live2d",
@@ -2276,231 +2276,231 @@
     }
   ],
   "symbolIdMap": {
-    "342": {
+    "399": {
       "sourceFileName": "packages/oh-my-live2d/src/index.ts",
       "qualifiedName": ""
     },
-    "343": {
+    "400": {
       "sourceFileName": "packages/oh-my-live2d/src/index.ts",
       "qualifiedName": "loadOml2d"
     },
-    "344": {
+    "401": {
       "sourceFileName": "packages/oh-my-live2d/src/modules/index.ts",
       "qualifiedName": "loadOml2d"
     },
-    "345": {
+    "402": {
       "sourceFileName": "packages/oh-my-live2d/src/modules/index.ts",
       "qualifiedName": "options"
     },
-    "346": {
+    "403": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options"
     },
-    "347": {
+    "404": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.importType"
     },
-    "348": {
+    "405": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.primaryColor"
     },
-    "349": {
+    "406": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.libraryUrls"
     },
-    "350": {
+    "407": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type"
     },
-    "351": {
+    "408": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type.cubism2"
     },
-    "352": {
+    "409": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type.cubism5"
     },
-    "353": {
+    "410": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.sayHello"
     },
-    "354": {
+    "411": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.transitionTime"
     },
-    "355": {
+    "412": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.models"
     },
-    "356": {
+    "413": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.tips"
     },
-    "357": {
+    "414": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.parentElement"
     },
-    "358": {
+    "415": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.fixed"
     },
-    "359": {
+    "416": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions"
     },
-    "360": {
+    "417": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.showHitAreaFrames"
     },
-    "361": {
+    "418": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.path"
     },
-    "362": {
+    "419": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.scale"
     },
-    "363": {
+    "420": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.position"
     },
-    "364": {
+    "421": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.motionPreloadStrategy"
     },
-    "365": {
+    "422": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.stageStyle"
     },
-    "366": {
+    "423": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions"
     },
-    "367": {
+    "424": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.style"
     },
-    "368": {
+    "425": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.idleTips"
     },
-    "369": {
+    "426": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "370": {
+    "427": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.wordTheDay"
     },
-    "371": {
+    "428": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "372": {
+    "429": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "373": {
+    "430": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "wordTheDayData"
     },
-    "374": {
+    "431": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.duration"
     },
-    "375": {
+    "432": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.priority"
     },
-    "376": {
+    "433": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.interval"
     },
-    "377": {
+    "434": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.message"
     },
-    "378": {
+    "435": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "379": {
+    "436": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "380": {
+    "437": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.welcomeTips"
     },
-    "381": {
+    "438": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "382": {
+    "439": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.duration"
     },
-    "383": {
+    "440": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.priority"
     },
-    "384": {
+    "441": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.message"
     },
-    "385": {
+    "442": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "386": {
+    "443": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.daybreak"
     },
-    "387": {
+    "444": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.morning"
     },
-    "388": {
+    "445": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.noon"
     },
-    "389": {
+    "446": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.afternoon"
     },
-    "390": {
+    "447": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.dusk"
     },
-    "391": {
+    "448": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.night"
     },
-    "392": {
+    "449": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.lateNight"
     },
-    "393": {
+    "450": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.weeHours"
     },
-    "394": {
+    "451": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.copyTips"
     },
-    "395": {
+    "452": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "396": {
+    "453": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.duration"
     },
-    "397": {
+    "454": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.priority"
     },
-    "398": {
+    "455": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.message"
     }

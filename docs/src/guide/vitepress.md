@@ -22,7 +22,7 @@ npm install oh-my-live2d@latest
 使用时注意需要判断环境变量已确保编译打包时的环境为非服务端。
 :::
 
-- 之后需要手动创建 `.vitepress/theme/index.js` 文件, 并以如下方式使用, 效果参考本站:
+- 之后需要手动创建 `.vitepress/theme/index.js` 文件, 并以如下方式使用:
 
 ```js
 // .vitepress/theme/index.js
