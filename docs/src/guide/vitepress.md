@@ -116,7 +116,7 @@ export function useOml2d() {
 }
 ```
 
-1. 在主题的 Layout.vue 中调用该方法即可
+3. 在主题的 Layout.vue 中调用该方法即可
 
 ```vue
 <script setup lang="ts">
