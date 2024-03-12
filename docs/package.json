@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@sugarat/theme": "^0.2.24",
+    "@sugarat/theme": "^0.2.26",
     "element-plus": "^2.5.3",
     "oh-my-live2d": "workspace:*",
     "vue": "3.4.15"
