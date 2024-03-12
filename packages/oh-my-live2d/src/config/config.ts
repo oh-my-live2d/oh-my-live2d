@@ -16,12 +16,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   },
   models: [],
   tips: {
-    style: {
-      width: 230,
-      height: 100,
-      offsetX: 0,
-      offsetY: 0
-    },
+    style: {},
     idleTips: {
       wordTheDay: false,
       message: [],

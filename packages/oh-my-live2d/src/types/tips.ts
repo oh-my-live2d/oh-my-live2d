@@ -1,4 +1,5 @@
-import type { WordTheDayData } from 'src/types/common.js';
+import type { WordTheDayData } from '../types/common.js';
+import type { CommonStyleType } from '../types/index.js';
 
 /**
  * # 提示框选项
@@ -12,35 +13,7 @@ export interface TipsOptions {
    * 自定义提示框样式
    * @valueType object
    */
-  style?: {
-    /**
-     * 提示框宽度, 单位 px
-     *
-     * @default 230
-     */
-    width?: number;
-
-    /**
-     * 提示框高度, 单位 px
-     *
-     * @default 100
-     */
-    height?: number;
-
-    /**
-     * 调整提示框位于舞台中的 x 轴方向偏移量
-     *
-     * @default 0
-     */
-    offsetX?: number;
-
-    /**
-     * 调整提示框位于舞台中的 y 轴方向偏移量
-     *
-     * @default 0
-     */
-    offsetY?: number;
-  };
+  style?: CommonStyleType;
 
   /**
    * 闲置状态下的提示

@@ -6,6 +6,7 @@ import type { DEFAULT_OPTIONS } from 'src/config/config.js';
 
 import type { ModelOptions } from './model.js';
 import type { Options } from './options.js';
+import { TipsOptions } from './tips.js';
 import type { DeepRequired } from './utils.js';
 
 export * from './options.js';
@@ -23,8 +24,14 @@ export type ApplicationType = typeof Application;
 
 export type CSSProperties = CSS.Properties;
 
-export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models'> & { parentElement: HTMLElement } & {
+export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models' | 'tips'> & {
+  parentElement: HTMLElement;
+  tips: DefaultTipsOptions;
+} & {
   models: ModelOptions[];
+};
+export type DefaultTipsOptions = Omit<DeepRequired<TipsOptions>, 'style'> & {
+  style?: CommonStyleType;
 };
 
 export type Live2DModelType = typeof Live2DModel;
@@ -54,3 +61,8 @@ export type LoadMethod = (
   PixiLive2dDisplay: PixiLive2dDisplayModule;
   HitAreaFrames: typeof HitAreaFrames;
 }>;
+
+export type CommonStyleType = Omit<CSSProperties, 'width' | 'height'> & {
+  width?: number | string;
+  height?: number | string;
+};

@@ -10,7 +10,7 @@ import type { ImportType } from './index.js';
  */
 export interface Options {
   /**
-   * 导入类型, 默认使用全量导入: 'complete'
+   * 导入类型, 默认使用全量导入: complete
    * @default complete
    * @valueType complete | cubism2 | cubism5
    */
@@ -20,7 +20,7 @@ export interface Options {
    * 自定义 Cubism SDK 外部资源地址
    *
    * > [!TIP]
-   * > 从 v0.5.0 版本开始, 不再以模块形式通过 vite 打包构建 SDK , 因为这会造成部分模型在生产环境中展示异常, 这在 Vite5 中已得到证实, 为了更稳定的加载模型, 自 v0.5.0 版本后, 将通过 script 标签的 src 属性按需去引入对应版本的 Cubism SDK , 而这个过程是完全自动的, 您无需手动的去引入这些资源, 官方将长期维护这个服务器, 保证此 SDK 地址的安全与稳定性. 若发现 SDK 加载出现异常, 请及时联系作者
+   * > 从 v0.5.0 版本开始, 不再通过模块方式使用 vite 打包 SDK ,  自 v0.5.0 版本起, 将通过 script 标签的 src 属性按需去引入对应版本的 Cubism SDK , 这个过程是完全自动的, 您无需关注这个过程也无需手动的去引入这些资源, 官方将长期维护这个服务器, 保证此 SDK 地址的安全与稳定性. 若发现 SDK 加载出现异常, 请及时联系作者.
    * @valueType object
    */
   libraryUrls?: {

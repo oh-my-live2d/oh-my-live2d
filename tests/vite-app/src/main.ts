@@ -22,6 +22,10 @@ void loadOml2d({
     }
   ],
   tips: {
+    // style: {
+    //   width: 300,
+    //   height: '100px'
+    // },
     idleTips: {
       wordTheDay(wordTheDayData) {
         return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;

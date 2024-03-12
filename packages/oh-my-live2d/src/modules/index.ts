@@ -17,7 +17,7 @@ import type {
   Options,
   PixiLive2dDisplayModule
 } from '../types/index.js';
-import { checkVersion, handleStyleSize, printProjectInfo } from '../utils/index.js';
+import { checkVersion, handleCommonStyle, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
   private stage: Stage;
@@ -105,8 +105,9 @@ export class OhMyLive2D {
   }
 
   setStageStyle(style: Record<string, string | number>): void {
-    handleStyleSize(style);
-    this.stage.setStyle(style);
+    const newStyle = handleCommonStyle(style);
+
+    this.stage.setStyle(newStyle);
     this.application.resize();
   }
 

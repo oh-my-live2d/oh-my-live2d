@@ -2,8 +2,8 @@ import { getRandomArrayItem, isFunction, mergeDeep, setIntervalAsync } from 'tia
 
 import { CONFIG } from '../config/index.js';
 import type { IdleTimer } from '../types/common.js';
-import type { CSSProperties, DeepRequired, TipsOptions } from '../types/index.js';
-import { createElement, getWelcomeMessage, getWordTheDay, setStyleForElement, sleep } from '../utils/index.js';
+import type { CSSProperties, DefaultTipsOptions } from '../types/index.js';
+import { createElement, getWelcomeMessage, getWordTheDay, handleCommonStyle, setStyleForElement, sleep } from '../utils/index.js';
 
 export class Tips {
   private element: HTMLElement;
@@ -17,7 +17,7 @@ export class Tips {
 
   constructor(
     stageElement: HTMLElement,
-    private tipsOptions: DeepRequired<TipsOptions>
+    private tipsOptions: DefaultTipsOptions
   ) {
     this.element = createElement({ id: CONFIG.tipsId, tagName: 'div' });
     stageElement.append(this.element);
@@ -49,19 +49,17 @@ export class Tips {
       animationDuration: `${this.transitionTime}ms,${this.transitionTime}ms`,
       animationFillMode: 'forwards, none',
       animationIterationCount: '1, infinite',
-      minWidth: '230px',
-      minHeight: '100px',
+      width: '60%',
+      height: '100px',
       top: 0
     });
     if (this.tipsOptions) {
-      const { width = 230, height = 100, offsetX = 0, offsetY = 0 } = this.tipsOptions.style || {};
+      // const { width = 230, height = 100, offsetX = 0, offsetY = 0 } = this.tipsOptions.style || {};
+      const style = handleCommonStyle(this.tipsOptions.style || {});
 
-      this.setStyle({
-        minWidth: `${width}px`,
-        minHeight: `${height}px`,
-        left: `calc(${offsetX}px + 50%)`,
-        top: `${offsetY}px`
-      });
+      console.log(style);
+
+      this.setStyle(style);
     }
   }
 
