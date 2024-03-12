@@ -97,15 +97,16 @@ export class StatusBar {
   }
 
   showLoading(): void {
-    this.setContent(
+    this.popup(
       `
       <div style="margin-bottom:3px;">加载中</div>
       <svg class="oml2d-icon oml2d-loading" aria-hidden="true">
         <use xlink:href="#icon-loading"></use>
       </svg>
-    `
+    `,
+      SystemState.info,
+      false
     );
-    void this.slideIn();
   }
 
   hideLoading(): void {

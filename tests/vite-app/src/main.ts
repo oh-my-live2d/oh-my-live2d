@@ -10,19 +10,15 @@ void loadOml2d({
 
   models: [
     {
-      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-      scale: 0.12,
-      position: [-50, 50],
-      showHitAreaFrames: true,
-      // motionPreloadStrategy: 'NONE',
-      stageStyle: {
-        width: 320
-      }
+      path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json'
     },
     {
-      path: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json',
-      scale: 0.3,
-      motionPreloadStrategy: 'ALL'
+      path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
+      scale: 0.4,
+      position: [0, 50],
+      stageStyle: {
+        height: 300
+      }
     }
   ],
   tips: {
