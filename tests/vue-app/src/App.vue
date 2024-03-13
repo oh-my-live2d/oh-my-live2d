@@ -1,19 +1,5 @@
 <script setup lang="ts">
-import { loadOml2d } from 'oh-my-live2d';
-import { onMounted } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
-
-onMounted(() => {
-  loadOml2d({
-    parentElement: document.body,
-    models: [
-      {
-        path: 'https://model.oml2d.com/pio/model.json',
-        scale: 0.5
-      }
-    ]
-  });
-});
 </script>
 
 <template>

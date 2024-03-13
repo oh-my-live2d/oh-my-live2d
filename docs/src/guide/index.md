@@ -133,15 +133,16 @@ loadOml2d({
   <img src="https://contrib.rocks/image?repo=oh-my-live2d/oh-my-live2d" />
 </a>
 
-## 📧 讨论
+## 讨论
 
-- qq 群: 474032914
+- 微信群
 
-- 微信群:
-  添加好友以加入微信群：  
-  添加好友时请备注：`oml2d`
-  <img width=240 src="https://cdn.jsdelivr.net/gh/loclink/loclink@master/img/20231023130440.png"/>
+  <image style="display: inline-block;width:200px;padding-right:6px" src='https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111753229.png'/>
 
-### 版权声明
+- QQ群:
 
-本项目仅提供模型加载技术支持, 不提供任何 Live2D Model 的下载地址。文档中提供的所有模型地址均来源于网路，仅供参考和学习。
+  <image style="display: inline-block;width:200px;padding-right:6px" src='https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111755979.png'/>
+
+## 免责声明
+
+本仓库所有模型文件均来源于网络, 仅供参考和学习, 严禁用于任何商业盈利项目, 所有以盈利为目的而使用本仓库的模型资源的行为均与仓库创建者无关, 仓库中每个模型的所有权均属于这个模型的作者或创作团队, 若侵权请联系: hacxy.97@outlook.com 及时删除

@@ -14,8 +14,6 @@
 npm install oh-my-live2d@latest
 ```
 
-## 使用方式一
-
 ### 在默认主题中推荐以此方式使用
 
 ::: warning
@@ -47,12 +45,6 @@ export default {
 
 如需自定义配置, 请在[配置选项](../options/Options.md)中查阅详细配置内容.
 
-::: tip
-通过以上方式使用时, 若发现生产环境出现图标等资源加载异常时, 请[使用方式二](#使用方式二)
-:::
-
-## 使用方式二
-
 ### 第三方主题中使用
 
 例如 [@sugarat/theme](https://theme.sugarat.top/) ，通常情况下和默认主题使用方式相同, 需要注意的是第三方主题可能拓展了 [enhanceApp](https://vitepress.dev/guide/custom-theme#theme-interface) 需要在重写时调用一下。
@@ -80,9 +72,20 @@ export default {
 };
 ```
 
+> [!TIP]
+> 需要注意的是 `@sugarat/theme` 主题自 `v0.2.26` 版本起默认集成了oh-my-live2d, 如果您使用该主题, 可以直接通过主题配置项来使用`oh-my-live2d`, 而上述示例可以在任何第三方主题中使用
+
+### 在 @sugarat/theme 主题中使用
+
+如果您正在使用 [@sugarat/theme](https://theme.sugarat.top/) 那么您现在可以更快捷的启用`oh-my-live2d`而无需考虑是否与主题样式冲突等问题, 我们尽量做到组件与主题之间的交互和样式相互独立互不干扰, 甚至还会在未来版本为该主题定制独享功能.
+::: tip
+确保您的 `@sugarat/theme` 版本最低为`v0.2.26`
+:::
+使用方式请查阅: [@sugarat/theme看板娘集成](https://theme.sugarat.top/config/component.html#oml2d-%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%9B%86%E6%88%90)
+
 ### 自定义主题集成
 
-如果您是第三方主题的开发者, 可以通过下面的方式默认集成 `oh-my-live2d` 😀
+得益于 oh-my-live2d 的便携性, 使得它很容易在第三方主题中集成, 如果您是第三方主题的开发者, 可以通过下面的方式集成至您的主题:
 
 1. 安装依赖
 
@@ -90,7 +93,7 @@ export default {
 npm install oh-my-live2d@latest
 ```
 
-2. 编写一个 hook 方法
+2. 在`onMounted`钩子中动态加载 `oh-my-live2d` 并调用, 或者将其封装成一个hook
 
 ```ts
 import { onMounted } from 'vue';

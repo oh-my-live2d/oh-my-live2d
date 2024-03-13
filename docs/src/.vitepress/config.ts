@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress';
-import { oml2d } from 'vite-plugin-oml2d';
 // 导入主题的配置
 import { blogTheme } from './blog-theme.js';
 import sidebarData from '../../sideBarData.json';
@@ -13,7 +12,6 @@ import pkg from '../../../lerna.json';
 
 // Vitepress 默认配置
 // 详见文档：https://vitepress.dev/reference/site-config
-
 const examples = [
   {
     text: '在vitepress中使用',
@@ -35,7 +33,7 @@ export default defineConfig({
   // base,
   lang: 'zh-cn',
   title: 'OhMyLive2D',
-  description: '支持所有Live2D模型版本的Web组件, 快速为您的个人网站加入看板娘',
+  description: '支持所有Live2D模型版本的Web组件, 快速为您的个人网站添加看板娘.',
   lastUpdated: true,
   appearance: 'dark',
   // 详见：https://vitepress.dev/zh/reference/site-config#head
@@ -45,7 +43,6 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
   themeConfig: {
-    // 展示 2,3 级标题在目录中
     outline: {
       level: [2, 4],
       label: '目录'
@@ -112,32 +109,6 @@ export default defineConfig({
         icon: 'github',
         link: 'https://github.com/oh-my-live2d/oh-my-live2d'
       }
-    ]
-  },
-  vite: {
-    plugins: [
-      oml2d({
-        models: [
-          {
-            path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json'
-          },
-          {
-            path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
-            scale: 0.4,
-            position: [0, 50],
-            stageStyle: {
-              height: 300
-            }
-          }
-        ],
-        tips: {
-          idleTips: {
-            wordTheDay: () => {
-              return '-------------';
-            }
-          }
-        }
-      })
     ]
   }
 });

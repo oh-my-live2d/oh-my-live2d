@@ -92,6 +92,9 @@ importers:
       element-plus:
         specifier: ^2.5.3
         version: 2.6.1(vue@3.4.15)
+      oh-my-live2d:
+        specifier: workspace:*
+        version: link:../packages/oh-my-live2d
       vue:
         specifier: 3.4.15
         version: 3.4.15(typescript@5.3.3)
@@ -126,16 +129,12 @@ importers:
 
   packages/vite-plugin:
     dependencies:
-      oh-my-live2d:
-        specifier: workspace:*
-        version: link:../oh-my-live2d
-      telejson:
-        specifier: ^7.2.0
-        version: 7.2.0
-    devDependencies:
       javascript-stringify:
         specifier: ^2.1.0
         version: 2.1.0
+      oh-my-live2d:
+        specifier: workspace:*
+        version: link:../oh-my-live2d
 
   packages/vuepress-plugin:
     dependencies:
@@ -180,6 +179,9 @@ importers:
       vite:
         specifier: ^5.1.4
         version: 5.1.4(sass@1.71.1)
+      vite-plugin-oml2d:
+        specifier: workspace:*
+        version: link:../../packages/vite-plugin
       vue-tsc:
         specifier: ^1.8.27
         version: 1.8.27(typescript@5.3.3)
@@ -5227,6 +5229,7 @@ packages:
 
   /javascript-stringify@2.1.0:
     resolution: {integrity: sha512-JVAfqNPTvNq3sB/VHQJAFxN/sPgKnsKrCwyRt15zwNCdrMMJDdcEOdubuy+DuJYYdm0ox1J4uzEuYKkN+9yhVg==}
+    dev: false
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -5560,10 +5563,6 @@ packages:
       - supports-color
     dev: true
 
-  /map-or-similar@1.5.0:
-    resolution: {integrity: sha512-0aF7ZmVon1igznGI4VS30yugpduQW3y3GkcgGJOp7d8x8QrizhigUxjI/m2UojsXXto+jLAH3KSz+xOJTiORjg==}
-    dev: false
-
   /mark.js@8.11.1:
     resolution: {integrity: sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==}
 
@@ -5649,12 +5648,6 @@ packages:
 
   /memoize-one@6.0.0:
     resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==}
-    dev: false
-
-  /memoizerific@1.11.3:
-    resolution: {integrity: sha512-/EuHYwAPdLtXwAwSZkh/Gutery6pD2KYd44oQLhAvQp/50mpyduZh8Q7PYHXTCJ+wuXxt7oij2LXyIJOOYFPog==}
-    dependencies:
-      map-or-similar: 1.5.0
     dev: false
 
   /meow@12.1.1:
@@ -7374,12 +7367,6 @@ packages:
       mkdirp: 1.0.4
       yallist: 4.0.0
     dev: true
-
-  /telejson@7.2.0:
-    resolution: {integrity: sha512-1QTEcJkJEhc8OnStBx/ILRu5J2p0GjvWsBx56bmZRqnrkdBMUe+nX92jxV+p3dB4CP6PZCdJMQJwCggkNBMzkQ==}
-    dependencies:
-      memoizerific: 1.11.3
-    dev: false
 
   /temp-dir@3.0.0:
     resolution: {integrity: sha512-nHc6S/bwIilKHNRgK/3jlhDoIHcp45YgyiwcAk46Tr0LfEqGBVpmiAyuiuxeVE44m3mXnEeVhaipLOEWmH+Njw==}
