@@ -5,17 +5,17 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -b tsconfig.build.json"
   },
   "dependencies": {
     "oh-my-live2d": "workspace:*",
-    "telejson": "^7.2.0"
+    "javascript-stringify": "^2.1.0"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "javascript-stringify": "^2.1.0"
-  }
+  "license": "MIT"
 }
