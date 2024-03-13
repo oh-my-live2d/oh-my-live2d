@@ -17,21 +17,21 @@ import { getThemeConfig } from '@sugarat/theme/node';
 
 // 所有配置项，详见文档: https://theme.sugarat.top/
 const blogTheme = getThemeConfig({
-  oml2d: {
-    models: [
-      {
-        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json'
-      },
-      {
-        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
-        scale: 0.4,
-        position: [0, 50],
-        stageStyle: {
-          height: 300
-        }
-      }
-    ]
-  },
+  // oml2d: {
+  //   models: [
+  //     {
+  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json'
+  //     },
+  //     {
+  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
+  //       scale: 0.4,
+  //       position: [0, 50],
+  //       stageStyle: {
+  //         height: 300
+  //       }
+  //     }
+  //   ]
+  // },
   blog: false,
   // 开启RSS支持
   // RSS,

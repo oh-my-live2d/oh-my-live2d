@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress';
-
+import { oml2d } from 'vite-plugin-oml2d';
 // 导入主题的配置
 import { blogTheme } from './blog-theme.js';
 import sidebarData from '../../sideBarData.json';
@@ -112,6 +112,32 @@ export default defineConfig({
         icon: 'github',
         link: 'https://github.com/oh-my-live2d/oh-my-live2d'
       }
+    ]
+  },
+  vite: {
+    plugins: [
+      oml2d({
+        models: [
+          {
+            path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json'
+          },
+          {
+            path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
+            scale: 0.4,
+            position: [0, 50],
+            stageStyle: {
+              height: 300
+            }
+          }
+        ],
+        tips: {
+          idleTips: {
+            wordTheDay: () => {
+              return '-------------';
+            }
+          }
+        }
+      })
     ]
   }
 });
