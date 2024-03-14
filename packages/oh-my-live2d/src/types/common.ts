@@ -1,4 +1,4 @@
-import { CSSProperties } from 'src/types/index.js';
+import { CSSProperties } from './index.js';
 
 export type IdleTimer = {
   start: () => Promise<void>;

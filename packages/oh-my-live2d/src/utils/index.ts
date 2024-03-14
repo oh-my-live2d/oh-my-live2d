@@ -1,6 +1,6 @@
 import { isNumber, mergeDeep } from 'tianjie';
 
-import { DEFAULT_OPTIONS, ELEMENT_ID, SDK_ID } from '../config/index.js';
+import { ELEMENT_ID, SDK_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import type { CommonStyleType, WordTheDayData } from '../types/common.js';
 import type {
@@ -221,11 +221,11 @@ export const elementsDestroyer = (): void => {
 };
 
 // 合并配置选项
-export const mergeOptions = (options: Options): DefaultOptions => {
+export const mergeOptions = (targetOptions: DefaultOptions, options: Options): DefaultOptions => {
   const { parentElement } = options;
-  const finalOptions = mergeDeep(DEFAULT_OPTIONS, options);
+  const finalOptions = mergeDeep(targetOptions, options);
 
-  finalOptions.parentElement = parentElement || document.body;
+  finalOptions.parentElement = parentElement || targetOptions.parentElement;
 
   return finalOptions;
 };

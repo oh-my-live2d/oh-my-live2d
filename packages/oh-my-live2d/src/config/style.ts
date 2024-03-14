@@ -1,5 +1,4 @@
 import { ELEMENT_ID } from '../config/config.js';
-import { CSSProperties } from '../types/index.js';
 
 export const generateGlobalStyle = (primaryColor: string): string => {
   return `
@@ -55,6 +54,7 @@ export const generateGlobalStyle = (primaryColor: string): string => {
       visibility: hidden;
     }
   }
+
   @keyframes oml2d-loading-rotate {
     0% {
       transform: rotate(0deg);
@@ -63,6 +63,7 @@ export const generateGlobalStyle = (primaryColor: string): string => {
       transform: rotate(360deg);
     }
   }
+
   .oml2d-icon {
     width: 1em; 
     height: 1em;
@@ -77,6 +78,7 @@ export const generateGlobalStyle = (primaryColor: string): string => {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
+
   .oml2d-menus-item {
     width: 36px;
     height: 36px;
@@ -122,28 +124,4 @@ export const generateGlobalStyle = (primaryColor: string): string => {
     }
   }
   `;
-};
-
-export const TIPS_DEFAULT_STYLE: CSSProperties = {
-  position: 'absolute',
-  fontSize: '18px',
-  borderRadius: '10px',
-  filter: 'drop-shadow(0 0 5px #999)',
-  border: '2px solid #fff',
-  color: '#fff',
-  padding: '5px 5px',
-  opacity: 0,
-  visibility: 'hidden',
-  transform: 'translateX(-50%)',
-  textAlign: 'center',
-  justifyContent: 'center',
-  animationDuration: `1000ms,1000ms`,
-  animationFillMode: 'forwards, none',
-  animationIterationCount: '1, infinite',
-  width: '60%',
-  left: '50%',
-  top: 0,
-  display: 'flex',
-  alignItems: 'center',
-  minHeight: '100px'
 };

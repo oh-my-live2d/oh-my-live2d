@@ -30,9 +30,11 @@ export class OhMyLive2D {
     private stage: Stage,
     private statusBar: StatusBar,
     private tips: Tips,
-    private menus: Menus
+    private menus: Menus,
+    private globalStyle: GlobalStyle
     // private Application: ApplicationType,
   ) {
+    this.initialize();
     this.models = new Models(
       this.application,
       this.pixiLive2dDisplayModule.Live2DModel,
@@ -42,7 +44,6 @@ export class OhMyLive2D {
       this.tips,
       this.menus
     );
-    this.initialize();
 
     // this.destroy();
     // import('../library/iconfont.js');
@@ -67,16 +68,6 @@ export class OhMyLive2D {
     // );
     // this.initialize();
   }
-  // // 销毁
-  // destroy() {
-  //   elementsDestroyer();
-
-  //   // this.models?.destroy();
-  //   // this.stage.destroy();
-  //   // this.statusBar.destroy();
-  //   // destroyElement(ELEMENT_ID.stage);
-  //   // destroyElement(ELEMENT_ID.statusBar);
-  // }
 
   // 初始化
   initialize(): void {
@@ -88,16 +79,25 @@ export class OhMyLive2D {
       printProjectInfo();
     }
 
-    // 更新配置选项
-    this.tips.options = this.options;
-    this.stage.options = this.options;
-    this.statusBar.options = this.options;
-
-    // 更新舞台父元素
-    this.stage.updateParentElement();
-
+    this.initializeModules();
     // 注册事件
     this.registerEvents();
+  }
+
+  // 初始化所有模块
+  initializeModules(): void {
+    this.stage.initialize(this.options);
+    this.statusBar.initialize(this.options);
+    this.globalStyle.initialize(this.options);
+    this.tips.initialize(this.options);
+    this.menus.initialize();
+  }
+
+  updateOptions(options: Options = {}): void {
+    this.options = mergeOptions(this.options, options);
+    this.initializeModules();
+    // void this.models.loadModel();
+    this.models.initialize();
   }
 
   registerEvents(): void {
@@ -105,19 +105,11 @@ export class OhMyLive2D {
     this.menus.onClickItem((name) => {
       switch (name) {
         case 'Rest':
-          // void this.stage.slideOut(this.options.transitionTime);
-          // this.statusBar.popup('看板娘休息中', SystemState.info, false, () => {
-          //   void this.stage.slideIn(this.options.transitionTime);
-          //   this.statusBar.popup('闪亮登场');
-          //   void this.tips.idlePlayer?.start();
-          // });
-
-          // this.tips.clear();
+          this.models.switchStatus();
 
           return;
         // 切换模型
         case 'SwitchModel':
-          // void this.loadNextModel();
           void this.models.loadNextModel();
 
           return;
@@ -143,18 +135,17 @@ export class OhMyLive2D {
   }
 }
 
-export const setup = (loadMethod: LoadMethod): ((options: Options) => Promise<void>) => {
+export const setup = (loadMethod: LoadMethod): ((options: Options) => Promise<OhMyLive2D>) => {
   let application: Application;
-
-  new GlobalStyle(DEFAULT_OPTIONS);
+  let oml2d: OhMyLive2D;
+  const globalStyle = new GlobalStyle(DEFAULT_OPTIONS);
   const stage = new Stage(DEFAULT_OPTIONS); // 实例化舞台
   const statusBar = new StatusBar(DEFAULT_OPTIONS);
   const tips = new Tips(stage.element, DEFAULT_OPTIONS); // 提示框
   const menus = new Menus(stage.element); // 菜单
 
-  const loadOml2d = async (options: Options): Promise<void> => {
-    const finalOptions = mergeOptions(options);
-
+  const loadOml2d = async (options: Options): Promise<OhMyLive2D> => {
+    const finalOptions = mergeOptions(DEFAULT_OPTIONS, options);
     const { PixiLive2dDisplay, PIXI } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
 
     if (!application) {
@@ -167,30 +158,15 @@ export const setup = (loadMethod: LoadMethod): ((options: Options) => Promise<vo
         resizeTo: stage.element
       });
     }
-    // if (__ENV__) {
-    //   console.log(__ENV__);
-    //   if (!oml2d) {
-    //     const { PixiLive2dDisplay, PIXI, HitAreaFrames } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
+    if (oml2d) {
+      // oml2d.destroy();
+      oml2d.updateOptions();
+    } else {
+      oml2d = new OhMyLive2D(finalOptions, PixiLive2dDisplay, application, stage, statusBar, tips, menus, globalStyle);
+    }
 
-    //     oml2d = new OhMyLive2D(finalOptions, PixiLive2dDisplay, PIXI.Application, HitAreaFrames);
-    //   }
-    // } else {
-    //   console.log('-----------');
-    //   const { PixiLive2dDisplay, PIXI, HitAreaFrames } = await loadMethod(finalOptions.importType, finalOptions.libraryUrls);
-
-    //   if (oml2d) {
-    //     await oml2d.destroy();
-    //   }
-    //   oml2d = new OhMyLive2D(finalOptions, PixiLive2dDisplay, PIXI.Application, HitAreaFrames);
-    // }
-    // if (!finalOptions.models?.length) {
-    //   throw new Error('至少需要配置一个模型');
-    // }
-
-    // void oml2d?.destroy();
-    const oml2d = new OhMyLive2D(finalOptions, PixiLive2dDisplay, application, stage, statusBar, tips, menus);
-
-    console.log(oml2d);
+    // console.log(oml2d);
+    return oml2d;
   };
 
   return loadOml2d;

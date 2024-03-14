@@ -19,7 +19,6 @@ export class Models {
     private application: Application,
     private live2dModel: Live2DModelType,
     private options: DefaultOptions,
-    // private HitAreaFrames: HitAreaFramesType,
     private stage: Stage,
     private statusBar: StatusBar,
     private tips: Tips,
@@ -45,6 +44,7 @@ export class Models {
     return handleCommonStyle(mergeDeep(this.modelSize, this.currentModelOptions.mobileStageStyle || {}));
   }
 
+  // 模型尺寸
   private get modelSize(): { width: number; height: number } {
     return {
       width: this.model?.width || 0,
@@ -52,22 +52,31 @@ export class Models {
     };
   }
 
+  // 是否被禁用
   private get disable(): boolean {
     return getWindowSizeType() === WindowSizeType.mobile && !this.options.mobileDisplay;
   }
 
-  private initialize(): void {
+  // 初始化
+  initialize(): void {
     void this.loadModel();
     onChangeWindowSize(this.handleWindowSizeChange.bind(this));
   }
 
-  rest(): void {
+  // 切换舞台状态. 休息/活动
+  switchStatus(): void {
     void this.stage.slideOut();
     this.tips.clear();
-    this.statusBar.rest();
-  }
 
-  // activity() {}
+    this.statusBar.rest(true, () => {
+      void this.stage.slideIn();
+      void this.tips.idlePlayer?.start();
+    });
+  }
+  // 模型活动
+  // activity() {
+
+  // }
 
   // 创建模型
   create(onError: (e: Error) => void): void {
@@ -77,14 +86,6 @@ export class Models {
     });
   }
 
-  // // 销毁
-  // destroy(): void {
-  //   // this.model?.destroy();
-  //   this.application.stage.destroy();
-  //   this.model?.destroy();
-  //   this.application?.destroy();
-  // }
-
   loadModel(isLoading: boolean = true): Promise<void> {
     return new Promise((resolve, reject) => {
       if (isLoading && !this.disable) {
@@ -92,13 +93,18 @@ export class Models {
       }
       this.create((e) => {
         console.error(e);
-        this.statusBar.loadingError(this.loadModel.bind<() => void>(this));
+        this.statusBar.loadingError(() => {
+          void this.loadModel();
+        });
         reject(e);
       });
 
+      // 如果舞台中有其他模型则移除该模型
       if (this.application.stage.children.length >= 1) {
         this.application.stage.removeChildAt(0);
       }
+
+      // 所有资源加载完毕
       this.model?.once('load', () => {
         this.application.stage.addChild(this.model!);
         if (!this.disable) {
@@ -129,6 +135,10 @@ export class Models {
     void this.tips.idlePlayer?.start();
   }
 
+  /**
+   * 重新加载模型
+   */
+  async reloadModel() {}
   onLoad(): void {
     this.model?.on('load', () => {});
   }
@@ -192,8 +202,6 @@ export class Models {
       this.changeStageStatusByWindowSize(windowSizeType);
       this.changeAttributeByWindowSize(windowSizeType);
     }
-    // this.changeStageStatusByWindowSize(windowSizeType);
-    // this.changeAttributeByWindowSize(windowSizeType);
   }
 
   // 根据窗口大小改变舞台行为
@@ -216,11 +224,14 @@ export class Models {
   private changeAttributeByWindowSize(windowSizeType: WindowSizeType): void {
     switch (windowSizeType) {
       case WindowSizeType.mobile:
+        // 移动端
         this.applyMobileAttribute();
         this.stage.setStyle(this.currentMobileStageStyle);
         this.tips.setStyle(this.tips.userMobileStyle);
         break;
+
       case WindowSizeType.pc:
+        // pc端
         this.applyAttribute();
         this.stage.setStyle(this.currentStageStyle);
         this.tips.setStyle(this.tips.userStyle);

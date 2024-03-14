@@ -25,6 +25,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   },
   models: [],
   statusBar: {
+    errorColor: STATUS_BAR_ERROR_COLOR,
     style: {
       minWidth: '20px',
       minHeight: '40px',
@@ -47,13 +48,13 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
       flexWrap: 'wrap',
       fontSize: '14px',
       writingMode: 'vertical-lr',
-      cursor: 'pointer',
-      backgroundColor: PRIMARY_COLOR
-    },
-    stateColor: {
-      info: PRIMARY_COLOR,
-      error: STATUS_BAR_ERROR_COLOR
+      cursor: 'pointer'
+      // backgroundColor: PRIMARY_COLOR
     }
+    // stateColor: {
+    //   info: PRIMARY_COLOR,
+    //   error: STATUS_BAR_ERROR_COLOR
+    // }
   },
   tips: {
     messageLine: 3,
@@ -80,6 +81,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
       display: 'flex',
       alignItems: 'center',
       minHeight: '100px'
+      // backgroundColor: PRIMARY_COLOR
     },
     idleTips: {
       wordTheDay: false,

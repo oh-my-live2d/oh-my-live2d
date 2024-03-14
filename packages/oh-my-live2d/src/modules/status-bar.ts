@@ -2,7 +2,7 @@ import { mergeDeep } from 'tianjie';
 
 import { ELEMENT_ID } from '../config/index.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
-import { createElement, setStyleForElement } from '../utils/index.js';
+import { createElement, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
 const enum Status {
   display = 1,
@@ -18,6 +18,7 @@ export type HoverActionParams = {
   state: SystemState;
   content: string;
 };
+
 /**
  * 状态条
  */
@@ -26,45 +27,30 @@ export class StatusBar {
   transitionTime = 800;
   status: Status = Status.hidden;
 
-  options: DefaultOptions;
   private style: CSSProperties = {};
   private timer = 0;
-  constructor(options: DefaultOptions) {
-    this.options = options;
+  constructor(private options: DefaultOptions) {
+    // this.options = options;
     this.element = createElement({ id: ELEMENT_ID.statusBar, tagName: 'div', innerText: 'hello' });
+    // this.options.parentElement.append(this.element);
+
+    // this.initialize();
+  }
+
+  get userStyle(): CSSProperties {
+    return handleCommonStyle(this.options.statusBar.style || {});
+  }
+
+  initialize(options: DefaultOptions): void {
+    this.options = options;
+    this.setStyle(this.userStyle);
+    this.updateParentElement();
+  }
+
+  updateParentElement(): void {
+    this.element.remove();
     this.options.parentElement.append(this.element);
-
-    this.initStyle();
   }
-
-  initStyle(): void {
-    this.setStyle({
-      minWidth: '20px',
-      minHeight: '40px',
-      position: 'fixed',
-      transform: 'translateX(-110%)',
-      left: '0',
-      bottom: '80px',
-      padding: '7px 5px',
-      zIndex: '9998',
-      borderStyle: 'solid',
-      borderColor: '#fff',
-      fontWeight: 'bold',
-      borderRadius: '0 5px 5px 0',
-      borderWidth: '2px 2px 2px 0',
-      boxShadow: '0 0 5px #999',
-      color: '#fff',
-      display: 'flex',
-      alignItems: 'center',
-      textAlign: 'center',
-      flexWrap: 'wrap',
-      fontSize: '14px',
-      writingMode: 'vertical-lr',
-      cursor: 'pointer',
-      backgroundColor: this.options.primaryColor
-    });
-  }
-
   // 销毁
   destroy(): void {
     this.element.remove();
@@ -72,6 +58,7 @@ export class StatusBar {
 
   setStyle(style: CSSProperties): void {
     this.style = mergeDeep(this.style, style);
+    this.style.backgroundColor ||= this.stateColor.info;
     setStyleForElement(style, this.element);
   }
 
@@ -98,6 +85,10 @@ export class StatusBar {
         animationFillMode: 'forwards'
       });
       setTimeout(() => {
+        // 每次收起后移除所有事件
+        this.element.onclick = null;
+        this.element.onmousemove = null;
+        this.element.onmouseout = null;
         resolve(this.status);
       }, this.transitionTime);
     });
@@ -119,6 +110,7 @@ export class StatusBar {
   hideLoading(): void {
     this.popup('加载成功');
   }
+
   setHoverAction(inContent: HoverActionParams, outContent: HoverActionParams): void {
     this.element.onmouseover = (): void => {
       this.popup(inContent.content, inContent.state, false);
@@ -128,10 +120,12 @@ export class StatusBar {
     };
   }
 
+  // 清除hover
   clearHoverAction(): void {
     this.element.onmousemove = null;
     this.element.onmouseout = null;
   }
+
   /**
    * 专门处理加载失败, 需要传入一个重新加载的方法
    * @param reloadFn
@@ -163,12 +157,23 @@ export class StatusBar {
     // this.element.addEventListener('mouseout', mouseout);
   }
 
-  rest(isPermanent = false): void {
+  rest(isPermanent = false, callback?: () => void): void {
     if (isPermanent) {
-      this.popup('看板娘休息中', SystemState.info, false, () => {});
+      this.popup('看板娘休息中', SystemState.info, false, () => {
+        // this.popup('看板娘休息中', SystemState.info, 10);
+        void this.slideOut();
+        callback?.();
+      });
     } else {
       this.popup('看板娘休息中', SystemState.info, 8000);
     }
+  }
+
+  get stateColor(): { info: string; error: string } {
+    return {
+      info: this.options.primaryColor,
+      error: this.options.statusBar.errorColor
+    };
   }
   /**
    * 状态条弹出, 自动收起, delay为false时不收起
@@ -179,7 +184,7 @@ export class StatusBar {
   popup(message: string, state: SystemState = SystemState.info, delay: number | false = 1000, callback?: () => void): void {
     clearTimeout(this.timer);
     this.setContent(message);
-    this.setStyle({ backgroundColor: this.options.statusBar.stateColor[state] });
+    this.setStyle({ backgroundColor: this.stateColor[state] });
     void this.slideIn().then(() => {
       if (delay) {
         this.timer = setTimeout(() => {

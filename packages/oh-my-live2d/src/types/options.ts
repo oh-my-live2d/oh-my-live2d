@@ -107,3 +107,4 @@ export interface Options {
 
 export * from './model.js';
 export * from './tips.js';
+export * from './statusBar.js';
