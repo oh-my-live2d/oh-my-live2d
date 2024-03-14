@@ -1,23 +1,17 @@
-import { HitAreaFrames } from 'pixi-live2d-display/extra';
-import * as PIXI from 'pixi.js';
-
-import { setup } from './modules/index.js';
-import { loadLibrary } from './utils/index.js';
 import './library/iconfont.js';
+import { setup } from './modules/index.js';
+import { loadScript } from './utils/index.js';
 
 export * from './types/options.js';
-
 // @ts-ignore
-window.PIXI = PIXI;
-
-PIXI.utils.skipHello();
-
-export const loadOml2d = setup(async (importType, urls) => {
-  const PixiLive2dDisplay = await loadLibrary(importType, urls);
+export const loadOml2d = setup(async () => {
+  // await loadUmdLibrary(importType, urls);
+  await loadScript({ url: 'https://lib.oml2d.com/complete.js', id: 'test' });
+  window.PIXI.utils.skipHello();
 
   return {
-    HitAreaFrames,
-    PixiLive2dDisplay,
-    PIXI
+    PIXI: window.PIXI,
+    PixiLive2dDisplay: window.PIXI.live2d,
+    HitAreaFrames: window.PIXI.live2d.HitAreaFrames
   };
 });

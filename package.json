@@ -19,8 +19,9 @@
     "release": "dotenv lerna version --generate-release-notes --yes",
     "release:major": "dotenv lerna version major --generate-release-notes --yes",
     "run-tests": "lerna run test",
-    "test:build": "pnpm -r run test:build",
-    "test:dev": "pnpm -r run test:dev"
+    "test": "pnpm -F vite-app run test:dev",
+    "test:build": "pnpm -F vite-app run test:build",
+    "test:vue": "pnpm -F vue-app run test:dev"
   },
   "nano-staged": {
     "**/*": "prettier --write --ignore-unknown",

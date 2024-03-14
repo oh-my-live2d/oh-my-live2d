@@ -3,24 +3,84 @@ import type { DefaultOptions } from '../types/index.js';
 // 第三方库服务地址
 const libServicePath = 'https://lib.oml2d.com';
 
+export const PRIMARY_COLOR = '#38B0DE';
+export const STATUS_BAR_ERROR_COLOR = '#F08080';
 // 默认配置选项, 实例化时会与用户传进来的合并
 export const DEFAULT_OPTIONS: DefaultOptions = {
   mobileDisplay: false,
   fixed: true,
-  primaryColor: '#38B0DE',
+  primaryColor: PRIMARY_COLOR,
   sayHello: true,
   transitionTime: 1000,
   parentElement: document.body,
   importType: 'complete',
   libraryUrls: {
     cubism2: `${libServicePath}/live2d.min.js`,
-    cubism5: `${libServicePath}/live2dcubismcore.min.js`
+    cubism5: `${libServicePath}/live2dcubismcore.min.js`,
+    pixi: `${libServicePath}/pixi.min.js`,
+    pixiLive2dDisplay: `${libServicePath}/pixi-live2d-display.min.js`,
+    pixiLive2dDisplayCubism2: `${libServicePath}/pixi-live2d-display-cubism2.min.js`,
+    pixiLive2dDisplayCubism4: `${libServicePath}/pixi-live2d-display-cubism4.min.js`,
+    pixiLive2dDisplayExtra: `${libServicePath}/pixi-live2d-display-extra.min.js`
   },
   models: [],
+  statusBar: {
+    style: {
+      minWidth: '20px',
+      minHeight: '40px',
+      position: 'fixed',
+      transform: 'translateX(-110%)',
+      left: '0',
+      bottom: '80px',
+      padding: '7px 5px',
+      zIndex: '9998',
+      borderStyle: 'solid',
+      borderColor: '#fff',
+      fontWeight: 'bold',
+      borderRadius: '0 5px 5px 0',
+      borderWidth: '2px 2px 2px 0',
+      boxShadow: '0 0 5px #999',
+      color: '#fff',
+      display: 'flex',
+      alignItems: 'center',
+      textAlign: 'center',
+      flexWrap: 'wrap',
+      fontSize: '14px',
+      writingMode: 'vertical-lr',
+      cursor: 'pointer',
+      backgroundColor: PRIMARY_COLOR
+    },
+    stateColor: {
+      info: PRIMARY_COLOR,
+      error: STATUS_BAR_ERROR_COLOR
+    }
+  },
   tips: {
     messageLine: 3,
     mobileStyle: {},
-    style: {},
+    style: {
+      position: 'absolute',
+      fontSize: '18px',
+      borderRadius: '10px',
+      filter: 'drop-shadow(0 0 5px #999)',
+      border: '2px solid #fff',
+      color: '#fff',
+      padding: '5px 5px',
+      opacity: 0,
+      visibility: 'hidden',
+      transform: 'translateX(-50%)',
+      textAlign: 'center',
+      justifyContent: 'center',
+      animationDuration: `1000ms,1000ms`,
+      animationFillMode: 'forwards, none',
+      animationIterationCount: '1, infinite',
+      width: '60%',
+      left: '50%',
+      top: 0,
+      display: 'flex',
+      alignItems: 'center',
+      minHeight: '100px'
+    },
     idleTips: {
       wordTheDay: false,
       message: [],
@@ -50,22 +110,26 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   }
 };
 
-/** 第三方 SDK */
-export const SDK = {
-  PIXI: `${libServicePath}/pixi.min.js`,
-  PIXI_LIVE2D_DISPLAY: `${libServicePath}/pixi-live2d-display.min.js`,
-  PIXI_LIVE2D_DISPLAY_CUBISM2: `${libServicePath}/pixi-live2d-display-cubism2.min.js`,
-  PIXI_LIVE2D_DISPLAY_CUBISM4: `${libServicePath}/pixi-live2d-display-cubism4.min.js`,
-  PIXI_LIVE2D_DISPLAY_EXTRA: `${libServicePath}/pixi-live2d-display-extra.min.js`
+export const SDK_ID = {
+  cubism2: 'oml2d-cubism2',
+  cubism5: 'oml2d-cubism5',
+  pixi: 'oml2d-sdk-pixi',
+  pixiLive2dDisplay: 'oml2d-pixi-live2d-display',
+  pixiLive2dDisplayCubism2: 'oml2d-pixi-live2d-display-cubism2',
+  pixiLive2dDisplayCubism4: 'oml2d-pixi-live2d-display-cubism4',
+  // pixiLive2dDisplayCubism: 'oml2d-pixi-live2d-display-cubism',
+  pixiLive2dDisplayExtra: 'oml2d-pixi-live2d-display-extra'
 };
 
 /** 全局配置 */
-export const CONFIG = {
-  stageId: 'oml2dStage',
-  canvasId: 'oml2dCanvas',
-  statusBarId: 'oml2dStatusBar',
-  tipsId: 'oml2dTips',
-  menusId: 'oml2dMenus'
+export const ELEMENT_ID = {
+  globalStyle: 'oml2d-global-style',
+  stage: 'oml2d-stage',
+  canvas: 'oml2d-canvas',
+  statusBar: 'oml2d-statusBar',
+  tips: 'oml2d-tips',
+  menus: 'oml2d-menus',
+  iconSvg: 'oml2d-icon-svg'
 };
 
 /** 菜单的配置 */

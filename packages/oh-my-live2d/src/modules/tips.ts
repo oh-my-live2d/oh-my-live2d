@@ -1,13 +1,14 @@
 import { getRandomArrayItem, isFunction, mergeDeep, setIntervalAsync } from 'tianjie';
 
-import { CONFIG, TIPS_DEFAULT_STYLE } from '../config/index.js';
+import { ELEMENT_ID, TIPS_DEFAULT_STYLE } from '../config/index.js';
 import type { IdleTimer } from '../types/common.js';
-import type { CSSProperties, DefaultTipsOptions } from '../types/index.js';
-import { createElement, getWelcomeMessage, getWordTheDay, setStyleForElement, sleep } from '../utils/index.js';
+import type { CSSProperties, DefaultOptions, DefaultTipsOptions } from '../types/index.js';
+import { createElement, getWelcomeMessage, getWordTheDay, handleCommonStyle, setStyleForElement, sleep } from '../utils/index.js';
 
 export class Tips {
   private element: HTMLElement;
   // private status: Status = Status.Hidden;
+  options: DefaultOptions;
   idlePlayer?: IdleTimer;
   private closeTimer = 0;
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
@@ -16,23 +17,39 @@ export class Tips {
   private contentElement: HTMLElement;
   private contentStyle: CSSProperties = {};
   constructor(
-    stageElement: HTMLElement,
-    private tipsOptions: DefaultTipsOptions
+    private stageElement: HTMLElement,
+    options: DefaultOptions
+    // private tipsOptions: DefaultTipsOptions,
+    // private primaryColor: string
   ) {
-    this.element = createElement({ id: CONFIG.tipsId, tagName: 'div' });
+    this.options = options;
+    this.element = createElement({ id: ELEMENT_ID.tips, tagName: 'div' });
     this.contentElement = createElement({ id: 'oml2dTipsContent', tagName: 'div' });
     this.element.append(this.contentElement);
-    stageElement.append(this.element);
+    this.stageElement.append(this.element);
     this.initStyle();
+    // 创建空闲消息播放器
     this.idlePlayer = this.createIdleMessagePlayer();
+  }
+
+  get tipsOptions(): DefaultTipsOptions {
+    return this.options.tips;
+  }
+  get primaryColor(): string {
+    return this.options.primaryColor;
+  }
+  get userStyle(): CSSProperties {
+    return handleCommonStyle(this.tipsOptions.style || {});
+  }
+  get userMobileStyle(): CSSProperties {
+    return handleCommonStyle(this.tipsOptions.mobileStyle || {});
   }
 
   /**
    * 初始化样式
    */
   initStyle(): void {
-    // this.setStyle();
-
+    this.setStyle({ backgroundColor: this.primaryColor });
     this.setContentStyle({
       wordBreak: 'break-all',
       display: '-webkit-box',
@@ -41,12 +58,6 @@ export class Tips {
       WebkitLineClamp: this.tipsOptions.messageLine,
       overflow: 'hidden'
     });
-
-    // if (this.tipsOptions) {
-    //   const style = handleCommonStyle(this.tipsOptions.style || {});
-
-    //   this.setStyle(style);
-    // }
   }
 
   /**
@@ -134,7 +145,6 @@ export class Tips {
       this.notification(messageText, this.tipsOptions.copyTips.duration, this.tipsOptions.copyTips.priority);
     }
   }
-
   /**
    * 创建闲置消息播放器
    * @returns

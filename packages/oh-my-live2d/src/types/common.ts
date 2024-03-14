@@ -1,3 +1,5 @@
+import { CSSProperties } from 'src/types/index.js';
+
 export type IdleTimer = {
   start: () => Promise<void>;
   stop: () => void;
@@ -24,4 +26,9 @@ export type WordTheDayData = {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   created_at: string;
   length: number;
+};
+
+export type CommonStyleType = Omit<CSSProperties, 'width' | 'height'> & {
+  width?: number | string;
+  height?: number | string;
 };

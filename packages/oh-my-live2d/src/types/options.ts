@@ -1,4 +1,5 @@
 import type { ModelOptions } from './model.js';
+import type { StatusBarOptions } from './statusBar.js';
 import type { TipsOptions } from './tips.js';
 
 import type { ImportType } from './index.js';
@@ -44,6 +45,12 @@ export interface Options {
      * @default oh-my-live2d提供的默认地址
      */
     cubism5?: string;
+
+    pixi?: string;
+    pixiLive2dDisplay?: string;
+    pixiLive2dDisplayCubism2?: string;
+    pixiLive2dDisplayCubism4?: string;
+    pixiLive2dDisplayExtra?: string;
   };
 
   /**
@@ -77,6 +84,7 @@ export interface Options {
    */
   tips?: TipsOptions;
 
+  statusBar?: StatusBarOptions;
   /**
    * 为组件提供一个父元素，如果未指定则默认挂载到 body 中
    * @valueType HtmlElement

@@ -1,6 +1,6 @@
 import { mergeDeep } from 'tianjie';
 
-import { CONFIG, MENU_ITEMS } from '../config/index.js';
+import { ELEMENT_ID, MENU_ITEMS } from '../config/index.js';
 import type { CSSProperties } from '../types/index.js';
 import { createElement, setStyleForElement } from '../utils/index.js';
 
@@ -10,7 +10,7 @@ export class Menus {
   private clickItem?: ((name: string) => void) | ((name: string) => Promise<void>);
 
   constructor(private stageElement: HTMLElement) {
-    this.element = createElement({ id: CONFIG.menusId, tagName: 'div', className: CONFIG.menusId });
+    this.element = createElement({ id: ELEMENT_ID.menus, tagName: 'div', className: ELEMENT_ID.menus });
     this.createMenuItem();
     this.stageElement.append(this.element);
     this.ininStyle();

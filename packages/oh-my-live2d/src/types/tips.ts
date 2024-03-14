@@ -1,5 +1,4 @@
-import type { WordTheDayData } from '../types/common.js';
-import type { CommonStyleType } from '../types/index.js';
+import type { CommonStyleType, WordTheDayData } from '../types/common.js';
 
 /**
  * # 提示框选项

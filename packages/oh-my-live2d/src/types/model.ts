@@ -1,4 +1,4 @@
-import { CommonStyleType } from '../types/index.js';
+import { CommonStyleType } from '../types/common.js';
 
 /**
  * # 模型配置选项

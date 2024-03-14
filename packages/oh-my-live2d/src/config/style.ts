@@ -1,3 +1,4 @@
+import { ELEMENT_ID } from '../config/config.js';
 import { CSSProperties } from '../types/index.js';
 
 export const generateGlobalStyle = (primaryColor: string): string => {
@@ -96,7 +97,7 @@ export const generateGlobalStyle = (primaryColor: string): string => {
     box-shadow: 0 0 5px #000;
   }
   
-  #oml2dMenus .oml2d-menus-item:not(:last-child) {
+  #${ELEMENT_ID.menus} .oml2d-menus-item:not(:last-child) {
     margin-bottom: 10px;
   }
   

@@ -2,12 +2,14 @@ import type CSS from 'csstype';
 import type { Live2DModel } from 'pixi-live2d-display';
 import type { HitAreaFrames } from 'pixi-live2d-display/extra';
 import type { Application } from 'pixi.js';
-import type { DEFAULT_OPTIONS } from 'src/config/config.js';
 
+import { CommonStyleType } from './common.js';
 import type { ModelOptions } from './model.js';
 import type { Options } from './options.js';
+import { StatusBarOptions } from './statusBar.js';
 import { TipsOptions } from './tips.js';
 import type { DeepRequired } from './utils.js';
+import type { DEFAULT_OPTIONS } from '../config/config.js';
 
 export * from './options.js';
 export * from './utils.js';
@@ -24,22 +26,43 @@ export type ApplicationType = typeof Application;
 
 export type CSSProperties = CSS.Properties;
 
-export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models' | 'tips'> & {
+export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models' | 'tips' | 'statusBar'> & {
   parentElement: HTMLElement;
   tips: DefaultTipsOptions;
+  statusBar: DefaultStatusBarOptions;
 } & {
   models: ModelOptions[];
 };
+
 export type DefaultTipsOptions = Omit<DeepRequired<TipsOptions>, 'style' | 'mobileStyle'> & {
   style?: CommonStyleType;
   mobileStyle?: CommonStyleType;
 };
 
+export type DefaultStatusBarOptions = Omit<DeepRequired<StatusBarOptions>, 'style'> & {
+  style?: CommonStyleType;
+};
+
 export type Live2DModelType = typeof Live2DModel;
 
 export type LibraryUrls = {
-  cubism2: string;
-  cubism5: string;
+  /**
+   * 自定义 Cubism2 SDK 地址
+   * @default oh-my-live2d提供的默认地址
+   */
+  cubism2?: string;
+
+  /**
+   * 自定义 Cubism5 SDK 地址
+   * @default oh-my-live2d提供的默认地址
+   */
+  cubism5?: string;
+
+  pixi?: string;
+  pixiLive2dDisplay?: string;
+  pixiLive2dDisplayCubism2?: string;
+  pixiLive2dDisplayCubism4?: string;
+  pixiLive2dDisplayExtra?: string;
 };
 
 export interface ElementConfig {
@@ -62,8 +85,3 @@ export type LoadMethod = (
   PixiLive2dDisplay: PixiLive2dDisplayModule;
   HitAreaFrames: typeof HitAreaFrames;
 }>;
-
-export type CommonStyleType = Omit<CSSProperties, 'width' | 'height'> & {
-  width?: number | string;
-  height?: number | string;
-};

@@ -1,7 +1,7 @@
 import { mergeDeep } from 'tianjie';
 
-import { CONFIG } from '../config/index.js';
-import type { CSSProperties } from '../types/index.js';
+import { ELEMENT_ID } from '../config/index.js';
+import type { CSSProperties, DefaultOptions } from '../types/index.js';
 import { createElement, setStyleForElement } from '../utils/index.js';
 
 const enum Status {
@@ -14,6 +14,10 @@ export const enum SystemState {
   error = 'error'
 }
 
+export type HoverActionParams = {
+  state: SystemState;
+  content: string;
+};
 /**
  * 状态条
  */
@@ -22,14 +26,13 @@ export class StatusBar {
   transitionTime = 800;
   status: Status = Status.hidden;
 
+  options: DefaultOptions;
   private style: CSSProperties = {};
   private timer = 0;
-  constructor(
-    private wrapperElement: HTMLElement,
-    private stateColor: { info: string; error: string }
-  ) {
-    this.element = createElement({ id: CONFIG.statusBarId, tagName: 'div', innerText: 'hello' });
-    this.wrapperElement.append(this.element);
+  constructor(options: DefaultOptions) {
+    this.options = options;
+    this.element = createElement({ id: ELEMENT_ID.statusBar, tagName: 'div', innerText: 'hello' });
+    this.options.parentElement.append(this.element);
 
     this.initStyle();
   }
@@ -57,8 +60,14 @@ export class StatusBar {
       flexWrap: 'wrap',
       fontSize: '14px',
       writingMode: 'vertical-lr',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      backgroundColor: this.options.primaryColor
     });
+  }
+
+  // 销毁
+  destroy(): void {
+    this.element.remove();
   }
 
   setStyle(style: CSSProperties): void {
@@ -110,7 +119,19 @@ export class StatusBar {
   hideLoading(): void {
     this.popup('加载成功');
   }
+  setHoverAction(inContent: HoverActionParams, outContent: HoverActionParams): void {
+    this.element.onmouseover = (): void => {
+      this.popup(inContent.content, inContent.state, false);
+    };
+    this.element.onmouseout = (): void => {
+      this.popup(outContent.content, outContent.state, false);
+    };
+  }
 
+  clearHoverAction(): void {
+    this.element.onmousemove = null;
+    this.element.onmouseout = null;
+  }
   /**
    * 专门处理加载失败, 需要传入一个重新加载的方法
    * @param reloadFn
@@ -120,26 +141,35 @@ export class StatusBar {
 
     // this.setStyle({})
     // 添加 mouseover 事件监听器
-    const mouseover = (): void => {
-      this.popup('重新加载', SystemState.info, false);
-    };
+    // const mouseover = (): void => {
+    //   this.popup('重新加载', SystemState.info, false);
+    // };
 
-    const mouseout = (): void => {
-      this.popup('加载失败', SystemState.error, false);
-    };
-
+    // const mouseout = (): void => {
+    //   this.popup('加载失败', SystemState.error, false);
+    // };
+    this.setHoverAction({ content: '重新加载', state: SystemState.info }, { content: '加载失败', state: SystemState.error });
     const handleClick = (): void => {
       reloadFn();
-      this.element.removeEventListener('mouseout', mouseout);
-      this.element.removeEventListener('mouseover', mouseover);
+      // this.element.removeEventListener('mouseout', mouseout);
+      // this.element.removeEventListener('mouseover', mouseover);
+      this.clearHoverAction();
       this.element.removeEventListener('click', handleClick);
+      this.showLoading();
     };
 
     this.element.addEventListener('click', handleClick);
-    this.element.addEventListener('mouseover', mouseover);
-    this.element.addEventListener('mouseout', mouseout);
+    // this.element.addEventListener('mouseover', mouseover);
+    // this.element.addEventListener('mouseout', mouseout);
   }
 
+  rest(isPermanent = false): void {
+    if (isPermanent) {
+      this.popup('看板娘休息中', SystemState.info, false, () => {});
+    } else {
+      this.popup('看板娘休息中', SystemState.info, 8000);
+    }
+  }
   /**
    * 状态条弹出, 自动收起, delay为false时不收起
    * @param message
@@ -149,7 +179,7 @@ export class StatusBar {
   popup(message: string, state: SystemState = SystemState.info, delay: number | false = 1000, callback?: () => void): void {
     clearTimeout(this.timer);
     this.setContent(message);
-    this.setStyle({ backgroundColor: this.stateColor[state] });
+    this.setStyle({ backgroundColor: this.options.statusBar.stateColor[state] });
     void this.slideIn().then(() => {
       if (delay) {
         this.timer = setTimeout(() => {

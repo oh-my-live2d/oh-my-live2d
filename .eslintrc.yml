@@ -41,7 +41,7 @@ rules:
       allowTypedFunctionExpressions: true
 
   '@typescript-eslint/naming-convention':
-    - warn
+    - off
     - selector: default
       format:
         - camelCase
