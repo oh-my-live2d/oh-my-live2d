@@ -19,10 +19,10 @@ void loadOml2d({
     {
       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
       scale: 0.4,
-      position: [0, 50],
+      position: [0, 0],
       mobileScale: 0.35,
       stageStyle: {
-        height: 300
+        // height: 300
       }
     }
   ],
@@ -39,17 +39,17 @@ void loadOml2d({
     }
   }
 }).then((oml2d) => {
-  setTimeout(() => {
-    oml2d.updateOptions({
-      models: [
-        {
-          path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-          stageStyle: {},
-          mobileScale: 0.08
-        }
-      ]
-    });
-  }, 1000);
+  // setTimeout(() => {
+  //   oml2d.updateOptions({
+  //     models: [
+  //       {
+  //         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+  //         stageStyle: {},
+  //         mobileScale: 0.08
+  //       }
+  //     ]
+  //   });
+  // }, 1000);
 });
 // void loadOml2d({
 //   models: [

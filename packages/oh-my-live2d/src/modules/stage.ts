@@ -1,35 +1,81 @@
 import { mergeDeep } from 'tianjie';
 
 import { ELEMENT_ID } from '../config/index.js';
+import { WindowSizeType } from '../constants/index.js';
+import { CommonStyleType } from '../types/common.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
-import { createElement, setStyleForElement } from '../utils/index.js';
+import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
-const enum Status {
-  display = 1,
-  hidden = 0
-}
+// const enum Status {
+//   display = true,
+//   hidden = false
+// }
 
 export class Stage {
-  element: HTMLElement;
-  canvasElement: HTMLCanvasElement;
-  status: Status = Status.hidden;
-  // options: DefaultOptions;
+  element?: HTMLElement;
+  canvasElement?: HTMLCanvasElement;
+  // status: Status = Status.hidden;
+
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
-  private slideChangeEnd?: (status: Status) => void;
+  private slideChangeEnd?: (status: boolean) => void;
+  private currentModelIndex = 0;
+  constructor(private options: DefaultOptions) {}
 
-  constructor(private options: DefaultOptions) {
-    // this.options = options;
+  create(): void {
     this.element = createElement({ id: ELEMENT_ID.stage, tagName: 'div' });
     this.canvasElement = createElement({ id: ELEMENT_ID.canvas, tagName: 'canvas' }) as HTMLCanvasElement;
-    // this.initialize();
   }
 
-  // 销毁
-  destroy(): void {
-    this.element.remove();
+  set modelIndex(index: number) {
+    this.currentModelIndex = index;
   }
 
+  get modelIndex(): number {
+    return this.currentModelIndex;
+  }
+
+  mount(): void {
+    if (this.element && this.canvasElement) {
+      this.element.append(this.canvasElement);
+      this.options.parentElement.append(this.element);
+    }
+  }
+
+  initializeStyle(): void {
+    this.setStyle({
+      width: '0px',
+      height: '0px',
+      position: 'fixed',
+      left: 0,
+      bottom: 0,
+      zIndex: '9997',
+      transform: 'translateY(130%)'
+    });
+    this.reloadStyle();
+  }
+
+  reloadStyle(modelSize: CommonStyleType = {}): void {
+    switch (getWindowSizeType()) {
+      case WindowSizeType.mobile:
+        modelSize = mergeDeep(modelSize, this.options.models[this.modelIndex].mobileStageStyle || {});
+        this.setStyle(handleCommonStyle(modelSize));
+        break;
+      case WindowSizeType.pc:
+        modelSize = mergeDeep(modelSize, this.options.models[this.modelIndex].stageStyle || {});
+        this.setStyle(handleCommonStyle(modelSize));
+        break;
+    }
+  }
+
+  unMount(): void {
+    this.element?.remove();
+  }
+
+  reMount(): void {
+    this.unMount();
+    this.mount();
+  }
   // create(): void {
   //   const stageFragment = document.createDocumentFragment();
 
@@ -48,52 +94,39 @@ export class Stage {
   //   // };
   // }
 
-  initialize(options: DefaultOptions): void {
-    this.options = options;
-    this.setStyle({
-      width: '0px',
-      height: '0px',
-      position: 'fixed',
-      left: 0,
-      bottom: 0,
-      zIndex: '9997',
-      transform: 'translateY(130%)'
-    });
-    this.element.append(this.canvasElement);
-    this.updateParentElement();
-  }
+  // updateStyle(): void {}
+  // initialize(): void {
+  // this.element.append(this.canvasElement);
+  // this.updateParentElement();
+  // }
 
-  updateParentElement(): void {
-    this.element.remove();
-    this.options.parentElement.append(this.element);
-  }
-  // initStyle(): void {
-  //   this.setStyle({
-  //     width: '0px',
-  //     height: '0px',
-  //     position: 'fixed',
-  //     left: 0,
-  //     bottom: 0,
-  //     zIndex: '9997',
-  //     transform: 'translateY(130%)'
-  //   });
+  // updateParentElement(): void {
+  //   if (this.element) {
+  //     this.element.remove();
+  //     this.options.parentElement.append(this.element);
+  //   }
   // }
 
   setStyle(style: CSSProperties, callback?: () => void): void {
-    this.style = mergeDeep(this.style, style);
-    setStyleForElement(this.style, this.element);
-    this.setCanvasStyle({ width: '100%', height: '100%', zIndex: '9998', position: 'relative' });
-    callback?.();
+    if (this.element) {
+      this.style = mergeDeep(this.style, style);
+      setStyleForElement(this.style, this.element);
+      this.setCanvasStyle({ width: '100%', height: '100%', zIndex: '9998', position: 'relative' });
+      callback?.();
+    }
   }
 
   setCanvasStyle(style: CSSProperties): void {
-    this.canvasStyle = mergeDeep(this.canvasStyle, style);
-    setStyleForElement(this.canvasStyle, this.canvasElement);
+    if (this.canvasElement) {
+      this.canvasStyle = mergeDeep(this.canvasStyle, style);
+      setStyleForElement(this.canvasStyle, this.canvasElement);
+    }
   }
 
   get transitionTime(): number {
     return this.options.transitionTime;
   }
+
   /**
    * 滑入
    */
@@ -103,11 +136,11 @@ export class Stage {
       animationDuration: `${this.transitionTime}ms`,
       animationFillMode: 'forwards'
     });
-    this.status = Status.display;
+    // this.status = Status.display;
 
     return new Promise<void>((resolve) => {
       setTimeout(() => {
-        this.slideChangeEnd?.(this.status);
+        this.slideChangeEnd?.(true);
         resolve();
       }, this.transitionTime);
     });
@@ -122,11 +155,11 @@ export class Stage {
       animationDuration: `${this.transitionTime}ms`,
       animationFillMode: 'forwards'
     });
-    this.status = Status.hidden;
+    // this.status = Status.hidden;
 
     return new Promise<void>((resolve) =>
       setTimeout(() => {
-        this.slideChangeEnd?.(this.status);
+        this.slideChangeEnd?.(false);
         resolve();
       }, this.transitionTime)
     );
@@ -136,13 +169,7 @@ export class Stage {
    * 场景的滑入滑出动画执行结束事件
    * @param fn
    */
-  onChangeSlideEnd(fn: (status: Status) => void): void {
+  onChangeSlideEnd(fn: (status: boolean) => void): void {
     this.slideChangeEnd = fn;
   }
-
-  // applyOptions(): void {
-
-  // }
-
-  // applyMobileOptions() {}
 }

@@ -1,12 +1,22 @@
 import { getRandomArrayItem, isFunction, mergeDeep, setIntervalAsync } from 'tianjie';
 
 import { ELEMENT_ID } from '../config/index.js';
+import { WindowSizeType } from '../constants/index.js';
 import type { IdleTimer } from '../types/common.js';
-import type { CSSProperties, DefaultOptions } from '../types/index.js';
-import { createElement, getWelcomeMessage, getWordTheDay, handleCommonStyle, setStyleForElement, sleep } from '../utils/index.js';
+import type { CSSProperties, DefaultOptions, DefaultTipsOptions } from '../types/index.js';
+import {
+  createElement,
+  getWelcomeMessage,
+  getWindowSizeType,
+  getWordTheDay,
+  handleCommonStyle,
+  setStyleForElement,
+  sleep
+} from '../utils/index.js';
 
 export class Tips {
-  private element: HTMLElement;
+  private element?: HTMLElement;
+  private contentElement?: HTMLElement;
   // private status: Status = Status.Hidden;
   // options: DefaultOptions;
   idlePlayer?: IdleTimer;
@@ -14,43 +24,56 @@ export class Tips {
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
   private style: CSSProperties = {};
   private priority = 0; // 当前优先级
-  private contentElement: HTMLElement;
   private contentStyle: CSSProperties = {};
-  constructor(
-    private stageElement: HTMLElement,
-    private options: DefaultOptions
-    // private tipsOptions: DefaultTipsOptions,
-    // private primaryColor: string
-  ) {
-    // this.options = options;
-    this.element = createElement({ id: ELEMENT_ID.tips, tagName: 'div' });
-    this.contentElement = createElement({ id: 'oml2dTipsContent', tagName: 'div' });
-    this.element.append(this.contentElement);
-    this.stageElement.append(this.element);
-    // this.initStyle();
+  constructor(private options: DefaultOptions) {
     // 创建空闲消息播放器
     this.idlePlayer = this.createIdleMessagePlayer();
   }
 
+  get tipsOptions(): DefaultTipsOptions {
+    return this.options.tips;
+  }
+
+  create(): void {
+    this.element = createElement({ id: ELEMENT_ID.tips, tagName: 'div' });
+    this.contentElement = createElement({ id: 'oml2dTipsContent', tagName: 'div' });
+  }
+
+  mount(stageElement: HTMLElement): void {
+    if (this.element && this.contentElement) {
+      this.element.append(this.contentElement);
+      stageElement.append(this.element);
+    }
+  }
   // get tipsOptions(): DefaultTipsOptions {
   //   return this.options.tips;
   // }
   get primaryColor(): string {
     return this.options.primaryColor;
   }
-  get userStyle(): CSSProperties {
-    return handleCommonStyle(this.options.tips.style || {});
-  }
-  get userMobileStyle(): CSSProperties {
-    return handleCommonStyle(this.options.tips.mobileStyle || {});
+
+  // get userStyle(): CSSProperties {}
+  // get userMobileStyle(): CSSProperties {
+  //   return handleCommonStyle(this.options.tips.mobileStyle || {});
+  // }
+
+  //
+  reloadStyle(): void {
+    switch (getWindowSizeType()) {
+      case WindowSizeType.pc:
+        this.setStyle(handleCommonStyle(this.options.tips.style || {}));
+        break;
+      case WindowSizeType.mobile:
+        this.setStyle(handleCommonStyle(this.options.tips.mobileStyle || {}));
+        break;
+    }
   }
 
   /**
-   * 初始化
+   * 初始化样式
    */
-  initialize(options: DefaultOptions): void {
-    this.options = options;
-    this.setStyle(this.userStyle);
+  initializeStyle(): void {
+    this.reloadStyle();
     this.setContentStyle({
       wordBreak: 'break-all',
       display: '-webkit-box',
@@ -66,25 +89,30 @@ export class Tips {
    * @param style
    */
   setStyle(style: CSSProperties = {}): void {
-    this.style = mergeDeep(this.style, style);
-    this.style.backgroundColor ||= this.options.primaryColor;
-    setStyleForElement(this.style, this.element);
+    if (this.element) {
+      this.style = mergeDeep(this.style, style);
+      this.style.backgroundColor ||= this.options.primaryColor;
+      setStyleForElement(this.style, this.element);
+    }
   }
 
   setContentStyle(style: CSSProperties): void {
-    this.contentStyle = mergeDeep(this.contentStyle, style);
-    setStyleForElement(this.contentStyle, this.contentElement);
+    if (this.contentElement) {
+      this.contentStyle = mergeDeep(this.contentStyle, style);
+      setStyleForElement(this.contentStyle, this.contentElement);
+    }
   }
 
   private setContent(message: string): void {
-    this.contentElement.innerHTML = message;
+    if (this.contentElement) {
+      this.contentElement.innerHTML = message;
+    }
   }
 
   showMessage(message: string, duration = 3000, priority = 0): void {
     if (priority < this.priority) {
       return;
     }
-    this.priority = priority;
     if (this.closeTimer) {
       clearTimeout(this.closeTimer);
     }
@@ -152,30 +180,26 @@ export class Tips {
    * @returns
    */
   private createIdleMessagePlayer(): undefined | IdleTimer {
-    if (!this.options.tips) {
-      return;
-    }
-    const { message: messages, duration, priority } = this.options.tips.idleTips;
     let message = '';
     const timer = setIntervalAsync(async () => {
       // 是否开启每日一言
-      if (this.options.tips.idleTips.wordTheDay) {
-        if (isFunction(this.options.tips.idleTips.wordTheDay)) {
-          message = await getWordTheDay(this.options.tips.idleTips.wordTheDay);
+      if (this.tipsOptions.idleTips.wordTheDay) {
+        if (isFunction(this.tipsOptions.idleTips.wordTheDay)) {
+          message = await getWordTheDay(this.tipsOptions.idleTips.wordTheDay);
         } else {
           message = await getWordTheDay();
         }
       } else {
-        if (isFunction(messages)) {
-          message = await messages();
+        if (isFunction(this.tipsOptions.idleTips.message)) {
+          message = await this.tipsOptions.idleTips.message();
         } else {
-          message = getRandomArrayItem(messages || []) || '';
+          message = getRandomArrayItem(this.tipsOptions.idleTips.message || []) || '';
         }
       }
 
       if (message) {
-        this.showMessage(message, duration, priority);
-        await sleep(duration);
+        this.showMessage(message, this.tipsOptions.idleTips.duration, this.tipsOptions.idleTips.priority);
+        await sleep(this.tipsOptions.idleTips.duration);
       } else {
         timer.stop();
       }

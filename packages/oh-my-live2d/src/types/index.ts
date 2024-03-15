@@ -5,7 +5,7 @@ import type { Application } from 'pixi.js';
 
 import { CommonStyleType } from './common.js';
 import type { ModelOptions } from './model.js';
-import type { Options } from './options.js';
+import type { MenusOptions, Options } from './options.js';
 import { StatusBarOptions } from './statusBar.js';
 import { TipsOptions } from './tips.js';
 import type { DeepRequired } from './utils.js';
@@ -26,11 +26,11 @@ export type ApplicationType = typeof Application;
 
 export type CSSProperties = CSS.Properties;
 
-export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models' | 'tips' | 'statusBar'> & {
+export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models' | 'tips' | 'statusBar' | 'menus'> & {
   parentElement: HTMLElement;
   tips: DefaultTipsOptions;
   statusBar: DefaultStatusBarOptions;
-} & {
+  menus: DefaultMenusOptions;
   models: ModelOptions[];
 };
 
@@ -43,7 +43,14 @@ export type DefaultStatusBarOptions = Omit<DeepRequired<StatusBarOptions>, 'styl
   style?: CommonStyleType;
 };
 
+export type DefaultMenusOptions = Omit<DeepRequired<MenusOptions>, 'style' | 'itemStyle'> & {
+  style?: CommonStyleType;
+  itemStyle?: CommonStyleType;
+};
+
 export type Live2DModelType = typeof Live2DModel;
+
+export type HitAreaFramesModule = typeof HitAreaFrames;
 
 export type LibraryUrls = {
   /**
@@ -83,5 +90,5 @@ export type LoadMethod = (
 ) => Promise<{
   PIXI: PixiModule;
   PixiLive2dDisplay: PixiLive2dDisplayModule;
-  HitAreaFrames: typeof HitAreaFrames;
+  HitAreaFrames: HitAreaFramesModule;
 }>;

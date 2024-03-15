@@ -1,3 +1,4 @@
+import type { MenusOptions } from './menus.js';
 import type { ModelOptions } from './model.js';
 import type { StatusBarOptions } from './statusBar.js';
 import type { TipsOptions } from './tips.js';
@@ -85,6 +86,11 @@ export interface Options {
   tips?: TipsOptions;
 
   statusBar?: StatusBarOptions;
+
+  /**
+   * 菜单配置
+   */
+  menus?: MenusOptions;
   /**
    * 为组件提供一个父元素，如果未指定则默认挂载到 body 中
    * @valueType HtmlElement
@@ -108,3 +114,4 @@ export interface Options {
 export * from './model.js';
 export * from './tips.js';
 export * from './statusBar.js';
+export * from './menus.js';

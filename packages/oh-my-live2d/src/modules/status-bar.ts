@@ -1,8 +1,9 @@
 import { mergeDeep } from 'tianjie';
 
 import { ELEMENT_ID } from '../config/index.js';
+import { WindowSizeType } from '../constants/index.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
-import { createElement, handleCommonStyle, setStyleForElement } from '../utils/index.js';
+import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
 const enum Status {
   display = 1,
@@ -23,7 +24,7 @@ export type HoverActionParams = {
  * 状态条
  */
 export class StatusBar {
-  element: HTMLElement;
+  element?: HTMLElement;
   transitionTime = 800;
   status: Status = Status.hidden;
 
@@ -31,35 +32,66 @@ export class StatusBar {
   private timer = 0;
   constructor(private options: DefaultOptions) {
     // this.options = options;
-    this.element = createElement({ id: ELEMENT_ID.statusBar, tagName: 'div', innerText: 'hello' });
+    // this.element = createElement({ id: ELEMENT_ID.statusBar, tagName: 'div', innerText: 'hello' });
     // this.options.parentElement.append(this.element);
-
     // this.initialize();
   }
 
+  create(): void {
+    this.element = createElement({ id: ELEMENT_ID.statusBar, tagName: 'div', innerText: 'hello' });
+  }
+  mount(): void {
+    if (this.element) {
+      this.options.parentElement.append(this.element);
+    }
+  }
   get userStyle(): CSSProperties {
     return handleCommonStyle(this.options.statusBar.style || {});
   }
 
-  initialize(options: DefaultOptions): void {
-    this.options = options;
-    this.setStyle(this.userStyle);
-    this.updateParentElement();
+  reloadStyle(): void {
+    switch (getWindowSizeType()) {
+      case WindowSizeType.pc:
+        this.setStyle(handleCommonStyle(this.options.statusBar.style || {}));
+        break;
+      case WindowSizeType.mobile:
+        this.setStyle(handleCommonStyle(this.options.statusBar.style || {}));
+        break;
+    }
   }
 
-  updateParentElement(): void {
-    this.element.remove();
-    this.options.parentElement.append(this.element);
+  // 初始化样式
+  initializeStyle(): void {
+    this.reloadStyle();
   }
-  // 销毁
-  destroy(): void {
-    this.element.remove();
+
+  // 卸载
+  unMount(): void {
+    this.element?.remove();
   }
+
+  // 重新挂载
+  reMounte(): void {
+    this.unMount();
+    this.mount();
+  }
+  // updateParentElement(): void {
+  //   if (this.element) {
+  //     this.element.remove();
+  //     this.options.parentElement.append(this.element);
+  //   }
+  // }
+  // // 销毁
+  // destroy(): void {
+  //   this.element.remove();
+  // }
 
   setStyle(style: CSSProperties): void {
-    this.style = mergeDeep(this.style, style);
-    this.style.backgroundColor ||= this.stateColor.info;
-    setStyleForElement(style, this.element);
+    if (this.element) {
+      this.style = mergeDeep(this.style, style);
+      this.style.backgroundColor ||= this.stateColor.info;
+      setStyleForElement(style, this.element);
+    }
   }
 
   private slideIn(): Promise<Status> {
@@ -85,10 +117,12 @@ export class StatusBar {
         animationFillMode: 'forwards'
       });
       setTimeout(() => {
-        // 每次收起后移除所有事件
-        this.element.onclick = null;
-        this.element.onmousemove = null;
-        this.element.onmouseout = null;
+        if (this.element) {
+          // 每次收起后移除所有事件
+          this.element.onclick = null;
+          this.element.onmousemove = null;
+          this.element.onmouseout = null;
+        }
         resolve(this.status);
       }, this.transitionTime);
     });
@@ -112,18 +146,22 @@ export class StatusBar {
   }
 
   setHoverAction(inContent: HoverActionParams, outContent: HoverActionParams): void {
-    this.element.onmouseover = (): void => {
-      this.popup(inContent.content, inContent.state, false);
-    };
-    this.element.onmouseout = (): void => {
-      this.popup(outContent.content, outContent.state, false);
-    };
+    if (this.element) {
+      this.element.onmouseover = (): void => {
+        this.popup(inContent.content, inContent.state, false);
+      };
+      this.element.onmouseout = (): void => {
+        this.popup(outContent.content, outContent.state, false);
+      };
+    }
   }
 
   // 清除hover
   clearHoverAction(): void {
-    this.element.onmousemove = null;
-    this.element.onmouseout = null;
+    if (this.element) {
+      this.element.onmousemove = null;
+      this.element.onmouseout = null;
+    }
   }
 
   /**
@@ -148,11 +186,11 @@ export class StatusBar {
       // this.element.removeEventListener('mouseout', mouseout);
       // this.element.removeEventListener('mouseover', mouseover);
       this.clearHoverAction();
-      this.element.removeEventListener('click', handleClick);
+      this.element?.removeEventListener('click', handleClick);
       this.showLoading();
     };
 
-    this.element.addEventListener('click', handleClick);
+    this.element?.addEventListener('click', handleClick);
     // this.element.addEventListener('mouseover', mouseover);
     // this.element.addEventListener('mouseout', mouseout);
   }
@@ -191,7 +229,7 @@ export class StatusBar {
           void this.slideOut();
         }, delay);
       } else {
-        if (callback) {
+        if (callback && this.element) {
           this.element.onclick = callback;
         }
       }
@@ -199,6 +237,8 @@ export class StatusBar {
   }
 
   setContent(content: string): void {
-    this.element.innerHTML = content;
+    if (this.element) {
+      this.element.innerHTML = content;
+    }
   }
 }

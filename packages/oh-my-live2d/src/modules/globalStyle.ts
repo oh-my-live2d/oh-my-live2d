@@ -7,25 +7,42 @@ import { createElement } from '../utils/index.js';
 
 // 全局样式
 export class GlobalStyle {
-  styleSheet: HTMLElement;
+  styleSheet?: HTMLElement;
   // options: DefaultOptions;
   constructor(private options: DefaultOptions) {
     // this.options = options;
     // destroyElement(ELEMENT_ID.globalStyle);
+  }
+
+  // 创建
+  create(): void {
     this.styleSheet = createElement({
       tagName: 'style',
       id: ELEMENT_ID.globalStyle,
       innerHtml: generateGlobalStyle(this.options.primaryColor)
     });
-    document.head.append(this.styleSheet);
+  }
+  //挂载
+  mount(): void {
+    if (this.styleSheet) {
+      document.head.append(this.styleSheet);
+    }
   }
 
-  reloadStyleSheet(): void {
-    this.styleSheet.innerHTML = generateGlobalStyle(this.options.primaryColor);
-  }
+  // // 初始化
+  // update(options: DefaultOptions): void {
+  //   this.options = options;
+  //   this.reloadStyleSheet();
+  // }
 
-  initialize(options: DefaultOptions): void {
-    this.options = options;
+  initializeStyle(): void {
     this.reloadStyleSheet();
+  }
+
+  // 重载样式表
+  reloadStyleSheet(): void {
+    if (this.styleSheet) {
+      this.styleSheet.innerHTML = generateGlobalStyle(this.options.primaryColor);
+    }
   }
 }

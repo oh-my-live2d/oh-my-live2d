@@ -109,6 +109,19 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
       priority: 3,
       message: ['你复制了什么内容呢?记得注明出处哦~']
     }
+  },
+  menus: {
+    style: {
+      transition: 'all 500ms',
+      visibility: 'hidden',
+      opacity: 0,
+      position: 'absolute',
+      right: 0,
+      bottom: '10%',
+      zIndex: '9999',
+      fontSize: '26px'
+    },
+    itemStyle: {}
   }
 };
 
