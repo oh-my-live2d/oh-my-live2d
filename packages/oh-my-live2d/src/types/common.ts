@@ -1,4 +1,6 @@
-import { CSSProperties } from './index.js';
+import { OhMyLive2D } from '../modules/oml2d.js';
+
+import type { CSSProperties, ImportType, LibraryUrls, PixiLive2dDisplayModule, PixiModule } from './index.js';
 
 export type IdleTimer = {
   start: () => Promise<void>;
@@ -32,3 +34,12 @@ export type CommonStyleType = Omit<CSSProperties, 'width' | 'height'> & {
   width?: number | string;
   height?: number | string;
 };
+
+export type LoadOml2dSDK = (
+  importType: ImportType,
+  libraryUrls: LibraryUrls
+) => Promise<{
+  PIXI: PixiModule;
+  PixiLive2dDisplay: PixiLive2dDisplayModule;
+}>;
+export type OML2D = Omit<OhMyLive2D, 'unMount' | 'initialize'>;

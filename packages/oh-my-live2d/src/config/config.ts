@@ -15,13 +15,9 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   parentElement: document.body,
   importType: 'complete',
   libraryUrls: {
+    complete: `${libServicePath}/complete.js`,
     cubism2: `${libServicePath}/live2d.min.js`,
-    cubism5: `${libServicePath}/live2dcubismcore.min.js`,
-    pixi: `${libServicePath}/pixi.min.js`,
-    pixiLive2dDisplay: `${libServicePath}/pixi-live2d-display.min.js`,
-    pixiLive2dDisplayCubism2: `${libServicePath}/pixi-live2d-display-cubism2.min.js`,
-    pixiLive2dDisplayCubism4: `${libServicePath}/pixi-live2d-display-cubism4.min.js`,
-    pixiLive2dDisplayExtra: `${libServicePath}/pixi-live2d-display-extra.min.js`
+    cubism5: `${libServicePath}/live2dcubismcore.min.js`
   },
   models: [],
   statusBar: {

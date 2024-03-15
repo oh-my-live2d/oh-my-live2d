@@ -45,9 +45,6 @@ export class StatusBar {
       this.options.parentElement.append(this.element);
     }
   }
-  get userStyle(): CSSProperties {
-    return handleCommonStyle(this.options.statusBar.style || {});
-  }
 
   reloadStyle(): void {
     switch (getWindowSizeType()) {

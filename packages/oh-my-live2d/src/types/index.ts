@@ -16,7 +16,9 @@ export * from './utils.js';
 export type HitAreaFramesType = typeof HitAreaFrames;
 export type ImportType = 'complete' | 'cubism2' | 'cubism5';
 
-export type PixiLive2dDisplayModule = typeof import('pixi-live2d-display');
+export type PixiLive2dDisplayModule = typeof import('pixi-live2d-display') & {
+  HitAreaFrames: HitAreaFramesType;
+};
 
 export type PixiModule = typeof import('pixi.js');
 
@@ -65,11 +67,7 @@ export type LibraryUrls = {
    */
   cubism5?: string;
 
-  pixi?: string;
-  pixiLive2dDisplay?: string;
-  pixiLive2dDisplayCubism2?: string;
-  pixiLive2dDisplayCubism4?: string;
-  pixiLive2dDisplayExtra?: string;
+  complete?: string;
 };
 
 export interface ElementConfig {
@@ -83,12 +81,3 @@ export interface ElementConfig {
 }
 
 export type WelcomeTipesType = typeof DEFAULT_OPTIONS.tips.welcomeTips;
-
-export type LoadMethod = (
-  importType: ImportType,
-  libraryUrls: LibraryUrls
-) => Promise<{
-  PIXI: PixiModule;
-  PixiLive2dDisplay: PixiLive2dDisplayModule;
-  HitAreaFrames: HitAreaFramesModule;
-}>;

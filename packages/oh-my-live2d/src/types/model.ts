@@ -60,4 +60,10 @@ export interface ModelOptions {
    * @default IDLE
    */
   motionPreloadStrategy?: 'ALL' | 'IDLE' | 'NONE';
+
+  /**
+   * 模型播放声音的音量, 声音与动作一起播放, 如果模型存在声音资源的话, 值为 0-1 之间的number类型, 0为静音
+   * @default 0.5
+   */
+  volume?: number;
 }

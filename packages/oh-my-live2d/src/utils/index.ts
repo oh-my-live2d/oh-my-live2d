@@ -1,17 +1,8 @@
 import { isNumber, mergeDeep } from 'tianjie';
 
-import { ELEMENT_ID, SDK_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
-import type { CommonStyleType, WordTheDayData } from '../types/common.js';
-import type {
-  CSSProperties,
-  DefaultOptions,
-  ElementConfig,
-  ImportType,
-  LibraryUrls,
-  Options,
-  PixiLive2dDisplayModule
-} from '../types/index.js';
+import type { CommonStyleType, LoadOml2dSDK, WordTheDayData } from '../types/common.js';
+import type { CSSProperties, DefaultOptions, ElementConfig, Options } from '../types/index.js';
 
 export * from './tips.js';
 
@@ -81,9 +72,13 @@ export const createElement = (elConfig: ElementConfig): HTMLElement => {
   return el;
 };
 
+/**
+ * 加载脚本
+ * @param sdkInfo
+ * @returns
+ */
 export const loadScript = (sdkInfo: { url: string; id: string }): Promise<void> => {
   destroyElement(sdkInfo?.id);
-  console.log(sdkInfo);
 
   return new Promise((resolve) => {
     const scriptElement = document.createElement('script');
@@ -97,34 +92,34 @@ export const loadScript = (sdkInfo: { url: string; id: string }): Promise<void> 
   });
 };
 
-export const handleSdkInfo = (urls: LibraryUrls): { [key: string]: { url: string; id: string } } => {
-  const finalInfo: { [key: string]: { url: string; id: string } } = {};
+// export const handleSdkInfo = (urls: LibraryUrls): { [key: string]: { url: string; id: string } } => {
+//   const finalInfo: { [key: string]: { url: string; id: string } } = {};
 
-  Object.keys(urls).forEach((key) => {
-    finalInfo[key] = { url: urls[key] as string, id: SDK_ID[key] as string };
-  });
+//   Object.keys(urls).forEach((key) => {
+//     finalInfo[key] = { url: urls[key] as string, id: SDK_ID[key] as string };
+//   });
 
-  return finalInfo;
-};
+//   return finalInfo;
+// };
 
-export const loadLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<PixiLive2dDisplayModule> => {
-  const sdkInfo = handleSdkInfo(urls);
+// export const loadLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<PixiLive2dDisplayModule> => {
+//   const sdkInfo = handleSdkInfo(urls);
 
-  switch (importType) {
-    case 'cubism2':
-      await loadScript(sdkInfo[importType]);
+//   switch (importType) {
+//     case 'cubism2':
+//       await loadScript(sdkInfo[importType]);
 
-      return import('pixi-live2d-display/cubism2');
-    case 'cubism5':
-      await loadScript(sdkInfo[importType]);
+//       return import('pixi-live2d-display/cubism2');
+//     case 'cubism5':
+//       await loadScript(sdkInfo[importType]);
 
-      return import('pixi-live2d-display/cubism4');
-    default:
-      await Promise.all([loadScript(sdkInfo['cubism2']), loadScript(sdkInfo['cubism5'])]);
+//       return import('pixi-live2d-display/cubism4');
+//     default:
+//       await Promise.all([loadScript(sdkInfo['cubism2']), loadScript(sdkInfo['cubism5'])]);
 
-      return import('pixi-live2d-display');
-  }
-};
+//       return import('pixi-live2d-display');
+//   }
+// };
 
 // export const  loadPixi = () => {
 
@@ -134,33 +129,33 @@ export const loadLibrary = async (importType: ImportType, urls: LibraryUrls): Pr
 
 // }
 
-export const loadUmdLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<void> => {
-  const sdkInfo = handleSdkInfo(urls);
+// export const loadUmdLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<void> => {
+//   const sdkInfo = handleSdkInfo(urls);
 
-  switch (importType) {
-    case 'cubism2':
-      await loadScript(sdkInfo['cubism2']);
-      // await loadScript(sdkInfo['pixi']);
-      await loadScript(sdkInfo['pixiLive2dDisplayCubism2']);
-      break;
+//   switch (importType) {
+//     case 'cubism2':
+//       await loadScript(sdkInfo['cubism2']);
+//       // await loadScript(sdkInfo['pixi']);
+//       await loadScript(sdkInfo['pixiLive2dDisplayCubism2']);
+//       break;
 
-    case 'cubism5':
-      await loadScript(sdkInfo['cubism5']);
-      // await loadScript(sdkInfo['pixi']);
-      await loadScript(sdkInfo['pixiLive2dDisplayCubism4']);
-      break;
+//     case 'cubism5':
+//       await loadScript(sdkInfo['cubism5']);
+//       // await loadScript(sdkInfo['pixi']);
+//       await loadScript(sdkInfo['pixiLive2dDisplayCubism4']);
+//       break;
 
-    default:
-      await Promise.all([loadScript(sdkInfo['cubism2']), loadScript(sdkInfo['cubism5'])]);
-      // await loadScript(sdkInfo['pixi']);
-      await loadScript(sdkInfo['pixiLive2dDisplay']);
-      break;
-  }
+//     default:
+//       await Promise.all([loadScript(sdkInfo['cubism2']), loadScript(sdkInfo['cubism5'])]);
+//       // await loadScript(sdkInfo['pixi']);
+//       await loadScript(sdkInfo['pixiLive2dDisplay']);
+//       break;
+//   }
 
-  await loadScript(sdkInfo['pixiLive2dDisplayExtra']);
-};
+//   await loadScript(sdkInfo['pixiLive2dDisplayExtra']);
+// };
 
-// 检查版本信息
+// 检查版本
 export const checkVersion = async (): Promise<void> => {
   const result = await fetch('https://unpkg.com/oh-my-live2d/package.json');
   const { version } = <{ version: string }>await result.json();
@@ -205,19 +200,11 @@ export const onChangeWindowSize = (fn: (windowSizeType: WindowSizeType) => void)
     }
   });
 };
-export const destroyElement = (id: string) => {
+
+export const destroyElement = (id: string): void => {
   const el = document.getElementById(id);
 
   el?.remove();
-};
-
-export const elementsDestroyer = (): void => {
-  destroyElement(ELEMENT_ID.globalStyle);
-  destroyElement(ELEMENT_ID.stage);
-  destroyElement(ELEMENT_ID.statusBar);
-  // Object.values(ELEMENT_ID).forEach((id) => {
-  //   destroyElement(id);
-  // });
 };
 
 // 合并配置选项
@@ -228,4 +215,19 @@ export const mergeOptions = (targetOptions: DefaultOptions, options: Options): D
   finalOptions.parentElement = parentElement || targetOptions.parentElement;
 
   return finalOptions;
+};
+
+export const loadOml2dSDK: LoadOml2dSDK = async (importType, libraryUrls) => {
+  await loadScript({
+    url: libraryUrls[importType]!,
+    id: `oml2d-${importType}`
+  });
+
+  window.PIXI.utils.skipHello();
+
+  return {
+    PIXI: window.PIXI,
+    PixiLive2dDisplay: window.PIXI.live2d
+    // HitAreaFrames: window.PIXI.live2d.HitAreaFrames
+  };
 };

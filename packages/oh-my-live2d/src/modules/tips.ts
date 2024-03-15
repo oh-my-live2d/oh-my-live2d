@@ -15,11 +15,9 @@ import {
 } from '../utils/index.js';
 
 export class Tips {
+  idlePlayer?: IdleTimer;
   private element?: HTMLElement;
   private contentElement?: HTMLElement;
-  // private status: Status = Status.Hidden;
-  // options: DefaultOptions;
-  idlePlayer?: IdleTimer;
   private closeTimer = 0;
   private transitionTime = 1000; // 默认的消息过渡动画持续时长
   private style: CSSProperties = {};
@@ -36,7 +34,7 @@ export class Tips {
 
   create(): void {
     this.element = createElement({ id: ELEMENT_ID.tips, tagName: 'div' });
-    this.contentElement = createElement({ id: 'oml2dTipsContent', tagName: 'div' });
+    this.contentElement = createElement({ id: 'oml2d-tips-content', tagName: 'div' });
   }
 
   mount(stageElement: HTMLElement): void {
@@ -45,19 +43,16 @@ export class Tips {
       stageElement.append(this.element);
     }
   }
-  // get tipsOptions(): DefaultTipsOptions {
-  //   return this.options.tips;
-  // }
+
+  unMount(): void {
+    this.element?.remove();
+  }
+
   get primaryColor(): string {
     return this.options.primaryColor;
   }
 
-  // get userStyle(): CSSProperties {}
-  // get userMobileStyle(): CSSProperties {
-  //   return handleCommonStyle(this.options.tips.mobileStyle || {});
-  // }
-
-  //
+  // 重载样式
   reloadStyle(): void {
     switch (getWindowSizeType()) {
       case WindowSizeType.pc:
@@ -159,7 +154,7 @@ export class Tips {
     if (!this.options.tips) {
       return;
     }
-    const message = getWelcomeMessage(this.options.tips.welcomeTips || {});
+    const message = getWelcomeMessage(this.tipsOptions.welcomeTips || {});
     const { duration, priority } = this.options.tips.welcomeTips;
 
     this.notification(message, duration, priority);

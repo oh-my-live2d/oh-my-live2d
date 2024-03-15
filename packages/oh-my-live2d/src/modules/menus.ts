@@ -35,24 +35,32 @@ export class Menus {
 
     // this.element.append(...this.menuItemList);
 
-    // this.element.addEventListener('click', (e) => {
-    //   if (e.target === e.currentTarget) {
-    //     return;
-    //   }
-    //   let target = e.target as HTMLElement;
+    this.element?.addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        return;
+      }
+      let target = e.target as HTMLElement;
 
-    //   while (target.parentNode !== e.currentTarget) {
-    //     target = target.parentNode as HTMLElement;
-    //   }
+      while (target.parentNode !== e.currentTarget) {
+        target = target.parentNode as HTMLElement;
+      }
 
-    //   void this.clickItem?.(target.getAttribute('data-name')!);
-    // });
+      void this.clickItem?.(target.getAttribute('data-name')!);
+    });
   }
+
+  /**
+   * 创建
+   */
   create(): void {
     this.element = createElement({ id: ELEMENT_ID.menus, tagName: 'div', className: ELEMENT_ID.menus });
     this.createMenuItem();
   }
 
+  /**
+   * 挂载
+   * @param stageElement
+   */
   mount(stageElement: HTMLElement): void {
     if (this.element) {
       stageElement.append(this.element);
@@ -62,6 +70,9 @@ export class Menus {
     }
   }
 
+  /**
+   * 重载样式
+   */
   reloadStyle(): void {
     switch (getWindowSizeType()) {
       case WindowSizeType.pc:
@@ -75,6 +86,9 @@ export class Menus {
     }
   }
 
+  /**
+   * 初始化样式
+   */
   initializeStyle(): void {
     this.reloadStyle();
   }

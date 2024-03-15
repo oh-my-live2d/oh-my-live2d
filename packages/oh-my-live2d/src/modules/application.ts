@@ -39,7 +39,7 @@ export class Application {
     const childLen = this.app?.stage.children.length || 0;
 
     if (childLen > 0) {
-      this.app!.stage.removeChildren(0, childLen - 1);
+      this.app!.stage.removeChildren(0);
     }
   }
 

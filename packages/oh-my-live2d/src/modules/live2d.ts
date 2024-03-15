@@ -1,14 +1,21 @@
 import type { InternalModel, Live2DModel } from 'pixi-live2d-display';
-// import { MotionPreloadStrategy } from 'pixi-live2d-display';
+import type { HitAreaFrames } from 'pixi-live2d-display/extra';
+import { isNumber } from 'tianjie';
 
 import { MotionPreloadStrategy, WindowSizeType } from '../constants/index.js';
-import type { DefaultOptions, Live2DModelType, ModelOptions } from '../types/index.js';
+import type { DefaultOptions, ModelOptions, PixiLive2dDisplayModule } from '../types/index.js';
 import { getWindowSizeType } from '../utils/index.js';
 
 export class Models {
   model?: Live2DModel<InternalModel>; // 当前模型实例
   private currentModelIndex = 0;
-  constructor(private options: DefaultOptions) {}
+  private hitAreaFrames: HitAreaFrames;
+  constructor(
+    private options: DefaultOptions,
+    private PixiLive2dDisplay: PixiLive2dDisplayModule
+  ) {
+    this.hitAreaFrames = new PixiLive2dDisplay.HitAreaFrames();
+  }
 
   get modelIndex(): number {
     return this.currentModelIndex;
@@ -21,9 +28,9 @@ export class Models {
     return this.options.models[this.modelIndex];
   }
 
-  create(Live2dModel: Live2DModelType): Promise<void> {
+  create(): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.model = Live2dModel.fromSync(this.currentModelOptions.path, {
+      this.model = this.PixiLive2dDisplay.Live2DModel.fromSync(this.currentModelOptions.path, {
         motionPreload: (this.currentModelOptions.motionPreloadStrategy as MotionPreloadStrategy) || MotionPreloadStrategy.IDLE,
         onError: reject
       });
@@ -44,11 +51,31 @@ export class Models {
         this.setScale(this.currentModelOptions.scale);
         break;
     }
+
+    // 是否显示模型可点击区域
+    if (this.currentModelOptions.showHitAreaFrames) {
+      this.addHitAreaFrames();
+    }
+
+    // 音量
+    if (isNumber(this.currentModelOptions.volume)) {
+      this.PixiLive2dDisplay.SoundManager.volume = this.currentModelOptions.volume;
+    }
   }
-  // initializeStyle(): void {
-  //   this.setScale();
-  //   this.setPosition();
-  // }
+
+  /**
+   * 添加点击区域
+   */
+  addHitAreaFrames(): void {
+    this.model?.addChild(this.hitAreaFrames);
+  }
+
+  /**
+   * 移除点击区域
+   */
+  removeHitAreaFrames(): void {
+    this.model?.removeChildren(0);
+  }
 
   // 模型尺寸
   get modelSize(): { width: number; height: number } {
@@ -75,5 +102,19 @@ export class Models {
   setPosition(x = 0, y = 0): void {
     this.model!.x = x;
     this.model!.y = y;
+  }
+
+  onHit(fn: (areaName: string[]) => void): void {
+    this.model?.on('hit', (name: string[]) => {
+      fn(name);
+    });
+  }
+
+  /**
+   * 播放动作
+   */
+  playMotion(): void {
+    console.log(this.model?.internalModel.motionManager.motionGroups);
+    void this.model?.motion('flick_head');
   }
 }

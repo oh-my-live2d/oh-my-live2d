@@ -35,6 +35,7 @@ export interface Options {
    * @valueType object
    */
   libraryUrls?: {
+    complete?: string;
     /**
      * 自定义 Cubism2 SDK 地址
      * @default oh-my-live2d提供的默认地址
@@ -47,11 +48,11 @@ export interface Options {
      */
     cubism5?: string;
 
-    pixi?: string;
-    pixiLive2dDisplay?: string;
-    pixiLive2dDisplayCubism2?: string;
-    pixiLive2dDisplayCubism4?: string;
-    pixiLive2dDisplayExtra?: string;
+    // pixi?: string;
+    // pixiLive2dDisplay?: string;
+    // pixiLive2dDisplayCubism2?: string;
+    // pixiLive2dDisplayCubism4?: string;
+    // pixiLive2dDisplayExtra?: string;
   };
 
   /**

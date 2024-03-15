@@ -3,72 +3,121 @@ import { loadOml2d } from 'oh-my-live2d';
 import typescriptLogo from './typescript.svg';
 
 import './style.css';
-const el = document.createElement('div');
-document.body.append(el);
+// const el = document.createElement('div');
+// document.body.append(el);
 
-void loadOml2d({
-  // parentElement: el,
-  mobileDisplay: false,
-  primaryColor: 'pink',
-  models: [
-    // {
-    //   path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-    //   stageStyle: {},
-    //   mobileScale: 0.08
-    // },
-    {
-      path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
-      scale: 0.4,
-      position: [0, 0],
-      mobileScale: 0.35,
-      stageStyle: {
-        // height: 300
+const foo = async () => {
+  const oml2d = await loadOml2d({
+    // parentElement: el,
+    mobileDisplay: false,
+    primaryColor: 'pink',
+    models: [
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
+        scale: 0.2,
+        motionPreloadStrategy: 'ALL',
+        volume: 0
+      },
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+        stageStyle: {},
+        mobileScale: 0.08
+      },
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
+        scale: 0.4,
+        position: [0, 0],
+        mobileScale: 0.35,
+        stageStyle: {
+          // height: 300
+        }
+      }
+    ],
+    tips: {
+      messageLine: 3,
+      mobileStyle: {
+        // padding: '0px 5px'
+      },
+      style: {},
+      idleTips: {
+        wordTheDay(wordTheDayData) {
+          return `${wordTheDayData.hitokoto}`;
+        }
       }
     }
-  ],
-  tips: {
-    messageLine: 3,
-    mobileStyle: {
-      // padding: '0px 5px'
-    },
-    style: {},
-    idleTips: {
-      wordTheDay(wordTheDayData) {
-        return `${wordTheDayData.hitokoto}`;
-      }
-    }
-  }
-}).then((oml2d) => {
+  });
+
+  // oml2d.loadNextModel();
+  // const oml2d2 = await loadOml2d({
+  //   models: [
+  //     {
+  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+  //       stageStyle: {},
+  //       mobileScale: 0.08
+  //     }
+  //   ]
+  // });
+
   // setTimeout(() => {
-  //   oml2d.updateOptions({
-  //     models: [
-  //       {
-  //         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-  //         stageStyle: {},
-  //         mobileScale: 0.08
-  //       }
-  //     ]
-  //   });
+  //   oml2d.loadNextModel();
+  //   console.log('ssssssssssssss');
   // }, 1000);
-});
-// void loadOml2d({
-//   models: [
-//     // {
-//     //   path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-//     //   stageStyle: {},
-//     //   mobileScale: 0.08
-//     // },
-//     {
-//       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
-//       scale: 0.4,
-//       position: [0, 50],
-//       mobileScale: 0.35,
-//       stageStyle: {
-//         height: 300
-//       }
-//     }
-//   ]
-// });
+  // loadOml2d({
+  //   models: [
+  //     {
+  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+  //       stageStyle: {},
+  //       mobileScale: 0.08
+  //     }
+  //   ]
+  // });
+  // loadOml2d({
+  //   models: [
+  //     {
+  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+  //       stageStyle: {},
+  //       mobileScale: 0.08
+  //     }
+  //   ]
+  // });
+  // loadOml2d({
+  //   models: [
+  //     {
+  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+  //       stageStyle: {},
+  //       mobileScale: 0.08
+  //     }
+  //   ]
+  // });
+  // loadOml2d({
+  //   models: [
+  //     {
+  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+  //       stageStyle: {},
+  //       mobileScale: 0.08
+  //     }
+  //   ]
+  // });
+  // loadOml2d({
+  //   models: [
+  //     {
+  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+  //       stageStyle: {},
+  //       mobileScale: 0.08
+  //     }
+  //   ]
+  // });
+  // console.log(test1, 'test1');
+
+  // console.log(test2, 'test2');
+
+  // setTimeout(() => {
+  //   test2.loadNextModel();
+  // }, 1000);
+};
+
+foo();
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">

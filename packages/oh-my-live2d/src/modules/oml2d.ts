@@ -2,11 +2,10 @@ import { Application } from './application.js';
 import { GlobalStyle } from './globalStyle.js';
 import { Models } from './live2d.js';
 import { Menus } from './menus.js';
-// import { Models } from './models.js';
 import { Stage } from './stage.js';
 import { StatusBar } from './status-bar.js';
 import { Tips } from './tips.js';
-import type { DefaultOptions, HitAreaFramesModule, ModelOptions, PixiLive2dDisplayModule, PixiModule } from '../types/index.js';
+import type { DefaultOptions, PixiLive2dDisplayModule, PixiModule } from '../types/index.js';
 import { checkVersion, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
@@ -16,58 +15,39 @@ export class OhMyLive2D {
   private tips: Tips;
   private menus: Menus;
   private models: Models;
-  // private models: Models;
   private application?: Application;
   private currentModelIndex: number = 0;
-  // private model: Models; // 当前模型的实例
-  // private modelIndex = 0; // 当前模型索引
-  // private windowSizeType: WindowSizeType = WindowSizeType.pc; // 当前窗口大小
-  // private mediaQuery = window.matchMedia('screen and (max-width: 768px)'); // 窗口大小的媒体查询
-
+  // private hitAreaFrames: HitAreaFrames;
   constructor(
     private options: DefaultOptions,
     private PIXI: PixiModule,
-    private PixiLive2dDisplay: PixiLive2dDisplayModule,
-    private HitAreaFrames: HitAreaFramesModule
-    // private Application: ApplicationType,
+    private PixiLive2dDisplay: PixiLive2dDisplayModule
   ) {
     this.globalStyle = new GlobalStyle(options);
     this.stage = new Stage(options); // 实例化舞台
     this.statusBar = new StatusBar(options);
     this.tips = new Tips(options); // 提示框
     this.menus = new Menus(options); // 菜单
-    this.models = new Models(options);
-    // this.models = new Models(options);
+    this.models = new Models(options, PixiLive2dDisplay);
     this.application = new Application(this.PIXI);
+
     this.modelIndex = 0;
-    // new GlobalStyle({ primaryColor: this.options.primaryColor }); // 加载全局样式
-    // const defaultStatusBarColorInfo = {
-    //   info: this.options.primaryColor,
-    //   error: ''
-    // };
   }
 
-  set modelIndex(index: number) {
+  private set modelIndex(index: number) {
     this.currentModelIndex = index;
     this.stage.modelIndex = index;
     this.models.modelIndex = index;
   }
 
-  get modelIndex(): number {
+  private get modelIndex(): number {
     return this.currentModelIndex;
-  }
-
-  /**
-   * 当前模型选项
-   */
-  get currentModelOptions(): ModelOptions {
-    return this.options.models[this.currentModelIndex];
   }
 
   /**
    * 创建
    */
-  create(): void {
+  private create(): void {
     this.globalStyle.create();
     this.stage.create();
     this.statusBar.create();
@@ -78,7 +58,7 @@ export class OhMyLive2D {
   /**
    * 挂载
    */
-  mount(): void {
+  private mount(): void {
     this.globalStyle.mount();
     this.stage.mount();
     this.statusBar.mount();
@@ -86,32 +66,63 @@ export class OhMyLive2D {
     this.tips.mount(this.stage.element!);
   }
 
-  async loadModel(): Promise<void> {
-    this.statusBar.showLoading();
-    await this.models.create(this.PixiLive2dDisplay.Live2DModel);
+  /**
+   * 卸载
+   */
+  unMount(): void {
+    this.globalStyle.unMount();
+    this.stage.unMount();
+    this.statusBar.unMount();
+    this.tips.unMount();
+  }
+
+  /**
+   * 加载模型
+   */
+  private async loadModel(isLoading = true): Promise<void> {
+    if (isLoading) {
+      this.statusBar.showLoading();
+    }
+    await this.models.create();
     this.application?.mount(this.stage.canvasElement!, this.stage.element!, this.models.model);
     this.models.settingModel();
     this.stage.reloadStyle(this.models.modelSize);
     this.application?.resize();
     this.statusBar.hideLoading();
-    void this.stage.slideIn();
+    await this.stage.slideIn();
+
+    // -------------
+    this.models.onHit((name) => {
+      console.log(name);
+      this.models.playMotion();
+    });
+  }
+
+  /**
+   * 加载下个模型
+   */
+  async loadNextModel(): Promise<void> {
+    this.modelIndex++;
+    if (this.modelIndex > this.options.models.length - 1) {
+      this.modelIndex = 0;
+    }
+    this.statusBar.showLoading();
+    this.tips.clear();
+    await this.stage.slideOut();
+    await this.loadModel(false);
+    void this.tips.idlePlayer?.start();
   }
 
   /**
    * 初始化样式
    */
-  initializeStyle(): void {
+  private initializeStyle(): void {
     this.globalStyle.initializeStyle();
     this.statusBar.initializeStyle();
     this.tips.initializeStyle();
     this.stage.initializeStyle();
     this.menus.initializeStyle();
   }
-
-  loadNextModel(): void {}
-  // onCreated(fn: () => void): void {
-  //   fn();
-  // }
 
   // 初始化
   async initialize(): Promise<void> {
@@ -138,23 +149,52 @@ export class OhMyLive2D {
     await this.loadModel();
   }
 
-  registerEvent(): void {
+  // 切换状态. 休息/活动
+  private switchStatus(): void {
+    void this.stage.slideOut();
+    this.tips.clear();
+
+    this.statusBar.rest(true, () => {
+      void this.stage.slideIn();
+      void this.tips.idlePlayer?.start();
+    });
+  }
+
+  /**
+   * 注册dom事件
+   */
+  private registerEvent(): void {
     // 出场入场动画执行结束之后的事件回调
     this.stage.onChangeSlideEnd((status) => {
       if (status) {
         this.tips.welcome();
       }
     });
-  }
 
-  // // 初始化所有模块
-  // initializeModules(): void {
-  //   this.stage.initialize(this.options);
-  //   this.statusBar.initialize(this.options);
-  //   this.globalStyle.initialize(this.options);
-  //   this.tips.initialize(this.options);
-  //   this.menus.initialize();
-  // }
+    window.document.oncopy = (): void => {
+      this.tips.copy();
+    };
+
+    // 菜单按钮项被点击
+    this.menus.onClickItem((name) => {
+      switch (name) {
+        case 'Rest':
+          this.switchStatus();
+
+          return;
+        // 切换模型
+        case 'SwitchModel':
+          void this.loadNextModel();
+
+          return;
+
+        case 'About':
+          window.open('https://oml2d.com');
+
+          return;
+      }
+    });
+  }
 
   // updateOptions(options: Options = {}): void {
   //   this.options = mergeOptions(this.options, options);
@@ -165,24 +205,6 @@ export class OhMyLive2D {
 
   // registerEvents(): void {
   //   // 点击菜单按钮
-  //   this.menus.onClickItem((name) => {
-  //     switch (name) {
-  //       case 'Rest':
-  //         this.models.switchStatus();
-
-  //         return;
-  //       // 切换模型
-  //       case 'SwitchModel':
-  //         void this.models.loadNextModel();
-
-  //         return;
-
-  //       case 'About':
-  //         window.open('https://oml2d.com');
-
-  //         return;
-  //     }
-  //   });
 
   //   // copy 事件
   //   window.addEventListener('copy', () => {
