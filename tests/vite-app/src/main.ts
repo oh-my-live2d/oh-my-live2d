@@ -48,6 +48,7 @@ const foo = async () => {
     }
   });
 
+  console.log(oml2d);
   // oml2d.loadNextModel();
   // const oml2d2 = await loadOml2d({
   //   models: [
