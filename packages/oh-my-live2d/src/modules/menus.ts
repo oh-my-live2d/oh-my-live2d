@@ -65,8 +65,23 @@ export class Menus {
     if (this.element) {
       stageElement.append(this.element);
       this.element.append(...this.menuItemList);
-      stageElement.addEventListener('mouseover', () => this.setStyle({ opacity: 1, visibility: 'visible' }));
-      stageElement.addEventListener('mouseout', () => this.setStyle({ opacity: 0, visibility: 'hidden' }));
+      stageElement.onmouseover = (): void => {
+        this.setStyle({ opacity: 1, visibility: 'visible' });
+      };
+      stageElement.onmouseout = (): void => {
+        this.setStyle({ opacity: 0, visibility: 'hidden' });
+      };
+
+      // 适配移动端交互
+      let timer: number;
+
+      stageElement.ontouchend = (): void => {
+        clearTimeout(timer);
+        this.setStyle({ opacity: 1, visibility: 'visible' });
+        timer = setTimeout(() => {
+          this.setStyle({ opacity: 0, visibility: 'hidden' });
+        }, 3000);
+      };
     }
   }
 

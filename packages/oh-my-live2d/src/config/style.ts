@@ -1,4 +1,5 @@
 import { ELEMENT_ID } from '../config/config.js';
+import { CommonStyleType } from '../types/common.js';
 
 export const generateGlobalStyle = (primaryColor: string): string => {
   return `
@@ -125,3 +126,66 @@ export const generateGlobalStyle = (primaryColor: string): string => {
   }
   `;
 };
+
+export const TIPS_DEFAULT_STYLE: CommonStyleType = {
+  position: 'absolute',
+  fontSize: '18px',
+  borderRadius: '10px',
+  filter: 'drop-shadow(0 0 5px #999)',
+  border: '2px solid #fff',
+  color: '#fff',
+  padding: '5px 5px',
+  opacity: 0,
+  visibility: 'hidden',
+  transform: 'translateX(-50%)',
+  textAlign: 'center',
+  justifyContent: 'center',
+  animationDuration: `1000ms,1000ms`,
+  animationFillMode: 'forwards, none',
+  animationIterationCount: '1, infinite',
+  width: '60%',
+  left: '50%',
+  top: 0,
+  display: 'flex',
+  alignItems: 'center',
+  minHeight: '100px'
+};
+
+export const STATUS_BAR_DEFAULT_STYLE: CommonStyleType = {
+  minWidth: '20px',
+  minHeight: '40px',
+  position: 'fixed',
+  transform: 'translateX(-110%)',
+  left: '0',
+  bottom: '80px',
+  padding: '7px 5px',
+  zIndex: '9998',
+  borderStyle: 'solid',
+  borderColor: '#fff',
+  fontWeight: 'bold',
+  borderRadius: '0 5px 5px 0',
+  borderWidth: '2px 2px 2px 0',
+  boxShadow: '0 0 5px #999',
+  color: '#fff',
+  display: 'flex',
+  alignItems: 'center',
+  textAlign: 'center',
+  flexWrap: 'wrap',
+  fontSize: '14px',
+  writingMode: 'vertical-lr',
+  cursor: 'pointer'
+};
+
+export const MENUS_DEFAULT_STYLE: CommonStyleType = {
+  transition: 'all 500ms',
+  visibility: 'hidden',
+  opacity: 0,
+  position: 'absolute',
+  right: 0,
+  bottom: '10%',
+  zIndex: '9999',
+  fontSize: '26px'
+};
+
+export const PRIMARY_COLOR = '#38B0DE';
+export const STATUS_BAR_ERROR_COLOR = '#F08080';

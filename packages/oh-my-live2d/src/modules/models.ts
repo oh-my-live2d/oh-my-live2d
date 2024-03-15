@@ -104,9 +104,9 @@ export class Models {
     this.model!.y = y;
   }
 
-  onHit(fn: (areaName: string[]) => void): void {
+  onHit(fn?: (areaName: string[]) => void): void {
     this.model?.on('hit', (name: string[]) => {
-      fn(name);
+      fn?.(name);
       this.playRandomMotion(name);
     });
   }

@@ -30,7 +30,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc && node ./scripts/build.js",
+    "build": "rimraf dist && tsc && vite build",
     "dev": "rimraf dist && tsc && (concurrently \"tsc -w\" \"cross-env OML_ENV=dev vite build\")",
     "release": "dotenv release-it"
   },

@@ -1,10 +1,9 @@
+import { MENUS_DEFAULT_STYLE, PRIMARY_COLOR, STATUS_BAR_DEFAULT_STYLE, STATUS_BAR_ERROR_COLOR, TIPS_DEFAULT_STYLE } from './style.js';
 import type { DefaultOptions } from '../types/index.js';
 
 // 第三方库服务地址
 const libServicePath = 'https://lib.oml2d.com';
 
-export const PRIMARY_COLOR = '#38B0DE';
-export const STATUS_BAR_ERROR_COLOR = '#F08080';
 // 默认配置选项, 实例化时会与用户传进来的合并
 export const DEFAULT_OPTIONS: DefaultOptions = {
   mobileDisplay: false,
@@ -22,63 +21,12 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   models: [],
   statusBar: {
     errorColor: STATUS_BAR_ERROR_COLOR,
-    style: {
-      minWidth: '20px',
-      minHeight: '40px',
-      position: 'fixed',
-      transform: 'translateX(-110%)',
-      left: '0',
-      bottom: '80px',
-      padding: '7px 5px',
-      zIndex: '9998',
-      borderStyle: 'solid',
-      borderColor: '#fff',
-      fontWeight: 'bold',
-      borderRadius: '0 5px 5px 0',
-      borderWidth: '2px 2px 2px 0',
-      boxShadow: '0 0 5px #999',
-      color: '#fff',
-      display: 'flex',
-      alignItems: 'center',
-      textAlign: 'center',
-      flexWrap: 'wrap',
-      fontSize: '14px',
-      writingMode: 'vertical-lr',
-      cursor: 'pointer'
-      // backgroundColor: PRIMARY_COLOR
-    }
-    // stateColor: {
-    //   info: PRIMARY_COLOR,
-    //   error: STATUS_BAR_ERROR_COLOR
-    // }
+    style: STATUS_BAR_DEFAULT_STYLE
   },
   tips: {
     messageLine: 3,
-    mobileStyle: {},
-    style: {
-      position: 'absolute',
-      fontSize: '18px',
-      borderRadius: '10px',
-      filter: 'drop-shadow(0 0 5px #999)',
-      border: '2px solid #fff',
-      color: '#fff',
-      padding: '5px 5px',
-      opacity: 0,
-      visibility: 'hidden',
-      transform: 'translateX(-50%)',
-      textAlign: 'center',
-      justifyContent: 'center',
-      animationDuration: `1000ms,1000ms`,
-      animationFillMode: 'forwards, none',
-      animationIterationCount: '1, infinite',
-      width: '60%',
-      left: '50%',
-      top: 0,
-      display: 'flex',
-      alignItems: 'center',
-      minHeight: '100px'
-      // backgroundColor: PRIMARY_COLOR
-    },
+    mobileStyle: TIPS_DEFAULT_STYLE,
+    style: TIPS_DEFAULT_STYLE,
     idleTips: {
       wordTheDay: false,
       message: [],
@@ -107,29 +55,9 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
     }
   },
   menus: {
-    style: {
-      transition: 'all 500ms',
-      visibility: 'hidden',
-      opacity: 0,
-      position: 'absolute',
-      right: 0,
-      bottom: '10%',
-      zIndex: '9999',
-      fontSize: '26px'
-    },
+    style: MENUS_DEFAULT_STYLE,
     itemStyle: {}
   }
-};
-
-export const SDK_ID = {
-  cubism2: 'oml2d-cubism2',
-  cubism5: 'oml2d-cubism5',
-  pixi: 'oml2d-sdk-pixi',
-  pixiLive2dDisplay: 'oml2d-pixi-live2d-display',
-  pixiLive2dDisplayCubism2: 'oml2d-pixi-live2d-display-cubism2',
-  pixiLive2dDisplayCubism4: 'oml2d-pixi-live2d-display-cubism4',
-  // pixiLive2dDisplayCubism: 'oml2d-pixi-live2d-display-cubism',
-  pixiLive2dDisplayExtra: 'oml2d-pixi-live2d-display-extra'
 };
 
 /** 全局配置 */

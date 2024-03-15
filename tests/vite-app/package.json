@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test:build": "tsc && vite build",
-    "test:dev": "vite"
+    "test:dev": "vite --host"
   },
   "dependencies": {
     "oh-my-live2d": "workspace:*"

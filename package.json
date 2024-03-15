@@ -25,7 +25,7 @@
   },
   "nano-staged": {
     "**/*": "prettier --write --ignore-unknown",
-    "*.{js,ts}": "eslint --fix",
+    "*.{ts}": "eslint --fix",
     "package.json": "sort-package-json"
   },
   "devDependencies": {

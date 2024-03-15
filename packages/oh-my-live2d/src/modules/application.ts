@@ -5,10 +5,7 @@ import type { PixiModule } from '../types/index.js';
 
 export class Application {
   app?: ApplicationType;
-  constructor(
-    // private options: DefaultOptions,
-    private PIXI: PixiModule
-  ) {}
+  constructor(private PIXI: PixiModule) {}
 
   mount(canvasElement: HTMLCanvasElement, stageElement: HTMLElement, model?: Live2DModel<InternalModel>): void {
     if (!this.app) {

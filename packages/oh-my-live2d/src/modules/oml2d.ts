@@ -18,7 +18,7 @@ export class OhMyLive2D {
   private models: Models;
   private application?: Application;
   private currentModelIndex: number = 0;
-  // private hitAreaFrames: HitAreaFrames;
+
   constructor(
     private options: DefaultOptions,
     private PIXI: PixiModule,
@@ -224,9 +224,13 @@ export class OhMyLive2D {
    * 注册模型事件
    */
   private registerModelEvent(): void {
-    this.models.onHit(() => {
-      // console.log(name);
-      // this.models.playMotion();
-    });
+    this.models.onHit();
+
+    // this.models.model?.focus
+    // window.document.addEventListener('touchend', (e) => {
+    //   console.log(e);
+    //   console.log('ssssssssssss');
+    //   // this.models.model?.focus(0, 0);
+    // });
   }
 }
