@@ -15,8 +15,8 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   importType: 'complete',
   libraryUrls: {
     complete: `${libServicePath}/complete.js`,
-    cubism2: `${libServicePath}/live2d.min.js`,
-    cubism5: `${libServicePath}/live2dcubismcore.min.js`
+    cubism2: `${libServicePath}/cubism2.js`,
+    cubism5: `${libServicePath}/cubism5.js`
   },
   models: [],
   statusBar: {

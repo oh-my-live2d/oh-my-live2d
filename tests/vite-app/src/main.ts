@@ -9,15 +9,16 @@ import './style.css';
 const foo = async () => {
   const oml2d = await loadOml2d({
     // parentElement: el,
+    importType: 'cubism5',
     mobileDisplay: true,
     primaryColor: 'pink',
     models: [
-      {
-        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
-        scale: 0.2,
-        motionPreloadStrategy: 'ALL',
-        volume: 0
-      },
+      // {
+      //   path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
+      //   scale: 0.2,
+      //   motionPreloadStrategy: 'ALL',
+      //   volume: 0
+      // },
       {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
         stageStyle: {},

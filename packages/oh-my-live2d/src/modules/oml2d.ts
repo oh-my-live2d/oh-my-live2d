@@ -96,7 +96,12 @@ export class OhMyLive2D {
     if (isLoading) {
       this.statusBar.showLoading();
     }
-    await this.models.create();
+    await this.models.create().catch(() => {
+      this.statusBar.loadingError(() => {
+        void this.reloadModel();
+      });
+    });
+
     this.application?.mount(this.stage.canvasElement!, this.stage.element!, this.models.model);
     this.models.settingModel();
     this.stage.reloadStyle(this.models.modelSize);
