@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.10.0...v0.11.0) (2024-03-15)
+
+### ✨ Features | 新功能
+
+- 新增菜单选项menus ([a8170b3](https://github.com/oh-my-live2d/oh-my-live2d/commit/a8170b3b3be8df15d63afc3d32e8896f35d54b0e)) by Hacxy
+- 新增模型声音音量调节选项volume ([19a9653](https://github.com/oh-my-live2d/oh-my-live2d/commit/19a9653f98b73b94955d89681096422d491c9a94)) by Hacxy
+- 新增statusBar状态条选项 ([3c8eb97](https://github.com/oh-my-live2d/oh-my-live2d/commit/3c8eb97a4339622658037b381e05956d5725accd)) by Hacxy
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 修复了移动端菜单不展示的问题 ([8b64378](https://github.com/oh-my-live2d/oh-my-live2d/commit/8b6437849be2fec3b50c60a7986c082402f6d0a5)) by Hacxy
+
 ## [0.10.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.9.0...v0.10.0) (2024-03-12)
 
 ### ✨ Features | 新功能
