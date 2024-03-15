@@ -1,5 +1,9 @@
 import { CommonStyleType } from './common.js';
 
+/**
+ * # 菜单选项
+ * @name 菜单选项
+ */
 export interface MenusOptions {
   /**
    * 配置菜单整体样式

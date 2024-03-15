@@ -1,5 +1,7 @@
 [
   { "text": "配置选项", "link": "/options/Options" },
+  { "text": "菜单选项", "link": "/options/MenusOptions" },
   { "text": "模型选项", "link": "/options/ModelOptions" },
+  { "text": "状态条选项", "link": "/options/StatusBarOptions" },
   { "text": "提示框选项", "link": "/options/TipsOptions" }
 ]

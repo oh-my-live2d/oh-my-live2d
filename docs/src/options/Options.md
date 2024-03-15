@@ -2,19 +2,6 @@
 
 ---
 
-### fixed
-
-- 类型: `boolean`
-
-- 默认值: `true`
-
-组件是否使用固定定位 <Badge type="danger" text="已弃用" />
-
-> [!WARNING]
-> 该属性将在下个版本移除, 现在您可以通过模型选项的stageStyle属性为舞台元素设置定位属性
-
----
-
 ### importType
 
 - 类型: `complete | cubism2 | cubism5`
@@ -29,18 +16,24 @@
 
 - 类型: `object`
 
-自定义 Cubism SDK 外部资源地址
+自定义 Cubism SDK 外部资源地址, 当您发现SDK加载出现异常时您可以在此选项自定义自己的地址, 您可以在[此处](https://github.com/oh-my-live2d/oh-my-live2d/tree/main/packages/oh-my-live2d/lib)找到以下对应的3个SDK地址, 必要时您可以备份这些脚本文件
 
 > [!TIP]
-> 从 v0.5.0 版本开始, 不再通过模块方式使用 vite 打包 SDK , 自 v0.5.0 版本起, 将通过 script 标签的 src 属性按需去引入对应版本的 Cubism SDK , 这个过程是完全自动的, 您无需关注这个过程也无需手动的去引入这些资源, 官方将长期维护这个服务器, 保证此 SDK 地址的安全与稳定性. 若发现 SDK 加载出现异常, 请及时联系作者.
+> 自 v0.5.0 版本起, 将通过 script 标签的 src 属性按需去引入对应版本的 Cubism SDK , 这个过程是完全自动的, 默认情况下它将使用我们提供的默认地址进行加载, 您无需关注这个过程也无需手动的去引入这些资源, 我们尽量保证 SDK 地址的安全与稳定性. 若发现 SDK 加载出现异常, 请及时联系作者.
+
+---
+
+### libraryUrls.complete
+
+- 类型: `string`
+
+自定义全量SDK地址
 
 ---
 
 ### libraryUrls.cubism2
 
 - 类型: `string`
-
-- 默认值: `oh-my-live2d提供的默认地址`
 
 自定义 Cubism2 SDK 地址
 
@@ -50,9 +43,13 @@
 
 - 类型: `string`
 
-- 默认值: `oh-my-live2d提供的默认地址`
-
 自定义 Cubism5 SDK 地址
+
+---
+
+### menus
+
+菜单配置
 
 ---
 
@@ -72,7 +69,7 @@
 
 - 默认值: `[]`
 
-定制模型配置, 类型是模型配置对象组成的数组, 默认值是空数组, 请至少配置一个有效的模型配置
+模型选项, 类型是模型配置对象组成的数组, 默认值是空数组
 
 前往[模型选项](/options/ModelOptions)查看详细内容
 
@@ -103,6 +100,12 @@
 - 默认值: `true`
 
 是否在初始化阶段打印项目信息
+
+---
+
+### statusBar
+
+状态条选项, 详见[状态条选项](/options/StatusBarOptions)
 
 ---
 

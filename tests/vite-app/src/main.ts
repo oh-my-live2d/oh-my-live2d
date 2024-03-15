@@ -9,7 +9,7 @@ import './style.css';
 const foo = async () => {
   const oml2d = await loadOml2d({
     // parentElement: el,
-    importType: 'cubism5',
+    importType: 'complete',
     mobileDisplay: true,
     primaryColor: 'pink',
     models: [

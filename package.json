@@ -10,7 +10,7 @@
     "docs:dev": "concurrently \"node ./scripts/typedoc.js -w\" \"pnpm -r docs:dev\"",
     "docs:preview": "pnpm build && node ./scripts/typedoc.js && pnpm -r docs:build && pnpm -r docs:preview",
     "lint": "pnpm lint:prettier && pnpm lint:eslint",
-    "lint:eslint": "eslint --ext .js,.ts --fix .",
+    "lint:eslint": "eslint --ext .ts --fix .",
     "lint:prettier": "prettier --check --write .",
     "new-publish": "lerna publish from-package --yes",
     "prepare": "husky",

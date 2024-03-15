@@ -12,6 +12,7 @@ export default {
     if (!import.meta.env.SSR) {
       const { loadOml2d } = await import('oh-my-live2d');
       loadOml2d({
+        primaryColor: 'pink',
         models: [
           {
             path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
