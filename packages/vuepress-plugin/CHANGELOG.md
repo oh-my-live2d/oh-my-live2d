@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.11.0...v0.11.1) (2024-03-15)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- vuepress-plugin发布修复补丁 ([180dbcb](https://github.com/oh-my-live2d/oh-my-live2d/commit/180dbcb9847c41b6dc9821ed5cc8fb4bd6584e06)) by Hacxy
+
 ## [0.11.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.10.0...v0.11.0) (2024-03-15)
 
 ### ✨ Features | 新功能
