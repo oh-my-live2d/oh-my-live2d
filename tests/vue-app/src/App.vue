@@ -4,7 +4,8 @@ import HelloWorld from './components/HelloWorld.vue';
 import { loadOml2d } from 'oh-my-live2d';
 onMounted(() => {
   loadOml2d({
-    sayHello: false,
+    primaryColor: 'pink',
+    sayHello: true,
     models: [
       {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',

@@ -6,15 +6,9 @@ import { CommonStyleType } from '../types/common.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
-// const enum Status {
-//   display = true,
-//   hidden = false
-// }
-
 export class Stage {
   element?: HTMLElement;
   canvasElement?: HTMLCanvasElement;
-  // status: Status = Status.hidden;
 
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
@@ -76,36 +70,6 @@ export class Stage {
     this.unMount();
     this.mount();
   }
-  // create(): void {
-  //   const stageFragment = document.createDocumentFragment();
-
-  //   this.element.append(this.canvasElement);
-  //   stageFragment.append(this.element);
-
-  //   this.options.parentElement.append(stageFragment);
-
-  //   if (this.options.parentElement !== document.body) {
-  //     document.body.append(this.options.parentElement);
-  //   }
-
-  //   // // 刷新前卸载元素
-  //   // window.onbeforeunload = (): void => {
-  //   //   this.targetElement.removeChild(this.element);
-  //   // };
-  // }
-
-  // updateStyle(): void {}
-  // initialize(): void {
-  // this.element.append(this.canvasElement);
-  // this.updateParentElement();
-  // }
-
-  // updateParentElement(): void {
-  //   if (this.element) {
-  //     this.element.remove();
-  //     this.options.parentElement.append(this.element);
-  //   }
-  // }
 
   setStyle(style: CSSProperties, callback?: () => void): void {
     if (this.element) {
@@ -136,7 +100,6 @@ export class Stage {
       animationDuration: `${this.transitionTime}ms`,
       animationFillMode: 'forwards'
     });
-    // this.status = Status.display;
 
     return new Promise<void>((resolve) => {
       setTimeout(() => {
@@ -155,7 +118,6 @@ export class Stage {
       animationDuration: `${this.transitionTime}ms`,
       animationFillMode: 'forwards'
     });
-    // this.status = Status.hidden;
 
     return new Promise<void>((resolve) =>
       setTimeout(() => {

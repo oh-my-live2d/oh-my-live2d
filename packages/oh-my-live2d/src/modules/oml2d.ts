@@ -1,12 +1,13 @@
 import { Application } from './application.js';
 import { GlobalStyle } from './globalStyle.js';
-import { Models } from './live2d.js';
 import { Menus } from './menus.js';
+import { Models } from './models.js';
 import { Stage } from './stage.js';
 import { StatusBar } from './status-bar.js';
 import { Tips } from './tips.js';
+import { WindowSizeType } from '../constants/index.js';
 import type { DefaultOptions, PixiLive2dDisplayModule, PixiModule } from '../types/index.js';
-import { checkVersion, printProjectInfo } from '../utils/index.js';
+import { checkVersion, getWindowSizeType, onChangeWindowSize, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
   private globalStyle: GlobalStyle;
@@ -32,6 +33,13 @@ export class OhMyLive2D {
     this.application = new Application(this.PIXI);
 
     this.modelIndex = 0;
+  }
+
+  /**
+   * 移动端是否隐藏
+   */
+  private get mobileHidden(): boolean {
+    return !this.options.mobileDisplay && getWindowSizeType() === WindowSizeType.mobile;
   }
 
   private set modelIndex(index: number) {
@@ -80,6 +88,11 @@ export class OhMyLive2D {
    * 加载模型
    */
   private async loadModel(isLoading = true): Promise<void> {
+    if (this.mobileHidden) {
+      this.statusBar.rest();
+
+      return;
+    }
     if (isLoading) {
       this.statusBar.showLoading();
     }
@@ -90,14 +103,17 @@ export class OhMyLive2D {
     this.application?.resize();
     this.statusBar.hideLoading();
     await this.stage.slideIn();
-
-    // -------------
-    this.models.onHit((name) => {
-      console.log(name);
-      this.models.playMotion();
-    });
   }
 
+  /**
+   * 重新加载
+   */
+  async reloadModel(): Promise<void> {
+    this.tips.clear();
+    await this.stage.slideOut();
+    await this.loadModel();
+    void this.tips.idlePlayer?.start();
+  }
   /**
    * 加载下个模型
    */
@@ -147,6 +163,9 @@ export class OhMyLive2D {
 
     // 加载模型
     await this.loadModel();
+
+    // 注册模型事件
+    this.registerModelEvent();
   }
 
   // 切换状态. 休息/活动
@@ -164,6 +183,10 @@ export class OhMyLive2D {
    * 注册dom事件
    */
   private registerEvent(): void {
+    onChangeWindowSize(() => {
+      void this.reloadModel();
+    });
+
     // 出场入场动画执行结束之后的事件回调
     this.stage.onChangeSlideEnd((status) => {
       if (status) {
@@ -179,16 +202,17 @@ export class OhMyLive2D {
     this.menus.onClickItem((name) => {
       switch (name) {
         case 'Rest':
+          // 休息
           this.switchStatus();
 
           return;
-        // 切换模型
         case 'SwitchModel':
+          // 切换模型
           void this.loadNextModel();
 
           return;
-
         case 'About':
+          // 关于
           window.open('https://oml2d.com');
 
           return;
@@ -196,20 +220,13 @@ export class OhMyLive2D {
     });
   }
 
-  // updateOptions(options: Options = {}): void {
-  //   this.options = mergeOptions(this.options, options);
-  //   this.initializeModules();
-  //   // void this.models.loadModel();
-  //   this.models.initialize();
-  // }
-
-  // registerEvents(): void {
-  //   // 点击菜单按钮
-
-  //   // copy 事件
-  //   window.addEventListener('copy', () => {
-  //     this.tips.copy();
-  //   });
-
-  // }
+  /**
+   * 注册模型事件
+   */
+  private registerModelEvent(): void {
+    this.models.onHit(() => {
+      // console.log(name);
+      // this.models.playMotion();
+    });
+  }
 }
