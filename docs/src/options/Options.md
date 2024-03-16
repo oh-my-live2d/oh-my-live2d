@@ -49,7 +49,9 @@
 
 ### menus
 
-菜单配置
+- 类型: `object`
+
+菜单配置, 详见: [菜单选项](/options/MenusOptions)
 
 ---
 
@@ -71,7 +73,7 @@
 
 模型选项, 类型是模型配置对象组成的数组, 默认值是空数组
 
-前往[模型选项](/options/ModelOptions)查看详细内容
+详见: [模型选项](/options/ModelOptions)
 
 ---
 
@@ -105,7 +107,9 @@
 
 ### statusBar
 
-状态条选项, 详见[状态条选项](/options/StatusBarOptions)
+- 类型: `object`
+
+状态条选项, 详见: [状态条选项](/options/StatusBarOptions)
 
 ---
 

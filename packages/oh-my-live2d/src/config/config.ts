@@ -55,7 +55,9 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   },
   menus: {
     style: MENUS_DEFAULT_STYLE,
-    itemStyle: {}
+    itemStyle: {},
+    mobileStyle: MENUS_DEFAULT_STYLE,
+    mobileItemStyle: {}
   }
 };
 

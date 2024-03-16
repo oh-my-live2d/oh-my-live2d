@@ -3,7 +3,7 @@ node_modules/**
 **/public/**
 docs/.vitepress/cache/**
 library/
-
+packages/oh-my-live2d/lib/** 
 .local
 .output.js
 

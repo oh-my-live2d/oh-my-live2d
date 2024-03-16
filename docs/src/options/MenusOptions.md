@@ -10,6 +10,18 @@
 
 ---
 
+### mobileItemStyle
+
+移动端下菜单子项样式
+
+---
+
+### mobileStyle
+
+移动端下整体样式
+
+---
+
 ### style
 
 - 类型: `object`

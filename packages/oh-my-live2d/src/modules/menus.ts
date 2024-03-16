@@ -95,8 +95,8 @@ export class Menus {
         this.setItemStyle(handleCommonStyle(this.options.menus.itemStyle || {}));
         break;
       case WindowSizeType.mobile:
-        this.setStyle(handleCommonStyle(this.options.menus.style || {}));
-        this.setItemStyle(handleCommonStyle(this.options.menus.itemStyle || {}));
+        this.setStyle(handleCommonStyle(this.options.menus.mobileStyle || {}));
+        this.setItemStyle(handleCommonStyle(this.options.menus.mobileItemStyle || {}));
         break;
     }
   }

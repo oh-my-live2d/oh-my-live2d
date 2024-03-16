@@ -45,9 +45,11 @@ export type DefaultStatusBarOptions = Omit<DeepRequired<StatusBarOptions>, 'styl
   style?: CommonStyleType;
 };
 
-export type DefaultMenusOptions = Omit<DeepRequired<MenusOptions>, 'style' | 'itemStyle'> & {
+export type DefaultMenusOptions = Omit<DeepRequired<MenusOptions>, 'style' | 'itemStyle' | 'mobileStyle' | 'mobileItemStyle'> & {
   style?: CommonStyleType;
   itemStyle?: CommonStyleType;
+  mobileStyle?: CommonStyleType;
+  mobileItemStyle?: CommonStyleType;
 };
 
 export type Live2DModelType = typeof Live2DModel;
