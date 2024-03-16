@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.11.1...v0.12.0) (2024-03-16)
+
+### ✨ Features | 新功能
+
+- **menus:** 新增了移动端下菜单样式的配置选项 ([995a74a](https://github.com/oh-my-live2d/oh-my-live2d/commit/995a74abb46f3762068fe099cdb402548ad136e6)) by Hacxy
+
 ## [0.11.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.11.0...v0.11.1) (2024-03-15)
 
 ### 🐛 Bug Fixes | Bug 修复
