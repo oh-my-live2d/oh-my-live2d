@@ -52,7 +52,7 @@ export class StatusBar {
         this.setStyle(handleCommonStyle(this.options.statusBar.style || {}));
         break;
       case WindowSizeType.mobile:
-        this.setStyle(handleCommonStyle(this.options.statusBar.style || {}));
+        this.setStyle(handleCommonStyle(this.options.statusBar.mobileStyle || {}));
         break;
     }
   }

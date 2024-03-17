@@ -41,8 +41,9 @@ export type DefaultTipsOptions = Omit<DeepRequired<TipsOptions>, 'style' | 'mobi
   mobileStyle?: CommonStyleType;
 };
 
-export type DefaultStatusBarOptions = Omit<DeepRequired<StatusBarOptions>, 'style'> & {
+export type DefaultStatusBarOptions = Omit<DeepRequired<StatusBarOptions>, 'style' | 'mobileStyle'> & {
   style?: CommonStyleType;
+  mobileStyle?: CommonStyleType;
 };
 
 export type DefaultMenusOptions = Omit<DeepRequired<MenusOptions>, 'style' | 'itemStyle' | 'mobileStyle' | 'mobileItemStyle'> & {

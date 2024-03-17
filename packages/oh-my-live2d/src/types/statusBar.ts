@@ -14,4 +14,8 @@ export interface StatusBarOptions {
    * @valueType object
    */
   style?: CommonStyleType;
+  /**
+   * 移动端下状态条样式
+   */
+  mobileStyle?: CommonStyleType;
 }

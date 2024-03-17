@@ -20,7 +20,8 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   models: [],
   statusBar: {
     errorColor: STATUS_BAR_ERROR_COLOR,
-    style: STATUS_BAR_DEFAULT_STYLE
+    style: STATUS_BAR_DEFAULT_STYLE,
+    mobileStyle: STATUS_BAR_DEFAULT_STYLE
   },
   tips: {
     messageLine: 3,
