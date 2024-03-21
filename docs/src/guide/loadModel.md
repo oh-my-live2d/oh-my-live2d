@@ -117,7 +117,7 @@ oml2d.loadNextModel().then(() => {
 - 示例:
 
 ```ts
-oml2d.loadNextModel().then(() => {
+oml2d.reloadModel().then(() => {
   console.log('加载完毕');
 });
 ```
