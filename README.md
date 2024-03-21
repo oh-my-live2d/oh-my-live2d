@@ -32,7 +32,7 @@
 
 使用CDN导入方式在您的任意项目中立即体验`oh-my-live2d`:
 
-<image align="right" height="320px" src="https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
+<image align="right" height="320px" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
@@ -56,7 +56,7 @@
 
 ## 案例
 
-以下是一些非常优质的案例:
+以下是一些非常优质的使用案例:
 
 - <https://hacxy.cn>
 - <https://sugarat.top>
