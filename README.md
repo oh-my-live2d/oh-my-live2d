@@ -67,7 +67,7 @@
 
 ## 如何贡献代码
 
-本项目管理方式采用 `moporepo` 结构, 开始参与维护前需要您全局安装 `pnpm`, 并提前了解 angular Git提交规范.
+本项目管理方式采用 `monorepo` 结构, 开始参与维护前需要您全局安装 `pnpm`, 并提前了解 angular Git提交规范.
 
 - 首先 fork 本仓库并将项目 clone 至本地
 
