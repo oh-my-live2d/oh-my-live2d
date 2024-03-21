@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.12.0...v0.13.0) (2024-03-21)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 记录了当前模型的索引值, 修复了切换模型后刷新还是从第一个模型开始展示 ([34d83fc](https://github.com/oh-my-live2d/oh-my-live2d/commit/34d83fcf6620f6d37a4534a816aea196be7d52a0)) by Hacxy
+
 ## [0.12.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.11.1...v0.12.0) (2024-03-16)
 
 **Note:** Version bump only for package vite-plugin-oml2d
