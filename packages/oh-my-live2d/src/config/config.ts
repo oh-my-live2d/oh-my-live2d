@@ -55,6 +55,32 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
     }
   },
   menus: {
+    items: [
+      {
+        id: 'Rest',
+        icon: 'icon-rest',
+        title: '休息',
+        onClick(oml2d): void {
+          oml2d.switchStatus();
+        }
+      },
+      {
+        id: 'SwitchModel',
+        icon: 'icon-switch',
+        title: '切换模型',
+        onClick(oml2d): void {
+          void oml2d.loadNextModel();
+        }
+      },
+      {
+        id: 'About',
+        icon: 'icon-about',
+        title: '关于',
+        onClick(): void {
+          window.open('https://oml2d.com');
+        }
+      }
+    ],
     style: MENUS_DEFAULT_STYLE,
     itemStyle: {},
     mobileStyle: MENUS_DEFAULT_STYLE,
@@ -72,27 +98,3 @@ export const ELEMENT_ID = {
   menus: 'oml2d-menus',
   iconSvg: 'oml2d-icon-svg'
 };
-
-/** 菜单的配置 */
-export const MENU_ITEMS = [
-  {
-    id: 'Rest',
-    name: 'icon-bed',
-    title: '休息'
-  },
-  {
-    id: 'SwitchModel',
-    name: 'icon-a-userswitch-fill',
-    title: '切换模型'
-  },
-  // {
-  //   id: 'Play',
-  //   name: 'icon-skin-fill',
-  //   title: '变装'
-  // },
-  {
-    id: 'About',
-    name: 'icon-info-circle-fill',
-    title: '关于'
-  }
-];

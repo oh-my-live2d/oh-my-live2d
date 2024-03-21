@@ -45,3 +45,10 @@ export type LoadOml2dSDK = (
 export type OML2D = Omit<OhMyLive2D, 'unMount' | 'initialize'>;
 
 export type StoreModelInfo = { key: string; currentIndex: number } | undefined;
+
+export type Item = {
+  id: string;
+  icon: string;
+  title: string;
+  onClick?: (oml2d: OML2D) => void;
+};

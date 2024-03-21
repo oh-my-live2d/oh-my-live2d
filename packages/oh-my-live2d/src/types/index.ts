@@ -3,7 +3,7 @@ import type { Live2DModel } from 'pixi-live2d-display';
 import type { HitAreaFrames } from 'pixi-live2d-display/extra';
 import type { Application } from 'pixi.js';
 
-import { CommonStyleType } from './common.js';
+import { CommonStyleType, Item } from './common.js';
 import type { ModelOptions } from './model.js';
 import type { MenusOptions, Options } from './options.js';
 import { StatusBarOptions } from './statusBar.js';
@@ -46,7 +46,8 @@ export type DefaultStatusBarOptions = Omit<DeepRequired<StatusBarOptions>, 'styl
   mobileStyle?: CommonStyleType;
 };
 
-export type DefaultMenusOptions = Omit<DeepRequired<MenusOptions>, 'style' | 'itemStyle' | 'mobileStyle' | 'mobileItemStyle'> & {
+export type DefaultMenusOptions = Omit<DeepRequired<MenusOptions>, 'style' | 'itemStyle' | 'mobileStyle' | 'mobileItemStyle' | 'items'> & {
+  items: Item[];
   style?: CommonStyleType;
   itemStyle?: CommonStyleType;
   mobileStyle?: CommonStyleType;

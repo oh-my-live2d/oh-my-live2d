@@ -1,10 +1,16 @@
-import { CommonStyleType } from './common.js';
+// import { OhMyLive2D } from 'src/modules/oml2d.js';
+import { CommonStyleType, Item } from './common.js';
 
 /**
  * # 菜单选项
  * @name 菜单选项
  */
 export interface MenusOptions {
+  /**
+   * 配置菜单项,
+   */
+  items?: Item[] | ((defaultItems: Item[]) => Item[]);
+
   /**
    * 配置菜单整体样式
    * @valueType object

@@ -10,6 +10,12 @@
 
 ---
 
+### mobileStyle
+
+移动端下状态条样式
+
+---
+
 ### style
 
 - 类型: `object`

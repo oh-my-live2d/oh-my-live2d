@@ -30,7 +30,7 @@ export class OhMyLive2D {
     this.stage = new Stage(options); // 实例化舞台
     this.statusBar = new StatusBar(options);
     this.tips = new Tips(options); // 提示框
-    this.menus = new Menus(options); // 菜单
+    this.menus = new Menus(options, this); // 菜单
     this.models = new Models(options, this.PixiLive2dDisplay);
     this.application = new Application(this.PIXI);
     this.store = new Store();
@@ -205,27 +205,6 @@ export class OhMyLive2D {
     window.document.oncopy = (): void => {
       this.tips.copy();
     };
-
-    // 菜单按钮项被点击
-    this.menus.onClickItem((name) => {
-      switch (name) {
-        case 'Rest':
-          // 休息
-          this.switchStatus();
-
-          return;
-        case 'SwitchModel':
-          // 切换模型
-          void this.loadNextModel();
-
-          return;
-        case 'About':
-          // 关于
-          window.open('https://oml2d.com');
-
-          return;
-      }
-    });
   }
 
   /**
@@ -236,7 +215,7 @@ export class OhMyLive2D {
   }
 
   /**
-   * 主动提示消息
+   * 提示消息
    */
   tipsMessage(message: string, duration?: number, priority?: number): void {
     this.tips.notification(message, duration, priority);

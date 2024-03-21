@@ -1,52 +1,57 @@
-import { mergeDeep } from 'tianjie';
+import { isArray, isFunction, mergeDeep } from 'tianjie';
 
-import { ELEMENT_ID, MENU_ITEMS } from '../config/index.js';
+import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
-import type { CSSProperties, DefaultOptions } from '../types/index.js';
+import { Item, OML2D } from '../types/common.js';
+import type { CSSProperties, DefaultOptions, MenusOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
 export class Menus {
   element?: HTMLElement;
   private style: CSSProperties = {};
   private itemStyle: CSSProperties = {};
-  private clickItem?: ((name: string) => void) | ((name: string) => Promise<void>);
   private menuItemList: HTMLElement[] = [];
 
-  constructor(private options: DefaultOptions) {}
+  constructor(
+    private options: DefaultOptions,
+    private oml2d: OML2D
+  ) {}
 
-  createMenuItem(): void {
-    this.menuItemList = MENU_ITEMS.map((item) => {
+  private get menuOptions(): MenusOptions {
+    return this.options.menus;
+  }
+
+  createMenuItemElements(items: Item[]): void {
+    this.menuItemList = items.map((item) => {
       const el = createElement({
         id: item.id,
         tagName: 'div',
         dataName: item.id,
         className: 'oml2d-menus-item',
         innerHtml: `
-      <svg class="oml2d-icon">
-        <use xlink:href="#${item.name}"></use>
-      </svg>
-    `
+<svg class="oml2d-icon">
+  <use xlink:href="#${item.icon}"></use>
+</svg>
+`
       });
 
       el.title = item.title;
 
+      el.onclick = (): void => {
+        item.onClick?.(this.oml2d);
+      };
+
       return el;
     });
+  }
+  createMenuItem(): void {
+    if (isArray(this.menuOptions.items)) {
+      this.createMenuItemElements(this.menuOptions.items);
+    } else if (isFunction(this.menuOptions.items)) {
+      const items = this.menuOptions.items(DEFAULT_OPTIONS.menus.items);
 
-    // this.element.append(...this.menuItemList);
-
-    this.element?.addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) {
-        return;
-      }
-      let target = e.target as HTMLElement;
-
-      while (target.parentNode !== e.currentTarget) {
-        target = target.parentNode as HTMLElement;
-      }
-
-      void this.clickItem?.(target.getAttribute('data-name')!);
-    });
+      this.createMenuItemElements(items);
+    }
   }
 
   /**
@@ -112,10 +117,6 @@ export class Menus {
   update(options: DefaultOptions): void {
     this.options = options;
     this.reloadStyle();
-  }
-
-  onClickItem(fn: ((name) => void) | ((name) => Promise<void>)): void {
-    this.clickItem = fn;
   }
 
   setStyle(style: CSSProperties): void {

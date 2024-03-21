@@ -1,10 +1,8 @@
 import { loadOml2d } from 'oh-my-live2d';
 
 import typescriptLogo from './typescript.svg';
-
 import './style.css';
-// const el = document.createElement('div');
-// document.body.append(el);
+import '//at.alicdn.com/t/c/font_2679099_hchompi0roq.js';
 
 const foo = async () => {
   const oml2d = await loadOml2d({
@@ -45,6 +43,18 @@ const foo = async () => {
           return `${wordTheDayData.hitokoto}`;
         }
       }
+    },
+    menus: {
+      items: [
+        {
+          id: 'github',
+          icon: 'github-fill',
+          title: '我的github',
+          onClick() {
+            window.open('https://github.com/hacxy');
+          }
+        }
+      ]
     }
   });
 
