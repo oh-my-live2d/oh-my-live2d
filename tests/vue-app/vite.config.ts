@@ -5,16 +5,16 @@ import { oml2d } from 'vite-plugin-oh-my-live2d';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
-    oml2d({
-      primaryColor: 'pink',
-      models: [
-        {
-          path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-          position: [-10, 20]
-        }
-      ]
-    })
+    vue()
+    // oml2d({
+    //   primaryColor: 'pink',
+    //   models: [
+    //     {
+    //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+    //       position: [-10, 20]
+    //     }
+    //   ]
+    // })
     // oml2d({
     //   models: [
     //     {
