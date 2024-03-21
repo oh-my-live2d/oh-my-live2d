@@ -70,6 +70,10 @@ export default defineConfig({
             {
               text: '快速入门',
               link: '/guide/'
+            },
+            {
+              text: '加载模型',
+              link: '/guide/loadModel'
             }
           ]
         },

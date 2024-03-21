@@ -176,7 +176,9 @@ export class OhMyLive2D {
     this.registerModelEvent();
   }
 
-  // 切换状态. 休息/活动
+  /**
+   * 切换状态. 休息/活动
+   */
   switchStatus(): void {
     void this.stage.slideOut();
     this.tips.clear();
@@ -215,7 +217,10 @@ export class OhMyLive2D {
   }
 
   /**
-   * 提示消息
+   * 主动提示消息
+   * @param message 提示信息
+   * @param duration 持续时间  默认值: 3000
+   * @param priority  优先级 默认值: 3
    */
   tipsMessage(message: string, duration?: number, priority?: number): void {
     this.tips.notification(message, duration, priority);

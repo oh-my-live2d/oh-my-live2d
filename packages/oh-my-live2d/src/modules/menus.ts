@@ -58,8 +58,10 @@ export class Menus {
    * 创建
    */
   create(): void {
-    this.element = createElement({ id: ELEMENT_ID.menus, tagName: 'div', className: ELEMENT_ID.menus });
-    this.createMenuItem();
+    if (this.menuOptions.items) {
+      this.element = createElement({ id: ELEMENT_ID.menus, tagName: 'div', className: ELEMENT_ID.menus });
+      this.createMenuItem();
+    }
   }
 
   /**

@@ -5,7 +5,7 @@ import './style.css';
 import '//at.alicdn.com/t/c/font_2679099_hchompi0roq.js';
 
 const foo = async () => {
-  const oml2d = await loadOml2d({
+  loadOml2d({
     // parentElement: el,
     importType: 'complete',
     mobileDisplay: true,
@@ -15,7 +15,11 @@ const foo = async () => {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
         scale: 0.2,
         motionPreloadStrategy: 'ALL',
-        volume: 0
+        position: [0, 100],
+        volume: 0,
+        stageStyle: {
+          height: 500
+        }
       },
       {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
@@ -58,7 +62,7 @@ const foo = async () => {
     }
   });
 
-  console.log(oml2d);
+  // console.log(oml2d);
   // oml2d.loadNextModel();
   // const oml2d2 = await loadOml2d({
   //   models: [
