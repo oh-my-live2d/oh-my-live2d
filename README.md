@@ -57,11 +57,8 @@
 ## 更多支持
 
 - [在 VitePress 中使用](https://oml2d.com/guide/vitepress.html)
-
 - [在 VuePress2 中使用](https://oml2d.com/guide/vuepress.html)
-
 - [通过 VitePlugin 方式使用](https://oml2d.com/guide/vite.html)
-
 - [在 Hexo 中使用](https://oml2d.com/guide/hexo.html)
 
 ## 案例
