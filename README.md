@@ -32,7 +32,7 @@
 
 使用CDN导入方式在您的任意项目中立即体验`oh-my-live2d`:
 
-<image align="right" height="320px" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
+<image align="right" height="325px" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
@@ -64,6 +64,41 @@
 - <https://asev.gitee.io>
 
 **征集更多案例, 欢迎随时PR😋**
+
+## 如何贡献代码
+
+本项目管理方式采用 `moporepo` 结构, 开始参与维护前需要您全局安装 `pnpm`, 并提前了解 angular Git提交规范.
+
+- 首先 fork 本仓库并将项目 clone 至本地
+
+- cd 到项目目录之后安装依赖:
+
+  ```sh
+  pnpm install
+  ```
+
+- 运行开发环境
+
+  ```sh
+  pnpm dev
+  ```
+
+- 运行测试
+  ```sh
+  pnpm test
+  ```
+- 运行文档
+  ```sh
+  pnpm docs:dev
+  ```
+
+核心代码存放于: `packages/oh-my-live2d` 中, 所有模块以命名区分分别存放于 `src/modules` 文件夹下
+
+需要注意的是所有本地文件的导入语句需要以 `.js` 结尾, 否则会产生类型推导异常
+
+文档中所有配置选项的描述无需您手动编辑, 它将根据 `packages/oh-my-live2d/src/types` 中导出的类型模块自动生成, 注释即文档
+
+修改完代码后您只需按照 Angular 提交规范, 提交代码至您fork之后的仓库即可, 然后向本仓库提交PR
 
 ## 贡献者们
 
