@@ -105,9 +105,6 @@ importers:
       typescript:
         specifier: ^5.1.6
         version: 5.3.3
-      vite-plugin-oml2d:
-        specifier: workspace:*
-        version: link:../packages/vite-plugin
       vitepress:
         specifier: 1.0.0-rc.45
         version: 1.0.0-rc.45(@algolia/client-search@4.22.1)(sass@1.71.1)(search-insights@2.13.0)(typescript@5.3.3)
@@ -179,7 +176,7 @@ importers:
       vite:
         specifier: ^5.1.4
         version: 5.1.4(sass@1.71.1)
-      vite-plugin-oml2d:
+      vite-plugin-oh-my-live2d:
         specifier: workspace:*
         version: link:../../packages/vite-plugin
       vue-tsc:

@@ -64,9 +64,7 @@
 
   <image style="display: inline-block;width:200px;padding-right:6px" src='https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/wxq.png'/>
 
-- QQ群:
-
-  <image style="display: inline-block;width:200px;padding-right:6px" src='https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111755979.png'/>
+- QQ群: 474032914
 
 > [!TIP]
 > 😃 您的 star 是我更新的动力

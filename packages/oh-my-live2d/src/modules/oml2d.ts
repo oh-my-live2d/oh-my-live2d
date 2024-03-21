@@ -157,6 +157,11 @@ export class OhMyLive2D {
     if (this.options.sayHello) {
       printProjectInfo();
     }
+
+    if (!this.options.models || !this.options.models.length) {
+      return;
+    }
+
     //  创建
     this.create();
 

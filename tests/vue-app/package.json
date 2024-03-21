@@ -17,6 +17,6 @@
     "typescript": "^5.3.3",
     "vite": "^5.1.4",
     "vue-tsc": "^1.8.27",
-    "vite-plugin-oml2d": "workspace:*"
+    "vite-plugin-oh-my-live2d": "workspace:*"
   }
 }
