@@ -97,7 +97,7 @@ const blogTheme = getThemeConfig({
       { type: 'text', content: '↓ 微信群 ------ QQ群 ↓' },
       {
         type: 'image',
-        src: 'https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111753229.png',
+        src: 'https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/wxq.png',
         style: 'display: inline-block;width:46%;padding-right:6px'
       },
       {

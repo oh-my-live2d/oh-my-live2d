@@ -136,11 +136,9 @@ loadOml2d({
 ## 讨论
 
 - 微信群
-
-  <image style="display: inline-block;width:200px;padding-right:6px" src='https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111753229.png'/>
+  <image style="display: inline-block;width:200px;padding-right:6px" src='https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/wxq.png'/>
 
 - QQ群:
-
   <image style="display: inline-block;width:200px;padding-right:6px" src='https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111755979.png'/>
 
 ## 免责声明

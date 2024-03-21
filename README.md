@@ -7,7 +7,7 @@
 
 ![npm](https://img.shields.io/npm/v/oh-my-live2d?label=npm) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F5-orange) ![GitHub package.json version](https://img.shields.io/npm/v/vuepress-plugin-oh-my-live2d?label=vuepress-plugin)
 
-**OhMyLive2D** 是一个应用于浏览器环境的*Live2D看板组件*, 它目前支持所有版本的Live2D模型, 现在可以使用它快速的为您的个人网站定义一个或多个仅属于您自己的Live2D看板娘, 使您的个人网站变得更具有特色.
+**OhMyLive2D** 是一个应用于浏览器环境的*Live2D看板组件*, 它目前支持所有版本的Live2D模型, 它可以为您的个人网站添加Live2D看板娘, 使您的个人网站变得更具有特色.
 
 **[查阅文档](https://oml2d.com) 以了解更多详细使用教程。**
 
@@ -58,12 +58,13 @@
   <img src="https://contrib.rocks/image?repo=oh-my-live2d/oh-my-live2d" />
 </a>
 
-## 社区
+## 讨论
 
-- qq 群: **`474032914`**
+- 微信群
+  <image style="display: inline-block;width:200px;padding-right:6px" src='https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/wxq.png'/>
 
-- 微信群:
-  需添加好友: **`coder7915`** 请备注：`oml2d`
+- QQ群:
+  <image style="display: inline-block;width:200px;padding-right:6px" src='https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111755979.png'/>
 
 > [!TIP]
 > 😃 您的 star 是我更新的动力
