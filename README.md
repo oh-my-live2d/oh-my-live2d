@@ -7,7 +7,7 @@
 
 ![npm](https://img.shields.io/npm/v/oh-my-live2d?label=npm) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F5-orange) ![GitHub package.json version](https://img.shields.io/npm/v/vuepress-plugin-oh-my-live2d?label=vuepress-plugin)
 
-**OhMyLive2D** 是一个应用于浏览器环境的*Live2D看板组件*, 它目前支持所有版本的Live2D模型, 它可以为您的个人网站添加Live2D看板娘, 使您的个人网站变得更具有特色.
+**OhMyLive2D** 是一个应用于浏览器环境的*Live2D看板组件*, 它支持目前所有版本的Live2D模型, 可以快速的为您的个人网站添加Live2D看板娘, 使您的个人网站变得更具有特色.
 
 **[查阅文档](https://oml2d.com) 以了解更多详细使用教程。**
 
