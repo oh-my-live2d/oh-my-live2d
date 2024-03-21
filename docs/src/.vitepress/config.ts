@@ -22,6 +22,10 @@ const examples = [
     link: '/guide/vuepress'
   },
   {
+    text: '通过VitePlugin方式使用',
+    link: '/guide/vite'
+  },
+  {
     text: '在hexo中使用',
     link: '/guide/hexo'
   }
@@ -98,6 +102,10 @@ export default defineConfig({
       {
         text: '模型资源',
         link: '/guide/models'
+      },
+      {
+        text: '关于',
+        link: '/about'
       },
       {
         text: '更新日志',
