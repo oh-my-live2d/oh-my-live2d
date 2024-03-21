@@ -14,7 +14,7 @@
 > [!TIP]  
 > **此项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入😄**
 
-## 特征
+## 特点
 
 - 支持 `CDN` 或 `ES6 Module` 两种导入方式。
 
@@ -24,11 +24,15 @@
 
 - 使用 `TypeScript` 开发，具备完整的类型推导。
 
+- 高可定制化, 完全可自定义的菜单, 以及各控件样式
+
 - 第三方文档构建工具的支持, 如 `vitepress`、`vuepress`。
 
 ## 快速体验
 
 使用CDN导入方式在您的任意项目中立即体验`oh-my-live2d`:
+
+<image align="right" height="320px" src="https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
@@ -36,11 +40,11 @@
   OML2D.loadOml2d({
     models: [
       {
-        path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
-        scale: 0.12,
-        position: [-50, 50],
+        path: 'https://model.oml2d.com/HK416-1-normal/model.json',
+        position: [0, 60],
+        scale: 0.08,
         stageStyle: {
-          width: 320
+          height: 450
         }
       }
     ]
@@ -49,6 +53,17 @@
 ```
 
 之后您可以查阅文档了解更多相关内容:[查阅文档](https://oml2d.com/guide/index.html)
+
+## 案例
+
+以下是一些非常优质的案例:
+
+- <https://hacxy.cn>
+- <https://sugarat.top>
+- <https://theme.sugarat.top>
+- <https://asev.gitee.io>
+
+**征集更多案例, 欢迎随时PR😋**
 
 ## 贡献者们
 
