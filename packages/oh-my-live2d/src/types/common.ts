@@ -43,3 +43,5 @@ export type LoadOml2dSDK = (
   PixiLive2dDisplay: PixiLive2dDisplayModule;
 }>;
 export type OML2D = Omit<OhMyLive2D, 'unMount' | 'initialize'>;
+
+export type StoreModelInfo = { key: string; currentIndex: number } | undefined;

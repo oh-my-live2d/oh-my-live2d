@@ -4,12 +4,14 @@ import { Menus } from './menus.js';
 import { Models } from './models.js';
 import { Stage } from './stage.js';
 import { StatusBar } from './status-bar.js';
+import { Store } from './store.js';
 import { Tips } from './tips.js';
 import { WindowSizeType } from '../constants/index.js';
 import type { DefaultOptions, PixiLive2dDisplayModule, PixiModule } from '../types/index.js';
 import { checkVersion, getWindowSizeType, onChangeWindowSize, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
+  private store: Store;
   private globalStyle: GlobalStyle;
   private stage: Stage;
   private statusBar: StatusBar;
@@ -29,10 +31,10 @@ export class OhMyLive2D {
     this.statusBar = new StatusBar(options);
     this.tips = new Tips(options); // 提示框
     this.menus = new Menus(options); // 菜单
-    this.models = new Models(options, PixiLive2dDisplay);
+    this.models = new Models(options, this.PixiLive2dDisplay);
     this.application = new Application(this.PIXI);
-
-    this.modelIndex = 0;
+    this.store = new Store();
+    this.modelIndex = this.store.getModelCurrentIndex(this.options.models);
   }
 
   /**
@@ -46,6 +48,7 @@ export class OhMyLive2D {
     this.currentModelIndex = index;
     this.stage.modelIndex = index;
     this.models.modelIndex = index;
+    this.store.updateModelInfo(this.options.models, index);
   }
 
   private get modelIndex(): number {
@@ -174,7 +177,7 @@ export class OhMyLive2D {
   }
 
   // 切换状态. 休息/活动
-  private switchStatus(): void {
+  switchStatus(): void {
     void this.stage.slideOut();
     this.tips.clear();
 
@@ -230,12 +233,12 @@ export class OhMyLive2D {
    */
   private registerModelEvent(): void {
     this.models.onHit();
+  }
 
-    // this.models.model?.focus
-    // window.document.addEventListener('touchend', (e) => {
-    //   console.log(e);
-    //   console.log('ssssssssssss');
-    //   // this.models.model?.focus(0, 0);
-    // });
+  /**
+   * 主动提示消息
+   */
+  tipsMessage(message: string, duration?: number, priority?: number): void {
+    this.tips.notification(message, duration, priority);
   }
 }

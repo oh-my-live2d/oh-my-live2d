@@ -28,7 +28,7 @@ export class Tips {
     this.idlePlayer = this.createIdleMessagePlayer();
   }
 
-  get tipsOptions(): DefaultTipsOptions {
+  private get tipsOptions(): DefaultTipsOptions {
     return this.options.tips;
   }
 

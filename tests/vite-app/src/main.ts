@@ -13,12 +13,12 @@ const foo = async () => {
     mobileDisplay: true,
     primaryColor: 'pink',
     models: [
-      // {
-      //   path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
-      //   scale: 0.2,
-      //   motionPreloadStrategy: 'ALL',
-      //   volume: 0
-      // },
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
+        scale: 0.2,
+        motionPreloadStrategy: 'ALL',
+        volume: 0
+      },
       {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
         stageStyle: {},
