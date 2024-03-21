@@ -127,4 +127,6 @@ loadOml2d({
 
 - [在 VuePress2 中使用](./vuepress.md)
 
+- [通过VitePlugin方式使用](./vite.md)
+
 - [在 Hexo 中使用](./hexo.md)

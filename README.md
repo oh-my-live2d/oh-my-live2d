@@ -54,6 +54,16 @@
 
 之后您可以查阅文档了解更多相关内容:[查阅文档](https://oml2d.com/guide/index.html)
 
+## 更多支持
+
+- [在 VitePress 中使用](https://oml2d.com/guide/vitepress.html)
+
+- [在 VuePress2 中使用](https://oml2d.com/guide/vuepress.html)
+
+- [通过 VitePlugin 方式使用](https://oml2d.com/guide/vite.html)
+
+- [在 Hexo 中使用](https://oml2d.com/guide/hexo.html)
+
 ## 案例
 
 以下是一些非常优质的使用案例:
@@ -67,7 +77,7 @@
 
 ## 如何贡献代码
 
-本项目管理方式采用 `monorepo` 结构, 开始参与维护前需要您全局安装 `pnpm`, 并提前了解 angular Git提交规范.
+本项目管理方式采用 `monorepo` 结构, 开始参与维护前需要您全局安装 `pnpm`, 并提前了解 Angular Git提交规范.
 
 - 首先 fork 本仓库并将项目 clone 至本地
 
