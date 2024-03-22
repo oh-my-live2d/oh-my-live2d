@@ -91,6 +91,10 @@ export class OhMyLive2D {
    * 加载模型
    */
   private async loadModel(isLoading = true): Promise<void> {
+    if (!this.options.models || !this.options.models.length) {
+      return;
+    }
+
     if (this.mobileHidden) {
       this.statusBar.rest();
 
@@ -108,8 +112,14 @@ export class OhMyLive2D {
     this.application?.mount(this.stage.canvasElement!, this.stage.element!, this.models.model);
     this.models.settingModel();
     this.stage.reloadStyle(this.models.modelSize);
+
     this.application?.resize();
+
     this.statusBar.hideLoading();
+
+    // 注册模型事件
+    this.registerModelEvent();
+
     await this.stage.slideIn();
   }
 
@@ -158,10 +168,6 @@ export class OhMyLive2D {
       printProjectInfo();
     }
 
-    if (!this.options.models || !this.options.models.length) {
-      return;
-    }
-
     //  创建
     this.create();
 
@@ -176,9 +182,6 @@ export class OhMyLive2D {
 
     // 加载模型
     await this.loadModel();
-
-    // 注册模型事件
-    this.registerModelEvent();
   }
 
   /**

@@ -52,11 +52,11 @@ export class Stage {
   reloadStyle(modelSize: CommonStyleType = {}): void {
     switch (getWindowSizeType()) {
       case WindowSizeType.mobile:
-        modelSize = mergeDeep(modelSize, this.options.models[this.modelIndex].mobileStageStyle || {});
+        modelSize = mergeDeep(modelSize, this.options.models?.[this.modelIndex]?.mobileStageStyle || {});
         this.setStyle(handleCommonStyle(modelSize));
         break;
       case WindowSizeType.pc:
-        modelSize = mergeDeep(modelSize, this.options.models[this.modelIndex].stageStyle || {});
+        modelSize = mergeDeep(modelSize, this.options.models?.[this.modelIndex]?.stageStyle || {});
         this.setStyle(handleCommonStyle(modelSize));
         break;
     }

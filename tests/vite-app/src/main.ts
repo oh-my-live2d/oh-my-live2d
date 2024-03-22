@@ -49,16 +49,16 @@ const foo = async () => {
       }
     },
     menus: {
-      items: [
-        {
-          id: 'github',
-          icon: 'github-fill',
-          title: '我的github',
-          onClick() {
-            window.open('https://github.com/hacxy');
-          }
-        }
-      ]
+      // items: [
+      //   {
+      //     id: 'github',
+      //     icon: 'github-fill',
+      //     title: '我的github',
+      //     onClick() {
+      //       window.open('https://github.com/hacxy');
+      //     }
+      //   }
+      // ]
     }
   });
 
