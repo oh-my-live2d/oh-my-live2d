@@ -5,9 +5,9 @@ import './style.css';
 import '//at.alicdn.com/t/c/font_2679099_hchompi0roq.js';
 
 const foo = async () => {
-  loadOml2d({
+  await loadOml2d({
     // parentElement: el,
-    importType: 'complete',
+    // importType: 'complete',
     mobileDisplay: true,
     primaryColor: 'pink',
     models: [
@@ -48,6 +48,9 @@ const foo = async () => {
         }
       }
     },
+    statusBar: {
+      style: {}
+    },
     menus: {
       // items: [
       //   {
@@ -78,7 +81,8 @@ const foo = async () => {
   //   oml2d.loadNextModel();
   //   console.log('ssssssssssssss');
   // }, 1000);
-  // loadOml2d({
+
+  // await loadOml2d({
   //   models: [
   //     {
   //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
@@ -87,6 +91,7 @@ const foo = async () => {
   //     }
   //   ]
   // });
+
   // loadOml2d({
   //   models: [
   //     {

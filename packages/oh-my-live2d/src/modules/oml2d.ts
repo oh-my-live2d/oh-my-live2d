@@ -1,5 +1,7 @@
 import { Application } from './application.js';
-import { GlobalStyle } from './globalStyle.js';
+import { GlobalStyle } from './global-style.js';
+// import { LoadOhMyLive2D } from './load-oml2d.js';
+import { LoadOhMyLive2D } from './load-oml2d.js';
 import { Menus } from './menus.js';
 import { Models } from './models.js';
 import { Stage } from './stage.js';
@@ -11,27 +13,28 @@ import type { DefaultOptions, PixiLive2dDisplayModule, PixiModule } from '../typ
 import { checkVersion, getWindowSizeType, onChangeWindowSize, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
-  private store: Store;
-  private globalStyle: GlobalStyle;
-  private stage: Stage;
-  private statusBar: StatusBar;
-  private tips: Tips;
-  private menus: Menus;
-  private models: Models;
-  private application?: Application;
-  private currentModelIndex: number = 0;
-
+  store: Store;
+  globalStyle: GlobalStyle;
+  stage: Stage;
+  statusBar: StatusBar;
+  tips: Tips;
+  menus: Menus;
+  models: Models;
+  application?: Application;
+  currentModelIndex: number = 0;
+  options: DefaultOptions;
   constructor(
-    private options: DefaultOptions,
+    private publicOml2d: LoadOhMyLive2D,
     private PIXI: PixiModule,
     private PixiLive2dDisplay: PixiLive2dDisplayModule
   ) {
-    this.globalStyle = new GlobalStyle(options);
-    this.stage = new Stage(options); // 实例化舞台
-    this.statusBar = new StatusBar(options);
-    this.tips = new Tips(options); // 提示框
-    this.menus = new Menus(options, this); // 菜单
-    this.models = new Models(options, this.PixiLive2dDisplay);
+    this.options = this.publicOml2d.options;
+    this.globalStyle = new GlobalStyle(this.options);
+    this.stage = new Stage(this.options); // 实例化舞台
+    this.statusBar = new StatusBar(this.options);
+    this.tips = new Tips(this.options); // 提示框
+    this.menus = new Menus(this.options, this.publicOml2d); // 菜单
+    this.models = new Models(this.options, this.PixiLive2dDisplay);
     this.application = new Application(this.PIXI);
     this.store = new Store();
     this.modelIndex = this.store.getModelCurrentIndex(this.options.models);
@@ -96,31 +99,27 @@ export class OhMyLive2D {
     }
 
     if (this.mobileHidden) {
-      this.statusBar.rest();
-
       return;
     }
     if (isLoading) {
       this.statusBar.showLoading();
     }
-    await this.models.create().catch(() => {
-      this.statusBar.loadingError(() => {
-        void this.reloadModel();
+
+    await this.models
+      .create()
+      .catch(() => {
+        this.statusBar.loadingError(() => void this.reloadModel());
+      })
+      .then(async () => {
+        this.application?.mount(this.stage.canvasElement!, this.stage.element!, this.models.model);
+        this.models.settingModel();
+        this.stage.reloadStyle(this.models.modelSize);
+        this.application?.resize();
+        this.statusBar.hideLoading();
+        // 注册模型事件
+        this.registerModelEvent();
+        await this.stage.slideIn();
       });
-    });
-
-    this.application?.mount(this.stage.canvasElement!, this.stage.element!, this.models.model);
-    this.models.settingModel();
-    this.stage.reloadStyle(this.models.modelSize);
-
-    this.application?.resize();
-
-    this.statusBar.hideLoading();
-
-    // 注册模型事件
-    this.registerModelEvent();
-
-    await this.stage.slideIn();
   }
 
   /**
@@ -185,17 +184,17 @@ export class OhMyLive2D {
   }
 
   /**
-   * 切换状态. 休息/活动
+   *  模型休息
    */
-  switchStatus(): void {
-    void this.stage.slideOut();
-    this.tips.clear();
+  // modelRest(): void {
+  //   void this.stage.slideOut();
+  //   this.tips.clear();
 
-    this.statusBar.rest(true, () => {
-      void this.stage.slideIn();
-      void this.tips.idlePlayer?.start();
-    });
-  }
+  //   this.statusBar.rest(true, () => {
+  //     void this.stage.slideIn();
+  //     void this.tips.idlePlayer?.start();
+  //   });
+  // }
 
   /**
    * 注册dom事件
@@ -222,15 +221,5 @@ export class OhMyLive2D {
    */
   private registerModelEvent(): void {
     this.models.onHit();
-  }
-
-  /**
-   * 主动提示消息
-   * @param message 提示信息
-   * @param duration 持续时间  默认值: 3000
-   * @param priority  优先级 默认值: 3
-   */
-  tipsMessage(message: string, duration?: number, priority?: number): void {
-    this.tips.notification(message, duration, priority);
   }
 }

@@ -2,15 +2,17 @@
 import { onMounted } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import { loadOml2d } from 'oh-my-live2d';
+
 onMounted(() => {
+  console.log('sssssssssssss');
   loadOml2d({
     primaryColor: 'pink',
     sayHello: true,
     models: [
-      // {
-      //   path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-      //   position: [-10, 20]
-      // },
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+        position: [-10, 20]
+      },
       {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
         scale: 0.4,

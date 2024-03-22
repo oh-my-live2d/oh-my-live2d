@@ -1,8 +1,9 @@
 import { isArray, isFunction, mergeDeep } from 'tianjie';
 
+import { LoadOhMyLive2D } from './load-oml2d.js';
 import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
-import { Item, OML2D } from '../types/common.js';
+import { Item } from '../types/common.js';
 import type { CSSProperties, DefaultOptions, MenusOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
@@ -14,7 +15,7 @@ export class Menus {
 
   constructor(
     private options: DefaultOptions,
-    private oml2d: OML2D
+    private publicOml2d: LoadOhMyLive2D
   ) {}
 
   private get menuOptions(): MenusOptions {
@@ -28,22 +29,19 @@ export class Menus {
         tagName: 'div',
         dataName: item.id,
         className: 'oml2d-menus-item',
-        innerHtml: `
-<svg class="oml2d-icon">
-  <use xlink:href="#${item.icon}"></use>
-</svg>
-`
+        innerHtml: `<svg class="oml2d-icon"><use xlink:href="#${item.icon}"></use></svg>`
       });
 
       el.title = item.title;
 
       el.onclick = (): void => {
-        item.onClick?.(this.oml2d);
+        void item.onClick?.(this.publicOml2d);
       };
 
       return el;
     });
   }
+
   createMenuItem(): void {
     if (isArray(this.menuOptions.items)) {
       this.createMenuItemElements(this.menuOptions.items);

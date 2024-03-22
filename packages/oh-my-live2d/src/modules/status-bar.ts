@@ -1,14 +1,9 @@
-import { mergeDeep } from 'tianjie';
+import { isNumber, mergeDeep } from 'tianjie';
 
 import { ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
-
-const enum Status {
-  display = 1,
-  hidden = 0
-}
 
 export const enum SystemState {
   info = 'info',
@@ -26,20 +21,16 @@ export type HoverActionParams = {
 export class StatusBar {
   element?: HTMLElement;
   transitionTime = 800;
-  status: Status = Status.hidden;
 
   private style: CSSProperties = {};
   private timer = 0;
-  constructor(private options: DefaultOptions) {
-    // this.options = options;
-    // this.element = createElement({ id: ELEMENT_ID.statusBar, tagName: 'div', innerText: 'hello' });
-    // this.options.parentElement.append(this.element);
-    // this.initialize();
-  }
+  private status = false;
+  constructor(private options: DefaultOptions) {}
 
   create(): void {
-    this.element = createElement({ id: ELEMENT_ID.statusBar, tagName: 'div', innerText: 'hello' });
+    this.element = createElement({ id: ELEMENT_ID.statusBar, tagName: 'div', innerText: '' });
   }
+
   mount(): void {
     if (this.element) {
       this.options.parentElement.append(this.element);
@@ -59,6 +50,7 @@ export class StatusBar {
 
   // 初始化样式
   initializeStyle(): void {
+    this.setColor(this.options.primaryColor);
     this.reloadStyle();
   }
 
@@ -72,56 +64,54 @@ export class StatusBar {
     this.unMount();
     this.mount();
   }
-  // updateParentElement(): void {
-  //   if (this.element) {
-  //     this.element.remove();
-  //     this.options.parentElement.append(this.element);
-  //   }
-  // }
-  // // 销毁
-  // destroy(): void {
-  //   this.element.remove();
-  // }
 
+  /**
+   * 设置样式
+   * @param style
+   */
   setStyle(style: CSSProperties): void {
     if (this.element) {
       this.style = mergeDeep(this.style, style);
-      this.style.backgroundColor ||= this.stateColor.info;
       setStyleForElement(style, this.element);
     }
   }
 
-  private slideIn(): Promise<Status> {
+  private slideIn(): Promise<void> {
     return new Promise((resolve) => {
-      this.status = Status.display;
-      this.setStyle({
-        animationName: 'oml2d-status-bar-slide-in',
-        animationDuration: `${this.transitionTime}ms`,
-        animationFillMode: 'forwards'
-      });
-      setTimeout(() => {
-        resolve(this.status);
-      }, this.transitionTime);
+      if (this.status) {
+        resolve();
+      }
+      {
+        this.setStyle({
+          animationName: 'oml2d-status-bar-slide-in',
+          animationDuration: `${this.transitionTime}ms`,
+          animationFillMode: 'forwards'
+        });
+        setTimeout(() => {
+          this.status = true;
+          resolve();
+        }, this.transitionTime);
+      }
     });
   }
 
-  private slideOut(): Promise<Status> {
+  private slideOut(): Promise<void> {
     return new Promise((resolve) => {
-      this.status = Status.hidden;
-      this.setStyle({
-        animationName: 'oml2d-status-bar-slide-out',
-        animationDuration: `${this.transitionTime}ms`,
-        animationFillMode: 'forwards'
-      });
-      setTimeout(() => {
-        if (this.element) {
-          // 每次收起后移除所有事件
-          this.element.onclick = null;
-          this.element.onmousemove = null;
-          this.element.onmouseout = null;
-        }
-        resolve(this.status);
-      }, this.transitionTime);
+      if (!this.status) {
+        resolve();
+      } else {
+        this.setStyle({
+          animationName: 'oml2d-status-bar-slide-out',
+          animationDuration: `${this.transitionTime}ms`,
+          animationFillMode: 'forwards'
+        });
+        setTimeout(() => {
+          this.status = true;
+          this.clearClickEvent();
+          this.clearHoverEvent();
+          resolve();
+        }, this.transitionTime);
+      }
     });
   }
 
@@ -133,7 +123,6 @@ export class StatusBar {
         <use xlink:href="#icon-loading"></use>
       </svg>
     `,
-      SystemState.info,
       false
     );
   }
@@ -142,22 +131,42 @@ export class StatusBar {
     this.popup('加载成功');
   }
 
-  setHoverAction(inContent: HoverActionParams, outContent: HoverActionParams): void {
+  // setHoverAction(inContent: HoverActionParams, outContent: HoverActionParams): void {
+  //   if (this.element) {
+  //     this.element.onmouseover = (): void => {
+  //       this.popup(inContent.content, inContent.state, false);
+  //     };
+  //     this.element.onmouseout = (): void => {
+  //       this.popup(outContent.content, outContent.state, false);
+  //     };
+  //   }
+  // }
+
+  setHoverEvent(events?: { onIn?: () => void; onOut?: () => void }): void {
     if (this.element) {
-      this.element.onmouseover = (): void => {
-        this.popup(inContent.content, inContent.state, false);
-      };
-      this.element.onmouseout = (): void => {
-        this.popup(outContent.content, outContent.state, false);
-      };
+      this.element.onmouseover = events?.onIn || null;
+      this.element.onmouseout = events?.onOut || null;
+    }
+  }
+
+  setClickEvent(onClick: (() => void) | (() => Promise<void>)): void {
+    if (this.element) {
+      this.element.onclick = onClick;
     }
   }
 
   // 清除hover
-  clearHoverAction(): void {
+  clearHoverEvent(): void {
     if (this.element) {
-      this.element.onmousemove = null;
+      this.element.onmouseover = null;
       this.element.onmouseout = null;
+    }
+  }
+
+  // 清除点击事件
+  clearClickEvent(): void {
+    if (this.element) {
+      this.element.onclick = null;
     }
   }
 
@@ -166,43 +175,34 @@ export class StatusBar {
    * @param reloadFn
    */
   loadingError(reloadFn: () => void): void {
-    this.popup('加载失败', SystemState.error, false);
+    this.setHoverEvent({
+      onIn: () => {
+        this.setContent('重新加载');
+      },
+      onOut: () => {
+        this.setContent('加载失败');
+      }
+    });
 
-    // this.setStyle({})
-    // 添加 mouseover 事件监听器
-    // const mouseover = (): void => {
-    //   this.popup('重新加载', SystemState.info, false);
-    // };
+    // 设置点击事件
+    this.setClickEvent(() => {
+      void reloadFn();
+    });
 
-    // const mouseout = (): void => {
-    //   this.popup('加载失败', SystemState.error, false);
-    // };
-    this.setHoverAction({ content: '重新加载', state: SystemState.info }, { content: '加载失败', state: SystemState.error });
-    const handleClick = (): void => {
-      reloadFn();
-      // this.element.removeEventListener('mouseout', mouseout);
-      // this.element.removeEventListener('mouseover', mouseover);
-      this.clearHoverAction();
-      this.element?.removeEventListener('click', handleClick);
-      this.showLoading();
-    };
-
-    this.element?.addEventListener('click', handleClick);
-    // this.element.addEventListener('mouseover', mouseover);
-    // this.element.addEventListener('mouseout', mouseout);
+    // 弹出状态提示
+    this.popup('加载失败', false, this.options.statusBar.errorColor);
   }
 
-  rest(isPermanent = false, callback?: () => void): void {
-    if (isPermanent) {
-      this.popup('看板娘休息中', SystemState.info, false, () => {
-        // this.popup('看板娘休息中', SystemState.info, 10);
-        void this.slideOut();
-        callback?.();
-      });
-    } else {
-      this.popup('看板娘休息中', SystemState.info, 8000);
-    }
-  }
+  // rest(isPermanent = false, callback?: () => void): void {
+  //   if (isPermanent) {
+  //     this.popup('看板娘休息中', SystemState.info, false, () => {
+  //       void this.slideOut();
+  //       callback?.();
+  //     });
+  //   } else {
+  //     this.popup('看板娘休息中', SystemState.info, 8000);
+  //   }
+  // }
 
   get stateColor(): { info: string; error: string } {
     return {
@@ -210,25 +210,31 @@ export class StatusBar {
       error: this.options.statusBar.errorColor
     };
   }
+
+  setColor(color: string): void {
+    if (!color) {
+      return;
+    }
+    this.setStyle({ backgroundColor: color });
+  }
   /**
    * 状态条弹出, 自动收起, delay为false时不收起
    * @param message
    * @param state
    * @param delay
    */
-  popup(message: string, state: SystemState = SystemState.info, delay: number | false = 1000, callback?: () => void): void {
+  popup(message?: string, delay: number | false = 0, color = this.options.primaryColor): void {
     clearTimeout(this.timer);
-    this.setContent(message);
-    this.setStyle({ backgroundColor: this.stateColor[state] });
+    this.setColor(color);
+    if (message) {
+      this.setContent(message);
+    }
+    // this.setStyle({ backgroundColor: this.stateColor[state] });
     void this.slideIn().then(() => {
-      if (delay) {
+      if (isNumber(delay)) {
         this.timer = setTimeout(() => {
           void this.slideOut();
         }, delay);
-      } else {
-        if (callback && this.element) {
-          this.element.onclick = callback;
-        }
       }
     });
   }

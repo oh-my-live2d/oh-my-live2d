@@ -9,7 +9,7 @@ import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement
 export class Stage {
   element?: HTMLElement;
   canvasElement?: HTMLCanvasElement;
-
+  status = false;
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
   private slideChangeEnd?: (status: boolean) => void;
@@ -103,7 +103,8 @@ export class Stage {
 
     return new Promise<void>((resolve) => {
       setTimeout(() => {
-        this.slideChangeEnd?.(true);
+        this.status = true;
+        this.slideChangeEnd?.(this.status);
         resolve();
       }, this.transitionTime);
     });
@@ -113,18 +114,23 @@ export class Stage {
    * 滑出
    */
   slideOut(): Promise<void> {
-    this.setStyle({
-      animationName: 'oml2d-stage-slide-out',
-      animationDuration: `${this.transitionTime}ms`,
-      animationFillMode: 'forwards'
-    });
-
-    return new Promise<void>((resolve) =>
-      setTimeout(() => {
-        this.slideChangeEnd?.(false);
+    return new Promise<void>((resolve) => {
+      if (!this.status) {
         resolve();
-      }, this.transitionTime)
-    );
+      } else {
+        this.setStyle({
+          animationName: 'oml2d-stage-slide-out',
+          animationDuration: `${this.transitionTime}ms`,
+          animationFillMode: 'forwards'
+        });
+
+        setTimeout(() => {
+          this.status = false;
+          this.slideChangeEnd?.(this.status);
+          resolve();
+        }, this.transitionTime);
+      }
+    });
   }
 
   /**

@@ -1,4 +1,5 @@
-import { OhMyLive2D } from '../modules/oml2d.js';
+import type { LoadOhMyLive2D } from '../modules/load-oml2d.js';
+import type { OhMyLive2D } from '../modules/oml2d.js';
 
 import type { CSSProperties, ImportType, LibraryUrls, PixiLive2dDisplayModule, PixiModule } from './index.js';
 
@@ -50,5 +51,7 @@ export type Item = {
   id: string;
   icon: string;
   title: string;
-  onClick?: (oml2d: OML2D) => void;
+  onClick?: ((oml2d: LoadOhMyLive2D) => void) | ((oml2d: LoadOhMyLive2D) => Promise<void>);
 };
+
+export type EventType = ((...arg) => void) | ((...arg) => Promise<void>);

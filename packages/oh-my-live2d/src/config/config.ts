@@ -61,7 +61,16 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
         icon: 'icon-rest',
         title: '休息',
         onClick(oml2d): void {
-          oml2d.switchStatus();
+          oml2d.statusBarPopup('看板娘休息中', false);
+
+          oml2d.clearTips();
+
+          oml2d.setStatusBarClickEvent(() => {
+            oml2d.statusBarPopup();
+            void oml2d.stageSlideIn();
+          });
+
+          void oml2d.stageSlideOut();
         }
       },
       {
