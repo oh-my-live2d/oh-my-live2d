@@ -6,7 +6,12 @@ import { CommonStyleType } from './common.js';
  */
 export interface StatusBarOptions {
   /**
-   * 异常时展示的背景色
+   * 禁用状态条, 为true时将不再展示状态条
+   * @default false
+   */
+  disable?: boolean;
+  /**
+   * 加载异常时展示的背景色
    */
   errorColor?: string;
   /**

@@ -49,6 +49,7 @@ const foo = async () => {
       }
     },
     statusBar: {
+      disable: false,
       style: {}
     },
     menus: {

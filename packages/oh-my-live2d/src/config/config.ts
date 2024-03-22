@@ -19,6 +19,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   },
   models: [],
   statusBar: {
+    disable: false,
     errorColor: STATUS_BAR_ERROR_COLOR,
     style: STATUS_BAR_DEFAULT_STYLE,
     mobileStyle: STATUS_BAR_DEFAULT_STYLE
@@ -61,16 +62,15 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
         icon: 'icon-rest',
         title: '休息',
         onClick(oml2d): void {
-          oml2d.statusBarPopup('看板娘休息中', false);
+          void oml2d.statusBarOpen('看板娘休息中'); // 展示状态条
+          oml2d.clearTips(); // 清除当前提示框内容, 并停止空闲消息播放器
 
-          oml2d.clearTips();
-
+          // 为状态条绑定点击事件
           oml2d.setStatusBarClickEvent(() => {
-            oml2d.statusBarPopup();
-            void oml2d.stageSlideIn();
+            void oml2d.statusBarClose(); // 关闭状态条
+            void oml2d.stageSlideIn(); // 舞台滑入
           });
-
-          void oml2d.stageSlideOut();
+          void oml2d.stageSlideOut(); // 舞台滑出
         }
       },
       {
