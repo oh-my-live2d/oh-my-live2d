@@ -53,6 +53,7 @@ const foo = async () => {
       style: {}
     },
     menus: {
+      // disable: true
       // items: [
       //   {
       //     id: 'github',

@@ -56,6 +56,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
     }
   },
   menus: {
+    disable: false,
     items: [
       {
         id: 'Rest',

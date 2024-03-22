@@ -115,7 +115,6 @@ export class Models {
    * 播放动作
    */
   playMotion(motionGroupName: string, index?: number): void {
-    // console.log(this.model?.internalModel.motionManager.motionGroups);
     void this.model?.motion(motionGroupName, index);
   }
 

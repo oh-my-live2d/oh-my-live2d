@@ -7,7 +7,12 @@ import { CommonStyleType, Item } from './common.js';
  */
 export interface MenusOptions {
   /**
-   * 配置菜单项, 您可以通过这个选项配置菜单项, 该配置选项非常的灵活, 它可以是一个由 Item 类型组成的数组, 也可以是一个函数, 当值是一个数组时, 它将覆盖默认菜单项配置. 当值是一个函数时, 您可以从函数中拿到默认菜单项, 当值为false时将关闭整个菜单栏
+   * 是否禁用菜单, 为true时将不会创建菜单
+   * @default false
+   */
+  disable?: boolean;
+  /**
+   * 配置菜单项, 您可以通过这个选项配置菜单项, 该配置选项非常的灵活, 它可以是一个由 Item 类型组成的数组, 也可以是一个函数, 当值是一个数组时, 它将覆盖默认菜单项配置. 当值是一个函数时, 您可以从函数中拿到默认菜单项
    *
    * #### Item 类型描述:
    * - id
@@ -78,7 +83,7 @@ export interface MenusOptions {
    * ```
    * @valueType Item[] | ((defaultItems: Item[]) => Item[]) | false
    */
-  items?: Item[] | ((defaultItems: Item[]) => Item[]) | false;
+  items?: Item[] | ((defaultItems: Item[]) => Item[]);
 
   /**
    * 配置菜单整体样式

@@ -56,7 +56,7 @@ export class Menus {
    * 创建
    */
   create(): void {
-    if (this.menuOptions.items) {
+    if (!this.menuOptions.disable) {
       this.element = createElement({ id: ELEMENT_ID.menus, tagName: 'div', className: ELEMENT_ID.menus });
       this.createMenuItem();
     }

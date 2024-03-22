@@ -1,17 +1,11 @@
-import { isNumber, mergeDeep } from 'tianjie';
+import { mergeDeep } from 'tianjie';
 
 import { ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
-export const enum SystemState {
-  info = 'info',
-  error = 'error'
-}
-
 export type HoverActionParams = {
-  state: SystemState;
   content: string;
 };
 
@@ -129,7 +123,7 @@ export class StatusBar {
   }
 
   hideLoading(): void {
-    this.popup('加载成功');
+    this.popup('加载成功', 1000);
   }
 
   setHoverEvent(events?: { onIn?: () => void; onOut?: () => void }): void {
@@ -231,11 +225,9 @@ export class StatusBar {
     }
 
     void this.slideIn().then(() => {
-      if (isNumber(delay)) {
-        this.timer = setTimeout(() => {
-          void this.slideOut();
-        }, delay);
-      }
+      this.timer = setTimeout(() => {
+        void this.slideOut();
+      }, delay);
     });
   }
 

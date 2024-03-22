@@ -184,19 +184,6 @@ export class OhMyLive2D {
   }
 
   /**
-   *  模型休息
-   */
-  // modelRest(): void {
-  //   void this.stage.slideOut();
-  //   this.tips.clear();
-
-  //   this.statusBar.rest(true, () => {
-  //     void this.stage.slideIn();
-  //     void this.tips.idlePlayer?.start();
-  //   });
-  // }
-
-  /**
    * 注册dom事件
    */
   private registerEvent(): void {

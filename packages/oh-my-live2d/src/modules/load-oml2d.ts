@@ -23,7 +23,7 @@ export class LoadOhMyLive2D {
   }
 
   /**
-   * 主动提示消息
+   * 主动提示消息, 调用时会提前自动关闭当前空闲消息播放器, 调用结束之后会自动开启空闲消息播放器
    * @param message 提示信息
    * @param duration 持续时间  默认值: 3000
    * @param priority  优先级 默认值: 3

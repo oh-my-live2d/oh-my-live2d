@@ -6,7 +6,7 @@ import { CommonStyleType } from './common.js';
  */
 export interface StatusBarOptions {
   /**
-   * 禁用状态条, 为true时将不再展示状态条
+   * 是否禁用状态条, 为true时将不会创建状态条
    * @default false
    */
   disable?: boolean;
