@@ -32,7 +32,7 @@ export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'mode
   parentElement: HTMLElement;
   tips: DefaultTipsOptions;
   statusBar: DefaultStatusBarOptions;
-  menus: DefaultMenusOptions | ((modelIndex?: number) => DefaultMenusOptions);
+  menus: DefaultMenusOptions;
   models: ModelOptions[];
 };
 

@@ -4,7 +4,7 @@ import { LoadOhMyLive2D } from './load-oml2d.js';
 import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import { Item } from '../types/common.js';
-import type { CSSProperties, DefaultMenusOptions, DefaultOptions, MenusOptions } from '../types/index.js';
+import type { CSSProperties, DefaultMenusOptions, DefaultOptions, MenusOptions, ModelOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
 export class Menus {
@@ -12,7 +12,8 @@ export class Menus {
   private style: CSSProperties = {};
   private itemStyle: CSSProperties = {};
   private menuItemList: HTMLElement[] = [];
-  private _menuOptions: DefaultMenusOptions = DEFAULT_OPTIONS.menus as DefaultMenusOptions;
+  private _menuOptions: DefaultMenusOptions = DEFAULT_OPTIONS.menus;
+
   constructor(
     private options: DefaultOptions,
     private globalOml2d: LoadOhMyLive2D
@@ -22,11 +23,14 @@ export class Menus {
     return this._menuOptions;
   }
 
-  private set menuOptions(opt: MenusOptions | ((index?: number) => MenusOptions)) {
+  private set menuOptions(opt: MenusOptions | ((model: ModelOptions, index: number) => MenusOptions)) {
     let finalOpt: DefaultMenusOptions;
 
     if (isFunction(opt)) {
-      finalOpt = mergeDeep(DEFAULT_OPTIONS.menus, opt(this.globalOml2d.modelIndex)) as DefaultMenusOptions;
+      finalOpt = mergeDeep(
+        DEFAULT_OPTIONS.menus,
+        opt(this.options.models[this.globalOml2d.modelIndex || 0], this.globalOml2d.modelIndex || 0)
+      ) as DefaultMenusOptions;
     } else {
       finalOpt = opt as DefaultMenusOptions;
     }
@@ -57,7 +61,7 @@ export class Menus {
     if (isArray(this.menuOptions.items)) {
       this.createMenuItemElements(this.menuOptions.items);
     } else if (isFunction(this.menuOptions.items)) {
-      const items = this.menuOptions.items((DEFAULT_OPTIONS.menus as DefaultMenusOptions).items);
+      const items = this.menuOptions.items(DEFAULT_OPTIONS.menus.items);
 
       this.createMenuItemElements(items);
     }
