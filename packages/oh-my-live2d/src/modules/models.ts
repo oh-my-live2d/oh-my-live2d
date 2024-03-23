@@ -3,6 +3,7 @@ import type { HitAreaFrames } from 'pixi-live2d-display/extra';
 import { getRandomArrayItem, isNumber } from 'tianjie';
 
 import { MotionPreloadStrategy, WindowSizeType } from '../constants/index.js';
+import { EventFn, ModelEvent } from '../types/common.js';
 import type { DefaultOptions, ModelOptions, PixiLive2dDisplayModule } from '../types/index.js';
 import { getWindowSizeType } from '../utils/index.js';
 
@@ -10,6 +11,7 @@ export class Models {
   model?: Live2DModel<InternalModel>; // 当前模型实例
   private currentModelIndex = 0;
   private hitAreaFrames: HitAreaFrames;
+  private eventMap = new Map<ModelEvent, EventFn[]>();
   constructor(
     private options: DefaultOptions,
     private PixiLive2dDisplay: PixiLive2dDisplayModule
@@ -35,7 +37,17 @@ export class Models {
         onError: reject
       });
 
-      this.model.once('load', resolve);
+      // 加载完成
+      this.model.on('load', () => {
+        this.emit('load');
+        resolve();
+      });
+
+      // 模型点击区域被点击
+      this.model.on('hit', (names: string[]) => {
+        this.emit('hit', names);
+        this.playRandomMotion(names);
+      });
     });
   }
 
@@ -104,13 +116,6 @@ export class Models {
     this.model!.y = y;
   }
 
-  onHit(fn?: (areaName: string[]) => void): void {
-    this.model?.on('hit', (name: string[]) => {
-      fn?.(name);
-      this.playRandomMotion(name);
-    });
-  }
-
   /**
    * 播放动作
    */
@@ -133,5 +138,31 @@ export class Models {
     }
 
     this.playMotion(motion || '');
+  }
+
+  // ---------------  event
+  private emit(name: ModelEvent, ...arg: unknown[]): void {
+    const eventQueue = this.eventMap.get(name);
+
+    eventQueue?.forEach((fn) => void fn(...arg));
+    this.eventMap.set(name, []);
+  }
+
+  private addEvents(name: ModelEvent, fn?: EventFn): void {
+    if (!fn) {
+      return;
+    }
+    const events = this.eventMap.get(name) || [];
+
+    events.push(fn);
+    this.eventMap.set(name, events);
+  }
+
+  onHit(fn?: (areaName: string[]) => void): void {
+    this.addEvents('hit', fn);
+  }
+
+  onLoad(fn: () => void): void {
+    this.addEvents('load', fn);
   }
 }

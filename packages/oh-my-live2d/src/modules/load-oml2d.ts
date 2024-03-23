@@ -1,6 +1,6 @@
 import { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
-import type { EventType } from '../types/common.js';
+import type { EventFn } from '../types/common.js';
 import { DefaultOptions } from '../types/index.js';
 import { Options } from '../types/options.js';
 import { loadOml2dSDK, mergeOptions } from '../utils/index.js';
@@ -20,6 +20,10 @@ export class LoadOhMyLive2D {
     this.oml2d = new OhMyLive2D(this, PIXI, PixiLive2dDisplay);
 
     await this.oml2d.initialize();
+  }
+
+  get modelIndex(): number | undefined {
+    return this.oml2d?.modelIndex;
   }
 
   /**
@@ -88,11 +92,11 @@ export class LoadOhMyLive2D {
     this.oml2d?.statusBar.clearClickEvent();
     this.oml2d?.statusBar.clearHoverEvent();
   }
-  setStatusBarClickEvent(fn: EventType): void {
+  setStatusBarClickEvent(fn: EventFn): void {
     this.oml2d?.statusBar.setClickEvent(fn);
   }
 
-  setStatusBarHoverEvent(events?: { onIn?: EventType; onOut?: EventType }): void {
+  setStatusBarHoverEvent(events?: { onIn?: EventFn; onOut?: EventFn }): void {
     this.oml2d?.statusBar.setHoverEvent(events);
   }
 }

@@ -23,17 +23,18 @@ export class OhMyLive2D {
   application?: Application;
   currentModelIndex: number = 0;
   options: DefaultOptions;
+
   constructor(
-    private publicOml2d: LoadOhMyLive2D,
+    private globalOml2d: LoadOhMyLive2D,
     private PIXI: PixiModule,
     private PixiLive2dDisplay: PixiLive2dDisplayModule
   ) {
-    this.options = this.publicOml2d.options;
+    this.options = this.globalOml2d.options;
     this.globalStyle = new GlobalStyle(this.options);
     this.stage = new Stage(this.options); // 实例化舞台
     this.statusBar = new StatusBar(this.options);
     this.tips = new Tips(this.options); // 提示框
-    this.menus = new Menus(this.options, this.publicOml2d); // 菜单
+    this.menus = new Menus(this.options, this.globalOml2d); // 菜单
     this.models = new Models(this.options, this.PixiLive2dDisplay);
     this.application = new Application(this.PIXI);
     this.store = new Store();
@@ -54,7 +55,7 @@ export class OhMyLive2D {
     this.store.updateModelInfo(this.options.models, index);
   }
 
-  private get modelIndex(): number {
+  get modelIndex(): number {
     return this.currentModelIndex;
   }
 
@@ -65,8 +66,7 @@ export class OhMyLive2D {
     this.globalStyle.create();
     this.stage.create();
     this.statusBar.create();
-    this.menus.create();
-    this.tips.create();
+    this.registerGlobalEvent();
   }
 
   /**
@@ -76,18 +76,15 @@ export class OhMyLive2D {
     this.globalStyle.mount();
     this.stage.mount();
     this.statusBar.mount();
-    this.menus.mount(this.stage.element!);
-    this.tips.mount(this.stage.element!);
   }
 
   /**
    * 卸载
    */
-  unMount(): void {
+  unmount(): void {
     this.globalStyle.unMount();
     this.stage.unMount();
     this.statusBar.unMount();
-    this.tips.unMount();
   }
 
   /**
@@ -113,13 +110,14 @@ export class OhMyLive2D {
         this.statusBar.loadingError(() => void this.reloadModel());
       })
       .then(async () => {
+        this.menus.remount(this.stage.element!);
+        this.tips.remount(this.stage.element!);
+
         this.application?.mount(this.stage.canvasElement!, this.stage.element!, this.models.model);
         this.models.settingModel();
         this.stage.reloadStyle(this.models.modelSize);
         this.application?.resize();
         this.statusBar.hideLoading();
-        // 注册模型事件
-        this.registerModelEvent();
         await this.stage.slideIn();
       });
   }
@@ -133,6 +131,7 @@ export class OhMyLive2D {
     await this.loadModel();
     void this.tips.idlePlayer?.start();
   }
+
   /**
    * 加载下个模型
    */
@@ -154,9 +153,7 @@ export class OhMyLive2D {
   private initializeStyle(): void {
     this.globalStyle.initializeStyle();
     this.statusBar.initializeStyle();
-    this.tips.initializeStyle();
     this.stage.initializeStyle();
-    this.menus.initializeStyle();
   }
 
   // 初始化
@@ -178,9 +175,6 @@ export class OhMyLive2D {
     //  挂载
     this.mount();
 
-    // 注册dom事件
-    this.registerEvent();
-
     // 加载模型
     await this.loadModel();
   }
@@ -188,7 +182,7 @@ export class OhMyLive2D {
   /**
    * 注册dom事件
    */
-  private registerEvent(): void {
+  private registerGlobalEvent(): void {
     onChangeWindowSize(() => {
       void this.reloadModel();
     });
@@ -203,12 +197,5 @@ export class OhMyLive2D {
     window.document.oncopy = (): void => {
       this.tips.copy();
     };
-  }
-
-  /**
-   * 注册模型事件
-   */
-  private registerModelEvent(): void {
-    this.models.onHit();
   }
 }

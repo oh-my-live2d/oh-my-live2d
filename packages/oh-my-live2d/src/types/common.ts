@@ -54,4 +54,5 @@ export type Item = {
   onClick?: ((oml2d: LoadOhMyLive2D) => void) | ((oml2d: LoadOhMyLive2D) => Promise<void>);
 };
 
-export type EventType = ((...arg) => void) | ((...arg) => Promise<void>);
+export type EventFn = ((...arg) => void) | ((...arg) => Promise<void>);
+export type ModelEvent = 'load' | 'hit';

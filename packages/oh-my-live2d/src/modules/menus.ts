@@ -4,7 +4,7 @@ import { LoadOhMyLive2D } from './load-oml2d.js';
 import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import { Item } from '../types/common.js';
-import type { CSSProperties, DefaultOptions, MenusOptions } from '../types/index.js';
+import type { CSSProperties, DefaultMenusOptions, DefaultOptions, MenusOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
 export class Menus {
@@ -12,14 +12,25 @@ export class Menus {
   private style: CSSProperties = {};
   private itemStyle: CSSProperties = {};
   private menuItemList: HTMLElement[] = [];
-
+  private _menuOptions: DefaultMenusOptions = DEFAULT_OPTIONS.menus as DefaultMenusOptions;
   constructor(
     private options: DefaultOptions,
-    private publicOml2d: LoadOhMyLive2D
+    private globalOml2d: LoadOhMyLive2D
   ) {}
 
   private get menuOptions(): MenusOptions {
-    return this.options.menus;
+    return this._menuOptions;
+  }
+
+  private set menuOptions(opt: MenusOptions | ((index?: number) => MenusOptions)) {
+    let finalOpt: DefaultMenusOptions;
+
+    if (isFunction(opt)) {
+      finalOpt = mergeDeep(DEFAULT_OPTIONS.menus, opt(this.globalOml2d.modelIndex)) as DefaultMenusOptions;
+    } else {
+      finalOpt = opt as DefaultMenusOptions;
+    }
+    this._menuOptions = finalOpt;
   }
 
   createMenuItemElements(items: Item[]): void {
@@ -35,7 +46,7 @@ export class Menus {
       el.title = item.title;
 
       el.onclick = (): void => {
-        void item.onClick?.(this.publicOml2d);
+        void item.onClick?.(this.globalOml2d);
       };
 
       return el;
@@ -46,7 +57,7 @@ export class Menus {
     if (isArray(this.menuOptions.items)) {
       this.createMenuItemElements(this.menuOptions.items);
     } else if (isFunction(this.menuOptions.items)) {
-      const items = this.menuOptions.items(DEFAULT_OPTIONS.menus.items);
+      const items = this.menuOptions.items((DEFAULT_OPTIONS.menus as DefaultMenusOptions).items);
 
       this.createMenuItemElements(items);
     }
@@ -56,10 +67,35 @@ export class Menus {
    * 创建
    */
   create(): void {
-    if (!this.menuOptions.disable) {
+    this.menuOptions = this.options.menus;
+    if (this.menuOptions.disable === false) {
       this.element = createElement({ id: ELEMENT_ID.menus, tagName: 'div', className: ELEMENT_ID.menus });
       this.createMenuItem();
     }
+  }
+
+  unmountItems(): void {
+    this.menuItemList.forEach((item) => {
+      item.remove();
+    });
+  }
+
+  unmount(): void {
+    this.unmountItems();
+    this.element?.remove();
+  }
+
+  mountItems(): void {
+    if (this.element) {
+      this.element.append(...this.menuItemList);
+    }
+  }
+
+  remount(stageElement: HTMLElement): void {
+    this.unmount();
+    this.create();
+    this.reloadStyle();
+    this.mount(stageElement);
   }
 
   /**
@@ -69,7 +105,8 @@ export class Menus {
   mount(stageElement: HTMLElement): void {
     if (this.element) {
       stageElement.append(this.element);
-      this.element.append(...this.menuItemList);
+
+      this.mountItems();
       stageElement.onmouseover = (): void => {
         this.setStyle({ opacity: 1, visibility: 'visible' });
       };
@@ -94,23 +131,17 @@ export class Menus {
    * 重载样式
    */
   reloadStyle(): void {
+    this.style = {};
     switch (getWindowSizeType()) {
       case WindowSizeType.pc:
-        this.setStyle(handleCommonStyle(this.options.menus.style || {}));
-        this.setItemStyle(handleCommonStyle(this.options.menus.itemStyle || {}));
+        this.setStyle(handleCommonStyle(this.menuOptions.style || {}));
+        this.setItemStyle(handleCommonStyle(this.menuOptions.itemStyle || {}));
         break;
       case WindowSizeType.mobile:
-        this.setStyle(handleCommonStyle(this.options.menus.mobileStyle || {}));
-        this.setItemStyle(handleCommonStyle(this.options.menus.mobileItemStyle || {}));
+        this.setStyle(handleCommonStyle(this.menuOptions.mobileStyle || {}));
+        this.setItemStyle(handleCommonStyle(this.menuOptions.mobileItemStyle || {}));
         break;
     }
-  }
-
-  /**
-   * 初始化样式
-   */
-  initializeStyle(): void {
-    this.reloadStyle();
   }
 
   // 更新

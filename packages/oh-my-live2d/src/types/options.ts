@@ -91,7 +91,7 @@ export interface Options {
    * 菜单配置, 详见: [菜单选项](/options/MenusOptions)
    * @valueType object
    */
-  menus?: MenusOptions;
+  menus?: MenusOptions | ((modelIndex?: number) => MenusOptions);
   /**
    * 为组件提供一个父元素，如果未指定则默认挂载到 body 中
    * @valueType HtmlElement

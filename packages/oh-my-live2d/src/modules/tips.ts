@@ -44,8 +44,17 @@ export class Tips {
     }
   }
 
-  unMount(): void {
+  unmount(): void {
     this.element?.remove();
+    this.contentElement?.remove();
+  }
+
+  remount(stageElement: HTMLElement): void {
+    this.clear();
+    this.unmount();
+    this.create();
+    this.initializeStyle();
+    this.mount(stageElement);
   }
 
   get primaryColor(): string {
@@ -68,6 +77,7 @@ export class Tips {
    * 初始化样式
    */
   initializeStyle(): void {
+    this.style = {};
     this.reloadStyle();
     this.setContentStyle({
       wordBreak: 'break-all',
@@ -151,9 +161,6 @@ export class Tips {
    * 欢迎提示
    */
   welcome(): void {
-    if (!this.options.tips) {
-      return;
-    }
     const message = getWelcomeMessage(this.tipsOptions.welcomeTips || {});
     const { duration, priority } = this.options.tips.welcomeTips;
 
