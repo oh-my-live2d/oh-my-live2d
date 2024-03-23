@@ -2,8 +2,8 @@ import type { InternalModel, Live2DModel } from 'pixi-live2d-display';
 import type { HitAreaFrames } from 'pixi-live2d-display/extra';
 import { getRandomArrayItem, isNumber } from 'tianjie';
 
+import type { Events } from './events.js';
 import { MotionPreloadStrategy, WindowSizeType } from '../constants/index.js';
-import { EventFn, ModelEvent } from '../types/common.js';
 import type { DefaultOptions, ModelOptions, PixiLive2dDisplayModule } from '../types/index.js';
 import { getWindowSizeType } from '../utils/index.js';
 
@@ -11,10 +11,11 @@ export class Models {
   model?: Live2DModel<InternalModel>; // 当前模型实例
   private currentModelIndex = 0;
   private hitAreaFrames: HitAreaFrames;
-  private eventMap = new Map<ModelEvent, EventFn[]>();
+  // private eventMap = new Map<ModelEvent, EventFn[]>();
   constructor(
     private options: DefaultOptions,
-    private PixiLive2dDisplay: PixiLive2dDisplayModule
+    private PixiLive2dDisplay: PixiLive2dDisplayModule,
+    private events: Events
   ) {
     this.hitAreaFrames = new PixiLive2dDisplay.HitAreaFrames();
   }
@@ -32,20 +33,25 @@ export class Models {
 
   create(): Promise<void> {
     return new Promise((resolve, reject) => {
+      this.events.emit('load', 'loading');
+
       this.model = this.PixiLive2dDisplay.Live2DModel.fromSync(this.currentModelOptions.path, {
         motionPreload: (this.currentModelOptions.motionPreloadStrategy as MotionPreloadStrategy) || MotionPreloadStrategy.IDLE,
-        onError: reject
+        onError: () => {
+          this.events.emit('load', 'fail');
+          reject();
+        }
       });
 
       // 加载完成
       this.model.on('load', () => {
-        this.emit('load');
+        this.events.emit('load', 'success');
         resolve();
       });
 
       // 模型点击区域被点击
       this.model.on('hit', (names: string[]) => {
-        this.emit('hit', names);
+        this.events.emit('hit', names);
         this.playRandomMotion(names);
       });
     });
@@ -79,7 +85,9 @@ export class Models {
    * 添加点击区域
    */
   addHitAreaFrames(): void {
-    this.model?.addChild(this.hitAreaFrames);
+    if (this.hitAreaFrames) {
+      this.model?.addChild(this.hitAreaFrames);
+    }
   }
 
   /**
@@ -141,28 +149,31 @@ export class Models {
   }
 
   // ---------------  event
-  private emit(name: ModelEvent, ...arg: unknown[]): void {
-    const eventQueue = this.eventMap.get(name);
+  // emit(name: EventType, ...arg: unknown[]): void {
+  //   console.log('----------');
+  //   const eventQueue = this.eventMap.get(name);
 
-    eventQueue?.forEach((fn) => void fn(...arg));
-    this.eventMap.set(name, []);
-  }
+  //   // console.log(eventQueue);
+  //   eventQueue?.forEach((fn) => void fn(...arg));
+  //   // this.eventMap.set(name, []);
+  // }
 
-  private addEvents(name: ModelEvent, fn?: EventFn): void {
-    if (!fn) {
-      return;
-    }
-    const events = this.eventMap.get(name) || [];
+  // private addEvents(name: EventType, fn?: EventFn): void {
+  //   console.log(fn);
+  //   if (!fn) {
+  //     return;
+  //   }
+  //   const events = this.eventMap.get(name) || [];
 
-    events.push(fn);
-    this.eventMap.set(name, events);
-  }
+  //   events.push(fn);
+  //   this.eventMap.set(name, events);
+  // }
 
-  onHit(fn?: (areaName: string[]) => void): void {
-    this.addEvents('hit', fn);
-  }
+  // onHit(fn?: (areaName: string[]) => void): void {
+  //   this.addEvents('hit', fn);
+  // }
 
-  onLoad(fn: () => void): void {
-    this.addEvents('load', fn);
-  }
+  // onLoad(fn: (status: 'loading' | 'success' | 'fail') => void): void {
+  //   this.addEvents('load', fn);
+  // }
 }

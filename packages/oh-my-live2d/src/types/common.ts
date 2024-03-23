@@ -55,4 +55,4 @@ export type Item = {
 };
 
 export type EventFn = ((...arg) => void) | ((...arg) => Promise<void>);
-export type ModelEvent = 'load' | 'hit';
+export type EventType = 'load' | 'hit';

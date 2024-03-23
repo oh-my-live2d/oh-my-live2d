@@ -78,82 +78,28 @@ export const createElement = (elConfig: ElementConfig): HTMLElement => {
  * @returns
  */
 export const loadScript = (sdkInfo: { url: string; id: string }): Promise<void> => {
-  destroyElement(sdkInfo?.id);
+  // destroyElement(sdkInfo?.id);
 
   return new Promise((resolve) => {
-    const scriptElement = document.createElement('script');
+    const el = document.getElementById(sdkInfo.id);
 
-    scriptElement.id = sdkInfo?.id;
-    document.head.append(scriptElement);
-    scriptElement.src = sdkInfo?.url;
-    scriptElement.addEventListener('load', () => {
-      resolve();
-    });
+    if (el) {
+      el.addEventListener('load', () => {
+        resolve();
+      });
+      // resolve();
+    } else {
+      const scriptElement = document.createElement('script');
+
+      scriptElement.id = sdkInfo?.id;
+      document.head.append(scriptElement);
+      scriptElement.src = sdkInfo?.url;
+      scriptElement.addEventListener('load', () => {
+        resolve();
+      });
+    }
   });
 };
-
-// export const handleSdkInfo = (urls: LibraryUrls): { [key: string]: { url: string; id: string } } => {
-//   const finalInfo: { [key: string]: { url: string; id: string } } = {};
-
-//   Object.keys(urls).forEach((key) => {
-//     finalInfo[key] = { url: urls[key] as string, id: SDK_ID[key] as string };
-//   });
-
-//   return finalInfo;
-// };
-
-// export const loadLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<PixiLive2dDisplayModule> => {
-//   const sdkInfo = handleSdkInfo(urls);
-
-//   switch (importType) {
-//     case 'cubism2':
-//       await loadScript(sdkInfo[importType]);
-
-//       return import('pixi-live2d-display/cubism2');
-//     case 'cubism5':
-//       await loadScript(sdkInfo[importType]);
-
-//       return import('pixi-live2d-display/cubism4');
-//     default:
-//       await Promise.all([loadScript(sdkInfo['cubism2']), loadScript(sdkInfo['cubism5'])]);
-
-//       return import('pixi-live2d-display');
-//   }
-// };
-
-// export const  loadPixi = () => {
-
-//       // await loadScript({url: });
-// }
-// export const loadUmdPixi = () => {
-
-// }
-
-// export const loadUmdLibrary = async (importType: ImportType, urls: LibraryUrls): Promise<void> => {
-//   const sdkInfo = handleSdkInfo(urls);
-
-//   switch (importType) {
-//     case 'cubism2':
-//       await loadScript(sdkInfo['cubism2']);
-//       // await loadScript(sdkInfo['pixi']);
-//       await loadScript(sdkInfo['pixiLive2dDisplayCubism2']);
-//       break;
-
-//     case 'cubism5':
-//       await loadScript(sdkInfo['cubism5']);
-//       // await loadScript(sdkInfo['pixi']);
-//       await loadScript(sdkInfo['pixiLive2dDisplayCubism4']);
-//       break;
-
-//     default:
-//       await Promise.all([loadScript(sdkInfo['cubism2']), loadScript(sdkInfo['cubism5'])]);
-//       // await loadScript(sdkInfo['pixi']);
-//       await loadScript(sdkInfo['pixiLive2dDisplay']);
-//       break;
-//   }
-
-//   await loadScript(sdkInfo['pixiLive2dDisplayExtra']);
-// };
 
 // 检查版本
 export const checkVersion = async (): Promise<void> => {
@@ -200,6 +146,12 @@ export const onChangeWindowSize = (fn: (windowSizeType: WindowSizeType) => void)
     }
   });
 };
+
+// export const SDKExis = (id: string): boolean => {
+//   const el = document.getElementById(id);
+
+//   return !!el;
+// };
 
 export const destroyElement = (id: string): void => {
   const el = document.getElementById(id);

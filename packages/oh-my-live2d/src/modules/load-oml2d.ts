@@ -1,3 +1,4 @@
+import { Events } from './events.js';
 import { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
 import type { EventFn } from '../types/common.js';
@@ -7,8 +8,11 @@ import { loadOml2dSDK, mergeOptions } from '../utils/index.js';
 
 export class LoadOhMyLive2D {
   options: DefaultOptions = DEFAULT_OPTIONS;
+  private events: Events;
   private oml2d?: OhMyLive2D;
-
+  constructor() {
+    this.events = new Events();
+  }
   /**
    * 安装组件
    */
@@ -17,9 +21,9 @@ export class LoadOhMyLive2D {
 
     const { PIXI, PixiLive2dDisplay } = await loadOml2dSDK(this.options.importType, this.options.libraryUrls);
 
-    this.oml2d = new OhMyLive2D(this, PIXI, PixiLive2dDisplay);
+    this.oml2d = new OhMyLive2D(this, this.events, PIXI, PixiLive2dDisplay);
 
-    await this.oml2d.initialize();
+    this.oml2d.initialize();
   }
 
   get modelIndex(): number | undefined {
@@ -98,5 +102,15 @@ export class LoadOhMyLive2D {
 
   setStatusBarHoverEvent(events?: { onIn?: EventFn; onOut?: EventFn }): void {
     this.oml2d?.statusBar.setHoverEvent(events);
+  }
+
+  // ------------- event
+
+  // onModelHit(fn?: (areaName: string[]) => void): void {
+  //   this.add('hit', fn);
+  // }
+
+  onLoad(fn: (status: 'loading' | 'success' | 'fail') => void): void {
+    this.events.add('load', fn);
   }
 }

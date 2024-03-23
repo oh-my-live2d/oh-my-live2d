@@ -1,4 +1,5 @@
 import { Application } from './application.js';
+import { Events } from './events.js';
 import { GlobalStyle } from './global-style.js';
 // import { LoadOhMyLive2D } from './load-oml2d.js';
 import { LoadOhMyLive2D } from './load-oml2d.js';
@@ -26,6 +27,7 @@ export class OhMyLive2D {
 
   constructor(
     private globalOml2d: LoadOhMyLive2D,
+    private events: Events,
     private PIXI: PixiModule,
     private PixiLive2dDisplay: PixiLive2dDisplayModule
   ) {
@@ -35,7 +37,7 @@ export class OhMyLive2D {
     this.statusBar = new StatusBar(this.options);
     this.tips = new Tips(this.options, this.globalOml2d); // 提示框
     this.menus = new Menus(this.options, this.globalOml2d); // 菜单
-    this.models = new Models(this.options, this.PixiLive2dDisplay);
+    this.models = new Models(this.options, this.PixiLive2dDisplay, this.events);
     this.application = new Application(this.PIXI);
     this.store = new Store();
     this.modelIndex = this.store.getModelCurrentIndex(this.options.models);
@@ -90,7 +92,7 @@ export class OhMyLive2D {
   /**
    * 加载模型
    */
-  private async loadModel(isLoading = true): Promise<void> {
+  private async loadModel(): Promise<void> {
     if (!this.options.models || !this.options.models.length) {
       return;
     }
@@ -100,9 +102,8 @@ export class OhMyLive2D {
 
       return;
     }
-    if (isLoading) {
-      this.statusBar.showLoading();
-    }
+
+    this.statusBar.showLoading();
 
     await this.models
       .create()
@@ -136,14 +137,20 @@ export class OhMyLive2D {
    * 加载下个模型
    */
   async loadNextModel(): Promise<void> {
+    // console.log('asd');
     this.modelIndex++;
     if (this.modelIndex > this.options.models.length - 1) {
       this.modelIndex = 0;
     }
-    this.statusBar.showLoading();
+
     this.tips.clear();
+    this.statusBar.open('正在切换');
     await this.stage.slideOut();
-    await this.loadModel(false);
+
+    // this.statusBar.showLoading();
+    // this.events.emit('load', 'loading');
+
+    await this.loadModel();
     void this.tips.idlePlayer?.start();
   }
 
@@ -157,7 +164,7 @@ export class OhMyLive2D {
   }
 
   // 初始化
-  async initialize(): Promise<void> {
+  initialize(): void {
     // 检查版本
     void checkVersion();
 
@@ -176,7 +183,7 @@ export class OhMyLive2D {
     this.mount();
 
     // 加载模型
-    await this.loadModel();
+    void this.loadModel();
   }
 
   /**

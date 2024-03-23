@@ -12,11 +12,15 @@ export class GlobalStyle {
    * 创建
    */
   create(): void {
-    this.styleSheet = createElement({
-      tagName: 'style',
-      id: ELEMENT_ID.globalStyle,
-      innerHtml: generateGlobalStyle(this.options.primaryColor)
-    });
+    const el = document.getElementById(ELEMENT_ID.globalStyle);
+
+    if (!el) {
+      this.styleSheet = createElement({
+        tagName: 'style',
+        id: ELEMENT_ID.globalStyle,
+        innerHtml: generateGlobalStyle(this.options.primaryColor)
+      });
+    }
   }
 
   /**
