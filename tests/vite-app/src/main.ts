@@ -52,59 +52,60 @@ const foo = async () => {
       disable: false,
       style: {}
     },
-    menus: (index) => {
-      console.log(index);
-      if (index === 0) {
-        console.log('ssssssssssssssssssssssssssss');
-        return {
-          disable: false,
-          style: {},
-          items: (defaultItems) => {
-            return defaultItems;
-          }
-        };
-      } else {
-        return {
-          style: {
-            left: 0
-          },
-          items: (defaultItem) => {
-            return [defaultItem[1]];
-          }
-        };
-      }
-    }
-    // menus: {
-    //   // items: (defaultItems) => {
-    //   //   // console.log(oml2d.modelIndex);
-    //   //   // if (oml2d.modelIndex === 0) {
-    //   //   //   return [
-    //   //   //     defaultItems[1],
-    //   //   //     {
-    //   //   //       id: 'github',
-    //   //   //       icon: 'github-fill',
-    //   //   //       title: '我的github',
-    //   //   //       onClick() {
-    //   //   //         window.open('https://github.com/hacxy');
-    //   //   //       }
-    //   //   //     }
-    //   //   //   ];
-    //   //   // } else {
-    //   //   //   return defaultItems;
-    //   //   // }
-    //   // }
-    //   // disable: true
-    //   // items: [
-    //   //   {
-    //   //     id: 'github',
-    //   //     icon: 'github-fill',
-    //   //     title: '我的github',
-    //   //     onClick() {
-    //   //       window.open('https://github.com/hacxy');
-    //   //     }
-    //   //   }
-    //   // ]
+    // menus: (index) => {
+    //   console.log(index);
+    //   if (index === 0) {
+    //     console.log('ssssssssssssssssssssssssssss');
+    //     return {
+    //       disable: false,
+    //       style: {},
+    //       items: (defaultItems) => {
+    //         return defaultItems;
+    //       }
+    //     };
+    //   } else {
+    //     return {
+    //       style: {
+    //         left: 0
+    //       },
+    //       items: (defaultItem) => {
+    //         return [defaultItem[1]];
+    //       }
+    //     };
+    //   }
     // }
+    menus: {
+      items: (defaultItems) => {
+        return defaultItems;
+        // console.log(oml2d.modelIndex);
+        // if (oml2d.modelIndex === 0) {
+        //   return [
+        //     defaultItems[1],
+        //     {
+        //       id: 'github',
+        //       icon: 'github-fill',
+        //       title: '我的github',
+        //       onClick() {
+        //         window.open('https://github.com/hacxy');
+        //       }
+        //     }
+        //   ];
+        // } else {
+        //   return defaultItems;
+        // }
+      }
+      // disable: true
+      // items: [
+      //   {
+      //     id: 'github',
+      //     icon: 'github-fill',
+      //     title: '我的github',
+      //     onClick() {
+      //       window.open('https://github.com/hacxy');
+      //     }
+      //   }
+      // ]
+    }
   });
 
   // console.log(oml2d);
