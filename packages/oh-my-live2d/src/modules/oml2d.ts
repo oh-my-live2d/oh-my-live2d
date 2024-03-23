@@ -33,7 +33,7 @@ export class OhMyLive2D {
     this.globalStyle = new GlobalStyle(this.options);
     this.stage = new Stage(this.options); // 实例化舞台
     this.statusBar = new StatusBar(this.options);
-    this.tips = new Tips(this.options); // 提示框
+    this.tips = new Tips(this.options, this.globalOml2d); // 提示框
     this.menus = new Menus(this.options, this.globalOml2d); // 菜单
     this.models = new Models(this.options, this.PixiLive2dDisplay);
     this.application = new Application(this.PIXI);

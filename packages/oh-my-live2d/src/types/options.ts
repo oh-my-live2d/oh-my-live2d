@@ -79,7 +79,7 @@ export interface Options {
    * @default object
    * @valueType Tips
    */
-  tips?: TipsOptions;
+  tips?: TipsOptions | ((currentModel: ModelOptions, modelIndex: number) => TipsOptions);
 
   /**
    * 状态条选项, 详见: [状态条选项](/options/StatusBarOptions)

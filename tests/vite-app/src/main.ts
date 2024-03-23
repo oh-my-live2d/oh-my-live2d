@@ -36,15 +36,23 @@ const foo = async () => {
         }
       }
     ],
-    tips: {
-      messageLine: 3,
-      mobileStyle: {
-        // padding: '0px 5px'
-      },
-      style: {},
-      idleTips: {
-        message: ['sssssssssss']
+    tips: (model, index) => {
+      // console.log(index);
+      if (index === 0) {
+        return {
+          copyTips: {
+            message: ['sssssssssssssssss']
+          },
+          idleTips: {
+            wordTheDay: true
+          }
+        };
       }
+      return {
+        copyTips: {
+          message: ['aaaaaaaaaaaaaaaaaaa']
+        }
+      };
     },
     statusBar: {
       loadingMessage: '正在加载',
@@ -53,8 +61,8 @@ const foo = async () => {
       style: {}
     },
     menus: (currentModel, index) => {
-      console.log(currentModel);
-      console.log(index);
+      // console.log(currentModel);
+      // console.log(index);
       if (index === 0) {
         console.log('ssssssssssssssssssssssssssss');
         return {

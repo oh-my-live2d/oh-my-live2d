@@ -1,9 +1,10 @@
 import { getRandomArrayItem, isFunction, mergeDeep, setIntervalAsync } from 'tianjie';
 
-import { ELEMENT_ID } from '../config/index.js';
+import type { LoadOhMyLive2D } from './load-oml2d.js';
+import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import type { IdleTimer } from '../types/common.js';
-import type { CSSProperties, DefaultOptions, DefaultTipsOptions } from '../types/index.js';
+import type { CSSProperties, DefaultOptions, DefaultTipsOptions, ModelOptions, TipsOptions } from '../types/index.js';
 import {
   createElement,
   getWelcomeMessage,
@@ -23,16 +24,34 @@ export class Tips {
   private style: CSSProperties = {};
   private priority = 0; // 当前优先级
   private contentStyle: CSSProperties = {};
-  constructor(private options: DefaultOptions) {
-    // 创建空闲消息播放器
-    this.idlePlayer = this.createIdleMessagePlayer();
-  }
+  private _tipsOptions: DefaultTipsOptions = DEFAULT_OPTIONS.tips;
+  constructor(
+    private options: DefaultOptions,
+    private globalOml2d: LoadOhMyLive2D
+  ) {}
 
   private get tipsOptions(): DefaultTipsOptions {
-    return this.options.tips;
+    return this._tipsOptions;
+  }
+
+  private set tipsOptions(opt: TipsOptions | ((model: ModelOptions, index: number) => TipsOptions)) {
+    let finalOpt: DefaultTipsOptions;
+
+    if (isFunction(opt)) {
+      finalOpt = mergeDeep(
+        DEFAULT_OPTIONS.tips,
+        opt(this.options.models[this.globalOml2d.modelIndex || 0], this.globalOml2d.modelIndex || 0) as DefaultTipsOptions
+      );
+    } else {
+      finalOpt = opt as DefaultTipsOptions;
+    }
+    this._tipsOptions = finalOpt;
   }
 
   create(): void {
+    this.tipsOptions = this.options.tips;
+    // 创建空闲消息播放器
+    this.idlePlayer = this.createIdleMessagePlayer();
     this.element = createElement({ id: ELEMENT_ID.tips, tagName: 'div' });
     this.contentElement = createElement({ id: 'oml2d-tips-content', tagName: 'div' });
   }
@@ -53,7 +72,7 @@ export class Tips {
     this.clear();
     this.unmount();
     this.create();
-    this.initializeStyle();
+    this.reloadStyle();
     this.mount(stageElement);
   }
 
@@ -63,30 +82,23 @@ export class Tips {
 
   // 重载样式
   reloadStyle(): void {
-    switch (getWindowSizeType()) {
-      case WindowSizeType.pc:
-        this.setStyle(handleCommonStyle(this.options.tips.style || {}));
-        break;
-      case WindowSizeType.mobile:
-        this.setStyle(handleCommonStyle(this.options.tips.mobileStyle || {}));
-        break;
-    }
-  }
-
-  /**
-   * 初始化样式
-   */
-  initializeStyle(): void {
     this.style = {};
-    this.reloadStyle();
     this.setContentStyle({
       wordBreak: 'break-all',
       display: '-webkit-box',
       textOverflow: 'ellipsis',
       WebkitBoxOrient: 'vertical',
-      WebkitLineClamp: this.options.tips.messageLine,
+      WebkitLineClamp: this.tipsOptions.messageLine,
       overflow: 'hidden'
     });
+    switch (getWindowSizeType()) {
+      case WindowSizeType.pc:
+        this.setStyle(handleCommonStyle(this.tipsOptions.style || {}));
+        break;
+      case WindowSizeType.mobile:
+        this.setStyle(handleCommonStyle(this.tipsOptions.mobileStyle || {}));
+        break;
+    }
   }
 
   /**
@@ -162,7 +174,7 @@ export class Tips {
    */
   welcome(): void {
     const message = getWelcomeMessage(this.tipsOptions.welcomeTips || {});
-    const { duration, priority } = this.options.tips.welcomeTips;
+    const { duration, priority } = this.tipsOptions.welcomeTips;
 
     this.notification(message, duration, priority);
   }
@@ -171,10 +183,10 @@ export class Tips {
    * 复制时提示
    */
   copy(): void {
-    if (this.options.tips.copyTips.message.length) {
-      const messageText = getRandomArrayItem(this.options.tips.copyTips.message) || '';
+    if (this.tipsOptions.copyTips.message.length) {
+      const messageText = getRandomArrayItem(this.tipsOptions.copyTips.message) || '';
 
-      this.notification(messageText, this.options.tips.copyTips.duration, this.options.tips.copyTips.priority);
+      this.notification(messageText, this.tipsOptions.copyTips.duration, this.tipsOptions.copyTips.priority);
     }
   }
   /**
@@ -205,7 +217,7 @@ export class Tips {
       } else {
         timer.stop();
       }
-    }, this.options.tips.idleTips.interval);
+    }, this.tipsOptions.idleTips.interval);
 
     return timer;
   }
