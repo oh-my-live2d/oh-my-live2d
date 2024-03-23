@@ -99,6 +99,8 @@ export class OhMyLive2D {
     }
 
     if (this.mobileHidden) {
+      this.statusBar.rest();
+
       return;
     }
     if (isLoading) {

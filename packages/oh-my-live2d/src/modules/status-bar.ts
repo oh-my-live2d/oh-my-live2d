@@ -1,8 +1,8 @@
-import { mergeDeep } from 'tianjie';
+import { isNumber, mergeDeep } from 'tianjie';
 
 import { ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
-import type { CSSProperties, DefaultOptions } from '../types/index.js';
+import type { CSSProperties, DefaultOptions, DefaultStatusBarOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
 
 export type HoverActionParams = {
@@ -14,12 +14,15 @@ export type HoverActionParams = {
  */
 export class StatusBar {
   element?: HTMLElement;
-  transitionTime = 800;
 
   private style: CSSProperties = {};
   private timer = 0;
   private status = false;
   constructor(private options: DefaultOptions) {}
+
+  get statusBarOptions(): DefaultStatusBarOptions {
+    return this.options.statusBar;
+  }
 
   create(): void {
     if (!this.options.statusBar.disable) {
@@ -80,13 +83,13 @@ export class StatusBar {
       {
         this.setStyle({
           animationName: 'oml2d-status-bar-slide-in',
-          animationDuration: `${this.transitionTime}ms`,
+          animationDuration: `${this.statusBarOptions.transitionTime}ms`,
           animationFillMode: 'forwards'
         });
         setTimeout(() => {
           this.status = true;
           resolve();
-        }, this.transitionTime);
+        }, this.statusBarOptions.transitionTime);
       }
     });
   }
@@ -98,15 +101,15 @@ export class StatusBar {
       } else {
         this.setStyle({
           animationName: 'oml2d-status-bar-slide-out',
-          animationDuration: `${this.transitionTime}ms`,
+          animationDuration: `${this.statusBarOptions.transitionTime}ms`,
           animationFillMode: 'forwards'
         });
         setTimeout(() => {
           this.status = true;
-          this.clearClickEvent();
-          this.clearHoverEvent();
+          // this.clearClickEvent();
+          // this.clearHoverEvent();
           resolve();
-        }, this.transitionTime);
+        }, this.statusBarOptions.transitionTime);
       }
     });
   }
@@ -114,16 +117,16 @@ export class StatusBar {
   showLoading(): void {
     void this.open(
       `
-      <div style="margin-bottom:3px;">加载中</div>
+      <div style="margin-bottom:3px;">${this.statusBarOptions.loadingMessage}</div>
       <svg class="oml2d-icon oml2d-loading" aria-hidden="true">
-        <use xlink:href="#icon-loading"></use>
+        <use xlink:href=#${this.statusBarOptions.loadingIcon}></use>
       </svg>
     `
     );
   }
 
   hideLoading(): void {
-    this.popup('加载成功', 1000);
+    this.popup(this.statusBarOptions.loadSuccessMessage, 1000);
   }
 
   setHoverEvent(events?: { onIn?: () => void; onOut?: () => void }): void {
@@ -154,6 +157,10 @@ export class StatusBar {
     }
   }
 
+  rest(): void {
+    this.popup(this.statusBarOptions.restMessage, this.statusBarOptions.restMessageDuration);
+  }
+
   /**
    * 专门处理加载失败, 需要传入一个重新加载的方法
    * @param reloadFn
@@ -161,10 +168,10 @@ export class StatusBar {
   loadingError(reloadFn: () => void): void {
     this.setHoverEvent({
       onIn: () => {
-        this.setContent('重新加载');
+        this.setContent(this.statusBarOptions.reloadMessage);
       },
       onOut: () => {
-        this.setContent('加载失败');
+        this.setContent(this.statusBarOptions.loadFailMessage);
       }
     });
 
@@ -174,7 +181,7 @@ export class StatusBar {
     });
 
     // 弹出状态提示
-    void this.open('加载失败', this.options.statusBar.errorColor);
+    void this.open(this.statusBarOptions.loadFailMessage, this.options.statusBar.errorColor);
   }
 
   get stateColor(): { info: string; error: string } {
@@ -191,24 +198,12 @@ export class StatusBar {
     this.setStyle({ backgroundColor: color });
   }
 
-  async open(content?: string, color = this.options.primaryColor): Promise<void> {
-    if (content) {
-      this.setContent(content);
-    }
-    this.setColor(color);
-    await this.slideIn();
+  open(content?: string, color = this.options.primaryColor): void {
+    this.popup(content, false, color);
   }
 
-  close(content?: string, color = this.options.primaryColor, delay = 0): Promise<void> {
-    return new Promise((resolve) => {
-      if (content) {
-        this.setContent(content);
-      }
-      this.setColor(color);
-      setTimeout(() => {
-        void this.slideOut().then(resolve);
-      }, delay);
-    });
+  close(content?: string, color = this.options.primaryColor, delay = 0): void {
+    this.popup(content, delay, color);
   }
 
   /**
@@ -217,7 +212,7 @@ export class StatusBar {
    * @param state
    * @param delay
    */
-  popup(message?: string, delay: number = 0, color = this.options.primaryColor): void {
+  popup(message?: string, delay: number | false = 0, color = this.options.primaryColor): void {
     clearTimeout(this.timer);
     this.setColor(color);
     if (message) {
@@ -225,9 +220,14 @@ export class StatusBar {
     }
 
     void this.slideIn().then(() => {
-      this.timer = setTimeout(() => {
-        void this.slideOut();
-      }, delay);
+      if (isNumber(delay)) {
+        this.timer = setTimeout(() => {
+          void this.slideOut().then(() => {
+            // this.clearClickEvent();
+            // this.clearHoverEvent();
+          });
+        }, delay);
+      }
     });
   }
 

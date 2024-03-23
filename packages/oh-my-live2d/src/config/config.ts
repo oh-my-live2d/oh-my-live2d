@@ -20,6 +20,14 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   models: [],
   statusBar: {
     disable: false,
+    transitionTime: 800,
+    loadingMessage: '加载中',
+    loadSuccessMessage: '加载成功',
+    loadFailMessage: '加载失败',
+    reloadMessage: '重新加载',
+    restMessage: '看板娘休息中',
+    restMessageDuration: 8000,
+    loadingIcon: 'icon-loading',
     errorColor: STATUS_BAR_ERROR_COLOR,
     style: STATUS_BAR_DEFAULT_STYLE,
     mobileStyle: STATUS_BAR_DEFAULT_STYLE
@@ -63,14 +71,16 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
         icon: 'icon-rest',
         title: '休息',
         onClick(oml2d): void {
-          void oml2d.statusBarOpen('看板娘休息中'); // 展示状态条
+          oml2d.statusBarOpen(oml2d.options.statusBar.restMessage); // 展示状态条
           oml2d.clearTips(); // 清除当前提示框内容, 并停止空闲消息播放器
 
           // 为状态条绑定点击事件
           oml2d.setStatusBarClickEvent(() => {
             void oml2d.statusBarClose(); // 关闭状态条
             void oml2d.stageSlideIn(); // 舞台滑入
+            oml2d.statusBarClearEvents(); // 清除所有事件
           });
+
           void oml2d.stageSlideOut(); // 舞台滑出
         }
       },
@@ -98,7 +108,6 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   }
 };
 
-/** 全局配置 */
 export const ELEMENT_ID = {
   globalStyle: 'oml2d-global-style',
   stage: 'oml2d-stage',

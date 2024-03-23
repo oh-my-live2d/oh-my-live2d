@@ -72,18 +72,22 @@ export class LoadOhMyLive2D {
     void this.oml2d?.tips.idlePlayer?.start();
   }
 
-  async statusBarOpen(content?: string, color?: string): Promise<void> {
-    await this.oml2d?.statusBar.open(content, color);
+  statusBarOpen(content?: string, color?: string): void {
+    this.oml2d?.statusBar.open(content, color);
   }
 
-  async statusBarClose(content?: string, color?: string, delay?: number): Promise<void> {
-    await this.oml2d?.statusBar.close(content, color, delay);
+  statusBarClose(content?: string, color?: string, delay?: number): void {
+    this.oml2d?.statusBar.close(content, color, delay);
   }
 
   statusBarPopup(content?: string, delay?: number, color?: string): void {
     this.oml2d?.statusBar.popup(content, delay, color);
   }
 
+  statusBarClearEvents(): void {
+    this.oml2d?.statusBar.clearClickEvent();
+    this.oml2d?.statusBar.clearHoverEvent();
+  }
   setStatusBarClickEvent(fn: EventType): void {
     this.oml2d?.statusBar.setClickEvent(fn);
   }

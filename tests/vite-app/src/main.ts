@@ -8,7 +8,7 @@ const foo = async () => {
   await loadOml2d({
     // parentElement: el,
     // importType: 'complete',
-    mobileDisplay: true,
+    mobileDisplay: false,
     primaryColor: 'pink',
     models: [
       {
@@ -49,6 +49,8 @@ const foo = async () => {
       }
     },
     statusBar: {
+      loadingMessage: '正在加载',
+      restMessage: '睡着了',
       disable: false,
       style: {}
     },
