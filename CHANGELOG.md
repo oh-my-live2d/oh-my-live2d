@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.13.0...v0.14.0) (2024-03-24)
+
+### ✨ Features | 新功能
+
+- **events:** 新增舞台滑入滑出事件监听 ([863a179](https://github.com/oh-my-live2d/oh-my-live2d/commit/863a1792061a2786edfd65b9f7345d08e58e52c4)) by Hacxy
+- **menus:** 菜单选项新增disable属性, 当值为true时将不会创建菜单 ([527cd91](https://github.com/oh-my-live2d/oh-my-live2d/commit/527cd91aa7c422d88b25e36cbdf016f8211a4218)) by Hacxy
+- **menus:** 修改菜单和提示框创建顺序, 将菜单选项变更为函数动态参数 ([bf8f9ab](https://github.com/oh-my-live2d/oh-my-live2d/commit/bf8f9abf76fa32ea2b7f45e8824e9f3410260acd)) by Hacxy
+- **models:** 新增模型选项:name ([a829413](https://github.com/oh-my-live2d/oh-my-live2d/commit/a829413c72e392ede5cfa134e9c97aca4d628364)) by Hacxy
+- **status-bar:** 添加状态条配置选项 ([473f7f9](https://github.com/oh-my-live2d/oh-my-live2d/commit/473f7f9bfc0c3e10d09146f34cc54d48a8bf535d)) by Hacxy
+- **status-bar:** 状态条选项新增了disable属性, 当为true时不会创建状态条 ([67b1309](https://github.com/oh-my-live2d/oh-my-live2d/commit/67b13097ae6de98bd3ffe52f52304f0b6d829342)) by Hacxy
+- **tips:** 提示框选项提供函数调用式 ([fd356c7](https://github.com/oh-my-live2d/oh-my-live2d/commit/fd356c7599eeb361e6c1088105f17711647c534c)) by Hacxy
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 调整模型事件注册时机 ([17f63cd](https://github.com/oh-my-live2d/oh-my-live2d/commit/17f63cdb90cdcadc905e61b3b19442b95d87b55a)) by Hacxy
+- 无模型配置时不执行初始化操作 ([e394e7d](https://github.com/oh-my-live2d/oh-my-live2d/commit/e394e7d50980ee685d069736663c6e0ef676c310)) by Hacxy
+- 修改了loadOml2d方法的调用形态, 由异步函数调用修改为普通函数调用, 加入了onLoad事件监听, 现在可以监听模型的加载状态 ([611e714](https://github.com/oh-my-live2d/oh-my-live2d/commit/611e714293f8f09629103263f45d54b48574ece9)) by Hacxy
+- 优化状态条模块, 取消了loadOml2d方法的调用次数限制 ([8f0a978](https://github.com/oh-my-live2d/oh-my-live2d/commit/8f0a9789328b50c628709c25edc506a24b9317ea)) by Hacxy
+- **menus:** 菜单选项函数调用时新增参数:currentModel ([5237b78](https://github.com/oh-my-live2d/oh-my-live2d/commit/5237b781c32f41ee6d8680afbc3e6f370d178831)) by Hacxy
+- **status-bar:** 状态条选项新增:switchingMessage ([ea72918](https://github.com/oh-my-live2d/oh-my-live2d/commit/ea7291881f906fb3974d56947e7d14e88b21e7af)) by Hacxy
+
 ## [0.13.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.12.0...v0.13.0) (2024-03-21)
 
 ### ✨ Features | 新功能
