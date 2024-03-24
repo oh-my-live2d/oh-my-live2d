@@ -1,7 +1,8 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import fs from 'fs-extra';
+import fse from 'fs-extra';
+import fs from 'node:fs';
 import json2md from 'json2md';
 import TypeDoc from 'typedoc';
 
@@ -14,7 +15,7 @@ const docsPath = path.resolve(__dirname, '../docs/src/options');
 const documentationPath = path.resolve(__dirname, '../docs/documentation.json');
 const sideBarDataPath = path.resolve(__dirname, '../docs/sideBarData.json');
 
-fs.ensureDirSync(docsPath);
+fse.ensureDirSync(docsPath);
 
 json2md.converters.mdContent = function (input, json2md) {
   return input;
@@ -30,7 +31,7 @@ const rootPath = (...args) => path.join(__dirname, '../packages/oh-my-live2d', .
 
 const generateDocs = (app, project) => {
   app.generateJson(project, documentationPath).then(() => {
-    const data = fs.readJSONSync(documentationPath);
+    const data = fse.readJSONSync(documentationPath);
     data.children = data.children.filter((item) => item.name !== 'loadOml2d');
     // 处理数据-----------------------
 
@@ -38,19 +39,26 @@ const generateDocs = (app, project) => {
 
     // --------------------- 开始生成文档
     data.children.map((item) => {
-      // console.log(item);
       let fileName = `${item.name}.md`;
+      // console.log(fileName);
+      const filePath = path.resolve(docsPath, fileName);
       let markdownJsonData = [];
-      // if (item.name === 'Options') fileName = 'index.md';
-      // else fileName = `${item.name}.md`;
-
+      let headContent = '';
+      fse.ensureFile(filePath);
+      const fileContent = fs.readFileSync(filePath, 'utf-8');
+      // if (item.name === 'MenusOptions') {
+      //   console.log(fileContent.split(/<!-- --- -->/)[0]);
+      // }
+      headContent = fileContent.split(/<!-- --- -->/)[0];
+      // const fileContent = fse.readSync(filePath);
+      // console.log(fileContent);
       //  文件头部信息
-      item.comment?.summary.map((summaryItem) => {
-        markdownJsonData.push({ mdContent: summaryItem.text });
-      });
+      // item.comment?.summary.map((summaryItem) => {
+      //   markdownJsonData.push({ mdContent: summaryItem.text });
+      // });
 
-      // 分割线
-      item.comment?.summary.length && markdownJsonData.push({ mdContent: '---' });
+      // // 分割线
+      // item.comment?.summary.length && markdownJsonData.push({ mdContent: '---' });
 
       // --------------------- 选项内容
       const generateOptionsContent = (content, parentName = '') => {
@@ -92,8 +100,9 @@ const generateDocs = (app, project) => {
 
       generateOptionsContent(item);
 
-      fs.writeFileSync(path.resolve(docsPath, fileName), json2md(markdownJsonData));
-      console.log(path.resolve(docsPath, fileName), ' 已写入');
+      const finalContent = headContent + '<!-- --- -->\n\n' + json2md(markdownJsonData);
+      fse.writeFileSync(filePath, finalContent);
+      console.log(filePath, ' 已写入');
     });
 
     data.children = data.children.sort((a, b) => {
@@ -115,11 +124,11 @@ const generateDocs = (app, project) => {
       return { text: item.comment?.blockTags?.[0]?.content?.[0]?.text || item.name, link: `/options/${item.name}` };
     });
 
-    fs.writeJSONSync(sideBarDataPath, sideBarData);
+    fse.writeJSONSync(sideBarDataPath, sideBarData);
     console.log(sideBarDataPath, ' 已写入');
   });
 
-  fs.copySync(path.resolve(__dirname, '../CHANGELOG.md'), path.resolve(__dirname, '../docs/src/CHANGELOG.md'));
+  fse.copySync(path.resolve(__dirname, '../CHANGELOG.md'), path.resolve(__dirname, '../docs/src/CHANGELOG.md'));
 };
 
 // 主函数

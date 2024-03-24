@@ -115,12 +115,13 @@ export default defineConfig({
         link: '/about'
       },
       {
-        text: '更新日志',
-        link: '/CHANGELOG'
-      },
-      {
         text: `v${pkg.version}`,
-        link: ''
+        items: [
+          {
+            text: '更新日志',
+            link: '/CHANGELOG'
+          }
+        ]
       }
     ],
     socialLinks: [

@@ -1,9 +1,7 @@
 import type { CommonStyleType, WordTheDayData } from '../types/common.js';
 
 /**
- * # 提示框选项
  *
- * 配置提示框样式和消息内容
  * @name 提示框选项
  */
 export interface TipsOptions {

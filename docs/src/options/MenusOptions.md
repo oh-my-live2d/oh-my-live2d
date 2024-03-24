@@ -1,6 +1,98 @@
 # 菜单选项
 
----
+菜单选项不仅支持传入一个对象, 还支持您传入一个返回选项对象的函数, 如果它是一个函数, 则会在模型每次加载成功时被调用, 调用时会传入当前模型选项以及当前模型的索引值, 这样您就可以根据这些信息来做判断, 为不同的模型提供不同的选项.
+
+## 概览
+
+- 类型: `MenusOptions | ((currentModel: ModelOptions, modelIndex: number) => MenusOptions)`
+
+### 基础用法
+
+```ts
+import { loadOml2d } from 'oh-my-live2d';
+const oml2d = loadoml2d({
+  menus: {
+    // 在这里配置
+  }
+});
+```
+
+### 高级用法
+
+支持使用函数, 每当模型加载成功后函数就会被调用, 回调时会传入当前模型配置以及索引方便您根据这些信息来做判断, 返回类型为菜单选项
+
+- 判断当前模型索引
+
+::: details 点我查看代码
+
+```ts
+import { loadOml2d } from 'oh-my-live2d';
+const oml2d = loadoml2d({
+  menus: (_, currentIndex) => {
+    if (currentIndex === 0) {
+      return {
+        style: {
+          left: 0
+        }
+      };
+    } else {
+      return {
+        items: (defaultItem) => {
+          return [defaultItem[1]];
+        }
+      };
+    }
+  }
+});
+```
+
+:::
+
+- 您还可以根据当前模型的选项值来判断, 当您选择使用这个方法时, 推荐您为每个模型命名, 之后您就可以在函数中拿到当前模型的名称, 方便后续判断:
+
+::: details 点我查看代码
+
+```ts
+import { loadOml2d } from 'oh-my-live2d';
+const oml2d = loadoml2d({
+  models: [
+    {
+      name: 'shizuku', // [!code highlight]
+      path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json'
+    },
+    {
+      name: 'senko', // [!code highlight]
+      path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json'
+    },
+    {
+      name: 'pio', // [!code highlight]
+      path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json'
+    }
+  ],
+  menus: (currentModel) => {
+    switch (currentModel.name) {
+      case 'shizuku':
+        return {
+          style: {
+            left: 0
+          }
+        };
+      default:
+        return {
+          items: (defaultItem) => {
+            return [defaultItem[1]];
+          }
+        };
+    }
+  }
+});
+```
+
+:::
+
+## 选项
+
+<!-- --- -->
 
 ### disable
 

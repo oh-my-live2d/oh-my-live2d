@@ -1,9 +1,6 @@
 import { CommonStyleType } from '../types/common.js';
 
 /**
- * # 模型配置选项
- * 可配置模型地址来源以及缩放比例、舞台大小等
- *
  * @name 模型选项
  */
 export interface ModelOptions {

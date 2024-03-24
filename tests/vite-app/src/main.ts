@@ -12,6 +12,7 @@ const foo = async () => {
     primaryColor: 'pink',
     models: [
       {
+        name: 'shizuku',
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
         scale: 0.2,
         motionPreloadStrategy: 'ALL',
@@ -65,7 +66,6 @@ const foo = async () => {
       if (index === 0) {
         return {
           disable: false,
-          style: {},
           items: (defaultItems) => {
             return defaultItems;
           }

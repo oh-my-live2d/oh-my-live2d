@@ -1,7 +1,6 @@
 import { CommonStyleType } from './common.js';
 
 /**
- * # 状态条选项
  * @name 状态条选项
  */
 export interface StatusBarOptions {

@@ -6,7 +6,6 @@ import type { TipsOptions } from './tips.js';
 import type { ImportType } from './index.js';
 
 /**
- * # 配置选项
  *
  * @name 配置选项
  */

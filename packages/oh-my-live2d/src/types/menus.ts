@@ -1,9 +1,6 @@
-// import { OhMyLive2D } from 'src/modules/oml2d.js';
 import { CommonStyleType, Item } from './common.js';
-// import type { LoadOhMyLive2D } from '../modules/load-oml2d.js';
 
 /**
- * # 菜单选项
  * @name 菜单选项
  */
 export interface MenusOptions {
