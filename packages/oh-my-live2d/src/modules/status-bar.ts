@@ -222,10 +222,7 @@ export class StatusBar {
     void this.slideIn().then(() => {
       if (isNumber(delay)) {
         this.timer = setTimeout(() => {
-          void this.slideOut().then(() => {
-            // this.clearClickEvent();
-            // this.clearHoverEvent();
-          });
+          void this.slideOut();
         }, delay);
       }
     });

@@ -71,38 +71,76 @@ export class LoadOhMyLive2D {
     await this.oml2d?.stage.slideOut();
   }
 
+  /**
+   * 清除当前提示框内容并关闭空闲消息播放器
+   */
   clearTips(): void {
     this.oml2d?.tips.clear();
   }
 
+  /**
+   * 停止空闲消息播放器
+   */
   stopTipsIdle(): void {
     this.oml2d?.tips.idlePlayer?.stop();
   }
 
+  /**
+   * 开启空闲消息播放器
+   */
   startTipsIdle(): void {
     void this.oml2d?.tips.idlePlayer?.start();
   }
 
+  /**
+   * 弹出状态条并保持打开状态
+   * @param content
+   * @param color
+   */
   statusBarOpen(content?: string, color?: string): void {
     this.oml2d?.statusBar.open(content, color);
   }
 
+  /**
+   * 收起状态条
+   * @param content
+   * @param color
+   * @param delay
+   */
   statusBarClose(content?: string, color?: string, delay?: number): void {
     this.oml2d?.statusBar.close(content, color, delay);
   }
 
+  /**
+   * 弹出状态条, 一段时间后自动收起
+   * @param content
+   * @param delay
+   * @param color
+   */
   statusBarPopup(content?: string, delay?: number, color?: string): void {
     this.oml2d?.statusBar.popup(content, delay, color);
   }
 
+  /**
+   * 清除状态条所有绑定事件
+   */
   statusBarClearEvents(): void {
     this.oml2d?.statusBar.clearClickEvent();
     this.oml2d?.statusBar.clearHoverEvent();
   }
+
+  /**
+   * 设置状态条点击事件
+   * @param fn
+   */
   setStatusBarClickEvent(fn: EventFn): void {
     this.oml2d?.statusBar.setClickEvent(fn);
   }
 
+  /**
+   * 设置状态条hover事件
+   * @param events
+   */
   setStatusBarHoverEvent(events?: { onIn?: EventFn; onOut?: EventFn }): void {
     this.oml2d?.statusBar.setHoverEvent(events);
   }
