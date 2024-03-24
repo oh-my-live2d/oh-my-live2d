@@ -49,7 +49,7 @@
 
 ### menus
 
-- 类型: `object`
+- 类型: `MenusOptions | ((currentModel: ModelOptions, modelIndex: number) => MenusOptions)`
 
 菜单配置, 详见: [菜单选项](/options/MenusOptions)
 
@@ -67,7 +67,7 @@
 
 ### models
 
-- 类型: `Model[]`
+- 类型: `ModelOptions[]`
 
 - 默认值: `[]`
 
@@ -107,7 +107,7 @@
 
 ### statusBar
 
-- 类型: `object`
+- 类型: `StatusBarOptions`
 
 状态条选项, 详见: [状态条选项](/options/StatusBarOptions)
 
@@ -115,7 +115,7 @@
 
 ### tips
 
-- 类型: `Tips`
+- 类型: `TipsOptions | ((currentModel: ModelOptions, modelIndex: number) => TipsOptions)`
 
 - 默认值: `object`
 

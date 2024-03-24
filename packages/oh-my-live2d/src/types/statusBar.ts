@@ -46,13 +46,13 @@ export interface StatusBarOptions {
    */
   switchingMessage?: string;
   /**
-   * 模型休息时提示持续时长, 单位ms
+   * 模型休息时提示持续时长, 仅作用于移动端禁用时的提示 单位ms
    * @default 8000
    */
   restMessageDuration?: number;
 
   /**
-   * 自定义模型加载时的icon
+   * 自定义模型加载时的icon, 详见: [自定义图标](/guide/icon)
    * @default icon-loading
    */
   loadingIcon?: string;

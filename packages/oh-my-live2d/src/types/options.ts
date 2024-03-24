@@ -68,7 +68,7 @@ export interface Options {
    * 模型选项, 类型是模型配置对象组成的数组, 默认值是空数组
    *
    * 详见: [模型选项](/options/ModelOptions)
-   * @valueType Model[]
+   * @valueType ModelOptions[]
    * @default []
    */
   models?: ModelOptions[];
@@ -77,19 +77,19 @@ export interface Options {
    * 自定义提示框样式和内容, 前往[提示框选项](/options/TipsOptions)查看详细内容
    *
    * @default object
-   * @valueType Tips
+   * @valueType TipsOptions | ((currentModel: ModelOptions, modelIndex: number) => TipsOptions)
    */
   tips?: TipsOptions | ((currentModel: ModelOptions, modelIndex: number) => TipsOptions);
 
   /**
    * 状态条选项, 详见: [状态条选项](/options/StatusBarOptions)
-   * @valueType object
+   * @valueType StatusBarOptions
    */
   statusBar?: StatusBarOptions;
 
   /**
    * 菜单配置, 详见: [菜单选项](/options/MenusOptions)
-   * @valueType object
+   * @valueType MenusOptions | ((currentModel: ModelOptions, modelIndex: number) => MenusOptions)
    */
   menus?: MenusOptions | ((currentModel: ModelOptions, modelIndex: number) => MenusOptions);
   /**

@@ -40,6 +40,9 @@ export default defineConfig({
   description: '支持所有Live2D模型版本的Web组件, 快速为您的个人网站添加看板娘.',
   lastUpdated: true,
   appearance: 'dark',
+  markdown: {
+    lineNumbers: true
+  },
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
@@ -78,6 +81,10 @@ export default defineConfig({
             {
               text: '加载模型',
               link: '/guide/loadModel'
+            },
+            {
+              text: '自定义图标',
+              link: '/guide/icon'
             }
           ]
         },
