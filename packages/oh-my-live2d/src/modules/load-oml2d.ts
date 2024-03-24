@@ -110,17 +110,25 @@ export class LoadOhMyLive2D {
   // ------------- event
 
   /**
-   * 监听模型加载状态的变化
+   * 模型在每次加载状态发生变化时的事件监听
    * @param fn
    */
   onLoad(fn: LoadEventFn): void {
     this.events.add('load', fn);
   }
 
+  /**
+   * 舞台滑入动画执行完毕后的事件监听
+   * @param fn
+   */
   onStageSlideIn(fn: EventFn): void {
     this.events.add('stageSlideIn', fn);
   }
 
+  /**
+   * 舞台滑出动画执行完毕后的事件监听
+   * @param fn
+   */
   onStageSlideOut(fn: EventFn): void {
     this.events.add('stageSlideOut', fn);
   }
