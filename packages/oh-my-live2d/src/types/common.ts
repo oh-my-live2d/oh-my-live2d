@@ -53,6 +53,3 @@ export type Item = {
   title: string;
   onClick?: ((oml2d: LoadOhMyLive2D) => void) | ((oml2d: LoadOhMyLive2D) => Promise<void>);
 };
-
-export type EventFn = ((...arg) => void) | ((...arg) => Promise<void>);
-export type EventType = 'load' | 'hit';

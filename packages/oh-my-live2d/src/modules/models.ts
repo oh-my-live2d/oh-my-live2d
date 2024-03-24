@@ -11,7 +11,7 @@ export class Models {
   model?: Live2DModel<InternalModel>; // 当前模型实例
   private currentModelIndex = 0;
   private hitAreaFrames: HitAreaFrames;
-  // private eventMap = new Map<ModelEvent, EventFn[]>();
+
   constructor(
     private options: DefaultOptions,
     private PixiLive2dDisplay: PixiLive2dDisplayModule,
@@ -85,9 +85,7 @@ export class Models {
    * 添加点击区域
    */
   addHitAreaFrames(): void {
-    if (this.hitAreaFrames) {
-      this.model?.addChild(this.hitAreaFrames);
-    }
+    this.model?.addChild(this.hitAreaFrames);
   }
 
   /**
@@ -147,33 +145,4 @@ export class Models {
 
     this.playMotion(motion || '');
   }
-
-  // ---------------  event
-  // emit(name: EventType, ...arg: unknown[]): void {
-  //   console.log('----------');
-  //   const eventQueue = this.eventMap.get(name);
-
-  //   // console.log(eventQueue);
-  //   eventQueue?.forEach((fn) => void fn(...arg));
-  //   // this.eventMap.set(name, []);
-  // }
-
-  // private addEvents(name: EventType, fn?: EventFn): void {
-  //   console.log(fn);
-  //   if (!fn) {
-  //     return;
-  //   }
-  //   const events = this.eventMap.get(name) || [];
-
-  //   events.push(fn);
-  //   this.eventMap.set(name, events);
-  // }
-
-  // onHit(fn?: (areaName: string[]) => void): void {
-  //   this.addEvents('hit', fn);
-  // }
-
-  // onLoad(fn: (status: 'loading' | 'success' | 'fail') => void): void {
-  //   this.addEvents('load', fn);
-  // }
 }

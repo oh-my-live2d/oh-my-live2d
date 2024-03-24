@@ -1,5 +1,6 @@
-import { EventFn, EventType } from '../types/common.js';
+import { EventFn, EventType } from '../types/events.js';
 
+// 事件中心
 export class Events {
   private eventMap = new Map<EventType, EventFn[]>();
 

@@ -127,9 +127,11 @@ export class Tips {
   }
 
   showMessage(message: string, duration = 3000, priority = 0): void {
+    console.log(this.priority);
     if (priority < this.priority) {
       return;
     }
+    this.priority = priority;
     if (this.closeTimer) {
       clearTimeout(this.closeTimer);
     }

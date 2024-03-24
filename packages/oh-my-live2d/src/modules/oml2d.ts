@@ -33,7 +33,7 @@ export class OhMyLive2D {
   ) {
     this.options = this.globalOml2d.options;
     this.globalStyle = new GlobalStyle(this.options);
-    this.stage = new Stage(this.options); // 实例化舞台
+    this.stage = new Stage(this.options, this.events); // 实例化舞台
     this.statusBar = new StatusBar(this.options);
     this.tips = new Tips(this.options, this.globalOml2d); // 提示框
     this.menus = new Menus(this.options, this.globalOml2d); // 菜单
@@ -147,9 +147,6 @@ export class OhMyLive2D {
     this.statusBar.open('正在切换');
     await this.stage.slideOut();
 
-    // this.statusBar.showLoading();
-    // this.events.emit('load', 'loading');
-
     await this.loadModel();
     void this.tips.idlePlayer?.start();
   }
@@ -187,18 +184,15 @@ export class OhMyLive2D {
   }
 
   /**
-   * 注册dom事件
+   * 注册全局事件
    */
   private registerGlobalEvent(): void {
     onChangeWindowSize(() => {
       void this.reloadModel();
     });
 
-    // 出场入场动画执行结束之后的事件回调
-    this.stage.onChangeSlideEnd((status) => {
-      if (status) {
-        this.tips.welcome();
-      }
+    this.globalOml2d.onStageSlideIn(() => {
+      this.tips.welcome();
     });
 
     window.document.oncopy = (): void => {

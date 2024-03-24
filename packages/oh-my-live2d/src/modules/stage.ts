@@ -1,5 +1,6 @@
 import { mergeDeep } from 'tianjie';
 
+import type { Events } from './events.js';
 import { ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import { CommonStyleType } from '../types/common.js';
@@ -12,9 +13,11 @@ export class Stage {
   status = false;
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
-  private slideChangeEnd?: (status: boolean) => void;
   private currentModelIndex = 0;
-  constructor(private options: DefaultOptions) {}
+  constructor(
+    private options: DefaultOptions,
+    private events: Events
+  ) {}
 
   create(): void {
     this.element = createElement({ id: ELEMENT_ID.stage, tagName: 'div' });
@@ -104,7 +107,8 @@ export class Stage {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
         this.status = true;
-        this.slideChangeEnd?.(this.status);
+        // this.slideChangeEnd?.(this.status);
+        this.events.emit('stageSlideIn');
         resolve();
       }, this.transitionTime);
     });
@@ -126,18 +130,19 @@ export class Stage {
 
         setTimeout(() => {
           this.status = false;
-          this.slideChangeEnd?.(this.status);
+          this.events.emit('stageSlideOut');
+
           resolve();
         }, this.transitionTime);
       }
     });
   }
 
-  /**
-   * 场景的滑入滑出动画执行结束事件
-   * @param fn
-   */
-  onChangeSlideEnd(fn: (status: boolean) => void): void {
-    this.slideChangeEnd = fn;
-  }
+  // /**
+  //  * 场景的滑入滑出动画执行结束事件
+  //  * @param fn
+  //  */
+  // onChangeSlideEnd(fn: (status: boolean) => void): void {
+  //   this.slideChangeEnd = fn;
+  // }
 }

@@ -1,7 +1,7 @@
 import { Events } from './events.js';
 import { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
-import type { EventFn } from '../types/common.js';
+import type { EventFn, LoadEventFn } from '../types/events.js';
 import { DefaultOptions } from '../types/index.js';
 import { Options } from '../types/options.js';
 import { loadOml2dSDK, mergeOptions } from '../utils/index.js';
@@ -26,6 +26,9 @@ export class LoadOhMyLive2D {
     this.oml2d.initialize();
   }
 
+  /**
+   * 当前模型索引值
+   */
   get modelIndex(): number | undefined {
     return this.oml2d?.modelIndex;
   }
@@ -106,11 +109,19 @@ export class LoadOhMyLive2D {
 
   // ------------- event
 
-  // onModelHit(fn?: (areaName: string[]) => void): void {
-  //   this.add('hit', fn);
-  // }
-
-  onLoad(fn: (status: 'loading' | 'success' | 'fail') => void): void {
+  /**
+   * 监听模型加载状态的变化
+   * @param fn
+   */
+  onLoad(fn: LoadEventFn): void {
     this.events.add('load', fn);
+  }
+
+  onStageSlideIn(fn: EventFn): void {
+    this.events.add('stageSlideIn', fn);
+  }
+
+  onStageSlideOut(fn: EventFn): void {
+    this.events.add('stageSlideOut', fn);
   }
 }
