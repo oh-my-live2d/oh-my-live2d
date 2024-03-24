@@ -21,6 +21,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   statusBar: {
     disable: false,
     transitionTime: 800,
+    switchingMessage: '正在切换',
     loadingMessage: '加载中',
     loadSuccessMessage: '加载成功',
     loadFailMessage: '加载失败',

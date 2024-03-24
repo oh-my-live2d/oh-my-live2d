@@ -41,6 +41,11 @@ export interface StatusBarOptions {
   restMessage?: string;
 
   /**
+   * 模型切换时提示的文本信息
+   * @default 正在切换
+   */
+  switchingMessage?: string;
+  /**
    * 模型休息时提示持续时长, 单位ms
    * @default 8000
    */

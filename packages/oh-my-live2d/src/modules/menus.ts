@@ -19,6 +19,13 @@ export class Menus {
     private globalOml2d: LoadOhMyLive2D
   ) {}
 
+  reload(stageElement: HTMLElement): void {
+    this.unmount();
+    this.create();
+    this.reloadStyle();
+    this.mount(stageElement);
+  }
+
   private get menuOptions(): MenusOptions {
     return this._menuOptions;
   }
@@ -93,13 +100,6 @@ export class Menus {
     if (this.element) {
       this.element.append(...this.menuItemList);
     }
-  }
-
-  remount(stageElement: HTMLElement): void {
-    this.unmount();
-    this.create();
-    this.reloadStyle();
-    this.mount(stageElement);
   }
 
   /**

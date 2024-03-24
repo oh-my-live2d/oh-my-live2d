@@ -37,7 +37,6 @@ const foo = async () => {
       }
     ],
     tips: (_model, index) => {
-      // console.log(index);
       if (index === 0) {
         return {
           copyTips: {
@@ -64,7 +63,6 @@ const foo = async () => {
       // console.log(currentModel);
       // console.log(index);
       if (index === 0) {
-        console.log('ssssssssssssssssssssssssssss');
         return {
           disable: false,
           style: {},
@@ -122,13 +120,12 @@ const foo = async () => {
         return;
     }
   });
-  setInterval(() => {
-    // oml2d.tipsMessage('Oh My Live2D!', 1000, 9);
-  }, 100);
   oml2d.onStageSlideIn(() => {
+    console.log('111');
     // oml2d.tipsMessage('Oh My Live2D!', 1000, 9);
     // oml2d.loadNextModel();
   });
+
   // oml2d.loadNextModel();
   // oml2d.clearTips();
   // oml2d.reloadModel();
@@ -154,7 +151,7 @@ const foo = async () => {
   //   console.log('ssssssssssssss');
   // }, 1000);
 
-  // await loadOml2d({
+  // const oml2d2 = await loadOml2d({
   //   models: [
   //     {
   //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
@@ -163,7 +160,9 @@ const foo = async () => {
   //     }
   //   ]
   // });
-
+  // oml2d2.onStageSlideIn(() => {
+  //   console.log(222);
+  // });
   // loadOml2d({
   //   models: [
   //     {

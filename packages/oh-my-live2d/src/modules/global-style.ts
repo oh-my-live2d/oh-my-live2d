@@ -32,22 +32,11 @@ export class GlobalStyle {
     }
   }
 
-  /**
-   * 卸载
-   */
-  unMount(): void {
-    this.styleSheet?.remove();
-  }
-
-  /**
-   * 更新
-   * @param options
-   */
-  update(options: DefaultOptions): void {
-    this.options = options;
+  initialize(): void {
+    this.create();
+    this.mount();
     this.reloadStyleSheet();
   }
-
   initializeStyle(): void {
     this.reloadStyleSheet();
   }

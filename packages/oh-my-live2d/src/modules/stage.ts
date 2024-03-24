@@ -137,12 +137,4 @@ export class Stage {
       }
     });
   }
-
-  // /**
-  //  * 场景的滑入滑出动画执行结束事件
-  //  * @param fn
-  //  */
-  // onChangeSlideEnd(fn: (status: boolean) => void): void {
-  //   this.slideChangeEnd = fn;
-  // }
 }

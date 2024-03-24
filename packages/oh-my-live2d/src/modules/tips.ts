@@ -30,6 +30,14 @@ export class Tips {
     private globalOml2d: LoadOhMyLive2D
   ) {}
 
+  reload(stageElement: HTMLElement): void {
+    this.clear();
+    this.unmount();
+    this.create();
+    this.reloadStyle();
+    this.mount(stageElement);
+  }
+
   private get tipsOptions(): DefaultTipsOptions {
     return this._tipsOptions;
   }
@@ -66,14 +74,6 @@ export class Tips {
   unmount(): void {
     this.element?.remove();
     this.contentElement?.remove();
-  }
-
-  remount(stageElement: HTMLElement): void {
-    this.clear();
-    this.unmount();
-    this.create();
-    this.reloadStyle();
-    this.mount(stageElement);
   }
 
   get primaryColor(): string {
@@ -127,7 +127,6 @@ export class Tips {
   }
 
   showMessage(message: string, duration = 3000, priority = 0): void {
-    console.log(this.priority);
     if (priority < this.priority) {
       return;
     }
