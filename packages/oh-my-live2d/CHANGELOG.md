@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.14.0...v0.14.1) (2024-03-25)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 修复脚本加载方法判断错误 ([666a20a](https://github.com/oh-my-live2d/oh-my-live2d/commit/666a20a01433efda3cb32caccc57744faeff0efb)) by Hacxy
+
 ## [0.14.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.13.0...v0.14.0) (2024-03-24)
 
 ### ✨ Features | 新功能
