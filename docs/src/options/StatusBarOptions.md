@@ -1,6 +1,15 @@
 # 状态条选项
 
-配置状态条样式以及不同状态的文本和颜色
+配置状态条样式以及不同状态的文本和颜色等
+
+```ts
+import { loadOml2d } from 'oh-my-live2d';
+const oml2d = loadoml2d({
+  statusBar: {
+    // 在这里进行配置
+  }
+});
+```
 
 ## 选项
 

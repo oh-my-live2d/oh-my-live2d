@@ -1,6 +1,19 @@
-# 模型配置选项
+# 模型选项
 
-可配置模型地址来源以及缩放比例、舞台大小等
+模型选项接收一个有模型选项对象组成的数组, 您可以通过这个选项来配置模型地址来源以及缩放比例、舞台大小等
+
+```ts
+import { loadOml2d } from 'oh-my-live2d';
+const oml2d = loadoml2d({
+  models: [
+    // 在这里进行配置
+    {
+      path: 'https://model.oml2d.com/Senko_Normals/senko.model3.json',
+      position: [-10, 20]
+    }
+  ]
+});
+```
 
 ## 选项
 

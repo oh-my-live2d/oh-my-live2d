@@ -1,8 +1,8 @@
 # 快速入门
 
-`OhMyLive2D` 是一个应用于 `Web` 环境的 `Live2D` 模型看板组件。
+**OhMyLive2D** 是一个应用于浏览器环境且开箱即用的**Live2D**组件, 它支持所有版本的Live2D模型, 使用方式足够简单并且高可自定义, 可以快速为您的个人网站添加Live2D看板娘, 使您的个人网站变得更具有特色.
 
-`OhMyLive2D` 的初衷是为了解决官方 Cubism SDK 在使用时还需要额外通过 `script` 标签外部引入以及使用和学习成本较高的缺点。而现在它在被 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display) 驱动的同时又提供了多种导入方式和按需导入的模式，以及更加方便自定义配置的 API。现在你完全可以在 **vite** 或者 **webpack** 中更便捷的使用它，并且无需再导入其他任何依赖或官方 SDK。
+`OhMyLive2D` 的初衷是为了解决官方 Cubism SDK 在使用时还需要额外通过 `script` 标签外部引入以及使用和学习成本较高的缺点。而现在它在被 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display) 驱动的同时又提供了多种导入方式和按需导入的模式，以及更加方便自定义配置的 API。现在你完全可以在 **vite** 或者 **webpack** 中更便捷的使用它，并且无需手动导入其他任何依赖。
 
 > [!TIP]  
 > **本项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入 😄**
@@ -25,9 +25,6 @@ Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4 ，但它无法
 > 本项目已集成 Cubism 2.1 与 Cubism 5.0.0 ，完整覆盖了从 model2 到 model4 的所有版本。
 
 ## 快速开始
-
-> [!WARNING]
-> 本项目从 `0.4.0` 版本开始将不再采用自动加载组件的模式, 现在你可以通过 `loadOml2d` 方法加载组件至 body 中, 或者通过`parentElement`选项为其指定一个父元素.
 
 ### 安装
 
@@ -96,7 +93,9 @@ yarn add oh-my-live2d@latest
 </html>
 ```
 
-有关配置选项的详细内容请查看: [配置选项](../options/Options)
+- 有关`loadOml2d`方法的详细介绍请查阅: [加载模型](/guide/loadModel)
+
+- 有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
 
 ---
 
@@ -115,11 +114,9 @@ loadOml2d({
 });
 ```
 
-有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
+- 有关 `loadOml2d` 方法的详细介绍请查阅: [加载模型](/guide/loadModel)
 
-### 模型的加载
-
-查阅 [加载模型](/guide/loadModel) 了解更多加载规则以及使用方式
+- 有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
 
 ### 其他支持
 
@@ -130,3 +127,7 @@ loadOml2d({
 - [通过VitePlugin方式使用](./vite.md)
 
 - [在 Hexo 中使用](./hexo.md)
+
+### 模型资源
+
+前往[模型资源](./models.md)选择您喜欢的模型

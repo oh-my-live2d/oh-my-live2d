@@ -310,6 +310,8 @@ oml2d.statusBarClose();
 oml2d.statusBarPopup('Hello', 2000);
 ```
 
+---
+
 #### setStatusBarClickEvent
 
 设置状态条点击事件
@@ -349,6 +351,8 @@ oml2d.setStatusBarHoverEvent({
   onOut: () => console.log('鼠标移出了')
 });
 ```
+
+---
 
 #### statusBarClearEvents
 

@@ -1,6 +1,13 @@
 # 配置选项
 
-公共的基础配置选项
+基础配置选项
+
+```ts
+import { loadOml2d } from 'oh-my-live2d';
+const oml2d = loadoml2d({
+  // 在这里进行配置
+});
+```
 
 ## 选项
 
