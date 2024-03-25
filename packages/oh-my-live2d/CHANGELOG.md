@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.14.1...v0.15.0) (2024-03-25)
+
+### ✨ Features | 新功能
+
+- 新增停靠位置选项: dockedPosition, 定义组件靠左或者靠右 ([66538c3](https://github.com/oh-my-live2d/oh-my-live2d/commit/66538c38560e3d7c29cfa669e6dccfad6a4b6616)) by Hacxy
+
+### 🐛 Bug Fixes | Bug 修复
+
+- **stage:** 模型选项舞台样式隔离 ([a5a51ac](https://github.com/oh-my-live2d/oh-my-live2d/commit/a5a51ac850758e3938e1ad88fc7d69a1d2a60bfb)) by Hacxy
+
 ## [0.14.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.14.0...v0.14.1) (2024-03-25)
 
 ### 🐛 Bug Fixes | Bug 修复
