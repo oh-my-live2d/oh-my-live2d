@@ -34,7 +34,7 @@ features:
 
 或者在任意项目使用 `CDN` 导入方式立即体验 `oh-my-live2d`:
 
-<img align="right" style="margin-left:10px;border-radius: 10px;height:397px" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
+<img align="right" style="margin-left:10px;border-radius: 10px;height:397px" src="https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
