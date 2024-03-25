@@ -31,7 +31,7 @@ const oml2d = loadoml2d({
 
 - 默认值: `complete`
 
-导入类型, 默认使用全量导入: complete
+导入类型, 这个选项的作用是从 libraryUrls 选项决定SDK加载地址, 默认使用全量导入: complete
 
 ---
 
@@ -39,10 +39,7 @@ const oml2d = loadoml2d({
 
 - 类型: `object`
 
-自定义 Cubism SDK 外部资源地址, 当您发现SDK加载出现异常时您可以在此选项自定义自己的地址, 您可以在[此处](https://github.com/oh-my-live2d/oh-my-live2d/tree/main/packages/oh-my-live2d/lib)找到以下对应的3个SDK地址, 必要时您可以备份这些脚本文件
-
-> [!TIP]
-> 自 v0.5.0 版本起, 将通过 script 标签的 src 属性按需去引入对应版本的 Cubism SDK , 这个过程是完全自动的, 默认情况下它将使用我们提供的默认地址进行加载, 您无需关注这个过程也无需手动的去引入这些资源, 我们尽量保证 SDK 地址的安全与稳定性. 若发现 SDK 加载出现异常, 请及时联系作者.
+自定义 Cubism SDK 外部资源地址, oh-my-live2d 会通过 script 标签的 src 属性来加载核心SDK文件, 这个加载是完全自动的, 您无需关心这个加载过程, 默认情况下您也无需修改此选项, 但当您发现SDK加载出现异常时您可以在此选项自定义自己的地址, 同时您可以在[此处](https://github.com/oh-my-live2d/oh-my-live2d/tree/main/packages/oh-my-live2d/lib)找到以下对应的3个SDK地址, 必要时您可以备份这些脚本文件
 
 ---
 
@@ -114,7 +111,9 @@ const oml2d = loadoml2d({
 
 - 类型: `string`
 
-主题色
+- 默认值: `#38B0DE`
+
+定义主题色, 影响所有模块
 
 ---
 
@@ -139,8 +138,6 @@ const oml2d = loadoml2d({
 ### tips
 
 - 类型: `TipsOptions | ((currentModel: ModelOptions, modelIndex: number) => TipsOptions)`
-
-- 默认值: `object`
 
 自定义提示框样式和内容, 前往[提示框选项](/options/TipsOptions)查看详细内容
 

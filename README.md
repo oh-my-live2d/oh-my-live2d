@@ -34,7 +34,9 @@
 
 ## 快速体验
 
-使用CDN导入方式在您的任意项目中立即体验`oh-my-live2d`:
+您可以通过[stackblitz](https://stackblitz.com/edit/vitejs-vite-shccpw?file=main.js)在线体验
+
+或者在您本地的任意项目中使用CDN导入方式来体验:
 
 <image align="right" height="325px" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
 
