@@ -143,15 +143,16 @@ const foo = async () => {
   // setTimeout(() => {}, 10000);
   // console.log(oml2d);
   // oml2d.loadNextModel();
-  // const oml2d2 = await loadOml2d({
-  //   models: [
-  //     {
-  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-  //       stageStyle: {},
-  //       mobileScale: 0.08
-  //     }
-  //   ]
-  // });
+
+  await loadOml2d({
+    models: [
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+        stageStyle: {},
+        mobileScale: 0.08
+      }
+    ]
+  });
 
   // setTimeout(() => {
   //   oml2d.loadNextModel();

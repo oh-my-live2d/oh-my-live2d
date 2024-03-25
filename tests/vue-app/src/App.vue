@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import { loadOml2d } from 'oh-my-live2d';
+const oml2d = ref();
 
 onMounted(() => {
-  console.log('sssssssssssss');
   loadOml2d({
+    parentElement: oml2d.value,
     primaryColor: 'pink',
-    sayHello: true,
+    sayHello: false,
     models: [
       {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
@@ -42,6 +43,7 @@ onMounted(() => {
     <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
   </a>
   <HelloWorld msg="Vite + Vue" />
+  <div ref="oml2d"></div>
 </template>
 
 <style scoped>

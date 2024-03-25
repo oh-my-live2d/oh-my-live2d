@@ -78,26 +78,17 @@ export const createElement = (elConfig: ElementConfig): HTMLElement => {
  * @returns
  */
 export const loadScript = (sdkInfo: { url: string; id: string }): Promise<void> => {
-  // destroyElement(sdkInfo?.id);
-
   return new Promise((resolve) => {
-    const el = document.getElementById(sdkInfo.id);
+    destroyElement(sdkInfo?.id);
 
-    if (el) {
-      el.addEventListener('load', () => {
-        resolve();
-      });
-      // resolve();
-    } else {
-      const scriptElement = document.createElement('script');
+    const scriptElement = document.createElement('script');
 
-      scriptElement.id = sdkInfo?.id;
-      document.head.append(scriptElement);
-      scriptElement.src = sdkInfo?.url;
-      scriptElement.addEventListener('load', () => {
-        resolve();
-      });
-    }
+    scriptElement.id = sdkInfo?.id;
+    document.head.append(scriptElement);
+    scriptElement.src = sdkInfo?.url;
+    scriptElement.addEventListener('load', () => {
+      resolve();
+    });
   });
 };
 
