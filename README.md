@@ -3,16 +3,20 @@
   <img width="240" style="text-align:center;" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/121472002.png"/ >
 </p>
 <h1 align="center">OhMyLive2D</h1>
-<h4 align="center">应用于浏览器环境的Live2D看板组件</h4>
+<h4 align="center">高可自定义的Live2D For Web组件</h4>
 
 ![npm](https://img.shields.io/npm/v/oh-my-live2d?label=npm) ![](https://img.shields.io/npm/dt/oh-my-live2d.svg) ![](https://img.shields.io/badge/cubism-2%2F5-orange) ![GitHub package.json version](https://img.shields.io/npm/v/vuepress-plugin-oh-my-live2d?label=vuepress-plugin)
 
-**OhMyLive2D** 是一个应用于浏览器环境的*Live2D看板组件*, 它支持目前所有版本的Live2D模型, 可以快速的为您的个人网站添加Live2D看板娘, 使您的个人网站变得更具有特色.
+**OhMyLive2D** 是一个应用于浏览器环境且开箱即用的**Live2D**组件, 它支持所有版本的Live2D模型, 使用方式足够简单, 可以快速为您的个人网站添加Live2D看板娘, 使您的个人网站变得更具有特色.
 
-**[查阅文档](https://oml2d.com) 以了解更多详细使用教程。**
+**通过 [查阅文档](https://oml2d.com) 以了解更多详细使用教程。**
 
 > [!TIP]  
-> **此项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入😄**
+> **项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入😄**
+
+## 先决条件
+
+- 支持 **WebGL** 和 **ES6** 的浏览器
 
 ## 特点
 
@@ -20,13 +24,13 @@
 
 - 默认自动集成 `Cubism 2 SDK` 和 `Cubism 5 SDK`，您无需手动额外引入其他外部依赖。
 
-- 可自定义多个本地或远程 `Live2D Model`, 通过右侧菜单按顺序切换模型。
+- 可自定义多个本地或远程 `Live2D Model`, 通过菜单按顺序切换模型。
 
-- 使用 `TypeScript` 开发，具备完整的类型推导。
+- 使用 `TypeScript` 开发，通过完整的类型推导享受它为您带来的语法补全。
 
-- 高可定制化, 完全可自定义的菜单, 以及各控件样式
+- 高可自定义, 完全可自定义的模块.
 
-- 第三方文档构建工具的支持, 如 `vitepress`、`vuepress`。
+- 多种[支持方案](#更多支持)。
 
 ## 快速体验
 
@@ -124,7 +128,7 @@
 - QQ群: 474032914
 
 > [!TIP]
-> 感谢您使用 `oh-my-live2d`, 😃您的 star 是我更新的动力.
+> 感谢您使用 `oh-my-live2d`, 创作不易, 您的 **star** 是我更新的动力.
 
 ## 开源许可
 
