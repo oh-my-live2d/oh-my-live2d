@@ -174,3 +174,20 @@ export const loadOml2dSDK: LoadOml2dSDK = async (importType, libraryUrls) => {
     // HitAreaFrames: window.PIXI.live2d.HitAreaFrames
   };
 };
+
+export const handleDockedPosition = (position: 'left' | 'right', value: number = 0, reverse: boolean = false): CSSProperties => {
+  switch (position) {
+    case 'left':
+      if (!reverse) {
+        return { left: `${value}px`, right: 'auto' };
+      } else {
+        return { left: 'auto', right: `${value}px` };
+      }
+    case 'right':
+      if (!reverse) {
+        return { left: 'auto', right: `${value}px` };
+      } else {
+        return { left: `${value}px`, right: 'auto' };
+      }
+  }
+};

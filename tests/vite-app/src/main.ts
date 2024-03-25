@@ -8,6 +8,7 @@ const foo = async () => {
   const oml2d = await loadOml2d({
     // parentElement: el,
     // importType: 'complete',
+    dockedPosition: 'right',
     mobileDisplay: false,
     primaryColor: 'pink',
     models: [
@@ -19,8 +20,6 @@ const foo = async () => {
         position: [0, 100],
         volume: 0,
         stageStyle: {
-          right: 0,
-          left: 'auto',
           height: 500
         }
       },
@@ -74,7 +73,7 @@ const foo = async () => {
       } else {
         return {
           style: {
-            left: 0
+            // left: 0
           },
           items: (defaultItem) => {
             return [defaultItem[1]];
@@ -118,6 +117,12 @@ const foo = async () => {
   oml2d.onLoad((status) => {
     switch (status) {
       case 'success':
+        // oml2d.options.models[0].scale = 0.1;
+        // if (oml2d.modelIndex === 1) {
+        //   oml2d.options.dockedPosition = 'left';
+        // } else {
+        //   oml2d.options.dockedPosition = 'right';
+        // }
         console.log('加载成功');
         return;
       case 'fail':

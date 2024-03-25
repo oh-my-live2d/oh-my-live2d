@@ -3,7 +3,7 @@ import { isNumber, mergeDeep } from 'tianjie';
 import { ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import type { CSSProperties, DefaultOptions, DefaultStatusBarOptions } from '../types/index.js';
-import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
+import { createElement, getWindowSizeType, handleCommonStyle, handleDockedPosition, setStyleForElement } from '../utils/index.js';
 
 export type HoverActionParams = {
   content: string;
@@ -37,12 +37,16 @@ export class StatusBar {
   }
 
   reloadStyle(): void {
+    this.style = {};
+
     switch (getWindowSizeType()) {
       case WindowSizeType.pc:
-        this.setStyle(handleCommonStyle(this.options.statusBar.style || {}));
+        this.setStyle(handleCommonStyle(mergeDeep(handleDockedPosition(this.options.dockedPosition), this.options.statusBar.style || {})));
         break;
       case WindowSizeType.mobile:
-        this.setStyle(handleCommonStyle(this.options.statusBar.mobileStyle || {}));
+        this.setStyle(
+          handleCommonStyle(mergeDeep(handleDockedPosition(this.options.dockedPosition), this.options.statusBar.mobileStyle || {}))
+        );
         break;
     }
   }
@@ -82,7 +86,7 @@ export class StatusBar {
       }
       {
         this.setStyle({
-          animationName: 'oml2d-status-bar-slide-in',
+          animationName: `oml2d-status-bar-${this.options.dockedPosition}-slide-in`,
           animationDuration: `${this.statusBarOptions.transitionTime}ms`,
           animationFillMode: 'forwards'
         });
@@ -100,7 +104,7 @@ export class StatusBar {
         resolve();
       } else {
         this.setStyle({
-          animationName: 'oml2d-status-bar-slide-out',
+          animationName: `oml2d-status-bar-${this.options.dockedPosition}-slide-out`,
           animationDuration: `${this.statusBarOptions.transitionTime}ms`,
           animationFillMode: 'forwards'
         });

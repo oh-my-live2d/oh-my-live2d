@@ -11,6 +11,14 @@ import type { ImportType } from './index.js';
  */
 export interface Options {
   /**
+   * 组件停靠位置, 当您希望组件靠右展示时这个属性会非常有用. 同时影响状态条、舞台、菜单.
+   *
+   * 默认值: left, 当值为left时舞台和状态条居左, 菜单居右(位置值相反),
+   * @default left
+   * @valueType left | right
+   */
+  dockedPosition?: 'left' | 'right';
+  /**
    * 移动端是否展示, 开启将会在移动端设备上以移动端样式展示各元素
    * @default false
    */

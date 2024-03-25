@@ -5,7 +5,7 @@ import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import { Item } from '../types/common.js';
 import type { CSSProperties, DefaultMenusOptions, DefaultOptions, MenusOptions, ModelOptions } from '../types/index.js';
-import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
+import { createElement, getWindowSizeType, handleCommonStyle, handleDockedPosition, setStyleForElement } from '../utils/index.js';
 
 export class Menus {
   element?: HTMLElement;
@@ -138,11 +138,15 @@ export class Menus {
     this.style = {};
     switch (getWindowSizeType()) {
       case WindowSizeType.pc:
-        this.setStyle(handleCommonStyle(this.menuOptions.style || {}));
+        this.setStyle(
+          handleCommonStyle(mergeDeep(handleDockedPosition(this.options.dockedPosition, 10, true), this.menuOptions.style || {}))
+        );
         this.setItemStyle(handleCommonStyle(this.menuOptions.itemStyle || {}));
         break;
       case WindowSizeType.mobile:
-        this.setStyle(handleCommonStyle(this.menuOptions.mobileStyle || {}));
+        this.setStyle(
+          handleCommonStyle(mergeDeep(handleDockedPosition(this.options.dockedPosition, 10, true), this.menuOptions.mobileStyle || {}))
+        );
         this.setItemStyle(handleCommonStyle(this.menuOptions.mobileItemStyle || {}));
         break;
     }

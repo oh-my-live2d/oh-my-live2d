@@ -5,7 +5,7 @@ import { ELEMENT_ID, STAGE_DEFAULT_STYLE } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import { CommonStyleType } from '../types/common.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
-import { createElement, getWindowSizeType, handleCommonStyle, setStyleForElement } from '../utils/index.js';
+import { createElement, getWindowSizeType, handleCommonStyle, handleDockedPosition, setStyleForElement } from '../utils/index.js';
 
 export class Stage {
   element?: HTMLElement;
@@ -40,6 +40,8 @@ export class Stage {
   }
 
   reloadStyle(style: CommonStyleType = {}): void {
+    this.style = {};
+    style = mergeDeep(style, handleDockedPosition(this.options.dockedPosition));
     switch (getWindowSizeType()) {
       case WindowSizeType.mobile:
         style = mergeDeep(style, this.options.models?.[this.modelIndex]?.mobileStageStyle || {});
@@ -94,7 +96,6 @@ export class Stage {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
         this.status = true;
-        // this.slideChangeEnd?.(this.status);
         this.events.emit('stageSlideIn');
         resolve();
       }, this.transitionTime);

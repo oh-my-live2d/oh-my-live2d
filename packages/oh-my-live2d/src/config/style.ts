@@ -104,11 +104,9 @@ export const generateGlobalStyle = (primaryColor: string): string => {
     margin-bottom: 10px;
   }
   
-  
-  
-  @keyframes oml2d-status-bar-slide-out {
+  @keyframes oml2d-status-bar-left-slide-out {
     0% {
-      transform: translateX(0%);
+      transform: translateX(-8%);
     }
     100% {
       transform: translateX(-120%);
@@ -116,12 +114,31 @@ export const generateGlobalStyle = (primaryColor: string): string => {
   }
   
   
-  @keyframes oml2d-status-bar-slide-in {
+  @keyframes oml2d-status-bar-left-slide-in {
     0% {
       transform: translateX(-120%);
     }
     100% {
-      transform: translateX(0%);
+      transform: translateX(-8%);
+    }
+  }
+
+  @keyframes oml2d-status-bar-right-slide-out {
+    0% {
+      transform: translateX(8%);
+    }
+    100% {
+      transform: translateX(120%);
+    }
+  }
+  
+  
+  @keyframes oml2d-status-bar-right-slide-in {
+    0% {
+      transform: translateX(120%);
+    }
+    100% {
+      transform: translateX(8%);
     }
   }
   `;
@@ -132,7 +149,6 @@ export const STAGE_DEFAULT_STYLE: CommonStyleType = {
   height: '0px',
   position: 'fixed',
   right: 'auto',
-  left: 0,
   bottom: 0,
   zIndex: '9997',
   transform: 'translateY(130%)'
@@ -167,15 +183,14 @@ export const STATUS_BAR_DEFAULT_STYLE: CommonStyleType = {
   minHeight: '40px',
   position: 'fixed',
   transform: 'translateX(-110%)',
-  left: '0',
   bottom: '80px',
   padding: '7px 5px',
   zIndex: '9998',
   borderStyle: 'solid',
   borderColor: '#fff',
   fontWeight: 'bold',
-  borderRadius: '0 5px 5px 0',
-  borderWidth: '2px 2px 2px 0',
+  borderRadius: '5px',
+  borderWidth: '2px',
   boxShadow: '0 0 5px #999',
   color: '#fff',
   display: 'flex',
@@ -192,7 +207,6 @@ export const MENUS_DEFAULT_STYLE: CommonStyleType = {
   visibility: 'hidden',
   opacity: 0,
   position: 'absolute',
-  right: 0,
   bottom: '10%',
   zIndex: '9999',
   fontSize: '26px'

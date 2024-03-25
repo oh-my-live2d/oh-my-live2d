@@ -6,6 +6,18 @@
 
 <!-- --- -->
 
+### dockedPosition
+
+- 类型: `left | right`
+
+- 默认值: `left`
+
+组件停靠位置, 当您希望组件靠右展示时这个属性会非常有用. 同时影响状态条、舞台、菜单.
+
+默认值: left, 当值为left时舞台和状态条居左, 菜单居右(位置值相反),
+
+---
+
 ### importType
 
 - 类型: `complete | cubism2 | cubism5`
