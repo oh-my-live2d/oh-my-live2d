@@ -19,12 +19,13 @@ const foo = async () => {
         position: [0, 100],
         volume: 0,
         stageStyle: {
+          right: 0,
+          left: 'auto',
           height: 500
         }
       },
       {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-        stageStyle: {},
         mobileScale: 0.08
       },
       {
@@ -144,15 +145,15 @@ const foo = async () => {
   // console.log(oml2d);
   // oml2d.loadNextModel();
 
-  await loadOml2d({
-    models: [
-      {
-        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-        stageStyle: {},
-        mobileScale: 0.08
-      }
-    ]
-  });
+  // await loadOml2d({
+  //   models: [
+  //     {
+  //       path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+  //       stageStyle: {},
+  //       mobileScale: 0.08
+  //     }
+  //   ]
+  // });
 
   // setTimeout(() => {
   //   oml2d.loadNextModel();

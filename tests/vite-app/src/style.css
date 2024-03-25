@@ -12,7 +12,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* #oml2d-stage {
+  right: 60px !important;
+  left: auto !important;
+} */
 a {
   font-weight: 500;
   color: #646cff;

@@ -65,7 +65,6 @@ export class OhMyLive2D {
    */
   private create(): void {
     this.stage.create();
-    this.stage.initializeStyle();
 
     this.pixiApp = new PixiApp(this.PIXI, this.stage);
 

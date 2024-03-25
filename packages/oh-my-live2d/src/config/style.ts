@@ -127,6 +127,17 @@ export const generateGlobalStyle = (primaryColor: string): string => {
   `;
 };
 
+export const STAGE_DEFAULT_STYLE: CommonStyleType = {
+  width: '0px',
+  height: '0px',
+  position: 'fixed',
+  right: 'auto',
+  left: 0,
+  bottom: 0,
+  zIndex: '9997',
+  transform: 'translateY(130%)'
+};
+
 export const TIPS_DEFAULT_STYLE: CommonStyleType = {
   position: 'absolute',
   fontSize: '18px',

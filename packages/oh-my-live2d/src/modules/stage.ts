@@ -1,7 +1,7 @@
 import { mergeDeep } from 'tianjie';
 
 import type { Events } from './events.js';
-import { ELEMENT_ID } from '../config/index.js';
+import { ELEMENT_ID, STAGE_DEFAULT_STYLE } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import { CommonStyleType } from '../types/common.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
@@ -39,30 +39,17 @@ export class Stage {
     }
   }
 
-  initializeStyle(): void {
-    this.setStyle({
-      width: '0px',
-      height: '0px',
-      position: 'fixed',
-      left: 0,
-      bottom: 0,
-      zIndex: '9997',
-      transform: 'translateY(130%)'
-    });
-    this.reloadStyle();
-  }
-
-  reloadStyle(modelSize: CommonStyleType = {}): void {
+  reloadStyle(style: CommonStyleType = {}): void {
     switch (getWindowSizeType()) {
       case WindowSizeType.mobile:
-        modelSize = mergeDeep(modelSize, this.options.models?.[this.modelIndex]?.mobileStageStyle || {});
-        this.setStyle(handleCommonStyle(modelSize));
+        style = mergeDeep(style, this.options.models?.[this.modelIndex]?.mobileStageStyle || {});
         break;
       case WindowSizeType.pc:
-        modelSize = mergeDeep(modelSize, this.options.models?.[this.modelIndex]?.stageStyle || {});
-        this.setStyle(handleCommonStyle(modelSize));
+        style = mergeDeep(style, this.options.models?.[this.modelIndex]?.stageStyle || {});
         break;
     }
+
+    this.setStyle(handleCommonStyle(mergeDeep(STAGE_DEFAULT_STYLE, style)));
   }
 
   unMount(): void {

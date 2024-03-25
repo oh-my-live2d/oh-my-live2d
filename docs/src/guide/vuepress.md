@@ -1,6 +1,6 @@
 # 在 VuePress 中使用
 
-您可以 VuePress 项目中使用官方插件。
+您可以在 VuePress 项目中通过 `vuepress-plugin-oh-my-live2d` 插件来加载组件。
 
 ## 安装/更新插件
 
