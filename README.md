@@ -132,9 +132,13 @@
 > [!TIP]
 > 感谢您使用 `oh-my-live2d`, 创作不易, 您的 **star** 是我更新的动力.
 
+## Project Status
+
+![Alt](https://repobeats.axiom.co/api/embed/b603e73fc87261ea004a095fe8937e5b738d979a.svg 'Repobeats analytics image')
+
 ## 开源许可
 
-- [MIT](https://github.com/oh-my-live2d/oh-my-live2d/blob/main/license)
+- [MIT](https://github.com/oh-my-live2d/oh-my-live2d/blob/main/LICENSE)
 
 ## 免责声明
 
