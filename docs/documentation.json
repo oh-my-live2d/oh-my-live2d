@@ -1,12 +1,12 @@
 {
-  "id": 2000,
+  "id": 2300,
   "name": "oh-my-live2d",
   "variant": "project",
   "kind": 1,
   "flags": {},
   "children": [
     {
-      "id": 2090,
+      "id": 2390,
       "name": "MenusOptions",
       "variant": "declaration",
       "kind": 256,
@@ -27,7 +27,7 @@
       },
       "children": [
         {
-          "id": 2091,
+          "id": 2391,
           "name": "disable",
           "variant": "declaration",
           "kind": 1024,
@@ -67,7 +67,7 @@
           }
         },
         {
-          "id": 2098,
+          "id": 2398,
           "name": "itemStyle",
           "variant": "declaration",
           "kind": 1024,
@@ -112,7 +112,7 @@
           }
         },
         {
-          "id": 2092,
+          "id": 2392,
           "name": "items",
           "variant": "declaration",
           "kind": 1024,
@@ -168,7 +168,7 @@
               {
                 "type": "reflection",
                 "declaration": {
-                  "id": 2093,
+                  "id": 2393,
                   "name": "__type",
                   "variant": "declaration",
                   "kind": 65536,
@@ -183,7 +183,7 @@
                   ],
                   "signatures": [
                     {
-                      "id": 2094,
+                      "id": 2394,
                       "name": "__type",
                       "variant": "signature",
                       "kind": 4096,
@@ -198,7 +198,7 @@
                       ],
                       "parameters": [
                         {
-                          "id": 2095,
+                          "id": 2395,
                           "name": "defaultItems",
                           "variant": "param",
                           "kind": 32768,
@@ -237,7 +237,7 @@
           }
         },
         {
-          "id": 2099,
+          "id": 2399,
           "name": "mobileItemStyle",
           "variant": "declaration",
           "kind": 1024,
@@ -271,7 +271,7 @@
           }
         },
         {
-          "id": 2097,
+          "id": 2397,
           "name": "mobileStyle",
           "variant": "declaration",
           "kind": 1024,
@@ -305,7 +305,7 @@
           }
         },
         {
-          "id": 2096,
+          "id": 2396,
           "name": "style",
           "variant": "declaration",
           "kind": 1024,
@@ -353,7 +353,7 @@
       "groups": [
         {
           "title": "Properties",
-          "children": [2091, 2098, 2092, 2099, 2097, 2096]
+          "children": [2391, 2398, 2392, 2399, 2397, 2396]
         }
       ],
       "sources": [
@@ -366,7 +366,7 @@
       ]
     },
     {
-      "id": 2029,
+      "id": 2329,
       "name": "ModelOptions",
       "variant": "declaration",
       "kind": 256,
@@ -387,7 +387,7 @@
       },
       "children": [
         {
-          "id": 2037,
+          "id": 2337,
           "name": "mobilePosition",
           "variant": "declaration",
           "kind": 1024,
@@ -455,7 +455,7 @@
           }
         },
         {
-          "id": 2036,
+          "id": 2336,
           "name": "mobileScale",
           "variant": "declaration",
           "kind": 1024,
@@ -495,7 +495,7 @@
           }
         },
         {
-          "id": 2038,
+          "id": 2338,
           "name": "mobileStageStyle",
           "variant": "declaration",
           "kind": 1024,
@@ -540,7 +540,7 @@
           }
         },
         {
-          "id": 2039,
+          "id": 2339,
           "name": "motionPreloadStrategy",
           "variant": "declaration",
           "kind": 1024,
@@ -602,7 +602,7 @@
           }
         },
         {
-          "id": 2030,
+          "id": 2330,
           "name": "name",
           "variant": "declaration",
           "kind": 1024,
@@ -631,7 +631,7 @@
           }
         },
         {
-          "id": 2032,
+          "id": 2332,
           "name": "path",
           "variant": "declaration",
           "kind": 1024,
@@ -658,7 +658,7 @@
           }
         },
         {
-          "id": 2034,
+          "id": 2334,
           "name": "position",
           "variant": "declaration",
           "kind": 1024,
@@ -726,7 +726,7 @@
           }
         },
         {
-          "id": 2033,
+          "id": 2333,
           "name": "scale",
           "variant": "declaration",
           "kind": 1024,
@@ -766,7 +766,7 @@
           }
         },
         {
-          "id": 2031,
+          "id": 2331,
           "name": "showHitAreaFrames",
           "variant": "declaration",
           "kind": 1024,
@@ -795,7 +795,7 @@
           }
         },
         {
-          "id": 2035,
+          "id": 2335,
           "name": "stageStyle",
           "variant": "declaration",
           "kind": 1024,
@@ -840,7 +840,7 @@
           }
         },
         {
-          "id": 2040,
+          "id": 2340,
           "name": "volume",
           "variant": "declaration",
           "kind": 1024,
@@ -883,7 +883,7 @@
       "groups": [
         {
           "title": "Properties",
-          "children": [2037, 2036, 2038, 2039, 2030, 2032, 2034, 2033, 2031, 2035, 2040]
+          "children": [2337, 2336, 2338, 2339, 2330, 2332, 2334, 2333, 2331, 2335, 2340]
         }
       ],
       "sources": [
@@ -896,7 +896,7 @@
       ]
     },
     {
-      "id": 2004,
+      "id": 2304,
       "name": "Options",
       "variant": "declaration",
       "kind": 256,
@@ -917,7 +917,7 @@
       },
       "children": [
         {
-          "id": 2005,
+          "id": 2305,
           "name": "dockedPosition",
           "variant": "declaration",
           "kind": 1024,
@@ -975,7 +975,7 @@
           }
         },
         {
-          "id": 2007,
+          "id": 2307,
           "name": "importType",
           "variant": "declaration",
           "kind": 1024,
@@ -1029,7 +1029,7 @@
           }
         },
         {
-          "id": 2009,
+          "id": 2309,
           "name": "libraryUrls",
           "variant": "declaration",
           "kind": 1024,
@@ -1066,14 +1066,14 @@
           "type": {
             "type": "reflection",
             "declaration": {
-              "id": 2010,
+              "id": 2310,
               "name": "__type",
               "variant": "declaration",
               "kind": 65536,
               "flags": {},
               "children": [
                 {
-                  "id": 2011,
+                  "id": 2311,
                   "name": "complete",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1102,7 +1102,7 @@
                   }
                 },
                 {
-                  "id": 2012,
+                  "id": 2312,
                   "name": "cubism2",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1131,7 +1131,7 @@
                   }
                 },
                 {
-                  "id": 2013,
+                  "id": 2313,
                   "name": "cubism5",
                   "variant": "declaration",
                   "kind": 1024,
@@ -1163,7 +1163,7 @@
               "groups": [
                 {
                   "title": "Properties",
-                  "children": [2011, 2012, 2013]
+                  "children": [2311, 2312, 2313]
                 }
               ],
               "sources": [
@@ -1178,7 +1178,7 @@
           }
         },
         {
-          "id": 2023,
+          "id": 2323,
           "name": "menus",
           "variant": "declaration",
           "kind": 1024,
@@ -1217,14 +1217,14 @@
             "types": [
               {
                 "type": "reference",
-                "target": 2090,
+                "target": 2390,
                 "name": "MenusOptions",
                 "package": "oh-my-live2d"
               },
               {
                 "type": "reflection",
                 "declaration": {
-                  "id": 2024,
+                  "id": 2324,
                   "name": "__type",
                   "variant": "declaration",
                   "kind": 65536,
@@ -1239,7 +1239,7 @@
                   ],
                   "signatures": [
                     {
-                      "id": 2025,
+                      "id": 2325,
                       "name": "__type",
                       "variant": "signature",
                       "kind": 4096,
@@ -1254,20 +1254,20 @@
                       ],
                       "parameters": [
                         {
-                          "id": 2026,
+                          "id": 2326,
                           "name": "currentModel",
                           "variant": "param",
                           "kind": 32768,
                           "flags": {},
                           "type": {
                             "type": "reference",
-                            "target": 2029,
+                            "target": 2329,
                             "name": "ModelOptions",
                             "package": "oh-my-live2d"
                           }
                         },
                         {
-                          "id": 2027,
+                          "id": 2327,
                           "name": "modelIndex",
                           "variant": "param",
                           "kind": 32768,
@@ -1280,7 +1280,7 @@
                       ],
                       "type": {
                         "type": "reference",
-                        "target": 2090,
+                        "target": 2390,
                         "name": "MenusOptions",
                         "package": "oh-my-live2d"
                       }
@@ -1292,7 +1292,7 @@
           }
         },
         {
-          "id": 2006,
+          "id": 2306,
           "name": "mobileDisplay",
           "variant": "declaration",
           "kind": 1024,
@@ -1332,7 +1332,7 @@
           }
         },
         {
-          "id": 2016,
+          "id": 2316,
           "name": "models",
           "variant": "declaration",
           "kind": 1024,
@@ -1379,14 +1379,14 @@
             "type": "array",
             "elementType": {
               "type": "reference",
-              "target": 2029,
+              "target": 2329,
               "name": "ModelOptions",
               "package": "oh-my-live2d"
             }
           }
         },
         {
-          "id": 2028,
+          "id": 2328,
           "name": "parentElement",
           "variant": "declaration",
           "kind": 1024,
@@ -1440,7 +1440,7 @@
           }
         },
         {
-          "id": 2008,
+          "id": 2308,
           "name": "primaryColor",
           "variant": "declaration",
           "kind": 1024,
@@ -1469,7 +1469,7 @@
           }
         },
         {
-          "id": 2014,
+          "id": 2314,
           "name": "sayHello",
           "variant": "declaration",
           "kind": 1024,
@@ -1518,7 +1518,7 @@
           }
         },
         {
-          "id": 2022,
+          "id": 2322,
           "name": "statusBar",
           "variant": "declaration",
           "kind": 1024,
@@ -1554,13 +1554,13 @@
           ],
           "type": {
             "type": "reference",
-            "target": 2076,
+            "target": 2376,
             "name": "StatusBarOptions",
             "package": "oh-my-live2d"
           }
         },
         {
-          "id": 2017,
+          "id": 2317,
           "name": "tips",
           "variant": "declaration",
           "kind": 1024,
@@ -1608,14 +1608,14 @@
             "types": [
               {
                 "type": "reference",
-                "target": 2041,
+                "target": 2341,
                 "name": "TipsOptions",
                 "package": "oh-my-live2d"
               },
               {
                 "type": "reflection",
                 "declaration": {
-                  "id": 2018,
+                  "id": 2318,
                   "name": "__type",
                   "variant": "declaration",
                   "kind": 65536,
@@ -1630,7 +1630,7 @@
                   ],
                   "signatures": [
                     {
-                      "id": 2019,
+                      "id": 2319,
                       "name": "__type",
                       "variant": "signature",
                       "kind": 4096,
@@ -1645,20 +1645,20 @@
                       ],
                       "parameters": [
                         {
-                          "id": 2020,
+                          "id": 2320,
                           "name": "currentModel",
                           "variant": "param",
                           "kind": 32768,
                           "flags": {},
                           "type": {
                             "type": "reference",
-                            "target": 2029,
+                            "target": 2329,
                             "name": "ModelOptions",
                             "package": "oh-my-live2d"
                           }
                         },
                         {
-                          "id": 2021,
+                          "id": 2321,
                           "name": "modelIndex",
                           "variant": "param",
                           "kind": 32768,
@@ -1671,7 +1671,7 @@
                       ],
                       "type": {
                         "type": "reference",
-                        "target": 2041,
+                        "target": 2341,
                         "name": "TipsOptions",
                         "package": "oh-my-live2d"
                       }
@@ -1683,7 +1683,7 @@
           }
         },
         {
-          "id": 2015,
+          "id": 2315,
           "name": "transitionTime",
           "variant": "declaration",
           "kind": 1024,
@@ -1735,7 +1735,7 @@
       "groups": [
         {
           "title": "Properties",
-          "children": [2005, 2007, 2009, 2023, 2006, 2016, 2028, 2008, 2014, 2022, 2017, 2015]
+          "children": [2305, 2307, 2309, 2323, 2306, 2316, 2328, 2308, 2314, 2322, 2317, 2315]
         }
       ],
       "sources": [
@@ -1748,7 +1748,7 @@
       ]
     },
     {
-      "id": 2076,
+      "id": 2376,
       "name": "StatusBarOptions",
       "variant": "declaration",
       "kind": 256,
@@ -1769,7 +1769,7 @@
       },
       "children": [
         {
-          "id": 2077,
+          "id": 2377,
           "name": "disable",
           "variant": "declaration",
           "kind": 1024,
@@ -1809,7 +1809,7 @@
           }
         },
         {
-          "id": 2087,
+          "id": 2387,
           "name": "errorColor",
           "variant": "declaration",
           "kind": 1024,
@@ -1838,7 +1838,7 @@
           }
         },
         {
-          "id": 2080,
+          "id": 2380,
           "name": "loadFailMessage",
           "variant": "declaration",
           "kind": 1024,
@@ -1878,7 +1878,7 @@
           }
         },
         {
-          "id": 2079,
+          "id": 2379,
           "name": "loadSuccessMessage",
           "variant": "declaration",
           "kind": 1024,
@@ -1918,7 +1918,7 @@
           }
         },
         {
-          "id": 2085,
+          "id": 2385,
           "name": "loadingIcon",
           "variant": "declaration",
           "kind": 1024,
@@ -1958,7 +1958,7 @@
           }
         },
         {
-          "id": 2078,
+          "id": 2378,
           "name": "loadingMessage",
           "variant": "declaration",
           "kind": 1024,
@@ -1998,7 +1998,7 @@
           }
         },
         {
-          "id": 2089,
+          "id": 2389,
           "name": "mobileStyle",
           "variant": "declaration",
           "kind": 1024,
@@ -2043,7 +2043,7 @@
           }
         },
         {
-          "id": 2081,
+          "id": 2381,
           "name": "reloadMessage",
           "variant": "declaration",
           "kind": 1024,
@@ -2083,7 +2083,7 @@
           }
         },
         {
-          "id": 2082,
+          "id": 2382,
           "name": "restMessage",
           "variant": "declaration",
           "kind": 1024,
@@ -2123,7 +2123,7 @@
           }
         },
         {
-          "id": 2084,
+          "id": 2384,
           "name": "restMessageDuration",
           "variant": "declaration",
           "kind": 1024,
@@ -2163,7 +2163,7 @@
           }
         },
         {
-          "id": 2088,
+          "id": 2388,
           "name": "style",
           "variant": "declaration",
           "kind": 1024,
@@ -2208,7 +2208,7 @@
           }
         },
         {
-          "id": 2083,
+          "id": 2383,
           "name": "switchingMessage",
           "variant": "declaration",
           "kind": 1024,
@@ -2248,7 +2248,7 @@
           }
         },
         {
-          "id": 2086,
+          "id": 2386,
           "name": "transitionTime",
           "variant": "declaration",
           "kind": 1024,
@@ -2291,7 +2291,7 @@
       "groups": [
         {
           "title": "Properties",
-          "children": [2077, 2087, 2080, 2079, 2085, 2078, 2089, 2081, 2082, 2084, 2088, 2083, 2086]
+          "children": [2377, 2387, 2380, 2379, 2385, 2378, 2389, 2381, 2382, 2384, 2388, 2383, 2386]
         }
       ],
       "sources": [
@@ -2304,7 +2304,7 @@
       ]
     },
     {
-      "id": 2041,
+      "id": 2341,
       "name": "TipsOptions",
       "variant": "declaration",
       "kind": 256,
@@ -2325,7 +2325,7 @@
       },
       "children": [
         {
-          "id": 2071,
+          "id": 2371,
           "name": "copyTips",
           "variant": "declaration",
           "kind": 1024,
@@ -2351,14 +2351,14 @@
           "type": {
             "type": "reflection",
             "declaration": {
-              "id": 2072,
+              "id": 2372,
               "name": "__type",
               "variant": "declaration",
               "kind": 65536,
               "flags": {},
               "children": [
                 {
-                  "id": 2073,
+                  "id": 2373,
                   "name": "duration",
                   "variant": "declaration",
                   "kind": 1024,
@@ -2398,7 +2398,7 @@
                   }
                 },
                 {
-                  "id": 2075,
+                  "id": 2375,
                   "name": "message",
                   "variant": "declaration",
                   "kind": 1024,
@@ -2450,7 +2450,7 @@
                   }
                 },
                 {
-                  "id": 2074,
+                  "id": 2374,
                   "name": "priority",
                   "variant": "declaration",
                   "kind": 1024,
@@ -2493,7 +2493,7 @@
               "groups": [
                 {
                   "title": "Properties",
-                  "children": [2073, 2075, 2074]
+                  "children": [2373, 2375, 2374]
                 }
               ],
               "sources": [
@@ -2508,7 +2508,7 @@
           }
         },
         {
-          "id": 2045,
+          "id": 2345,
           "name": "idleTips",
           "variant": "declaration",
           "kind": 1024,
@@ -2545,14 +2545,14 @@
           "type": {
             "type": "reflection",
             "declaration": {
-              "id": 2046,
+              "id": 2346,
               "name": "__type",
               "variant": "declaration",
               "kind": 65536,
               "flags": {},
               "children": [
                 {
-                  "id": 2051,
+                  "id": 2351,
                   "name": "duration",
                   "variant": "declaration",
                   "kind": 1024,
@@ -2592,7 +2592,7 @@
                   }
                 },
                 {
-                  "id": 2053,
+                  "id": 2353,
                   "name": "interval",
                   "variant": "declaration",
                   "kind": 1024,
@@ -2632,7 +2632,7 @@
                   }
                 },
                 {
-                  "id": 2054,
+                  "id": 2354,
                   "name": "message",
                   "variant": "declaration",
                   "kind": 1024,
@@ -2688,7 +2688,7 @@
                       {
                         "type": "reflection",
                         "declaration": {
-                          "id": 2055,
+                          "id": 2355,
                           "name": "__type",
                           "variant": "declaration",
                           "kind": 65536,
@@ -2703,7 +2703,7 @@
                           ],
                           "signatures": [
                             {
-                              "id": 2056,
+                              "id": 2356,
                               "name": "__type",
                               "variant": "signature",
                               "kind": 4096,
@@ -2739,7 +2739,7 @@
                   }
                 },
                 {
-                  "id": 2052,
+                  "id": 2352,
                   "name": "priority",
                   "variant": "declaration",
                   "kind": 1024,
@@ -2779,7 +2779,7 @@
                   }
                 },
                 {
-                  "id": 2047,
+                  "id": 2347,
                   "name": "wordTheDay",
                   "variant": "declaration",
                   "kind": 1024,
@@ -2840,7 +2840,7 @@
                       {
                         "type": "reflection",
                         "declaration": {
-                          "id": 2048,
+                          "id": 2348,
                           "name": "__type",
                           "variant": "declaration",
                           "kind": 65536,
@@ -2855,7 +2855,7 @@
                           ],
                           "signatures": [
                             {
-                              "id": 2049,
+                              "id": 2349,
                               "name": "__type",
                               "variant": "signature",
                               "kind": 4096,
@@ -2870,7 +2870,7 @@
                               ],
                               "parameters": [
                                 {
-                                  "id": 2050,
+                                  "id": 2350,
                                   "name": "wordTheDayData",
                                   "variant": "param",
                                   "kind": 32768,
@@ -2901,7 +2901,7 @@
               "groups": [
                 {
                   "title": "Properties",
-                  "children": [2051, 2053, 2054, 2052, 2047]
+                  "children": [2351, 2353, 2354, 2352, 2347]
                 }
               ],
               "sources": [
@@ -2916,7 +2916,7 @@
           }
         },
         {
-          "id": 2042,
+          "id": 2342,
           "name": "messageLine",
           "variant": "declaration",
           "kind": 1024,
@@ -2956,7 +2956,7 @@
           }
         },
         {
-          "id": 2044,
+          "id": 2344,
           "name": "mobileStyle",
           "variant": "declaration",
           "kind": 1024,
@@ -3001,7 +3001,7 @@
           }
         },
         {
-          "id": 2043,
+          "id": 2343,
           "name": "style",
           "variant": "declaration",
           "kind": 1024,
@@ -3046,7 +3046,7 @@
           }
         },
         {
-          "id": 2057,
+          "id": 2357,
           "name": "welcomeTips",
           "variant": "declaration",
           "kind": 1024,
@@ -3083,14 +3083,14 @@
           "type": {
             "type": "reflection",
             "declaration": {
-              "id": 2058,
+              "id": 2358,
               "name": "__type",
               "variant": "declaration",
               "kind": 65536,
               "flags": {},
               "children": [
                 {
-                  "id": 2059,
+                  "id": 2359,
                   "name": "duration",
                   "variant": "declaration",
                   "kind": 1024,
@@ -3130,7 +3130,7 @@
                   }
                 },
                 {
-                  "id": 2061,
+                  "id": 2361,
                   "name": "message",
                   "variant": "declaration",
                   "kind": 1024,
@@ -3167,14 +3167,14 @@
                   "type": {
                     "type": "reflection",
                     "declaration": {
-                      "id": 2062,
+                      "id": 2362,
                       "name": "__type",
                       "variant": "declaration",
                       "kind": 65536,
                       "flags": {},
                       "children": [
                         {
-                          "id": 2066,
+                          "id": 2366,
                           "name": "afternoon",
                           "variant": "declaration",
                           "kind": 1024,
@@ -3214,7 +3214,7 @@
                           }
                         },
                         {
-                          "id": 2063,
+                          "id": 2363,
                           "name": "daybreak",
                           "variant": "declaration",
                           "kind": 1024,
@@ -3254,7 +3254,7 @@
                           }
                         },
                         {
-                          "id": 2067,
+                          "id": 2367,
                           "name": "dusk",
                           "variant": "declaration",
                           "kind": 1024,
@@ -3294,7 +3294,7 @@
                           }
                         },
                         {
-                          "id": 2069,
+                          "id": 2369,
                           "name": "lateNight",
                           "variant": "declaration",
                           "kind": 1024,
@@ -3334,7 +3334,7 @@
                           }
                         },
                         {
-                          "id": 2064,
+                          "id": 2364,
                           "name": "morning",
                           "variant": "declaration",
                           "kind": 1024,
@@ -3374,7 +3374,7 @@
                           }
                         },
                         {
-                          "id": 2068,
+                          "id": 2368,
                           "name": "night",
                           "variant": "declaration",
                           "kind": 1024,
@@ -3414,7 +3414,7 @@
                           }
                         },
                         {
-                          "id": 2065,
+                          "id": 2365,
                           "name": "noon",
                           "variant": "declaration",
                           "kind": 1024,
@@ -3454,7 +3454,7 @@
                           }
                         },
                         {
-                          "id": 2070,
+                          "id": 2370,
                           "name": "weeHours",
                           "variant": "declaration",
                           "kind": 1024,
@@ -3497,7 +3497,7 @@
                       "groups": [
                         {
                           "title": "Properties",
-                          "children": [2066, 2063, 2067, 2069, 2064, 2068, 2065, 2070]
+                          "children": [2366, 2363, 2367, 2369, 2364, 2368, 2365, 2370]
                         }
                       ],
                       "sources": [
@@ -3512,7 +3512,7 @@
                   }
                 },
                 {
-                  "id": 2060,
+                  "id": 2360,
                   "name": "priority",
                   "variant": "declaration",
                   "kind": 1024,
@@ -3555,7 +3555,7 @@
               "groups": [
                 {
                   "title": "Properties",
-                  "children": [2059, 2061, 2060]
+                  "children": [2359, 2361, 2360]
                 }
               ],
               "sources": [
@@ -3573,7 +3573,7 @@
       "groups": [
         {
           "title": "Properties",
-          "children": [2071, 2045, 2042, 2044, 2043, 2057]
+          "children": [2371, 2345, 2342, 2344, 2343, 2357]
         }
       ],
       "sources": [
@@ -3586,7 +3586,7 @@
       ]
     },
     {
-      "id": 2001,
+      "id": 2301,
       "name": "loadOml2d",
       "variant": "declaration",
       "kind": 64,
@@ -3601,7 +3601,7 @@
       ],
       "signatures": [
         {
-          "id": 2002,
+          "id": 2302,
           "name": "loadOml2d",
           "variant": "signature",
           "kind": 4096,
@@ -3616,14 +3616,14 @@
           ],
           "parameters": [
             {
-              "id": 2003,
+              "id": 2303,
               "name": "options",
               "variant": "param",
               "kind": 32768,
               "flags": {},
               "type": {
                 "type": "reference",
-                "target": 2004,
+                "target": 2304,
                 "name": "Options",
                 "package": "oh-my-live2d"
               }
@@ -3645,11 +3645,11 @@
   "groups": [
     {
       "title": "Interfaces",
-      "children": [2090, 2029, 2004, 2076, 2041]
+      "children": [2390, 2329, 2304, 2376, 2341]
     },
     {
       "title": "Functions",
-      "children": [2001]
+      "children": [2301]
     }
   ],
   "packageName": "oh-my-live2d",
@@ -3836,403 +3836,403 @@
     }
   ],
   "symbolIdMap": {
-    "2000": {
+    "2300": {
       "sourceFileName": "packages/oh-my-live2d/src/index.ts",
       "qualifiedName": ""
     },
-    "2001": {
+    "2301": {
       "sourceFileName": "packages/oh-my-live2d/src/index.ts",
       "qualifiedName": "loadOml2d"
     },
-    "2002": {
+    "2302": {
       "sourceFileName": "packages/oh-my-live2d/src/modules/index.ts",
       "qualifiedName": "loadOml2d"
     },
-    "2003": {
+    "2303": {
       "sourceFileName": "packages/oh-my-live2d/src/modules/index.ts",
       "qualifiedName": "options"
     },
-    "2004": {
+    "2304": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options"
     },
-    "2005": {
+    "2305": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.dockedPosition"
     },
-    "2006": {
+    "2306": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.mobileDisplay"
     },
-    "2007": {
+    "2307": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.importType"
     },
-    "2008": {
+    "2308": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.primaryColor"
     },
-    "2009": {
+    "2309": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.libraryUrls"
     },
-    "2010": {
+    "2310": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type"
     },
-    "2011": {
+    "2311": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type.complete"
     },
-    "2012": {
+    "2312": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type.cubism2"
     },
-    "2013": {
+    "2313": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type.cubism5"
     },
-    "2014": {
+    "2314": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.sayHello"
     },
-    "2015": {
+    "2315": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.transitionTime"
     },
-    "2016": {
+    "2316": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.models"
     },
-    "2017": {
+    "2317": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.tips"
     },
-    "2018": {
+    "2318": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type"
     },
-    "2019": {
+    "2319": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type"
     },
-    "2020": {
+    "2320": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "currentModel"
     },
-    "2021": {
+    "2321": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "modelIndex"
     },
-    "2022": {
+    "2322": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.statusBar"
     },
-    "2023": {
+    "2323": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.menus"
     },
-    "2024": {
+    "2324": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type"
     },
-    "2025": {
+    "2325": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "__type"
     },
-    "2026": {
+    "2326": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "currentModel"
     },
-    "2027": {
+    "2327": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "modelIndex"
     },
-    "2028": {
+    "2328": {
       "sourceFileName": "packages/oh-my-live2d/src/types/options.ts",
       "qualifiedName": "Options.parentElement"
     },
-    "2029": {
+    "2329": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions"
     },
-    "2030": {
+    "2330": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.name"
     },
-    "2031": {
+    "2331": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.showHitAreaFrames"
     },
-    "2032": {
+    "2332": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.path"
     },
-    "2033": {
+    "2333": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.scale"
     },
-    "2034": {
+    "2334": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.position"
     },
-    "2035": {
+    "2335": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.stageStyle"
     },
-    "2036": {
+    "2336": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.mobileScale"
     },
-    "2037": {
+    "2337": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.mobilePosition"
     },
-    "2038": {
+    "2338": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.mobileStageStyle"
     },
-    "2039": {
+    "2339": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.motionPreloadStrategy"
     },
-    "2040": {
+    "2340": {
       "sourceFileName": "packages/oh-my-live2d/src/types/model.ts",
       "qualifiedName": "ModelOptions.volume"
     },
-    "2041": {
+    "2341": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions"
     },
-    "2042": {
+    "2342": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.messageLine"
     },
-    "2043": {
+    "2343": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.style"
     },
-    "2044": {
+    "2344": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.mobileStyle"
     },
-    "2045": {
+    "2345": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.idleTips"
     },
-    "2046": {
+    "2346": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "2047": {
+    "2347": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.wordTheDay"
     },
-    "2048": {
+    "2348": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "2049": {
+    "2349": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "2050": {
+    "2350": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "wordTheDayData"
     },
-    "2051": {
+    "2351": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.duration"
     },
-    "2052": {
+    "2352": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.priority"
     },
-    "2053": {
+    "2353": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.interval"
     },
-    "2054": {
+    "2354": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.message"
     },
-    "2055": {
+    "2355": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "2056": {
+    "2356": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "2057": {
+    "2357": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.welcomeTips"
     },
-    "2058": {
+    "2358": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "2059": {
+    "2359": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.duration"
     },
-    "2060": {
+    "2360": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.priority"
     },
-    "2061": {
+    "2361": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.message"
     },
-    "2062": {
+    "2362": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "2063": {
+    "2363": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.daybreak"
     },
-    "2064": {
+    "2364": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.morning"
     },
-    "2065": {
+    "2365": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.noon"
     },
-    "2066": {
+    "2366": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.afternoon"
     },
-    "2067": {
+    "2367": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.dusk"
     },
-    "2068": {
+    "2368": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.night"
     },
-    "2069": {
+    "2369": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.lateNight"
     },
-    "2070": {
+    "2370": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.weeHours"
     },
-    "2071": {
+    "2371": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "TipsOptions.copyTips"
     },
-    "2072": {
+    "2372": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type"
     },
-    "2073": {
+    "2373": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.duration"
     },
-    "2074": {
+    "2374": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.priority"
     },
-    "2075": {
+    "2375": {
       "sourceFileName": "packages/oh-my-live2d/src/types/tips.ts",
       "qualifiedName": "__type.message"
     },
-    "2076": {
+    "2376": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions"
     },
-    "2077": {
+    "2377": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.disable"
     },
-    "2078": {
+    "2378": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.loadingMessage"
     },
-    "2079": {
+    "2379": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.loadSuccessMessage"
     },
-    "2080": {
+    "2380": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.loadFailMessage"
     },
-    "2081": {
+    "2381": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.reloadMessage"
     },
-    "2082": {
+    "2382": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.restMessage"
     },
-    "2083": {
+    "2383": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.switchingMessage"
     },
-    "2084": {
+    "2384": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.restMessageDuration"
     },
-    "2085": {
+    "2385": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.loadingIcon"
     },
-    "2086": {
+    "2386": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.transitionTime"
     },
-    "2087": {
+    "2387": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.errorColor"
     },
-    "2088": {
+    "2388": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.style"
     },
-    "2089": {
+    "2389": {
       "sourceFileName": "packages/oh-my-live2d/src/types/statusBar.ts",
       "qualifiedName": "StatusBarOptions.mobileStyle"
     },
-    "2090": {
+    "2390": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "MenusOptions"
     },
-    "2091": {
+    "2391": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "MenusOptions.disable"
     },
-    "2092": {
+    "2392": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "MenusOptions.items"
     },
-    "2093": {
+    "2393": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "__type"
     },
-    "2094": {
+    "2394": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "__type"
     },
-    "2095": {
+    "2395": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "defaultItems"
     },
-    "2096": {
+    "2396": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "MenusOptions.style"
     },
-    "2097": {
+    "2397": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "MenusOptions.mobileStyle"
     },
-    "2098": {
+    "2398": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "MenusOptions.itemStyle"
     },
-    "2099": {
+    "2399": {
       "sourceFileName": "packages/oh-my-live2d/src/types/menus.ts",
       "qualifiedName": "MenusOptions.mobileItemStyle"
     }
