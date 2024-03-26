@@ -8,10 +8,16 @@ const foo = async () => {
   const oml2d = await loadOml2d({
     // parentElement: el,
     // importType: 'complete',
-    dockedPosition: 'right',
+    // dockedPosition: 'right',
     mobileDisplay: false,
     primaryColor: 'pink',
     models: [
+      {
+        path: '/models/Pio/model.json',
+        motionPreloadStrategy: 'ALL',
+        showHitAreaFrames: true,
+        scale: 0.4
+      },
       {
         name: 'shizuku',
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
@@ -133,11 +139,25 @@ const foo = async () => {
         return;
     }
   });
-  oml2d.onStageSlideIn(() => {
-    console.log('111');
-    // oml2d.tipsMessage('Oh My Live2D!', 1000, 9);
-    // oml2d.loadNextModel();
-  });
+  // oml2d.onStageSlideIn(() => {
+  //   console.log('111');
+  //   setTimeout(() => {
+  //     oml2d.setStageSize({ height: 300 });
+  //   }, 1000);
+  //   // setInterval(() => {
+  //   //   i = i + 0.01;
+  //   //   // oml2d.setModelScale(i);
+  //   // }, 100);
+  //   setTimeout(() => {
+  //     // oml2d.setModelPotions(0, 200);
+  //   }, 1000);
+
+  //   setTimeout(() => {
+  //     // oml2d.setModelPotions(0, -50);
+  //   }, 2000);
+  //   // oml2d.tipsMessage('Oh My Live2D!', 1000, 9);
+  //   // oml2d.loadNextModel();
+  // });
 
   // oml2d.loadNextModel();
   // oml2d.clearTips();

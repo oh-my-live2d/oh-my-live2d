@@ -209,6 +209,157 @@ oml2d.stageSlideOut().then(() => {
 
 ---
 
+#### setStageSize
+
+设置舞台大小, 这个方法应该在模型加载成功之后再调用
+
+- 类型: `(size: { width?: number; height?: number; }) => void`
+- 参数说明
+
+| 参数 | 类型                                   | 描述       | 必须 | 默认值 |
+| ---- | -------------------------------------- | ---------- | ---- | ------ |
+| size | `{ width?: number; height?: number; }` | 舞台的宽高 | 是   | -      |
+
+- 示例:
+
+```ts
+oml2d.onLoad((status) => {
+  switch (status) {
+    case 'success':
+      console.log('加载成功');
+      oml2d.setStageSize({300, 300})
+      return;
+    case 'fail':
+      console.log('加载失败');
+      return;
+    case 'loading':
+      console.log('正在加载中');
+      return;
+  }
+});
+```
+
+---
+
+#### setModelPosition
+
+设置模型位置, 这个方法应该在模型加载成功之后再调用
+
+- 类型: `(position: { x?: number; y?: number; }) => void`
+- 参数说明
+
+| 参数     | 类型                          | 描述                   | 必须 | 默认值 |
+| -------- | ----------------------------- | ---------------------- | ---- | ------ |
+| position | `{ x?: number; y?: number; }` | 模型所处舞台的坐标位置 | 是   | -      |
+
+- 示例:
+
+```ts
+oml2d.onLoad((status) => {
+  switch (status) {
+    case 'success':
+      console.log('加载成功');
+      oml2d.setModelPosition(10, 10);
+      return;
+    case 'fail':
+      console.log('加载失败');
+      return;
+    case 'loading':
+      console.log('正在加载中');
+      return;
+  }
+});
+```
+
+---
+
+#### showModelHitAreaFrames
+
+显示模型点击区域框, 这个方法应该在模型加载成功之后再调用
+
+- 类型: `() => void`
+- 示例:
+
+```ts
+oml2d.onLoad((status) => {
+  switch (status) {
+    case 'success':
+      console.log('加载成功');
+      oml2d.showModelHitAreaFrames();
+      return;
+    case 'fail':
+      console.log('加载失败');
+      return;
+    case 'loading':
+      console.log('正在加载中');
+      return;
+  }
+});
+```
+
+---
+
+#### hideModelHitAreaFrames
+
+隐藏模型点击区域, 这个方法应该在模型加载成功之后再调用
+
+- 类型: `() => void`
+- 示例:
+
+```ts
+oml2d.onLoad((status) => {
+  switch (status) {
+    case 'success':
+      console.log('加载成功');
+      oml2d.showModelHitAreaFrames(); // 显示点击区域
+      setTimeout(() => {
+        oml2d.hideModelHitAreaFrames(); // 隐藏点击区域
+      }, 1000);
+      return;
+    case 'fail':
+      console.log('加载失败');
+      return;
+    case 'loading':
+      console.log('正在加载中');
+      return;
+  }
+});
+```
+
+---
+
+#### setModelScale
+
+设置模型缩放, 这个方法应该在模型加载成功之后再调用
+
+- 类型: `(value: number) => void`
+- 参数说明
+
+| 参数  | 类型     | 描述                                 | 必须 | 默认值 |
+| ----- | -------- | ------------------------------------ | ---- | ------ |
+| value | `number` | 模型的缩放值,为 0-1 之间的number类型 | 是   | -      |
+
+- 示例:
+
+```ts
+oml2d.onLoad((status) => {
+  switch (status) {
+    case 'success':
+      console.log('加载成功');
+      oml2d.setModelScale(0.5);
+      return;
+    case 'fail':
+      console.log('加载失败');
+      return;
+    case 'loading':
+      console.log('正在加载中');
+      return;
+  }
+});
+```
+
+---
+
 #### clearTips
 
 清除当前正在提示的消息, 并停止空闲消息播放器

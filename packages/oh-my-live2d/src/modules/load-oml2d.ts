@@ -4,7 +4,7 @@ import { DEFAULT_OPTIONS } from '../config/index.js';
 import type { EventFn, LoadEventFn } from '../types/events.js';
 import { DefaultOptions } from '../types/index.js';
 import { Options } from '../types/options.js';
-import { loadOml2dSDK, mergeOptions } from '../utils/index.js';
+import { handleCommonStyle, loadOml2dSDK, mergeOptions } from '../utils/index.js';
 
 export class LoadOhMyLive2D {
   options: DefaultOptions = DEFAULT_OPTIONS;
@@ -69,6 +69,15 @@ export class LoadOhMyLive2D {
    */
   async stageSlideOut(): Promise<void> {
     await this.oml2d?.stage.slideOut();
+  }
+
+  /**
+   * 设置舞台大小
+   * @param size
+   */
+  setStageSize(size: { width?: number; height?: number }): void {
+    this.oml2d?.stage.setStyle(handleCommonStyle(size));
+    this.oml2d?.pixiApp?.resize();
   }
 
   /**
@@ -145,8 +154,40 @@ export class LoadOhMyLive2D {
     this.oml2d?.statusBar.setHoverEvent(events);
   }
 
-  // ------------- event
+  /**
+   * 设置模型位置
+   * @param x
+   * @param y
+   */
+  setModelPosition(position: { x?: number; y?: number }): void {
+    const { x, y } = position;
 
+    this.oml2d?.models.setPosition(x, y);
+  }
+
+  /**
+   * 设置模型缩放
+   * @param value
+   */
+  setModelScale(value: number): void {
+    this.oml2d?.models.setScale(value);
+  }
+
+  /**
+   * 显示模型点击区域框
+   */
+  showModelHitAreaFrames(): void {
+    this.oml2d?.models.addHitAreaFrames();
+  }
+
+  /**
+   * 隐藏模型点击区域框
+   */
+  hideModelHitAreaFrames(): void {
+    this.oml2d?.models.removeHitAreaFrames();
+  }
+
+  // ------------- event
   /**
    * 模型在每次加载状态发生变化时的事件监听
    * @param fn

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.15.1...v0.15.2) (2024-03-26)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 修复版本比对因缓存问题比对错误的bug ([dc0393b](https://github.com/oh-my-live2d/oh-my-live2d/commit/dc0393be60163c1ab909429fd9066cf8e1575f17)) by Hacxy
+
+## [0.15.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.15.0...v0.15.1) (2024-03-26)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 修复了cdn导入时在head中加载js文件无法挂载组件的bug ([f03a5ed](https://github.com/oh-my-live2d/oh-my-live2d/commit/f03a5ed1f2f93f1be90b09f4a7f48e71aceea8d9)) by Hacxy
+
 ## [0.15.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.14.1...v0.15.0) (2024-03-25)
 
 ### ✨ Features | 新功能
