@@ -1,3 +1,4 @@
+import { compare } from 'compare-versions';
 import { isNumber, mergeDeep } from 'tianjie';
 
 import { WindowSizeType } from '../constants/index.js';
@@ -97,7 +98,7 @@ export const checkVersion = async (): Promise<void> => {
   const result = await fetch('https://unpkg.com/oh-my-live2d@latest/package.json');
   const { version } = <{ version: string }>await result.json();
 
-  if (version !== __VERSION__) {
+  if (compare(version, __VERSION__, '>')) {
     console.warn('[oml2d] 检查到 oh-my-live2d 存在最新版:', `v${version}`, '请前往: https://oml2d.com 以获得最新版详细信息, 并及时更新.');
   }
 };
