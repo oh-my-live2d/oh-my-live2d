@@ -155,7 +155,7 @@ export class LoadOhMyLive2D {
   }
 
   /**
-   * 设置模型位置
+   * 设置当前模型位置
    * @param x
    * @param y
    */
@@ -166,7 +166,7 @@ export class LoadOhMyLive2D {
   }
 
   /**
-   * 设置模型缩放
+   * 设置当前模型缩放
    * @param value
    */
   setModelScale(value: number): void {
@@ -174,14 +174,14 @@ export class LoadOhMyLive2D {
   }
 
   /**
-   * 显示模型点击区域框
+   * 显示当前模型点击区域框
    */
   showModelHitAreaFrames(): void {
     this.oml2d?.models.addHitAreaFrames();
   }
 
   /**
-   * 隐藏模型点击区域框
+   * 隐藏当前模型点击区域框
    */
   hideModelHitAreaFrames(): void {
     this.oml2d?.models.removeHitAreaFrames();
