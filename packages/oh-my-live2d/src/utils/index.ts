@@ -105,14 +105,14 @@ export const checkVersion = async (): Promise<void> => {
 
 // 获取每日一言
 export const getWordTheDay = async (format?: (wordTheDayData: WordTheDayData) => string): Promise<string> => {
-  const fetchResult = await fetch('https://v1.hitokoto.cn/');
-  const data = <{ hitokoto: string; from: string }>await fetchResult.json();
+  const fetchResult = await fetch('https://hitokoto.oml2d.com/');
+  const data = <WordTheDayData>await fetchResult.json();
 
   if (format) {
-    return format(data as WordTheDayData);
+    return format(data as unknown as WordTheDayData);
   }
 
-  return `${data.hitokoto}    -- ${data.from}`;
+  return `${data.hitokoto}    -- ${data.from_who}`;
 };
 
 // 窗口大小的媒体查询
