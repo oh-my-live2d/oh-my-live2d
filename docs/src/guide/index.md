@@ -79,7 +79,7 @@ yarn add oh-my-live2d@latest
     <title>OhMyLive2D</title>
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
+    <script src="https://unpkg.com/oh-my-live2d@latest"></script>
     <script>
       OML2D.loadOml2d({
         models: [

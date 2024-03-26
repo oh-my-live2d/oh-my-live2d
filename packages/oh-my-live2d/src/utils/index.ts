@@ -94,7 +94,7 @@ export const loadScript = (sdkInfo: { url: string; id: string }): Promise<void> 
 
 // 检查版本
 export const checkVersion = async (): Promise<void> => {
-  const result = await fetch('https://unpkg.com/oh-my-live2d/package.json');
+  const result = await fetch('https://unpkg.com/oh-my-live2d@latest/package.json');
   const { version } = <{ version: string }>await result.json();
 
   if (version !== __VERSION__) {

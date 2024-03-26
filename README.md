@@ -41,7 +41,7 @@
 <image align="right" height="325px" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
+<script src="https://unpkg.com/oh-my-live2d@latest"></script>
 <script>
   OML2D.loadOml2d({
     models: [

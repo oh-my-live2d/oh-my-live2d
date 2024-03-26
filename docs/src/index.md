@@ -37,7 +37,7 @@ features:
 <img align="right" style="margin-left:10px;border-radius: 10px;height:397px" src="https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E5%BD%95%E5%B1%8F2024-03-21%2023.18.31.gif"/>
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
+<script src="https://unpkg.com/oh-my-live2d@latest"></script>
 <script>
   OML2D.loadOml2d({
     models: [
