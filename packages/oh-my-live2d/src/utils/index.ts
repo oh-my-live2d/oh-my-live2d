@@ -151,13 +151,12 @@ export const destroyElement = (id: string): void => {
 };
 
 // 合并配置选项
-export const mergeOptions = (targetOptions: DefaultOptions, options: Options): DefaultOptions => {
-  const { parentElement } = options;
-  const finalOptions = mergeDeep(targetOptions, options);
+export const mergeOptions = (defaultOptions: DefaultOptions, options: Options): DefaultOptions => {
+  const finalOptions = mergeDeep(defaultOptions, options);
 
-  finalOptions.parentElement = parentElement || targetOptions.parentElement;
+  finalOptions.parentElement = options.parentElement || document.body;
 
-  return finalOptions;
+  return finalOptions as DefaultOptions;
 };
 
 export const loadOml2dSDK: LoadOml2dSDK = async (importType, libraryUrls) => {

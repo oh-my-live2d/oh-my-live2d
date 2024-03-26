@@ -5,12 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <script src="index.min.js"></script>
   </head>
   <body>
     <div id="app"></div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/oh-my-live2d/dist/index.min.js"></script>
     <script>
+      const divEl = document.createElement('div');
+      // document.body.append(divEl);
       OML2D.loadOml2d({
+        // parentElement: divEl,
         models: [
           {
             path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
@@ -22,9 +25,9 @@
           }
         ]
       });
-    </script> -->
+    </script>
 
-    <script src="./src/main.ts" type="module"></script>
+    <!-- <script src="./src/main.ts" type="module"></script> -->
 
     <!-- <script>
 

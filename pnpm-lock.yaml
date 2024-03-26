@@ -123,6 +123,9 @@ importers:
       vite:
         specifier: 5.1.4
         version: 5.1.4(sass@1.71.1)
+      vite-plugin-cp:
+        specifier: ^4.0.8
+        version: 4.0.8
 
   packages/vite-plugin:
     dependencies:
@@ -2039,6 +2042,10 @@ packages:
 
   /@types/ms@0.7.34:
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
+
+  /@types/node@14.18.63:
+    resolution: {integrity: sha512-fAtCfv4jJg+ExtXhvCkCqUKZ+4ok/JQk01qDKhL5BDDoS3AxKXhV5/MAVUZyQnSEd2GT92fkgZl0pz0Q0AzcIQ==}
+    dev: true
 
   /@types/node@17.0.45:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
@@ -8192,6 +8199,15 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       builtins: 5.0.1
+    dev: true
+
+  /vite-plugin-cp@4.0.8:
+    resolution: {integrity: sha512-ZXJQHrLA62HgCukcg2hIVuH3QoyK5mkC6IipjZ/oXIsa+vAhZWm6qv+ZLGkA+2JFb/s7ePcr0UPMeDW3E+Oe9A==}
+    engines: {node: '>=14.18.0', vite: '>=3.1.0'}
+    dependencies:
+      '@types/node': 14.18.63
+      fs-extra: 11.2.0
+      globby: 13.2.2
     dev: true
 
   /vite@5.0.13:

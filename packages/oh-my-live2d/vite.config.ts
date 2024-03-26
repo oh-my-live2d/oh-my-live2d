@@ -1,8 +1,8 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// import fs from 'fs-extra';
 import { defineConfig } from 'vite';
+import cp from 'vite-plugin-cp';
 
 import project from './package.json';
 
@@ -32,16 +32,10 @@ export default defineConfig({
         chunkFileNames: 'oml2d.app.js'
       }
     }
-  }
-  // plugins: [
-  //   {
-  //     name: 'copy-min-file',
-  //     writeBundle(outOptions) {
-  //       if (outOptions.format === 'umd') {
-  //         // @ts-ignore
-  //         fs.copyFile(resolve(__dirname, `./dist/index.min.js`), resolve(__dirname, `../../tests/vite-app/public/index.min.js`));
-  //       }
-  //     }
-  //   }
-  // ]
+  },
+  plugins: [
+    cp({
+      targets: [{ src: './dist/index.min.js', dest: '../../tests/vite-app/public' }]
+    })
+  ]
 });
