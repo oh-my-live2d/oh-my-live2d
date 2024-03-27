@@ -1,22 +1,28 @@
+import { isNumber, mergeDeep } from 'tianjie';
+
 import { Events } from './events.js';
 import { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
+import { CommonStyleType } from '../types/common.js';
 import type { EventFn, LoadEventFn } from '../types/events.js';
 import { DefaultOptions } from '../types/index.js';
-import { Options } from '../types/options.js';
+import { ModelOptions, Options } from '../types/options.js';
 import { handleCommonStyle, loadOml2dSDK, mergeOptions } from '../utils/index.js';
 
 export class LoadOhMyLive2D {
   options: DefaultOptions = DEFAULT_OPTIONS;
   private events: Events;
   private oml2d?: OhMyLive2D;
-  constructor() {
+
+  constructor(options: Options) {
     this.events = new Events();
+    void this.setup(options);
   }
+
   /**
    * 安装组件
    */
-  async setup(options: Options): Promise<void> {
+  private async setup(options: Options): Promise<void> {
     this.options = mergeOptions(DEFAULT_OPTIONS, options);
 
     const { PIXI, PixiLive2dDisplay } = await loadOml2dSDK(this.options.importType, this.options.libraryUrls);
@@ -31,6 +37,15 @@ export class LoadOhMyLive2D {
    */
   get modelIndex(): number | undefined {
     return this.oml2d?.modelIndex;
+  }
+
+  /**
+   * 当前模型选项
+   */
+  get model(): ModelOptions | undefined {
+    if (isNumber(this.modelIndex)) {
+      return this.oml2d?.models.currentModelOptions;
+    }
   }
 
   /**
@@ -72,12 +87,16 @@ export class LoadOhMyLive2D {
   }
 
   /**
-   * 设置舞台大小
+   * 设置当前模型的舞台样式
    * @param size
    */
-  setStageSize(size: { width?: number; height?: number }): void {
-    this.oml2d?.stage.setStyle(handleCommonStyle(size));
+  setStageStyle(style: CommonStyleType): void {
+    this.oml2d?.stage.setStyle(handleCommonStyle(style));
     this.oml2d?.pixiApp?.resize();
+
+    if (this.model) {
+      this.model.stageStyle = mergeDeep(this.model?.stageStyle, style);
+    }
   }
 
   /**
@@ -163,14 +182,44 @@ export class LoadOhMyLive2D {
     const { x, y } = position;
 
     this.oml2d?.models.setPosition(x, y);
+    if (this.model) {
+      this.model.position = [x || 0, y || 0];
+    }
   }
 
+  /**
+   * 设置当前模型的旋转角度
+   * @param rotation
+   */
+  setModelRotation(rotation: number): void {
+    this.oml2d?.models.setRotation(rotation);
+    if (this.model) {
+      this.model.rotation = rotation;
+    }
+  }
+
+  /**
+   * 设置当前模型的锚点位置
+   * @param anchor
+   */
+  setModelAnchor(anchor: { x?: number; y?: number }): void {
+    const { x, y } = anchor;
+
+    this.oml2d?.models.setAnchor(x, y);
+
+    if (this.model) {
+      this.model.anchor = [x || 0, y || 0];
+    }
+  }
   /**
    * 设置当前模型缩放
    * @param value
    */
   setModelScale(value: number): void {
     this.oml2d?.models.setScale(value);
+    if (this.model) {
+      this.model.scale = value;
+    }
   }
 
   /**

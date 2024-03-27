@@ -11,17 +11,20 @@ const foo = async () => {
     // dockedPosition: 'right',
     mobileDisplay: false,
     primaryColor: 'pink',
+
     models: [
-      {
-        path: '/models/Pio/model.json',
-        motionPreloadStrategy: 'ALL',
-        showHitAreaFrames: true,
-        scale: 0.4
-      },
+      // {
+      //   rotation: 30,
+      //   path: '/models/Pio/model.json',
+      //   motionPreloadStrategy: 'ALL', showHitAreaFrames: true,
+      //   scale: 0.4
+      // },
       {
         name: 'shizuku',
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
         scale: 0.2,
+        // rotation: 360,
+        // anchor: [0.5, 0.1],
         motionPreloadStrategy: 'ALL',
         position: [0, 100],
         volume: 0,
@@ -138,6 +141,11 @@ const foo = async () => {
         console.log('正在加载中');
         return;
     }
+  });
+
+  oml2d.onStageSlideIn(() => {
+    oml2d.setStageSize({ width: 600, height: 600 });
+    console.log(oml2d.model);
   });
   // oml2d.onStageSlideIn(() => {
   //   console.log('111');

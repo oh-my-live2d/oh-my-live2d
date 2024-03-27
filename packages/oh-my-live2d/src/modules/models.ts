@@ -79,6 +79,12 @@ export class Models {
     if (isNumber(this.currentModelOptions.volume)) {
       this.PixiLive2dDisplay.SoundManager.volume = this.currentModelOptions.volume;
     }
+
+    // 设置锚点
+    this.setAnchor(...(this.currentModelOptions.anchor || []));
+
+    // 旋转角度
+    this.setRotation(this.currentModelOptions.rotation);
   }
 
   /**
@@ -120,6 +126,20 @@ export class Models {
   setPosition(x = 0, y = 0): void {
     this.model!.x = x;
     this.model!.y = y;
+  }
+
+  /**
+   * 设置模型旋转角度
+   */
+  setRotation(value: number = 0): void {
+    this.model!.rotation = (Math.PI * value) / 180;
+  }
+
+  /**
+   * 设置模型在舞台中的锚点位置
+   */
+  setAnchor(x: number = 0, y: number = 0): void {
+    this.model!.anchor.set(x, y);
   }
 
   /**

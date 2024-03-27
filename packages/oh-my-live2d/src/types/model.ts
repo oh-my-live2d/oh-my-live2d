@@ -23,6 +23,19 @@ export interface ModelOptions {
   scale?: number;
 
   /**
+   * 模型的旋转角度, 单位:度 (0-360)
+   * @default 0
+   */
+  rotation?: number;
+
+  /**
+   * 设置模型在舞台中的锚点位置
+   * @valueType [x: number, y: number]
+   * @default [0,0]
+   */
+  anchor?: [x: number, y: number];
+
+  /**
    * 模型在舞台中的位置。x: 横坐标, y: 纵坐标
    *
    * @valueType [x: number, y:number]

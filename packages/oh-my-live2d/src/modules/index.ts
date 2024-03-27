@@ -3,9 +3,7 @@ import type { Options } from '../types/index.js';
 
 export const bootstrap = (): ((options: Options) => LoadOhMyLive2D) => {
   const loadOml2d = (options: Options): LoadOhMyLive2D => {
-    const oml2d = new LoadOhMyLive2D();
-
-    void oml2d.setup(options);
+    const oml2d = new LoadOhMyLive2D(options);
 
     return oml2d;
   };
