@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.16.0...v0.16.1) (2024-04-10)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 调整每日一言接口地址 ([4a9812f](https://github.com/oh-my-live2d/oh-my-live2d/commit/4a9812f0bcecf7ec077be006d4dd1046ea999ea0)) by Hacxy
+
 ## [0.16.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.15.2...v0.16.0) (2024-04-10)
 
 ### ✨ Features | 新功能
