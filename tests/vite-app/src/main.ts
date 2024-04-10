@@ -144,7 +144,7 @@ const foo = async () => {
   });
 
   oml2d.onStageSlideIn(() => {
-    oml2d.setStageSize({ width: 600, height: 600 });
+    // oml2d.setStageSize({ width: 600, height: 600 });
     console.log(oml2d.model);
   });
   // oml2d.onStageSlideIn(() => {

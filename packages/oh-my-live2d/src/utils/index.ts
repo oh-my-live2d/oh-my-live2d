@@ -105,7 +105,7 @@ export const checkVersion = async (): Promise<void> => {
 
 // 获取每日一言
 export const getWordTheDay = async (format?: (wordTheDayData: WordTheDayData) => string): Promise<string> => {
-  const fetchResult = await fetch('https://hitokoto.oml2d.com/');
+  const fetchResult = await fetch('https://v1.hitokoto.cn');
   const data = <WordTheDayData>await fetchResult.json();
 
   if (format) {
