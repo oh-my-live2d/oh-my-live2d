@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.15.2...v0.16.0) (2024-04-10)
+
+### ✨ Features | 新功能
+
+- 新增了一些set方法 ([2864999](https://github.com/oh-my-live2d/oh-my-live2d/commit/2864999c38f87234ab11b23fccf192e98f95d5a3)) by Hacxy
+- **model:** 新增模型选项: rotation, anchor , 以及其set方法 ([763726d](https://github.com/oh-my-live2d/oh-my-live2d/commit/763726dd7f7e4072ad9f1165a507385e16d9b454)) by Hacxy
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 部署一言服务, 将原接口地址更换为稳定的一言接口地址 ([a6bfbe5](https://github.com/oh-my-live2d/oh-my-live2d/commit/a6bfbe58cb425f1b5c851ada3045f9f3646ffd8b)) by Hacxy
+- 优化版本比对逻辑 ([005d368](https://github.com/oh-my-live2d/oh-my-live2d/commit/005d368f5dde116d0334d386c7502c0e0bfc5517)) by Hacxy
+
 ## [0.15.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.15.1...v0.15.2) (2024-03-26)
 
 ### 🐛 Bug Fixes | Bug 修复
