@@ -7,14 +7,15 @@
     "version": {
       "conventionalCommits": true,
       "changelog": true,
-      "changelogIncludeCommitsClientLogin": " by %a",
+      "changelogIncludeCommitsClientLogin": " by.@%a",
       "createRelease": "github",
       "message": "chore(release): publish new version %v",
       "allowPeerDependenciesUpdate": true
     }
   },
   "changelogPreset": {
-    "name": "conventional-changelog-conventionalcommits",
+    "name": "conventionalcommits",
+    "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
     "types": [
       {
         "type": "feat",
@@ -48,6 +49,10 @@
         "type": "test",
         "hidden": true
       }
-    ]
+    ],
+    "issuePrefixes": ["#"],
+    "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
+    "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
+    "userUrlFormat": "{{host}}/{{user}}"
   }
 }

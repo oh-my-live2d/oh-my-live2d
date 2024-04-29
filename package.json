@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
+    "changed": "lerna version --conventional-commits --create-release github",
+    "changed:major": "lerna version major --conventional-commits --create-release github",
     "dev": "pnpm -F oh-my-live2d run dev",
     "docs:build": "pnpm build && node ./scripts/typedoc.js && pnpm -r docs:build",
     "docs:dev": "concurrently \"node ./scripts/typedoc.js -w\" \"pnpm -r docs:dev\"",
@@ -16,8 +18,7 @@
     "prepare": "husky",
     "preview:new-version": "lerna version --dry-run",
     "refresh": "node ./scripts/refresh-cdn.js",
-    "release": "dotenv lerna version --generate-release-notes --yes",
-    "release:major": "dotenv lerna version major --generate-release-notes --yes",
+    "release": "lerna publish from-package --yes",
     "run-tests": "lerna run test",
     "test": "pnpm -F vite-app run test:dev",
     "test:build": "pnpm -F vite-app run test:build",
@@ -30,8 +31,9 @@
     "package.json": "sort-package-json"
   },
   "devDependencies": {
-    "@lerna-lite/cli": "^3.3.1",
-    "@lerna-lite/publish": "^3.3.1",
+    "@lerna-lite/cli": "^3.3.3",
+    "@lerna-lite/publish": "^3.3.3",
+    "@lerna-lite/version": "^3.3.3",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "concurrently": "^8.2.2",
@@ -54,6 +56,5 @@
     "typedoc-plugin-markdown": "3.17.1",
     "typescript": "^5.3.3",
     "vite": "5.1.4"
-  },
-  "packageManager": "pnpm@8.15.4"
+  }
 }
