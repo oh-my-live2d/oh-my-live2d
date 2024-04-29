@@ -66,6 +66,14 @@ export class LoadOhMyLive2D {
   }
 
   /**
+   * 加载指定模型
+   * @param modelIndex 指定模型的索引值
+   */
+  async loadSpecificModel(modelIndex: number): Promise<void> {
+    await this.oml2d?.loadSpecificModel(modelIndex);
+  }
+
+  /**
    * 重新加载当前模型
    */
   async reloadModel(): Promise<void> {
