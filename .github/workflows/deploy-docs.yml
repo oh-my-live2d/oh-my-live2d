@@ -11,6 +11,8 @@ jobs:
 
       - name: 安装 pnpm
         uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: 设置 Node.js
         uses: actions/setup-node@v4
