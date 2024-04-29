@@ -75,6 +75,7 @@
 - <https://sugarat.top>
 - <https://theme.sugarat.top>
 - <https://asev.gitee.io>
+- <https://docs.kisssssssss.space/setting/live2d>
 
 **征集更多案例, 欢迎您的PR😋**
 

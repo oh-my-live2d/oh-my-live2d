@@ -15,7 +15,11 @@
     "directory": "packages/oh-my-live2d"
   },
   "license": "MIT",
-  "author": "loclink",
+  "author": {
+    "name": "hacxy",
+    "email": "hacxy.js@outlook.com",
+    "url": "https://github.com/hacxy"
+  },
   "type": "module",
   "exports": {
     ".": {
