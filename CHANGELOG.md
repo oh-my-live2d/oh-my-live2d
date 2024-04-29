@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.16.1...v0.17.0) (2024-04-29)
+
+### ✨ Features | 新功能
+
+- 新增loadSpecificModel方法，可以通过modelIndex加载指定模型 ([01aa28e](https://github.com/oh-my-live2d/oh-my-live2d/commit/01aa28e02b4c19352c8398bcf249ef68d45447c3)) by.@kis
+
 ## [0.16.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.16.0...v0.16.1) (2024-04-10)
 
 ### 🐛 Bug Fixes | Bug 修复
