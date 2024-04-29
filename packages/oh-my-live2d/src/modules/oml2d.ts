@@ -141,6 +141,22 @@ export class OhMyLive2D {
     void this.tips.idlePlayer?.start();
   }
 
+  /**
+   * 加载指定模型
+   */
+  async loadSpecificModel(modelIndex: number): Promise<void> {
+    if (modelIndex >= 0 && modelIndex < this.options.models.length) {
+      this.modelIndex = modelIndex;
+
+      this.tips.clear();
+      this.statusBar.open(this.options.statusBar.switchingMessage);
+      await this.stage.slideOut();
+
+      await this.loadModel();
+      void this.tips.idlePlayer?.start();
+    }
+  }
+
   // 初始化
   initialize(): void {
     // 检查版本
