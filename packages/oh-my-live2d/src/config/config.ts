@@ -115,7 +115,8 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
     itemStyle: {},
     mobileStyle: MENUS_DEFAULT_STYLE,
     mobileItemStyle: {}
-  }
+  },
+  initialStatus: 'active'
 };
 
 export const ELEMENT_ID = {

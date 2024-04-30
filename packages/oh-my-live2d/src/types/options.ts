@@ -103,12 +103,20 @@ export interface Options {
    * @valueType MenusOptions | ((currentModel: ModelOptions, modelIndex: number) => MenusOptions)
    */
   menus?: MenusOptions | ((currentModel: ModelOptions, modelIndex: number) => MenusOptions);
+
   /**
    * 为组件提供一个父元素，如果未指定则默认挂载到 body 中
    * @valueType HtmlElement
    * @default document.body
    */
   parentElement?: HTMLElement;
+
+  /**
+   * 用于控制模型默认是休息状态还是活跃状态, 默认是活跃状态, 切换模型时不受此值影响
+   * @valueType 'sleep' | 'active'
+   * @default 'active'
+   */
+  initialStatus?: 'sleep' | 'active';
 }
 
 export * from './model.js';

@@ -28,6 +28,9 @@ ignorePatterns:
   - '**/.vitepress/cache/'
 
 rules:
+  '@typescript-eslint/no-floating-promises':
+    - off
+
   '@typescript-eslint/ban-ts-comment':
     - off
 
