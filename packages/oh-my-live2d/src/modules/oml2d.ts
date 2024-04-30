@@ -82,8 +82,9 @@ export class OhMyLive2D {
 
   /**
    * 加载模型
+   * tip: 仅加载模型, 并不会显示模型; 若想显示模型, 则需要执行一次 stage.slideIn 方法
    */
-  private async loadModel(): Promise<void> {
+  private async loadModel(callback: () => void): Promise<void> {
     if (!this.options.models || !this.options.models.length) {
       return;
     }
@@ -96,12 +97,12 @@ export class OhMyLive2D {
 
     this.statusBar.showLoading();
 
-    await this.models
+    return this.models
       .create()
       .catch(() => {
         this.statusBar.loadingError(() => void this.reloadModel());
       })
-      .then(async () => {
+      .then(() => {
         this.pixiApp?.mount(this.models.model);
         this.menus.reload(this.stage.element!);
         this.tips.reload(this.stage.element!);
@@ -110,7 +111,8 @@ export class OhMyLive2D {
         this.stage.reloadStyle(this.models.modelSize);
         this.pixiApp?.resize();
         this.statusBar.hideLoading();
-        await this.stage.slideIn();
+
+        callback();
       });
   }
 
@@ -120,7 +122,9 @@ export class OhMyLive2D {
   async reloadModel(): Promise<void> {
     this.tips.clear();
     await this.stage.slideOut();
-    await this.loadModel();
+    await this.loadModel(() => {
+      this.stage.slideIn();
+    });
     void this.tips.idlePlayer?.start();
   }
 
@@ -137,7 +141,9 @@ export class OhMyLive2D {
     this.statusBar.open(this.options.statusBar.switchingMessage);
     await this.stage.slideOut();
 
-    await this.loadModel();
+    await this.loadModel(() => {
+      this.stage.slideIn();
+    });
     void this.tips.idlePlayer?.start();
   }
 
@@ -152,7 +158,9 @@ export class OhMyLive2D {
       this.statusBar.open(this.options.statusBar.switchingMessage);
       await this.stage.slideOut();
 
-      await this.loadModel();
+      await this.loadModel(() => {
+        this.stage.slideIn();
+      });
       void this.tips.idlePlayer?.start();
     }
   }
@@ -178,7 +186,20 @@ export class OhMyLive2D {
     this.mount();
 
     // 加载模型
-    void this.loadModel();
+    void this.loadModel(() => {
+      if (this.options.initialStatus == 'sleep') {
+        this.tips.clear();
+        this.statusBar.open(this.options.statusBar.restMessage);
+        this.statusBar.setClickEvent(() => {
+          this.stage.slideIn();
+          this.statusBar.close();
+          this.statusBar.clearHoverEvent();
+          this.statusBar.clearClickEvent();
+        });
+      } else {
+        this.stage.slideIn();
+      }
+    });
   }
 
   /**
