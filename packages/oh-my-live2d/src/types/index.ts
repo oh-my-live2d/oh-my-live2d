@@ -28,11 +28,12 @@ export type ApplicationType = typeof Application;
 
 export type CSSProperties = CSS.Properties;
 
-export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'models' | 'tips' | 'statusBar' | 'menus'> & {
+export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'stageStyle' | 'models' | 'tips' | 'statusBar' | 'menus'> & {
   parentElement: HTMLElement;
   tips: DefaultTipsOptions;
   statusBar: DefaultStatusBarOptions;
   menus: DefaultMenusOptions;
+  stageStyle?: CommonStyleType;
   models: ModelOptions[];
 };
 

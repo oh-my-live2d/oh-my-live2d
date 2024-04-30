@@ -144,6 +144,8 @@ export const generateGlobalStyle = (primaryColor: string): string => {
   `;
 };
 
+export const STAGE_DEFAULT_GLOBAL_STYLE: CommonStyleType = {};
+
 export const STAGE_DEFAULT_STYLE: CommonStyleType = {
   width: '0px',
   height: '0px',

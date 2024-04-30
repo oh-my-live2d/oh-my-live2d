@@ -1,3 +1,4 @@
+import type { CommonStyleType } from './common.js';
 import type { MenusOptions } from './menus.js';
 import type { ModelOptions } from './model.js';
 import type { StatusBarOptions } from './statusBar.js';
@@ -68,6 +69,12 @@ export interface Options {
    * @default 1000
    */
   transitionTime?: number;
+
+  /**
+   * 全局舞台样式
+   * @valueType Object
+   */
+  stageStyle?: CommonStyleType;
 
   /**
    * 模型选项, 类型是模型配置对象组成的数组, 默认值是空数组
