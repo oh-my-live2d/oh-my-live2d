@@ -1,4 +1,11 @@
-import { MENUS_DEFAULT_STYLE, PRIMARY_COLOR, STATUS_BAR_DEFAULT_STYLE, STATUS_BAR_ERROR_COLOR, TIPS_DEFAULT_STYLE } from './style.js';
+import {
+  MENUS_DEFAULT_STYLE,
+  PRIMARY_COLOR,
+  STAGE_DEFAULT_GLOBAL_STYLE,
+  STATUS_BAR_DEFAULT_STYLE,
+  STATUS_BAR_ERROR_COLOR,
+  TIPS_DEFAULT_STYLE
+} from './style.js';
 import type { DefaultOptions } from '../types/index.js';
 
 // 第三方库服务地址
@@ -18,6 +25,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
     cubism2: `${libServicePath}/cubism2.js`,
     cubism5: `${libServicePath}/cubism5.js`
   },
+  stageStyle: STAGE_DEFAULT_GLOBAL_STYLE,
   models: [],
   statusBar: {
     disable: false,

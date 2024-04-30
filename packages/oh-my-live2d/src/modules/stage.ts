@@ -40,7 +40,7 @@ export class Stage {
   }
 
   reloadStyle(style: CommonStyleType = {}): void {
-    this.style = {};
+    style = mergeDeep(style, this.options.stageStyle);
     style = mergeDeep(style, handleDockedPosition(this.options.dockedPosition));
     switch (getWindowSizeType()) {
       case WindowSizeType.mobile:
@@ -65,6 +65,7 @@ export class Stage {
 
   setStyle(style: CSSProperties, callback?: () => void): void {
     if (this.element) {
+      this.style = {};
       this.style = mergeDeep(this.style, style);
       setStyleForElement(this.style, this.element);
       this.setCanvasStyle({ width: '100%', height: '100%', zIndex: '9998', position: 'relative' });
