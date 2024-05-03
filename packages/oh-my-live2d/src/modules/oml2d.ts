@@ -23,6 +23,7 @@ export class OhMyLive2D {
   models: Models;
   pixiApp?: PixiApp;
   currentModelIndex: number = 0;
+  currentModelClothesIndex: number = 0;
   options: DefaultOptions;
 
   constructor(
@@ -39,7 +40,8 @@ export class OhMyLive2D {
     this.menus = new Menus(this.options, this.globalOml2d); // 菜单
     this.models = new Models(this.options, this.PixiLive2dDisplay, this.events);
     this.store = new Store();
-    this.modelIndex = this.store.getModelCurrentIndex(this.options.models);
+    this.modelIndex = this.store.getModelIndex();
+    this.modelClothesIndex = this.store.getModelClothesIndex();
   }
 
   /**
@@ -53,17 +55,29 @@ export class OhMyLive2D {
     this.currentModelIndex = index;
     this.stage.modelIndex = index;
     this.models.modelIndex = index;
-    this.store.updateModelInfo(this.options.models, index);
+    this.store.updateModelCurrentIndex(index);
   }
 
   get modelIndex(): number {
     return this.currentModelIndex;
   }
 
+  private set modelClothesIndex(index: number) {
+    this.currentModelClothesIndex = index;
+    this.models.modelClothesIndex = index;
+    this.store.updateModelCurrentClothesIndex(index);
+  }
+
+  get modelClothesIndex(): number {
+    return this.currentModelClothesIndex;
+  }
+
   /**
    * 创建
    */
   private create(): void {
+    this.store.updateModelInfo(this.options.models);
+
     this.stage.create();
 
     this.pixiApp = new PixiApp(this.PIXI, this.stage);
@@ -82,9 +96,11 @@ export class OhMyLive2D {
 
   /**
    * 加载模型
-   * tip: 仅加载模型, 并不会显示模型; 若想显示模型, 则需要执行一次 stage.slideIn 方法
+   * tip: 仅加载模型, 并不会显示模型; 若想显示模型, 则需要再 callback 里面执行一次 stage.slideIn 方法
    */
   private async loadModel(callback: () => void): Promise<void> {
+    await this.stage.slideOut();
+
     if (!this.options.models || !this.options.models.length) {
       return;
     }
@@ -121,7 +137,6 @@ export class OhMyLive2D {
    */
   async reloadModel(): Promise<void> {
     this.tips.clear();
-    await this.stage.slideOut();
     await this.loadModel(() => {
       this.stage.slideIn();
     });
@@ -129,17 +144,16 @@ export class OhMyLive2D {
   }
 
   /**
-   * 加载下个模型
+   * 加载下个角色模型
    */
   async loadNextModel(): Promise<void> {
-    this.modelIndex++;
-    if (this.modelIndex > this.options.models.length - 1) {
+    if (++this.modelIndex >= this.options.models.length) {
       this.modelIndex = 0;
     }
+    this.modelClothesIndex = 0;
 
     this.tips.clear();
     this.statusBar.open(this.options.statusBar.switchingMessage);
-    await this.stage.slideOut();
 
     await this.loadModel(() => {
       this.stage.slideIn();
@@ -148,20 +162,37 @@ export class OhMyLive2D {
   }
 
   /**
-   * 加载指定模型
+   * 加载指定角色模型
    */
-  async loadSpecificModel(modelIndex: number): Promise<void> {
+  async loadSpecificModel(modelIndex: number, modelClothesIndex?: number): Promise<void> {
     if (modelIndex >= 0 && modelIndex < this.options.models.length) {
       this.modelIndex = modelIndex;
+      this.modelClothesIndex = modelClothesIndex || 0;
 
       this.tips.clear();
       this.statusBar.open(this.options.statusBar.switchingMessage);
-      await this.stage.slideOut();
 
       await this.loadModel(() => {
         this.stage.slideIn();
       });
       void this.tips.idlePlayer?.start();
+    }
+  }
+
+  /**
+   * 加载角色模型的下一个衣服, 即切换同个角色的不同模型
+   */
+  async loadNextModelClothes(): Promise<void> {
+    const path = this.options.models[this.modelIndex].path;
+
+    if (Array.isArray(this.options.models[this.modelIndex].path)) {
+      if (++this.modelClothesIndex >= path.length) {
+        this.modelClothesIndex = 0;
+      }
+
+      await this.loadModel(() => {
+        this.stage.slideIn();
+      });
     }
   }
 
