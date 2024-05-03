@@ -8,31 +8,33 @@ export class Store {
     localStorage.setItem('OML2D_MODEL_INFO', finalValue);
   }
 
-  getModuleInfo(modelOptions: ModelOptions[]): StoreModelInfo {
-    const key = this.getModelDataKey(modelOptions);
-
-    const value = JSON.parse(localStorage.getItem('OML2D_MODEL_INFO') as string) as StoreModelInfo;
-
-    if (value?.key === key) {
-      return value;
-    }
+  setModelIndex(index: number): void {
+    localStorage.setItem('OML2D_MODEL_INDEX', index.toString());
   }
 
-  getModelDataKey(modelOptions: ModelOptions[]): string {
-    const keys = modelOptions?.map((item: ModelOptions): string => {
-      return item.path;
-    });
-
-    return keys.join();
+  settModelClothesIndex(index: number): void {
+    localStorage.setItem('OML2D_MODEL_CLOTHES_INDEX', index.toString());
   }
 
-  updateModelInfo(modelOptions: ModelOptions[], currentIndex: number): void {
-    const key = this.getModelDataKey(modelOptions);
-
-    this.setModelInfo({ key, currentIndex });
+  getModelClothesIndex(): number {
+    return Number(localStorage.getItem('OML2D_MODEL_CLOTHES_INDEX'));
   }
 
-  getModelCurrentIndex(modelOptions: ModelOptions[]): number {
-    return this.getModuleInfo(modelOptions)?.currentIndex || 0;
+  getModelIndex(): number {
+    return Number(localStorage.getItem('OML2D_MODEL_INDEX'));
+  }
+
+  updateModelInfo(modelOptions: ModelOptions[]): void {
+    const paths = modelOptions?.map((item: ModelOptions): string | string[] => item.path);
+
+    this.setModelInfo(paths);
+  }
+
+  updateModelCurrentIndex(index: number): void {
+    this.setModelIndex(index);
+  }
+
+  updateModelCurrentClothesIndex(index: number): void {
+    this.settModelClothesIndex(index);
   }
 }

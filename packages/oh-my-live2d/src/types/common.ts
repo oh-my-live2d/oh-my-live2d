@@ -45,7 +45,7 @@ export type LoadOml2dSDK = (
 }>;
 export type OML2D = Omit<OhMyLive2D, 'unMount' | 'initialize'>;
 
-export type StoreModelInfo = { key: string; currentIndex: number } | undefined;
+export type StoreModelInfo = (string | string[])[];
 
 export type Item = {
   id: string;
