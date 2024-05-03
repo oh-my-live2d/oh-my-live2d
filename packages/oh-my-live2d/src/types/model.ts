@@ -15,7 +15,7 @@ export interface ModelOptions {
   /**
    * 模型的 json 文件 url 地址, 必填项
    */
-  path: string;
+  path: string | string[];
   /**
    * 模型的缩放比例
    * @default 0.1

@@ -95,6 +95,14 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
         }
       },
       {
+        id: 'SwitchModelClothes',
+        icon: 'icon-switch',
+        title: '切换衣服',
+        onClick(oml2d): void {
+          void oml2d.loadNextModelClothes();
+        }
+      },
+      {
         id: 'SwitchModel',
         icon: 'icon-switch',
         title: '切换模型',

@@ -68,9 +68,17 @@ export class LoadOhMyLive2D {
   /**
    * 加载指定模型
    * @param modelIndex 指定模型的索引值
+   * @param modelClothesIndex 指定模型的衣服索引值, 该参数仅在传入的指定模型的 path 是 string[] 时生效
    */
-  async loadSpecificModel(modelIndex: number): Promise<void> {
-    await this.oml2d?.loadSpecificModel(modelIndex);
+  async loadSpecificModel(modelIndex: number, modelClothesIndex?: number): Promise<void> {
+    await this.oml2d?.loadSpecificModel(modelIndex, modelClothesIndex);
+  }
+
+  /**
+   * 加载模型的下一个衣服, 即切换同个角色的不同模型
+   */
+  async loadNextModelClothes(): Promise<void> {
+    await this.oml2d?.loadNextModelClothes();
   }
 
   /**
