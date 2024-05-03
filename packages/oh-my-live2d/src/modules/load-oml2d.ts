@@ -59,6 +59,13 @@ export class LoadOhMyLive2D {
   }
 
   /**
+   * 加载随机模型
+   */
+  async loadRandomModel(): Promise<void> {
+    await this.oml2d?.loadRandomModel();
+  }
+
+  /**
    * 加载下一个模型
    */
   async loadNextModel(): Promise<void> {
