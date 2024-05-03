@@ -11,7 +11,7 @@ import { Store } from './store.js';
 import { Tips } from './tips.js';
 import { WindowSizeType } from '../constants/index.js';
 import type { DefaultOptions, PixiLive2dDisplayModule, PixiModule } from '../types/index.js';
-import { checkVersion, getWindowSizeType, onChangeWindowSize, printProjectInfo } from '../utils/index.js';
+import { checkVersion, getRandomIndex, getWindowSizeType, onChangeWindowSize, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
   store: Store;
@@ -99,6 +99,7 @@ export class OhMyLive2D {
    * tip: 仅加载模型, 并不会显示模型; 若想显示模型, 则需要再 callback 里面执行一次 stage.slideIn 方法
    */
   private async loadModel(callback: () => void): Promise<void> {
+    this.tips.clear();
     await this.stage.slideOut();
 
     if (!this.options.models || !this.options.models.length) {
@@ -136,7 +137,20 @@ export class OhMyLive2D {
    * 重新加载
    */
   async reloadModel(): Promise<void> {
-    this.tips.clear();
+    await this.loadModel(() => {
+      this.stage.slideIn();
+    });
+    void this.tips.idlePlayer?.start();
+  }
+
+  /**
+   * 随机加载模型
+   */
+  async loadRandomModel(): Promise<void> {
+    this.modelIndex = getRandomIndex(this.options.models.length, this.modelIndex);
+    this.modelClothesIndex = 0;
+
+    this.statusBar.open(this.options.statusBar.switchingMessage);
     await this.loadModel(() => {
       this.stage.slideIn();
     });
@@ -152,7 +166,6 @@ export class OhMyLive2D {
     }
     this.modelClothesIndex = 0;
 
-    this.tips.clear();
     this.statusBar.open(this.options.statusBar.switchingMessage);
 
     await this.loadModel(() => {
@@ -169,7 +182,6 @@ export class OhMyLive2D {
       this.modelIndex = modelIndex;
       this.modelClothesIndex = modelClothesIndex || 0;
 
-      this.tips.clear();
       this.statusBar.open(this.options.statusBar.switchingMessage);
 
       await this.loadModel(() => {
