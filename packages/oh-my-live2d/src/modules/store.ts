@@ -12,7 +12,7 @@ export class Store {
     localStorage.setItem('OML2D_MODEL_INDEX', index.toString());
   }
 
-  settModelClothesIndex(index: number): void {
+  setModelClothesIndex(index: number): void {
     localStorage.setItem('OML2D_MODEL_CLOTHES_INDEX', index.toString());
   }
 
@@ -35,6 +35,6 @@ export class Store {
   }
 
   updateModelCurrentClothesIndex(index: number): void {
-    this.settModelClothesIndex(index);
+    this.setModelClothesIndex(index);
   }
 }
