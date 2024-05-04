@@ -191,3 +191,14 @@ export const handleDockedPosition = (position: 'left' | 'right', value: number =
       }
   }
 };
+
+// 随机获取数组下标
+export const getRandomIndex = (length: number, currentIndex: number): number => {
+  let randomIndex = currentIndex;
+
+  while (randomIndex === currentIndex) {
+    randomIndex = Math.floor(Math.random() * length);
+  }
+
+  return randomIndex;
+};

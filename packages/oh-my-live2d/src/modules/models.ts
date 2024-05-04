@@ -9,7 +9,8 @@ import { getWindowSizeType } from '../utils/index.js';
 
 export class Models {
   model?: Live2DModel<InternalModel>; // 当前模型实例
-  private currentModelIndex = 0;
+  private currentModelIndex: number = 0;
+  private currentClothesIndex: number = 0;
   private hitAreaFrames: HitAreaFrames;
 
   constructor(
@@ -23,8 +24,16 @@ export class Models {
   get modelIndex(): number {
     return this.currentModelIndex;
   }
+
   set modelIndex(index: number) {
     this.currentModelIndex = index;
+  }
+
+  get modelClothesIndex(): number {
+    return this.currentClothesIndex;
+  }
+  set modelClothesIndex(index: number) {
+    this.currentClothesIndex = index;
   }
 
   get currentModelOptions(): ModelOptions {
@@ -35,7 +44,13 @@ export class Models {
     return new Promise((resolve, reject) => {
       this.events.emit('load', 'loading');
 
-      this.model = this.PixiLive2dDisplay.Live2DModel.fromSync(this.currentModelOptions.path, {
+      let modelPath = this.currentModelOptions.path;
+
+      if (Array.isArray(modelPath)) {
+        modelPath = this.currentModelOptions.path[this.modelClothesIndex];
+      }
+
+      this.model = this.PixiLive2dDisplay.Live2DModel.fromSync(modelPath, {
         motionPreload: (this.currentModelOptions.motionPreloadStrategy as MotionPreloadStrategy) || MotionPreloadStrategy.IDLE,
         onError: () => {
           this.events.emit('load', 'fail');
