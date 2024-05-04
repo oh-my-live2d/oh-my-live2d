@@ -1,5 +1,3 @@
-import { isArray } from 'tianjie';
-
 import { PixiApp } from './application.js';
 import { Events } from './events.js';
 import { GlobalStyle } from './global-style.js';
@@ -194,12 +192,31 @@ export class OhMyLive2D {
   }
 
   /**
+   * @description 通过模型名称加载模型
+   */
+  async loadModelByName(modelName: string, modelClothesIndex?: number) {
+    const targetIndex = this.options.models.findIndex((item) => item.name === modelName);
+
+    if (targetIndex > 0) {
+      this.modelIndex = targetIndex;
+      this.modelClothesIndex = modelClothesIndex || 0;
+
+      this.statusBar.open(this.options.statusBar.switchingMessage);
+
+      await this.loadModel(() => {
+        this.stage.slideIn();
+      });
+      void this.tips.idlePlayer?.start();
+    }
+  }
+
+  /**
    * 加载角色模型的下一个衣服, 即切换同个角色的不同模型
    */
   async loadNextModelClothes(): Promise<void> {
     const path = this.options.models[this.modelIndex].path;
 
-    if (isArray(this.options.models[this.modelIndex].path) && this.options.models.length) {
+    if (Array.isArray(this.options.models[this.modelIndex].path)) {
       if (++this.modelClothesIndex >= path.length) {
         this.modelClothesIndex = 0;
       }
@@ -207,8 +224,6 @@ export class OhMyLive2D {
       await this.loadModel(() => {
         this.stage.slideIn();
       });
-    } else {
-      this.tips.notification('没有其他衣服~', 5000, 3);
     }
   }
 
