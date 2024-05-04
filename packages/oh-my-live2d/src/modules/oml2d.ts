@@ -175,9 +175,9 @@ export class OhMyLive2D {
   }
 
   /**
-   * 加载指定角色模型
+   * @description 通过模型索引值加载模型
    */
-  async loadSpecificModel(modelIndex: number, modelClothesIndex?: number): Promise<void> {
+  async loadModelByIndex(modelIndex: number, modelClothesIndex?: number): Promise<void> {
     if (modelIndex >= 0 && modelIndex < this.options.models.length) {
       this.modelIndex = modelIndex;
       this.modelClothesIndex = modelClothesIndex || 0;
