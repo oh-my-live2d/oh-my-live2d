@@ -4,7 +4,7 @@
 
 ```ts
 import { loadOml2d } from 'oh-my-live2d';
-const oml2d = loadoml2d({
+const oml2d = loadOml2d({
   statusBar: {
     // 在这里进行配置
   }

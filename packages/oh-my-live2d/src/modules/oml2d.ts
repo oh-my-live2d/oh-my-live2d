@@ -1,3 +1,5 @@
+import { isArray } from 'tianjie';
+
 import { PixiApp } from './application.js';
 import { Events } from './events.js';
 import { GlobalStyle } from './global-style.js';
@@ -197,7 +199,7 @@ export class OhMyLive2D {
   async loadNextModelClothes(): Promise<void> {
     const path = this.options.models[this.modelIndex].path;
 
-    if (Array.isArray(this.options.models[this.modelIndex].path)) {
+    if (isArray(this.options.models[this.modelIndex].path) && this.options.models.length) {
       if (++this.modelClothesIndex >= path.length) {
         this.modelClothesIndex = 0;
       }
@@ -205,6 +207,8 @@ export class OhMyLive2D {
       await this.loadModel(() => {
         this.stage.slideIn();
       });
+    } else {
+      this.tips.notification('没有其他衣服~', 5000, 3);
     }
   }
 

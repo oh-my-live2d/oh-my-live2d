@@ -21,16 +21,14 @@ const foo = async () => {
       // },
       {
         name: 'shizuku',
-        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/shizuku/shizuku.model.json',
-        scale: 0.2,
+        path: [
+          'https://cdn.jsdelivr.net/gh/kisssssssss/model/live2d/Azur/dafeng_2/dafeng_2.model3.json',
+          'https://cdn.jsdelivr.net/gh/kisssssssss/model/live2d/Azur/dafeng_4/dafeng_4.model3.json'
+        ],
         // rotation: 360,
         // anchor: [0.5, 0.1],
         motionPreloadStrategy: 'ALL',
-        position: [0, 100],
-        volume: 0,
-        stageStyle: {
-          height: 500
-        }
+        volume: 0
       },
       {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
@@ -68,28 +66,28 @@ const foo = async () => {
       restMessage: '睡着了',
       disable: false,
       style: {}
-    },
-    menus: (_currentModel, index) => {
-      // console.log(currentModel);
-      // console.log(index);
-      if (index === 0) {
-        return {
-          disable: false,
-          items: (defaultItems) => {
-            return defaultItems;
-          }
-        };
-      } else {
-        return {
-          style: {
-            // left: 0
-          },
-          items: (defaultItem) => {
-            return [defaultItem[1]];
-          }
-        };
-      }
     }
+    // menus: (_currentModel, index) => {
+    //   // console.log(currentModel);
+    //   // console.log(index);
+    //   if (index === 0) {
+    //     return {
+    //       disable: false,
+    //       items: (defaultItems) => {
+    //         return defaultItems;
+    //       }
+    //     };
+    //   } else {
+    //     return {
+    //       style: {
+    //         // left: 0
+    //       },
+    //       items: (defaultItem) => {
+    //         return [defaultItem[1]];
+    //       }
+    //     };
+    //   }
+    // }
     // menus: {
     //   items: (defaultItems) => {
     //     return defaultItems;

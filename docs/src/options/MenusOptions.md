@@ -10,7 +10,7 @@
 
 ```ts
 import { loadOml2d } from 'oh-my-live2d';
-const oml2d = loadoml2d({
+const oml2d = loadOml2d({
   menus: {
     // 在这里配置
   }
@@ -27,7 +27,7 @@ const oml2d = loadoml2d({
 
 ```ts
 import { loadOml2d } from 'oh-my-live2d';
-const oml2d = loadoml2d({
+const oml2d = loadOml2d({
   menus: (_, currentIndex) => {
     if (currentIndex === 0) {
       return {
@@ -54,7 +54,7 @@ const oml2d = loadoml2d({
 
 ```ts
 import { loadOml2d } from 'oh-my-live2d';
-const oml2d = loadoml2d({
+const oml2d = loadOml2d({
   models: [
     {
       name: 'shizuku', // [!code highlight]
