@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.17.0...v0.18.0) (2024-05-04)
+
+**Note:** Version bump only for package vuepress-plugin-oh-my-live2d
+
 ## [0.17.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.16.1...v0.17.0) (2024-04-29)
 
 **Note:** Version bump only for package vuepress-plugin-oh-my-live2d

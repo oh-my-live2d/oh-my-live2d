@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.17.0...v0.18.0) (2024-05-04)
+
+### ✨ Features | 新功能
+
+- 添加随机加载模型方法 ([78add63](https://github.com/oh-my-live2d/oh-my-live2d/commit/78add632af17741c1adaed19f58c7486c30e0c3f)) by.@kis
+- 添加修改当前模型服装功能 ([e85f9d5](https://github.com/oh-my-live2d/oh-my-live2d/commit/e85f9d5f2a274d6665c19c87c6531782ca90d24c)) by.@kis
+- 新增默认休息选项 initialStatus ([01ea20c](https://github.com/oh-my-live2d/oh-my-live2d/commit/01ea20c0508098c8b082f6ab0eb65624d1de93b9)) by.@kis
+- 新增全局 stageStyle 属性 ([78af787](https://github.com/oh-my-live2d/oh-my-live2d/commit/78af7875f7ac1d12ddddfa8371fa94e7e669f831)) by.@kis
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 调整切换衣服菜单的图标 ([c4acebb](https://github.com/oh-my-live2d/oh-my-live2d/commit/c4acebb120260aba2b292772add2991599dfba9f)) by.@Hacxy
+- 没有配置多个衣服时切换衣服显示提示信息 ([72ff458](https://github.com/oh-my-live2d/oh-my-live2d/commit/72ff458ce103eaca433a013acb975f54d125178e)) by.@Hacxy
+
 ## [0.17.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.16.1...v0.17.0) (2024-04-29)
 
 ### ✨ Features | 新功能
