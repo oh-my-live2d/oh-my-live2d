@@ -67,9 +67,9 @@ const oml2d = loadOml2d({
 
 ### path
 
-- 类型: `string`
+- 类型: `string | [string]`
 
-模型的 json 文件 url 地址, 必填项
+模型的 json 文件 url 地址, 必填项。类型 [string] 可以切换衣服。
 
 ---
 
