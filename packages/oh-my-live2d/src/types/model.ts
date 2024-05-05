@@ -13,7 +13,8 @@ export interface ModelOptions {
    */
   showHitAreaFrames?: boolean;
   /**
-   * 模型的 json 文件 url 地址, 必填项
+   * 模型的 json 文件 url 地址, 必填项, 当 path 为数组时, 表示该模型有一系列皮肤可以切换
+   * @valueType string | string[]
    */
   path: string | string[];
   /**
