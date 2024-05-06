@@ -130,7 +130,7 @@ importers:
         specifier: 5.2.11
         version: 5.2.11(@types/node@20.11.24)(sass@1.71.1)
       vite-plugin-dts:
-        specifier: ^3.8.1
+        specifier: ^3.9.1
         version: 3.9.1(@types/node@20.11.24)(rollup@4.17.2)(typescript@5.4.2)(vite@5.2.11(@types/node@20.11.24)(sass@1.71.1))
 
   packages/vite-plugin:
@@ -6330,7 +6330,7 @@ snapshots:
       '@vue/compiler-dom': 3.4.21
       '@vue/shared': 3.4.21
       computeds: 0.0.1
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       muggle-string: 0.3.1
       path-browserify: 1.0.1
       vue-template-compiler: 2.7.16

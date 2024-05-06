@@ -1,11 +1,10 @@
-import type { Live2DModel } from 'pixi-live2d-display';
-import type { Application } from 'pixi.js';
+import type { InternalModel, Live2DModel } from 'pixi-live2d-display';
 import * as PIXI from 'pixi.js';
 
 import { Stage } from './stage.js';
 
 export class PixiApp {
-  app: Application;
+  app: PIXI.Application;
   constructor(private stage: Stage) {
     window.PIXI = PIXI;
     window.PIXI.utils.skipHello();
@@ -20,7 +19,7 @@ export class PixiApp {
     });
   }
 
-  mount(model?: Live2DModel): void {
+  mount(model?: Live2DModel<InternalModel>): void {
     if (model) {
       this.clearAppStage();
       this.app.stage.addChild(model);

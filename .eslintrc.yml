@@ -31,11 +31,7 @@ rules:
   '@typescript-eslint/no-floating-promises': off
   '@typescript-eslint/ban-ts-comment': off
   '@typescript-eslint/consistent-type-imports': off
-  '@typescript-eslint/explicit-function-return-type':
-    - warn
-    - allowHigherOrderFunctions: true
-      allowDirectConstAssertionInArrowFunctions: true
-      allowTypedFunctionExpressions: true
+  '@typescript-eslint/explicit-function-return-type': off
 
   '@typescript-eslint/naming-convention':
     - off
