@@ -47,7 +47,6 @@
     "pixi-live2d-display": "0.4.0",
     "pixi.js": "6.5.2",
     "vite": "5.2.11",
-    "vite-plugin-cp": "^4.0.8",
     "vite-plugin-dts": "^3.8.1"
   }
 }

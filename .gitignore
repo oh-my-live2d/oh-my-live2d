@@ -19,7 +19,6 @@ node_modules/
 .cache
 **/.vitepress/cache/
 .temp
-.npmrc
 
 # Logs
 logs

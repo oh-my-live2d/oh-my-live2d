@@ -28,15 +28,9 @@ ignorePatterns:
   - '**/.vitepress/cache/'
 
 rules:
-  '@typescript-eslint/no-floating-promises':
-    - off
-
-  '@typescript-eslint/ban-ts-comment':
-    - off
-
-  '@typescript-eslint/consistent-type-imports':
-    - off
-
+  '@typescript-eslint/no-floating-promises': off
+  '@typescript-eslint/ban-ts-comment': off
+  '@typescript-eslint/consistent-type-imports': off
   '@typescript-eslint/explicit-function-return-type':
     - warn
     - allowHigherOrderFunctions: true
@@ -128,7 +122,7 @@ rules:
     - error
 
   import/no-commonjs:
-    - error
+    - off
 
   import/no-cycle:
     - error
