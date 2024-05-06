@@ -1,16 +1,14 @@
 import type { InternalModel, Live2DModel } from 'pixi-live2d-display';
 import type { Application as ApplicationType } from 'pixi.js';
+import * as PIXI from 'pixi.js';
 
 import { Stage } from './stage.js';
-import type { PixiModule } from '../types/index.js';
 
 export class PixiApp {
   app: ApplicationType;
-  constructor(
-    private PIXI: PixiModule,
-    private stage: Stage
-  ) {
-    this.app = new this.PIXI.Application({
+  constructor(private stage: Stage) {
+    window.PIXI = PIXI;
+    this.app = new PIXI.Application({
       view: this.stage.canvasElement,
       resolution: 2,
       autoStart: true,

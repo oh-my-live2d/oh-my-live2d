@@ -1,6 +1,6 @@
 {
   "name": "oh-my-live2d-root",
-  "version": "0.7.1",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -17,9 +17,7 @@
     "new-publish": "lerna publish from-package --yes",
     "prepare": "husky",
     "preview:new-version": "lerna version --dry-run",
-    "refresh": "node ./scripts/refresh-cdn.js",
     "release": "lerna publish from-package --yes",
-    "run-tests": "lerna run test",
     "test": "pnpm -F vite-app run test:dev",
     "test:build": "pnpm -F vite-app run test:build",
     "test:vue": "pnpm -F vue-app run test:dev",
@@ -55,6 +53,6 @@
     "typedoc": "0.25.9",
     "typedoc-plugin-markdown": "3.17.1",
     "typescript": "^5.3.3",
-    "vite": "5.1.4"
+    "vite": "5.2.11"
   }
 }

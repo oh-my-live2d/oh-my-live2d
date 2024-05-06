@@ -10,7 +10,7 @@ import { StatusBar } from './status-bar.js';
 import { Store } from './store.js';
 import { Tips } from './tips.js';
 import { WindowSizeType } from '../constants/index.js';
-import type { DefaultOptions, PixiLive2dDisplayModule, PixiModule } from '../types/index.js';
+import type { DefaultOptions } from '../types/index.js';
 import { checkVersion, getRandomIndex, getWindowSizeType, onChangeWindowSize, printProjectInfo } from '../utils/index.js';
 
 export class OhMyLive2D {
@@ -28,9 +28,9 @@ export class OhMyLive2D {
 
   constructor(
     private globalOml2d: LoadOhMyLive2D,
-    private events: Events,
-    private PIXI: PixiModule,
-    private PixiLive2dDisplay: PixiLive2dDisplayModule
+    private events: Events
+    // private PIXI: PixiModule,
+    // private PixiLive2dDisplay: PixiLive2dDisplayModule
   ) {
     this.options = this.globalOml2d.options;
     this.globalStyle = new GlobalStyle(this.options);
@@ -38,7 +38,7 @@ export class OhMyLive2D {
     this.statusBar = new StatusBar(this.options);
     this.tips = new Tips(this.options, this.globalOml2d); // 提示框
     this.menus = new Menus(this.options, this.globalOml2d); // 菜单
-    this.models = new Models(this.options, this.PixiLive2dDisplay, this.events);
+    this.models = new Models(this.options, this.events);
     this.store = new Store();
     this.modelIndex = this.store.getModelIndex();
     this.modelClothesIndex = this.store.getModelClothesIndex();
@@ -80,7 +80,7 @@ export class OhMyLive2D {
 
     this.stage.create();
 
-    this.pixiApp = new PixiApp(this.PIXI, this.stage);
+    this.pixiApp = new PixiApp(this.stage);
 
     this.statusBar.create();
     this.statusBar.initializeStyle();

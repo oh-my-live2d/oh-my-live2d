@@ -7,7 +7,7 @@ import { CommonStyleType } from '../types/common.js';
 import type { EventFn, LoadEventFn } from '../types/events.js';
 import { DefaultOptions } from '../types/index.js';
 import { ModelOptions, Options } from '../types/options.js';
-import { handleCommonStyle, loadOml2dSDK, mergeOptions } from '../utils/index.js';
+import { handleCommonStyle, mergeOptions } from '../utils/index.js';
 
 export class LoadOhMyLive2D {
   options: DefaultOptions = DEFAULT_OPTIONS;
@@ -22,12 +22,12 @@ export class LoadOhMyLive2D {
   /**
    * 安装组件
    */
-  private async setup(options: Options): Promise<void> {
+  private setup(options: Options): void {
     this.options = mergeOptions(DEFAULT_OPTIONS, options);
 
-    const { PIXI, PixiLive2dDisplay } = await loadOml2dSDK(this.options.importType, this.options.libraryUrls);
+    // const { PIXI, PixiLive2dDisplay } = await loadOml2dSDK(this.options.importType, this.options.libraryUrls);
 
-    this.oml2d = new OhMyLive2D(this, this.events, PIXI, PixiLive2dDisplay);
+    this.oml2d = new OhMyLive2D(this, this.events);
 
     this.oml2d.initialize();
   }

@@ -1,10 +1,11 @@
-import type { InternalModel, Live2DModel } from 'pixi-live2d-display';
-import type { HitAreaFrames } from 'pixi-live2d-display/extra';
+import type { InternalModel } from 'pixi-live2d-display';
+import { Live2DModel, SoundManager } from 'pixi-live2d-display';
+import { HitAreaFrames } from 'pixi-live2d-display/extra';
 import { getRandomArrayItem, isNumber } from 'tianjie';
 
 import type { Events } from './events.js';
 import { MotionPreloadStrategy, WindowSizeType } from '../constants/index.js';
-import type { DefaultOptions, ModelOptions, PixiLive2dDisplayModule } from '../types/index.js';
+import type { DefaultOptions, ModelOptions } from '../types/index.js';
 import { getWindowSizeType } from '../utils/index.js';
 
 export class Models {
@@ -15,10 +16,9 @@ export class Models {
 
   constructor(
     private options: DefaultOptions,
-    private PixiLive2dDisplay: PixiLive2dDisplayModule,
     private events: Events
   ) {
-    this.hitAreaFrames = new PixiLive2dDisplay.HitAreaFrames();
+    this.hitAreaFrames = new HitAreaFrames();
   }
 
   get modelIndex(): number {
@@ -50,7 +50,7 @@ export class Models {
         modelPath = this.currentModelOptions.path[this.modelClothesIndex];
       }
 
-      this.model = this.PixiLive2dDisplay.Live2DModel.fromSync(modelPath, {
+      this.model = Live2DModel.fromSync(modelPath, {
         motionPreload: (this.currentModelOptions.motionPreloadStrategy as MotionPreloadStrategy) || MotionPreloadStrategy.IDLE,
         onError: () => {
           this.events.emit('load', 'fail');
@@ -92,7 +92,7 @@ export class Models {
 
     // 音量
     if (isNumber(this.currentModelOptions.volume)) {
-      this.PixiLive2dDisplay.SoundManager.volume = this.currentModelOptions.volume;
+      SoundManager.volume = this.currentModelOptions.volume;
     }
 
     // 设置锚点

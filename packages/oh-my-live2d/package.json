@@ -5,7 +5,8 @@
   "keywords": [
     "Live2D",
     "cubism2",
-    "cubism4"
+    "cubism5",
+    "Live2D Component"
   ],
   "homepage": "https://github.com/oh-my-live2d/oh-my-live2d#readme",
   "bugs": "https://github.com/oh-my-live2d/oh-my-live2d/issues",
@@ -36,7 +37,7 @@
   ],
   "scripts": {
     "build": "rimraf dist && tsc && vite build",
-    "dev": "rimraf dist && tsc && (concurrently \"tsc -w\" \"cross-env OML_ENV=dev vite build\")",
+    "dev": "vite build --watch",
     "release": "dotenv release-it"
   },
   "devDependencies": {
