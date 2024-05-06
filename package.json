@@ -7,6 +7,8 @@
     "build": "pnpm -r build",
     "changed": "lerna version --conventional-commits --create-release github",
     "changed:major": "lerna version major --conventional-commits --create-release github",
+    "demo": "pnpm -F oh-my-live2d run demo",
+    "demo:umd": "pnpm -F oh-my-live2d run demo:umd",
     "dev": "pnpm -F oh-my-live2d run dev",
     "docs:build": "pnpm build && node ./scripts/typedoc.js && pnpm -r docs:build",
     "docs:dev": "concurrently \"node ./scripts/typedoc.js -w\" \"pnpm -r docs:dev\"",
@@ -17,11 +19,7 @@
     "new-publish": "lerna publish from-package --yes",
     "prepare": "husky",
     "preview:new-version": "lerna version --dry-run",
-    "release": "lerna publish from-package --yes",
-    "test": "pnpm -F vite-app run test:dev",
-    "test:build": "pnpm -F vite-app run test:build",
-    "test:vue": "pnpm -F vue-app run test:dev",
-    "test:vuepress": "pnpm -F vuepress-app run docs:dev"
+    "release": "lerna publish from-package --yes"
   },
   "nano-staged": {
     "**/*": "prettier --write --ignore-unknown",

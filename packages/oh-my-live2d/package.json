@@ -38,7 +38,8 @@
   "scripts": {
     "build": "rimraf dist && tsc && vite build",
     "dev": "vite build --watch",
-    "release": "dotenv release-it"
+    "demo": "vite serve demo",
+    "demo:umd": "vite"
   },
   "devDependencies": {
     "compare-versions": "^6.1.0",
