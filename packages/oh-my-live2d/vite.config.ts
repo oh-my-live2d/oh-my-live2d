@@ -13,7 +13,6 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   define: {
     __VERSION__: JSON.stringify(project.version)
-    // __ENV__: JSON.stringify(OML_ENV)
   },
   build: {
     emptyOutDir: false,

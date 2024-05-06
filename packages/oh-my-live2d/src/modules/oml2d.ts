@@ -1,10 +1,10 @@
-import { PixiApp } from './application.js';
 import { Events } from './events.js';
 import { GlobalStyle } from './global-style.js';
 // import { LoadOhMyLive2D } from './load-oml2d.js';
 import { LoadOhMyLive2D } from './load-oml2d.js';
 import { Menus } from './menus.js';
 import { Models } from './models.js';
+import { PixiApp } from './pixi.js';
 import { Stage } from './stage.js';
 import { StatusBar } from './status-bar.js';
 import { Store } from './store.js';

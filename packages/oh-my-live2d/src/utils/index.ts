@@ -2,7 +2,7 @@ import { compare } from 'compare-versions';
 import { isNumber, mergeDeep } from 'tianjie';
 
 import { WindowSizeType } from '../constants/index.js';
-import type { CommonStyleType, LoadOml2dSDK, WordTheDayData } from '../types/common.js';
+import type { CommonStyleType, WordTheDayData } from '../types/common.js';
 import type { CSSProperties, DefaultOptions, ElementConfig, Options } from '../types/index.js';
 
 export * from './tips.js';
@@ -139,12 +139,6 @@ export const onChangeWindowSize = (fn: (windowSizeType: WindowSizeType) => void)
   });
 };
 
-// export const SDKExis = (id: string): boolean => {
-//   const el = document.getElementById(id);
-
-//   return !!el;
-// };
-
 export const destroyElement = (id: string): void => {
   const el = document.getElementById(id);
 
@@ -160,20 +154,20 @@ export const mergeOptions = (defaultOptions: DefaultOptions, options: Options): 
   return finalOptions as DefaultOptions;
 };
 
-export const loadOml2dSDK: LoadOml2dSDK = async (importType, libraryUrls) => {
-  await loadScript({
-    url: libraryUrls[importType]!,
-    id: `oml2d-${importType}`
-  });
+// export const loadOml2dSDK: LoadOml2dSDK = async (importType, libraryUrls) => {
+//   await loadScript({
+//     url: libraryUrls[importType]!,
+//     id: `oml2d-${importType}`
+//   });
 
-  window.PIXI.utils.skipHello();
+//   window.PIXI.utils.skipHello();
 
-  return {
-    PIXI: window.PIXI,
-    PixiLive2dDisplay: window.PIXI.live2d
-    // HitAreaFrames: window.PIXI.live2d.HitAreaFrames
-  };
-};
+//   return {
+//     PIXI: window.PIXI,
+//     PixiLive2dDisplay: window.PIXI.live2d
+//     // HitAreaFrames: window.PIXI.live2d.HitAreaFrames
+//   };
+// };
 
 export const handleDockedPosition = (position: 'left' | 'right', value: number = 0, reverse: boolean = false): CSSProperties => {
   switch (position) {

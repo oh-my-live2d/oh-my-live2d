@@ -27,6 +27,7 @@ export interface Options {
   /**
    * 导入类型, 这个选项的作用是从 libraryUrls 选项决定SDK加载地址, 默认使用全量导入: complete
    * @default complete
+   * @deprecated
    * @valueType complete | cubism2 | cubism5
    */
   importType?: ImportType;
@@ -39,19 +40,23 @@ export interface Options {
   /**
    * 自定义 Cubism SDK 外部资源地址, oh-my-live2d 会通过 script 标签的 src 属性来加载核心SDK文件, 这个加载是完全自动的, 您无需关心这个加载过程, 默认情况下您也无需修改此选项, 但当您发现SDK加载出现异常时您可以在此选项自定义自己的地址, 同时您可以在[此处](https://github.com/oh-my-live2d/oh-my-live2d/tree/main/packages/oh-my-live2d/lib)找到以下对应的3个SDK地址, 必要时您可以备份这些脚本文件
    * @valueType object
+   * @deprecated
    */
   libraryUrls?: {
     /**
      * 自定义全量SDK地址
+     * @deprecated
      */
     complete?: string;
     /**
      * 自定义 Cubism2 SDK 地址
+     * @deprecated
      */
     cubism2?: string;
 
     /**
      * 自定义 Cubism5 SDK 地址
+     * @deprecated
      */
     cubism5?: string;
   };

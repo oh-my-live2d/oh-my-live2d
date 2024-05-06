@@ -9,7 +9,6 @@ import {
 import type { DefaultOptions } from '../types/index.js';
 
 // 第三方库服务地址
-const libServicePath = 'https://lib.oml2d.com';
 
 // 默认配置选项, 实例化时会与用户传进来的合并
 export const DEFAULT_OPTIONS: DefaultOptions = {
@@ -21,9 +20,9 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   parentElement: document.body,
   importType: 'complete',
   libraryUrls: {
-    complete: `${libServicePath}/complete.js`,
-    cubism2: `${libServicePath}/cubism2.js`,
-    cubism5: `${libServicePath}/cubism5.js`
+    complete: ``,
+    cubism2: ``,
+    cubism5: ``
   },
   stageStyle: STAGE_DEFAULT_GLOBAL_STYLE,
   models: [],

@@ -8,6 +8,8 @@ export class PixiApp {
   app: ApplicationType;
   constructor(private stage: Stage) {
     window.PIXI = PIXI;
+    window.PIXI.utils.skipHello();
+
     this.app = new PIXI.Application({
       view: this.stage.canvasElement,
       resolution: 2,
