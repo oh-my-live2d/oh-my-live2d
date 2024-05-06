@@ -90,6 +90,7 @@ export class Models {
       this.addHitAreaFrames();
     }
 
+    console.log(this.currentModelOptions.volume);
     // 音量
     if (isNumber(this.currentModelOptions.volume)) {
       SoundManager.volume = this.currentModelOptions.volume;

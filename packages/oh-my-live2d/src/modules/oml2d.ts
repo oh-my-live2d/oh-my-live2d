@@ -1,6 +1,5 @@
 import { Events } from './events.js';
 import { GlobalStyle } from './global-style.js';
-// import { LoadOhMyLive2D } from './load-oml2d.js';
 import { LoadOhMyLive2D } from './load-oml2d.js';
 import { Menus } from './menus.js';
 import { Models } from './models.js';
@@ -29,8 +28,6 @@ export class OhMyLive2D {
   constructor(
     private globalOml2d: LoadOhMyLive2D,
     private events: Events
-    // private PIXI: PixiModule,
-    // private PixiLive2dDisplay: PixiLive2dDisplayModule
   ) {
     this.options = this.globalOml2d.options;
     this.globalStyle = new GlobalStyle(this.options);

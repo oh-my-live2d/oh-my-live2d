@@ -13,27 +13,40 @@ const foo = async () => {
     primaryColor: 'pink',
 
     models: [
+      {
+        path: 'https://model.oml2d.com/shizuku/shizuku.model.json',
+        scale: 0.2,
+        // volume: 0,
+        position: [70, 70],
+        // volume: 0.5,
+        showHitAreaFrames: true,
+        stageStyle: {
+          height: 370,
+          width: 400
+        }
+      },
+
       // {
       //   rotation: 30,
       //   path: '/models/Pio/model.json',
       //   motionPreloadStrategy: 'ALL', showHitAreaFrames: true,
       //   scale: 0.4
       // },
-      {
-        name: 'shizuku',
-        path: [
-          'https://cdn.jsdelivr.net/gh/kisssssssss/model/live2d/Azur/dafeng_2/dafeng_2.model3.json',
-          'https://cdn.jsdelivr.net/gh/kisssssssss/model/live2d/Azur/dafeng_4/dafeng_4.model3.json'
-        ],
-        // rotation: 360,
-        // anchor: [0.5, 0.1],
-        motionPreloadStrategy: 'ALL',
-        volume: 0
-      },
-      {
-        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
-        mobileScale: 0.08
-      },
+      // {
+      //   name: 'shizuku',
+      //   path: [
+      //     'https://cdn.jsdelivr.net/gh/kisssssssss/model/live2d/Azur/dafeng_2/dafeng_2.model3.json',
+      //     'https://cdn.jsdelivr.net/gh/kisssssssss/model/live2d/Azur/dafeng_4/dafeng_4.model3.json'
+      //   ],
+      //   // rotation: 360,
+      //   // anchor: [0.5, 0.1],
+      //   motionPreloadStrategy: 'ALL',
+      //   volume: 0
+      // },
+      // {
+      //   path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+      //   mobileScale: 0.08
+      // },
       {
         path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Pio/model.json',
         scale: 0.4,

@@ -2,6 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 
 import project from './package.json';
 
@@ -15,7 +16,7 @@ export default defineConfig({
     __VERSION__: JSON.stringify(project.version)
   },
   build: {
-    emptyOutDir: false,
+    emptyOutDir: true,
     lib: {
       name: 'OML2D',
       formats: ['es', 'umd'],
@@ -29,7 +30,13 @@ export default defineConfig({
     //     chunkFileNames: 'oml2d.app.js'
     //   }
     // }
-  }
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  },
+  plugins: [dts()]
   // plugins: [
   //   cp({
   //     targets: [{ src: './dist/index.min.js', dest: '../../tests/vite-app/public' }]
