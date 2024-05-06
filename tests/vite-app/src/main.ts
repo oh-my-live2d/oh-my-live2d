@@ -2,13 +2,12 @@ import { loadOml2d } from 'oh-my-live2d';
 
 import typescriptLogo from './typescript.svg';
 import './style.css';
-import '//at.alicdn.com/t/c/font_2679099_hchompi0roq.js';
 
 const foo = async () => {
   const oml2d = await loadOml2d({
     // parentElement: el,
-    // importType: 'complete',
     // dockedPosition: 'right',
+
     mobileDisplay: false,
     primaryColor: 'pink',
 
@@ -16,10 +15,8 @@ const foo = async () => {
       {
         path: 'https://model.oml2d.com/shizuku/shizuku.model.json',
         scale: 0.2,
-        // volume: 0,
         position: [70, 70],
-        // volume: 0.5,
-        showHitAreaFrames: true,
+        showHitAreaFrames: false,
         stageStyle: {
           height: 370,
           width: 400
