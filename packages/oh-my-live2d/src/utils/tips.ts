@@ -1,4 +1,4 @@
-import type { WelcomeTipesType } from '@/types/index.js';
+import type { WelcomeTipesType } from '../types/index.js';
 
 export const getWelcomeMessage = function (tipsConfig: WelcomeTipesType) {
   const { message } = tipsConfig;
