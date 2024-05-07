@@ -2,9 +2,9 @@
 
 当您需要加载模型时, 您可以在 `oh-my-live2d` 中导入`loadOml2d` 方法, 当这个方法被调用时将根据您传入的[配置选项](/options/Options)来加载组件, 该方法返回一个实例对象, 您可以从 `oml2d` 这个实例对象中调用其中所有方法.
 
-- 为了方便您理解`loadOml2d`方法调用时发生了什么, 这里提供了一个完整的生命周期描述图供您参考:
+<!-- - 为了方便您理解`loadOml2d`方法调用时发生了什么, 这里提供了一个完整的生命周期描述图供您参考:
 
-![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E6%97%A0%E6%A0%87%E9%A2%98-2024-03-24-1330.png)
+![](https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/%E6%97%A0%E6%A0%87%E9%A2%98-2024-03-24-1330.png) -->
 
 ## 基本使用
 

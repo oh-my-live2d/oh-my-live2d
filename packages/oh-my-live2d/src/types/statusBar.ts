@@ -1,7 +1,9 @@
 import { CommonStyleType } from './common.js';
 
 /**
- * @name 状态条选项
+ * 自定义状态条样式以及不同状态的文本和颜色
+ * @usage
+ * <<< @/usages/options.ts#StatusBarOptions
  */
 export interface StatusBarOptions {
   /**
@@ -68,13 +70,11 @@ export interface StatusBarOptions {
 
   /**
    * 配置状态条样式
-   * @valueType object
    */
   style?: CommonStyleType;
 
   /**
    * 移动端下状态条样式
-   * @valueType object
    */
   mobileStyle?: CommonStyleType;
 }

@@ -1,7 +1,9 @@
 import { CommonStyleType } from '../types/common.js';
 
 /**
- * @name 模型选项
+ * 模型选项接收一个有模型选项对象组成的数组, 您可以通过这个选项来配置模型地址来源以及缩放比例、舞台大小等
+ * @usage
+ * <<< @/usages/options.ts#ModelOptions
  */
 export interface ModelOptions {
   /**
@@ -14,7 +16,6 @@ export interface ModelOptions {
   showHitAreaFrames?: boolean;
   /**
    * 模型的 json 文件 url 地址, 必填项, 当 path 为数组时, 表示该模型有一系列皮肤可以切换
-   * @valueType string | string[]
    */
   path: string | string[];
   /**
@@ -31,7 +32,6 @@ export interface ModelOptions {
 
   /**
    * 设置模型在舞台中的锚点位置
-   * @valueType [x: number, y: number]
    * @default [0,0]
    */
   anchor?: [x: number, y: number];
@@ -39,14 +39,12 @@ export interface ModelOptions {
   /**
    * 模型在舞台中的位置。x: 横坐标, y: 纵坐标
    *
-   * @valueType [x: number, y:number]
    * @default [0,0]
    */
   position?: [x: number, y: number];
 
   /**
    * 定义舞台样式, 支持传入CSS对象, 传入的样式将通过内联样式作用于舞台元素, 舞台的默认宽高将自适应模型的宽高, 舞台内Canvas元素的宽高始终与舞台保持一致
-   * @valueType object
    */
   stageStyle?: CommonStyleType;
 
@@ -58,20 +56,17 @@ export interface ModelOptions {
 
   /**
    * 移动端时模型在舞台中的位置。x: 横坐标, y: 纵坐标
-   * @valueType [x: number, y:number]
    * @default [0,0]
    */
   mobilePosition?: [x: number, y: number];
 
   /**
    * 移动端时舞台的样式, 支持传入CSS对象, 传入的样式将通过内联样式作用于舞台元素, 舞台的默认宽高将自适应模型的宽高, 舞台内Canvas元素的宽高始终与舞台保持一致
-   * @valueType object
    */
   mobileStageStyle?: CommonStyleType;
 
   /**
    * 动作预加载策略
-   * @valueType ALL | IDLE | NONE
    * @default IDLE
    */
   motionPreloadStrategy?: 'ALL' | 'IDLE' | 'NONE';

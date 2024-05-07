@@ -1,33 +1,48 @@
 import type { CommonStyleType, WordTheDayData } from '../types/common.js';
 
 /**
+ * 配置提示框样式和消息内容, 与菜单选项一样支持您传入选项对象或者返回选项对象的函数, 如果它是一个函数, 则会在模型每次加载成功时被调用, 调用时会传入当前模型选项以及当前模型的索引值, 这样您就可以根据这些信息来做判断, 为不同的模型提供不同的选项
+ * @usage
+ * #### 基础用法:
+ * <<< @/usages/options.ts#TipsOptionsBasic
  *
- * @name 提示框选项
+ * #### 为不同模型提供不同的提示配置:
+ * 支持使用函数, 每当模型加载成功后函数就会被调用, 回调时会传入当前模型配置以及索引方便您根据这些信息来做判断, 返回类型为菜单选项
+ *
+ * - 判断模型索引值:
+ *
+ * ::: details 点击查看代码
+ * <<< @/usages/options.ts#TipsOptionsAdvanced-1
+ * :::
+ *
+ * - 判断模型名称:
+ * 您还可以根据当前模型的选项值来判断, 当您选择使用这个方法时, 推荐您为每个模型命名, 之后您就可以在函数中拿到当前模型的名称, 方便后续判断:
+ * ::: details 点击查看代码
+ * <<< @/usages/options.ts#TipsOptionsAdvanced-2
+ * :::
+ *
  */
 export interface TipsOptions {
   /**
    * 提示消息限制展示的行数, 默认3行, 超出将会在消息结尾加上省略号
-   * @default 3
+   * @defaultValue 3
    */
   messageLine?: number;
   /**
    *
    * 定义提示框内联样式, 支持传入CSS对象, 提示框的默认情况下, 始终与舞台保持水平居中, 默认宽度为舞台的60%, 最小高度为 100px, 内容默认垂直水平居中.
    *
-   * @valueType object
    */
   style?: CommonStyleType;
 
   /**
    *
    * 移动端时的提示框的内联样式, 支持传入CSS对象, 提示框的默认情况下, 始终与舞台保持水平居中, 默认宽度为舞台的60%, 最小高度为 100px, 内容默认垂直水平居中.
-   * @valueType object
    */
   mobileStyle?: CommonStyleType;
   /**
    * 闲置状态下的提示
    *
-   * @valueType object
    */
   idleTips?: {
     /**
@@ -52,7 +67,6 @@ export interface TipsOptions {
      *
      * :::
      * @default false
-     * @valueType boolean | ((wordTheDayData: WordTheDayData) => string)
      */
     wordTheDay?: boolean | ((wordTheDayData: WordTheDayData) => string);
 
@@ -76,19 +90,10 @@ export interface TipsOptions {
      */
     interval?: number;
 
-    /**
-     * 闲置时播放的消息内容, 可以是字符串数组也可以是一个返回类型为 string 的异步函数.
-     * 当为 message 为数组时会从中随机取出一条进行提示, 当 message 为异步函数时会在定时器同步执行这个函数并使用这个函数的返回值进行提示, 空数组则不播放, 默认为空数组.
-     * 但当 wordTheDay 开启时, 将接管 message 的值
-     *
-     * @valueType string[] | (() => Promise<string>)
-     * @default []
-     */
     message?: string[] | (() => Promise<string>);
   };
   /**
    * 模型入场后的欢迎提示
-   * @valueType object
    *
    */
   welcomeTips?: {
@@ -109,7 +114,6 @@ export interface TipsOptions {
     /**
      * 播放的消息内容, 每个时段播放对应消息内容
      *
-     * @valueType object
      */
     message?: {
       /**
@@ -190,7 +194,6 @@ export interface TipsOptions {
     /**
      * 播放的消息内容, 需要是一个字符串数组, 播放时会从中随机取出一条进行提示, 空数组则不播放
      *
-     * @valueType string[]
      * @default ['你复制了什么内容呢?记得注明出处哦~']
      */
     message?: string[];
