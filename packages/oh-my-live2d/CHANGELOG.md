@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.19.0...v0.19.1) (2024-05-08)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 修复pixi报错 ([8bce38f](https://github.com/oh-my-live2d/oh-my-live2d/commit/8bce38f27ff691a23178c4937ad546c3730c3a01)) by.@Hacxy
+
 ## [0.19.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.18.0...v0.19.0) (2024-05-08)
 
 ### ✨ Features | 新功能
