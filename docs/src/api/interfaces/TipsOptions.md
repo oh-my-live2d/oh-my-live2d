@@ -24,7 +24,7 @@
   <<< @/usages/options.ts#TipsOptionsAdvanced-2
   :::
 
-## 属性:
+## 选项:
 
 ### copyTips?
 

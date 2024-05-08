@@ -6,7 +6,7 @@
 
 <<< @/usages/options.ts#ModelOptions
 
-## 属性:
+## 选项:
 
 ### anchor?
 

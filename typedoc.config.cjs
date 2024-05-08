@@ -11,14 +11,18 @@ module.exports = {
   disableSources: true,
   name: 'oh-my-live2d',
   typeDeclarationFormat: 'list',
-  parametersFormat: 'list',
+  parametersFormat: 'table',
+  // expandObjects: true,
+  outputFileStrategy: 'members',
+  // flattenOutputFiles: true,
   textContentMappings: {
     'label.name': '',
-    'label.returns': '返回值类型',
+    'label.returns': '返回值类型:',
     'label.source': '查看源码',
     'label.extends': '继承',
     'label.implements': '实现',
     'label.type': '类型',
+    'label.description': '描述',
     'label.typeDeclaration': '类型',
     'kind.typeAlias.plural': '类型别名',
     'kind.typeAlias.singular': '类型别名',
@@ -32,7 +36,7 @@ module.exports = {
     'kind.function.plural': '函数',
     'kind.function.singular': '函数',
     'kind.parameter.singular': '参数',
-    'kind.parameter.plural': '参数',
+    'kind.parameter.plural': '参数:',
     'label.defaultValue': '默认值'
   }
 };

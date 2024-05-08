@@ -4,7 +4,7 @@
 
 <<< @/usages/options.ts#options
 
-## 属性:
+## 选项:
 
 ### dockedPosition?
 
@@ -24,14 +24,14 @@ left;
 
 ### ~~importType?~~
 
-> `optional` **importType**: `ImportType`
+> `optional` **importType**: `string`
 
 导入类型, 这个选项的作用是从 libraryUrls 选项决定SDK加载地址, 默认使用全量导入: complete
 
 #### 默认值:
 
 ```ts
-complete;
+'complete';
 ```
 
 #### 已弃用:
@@ -86,7 +86,7 @@ sdk已内置,该选项已弃用,将在下个版本移除
 
 > `optional` **menus**: [`MenusOptions`](MenusOptions.md) \| (`currentModel`, `modelIndex`) => [`MenusOptions`](MenusOptions.md)
 
-菜单配置, 详见: [菜单选项](/options/MenusOptions)
+菜单配置, 详见: [菜单选项](./MenusOptions)
 
 ---
 
@@ -110,7 +110,7 @@ false;
 
 模型选项, 类型是模型配置对象组成的数组, 默认值是空数组
 
-详见: [模型选项](/options/ModelOptions)
+详见: [模型选项](./ModelOptions)
 
 #### 默认值:
 
@@ -143,7 +143,7 @@ document.body;
 #### 默认值:
 
 ```ts
-#38B0DE
+'#38B0DE';
 ```
 
 ---
@@ -174,7 +174,7 @@ true;
 
 > `optional` **statusBar**: [`StatusBarOptions`](StatusBarOptions.md)
 
-状态条选项, 详见: [状态条选项](/options/StatusBarOptions)
+状态条选项, 详见: [状态条选项](./StatusBarOptions)
 
 ---
 
@@ -182,7 +182,7 @@ true;
 
 > `optional` **tips**: [`TipsOptions`](TipsOptions.md) \| (`currentModel`, `modelIndex`) => [`TipsOptions`](TipsOptions.md)
 
-自定义提示框样式和内容, 前往[提示框选项](/options/TipsOptions)查看详细内容
+自定义提示框样式和内容, 前往[提示框选项](./TipsOptions)查看详细内容
 
 ---
 

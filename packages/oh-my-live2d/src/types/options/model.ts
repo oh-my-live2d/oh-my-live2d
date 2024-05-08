@@ -1,4 +1,4 @@
-import { CommonStyleType } from '../types/common.js';
+import { CommonStyleType } from '../common.js';
 
 /**
  * 模型选项接收一个有模型选项对象组成的数组, 您可以通过这个选项来配置模型地址来源以及缩放比例、舞台大小等

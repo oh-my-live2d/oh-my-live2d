@@ -66,7 +66,7 @@ export default defineConfig({
     //   text: '去 GitHub 上编辑内容'
     // },
     sidebar: {
-      '/api': [
+      '/api/interfaces': [
         {
           text: '配置选项',
           items: [
@@ -88,10 +88,27 @@ export default defineConfig({
               link: '/api/interfaces/StatusBarOptions'
             }
           ]
+        },
+        {
+          text: '实例对象',
+          items: [
+            {
+              text: '属性',
+              link: '/api/interfaces/Oml2dProperties'
+            },
+            {
+              text: '方法',
+              link: '/api/interfaces/Oml2dMethods'
+            },
+            {
+              text: '事件',
+              link: '/api/interfaces/Oml2dEvents'
+            }
+          ]
         }
       ],
       // '/options': sidebarData,
-      '/guide': [
+      '/': [
         {
           text: '简介',
           items: [
@@ -99,9 +116,13 @@ export default defineConfig({
               text: '快速入门',
               link: '/guide/'
             },
+            // {
+            //   text: '加载模型',
+            //   link: '/guide/loadModel'
+            // },
             {
-              text: '加载模型',
-              link: '/guide/loadModel'
+              text: '组件加载',
+              link: '/api/functions/loadOml2d'
             },
             {
               text: '自定义图标',

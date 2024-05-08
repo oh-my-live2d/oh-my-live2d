@@ -1,5 +1,5 @@
 import { StoreModelInfo } from '../types/common.js';
-import { ModelOptions } from '../types/model.js';
+import { ModelOptions } from '../types/index.js';
 
 export class Store {
   setModelInfo(value: StoreModelInfo): void {

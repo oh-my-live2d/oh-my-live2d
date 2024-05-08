@@ -1,4 +1,4 @@
-import { CommonStyleType, Item } from './common.js';
+import { CommonStyleType, Item } from '../common.js';
 
 /**
  * 菜单选项不仅支持传入一个对象, 还支持您传入一个返回选项对象的函数, 如果它是一个函数, 则会在模型每次加载成功时被调用, 调用时会传入当前模型选项以及当前模型的索引值, 这样您就可以根据这些信息来做判断, 为不同的模型提供不同的选项.
@@ -44,27 +44,6 @@ export interface MenusOptions {
    *   - 类型: ([oml2d](/guide/loadModel#oml2d-实例)) => void
    *   - 必须: 否
    *   - 描述: 定义菜单项点击事件, 函数中可以通过参数获取到[oml2d对象示例](/guide/loadModel#oml2d-实例), 方便您定制更多功能
-   *
-   * 如果您不想完全覆盖默认的菜单项, 则可以传入一个函数, 从函数中可以拿到默认菜单项的配置,并返回 Item[] 供您按需添加:
-   * ```ts
-   *   loadOml2d({
-   *      menus: {
-   *        items: (defaultItems) => {
-   *           return [
-   *             defaultItems[0],
-   *             defaultItems[1],
-   *            {
-   *              id: 'github'
-   *              title: '我的github'
-   *              icon: 'github-fill'
-   *              onClick: () => window.open('https://github.com/hacxy');
-   *            }
-   *          ]
-   *        }
-   *      }
-   *   })
-   *
-   * ```
    */
   items?: Item[] | ((defaultItems: Item[]) => Item[]);
 

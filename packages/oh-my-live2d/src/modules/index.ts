@@ -1,73 +1,14 @@
 import { OhMyLive2D } from './oml2d.js';
-import { CommonStyleType } from '../types/common.js';
 import type { Options } from '../types/index.js';
-import { IOml2d, IOml2dEvents } from '../types/oml2d.js';
-import { handleCommonStyle } from '../utils/index.js';
+import type { Oml2dEvents, Oml2dMethods, Oml2dProperties } from '../types/oml2d/index.js';
 
-export const loadOml2d = (options: Options): IOml2d & IOml2dEvents => {
+/**
+ * 当您需要加载模型时, 您可以在 oh-my-live2d 中导入loadOml2d 方法, 当这个方法被调用时将根据您传入的配置选项来加载组件, 该方法返回一个实例对象, 您可以从 oml2d 这个实例对象中调用其中所有方法.
+ * @param options - 配置选项
+ * @returns 返回值是一个 oml2d 实例对象, 该实例对象中包含了对组件模块操作的所有方法和事件
+ */
+export const loadOml2d = (options: Options): Oml2dProperties & Oml2dMethods & Oml2dEvents => {
   const oml2d = new OhMyLive2D(options);
 
-  return {
-    version: oml2d.version,
-    modelIndex: oml2d.modelIndex,
-    options: oml2d.options,
-    tipsMessage: (message: string, duration?: number, priority?: number) => {
-      oml2d?.tips.notification(message, duration, priority);
-    },
-
-    loadNextModel: () => oml2d.loadNextModel(),
-    reloadModel: () => oml2d.reloadModel(),
-    stageSlideIn: () => oml2d.stage.slideIn(),
-    stageSlideOut: () => oml2d.stage.slideOut(),
-    setStageStyle: (style: CommonStyleType) => {
-      oml2d?.stage.setStyle(handleCommonStyle(style));
-      oml2d?.pixiApp?.resize();
-    },
-    setModelPosition: (position) => {
-      const { x, y } = position;
-
-      oml2d?.models.setPosition(x, y);
-    },
-    setModelScale: (scale) => {
-      oml2d.models.setScale(scale);
-    },
-    showModelHitAreaFrames: () => {
-      oml2d.models.addHitAreaFrames();
-    },
-    hideModelHitAreaFrames: () => {
-      oml2d.models.removeHitAreaFrames();
-    },
-    loadNextModelClothes: () => oml2d.loadNextModelClothes(),
-    statusBarClose: () => {
-      oml2d.statusBar.close();
-    },
-    statusBarOpen: () => {
-      oml2d.statusBar.open();
-    },
-    startTipsIdle: () => {
-      oml2d.tips.idlePlayer?.start();
-    },
-    stopTipsIdle: () => {
-      oml2d.tips.idlePlayer?.stop();
-    },
-    clearTips: () => {
-      oml2d.tips.clear();
-    },
-    statusBarClearEvents: () => {
-      oml2d?.statusBar.clearClickEvent();
-      oml2d?.statusBar.clearHoverEvent();
-    },
-    statusBarPopup: (content?: string, delay?: number, color?: string) => {
-      oml2d.statusBar.popup(content, delay, color);
-    },
-    setStatusBarClickEvent: (fn) => {
-      oml2d.statusBar.setClickEvent(fn);
-    },
-    setStatusBarHoverEvent: (events) => {
-      oml2d.statusBar.setHoverEvent(events);
-    },
-    onLoad: (fn) => oml2d.events.add('load', fn),
-    onStageSlideIn: (fn) => oml2d.events.add('stageSlideIn', fn),
-    onStageSlideOut: (fn) => oml2d.events.add('stageSlideOut', fn)
-  };
+  return oml2d;
 };

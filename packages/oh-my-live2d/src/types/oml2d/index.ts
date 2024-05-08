@@ -1,18 +1,17 @@
-// import { EventFn } from './events.js';
-import { DefaultOptions } from './index.js';
+import { DefaultOptions } from '../index.js';
 
-// export interface OML2D extends IOml2d, IOml2dEvents {}
-
-export interface IOml2d {
+export interface Oml2dProperties {
   /**
-   * 组件版本号
+   * 组件当前版本号
    */
   version: string;
   /**
    * 当前模型的索引值
    */
   modelIndex: number;
+}
 
+export interface Oml2dMethods {
   /**
    * 配置选项, 用户传入选项与默认选项合并之后的值
    */
@@ -132,7 +131,7 @@ export interface IOml2d {
   loadNextModelClothes: () => Promise<void>;
 }
 
-export interface IOml2dEvents {
+export interface Oml2dEvents {
   onLoad: (fn: (status: 'loading' | 'success' | 'fail') => void | Promise<void>) => void | Promise<void>;
   onStageSlideIn: (fn: () => void | Promise<void>) => void | Promise<void>;
   onStageSlideOut: (fn: () => void | Promise<void>) => void | Promise<void>;

@@ -1,4 +1,4 @@
-import { CommonStyleType } from './common.js';
+import { CommonStyleType } from '../common.js';
 
 /**
  * 自定义状态条样式以及不同状态的文本和颜色
@@ -14,36 +14,36 @@ export interface StatusBarOptions {
 
   /**
    * 加载时的提示文本
-   * @default 加载中
+   * @default '加载中'
    */
   loadingMessage?: string;
   /**
    * 模型加载成功时提示的文本信息
-   * @default 加载成功
+   * @default '加载成功'
    */
   loadSuccessMessage?: string;
 
   /**
    * 模型加载失败时提示的文本信息
-   * @default 加载失败
+   * @default '加载失败'
    */
   loadFailMessage?: string;
 
   /**
    * 加载失败hover事件时模型重新加载文本信息
-   * @default 重新加载
+   * @default '重新加载'
    */
   reloadMessage?: string;
 
   /**
    * 模型休息状态时提示的文本信息
-   * @default 看板娘休息中
+   * @default '看板娘休息中'
    */
   restMessage?: string;
 
   /**
    * 模型切换时提示的文本信息
-   * @default 正在切换
+   * @default '正在切换'
    */
   switchingMessage?: string;
   /**

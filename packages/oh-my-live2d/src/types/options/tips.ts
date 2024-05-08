@@ -1,4 +1,4 @@
-import type { CommonStyleType, WordTheDayData } from '../types/common.js';
+import type { CommonStyleType, WordTheDayData } from '../common.js';
 
 /**
  * 配置提示框样式和消息内容, 与菜单选项一样支持您传入选项对象或者返回选项对象的函数, 如果它是一个函数, 则会在模型每次加载成功时被调用, 调用时会传入当前模型选项以及当前模型的索引值, 这样您就可以根据这些信息来做判断, 为不同的模型提供不同的选项

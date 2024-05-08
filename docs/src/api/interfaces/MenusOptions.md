@@ -21,7 +21,7 @@
   <<< @/usages/options.ts#MenuOptionsAdvanced-2{5,9,13}
   :::
 
-## 属性:
+## 选项:
 
 ### disable?
 
@@ -69,28 +69,6 @@ false;
   - 类型: ([oml2d](/guide/loadModel#oml2d-实例)) => void
   - 必须: 否
   - 描述: 定义菜单项点击事件, 函数中可以通过参数获取到[oml2d对象示例](/guide/loadModel#oml2d-实例), 方便您定制更多功能
-
-如果您不想完全覆盖默认的菜单项, 则可以传入一个函数, 从函数中可以拿到默认菜单项的配置,并返回 Item[] 供您按需添加:
-
-```ts
-  loadOml2d({
-     menus: {
-       items: (defaultItems) => {
-          return [
-            defaultItems[0],
-            defaultItems[1],
-           {
-             id: 'github'
-             title: '我的github'
-             icon: 'github-fill'
-             onClick: () => window.open('https://github.com/hacxy');
-           }
-         ]
-       }
-     }
-  })
-
-```
 
 ---
 

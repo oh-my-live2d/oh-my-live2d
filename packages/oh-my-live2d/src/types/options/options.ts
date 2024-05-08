@@ -1,10 +1,8 @@
-import type { CommonStyleType } from './common.js';
 import type { MenusOptions } from './menus.js';
 import type { ModelOptions } from './model.js';
 import type { StatusBarOptions } from './statusBar.js';
 import type { TipsOptions } from './tips.js';
-
-import type { ImportType } from './index.js';
+import type { CommonStyleType } from '../common.js';
 
 /**
  *
@@ -27,14 +25,14 @@ export interface Options {
   mobileDisplay?: boolean;
   /**
    * 导入类型, 这个选项的作用是从 libraryUrls 选项决定SDK加载地址, 默认使用全量导入: complete
-   * @default complete
+   * @default 'complete'
    * @deprecated sdk已内置,该选项将在下个版本移除此选项
    */
-  importType?: ImportType;
+  importType?: string;
 
   /**
    * 定义主题色, 影响所有模块
-   * @default #38B0DE
+   * @default '#38B0DE'
    */
   primaryColor?: string;
   /**
@@ -76,24 +74,24 @@ export interface Options {
   /**
    * 模型选项, 类型是模型配置对象组成的数组, 默认值是空数组
    *
-   * 详见: [模型选项](/options/ModelOptions)
+   * 详见: [模型选项](./ModelOptions)
    * @default []
    */
   models?: ModelOptions[];
 
   /**
-   * 自定义提示框样式和内容, 前往[提示框选项](/options/TipsOptions)查看详细内容
+   * 自定义提示框样式和内容, 前往[提示框选项](./TipsOptions)查看详细内容
    *
    */
   tips?: TipsOptions | ((currentModel: ModelOptions, modelIndex: number) => TipsOptions);
 
   /**
-   * 状态条选项, 详见: [状态条选项](/options/StatusBarOptions)
+   * 状态条选项, 详见: [状态条选项](./StatusBarOptions)
    */
   statusBar?: StatusBarOptions;
 
   /**
-   * 菜单配置, 详见: [菜单选项](/options/MenusOptions)
+   * 菜单配置, 详见: [菜单选项](./MenusOptions)
    */
   menus?: MenusOptions | ((currentModel: ModelOptions, modelIndex: number) => MenusOptions);
 
@@ -109,8 +107,3 @@ export interface Options {
    */
   initialStatus?: 'sleep' | 'active';
 }
-
-export * from './model.js';
-export * from './tips.js';
-export * from './statusBar.js';
-export * from './menus.js';

@@ -1,6 +1,5 @@
 import { Events } from './events.js';
 import { GlobalStyle } from './global-style.js';
-// import { LoadOhMyLive2D } from './load-oml2d.js';
 import { Menus } from './menus.js';
 import { Models } from './models.js';
 import { PixiApp } from './pixi.js';
@@ -12,9 +11,9 @@ import { DEFAULT_OPTIONS } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import { CommonStyleType } from '../types/common.js';
 import { EventFn, LoadEventFn } from '../types/events.js';
-import type { DefaultOptions, Options } from '../types/index.js';
-// import { OML2D } from '../types/oml2d.js';
-import { IOml2d, IOml2dEvents } from '../types/oml2d.js';
+import type { DefaultOptions } from '../types/index.js';
+import { Oml2dEvents, Oml2dMethods, Oml2dProperties } from '../types/oml2d/index.js';
+import type { Options } from '../types/options/index.js';
 import {
   checkVersion,
   getRandomIndex,
@@ -25,7 +24,7 @@ import {
   printProjectInfo
 } from '../utils/index.js';
 
-export class OhMyLive2D implements IOml2d, IOml2dEvents {
+export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   store: Store;
   globalStyle: GlobalStyle;
   stage: Stage;
@@ -34,14 +33,13 @@ export class OhMyLive2D implements IOml2d, IOml2dEvents {
   menus: Menus;
   models: Models;
   pixiApp?: PixiApp;
-  currentModelIndex: number = 0;
+  private currentModelIndex: number = 0;
   currentModelClothesIndex: number = 0;
   version = __VERSION__;
   options: DefaultOptions;
   events: Events;
 
   constructor(options: Options) {
-    // this.options = this.globalOml2d.options;
     this.events = new Events();
     this.options = mergeOptions(DEFAULT_OPTIONS, options);
     this.globalStyle = new GlobalStyle(this.options);
@@ -55,13 +53,25 @@ export class OhMyLive2D implements IOml2d, IOml2dEvents {
     this.modelClothesIndex = this.store.getModelClothesIndex();
     this.initialize();
   }
+
+  /**
+   * 显示模型的 hit area 区域
+   */
   showModelHitAreaFrames() {
     this.models.removeHitAreaFrames();
   }
 
+  /**
+   * 隐藏模型的 hit area 区域
+   */
   hideModelHitAreaFrames() {
     this.models.addHitAreaFrames();
   }
+
+  /**
+   * 设置模型缩放比例
+   * @param scale 缩放比例
+   */
   setModelScale(scale: number) {
     this.models.setScale(scale);
   }
@@ -276,7 +286,7 @@ export class OhMyLive2D implements IOml2d, IOml2dEvents {
   }
 
   // 初始化
-  initialize(): void {
+  private initialize(): void {
     // 检查版本
     void checkVersion();
 

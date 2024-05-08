@@ -4,8 +4,7 @@ import { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
 import { CommonStyleType } from '../types/common.js';
 import type { EventFn } from '../types/events.js';
-import { DefaultOptions } from '../types/index.js';
-import { ModelOptions } from '../types/options.js';
+import { DefaultOptions, ModelOptions } from '../types/index.js';
 import { handleCommonStyle } from '../utils/index.js';
 
 export class LoadOhMyLive2D {

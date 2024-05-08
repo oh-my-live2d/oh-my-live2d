@@ -18,9 +18,9 @@ export default {
           {
             path: 'https://model.oml2d.com/HK416-1-normal/model.json',
             position: [0, 60],
-            scale: 0.08,
+            scale: 0.06,
             stageStyle: {
-              height: 450
+              height: 340
             }
           },
           {

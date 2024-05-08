@@ -1,4 +1,4 @@
-import { IOml2d } from './oml2d.js';
+import { Oml2dEvents, Oml2dMethods, Oml2dProperties } from './oml2d/index.js';
 
 import type { CSSProperties, ImportType, LibraryUrls, PixiLive2dDisplayModule, PixiModule } from './index.js';
 
@@ -49,5 +49,5 @@ export type Item = {
   id: string;
   icon: string;
   title: string;
-  onClick?: ((oml2d: IOml2d) => void) | ((oml2d: IOml2d) => Promise<void>);
+  onClick?: (oml2d: Oml2dProperties & Oml2dMethods & Oml2dEvents) => Promise<void> | void;
 };
