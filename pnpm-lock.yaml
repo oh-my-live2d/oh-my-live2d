@@ -110,10 +110,10 @@ importers:
         version: 3.1.3
       pixi-live2d-display:
         specifier: 0.4.0
-        version: 0.4.0(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/loaders@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
+        version: 0.4.0(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/loaders@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
       pixi.js:
-        specifier: 6.5.2
-        version: 6.5.2
+        specifier: 6.5.10
+        version: 6.5.10
       vite:
         specifier: 5.2.11
         version: 5.2.11(@types/node@20.11.24)(sass@1.71.1)
@@ -818,258 +818,266 @@ packages:
   '@octokit/types@12.6.0':
     resolution: {integrity: sha512-1rhSOfRa6H9w4YwK0yrf5faDaDTb+yLyBUKOCV4xtCDB5VmIPqd/v9yr9o6SAzOAlRxMiRiCic6JVM1/kunVkw==}
 
-  '@pixi/accessibility@6.5.2':
-    resolution: {integrity: sha512-iA/0NlhdugsDiOlJjINkNLmGALh+irwEKNPMJuyPctHsnb/WCmsr1hPNMYUDHbqwU20zWg9//JsYe0ali/3Cdw==}
+  '@pixi/accessibility@6.5.10':
+    resolution: {integrity: sha512-URrI1H+1kjjHSyhY1QXcUZ8S3omdVTrXg5y0gndtpOhIelErBTC9NWjJfw6s0Rlmv5+x5VAitQTgw9mRiatDgw==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/app@6.5.2':
-    resolution: {integrity: sha512-y/d+d9M668fa2ztY16C6xkiYACqZu59f6FOkaIzqClwRz7Ws7xGe6llFUa5d3vN/J/O1l4SyPOlPFjSflj3aOg==}
+  '@pixi/app@6.5.10':
+    resolution: {integrity: sha512-VsNHLajZ5Dbc/Zrj7iWmIl3eu6Fec+afjW/NXXezD8Sp3nTDF0bv5F+GDgN/zSc2gqIvPHyundImT7hQGBDghg==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/compressed-textures@6.5.2':
-    resolution: {integrity: sha512-/mNHv769TPdriCxeMFkoHQM6k3gp2QtzwPfcMFAdecWpiKNu2dKkwgKpuaI56W1z/NmovgbruSCeEbyVZY0h9A==}
+  '@pixi/compressed-textures@6.5.10':
+    resolution: {integrity: sha512-41NT5mkfam47DrkB8xMp3HUZDt7139JMB6rVNOmb3u2vm+2mdy9tzi5s9nN7bG9xgXlchxcFzytTURk+jwXVJA==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2
-      '@pixi/loaders': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/loaders': 6.5.10
+      '@pixi/settings': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/constants@6.5.2':
-    resolution: {integrity: sha512-tlX9uv/mi3O7XL2CJnjvRkJpCCvm5prYXL4RApXeg5rYCGOk/Qj3Zm5aPKUaq7Je4PoEyPy5vC9/geV8nFzmAQ==}
+  '@pixi/constants@6.5.10':
+    resolution: {integrity: sha512-PUF2Y9YISRu5eVrVVHhHCWpc/KmxQTg3UH8rIUs8UI9dCK41/wsPd3pEahzf7H47v7x1HCohVZcFO3XQc1bUDw==}
 
-  '@pixi/core@6.5.2':
-    resolution: {integrity: sha512-Km//zq2KBqEE9R3IRSaRRsIQkGctxBZpwmJaEly4VTAWVQAfd2HCQqYTu0js+9jdSLwFexiFNjKBYf8BQEbBdg==}
+  '@pixi/core@6.5.10':
+    resolution: {integrity: sha512-Gdzp5ENypyglvsh5Gv3teUZnZnmizo4xOsL+QqmWALdFlJXJwLJMVhKVThV/q/095XR6i4Ou54oshn+m4EkuFw==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/extensions': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/runner': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/ticker': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/extensions': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/runner': 6.5.10
+      '@pixi/settings': 6.5.10
+      '@pixi/ticker': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/display@6.5.2':
-    resolution: {integrity: sha512-EuRH9x/EW/ds1DJ08L1B5Yiz3vCViNYyJvyBOeCCsnHiMPXxT3cfIW+PkZOMR+hyzqQhioFFjiQS8KsXPojmfg==}
+  '@pixi/display@6.5.10':
+    resolution: {integrity: sha512-NxFdDDxlbH5fQkzGHraLGoTMucW9pVgXqQm13TSmkA3NWIi/SItHL4qT2SI8nmclT9Vid1VDEBCJFAbdeuQw1Q==}
     peerDependencies:
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/extensions@6.5.2':
-    resolution: {integrity: sha512-pLCUcDZS9RQsz4AkLYhOB40JB4qSqrAQrWXp8OkQ8bhwNxiI1BupCwh2+cpxdE46iGtH6tgvUWPnuQxq5SfSYw==}
+  '@pixi/extensions@6.5.10':
+    resolution: {integrity: sha512-EIUGza+E+sCy3dupuIjvRK/WyVyfSzHb5XsxRaxNrPwvG1iIUIqNqZ3owLYCo4h17fJWrj/yXVufNNtUKQccWQ==}
 
-  '@pixi/extract@6.5.2':
-    resolution: {integrity: sha512-14u/PqXOnQOZoRshEI6hAy6CTRMcoH6eKxMvV7NuGATKgbAyiJZm3K6qN+DkbrSKwOmuABQYB9FPcyB8yUl0+A==}
+  '@pixi/extract@6.5.10':
+    resolution: {integrity: sha512-hXFIc4EGs14GFfXAjT1+6mzopzCMWeXeai38/Yod3vuBXkkp8+ksen6kE09vTnB9l1IpcIaCM+XZEokuqoGX2A==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/filter-alpha@6.5.2':
-    resolution: {integrity: sha512-FJbOTbllZ2BrGNr95jmzW6viWeo2ooMCF/dDZDaSN8ptDYwO3QTH+FIqprffrw+nR1s95opZ1T1Mmisbxvulpw==}
+  '@pixi/filter-alpha@6.5.10':
+    resolution: {integrity: sha512-GWHLJvY0QOIDRjVx0hdUff6nl/PePQg84i8XXPmANrvA+gJ/eSRTQRmQcdgInQfawENADB/oRqpcCct6IAcKpQ==}
     peerDependencies:
-      '@pixi/core': 6.5.2
+      '@pixi/core': 6.5.10
 
-  '@pixi/filter-blur@6.5.2':
-    resolution: {integrity: sha512-MCFYg35hOUHmc/IxS4zyLbMeWuCKmSI/9mSb4NwQdVIJRCKj22ra0gMrhO4qNyfi3tnaR4rrk4uMDSkCiQ9Lmg==}
+  '@pixi/filter-blur@6.5.10':
+    resolution: {integrity: sha512-LJsRocVOdM9hTzZKjP+jmkfoL1nrJi5XpR0ItgRN8fflOC7A7Ln4iPe7nukbbq3H7QhZSunbygMubbO6xhThZw==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/settings': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/settings': 6.5.10
 
-  '@pixi/filter-color-matrix@6.5.2':
-    resolution: {integrity: sha512-hC8iWUikfvU3LbyKnrPL1MAei9nhrUdbL636Ryk5inOmwPZd33TsC0a+WUzXacj3dFcTUHC1ghYpkbWR7s4n5g==}
+  '@pixi/filter-color-matrix@6.5.10':
+    resolution: {integrity: sha512-C2S44/EoWTrhqedLWOZTq9GZV5loEq1+MhyK9AUzEubWGMHhou1Juhn2mRZ7R6flKPCRQNKrXpStUwCAouud3Q==}
     peerDependencies:
-      '@pixi/core': 6.5.2
+      '@pixi/core': 6.5.10
 
-  '@pixi/filter-displacement@6.5.2':
-    resolution: {integrity: sha512-VpcXd1j32VP+ylbrHw75J+pJwxtDNISKAzz+nfD9aGm3IfJW7vq696qrz09acD1Mr2buLc7G930d79eploOJ+Q==}
+  '@pixi/filter-displacement@6.5.10':
+    resolution: {integrity: sha512-fbblMYyPX/hO3Tpoaa4tOBYxqp4TxjNrz6xyt15tKSVxWQElk+Tx98GJ+aaBoiHOKt8ezzHplStWoHG++JIv/w==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/math': 6.5.2
+      '@pixi/core': 6.5.10
+      '@pixi/math': 6.5.10
 
-  '@pixi/filter-fxaa@6.5.2':
-    resolution: {integrity: sha512-z9UXnqIWSLlcUuTkpwz6xi3uAGMNTbiaCL9k3bDwKmvxfa6nZlTfI9QOG6Cj3L5J6bZgltax4V1V+kHzQWMujg==}
+  '@pixi/filter-fxaa@6.5.10':
+    resolution: {integrity: sha512-wbHL9UtY3g7jTyvO8JaZks6DqV8AO5c96Hfu0zfndWBPs79Ul6/sq3LD2eE+yq5vK5T2R9Sr4s54ls1JT3Sppg==}
     peerDependencies:
-      '@pixi/core': 6.5.2
+      '@pixi/core': 6.5.10
 
-  '@pixi/filter-noise@6.5.2':
-    resolution: {integrity: sha512-26YyKXxcuoDiZ6DRaqrAZdwQFp2pS2FVVQBb0BtzB9ruwkEC4w4R1cLZKva1PM58M11Zrgbn6/tNTupBLZKTJg==}
+  '@pixi/filter-noise@6.5.10':
+    resolution: {integrity: sha512-CX+/06NVaw3HsjipZVb7aemkca0TC8I6qfKI4lx2ugxS/6G6zkY5zqd8+nVSXW4DpUXB6eT0emwfRv6N00NvuA==}
     peerDependencies:
-      '@pixi/core': 6.5.2
+      '@pixi/core': 6.5.10
 
-  '@pixi/graphics@6.5.2':
-    resolution: {integrity: sha512-NLPds0Mz0gfozAi3ZIs5bjEa2vw/7kiYpqZsPWWttlBOOk1ij6YxefDcRpKnBkuCsoK0f8Ts3NgohFKKTP0goQ==}
+  '@pixi/graphics@6.5.10':
+    resolution: {integrity: sha512-KPHGJ910fi8bRQQ+VcTIgrK+bKIm8yAQaZKPqMtm14HzHPGcES6HkgeNY1sd7m8J4aS9btm5wOSyFu0p5IzTpA==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/sprite': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/sprite': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/interaction@6.5.2':
-    resolution: {integrity: sha512-3maSzaQT4DAwxU0f9kP7iNPsgXBa2Z/MRND7nbYIx92Rc4USsX0CyEFJmIb1K4MvpgvR/Xej3S99OZoCn3rt+w==}
+  '@pixi/interaction@6.5.10':
+    resolution: {integrity: sha512-v809pJmXA2B9dV/vdrDMUqJT+fBB/ARZli2YRmI2dPbEbkaYr8FNmxCAJnwT8o+ymTx044Ie820hn9tVrtMtfA==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/ticker': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/ticker': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/loaders@6.5.2':
-    resolution: {integrity: sha512-pmnz02Lw6FvmH0G/JkOr6iq0XS5v0HNJjepm9t1zK5rsXnpKvLJ7aAQRRR15hTF8Krd83aEISRVrHc2AgGhHRw==}
+  '@pixi/loaders@6.5.10':
+    resolution: {integrity: sha512-AuK7mXBmyVsDFL9DDFPB8sqP8fwQ2NOktvu98bQuJl0/p/UeK/0OAQnF3wcf3FeBv5YGXfNHL21c2DCisjKfTg==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/math@6.5.2':
-    resolution: {integrity: sha512-nSLEDWrcdxWTkgJSjxWlt6PLTH8ysj0v487EBEv/OB1zihiZSIBVuja7LsrD52Yv31D2MxNWrgfnmwSOMuuRTg==}
+  '@pixi/math@6.5.10':
+    resolution: {integrity: sha512-fxeu7ykVbMGxGV2S3qRTupHToeo1hdWBm8ihyURn3BMqJZe2SkZEECPd5RyvIuuNUtjRnmhkZRnF3Jsz2S+L0g==}
 
-  '@pixi/mesh-extras@6.5.2':
-    resolution: {integrity: sha512-fRVPZSOurR0Au1Dm40DOmYMEV4QEMMRv5KiyBobYkpNx36khTTklA1l+7xX+JHVifezXSHSSu248jfbb4PleZg==}
+  '@pixi/mesh-extras@6.5.10':
+    resolution: {integrity: sha512-UCG7OOPPFeikrX09haCibCMR0jPQ4UJ+4HiYiAv/3dahq5eEzBx+yAwVtxcVCjonkTf/lu5SzmHdzpsbHLx5aw==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/mesh': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/mesh': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/mesh@6.5.2':
-    resolution: {integrity: sha512-L3CYGoXwjGTv+gr4CFd/djYB2WmNWQrNzmW9VeUZ9G00uvPIjLj233y3eyF/ty5ye75r6lUCJiNSfxw6m9W55Q==}
+  '@pixi/mesh@6.5.10':
+    resolution: {integrity: sha512-tUNPsdp5/t/yRsCmfxIcufIfbQVzgAlMNgQ1igWOkSxzhB7vlEbZ8ZLLW5tQcNyM/r7Nhjz+RoB+RD+/BCtvlA==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/mixin-cache-as-bitmap@6.5.2':
-    resolution: {integrity: sha512-V1hDUKxaQupWnsPY4f2p0Yh0kHCzoPoMKgEhm/+xYcx+F9Em5IF9AYV9MJY0s6uz7nsbRG67+IRzNoI5Pq1SOw==}
+  '@pixi/mixin-cache-as-bitmap@6.5.10':
+    resolution: {integrity: sha512-HV4qPZt8R7uuPZf1XE5S0e3jbN4+/EqgAIkueIyK3Em+0IO1rCmIbzzYxFPxkElMUu5VvN1r4hXK846z9ITnhw==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/sprite': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10
+      '@pixi/sprite': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/mixin-get-child-by-name@6.5.2':
-    resolution: {integrity: sha512-SHuZXyA0PaRddyKxE2JgCRcCaiy4ow3RRERFPmtwfqCdXRodtdZqpJP0bSwHgjMs4Sd5NMaK4wIggtNX00Ewiw==}
+  '@pixi/mixin-get-child-by-name@6.5.10':
+    resolution: {integrity: sha512-YYd9wjnI/4aKY0H5Ij413UppVZn3YE1No2CZrNevV6WbhylsJucowY3hJihtl9mxkpwtaUIyWMjmphkbOinbzA==}
     peerDependencies:
-      '@pixi/display': 6.5.2
+      '@pixi/display': 6.5.10
 
-  '@pixi/mixin-get-global-position@6.5.2':
-    resolution: {integrity: sha512-wm0Wg55wIhEL8QapsrmNfCcSaNr7oAVdTuGjc0sobRPDfOwjyNA2yd2OwlCJayLUIOyHwe6GymflJ0mEpsYQog==}
+  '@pixi/mixin-get-global-position@6.5.10':
+    resolution: {integrity: sha512-A83gTZP9CdQAyrAvOZl1P707Q0QvIC0V8UnBAMd4GxuhMOXJtXVPCdmfPVXUrfoywgnH+/Bgimq5xhsXTf8Hzg==}
     peerDependencies:
-      '@pixi/display': 6.5.2
-      '@pixi/math': 6.5.2
+      '@pixi/display': 6.5.10
+      '@pixi/math': 6.5.10
 
-  '@pixi/particle-container@6.5.2':
-    resolution: {integrity: sha512-B9S7j12T/2sAj3ksMhhd15l2ZdXc/1j6+oBG31H6k4lAmxVLVCg/CF6iBNenBsBuhm153E7FvqNxuzYg/7kdZQ==}
+  '@pixi/particle-container@6.5.10':
+    resolution: {integrity: sha512-CCNAdYGzKoOc3FtK2kyWCNjygdHppeOEqqK189yhg3yRSsvby+HMms/cM6bLK/4Vf6mFoAy1na3w/oXpqTR2Ag==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/sprite': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/sprite': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/polyfill@6.5.2':
-    resolution: {integrity: sha512-gFEOVOJDB5yAxwF7u1IqobjG4z+/T2Ip4NZXqH1175FLOh49XyeskvtZpbeKz0LC9zCSur3FMsjkosPyLMUQYA==}
+  '@pixi/polyfill@6.5.10':
+    resolution: {integrity: sha512-KDTWyr285VvPM8GGTVIZAhmxGrOlTznUGK/9kWS3GtrogwLWn41S/86Yej1gYvotVyUomCcOok33Jzahb+vX1w==}
 
-  '@pixi/prepare@6.5.2':
-    resolution: {integrity: sha512-w9eBzB2zd5K51ZozLviHby1rZwgZReUkNZ3IGWovp2skfSpfecevTCzdO+B7GAcO12JTegjM86U1os8HPXGKng==}
+  '@pixi/prepare@6.5.10':
+    resolution: {integrity: sha512-PHMApz/GPg7IX/7+2S98criN2+Mp+fgiKpojV9cnl0SlW2zMxfAHBBi8zik9rHBgjx8X6d6bR0MG1rPtb6vSxQ==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/graphics': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/text': 6.5.2
-      '@pixi/ticker': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/graphics': 6.5.10
+      '@pixi/settings': 6.5.10
+      '@pixi/text': 6.5.10
+      '@pixi/ticker': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/runner@6.5.2':
-    resolution: {integrity: sha512-ygRO5UpPJCbk1KGwwaO2/7zCqVQI+cEoMSefsi+Dbn2XfZjCHKoza4pPnD1BTr7erjqJGL4Z5AViopEl8Ad7Jg==}
+  '@pixi/runner@6.5.10':
+    resolution: {integrity: sha512-4HiHp6diCmigJT/DSbnqQP62OfWKmZB7zPWMdV1AEdr4YT1QxzXAW1wHg7dkoEfyTHqZKl0tm/zcqKq/iH7tMA==}
 
-  '@pixi/settings@6.5.2':
-    resolution: {integrity: sha512-6sgjEoldOzqbMN/iHs0Uv2x8O769QW9Fqw4f2JwYajTjLVYOx3pReBd8Zqubf2ZEZRRiSMjM3VQQdL36iShnQQ==}
-
-  '@pixi/sprite-animated@6.5.2':
-    resolution: {integrity: sha512-6SZK6YxN+IBvmfBZcUnpvnPv4Z4pvx9sWdGjA7fv4TfgFBhO1dP++Ixf7pAm/4XDIlQshEFVRHqGUvf9s58ISg==}
+  '@pixi/settings@6.5.10':
+    resolution: {integrity: sha512-ypAS5L7pQ2Qb88yQK72bXtc7sD8OrtLWNXdZ/gnw5kwSWCFaOSoqhKqJCXrR5DQtN98+RQefwbEAmMvqobhFyw==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/sprite': 6.5.2
-      '@pixi/ticker': 6.5.2
+      '@pixi/constants': 6.5.10
 
-  '@pixi/sprite-tiling@6.5.2':
-    resolution: {integrity: sha512-Y/85moGBp3UiRBg7GNhnTqrn4cOckw/mBnWk+M+iWWLOAp3kXe/Fr4LA0yxXmMQAAQmhTuVDo9kQSChtkggKnw==}
+  '@pixi/sprite-animated@6.5.10':
+    resolution: {integrity: sha512-x1kayucAqpVbNk+j+diC/7sQGQsAl6NCH1J2/EEaiQjlV3GOx1MXS9Tft1N1Y1y7otbg1XsnBd60/Yzcp05pxA==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/sprite': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/core': 6.5.10
+      '@pixi/sprite': 6.5.10
+      '@pixi/ticker': 6.5.10
 
-  '@pixi/sprite@6.5.2':
-    resolution: {integrity: sha512-zEKZKjv/RTq09iZ5I+xxOntWA/Y7EglABTM5nExXKwq+n6zsMroA3mXja+Nm3CuaGHNbkhIMgR6CeNnUPYpvkQ==}
+  '@pixi/sprite-tiling@6.5.10':
+    resolution: {integrity: sha512-lDFcPuwExrdJhli+WmjPivChjeCG6NiRl36iQ8n2zVi/MYVv9qfKCA6IdU7HBWk1AZdsg6KUTpwfmVLUI+qz3w==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/sprite': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/spritesheet@6.5.2':
-    resolution: {integrity: sha512-bN6m7RkDprgMc5BiPeoAAE8lidHMzBkmWlYt3xThCP8nAdIjuCAUUhev6KWMNv981UBCRIX0qtfufOkDLhlWqA==}
+  '@pixi/sprite@6.5.10':
+    resolution: {integrity: sha512-UiK+8LgM9XQ/SBDKjRgZ8WggdOSlFRXqiWjEZVmNkiyU8HvXeFzWPRhpc8RR1zDwAUhZWKtMhF8X/ba9m+z2lg==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/loaders': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/text-bitmap@6.5.2':
-    resolution: {integrity: sha512-oIfRqlYmPElYLge2Ui+MVzeb/RzAVX1lswaDApIuq+gCtoLCvBJD8SMm32/45pm+RIwwYecYNZQjoDzMNon8gw==}
+  '@pixi/spritesheet@6.5.10':
+    resolution: {integrity: sha512-7uOZ1cYyYtPb0ZEgXV1SZ8ujtluZNY0TL5z3+Qc8cgGGZK/MaWG7N6Wf+uR4BR2x8FLNwcyN5IjbQDKCpblrmg==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2
-      '@pixi/display': 6.5.2
-      '@pixi/loaders': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/mesh': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/text': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/core': 6.5.10
+      '@pixi/loaders': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/text@6.5.2':
-    resolution: {integrity: sha512-84fFJ4usQljdm0RDgSmuu773I8M1zlRMImqz9oqNHc9KdQzBqG7yVv6zy6EjQC3VS18SMj0NsIneM4dAhuIJYQ==}
+  '@pixi/text-bitmap@6.5.10':
+    resolution: {integrity: sha512-g/iFIMGp6Pfi0BvX6Ykp48Z6JXVgKOrc7UCIR9CM21wYcCiQGqtdFwstV236xk6/D8NToUtSOcifhtQ28dVTdQ==}
     peerDependencies:
-      '@pixi/core': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/sprite': 6.5.2
-      '@pixi/utils': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10
+      '@pixi/display': 6.5.10
+      '@pixi/loaders': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/mesh': 6.5.10
+      '@pixi/settings': 6.5.10
+      '@pixi/text': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/ticker@6.5.2':
-    resolution: {integrity: sha512-fPSUmpNVLVJljPr5tTPcvx5Lxh2nXhql1pKihAs9UzAeuVkFHg/h7V0e/ZwqEi3FQ2yPX5q6Zo1/Lsuz5KJuwA==}
+  '@pixi/text@6.5.10':
+    resolution: {integrity: sha512-ikwkonLJ+6QmEVW8Ji9fS5CjrKNbU4mHzYuwRQas/VJQuSWgd0myCcaw6ZbF1oSfQe70HgbNOR0sH8Q3Com0qg==}
     peerDependencies:
-      '@pixi/extensions': 6.5.2
-      '@pixi/settings': 6.5.2
+      '@pixi/core': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10
+      '@pixi/sprite': 6.5.10
+      '@pixi/utils': 6.5.10
 
-  '@pixi/utils@6.5.2':
-    resolution: {integrity: sha512-TbShwvp6l8sfue9tClt0jogk5g991uj59wvAgMgGiabTDqrcrosuNvpPxMIJrLtEZccpDy29inY2mTJ5oWnPaQ==}
+  '@pixi/ticker@6.5.10':
+    resolution: {integrity: sha512-UqX1XYtzqFSirmTOy8QAK4Ccg4KkIZztrBdRPKwFSOEiKAJoGDCSBmyQBo/9aYQKGObbNnrJ7Hxv3/ucg3/1GA==}
     peerDependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/settings': 6.5.2
+      '@pixi/extensions': 6.5.10
+      '@pixi/settings': 6.5.10
+
+  '@pixi/utils@6.5.10':
+    resolution: {integrity: sha512-4f4qDMmAz9IoSAe08G2LAxUcEtG9jSdudfsMQT2MG+OpfToirboE6cNoO0KnLCvLzDVE/mfisiQ9uJbVA9Ssdw==}
+    peerDependencies:
+      '@pixi/constants': 6.5.10
+      '@pixi/settings': 6.5.10
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -3901,8 +3909,8 @@ packages:
       '@pixi/sprite': ^6
       '@pixi/utils': ^6
 
-  pixi.js@6.5.2:
-    resolution: {integrity: sha512-9Chz2ruwJTjsfKzhnDGiPJzJywxx6fVTBbBCoe0w0YLM0dgldkoEE2TsJSvnD0T9DaUv5x+fIMneniGdspXZjQ==}
+  pixi.js@6.5.10:
+    resolution: {integrity: sha512-Z2mjeoISml2iuVwT1e/BQwERYM2yKoiR08ZdGrg8y5JjeuVptfTrve4DbPMRN/kEDodesgQZGV/pFv0fE9Q2SA==}
 
   pkg-dir@4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
@@ -5623,226 +5631,234 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 20.0.0
 
-  '@pixi/accessibility@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
+  '@pixi/accessibility@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/app@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))':
+  '@pixi/app@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/compressed-textures@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/loaders@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
+  '@pixi/compressed-textures@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/loaders@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/loaders': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/settings': 6.5.2
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/loaders': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/constants@6.5.2': {}
+  '@pixi/constants@6.5.10': {}
 
-  '@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
+  '@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/extensions': 6.5.2
-      '@pixi/math': 6.5.2
-      '@pixi/runner': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/ticker': 6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2)
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/extensions': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/runner': 6.5.10
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/ticker': 6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
       '@types/offscreencanvas': 2019.7.3
 
-  '@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
+  '@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/extensions@6.5.2': {}
+  '@pixi/extensions@6.5.10': {}
 
-  '@pixi/extract@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
+  '@pixi/extract@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/filter-alpha@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))':
+  '@pixi/filter-alpha@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
 
-  '@pixi/filter-blur@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/settings@6.5.2)':
+  '@pixi/filter-blur@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/settings@6.5.10(@pixi/constants@6.5.10))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/settings': 6.5.2
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
 
-  '@pixi/filter-color-matrix@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))':
+  '@pixi/filter-color-matrix@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
 
-  '@pixi/filter-displacement@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)':
+  '@pixi/filter-displacement@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
 
-  '@pixi/filter-fxaa@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))':
+  '@pixi/filter-fxaa@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
 
-  '@pixi/filter-noise@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))':
+  '@pixi/filter-noise@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
 
-  ? '@pixi/graphics@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))'
+  ? '@pixi/graphics@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))'
   : dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/sprite': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/sprite': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/interaction@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
+  '@pixi/interaction@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/ticker': 6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2)
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/ticker': 6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/loaders@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
+  '@pixi/loaders@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/math@6.5.2': {}
+  '@pixi/math@6.5.10': {}
 
-  '@pixi/mesh-extras@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/mesh@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
-    dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/mesh': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
-
-  '@pixi/mesh@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
-    dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
-
-  ? '@pixi/mixin-cache-as-bitmap@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))'
+  ? '@pixi/mesh-extras@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/mesh@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))'
   : dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/sprite': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/mesh': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/mixin-get-child-by-name@6.5.2(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))':
+  '@pixi/mesh@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/mixin-get-global-position@6.5.2(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)':
-    dependencies:
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-
-  ? '@pixi/particle-container@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))'
+  ? '@pixi/mixin-cache-as-bitmap@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))'
   : dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/sprite': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/sprite': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/polyfill@6.5.2':
+  '@pixi/mixin-get-child-by-name@6.5.10(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))':
+    dependencies:
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+
+  '@pixi/mixin-get-global-position@6.5.10(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)':
+    dependencies:
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+
+  ? '@pixi/particle-container@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))'
+  : dependencies:
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/sprite': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
+
+  '@pixi/polyfill@6.5.10':
     dependencies:
       object-assign: 4.1.1
       promise-polyfill: 8.3.0
 
-  ? '@pixi/prepare@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/graphics@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/settings@6.5.2)(@pixi/text@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))'
+  ? '@pixi/prepare@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/graphics@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/text@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))'
   : dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/graphics': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/settings': 6.5.2
-      '@pixi/text': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/ticker': 6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2)
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/graphics': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/text': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/ticker': 6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/runner@6.5.2': {}
+  '@pixi/runner@6.5.10': {}
 
-  '@pixi/settings@6.5.2': {}
-
-  '@pixi/sprite-animated@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))':
+  '@pixi/settings@6.5.10(@pixi/constants@6.5.10)':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/sprite': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/ticker': 6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
 
-  ? '@pixi/sprite-tiling@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))'
+  ? '@pixi/sprite-animated@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))'
   : dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/sprite': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/sprite': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/ticker': 6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
-    dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
-
-  '@pixi/spritesheet@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/loaders@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
-    dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/loaders': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
-
-  ? '@pixi/text-bitmap@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/loaders@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/mesh@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/settings@6.5.2)(@pixi/text@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))'
+  ? '@pixi/sprite-tiling@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))'
   : dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/loaders': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/mesh': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/settings': 6.5.2
-      '@pixi/text': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/sprite': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/text@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))':
+  '@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/sprite': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2)':
+  '@pixi/spritesheet@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/loaders@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))':
     dependencies:
-      '@pixi/extensions': 6.5.2
-      '@pixi/settings': 6.5.2
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/loaders': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
-  '@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)':
+  ? '@pixi/text-bitmap@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/loaders@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/mesh@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/text@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))'
+  : dependencies:
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/loaders': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/mesh': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/text': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
+
+  ? '@pixi/text@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))'
+  : dependencies:
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/sprite': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
+
+  '@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))':
     dependencies:
-      '@pixi/constants': 6.5.2
-      '@pixi/settings': 6.5.2
+      '@pixi/extensions': 6.5.10
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+
+  '@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))':
+    dependencies:
+      '@pixi/constants': 6.5.10
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
       '@types/earcut': 2.1.4
       earcut: 2.2.4
       eventemitter3: 3.1.2
@@ -9261,54 +9277,54 @@ snapshots:
 
   pinkie@2.0.4: {}
 
-  ? pixi-live2d-display@0.4.0(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/loaders@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
+  ? pixi-live2d-display@0.4.0(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/loaders@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
   : dependencies:
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/loaders': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/sprite': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/loaders': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/sprite': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
       gh-pages: 4.0.0
 
-  pixi.js@6.5.2:
+  pixi.js@6.5.10:
     dependencies:
-      '@pixi/accessibility': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/app': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))
-      '@pixi/compressed-textures': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/loaders@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/constants': 6.5.2
-      '@pixi/core': 6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/display': 6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/extensions': 6.5.2
-      '@pixi/extract': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/filter-alpha': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))
-      '@pixi/filter-blur': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/settings@6.5.2)
-      '@pixi/filter-color-matrix': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))
-      '@pixi/filter-displacement': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)
-      '@pixi/filter-fxaa': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))
-      '@pixi/filter-noise': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))
-      '@pixi/graphics': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/interaction': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/loaders': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/math': 6.5.2
-      '@pixi/mesh': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/mesh-extras': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/mesh@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/mixin-cache-as-bitmap': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/mixin-get-child-by-name': 6.5.2(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))
-      '@pixi/mixin-get-global-position': 6.5.2(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)
-      '@pixi/particle-container': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/polyfill': 6.5.2
-      '@pixi/prepare': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/graphics@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/settings@6.5.2)(@pixi/text@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/runner': 6.5.2
-      '@pixi/settings': 6.5.2
-      '@pixi/sprite': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/sprite-animated': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/sprite-tiling': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/spritesheet': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/loaders@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/text': 6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/text-bitmap': 6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/loaders@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/mesh@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/settings@6.5.2)(@pixi/text@6.5.2(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/sprite@6.5.2(@pixi/constants@6.5.2)(@pixi/core@6.5.2(@pixi/constants@6.5.2)(@pixi/extensions@6.5.2)(@pixi/math@6.5.2)(@pixi/runner@6.5.2)(@pixi/settings@6.5.2)(@pixi/ticker@6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/display@6.5.2(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/math@6.5.2)(@pixi/settings@6.5.2)(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)))(@pixi/utils@6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2))
-      '@pixi/ticker': 6.5.2(@pixi/extensions@6.5.2)(@pixi/settings@6.5.2)
-      '@pixi/utils': 6.5.2(@pixi/constants@6.5.2)(@pixi/settings@6.5.2)
+      '@pixi/accessibility': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/app': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/compressed-textures': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/loaders@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/constants': 6.5.10
+      '@pixi/core': 6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/display': 6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/extensions': 6.5.10
+      '@pixi/extract': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/filter-alpha': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))
+      '@pixi/filter-blur': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
+      '@pixi/filter-color-matrix': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))
+      '@pixi/filter-displacement': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)
+      '@pixi/filter-fxaa': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))
+      '@pixi/filter-noise': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))
+      '@pixi/graphics': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/interaction': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/loaders': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/math': 6.5.10
+      '@pixi/mesh': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/mesh-extras': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/mesh@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/mixin-cache-as-bitmap': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/mixin-get-child-by-name': 6.5.10(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))
+      '@pixi/mixin-get-global-position': 6.5.10(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)
+      '@pixi/particle-container': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/polyfill': 6.5.10
+      '@pixi/prepare': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/graphics@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/text@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/runner': 6.5.10
+      '@pixi/settings': 6.5.10(@pixi/constants@6.5.10)
+      '@pixi/sprite': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/sprite-animated': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/sprite-tiling': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/spritesheet': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/loaders@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/text': 6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/text-bitmap': 6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/loaders@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/mesh@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/text@6.5.10(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/sprite@6.5.10(@pixi/constants@6.5.10)(@pixi/core@6.5.10(@pixi/constants@6.5.10)(@pixi/extensions@6.5.10)(@pixi/math@6.5.10)(@pixi/runner@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/ticker@6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/display@6.5.10(@pixi/constants@6.5.10)(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/math@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))))(@pixi/utils@6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10)))
+      '@pixi/ticker': 6.5.10(@pixi/extensions@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
+      '@pixi/utils': 6.5.10(@pixi/constants@6.5.10)(@pixi/settings@6.5.10(@pixi/constants@6.5.10))
 
   pkg-dir@4.2.0:
     dependencies:
