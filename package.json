@@ -10,7 +10,7 @@
     "demo": "pnpm -F oh-my-live2d run demo",
     "demo:umd": "pnpm -F oh-my-live2d run demo:umd",
     "dev": "pnpm -F oh-my-live2d run dev",
-    "docs:build": "pnpm build && typedoc && pnpm -r docs:build",
+    "docs:build": "pnpm -r build && typedoc && pnpm -r docs:build",
     "docs:dev": "concurrently \"typedoc --watch\" \"pnpm -r docs:dev\"",
     "docs:preview": "pnpm -r docs:preview",
     "lint": "pnpm lint:prettier && pnpm lint:eslint",
