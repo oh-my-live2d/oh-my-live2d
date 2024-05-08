@@ -114,7 +114,6 @@ OhMyLive2d:
         #   function(wordTheDayData){
         #     return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
         #   }
-  # 具体方法请看: https://oml2d.com/guide/loadModel.html#oml2d-%E5%AE%9E%E4%BE%8B
   # then: |
   #   (oml2d)=>{
   #      setTimeout(() => {

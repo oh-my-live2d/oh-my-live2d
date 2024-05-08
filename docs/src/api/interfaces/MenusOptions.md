@@ -67,9 +67,9 @@ false;
   - 必须: 是
   - 描述: 菜单项图标, 详见: [自定义图标](/guide/icon)
 - onClick
-  - 类型: ([oml2d](/guide/loadModel#oml2d-实例)) => void
+  - 类型: ([oml2d](/api/interfaces/Oml2dProperties)) => void
   - 必须: 否
-  - 描述: 定义菜单项点击事件, 函数中可以通过参数获取到[oml2d对象示例](/guide/loadModel#oml2d-实例), 方便您定制更多功能
+  - 描述: 定义菜单项点击事件, 函数中可以通过参数获取到[oml2d对象示例](/api/interfaces/Oml2dProperties), 方便您定制更多功能
 
 ---
 

@@ -25,6 +25,7 @@ import {
   onChangeWindowSize,
   printProjectInfo
 } from '../utils/index.js';
+import { getStatus, setStatus } from '../utils/store.js';
 
 export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   private store: Store;
@@ -319,7 +320,13 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
 
     // 加载模型
     void this.loadModel().then(() => {
-      if (this.options.initialStatus === 'sleep') {
+      const status = getStatus() || this.options.initialStatus;
+
+      if (!getStatus()) {
+        setStatus(this.options.initialStatus);
+      }
+
+      if (status === 'sleep') {
         this.tips.clear();
 
         this.statusBar.open(this.options.statusBar.restMessage);

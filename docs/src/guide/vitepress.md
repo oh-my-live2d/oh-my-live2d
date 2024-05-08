@@ -43,7 +43,7 @@ export default {
 };
 ```
 
-如需自定义配置, 请在[配置选项](../options/Options.md)中查阅详细配置内容.
+如需自定义配置, 请在[配置选项](../api/interfaces/Options.md)中查阅详细配置内容.
 
 ### 第三方主题中使用
 
