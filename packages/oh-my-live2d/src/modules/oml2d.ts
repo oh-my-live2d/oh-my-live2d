@@ -10,7 +10,7 @@ import { Tips } from './tips.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import { CommonStyleType } from '../types/common.js';
-import { EventFn, LoadEventFn } from '../types/events.js';
+import { EventFn, LoadEventFn } from '../types/events/index.js';
 import type { DefaultOptions } from '../types/index.js';
 import { Oml2dEvents, Oml2dMethods, Oml2dProperties } from '../types/oml2d/index.js';
 import type { Options } from '../types/options/index.js';

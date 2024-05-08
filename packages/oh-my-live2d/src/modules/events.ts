@@ -1,4 +1,4 @@
-import { EventFn, EventType } from '../types/events.js';
+import { EventFn, EventType } from '../types/events/index.js';
 
 // 事件中心
 export class Events {
