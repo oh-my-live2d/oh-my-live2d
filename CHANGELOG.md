@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.19.1...v0.19.2) (2024-05-08)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 修复了在safari浏览器报错的问题 ([61abb21](https://github.com/oh-my-live2d/oh-my-live2d/commit/61abb21e59b0f9b678c9317b8c24fb34e6ffc1e6)) by.@Hacxy
+
 ## [0.19.1](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.19.0...v0.19.1) (2024-05-08)
 
 ### 🐛 Bug Fixes | Bug 修复
