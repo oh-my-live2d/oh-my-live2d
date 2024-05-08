@@ -1,6 +1,6 @@
 import { getRandomArrayItem, isFunction, mergeDeep, setIntervalAsync } from 'tianjie';
 
-import type { LoadOhMyLive2D } from './load-oml2d.js';
+import { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import type { IdleTimer } from '../types/common.js';
@@ -27,7 +27,7 @@ export class Tips {
   private _tipsOptions: DefaultTipsOptions = DEFAULT_OPTIONS.tips;
   constructor(
     private options: DefaultOptions,
-    private globalOml2d: LoadOhMyLive2D
+    private oml2d: OhMyLive2D
   ) {}
 
   reload(stageElement: HTMLElement): void {
@@ -48,7 +48,7 @@ export class Tips {
     if (isFunction(opt)) {
       finalOpt = mergeDeep(
         DEFAULT_OPTIONS.tips,
-        opt(this.options.models[this.globalOml2d.modelIndex || 0], this.globalOml2d.modelIndex || 0) as DefaultTipsOptions
+        opt(this.options.models[this.oml2d.modelIndex || 0], this.oml2d.modelIndex || 0) as DefaultTipsOptions
       );
     } else {
       finalOpt = opt as DefaultTipsOptions;

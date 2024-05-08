@@ -1,36 +1,31 @@
 import { isNumber, mergeDeep } from 'tianjie';
 
-import { Events } from './events.js';
 import { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
 import { CommonStyleType } from '../types/common.js';
-import type { EventFn, LoadEventFn } from '../types/events.js';
+import type { EventFn } from '../types/events.js';
 import { DefaultOptions } from '../types/index.js';
-import { ModelOptions, Options } from '../types/options.js';
-import { handleCommonStyle, mergeOptions } from '../utils/index.js';
+import { ModelOptions } from '../types/options.js';
+import { handleCommonStyle } from '../utils/index.js';
 
 export class LoadOhMyLive2D {
   options: DefaultOptions = DEFAULT_OPTIONS;
-  private events: Events;
+  // private events: Events;
   private oml2d?: OhMyLive2D;
 
-  constructor(options: Options) {
-    this.events = new Events();
-    void this.setup(options);
-  }
+  // constructor(options: Options) {
+  //   this.events = new Events();
+  //   // void this.setup(options);
+  // }
 
   /**
    * 安装组件
    */
-  private setup(options: Options): void {
-    this.options = mergeOptions(DEFAULT_OPTIONS, options);
-
-    // const { PIXI, PixiLive2dDisplay } = await loadOml2dSDK(this.options.importType, this.options.libraryUrls);
-
-    this.oml2d = new OhMyLive2D(this, this.events);
-
-    this.oml2d.initialize();
-  }
+  // private setup(options: Options): void {
+  //   // this.options = mergeOptions(DEFAULT_OPTIONS, options);
+  //   // this.oml2d = new OhMyLive2D(this, this.events);
+  //   // this.oml2d.initialize();
+  // }
 
   /**
    * 当前模型索引值
@@ -273,23 +268,23 @@ export class LoadOhMyLive2D {
    * 模型在每次加载状态发生变化时的事件监听
    * @param fn
    */
-  onLoad(fn: LoadEventFn): void {
-    this.events.add('load', fn);
-  }
+  // onLoad(fn: LoadEventFn): void {
+  //   this.events.add('load', fn);
+  // }
 
   /**
    * 舞台滑入动画执行完毕后的事件监听
    * @param fn
    */
-  onStageSlideIn(fn: EventFn): void {
-    this.events.add('stageSlideIn', fn);
-  }
+  // onStageSlideIn(fn: EventFn): void {
+  //   this.events.add('stageSlideIn', fn);
+  // }
 
-  /**
-   * 舞台滑出动画执行完毕后的事件监听
-   * @param fn
-   */
-  onStageSlideOut(fn: EventFn): void {
-    this.events.add('stageSlideOut', fn);
-  }
+  // /**
+  //  * 舞台滑出动画执行完毕后的事件监听
+  //  * @param fn
+  //  */
+  // onStageSlideOut(fn: EventFn): void {
+  //   this.events.add('stageSlideOut', fn);
+  // }
 }

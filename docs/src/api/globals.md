@@ -1,11 +1,9 @@
 #
 
-## 类
-
-- [LoadOhMyLive2D](classes/LoadOhMyLive2D.md)
-
 ## 接口
 
+- [IOml2d](interfaces/IOml2d.md)
+- [IOml2dEvents](interfaces/IOml2dEvents.md)
 - [MenusOptions](interfaces/MenusOptions.md)
 - [ModelOptions](interfaces/ModelOptions.md)
 - [Options](interfaces/Options.md)

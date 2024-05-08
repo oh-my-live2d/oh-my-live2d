@@ -1,5 +1,4 @@
-import type { LoadOhMyLive2D } from '../modules/load-oml2d.js';
-import type { OhMyLive2D } from '../modules/oml2d.js';
+import { IOml2d } from './oml2d.js';
 
 import type { CSSProperties, ImportType, LibraryUrls, PixiLive2dDisplayModule, PixiModule } from './index.js';
 
@@ -43,7 +42,6 @@ export type LoadOml2dSDK = (
   PIXI: PixiModule;
   PixiLive2dDisplay: PixiLive2dDisplayModule;
 }>;
-export type OML2D = Omit<OhMyLive2D, 'unMount' | 'initialize'>;
 
 export type StoreModelInfo = (string | string[])[];
 
@@ -51,5 +49,5 @@ export type Item = {
   id: string;
   icon: string;
   title: string;
-  onClick?: ((oml2d: LoadOhMyLive2D) => void) | ((oml2d: LoadOhMyLive2D) => Promise<void>);
+  onClick?: ((oml2d: IOml2d) => void) | ((oml2d: IOml2d) => Promise<void>);
 };

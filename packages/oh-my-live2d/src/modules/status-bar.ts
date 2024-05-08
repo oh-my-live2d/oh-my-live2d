@@ -133,7 +133,7 @@ export class StatusBar {
     this.popup(this.statusBarOptions.loadSuccessMessage, 1000);
   }
 
-  setHoverEvent(events?: { onIn?: () => void; onOut?: () => void }): void {
+  setHoverEvent(events?: { onIn?: () => void | Promise<void>; onOut?: () => void | Promise<void> }): void {
     if (this.element) {
       this.element.onmouseover = events?.onIn || null;
       this.element.onmouseout = events?.onOut || null;

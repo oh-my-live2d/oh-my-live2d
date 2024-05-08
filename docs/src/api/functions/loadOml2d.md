@@ -1,6 +1,6 @@
 #
 
-> **loadOml2d**(`options`): [`LoadOhMyLive2D`](../classes/LoadOhMyLive2D.md)
+> **loadOml2d**(`options`): [`IOml2d`](../interfaces/IOml2d.md) & [`IOml2dEvents`](../interfaces/IOml2dEvents.md)
 
 ## 参数
 
@@ -8,4 +8,4 @@
 
 ## 返回值类型
 
-[`LoadOhMyLive2D`](../classes/LoadOhMyLive2D.md)
+[`IOml2d`](../interfaces/IOml2d.md) & [`IOml2dEvents`](../interfaces/IOml2dEvents.md)

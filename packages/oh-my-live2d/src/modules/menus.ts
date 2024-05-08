@@ -1,6 +1,6 @@
 import { isArray, isFunction, mergeDeep } from 'tianjie';
 
-import { LoadOhMyLive2D } from './load-oml2d.js';
+import type { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
 import { Item } from '../types/common.js';
@@ -16,7 +16,7 @@ export class Menus {
 
   constructor(
     private options: DefaultOptions,
-    private globalOml2d: LoadOhMyLive2D
+    private oml2d: OhMyLive2D
   ) {}
 
   reload(stageElement: HTMLElement): void {
@@ -36,7 +36,7 @@ export class Menus {
     if (isFunction(opt)) {
       finalOpt = mergeDeep(
         DEFAULT_OPTIONS.menus,
-        opt(this.options.models[this.globalOml2d.modelIndex || 0], this.globalOml2d.modelIndex || 0)
+        opt(this.options.models[this.oml2d.modelIndex || 0], this.oml2d.modelIndex || 0)
       ) as DefaultMenusOptions;
     } else {
       finalOpt = opt as DefaultMenusOptions;
@@ -57,7 +57,7 @@ export class Menus {
       el.title = item.title;
 
       el.onclick = (): void => {
-        void item.onClick?.(this.globalOml2d);
+        void item.onClick?.(this.oml2d);
       };
 
       return el;
