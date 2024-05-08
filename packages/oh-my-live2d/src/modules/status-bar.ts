@@ -110,8 +110,6 @@ export class StatusBar {
         });
         setTimeout(() => {
           this.status = true;
-          // this.clearClickEvent();
-          // this.clearHoverEvent();
           resolve();
         }, this.statusBarOptions.transitionTime);
       }
@@ -223,13 +221,13 @@ export class StatusBar {
       this.setContent(message);
     }
 
-    void this.slideIn().then(() => {
-      if (isNumber(delay)) {
-        this.timer = setTimeout(() => {
-          void this.slideOut();
-        }, delay);
-      }
-    });
+    void this.slideIn();
+
+    if (isNumber(delay)) {
+      this.timer = setTimeout(() => {
+        void this.slideOut();
+      }, delay + this.statusBarOptions.transitionTime);
+    }
   }
 
   setContent(content: string): void {

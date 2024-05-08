@@ -222,12 +222,12 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
     this.statusBar.open(this.options.statusBar.switchingMessage);
 
     await this.loadModel();
-    this.stage.slideIn();
+    await this.stage.slideIn();
     void this.tips.idlePlayer?.start();
   }
 
   /**
-   * @description 通过模型索引值加载模型
+   * 通过模型索引值加载模型
    */
   async loadModelByIndex(modelIndex: number, modelClothesIndex?: number): Promise<void> {
     if (modelIndex >= 0 && modelIndex < this.options.models.length) {
@@ -237,13 +237,13 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
       this.statusBar.open(this.options.statusBar.switchingMessage);
 
       await this.loadModel();
-      this.stage.slideIn();
+      await this.stage.slideIn();
       void this.tips.idlePlayer?.start();
     }
   }
 
   /**
-   * @description 通过模型名称加载模型
+   * 通过模型名称加载模型
    */
   async loadModelByName(modelName: string, modelClothesIndex?: number) {
     const targetIndex = this.options.models.findIndex((item) => item.name === modelName);
@@ -255,7 +255,7 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
       this.statusBar.open(this.options.statusBar.switchingMessage);
 
       await this.loadModel();
-      this.stage.slideIn();
+      await this.stage.slideIn();
       void this.tips.idlePlayer?.start();
     }
   }
@@ -272,7 +272,7 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
       }
 
       await this.loadModel();
-      this.stage.slideIn();
+      await this.stage.slideIn();
     }
   }
 
@@ -298,11 +298,14 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
 
     // 加载模型
     void this.loadModel().then(() => {
-      if (this.options.initialStatus == 'sleep') {
+      if (this.options.initialStatus === 'sleep') {
         this.tips.clear();
+
         this.statusBar.open(this.options.statusBar.restMessage);
+
         this.statusBar.setClickEvent(() => {
           this.stage.slideIn();
+          this.tips.idlePlayer?.start();
           this.statusBar.close();
           this.statusBar.clearHoverEvent();
           this.statusBar.clearClickEvent();
