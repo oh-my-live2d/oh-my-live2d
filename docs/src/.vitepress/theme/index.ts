@@ -12,7 +12,6 @@ export default {
     if (!import.meta.env.SSR) {
       const { loadOml2d } = await import('oh-my-live2d');
       loadOml2d({
-        // dockedPosition: 'right',
         primaryColor: 'pink',
         models: [
           {

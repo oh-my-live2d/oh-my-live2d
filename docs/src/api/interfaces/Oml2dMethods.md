@@ -1,4 +1,12 @@
-# 组件方法
+# 实例对象中的方法
+
+方法可以通过实例对象访问
+
+## 用法:
+
+以下是通过实例对象调用方法的示例:
+
+<<< @/usages/oml2d.ts#Methods
 
 ## 方法:
 
@@ -23,6 +31,25 @@
 #### 返回值类型:
 
 `void`
+
+---
+
+### loadModelByIndex()
+
+> **loadModelByIndex**: (`index`: `number`, `clothesIndex`?: `number`) => `Promise`\<`void`\>
+
+加载指定索引的模型
+
+#### 参数:
+
+| 参数            | 类型     | 描述     |
+| :-------------- | :------- | :------- |
+| `index`         | `number` | 模型索引 |
+| `clothesIndex`? | `number` | -        |
+
+#### 返回值类型:
+
+`Promise`\<`void`\>
 
 ---
 
@@ -117,11 +144,11 @@
 
 #### 参数:
 
-| 参数          | 类型     | 描述 |
-| :------------ | :------- | :--- |
-| `position`    | `object` |      |
-| `position.x`? | `number` | x轴  |
-| `position.y`? | `number` | y轴  |
+| 参数          | 类型     | 描述     |
+| :------------ | :------- | :------- |
+| `position`    | `object` | 模型位置 |
+| `position.x`? | `number` | x轴      |
+| `position.y`? | `number` | y轴      |
 
 #### 返回值类型:
 

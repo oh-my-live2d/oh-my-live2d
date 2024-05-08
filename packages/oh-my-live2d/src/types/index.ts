@@ -19,8 +19,6 @@ export type PixiLive2dDisplayModule = typeof import('pixi-live2d-display') & {
 
 export type PixiModule = typeof import('pixi.js');
 
-// export type MotionPreloadStrategy = PIXI_LIVE2D_DISPLAY_MODULE['MotionPreloadStrategy'];
-
 export type ApplicationType = typeof Application;
 
 export type CSSProperties = CSS.Properties;

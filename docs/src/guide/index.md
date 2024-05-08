@@ -22,7 +22,7 @@ Cubism 2 是只能驱动 Live2D Model 版本为 2 的 SDK，它无法驱动 Live
 Cubism 5 向后兼容了 Live2D Model 3 并支持 Live2D Model 4 ，但它无法驱动 Live2D Model 2。
 
 > [!TIP]
-> 本项目已集成 Cubism 2.1 与 Cubism 5.0.0 ，完整覆盖了从 model2 到 model4 的所有版本。
+> 本项目已集成 Cubism 2.1 与 Cubism 5.0.0 ，完整覆盖了从 model2 到 model5 的所有live2d模型版本。
 
 ## 快速开始
 
@@ -64,59 +64,9 @@ yarn add oh-my-live2d@latest
 
 :::
 
-### CDN 方式导入
+### 使用
 
-通过 CDN 方式导入时，所有成员变量都可以在 `OML2D` 命名空间下被使用。
-
-通过调用`OML2D.loadOml2d()`方法加载 Live2D 模型, 该方法接收一个 `options` 配置选项对象，示例如下:
-
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OhMyLive2D</title>
-  </head>
-  <body>
-    <script src="https://unpkg.com/oh-my-live2d@latest"></script>
-    <script>
-      OML2D.loadOml2d({
-        models: [
-          {
-            path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json'
-          }
-        ]
-      });
-    </script>
-  </body>
-</html>
-```
-
-- 有关`loadOml2d`方法的详细介绍请查阅: [加载模型](/guide/loadModel)
-
-- 有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
-
----
-
-### ESM 导入
-
-OhMyLive2D 在使用 ES6Module 方式导入时暴露了一个`loadOml2d`方法, 该方法接收一个配置选项`options`.
-
-```ts
-import { loadOml2d } from 'oh-my-live2d';
-loadOml2d({
-  models: [
-    {
-      path: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json'
-    }
-  ]
-});
-```
-
-- 有关 `loadOml2d` 方法的详细介绍请查阅: [加载模型](/guide/loadModel)
-
-- 有关配置选项的详细内容请查看: [配置选项](../options/Options.md)
+使用方式请查阅: [组件加载](../api/functions/loadOml2d.md)
 
 ### 其他支持
 

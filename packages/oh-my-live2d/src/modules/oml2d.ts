@@ -72,7 +72,6 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
 
   /**
    * 设置模型缩放比例
-   * @param scale 缩放比例
    */
   setModelScale(scale: number) {
     this.models.setScale(scale);
@@ -146,6 +145,7 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
     this.pixiApp = new PixiApp(this.stage);
 
     this.statusBar.create();
+
     this.statusBar.initializeStyle();
   }
 
@@ -234,10 +234,10 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   /**
    * 通过模型索引值加载模型
    */
-  async loadModelByIndex(modelIndex: number, modelClothesIndex?: number): Promise<void> {
-    if (modelIndex >= 0 && modelIndex < this.options.models.length) {
-      this.modelIndex = modelIndex;
-      this.modelClothesIndex = modelClothesIndex || 0;
+  async loadModelByIndex(index: number, clothesIndex?: number): Promise<void> {
+    if (index >= 0 && index < this.options.models.length) {
+      this.modelIndex = index;
+      this.modelClothesIndex = clothesIndex || 0;
 
       this.statusBar.open(this.options.statusBar.switchingMessage);
 

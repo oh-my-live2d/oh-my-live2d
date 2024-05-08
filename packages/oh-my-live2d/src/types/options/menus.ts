@@ -9,10 +9,12 @@ import { CommonStyleType, Item } from '../common.js';
  *
  *  #### 高级用法:
  * 支持使用函数, 每当模型加载成功后函数就会被调用, 回调时会传入当前模型配置以及索引方便您根据这些信息来做判断, 返回类型为菜单选项
+ *
  * - 判断当前索引:
  * ::: details 点我查看代码
  * <<< @/usages/options.ts#MenuOptionsAdvanced-1
  * :::
+ *
  * - 判断模型名称:
  * ::: details 点我查看代码
  * <<< @/usages/options.ts#MenuOptionsAdvanced-2{5,9,13}

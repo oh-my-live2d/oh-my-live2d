@@ -1,5 +1,14 @@
 import type { Options } from '../index.js';
 
+/**
+ * 属性可以通过实例对象访问
+ * @usage
+ *
+ * 以下是通过实例对象访问属性的示例:
+ *
+ * <<< @/usages/oml2d.ts#Properties
+ *
+ */
 export interface Oml2dProperties {
   /**
    * 组件当前版本号
@@ -16,6 +25,14 @@ export interface Oml2dProperties {
   options: Options;
 }
 
+/**
+ * 方法可以通过实例对象访问
+ * @usage
+ *
+ * 以下是通过实例对象调用方法的示例:
+ *
+ * <<< @/usages/oml2d.ts#Methods
+ */
 export interface Oml2dMethods {
   /**
    * 提示信息
@@ -30,6 +47,32 @@ export interface Oml2dMethods {
    * 加载下一个模型
    */
   loadNextModel: () => Promise<void>;
+  /**
+   * 加载当前模型的下一个衣服, 即:切换同个角色的不同模型
+   * @returns
+   */
+  loadNextModelClothes: () => Promise<void>;
+
+  /**
+   * 加载随机模型
+   * @returns
+   */
+  loadRandomModel: () => Promise<void>;
+
+  /**
+   *
+   * @param name 模型名称
+   * @param clothesIndex 模型衣服索引
+   * @returns
+   */
+  loadModelByName: (name: string, clothesIndex?: number) => Promise<void>;
+
+  /**
+   * 加载指定索引的模型
+   * @param index 模型索引
+   * @returns
+   */
+  loadModelByIndex: (index: number, clothesIndex?: number) => Promise<void>;
 
   /**
    * 重新加载模型
@@ -56,7 +99,7 @@ export interface Oml2dMethods {
 
   /**
    * 设置模型位置
-   * @param position
+   * @param position 模型位置
    * @param position.x x轴
    * @param position.y y轴
    */
@@ -139,26 +182,6 @@ export interface Oml2dMethods {
   statusBarClearEvents: () => void;
 
   /**
-   * 加载当前模型的下一个衣服, 即:切换同个角色的不同模型
-   * @returns
-   */
-  loadNextModelClothes: () => Promise<void>;
-
-  /**
-   * 加载随机模型
-   * @returns
-   */
-  loadRandomModel: () => Promise<void>;
-
-  /**
-   *
-   * @param name 模型名称
-   * @param clothesIndex 模型衣服索引
-   * @returns
-   */
-  loadModelByName: (name: string, clothesIndex?: number) => Promise<void>;
-
-  /**
    * 设置当前模型的旋转角度
    * @param rotation 模型旋转角度
    * @returns
@@ -175,6 +198,14 @@ export interface Oml2dMethods {
   setModelAnchor: (anchor: { x?: number; y?: number }) => void;
 }
 
+/**
+ * 事件可以通过实例对象访问
+ * @usage
+ * 以下是通过实例对象监听事件的示例:
+ *
+ * <<< @/usages/oml2d.ts#Events
+ *
+ */
 export interface Oml2dEvents {
   /**
    * 模型加载事件

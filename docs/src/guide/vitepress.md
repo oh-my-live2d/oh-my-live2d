@@ -191,7 +191,7 @@ export default {
 
 至此就可以完全享受 `oh-my-live2d` 了, 之后的配置, 您需要在 `Layout.vue` 中的 `loadOml2d` 方法中来配置 oml2d
 
-如需自定义配置, 请在[配置选项](../options/Options.md)中查阅详细配置内容.
+如需自定义配置, 请在[配置选项](../api/interfaces/Options.md)中查阅详细配置内容.
 
 ::: tip
 此方式在默认主题或其他第三方主题中也同样适用

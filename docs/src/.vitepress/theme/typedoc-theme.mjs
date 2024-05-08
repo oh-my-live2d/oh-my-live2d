@@ -53,11 +53,11 @@ class MyMarkdownThemeContext extends MarkdownThemeContext {
         case 'loadOml2d':
           return '组件加载';
         case 'Oml2dProperties':
-          return '组件属性';
+          return '实例对象中的属性';
         case 'Oml2dMethods':
-          return '组件方法';
+          return '实例对象中的方法';
         case 'Oml2dEvents':
-          return '组件事件';
+          return '实例对象中的事件';
         default:
           return '';
       }
