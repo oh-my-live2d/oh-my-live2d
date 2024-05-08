@@ -15,6 +15,9 @@
     "javascript-stringify": "^2.1.0",
     "oh-my-live2d": "workspace:*"
   },
+  "devDependencies": {
+    "vite": "^5.2.11"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT"

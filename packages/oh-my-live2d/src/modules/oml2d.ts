@@ -1,47 +1,110 @@
-import { PixiApp } from './application.js';
+import { isArray } from 'tianjie';
+
 import { Events } from './events.js';
 import { GlobalStyle } from './global-style.js';
-// import { LoadOhMyLive2D } from './load-oml2d.js';
-import { LoadOhMyLive2D } from './load-oml2d.js';
 import { Menus } from './menus.js';
 import { Models } from './models.js';
+import { PixiApp } from './pixi.js';
 import { Stage } from './stage.js';
 import { StatusBar } from './status-bar.js';
 import { Store } from './store.js';
 import { Tips } from './tips.js';
+import { DEFAULT_OPTIONS } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
-import type { DefaultOptions, PixiLive2dDisplayModule, PixiModule } from '../types/index.js';
-import { checkVersion, getRandomIndex, getWindowSizeType, onChangeWindowSize, printProjectInfo } from '../utils/index.js';
+import { CommonStyleType } from '../types/common.js';
+import { EventFn, LoadEventFn } from '../types/events/index.js';
+import type { DefaultOptions } from '../types/index.js';
+import { Oml2dEvents, Oml2dMethods, Oml2dProperties } from '../types/oml2d/index.js';
+import type { Options } from '../types/options/index.js';
+import {
+  checkVersion,
+  getRandomIndex,
+  getWindowSizeType,
+  handleCommonStyle,
+  mergeOptions,
+  onChangeWindowSize,
+  printProjectInfo
+} from '../utils/index.js';
 
-export class OhMyLive2D {
-  store: Store;
-  globalStyle: GlobalStyle;
-  stage: Stage;
-  statusBar: StatusBar;
-  tips: Tips;
-  menus: Menus;
-  models: Models;
-  pixiApp?: PixiApp;
-  currentModelIndex: number = 0;
-  currentModelClothesIndex: number = 0;
+export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
+  private store: Store;
+  private globalStyle: GlobalStyle;
+  private stage: Stage;
+  private statusBar: StatusBar;
+  private tips: Tips;
+  private menus: Menus;
+  private models: Models;
+  private pixiApp?: PixiApp;
+  private currentModelIndex: number = 0;
+  private currentModelClothesIndex: number = 0;
+  version = __VERSION__;
   options: DefaultOptions;
+  private events: Events;
 
-  constructor(
-    private globalOml2d: LoadOhMyLive2D,
-    private events: Events,
-    private PIXI: PixiModule,
-    private PixiLive2dDisplay: PixiLive2dDisplayModule
-  ) {
-    this.options = this.globalOml2d.options;
+  constructor(options: Options) {
+    this.events = new Events();
+    this.options = mergeOptions(DEFAULT_OPTIONS, options);
     this.globalStyle = new GlobalStyle(this.options);
     this.stage = new Stage(this.options, this.events); // 实例化舞台
     this.statusBar = new StatusBar(this.options);
-    this.tips = new Tips(this.options, this.globalOml2d); // 提示框
-    this.menus = new Menus(this.options, this.globalOml2d); // 菜单
-    this.models = new Models(this.options, this.PixiLive2dDisplay, this.events);
+    this.tips = new Tips(this.options, this); // 提示框
+    this.menus = new Menus(this.options, this); // 菜单
+    this.models = new Models(this.options, this.events);
     this.store = new Store();
     this.modelIndex = this.store.getModelIndex();
     this.modelClothesIndex = this.store.getModelClothesIndex();
+    this.initialize();
+  }
+
+  /**
+   * 显示模型的 hit area 区域
+   */
+  showModelHitAreaFrames() {
+    this.models.removeHitAreaFrames();
+  }
+
+  /**
+   * 隐藏模型的 hit area 区域
+   */
+  hideModelHitAreaFrames() {
+    this.models.addHitAreaFrames();
+  }
+
+  /**
+   * 设置模型缩放比例
+   * @param scale 缩放比例
+   */
+  setModelScale(scale: number) {
+    this.models.setScale(scale);
+  }
+
+  stopTipsIdle() {
+    this.tips.idlePlayer?.stop();
+  }
+
+  startTipsIdle() {
+    this.tips.idlePlayer?.start();
+  }
+  statusBarPopup(content?: string | undefined, delay?: number | undefined, color?: string | undefined) {
+    this.statusBar.popup(content, delay, color);
+  }
+
+  setStatusBarHoverEvent(events?: { onIn?: () => void | Promise<void>; onOut?: () => void | Promise<void> }) {
+    this.statusBar.setHoverEvent(events);
+  }
+
+  tipsMessage(message: string, duration: number, priority: number) {
+    this.tips.notification(message, duration, priority);
+  }
+
+  setStageStyle(style: CommonStyleType) {
+    this.stage.setStyle(handleCommonStyle(style));
+  }
+
+  setModelPosition(position: { x?: number | undefined; y?: number | undefined }) {
+    const { x = 0, y = 0 } = position;
+
+    this.models.setPosition(x, y);
   }
 
   /**
@@ -80,7 +143,7 @@ export class OhMyLive2D {
 
     this.stage.create();
 
-    this.pixiApp = new PixiApp(this.PIXI, this.stage);
+    this.pixiApp = new PixiApp(this.stage);
 
     this.statusBar.create();
     this.statusBar.initializeStyle();
@@ -96,9 +159,8 @@ export class OhMyLive2D {
 
   /**
    * 加载模型
-   * tip: 仅加载模型, 并不会显示模型; 若想显示模型, 则需要再 callback 里面执行一次 stage.slideIn 方法
    */
-  private async loadModel(callback: () => void): Promise<void> {
+  private async loadModel(): Promise<void> {
     this.tips.clear();
     await this.stage.slideOut();
 
@@ -128,8 +190,6 @@ export class OhMyLive2D {
         this.stage.reloadStyle(this.models.modelSize);
         this.pixiApp?.resize();
         this.statusBar.hideLoading();
-
-        callback();
       });
   }
 
@@ -137,10 +197,9 @@ export class OhMyLive2D {
    * 重新加载
    */
   async reloadModel(): Promise<void> {
-    await this.loadModel(() => {
-      this.stage.slideIn();
-    });
-    void this.tips.idlePlayer?.start();
+    await this.loadModel();
+    await this.stage.slideIn();
+    this.tips.idlePlayer?.start();
   }
 
   /**
@@ -151,9 +210,8 @@ export class OhMyLive2D {
     this.modelClothesIndex = 0;
 
     this.statusBar.open(this.options.statusBar.switchingMessage);
-    await this.loadModel(() => {
-      this.stage.slideIn();
-    });
+    await this.loadModel();
+    await this.stage.slideIn();
     void this.tips.idlePlayer?.start();
   }
 
@@ -168,14 +226,13 @@ export class OhMyLive2D {
 
     this.statusBar.open(this.options.statusBar.switchingMessage);
 
-    await this.loadModel(() => {
-      this.stage.slideIn();
-    });
+    await this.loadModel();
+    await this.stage.slideIn();
     void this.tips.idlePlayer?.start();
   }
 
   /**
-   * @description 通过模型索引值加载模型
+   * 通过模型索引值加载模型
    */
   async loadModelByIndex(modelIndex: number, modelClothesIndex?: number): Promise<void> {
     if (modelIndex >= 0 && modelIndex < this.options.models.length) {
@@ -184,51 +241,64 @@ export class OhMyLive2D {
 
       this.statusBar.open(this.options.statusBar.switchingMessage);
 
-      await this.loadModel(() => {
-        this.stage.slideIn();
-      });
+      await this.loadModel();
+      await this.stage.slideIn();
       void this.tips.idlePlayer?.start();
     }
   }
 
   /**
-   * @description 通过模型名称加载模型
+   * 通过模型名称加载模型
    */
-  async loadModelByName(modelName: string, modelClothesIndex?: number) {
-    const targetIndex = this.options.models.findIndex((item) => item.name === modelName);
+  async loadModelByName(name: string, clothesIndex?: number) {
+    const targetIndex = this.options.models.findIndex((item) => item.name === name);
 
     if (targetIndex > 0) {
       this.modelIndex = targetIndex;
-      this.modelClothesIndex = modelClothesIndex || 0;
+      this.modelClothesIndex = clothesIndex || 0;
 
       this.statusBar.open(this.options.statusBar.switchingMessage);
 
-      await this.loadModel(() => {
-        this.stage.slideIn();
-      });
+      await this.loadModel();
+      await this.stage.slideIn();
       void this.tips.idlePlayer?.start();
     }
   }
 
-  /**
-   * 加载角色模型的下一个衣服, 即切换同个角色的不同模型
-   */
   async loadNextModelClothes(): Promise<void> {
     const path = this.options.models[this.modelIndex].path;
 
-    if (Array.isArray(this.options.models[this.modelIndex].path)) {
+    if (isArray(this.options.models[this.modelIndex].path) && this.options.models.length) {
       if (++this.modelClothesIndex >= path.length) {
         this.modelClothesIndex = 0;
       }
-
-      await this.loadModel(() => {
-        this.stage.slideIn();
-      });
+      await this.loadModel();
+      await this.stage.slideIn();
+    } else {
+      this.tips.notification('该模型没有其他衣服~', 5000, 3);
     }
   }
 
+  /**
+   * 设置当前模型的旋转角度
+   * @param rotation
+   */
+  setModelRotation(rotation: number): void {
+    this.models.setRotation(rotation);
+  }
+
+  /**
+   * 设置当前模型的锚点位置
+   * @param anchor
+   */
+  setModelAnchor(anchor: { x?: number; y?: number }): void {
+    const { x, y } = anchor;
+
+    this.models.setAnchor(x, y);
+  }
+
   // 初始化
-  initialize(): void {
+  private initialize(): void {
     // 检查版本
     void checkVersion();
 
@@ -248,12 +318,15 @@ export class OhMyLive2D {
     this.mount();
 
     // 加载模型
-    void this.loadModel(() => {
-      if (this.options.initialStatus == 'sleep') {
+    void this.loadModel().then(() => {
+      if (this.options.initialStatus === 'sleep') {
         this.tips.clear();
+
         this.statusBar.open(this.options.statusBar.restMessage);
+
         this.statusBar.setClickEvent(() => {
           this.stage.slideIn();
+          this.tips.idlePlayer?.start();
           this.statusBar.close();
           this.statusBar.clearHoverEvent();
           this.statusBar.clearClickEvent();
@@ -265,6 +338,83 @@ export class OhMyLive2D {
   }
 
   /**
+   * 舞台滑入
+   */
+  async stageSlideIn(): Promise<void> {
+    await this.stage.slideIn();
+  }
+
+  /**
+   * 舞台滑出
+   */
+  async stageSlideOut(): Promise<void> {
+    await this.stage.slideOut();
+  }
+
+  /**
+   * 弹出状态条并保持打开状态
+   * @param content
+   * @param color
+   */
+  statusBarOpen(content?: string, color?: string): void {
+    this.statusBar.open(content, color);
+  }
+
+  /**
+   * 清除当前提示框内容并关闭空闲消息播放器
+   */
+  clearTips(): void {
+    this.tips.clear();
+  }
+  /**
+   * 设置状态条点击事件
+   * @param fn
+   */
+  setStatusBarClickEvent(fn: EventFn): void {
+    this.statusBar.setClickEvent(fn);
+  }
+
+  /**
+   * 收起状态条
+   * @param content
+   * @param color
+   * @param delay
+   */
+  statusBarClose(content?: string, delay?: number, color?: string): void {
+    this.statusBar.close(content, color, delay);
+  }
+  /**
+   * 清除状态条所有绑定事件
+   */
+  statusBarClearEvents(): void {
+    this.statusBar.clearClickEvent();
+    this.statusBar.clearHoverEvent();
+  }
+  /**
+   * 舞台滑入动画执行完毕后的事件监听
+   * @param fn
+   */
+  onStageSlideIn(fn: EventFn): void {
+    this.events.add('stageSlideIn', fn);
+  }
+
+  /**
+   * 舞台滑出动画执行完毕后的事件监听
+   * @param fn
+   */
+  onStageSlideOut(fn: EventFn): void {
+    this.events.add('stageSlideOut', fn);
+  }
+
+  /**
+   * 模型在每次加载状态发生变化时的事件监听
+   * @param fn
+   */
+  onLoad(fn: LoadEventFn): void {
+    this.events.add('load', fn);
+  }
+
+  /**
    * 注册全局事件
    */
   private registerGlobalEvent(): void {
@@ -272,7 +422,7 @@ export class OhMyLive2D {
       void this.reloadModel();
     });
 
-    this.globalOml2d.onStageSlideIn(() => {
+    this.onStageSlideIn(() => {
       this.tips.welcome();
     });
 

@@ -1,5 +1,4 @@
-import { ELEMENT_ID } from '../config/config.js';
-import { generateGlobalStyle } from '../config/style.js';
+import { ELEMENT_ID, generateGlobalStyle } from '../config/index.js';
 import { DefaultOptions } from '../types/index.js';
 import { createElement } from '../utils/index.js';
 

@@ -4,14 +4,11 @@ import type { HitAreaFrames } from 'pixi-live2d-display/extra';
 import type { Application } from 'pixi.js';
 
 import { CommonStyleType, Item } from './common.js';
-import type { ModelOptions } from './model.js';
-import type { MenusOptions, Options } from './options.js';
-import { StatusBarOptions } from './statusBar.js';
-import { TipsOptions } from './tips.js';
+import type { MenusOptions, ModelOptions, Options, StatusBarOptions, TipsOptions } from './options/index.js';
 import type { DeepRequired } from './utils.js';
 import type { DEFAULT_OPTIONS } from '../config/config.js';
 
-export * from './options.js';
+export * from './options/index.js';
 export * from './utils.js';
 export type HitAreaFramesType = typeof HitAreaFrames;
 export type ImportType = 'complete' | 'cubism2' | 'cubism5';

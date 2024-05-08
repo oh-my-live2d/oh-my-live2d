@@ -110,8 +110,6 @@ export class StatusBar {
         });
         setTimeout(() => {
           this.status = true;
-          // this.clearClickEvent();
-          // this.clearHoverEvent();
           resolve();
         }, this.statusBarOptions.transitionTime);
       }
@@ -133,7 +131,7 @@ export class StatusBar {
     this.popup(this.statusBarOptions.loadSuccessMessage, 1000);
   }
 
-  setHoverEvent(events?: { onIn?: () => void; onOut?: () => void }): void {
+  setHoverEvent(events?: { onIn?: () => void | Promise<void>; onOut?: () => void | Promise<void> }): void {
     if (this.element) {
       this.element.onmouseover = events?.onIn || null;
       this.element.onmouseout = events?.onOut || null;
@@ -223,13 +221,13 @@ export class StatusBar {
       this.setContent(message);
     }
 
-    void this.slideIn().then(() => {
-      if (isNumber(delay)) {
-        this.timer = setTimeout(() => {
-          void this.slideOut();
-        }, delay);
-      }
-    });
+    void this.slideIn();
+
+    if (isNumber(delay)) {
+      this.timer = setTimeout(() => {
+        void this.slideOut();
+      }, delay + this.statusBarOptions.transitionTime);
+    }
   }
 
   setContent(content: string): void {

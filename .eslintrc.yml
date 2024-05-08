@@ -28,20 +28,10 @@ ignorePatterns:
   - '**/.vitepress/cache/'
 
 rules:
-  '@typescript-eslint/no-floating-promises':
-    - off
-
-  '@typescript-eslint/ban-ts-comment':
-    - off
-
-  '@typescript-eslint/consistent-type-imports':
-    - off
-
-  '@typescript-eslint/explicit-function-return-type':
-    - warn
-    - allowHigherOrderFunctions: true
-      allowDirectConstAssertionInArrowFunctions: true
-      allowTypedFunctionExpressions: true
+  '@typescript-eslint/no-floating-promises': off
+  '@typescript-eslint/ban-ts-comment': off
+  '@typescript-eslint/consistent-type-imports': off
+  '@typescript-eslint/explicit-function-return-type': off
 
   '@typescript-eslint/naming-convention':
     - off
@@ -128,7 +118,7 @@ rules:
     - error
 
   import/no-commonjs:
-    - error
+    - off
 
   import/no-cycle:
     - error

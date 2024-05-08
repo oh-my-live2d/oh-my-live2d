@@ -8,9 +8,6 @@ import {
 } from './style.js';
 import type { DefaultOptions } from '../types/index.js';
 
-// 第三方库服务地址
-const libServicePath = 'https://lib.oml2d.com';
-
 // 默认配置选项, 实例化时会与用户传进来的合并
 export const DEFAULT_OPTIONS: DefaultOptions = {
   dockedPosition: 'left',
@@ -21,9 +18,9 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
   parentElement: document.body,
   importType: 'complete',
   libraryUrls: {
-    complete: `${libServicePath}/complete.js`,
-    cubism2: `${libServicePath}/cubism2.js`,
-    cubism5: `${libServicePath}/cubism5.js`
+    complete: ``,
+    cubism2: ``,
+    cubism5: ``
   },
   stageStyle: STAGE_DEFAULT_GLOBAL_STYLE,
   models: [],
@@ -81,7 +78,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
         icon: 'icon-rest',
         title: '休息',
         onClick(oml2d): void {
-          oml2d.statusBarOpen(oml2d.options.statusBar.restMessage); // 展示状态条
+          oml2d.statusBarOpen(oml2d.options.statusBar?.restMessage); // 展示状态条
           oml2d.clearTips(); // 清除当前提示框内容, 并停止空闲消息播放器
 
           // 为状态条绑定点击事件

@@ -1,6 +1,8 @@
 import './library/iconfont.js';
-import { bootstrap } from './modules/index.js';
+import './library/cubism2.js';
+import './library/cubism5.js';
 
-export * from './types/options.js';
+export { loadOml2d } from './modules/index.js';
 
-export const loadOml2d = bootstrap();
+export type * from './types/options/index.js';
+export type * from './types/oml2d/index.js';

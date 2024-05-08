@@ -1,9 +1,7 @@
 import { defineConfig } from 'vitepress';
 // 导入主题的配置
 import { blogTheme } from './blog-theme.js';
-import sidebarData from '../../sideBarData.json';
 import pkg from '../../../lerna.json';
-
 // 如果使用 GitHub/Gitee Pages 等公共平台部署
 // 通常需要修改 base 路径，通常为“/仓库名/”
 // const base = process.env.GITHUB_ACTIONS === 'true'
@@ -58,7 +56,6 @@ export default defineConfig({
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '相关文章',
     lastUpdatedText: '上次更新于',
-
     logo: {
       dark: '/logo-white.png',
       light: '/logo-black.png'
@@ -69,8 +66,49 @@ export default defineConfig({
     //   text: '去 GitHub 上编辑内容'
     // },
     sidebar: {
-      '/options': sidebarData,
-      '/guide': [
+      '/api/interfaces': [
+        {
+          text: '配置选项',
+          items: [
+            { text: '公共选项', link: '/api/interfaces/Options' },
+            {
+              text: '模型选项',
+              link: '/api/interfaces/ModelOptions'
+            },
+            {
+              text: '菜单选项',
+              link: '/api/interfaces/MenusOptions'
+            },
+            {
+              text: '提示框选项',
+              link: '/api/interfaces/TipsOptions'
+            },
+            {
+              text: '状态栏选项',
+              link: '/api/interfaces/StatusBarOptions'
+            }
+          ]
+        },
+        {
+          text: '实例对象',
+          items: [
+            {
+              text: '属性',
+              link: '/api/interfaces/Oml2dProperties'
+            },
+            {
+              text: '方法',
+              link: '/api/interfaces/Oml2dMethods'
+            },
+            {
+              text: '事件',
+              link: '/api/interfaces/Oml2dEvents'
+            }
+          ]
+        }
+      ],
+      // '/options': sidebarData,
+      '/': [
         {
           text: '简介',
           items: [
@@ -78,9 +116,13 @@ export default defineConfig({
               text: '快速入门',
               link: '/guide/'
             },
+            // {
+            //   text: '加载模型',
+            //   link: '/guide/loadModel'
+            // },
             {
-              text: '加载模型',
-              link: '/guide/loadModel'
+              text: '组件加载',
+              link: '/api/functions/loadOml2d'
             },
             {
               text: '自定义图标',
@@ -100,8 +142,7 @@ export default defineConfig({
     },
     nav: [
       { text: '指南', link: '/guide/' },
-      { text: '选项', link: '/options/Options' },
-      // { text: "关于作者", link: "/about" },
+      { text: '选项', link: '/api/interfaces/Options' },
       {
         text: '使用示例',
         items: examples
