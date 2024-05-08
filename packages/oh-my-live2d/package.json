@@ -1,6 +1,6 @@
 {
   "name": "oh-my-live2d",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "description": "live2d component for web. 看板娘组件, 支持 model2、model3、model4",
   "keywords": [
     "Live2D",
