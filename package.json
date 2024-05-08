@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
-    "changed": "lerna version --conventional-commits --create-release github",
-    "changed:major": "lerna version major --conventional-commits --create-release github",
+    "changed": "lerna version --conventional-commits --create-release github && cpy CHANGELOG.md docs/src",
+    "changed:major": "lerna version major --conventional-commits --create-release github && cpy CHANGELOG.md docs/src",
     "demo": "pnpm -F oh-my-live2d run demo",
     "demo:umd": "pnpm -F oh-my-live2d run demo:umd",
     "dev": "pnpm -F oh-my-live2d run dev",
@@ -33,6 +33,7 @@
     "@typescript-eslint/parser": "^7.1.0",
     "concurrently": "^8.2.2",
     "conventional-changelog-conventionalcommits": "^7.0.2",
+    "cpy-cli": "^5.0.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
