@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.18.0...v0.19.0) (2024-05-08)
+
+### ✨ Features | 新功能
+
+- 缓存记录组件的状态sleep、active ([6cfbc24](https://github.com/oh-my-live2d/oh-my-live2d/commit/6cfbc241df8cb6e4615638a7fe27662f89c6d423)) by.@Hacxy
+- 添加通过模型名称加载模型的方法 ([7d744d5](https://github.com/oh-my-live2d/oh-my-live2d/commit/7d744d595e0ecc011a9794700fe357e755d8f25d)) by.@kis
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 调整loadModel方法调用入参格式 ([3d950fa](https://github.com/oh-my-live2d/oh-my-live2d/commit/3d950faad76b1ae2a00ee2c311e37b01cf022d90)) by.@Hacxy
+- 调整sdk引入,不再使用外部导入sdk的方式,而是内置sdk. 不再区分导入类型, 默认全量导入 ([8865c2e](https://github.com/oh-my-live2d/oh-my-live2d/commit/8865c2e817b98acccba1bb562bd12986ed3f103a)) by.@Hacxy
+- 修复动作声音播放异常的bug ([cd0761f](https://github.com/oh-my-live2d/oh-my-live2d/commit/cd0761f141ba740c86bde6404427dd826f3a5c56)) by.@Hacxy
+- 修复了初始状态为sleep时，模型加载完成后状态条无法正常显示的bug [#50](https://github.com/oh-my-live2d/oh-my-live2d/issues/50) ([c8814d4](https://github.com/oh-my-live2d/oh-my-live2d/commit/c8814d4d0edb50ad20a77e1b4d22417d51a4c521)) by.@Hacxy
+- **statusBar:** 修复了初始状态为sleep时, 模型加载完后状态条不正常显示的bug ([434c3fa](https://github.com/oh-my-live2d/oh-my-live2d/commit/434c3fa5db17c3db48cbc768d5539f379b54b494)) by.@Hacxy
+
 ## [0.18.0](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.17.0...v0.18.0) (2024-05-04)
 
 ### ✨ Features | 新功能
