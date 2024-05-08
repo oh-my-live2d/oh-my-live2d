@@ -6,6 +6,3 @@ export * from './modules/index.js';
 
 export type * from './types/options/index.js';
 export type * from './types/oml2d/index.js';
-
-// export type { OML2D } from './types/common.js';
-// export type { LoadOhMyLive2D } from './modules/load-oml2d.js';

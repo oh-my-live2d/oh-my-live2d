@@ -61,7 +61,7 @@ export interface ModelOptions {
   mobilePosition?: [x: number, y: number];
 
   /**
-   * 移动端时舞台的样式, 支持传入CSS对象, 传入的样式将通过内联样式作用于舞台元素, 舞台的默认宽高将自适应模型的宽高, 舞台内Canvas元素的宽高始终与舞台保持一致
+   * 移动端舞台的样式, 支持传入CSS对象, 传入的样式将通过内联样式作用于舞台元素, 舞台的默认宽高将自适应模型的宽高, 舞台内Canvas元素的宽高始终与舞台保持一致, 仅在移动端生效
    */
   mobileStageStyle?: CommonStyleType;
 

@@ -26,7 +26,7 @@ export interface Options {
   /**
    * 导入类型, 这个选项的作用是从 libraryUrls 选项决定SDK加载地址, 默认使用全量导入: complete
    * @default 'complete'
-   * @deprecated sdk已内置,该选项将在下个版本移除此选项
+   * @deprecated 不再使用按需导入的方式,默认全量导入,该选项将在下个版本被移除
    */
   importType?: string;
 
@@ -36,7 +36,7 @@ export interface Options {
    */
   primaryColor?: string;
   /**
-   * @deprecated sdk已内置,该选项已弃用,将在下个版本移除
+   * @deprecated sdk已内置,该选项已弃用,将在下个版本被移除
    */
   libraryUrls?: {
     /**
@@ -67,7 +67,7 @@ export interface Options {
   transitionTime?: number;
 
   /**
-   * 全局舞台样式
+   * 公共舞台样式, 优先级低于模型选项中的舞台样式, 详见: [舞台样式](./ModelOptions#stagestyle)
    */
   stageStyle?: CommonStyleType;
 
