@@ -8,8 +8,6 @@ import {
 } from './style.js';
 import type { DefaultOptions } from '../types/index.js';
 
-// 第三方库服务地址
-
 // 默认配置选项, 实例化时会与用户传进来的合并
 export const DEFAULT_OPTIONS: DefaultOptions = {
   dockedPosition: 'left',
@@ -80,7 +78,7 @@ export const DEFAULT_OPTIONS: DefaultOptions = {
         icon: 'icon-rest',
         title: '休息',
         onClick(oml2d): void {
-          oml2d.statusBarOpen(oml2d.options.statusBar.restMessage); // 展示状态条
+          oml2d.statusBarOpen(oml2d.options.statusBar?.restMessage); // 展示状态条
           oml2d.clearTips(); // 清除当前提示框内容, 并停止空闲消息播放器
 
           // 为状态条绑定点击事件

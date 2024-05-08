@@ -84,7 +84,7 @@ sdk已内置,该选项已弃用,将在下个版本被移除
 
 ### menus?
 
-> `optional` **menus**: [`MenusOptions`](MenusOptions.md) \| (`currentModel`, `modelIndex`) => [`MenusOptions`](MenusOptions.md)
+> `optional` **menus**: [`MenusOptions`](MenusOptions.md) \| (`currentModel`: [`ModelOptions`](ModelOptions.md), `modelIndex`: `number`) => [`MenusOptions`](MenusOptions.md)
 
 菜单配置, 详见: [菜单选项](./MenusOptions)
 
@@ -166,7 +166,7 @@ true;
 
 > `optional` **stageStyle**: `CommonStyleType`
 
-公共舞台样式, 优先级低于模型选项中的舞台样式, 详见: [舞台样式](./ModelOptions#stagestyle)
+公共舞台样式, 作用于所有模型的舞台样式, 优先级低于模型选项中的舞台样式
 
 ---
 
@@ -180,7 +180,7 @@ true;
 
 ### tips?
 
-> `optional` **tips**: [`TipsOptions`](TipsOptions.md) \| (`currentModel`, `modelIndex`) => [`TipsOptions`](TipsOptions.md)
+> `optional` **tips**: [`TipsOptions`](TipsOptions.md) \| (`currentModel`: [`ModelOptions`](ModelOptions.md), `modelIndex`: `number`) => [`TipsOptions`](TipsOptions.md)
 
 自定义提示框样式和内容, 前往[提示框选项](./TipsOptions)查看详细内容
 

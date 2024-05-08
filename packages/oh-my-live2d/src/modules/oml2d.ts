@@ -1,3 +1,5 @@
+import { isArray } from 'tianjie';
+
 import { Events } from './events.js';
 import { GlobalStyle } from './global-style.js';
 import { Menus } from './menus.js';
@@ -90,12 +92,15 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   setStatusBarHoverEvent(events?: { onIn?: () => void | Promise<void>; onOut?: () => void | Promise<void> }) {
     this.statusBar.setHoverEvent(events);
   }
+
   tipsMessage(message: string, duration: number, priority: number) {
     this.tips.notification(message, duration, priority);
   }
+
   setStageStyle(style: CommonStyleType) {
     this.stage.setStyle(handleCommonStyle(style));
   }
+
   setModelPosition(position: { x?: number | undefined; y?: number | undefined }) {
     const { x = 0, y = 0 } = position;
 
@@ -193,8 +198,8 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
    */
   async reloadModel(): Promise<void> {
     await this.loadModel();
-    this.stage.slideIn();
-    void this.tips.idlePlayer?.start();
+    await this.stage.slideIn();
+    this.tips.idlePlayer?.start();
   }
 
   /**
@@ -206,7 +211,7 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
 
     this.statusBar.open(this.options.statusBar.switchingMessage);
     await this.loadModel();
-    this.stage.slideIn();
+    await this.stage.slideIn();
     void this.tips.idlePlayer?.start();
   }
 
@@ -245,12 +250,12 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   /**
    * 通过模型名称加载模型
    */
-  async loadModelByName(modelName: string, modelClothesIndex?: number) {
-    const targetIndex = this.options.models.findIndex((item) => item.name === modelName);
+  async loadModelByName(name: string, clothesIndex?: number) {
+    const targetIndex = this.options.models.findIndex((item) => item.name === name);
 
     if (targetIndex > 0) {
       this.modelIndex = targetIndex;
-      this.modelClothesIndex = modelClothesIndex || 0;
+      this.modelClothesIndex = clothesIndex || 0;
 
       this.statusBar.open(this.options.statusBar.switchingMessage);
 
@@ -260,20 +265,36 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
     }
   }
 
-  /**
-   * 加载角色模型的下一个衣服, 即切换同个角色的不同模型
-   */
   async loadNextModelClothes(): Promise<void> {
     const path = this.options.models[this.modelIndex].path;
 
-    if (Array.isArray(this.options.models[this.modelIndex].path)) {
+    if (isArray(this.options.models[this.modelIndex].path) && this.options.models.length) {
       if (++this.modelClothesIndex >= path.length) {
         this.modelClothesIndex = 0;
       }
-
       await this.loadModel();
       await this.stage.slideIn();
+    } else {
+      this.tips.notification('该模型没有其他衣服~', 5000, 3);
     }
+  }
+
+  /**
+   * 设置当前模型的旋转角度
+   * @param rotation
+   */
+  setModelRotation(rotation: number): void {
+    this.models.setRotation(rotation);
+  }
+
+  /**
+   * 设置当前模型的锚点位置
+   * @param anchor
+   */
+  setModelAnchor(anchor: { x?: number; y?: number }): void {
+    const { x, y } = anchor;
+
+    this.models.setAnchor(x, y);
   }
 
   // 初始化
@@ -359,7 +380,7 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
    * @param color
    * @param delay
    */
-  statusBarClose(content?: string, color?: string, delay?: number): void {
+  statusBarClose(content?: string, delay?: number, color?: string): void {
     this.statusBar.close(content, color, delay);
   }
   /**

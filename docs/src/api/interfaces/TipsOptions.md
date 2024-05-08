@@ -118,7 +118,7 @@
 
 #### wordTheDay?
 
-> `optional` **wordTheDay**: `boolean` \| (`wordTheDayData`) => `string`
+> `optional` **wordTheDay**: `boolean` \| (`wordTheDayData`: `WordTheDayData`) => `string`
 
 是否开启每日一言, 默认为关闭状态, 开启后将从 <https://v1.hitokoto.cn> 发送网络请求, 并将请求到的随机信息作为闲置提示内容, 除了 boolean 类型之外, 它还支持您传入一个格式化函数, 这在您需要自定义消息格式时非常有用, 格式化函数的返回值必须是一个 string 类型, 其接收一个 wordTheDayData, 该参数包含了这次网络请求成功后的所有响应数据, 方便您处理格式化.
 

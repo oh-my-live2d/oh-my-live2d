@@ -10,6 +10,14 @@
 
 ---
 
+### options
+
+> **options**: [`Options`](Options.md)
+
+配置选项, 用户传入选项与默认选项合并之后的值
+
+---
+
 ### version
 
 > **version**: `string`

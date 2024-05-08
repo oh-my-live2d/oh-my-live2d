@@ -4,13 +4,15 @@
 
 ### onLoad()
 
-> **onLoad**: (`fn`) => `void` \| `Promise`\<`void`\>
+> **onLoad**: (`fn`: (`status`: `"loading"` \| `"success"` \| `"fail"`) => `void` \| `Promise`\<`void`\>) => `void` \| `Promise`\<`void`\>
+
+模型加载事件
 
 #### 参数:
 
-| 参数 | 类型                                        |
-| :--- | :------------------------------------------ |
-| `fn` | (`status`) => `void` \| `Promise`\<`void`\> |
+| 参数 | 类型                                                                                | 描述           |
+| :--- | :---------------------------------------------------------------------------------- | :------------- |
+| `fn` | (`status`: `"loading"` \| `"success"` \| `"fail"`) => `void` \| `Promise`\<`void`\> | 加载结束的回调 |
 
 #### 返回值类型:
 
@@ -20,13 +22,15 @@
 
 ### onStageSlideIn()
 
-> **onStageSlideIn**: (`fn`) => `void` \| `Promise`\<`void`\>
+> **onStageSlideIn**: (`fn`: () => `void` \| `Promise`\<`void`\>) => `void` \| `Promise`\<`void`\>
+
+舞台完全滑入事件
 
 #### 参数:
 
-| 参数 | 类型                                |
-| :--- | :---------------------------------- |
-| `fn` | () => `void` \| `Promise`\<`void`\> |
+| 参数 | 类型                                | 描述     |
+| :--- | :---------------------------------- | :------- |
+| `fn` | () => `void` \| `Promise`\<`void`\> | 事件回调 |
 
 #### 返回值类型:
 
@@ -36,13 +40,15 @@
 
 ### onStageSlideOut()
 
-> **onStageSlideOut**: (`fn`) => `void` \| `Promise`\<`void`\>
+> **onStageSlideOut**: (`fn`: () => `void` \| `Promise`\<`void`\>) => `void` \| `Promise`\<`void`\>
+
+舞台完全滑出事件
 
 #### 参数:
 
-| 参数 | 类型                                |
-| :--- | :---------------------------------- |
-| `fn` | () => `void` \| `Promise`\<`void`\> |
+| 参数 | 类型                                | 描述     |
+| :--- | :---------------------------------- | :------- |
+| `fn` | () => `void` \| `Promise`\<`void`\> | 事件回调 |
 
 #### 返回值类型:
 

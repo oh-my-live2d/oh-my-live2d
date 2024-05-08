@@ -26,6 +26,23 @@
 
 ---
 
+### loadModelByName()
+
+> **loadModelByName**: (`name`: `string`, `clothesIndex`?: `number`) => `Promise`\<`void`\>
+
+#### 参数:
+
+| 参数            | 类型     | 描述         |
+| :-------------- | :------- | :----------- |
+| `name`          | `string` | 模型名称     |
+| `clothesIndex`? | `number` | 模型衣服索引 |
+
+#### 返回值类型:
+
+`Promise`\<`void`\>
+
+---
+
 ### loadNextModel()
 
 > **loadNextModel**: () => `Promise`\<`void`\>
@@ -42,17 +59,23 @@
 
 > **loadNextModelClothes**: () => `Promise`\<`void`\>
 
+加载当前模型的下一个衣服, 即:切换同个角色的不同模型
+
 #### 返回值类型:
 
 `Promise`\<`void`\>
 
 ---
 
-### options
+### loadRandomModel()
 
-> **options**: `DefaultOptions`
+> **loadRandomModel**: () => `Promise`\<`void`\>
 
-配置选项, 用户传入选项与默认选项合并之后的值
+加载随机模型
+
+#### 返回值类型:
+
+`Promise`\<`void`\>
 
 ---
 
@@ -68,9 +91,27 @@
 
 ---
 
+### setModelAnchor()
+
+> **setModelAnchor**: (`anchor`: `object`) => `void`
+
+#### 参数:
+
+| 参数        | 类型     | 描述     |
+| :---------- | :------- | :------- |
+| `anchor`    | `object` | 模型锚点 |
+| `anchor.x`? | `number` | x轴      |
+| `anchor.y`? | `number` | y轴      |
+
+#### 返回值类型:
+
+`void`
+
+---
+
 ### setModelPosition()
 
-> **setModelPosition**: (`position`) => `void`
+> **setModelPosition**: (`position`: `object`) => `void`
 
 设置模型位置
 
@@ -79,8 +120,26 @@
 | 参数          | 类型     | 描述 |
 | :------------ | :------- | :--- |
 | `position`    | `object` |      |
-| `position.x`? | `number` | -    |
-| `position.y`? | `number` | -    |
+| `position.x`? | `number` | x轴  |
+| `position.y`? | `number` | y轴  |
+
+#### 返回值类型:
+
+`void`
+
+---
+
+### setModelRotation()
+
+> **setModelRotation**: (`rotation`: `number`) => `void`
+
+设置当前模型的旋转角度
+
+#### 参数:
+
+| 参数       | 类型     | 描述         |
+| :--------- | :------- | :----------- |
+| `rotation` | `number` | 模型旋转角度 |
 
 #### 返回值类型:
 
@@ -90,7 +149,7 @@
 
 ### setModelScale()
 
-> **setModelScale**: (`scale`) => `void`
+> **setModelScale**: (`scale`: `number`) => `void`
 
 设置模型缩放, 这个方法应该在模型加载成功之后再调用
 
@@ -108,17 +167,17 @@
 
 ### setStageStyle()
 
-> **setStageStyle**: (`size`) => `void`
+> **setStageStyle**: (`size`: `object`) => `void`
 
 设置舞台大小
 
 #### 参数:
 
-| 参数           | 类型     | 描述 |
-| :------------- | :------- | :--- |
-| `size`         | `object` |      |
-| `size.height`? | `number` | -    |
-| `size.width`?  | `number` | -    |
+| 参数           | 类型     | 描述     |
+| :------------- | :------- | :------- |
+| `size`         | `object` | 舞台大小 |
+| `size.height`? | `number` | 高度     |
+| `size.width`?  | `number` | 宽度     |
 
 #### 返回值类型:
 
@@ -128,15 +187,15 @@
 
 ### setStatusBarClickEvent()
 
-> **setStatusBarClickEvent**: (`fn`) => `void`
+> **setStatusBarClickEvent**: (`fn`: () => `void` \| `Promise`\<`void`\>) => `void`
 
 设置状态条点击事件
 
 #### 参数:
 
-| 参数 | 类型                                | 描述 |
-| :--- | :---------------------------------- | :--- |
-| `fn` | () => `void` \| `Promise`\<`void`\> |      |
+| 参数 | 类型                                | 描述         |
+| :--- | :---------------------------------- | :----------- |
+| `fn` | () => `void` \| `Promise`\<`void`\> | 点击事件回调 |
 
 #### 返回值类型:
 
@@ -146,17 +205,17 @@
 
 ### setStatusBarHoverEvent()
 
-> **setStatusBarHoverEvent**: (`events`?) => `void`
+> **setStatusBarHoverEvent**: (`events`?: `object`) => `void`
 
 设置状态条hover事件
 
 #### 参数:
 
-| 参数            | 类型                                | 描述 |
-| :-------------- | :---------------------------------- | :--- |
-| `events`?       | `object`                            |      |
-| `events.onIn`?  | () => `void` \| `Promise`\<`void`\> | -    |
-| `events.onOut`? | () => `void` \| `Promise`\<`void`\> | -    |
+| 参数            | 类型                                | 描述                       |
+| :-------------- | :---------------------------------- | :------------------------- |
+| `events`?       | `object`                            | 鼠标事件对象               |
+| `events.onIn`?  | () => `void` \| `Promise`\<`void`\> | 鼠标进入状态条时触发的回调 |
+| `events.onOut`? | () => `void` \| `Promise`\<`void`\> | 鼠标离开状态条时触发的回调 |
 
 #### 返回值类型:
 
@@ -226,17 +285,17 @@
 
 ### statusBarClose()
 
-> **statusBarClose**: (`content`?, `color`?, `delay`?) => `void`
+> **statusBarClose**: (`content`?: `string`, `delay`?: `number`, `color`?: `string`) => `void`
 
-收起状态条
+关闭状态条
 
 #### 参数:
 
-| 参数       | 类型     |
-| :--------- | :------- |
-| `content`? | `string` |
-| `color`?   | `string` |
-| `delay`?   | `number` |
+| 参数       | 类型     | 描述                 |
+| :--------- | :------- | :------------------- |
+| `content`? | `string` | 状态条内容           |
+| `delay`?   | `number` | 延迟时间, 单位: 毫秒 |
+| `color`?   | `string` | 状态条颜色           |
 
 #### 返回值类型:
 
@@ -246,16 +305,16 @@
 
 ### statusBarOpen()
 
-> **statusBarOpen**: (`content`?, `color`?) => `void`
+> **statusBarOpen**: (`content`?: `string`, `color`?: `string`) => `void`
 
 弹出状态条并保持打开状态
 
 #### 参数:
 
-| 参数       | 类型     | 描述 |
-| :--------- | :------- | :--- |
-| `content`? | `string` |      |
-| `color`?   | `string` |      |
+| 参数       | 类型     | 描述       |
+| :--------- | :------- | :--------- |
+| `content`? | `string` | 状态条内容 |
+| `color`?   | `string` | 状态条颜色 |
 
 #### 返回值类型:
 
@@ -265,17 +324,17 @@
 
 ### statusBarPopup()
 
-> **statusBarPopup**: (`content`?, `delay`?, `color`?) => `void`
+> **statusBarPopup**: (`content`?: `string`, `delay`?: `number`, `color`?: `string`) => `void`
 
 弹出状态条, 一段时间后自动收起
 
 #### 参数:
 
-| 参数       | 类型     | 描述 |
-| :--------- | :------- | :--- |
-| `content`? | `string` |      |
-| `delay`?   | `number` |      |
-| `color`?   | `string` |      |
+| 参数       | 类型     | 描述                 |
+| :--------- | :------- | :------------------- |
+| `content`? | `string` | 状态条内容           |
+| `delay`?   | `number` | 延迟时间, 单位: 毫秒 |
+| `color`?   | `string` | 状态条颜色           |
 
 #### 返回值类型:
 
@@ -297,17 +356,17 @@
 
 ### tipsMessage()
 
-> **tipsMessage**: (`message`, `duration`, `priority`) => `void`
+> **tipsMessage**: (`message`: `string`, `duration`: `number`, `priority`: `number`) => `void`
 
 提示信息
 
 #### 参数:
 
-| 参数       | 类型     | 描述 |
-| :--------- | :------- | :--- |
-| `message`  | `string` |      |
-| `duration` | `number` |      |
-| `priority` | `number` |      |
+| 参数       | 类型     | 描述                           |
+| :--------- | :------- | :----------------------------- |
+| `message`  | `string` | 提示信息                       |
+| `duration` | `number` | 提示持续时间, 单位: 毫秒       |
+| `priority` | `number` | 提示优先级, 数字越大优先级越高 |
 
 #### 返回值类型:
 

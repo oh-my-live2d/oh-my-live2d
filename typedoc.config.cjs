@@ -13,6 +13,7 @@ module.exports = {
   typeDeclarationFormat: 'list',
   parametersFormat: 'table',
   // expandObjects: true,
+  expandParameters: true,
   outputFileStrategy: 'members',
   // flattenOutputFiles: true,
   textContentMappings: {

@@ -8,7 +8,7 @@ export function load(app) {
 
     switch (page.model.name) {
       case 'Oml2dProperties':
-        page.contents = page.contents.replace(/## Properties/g, '## 属性');
+        page.contents = page.contents.replace(/## Properties/g, '## 属性:');
         break;
       case 'Oml2dMethods':
         page.contents = page.contents.replace(/## Properties/g, '## 方法:');

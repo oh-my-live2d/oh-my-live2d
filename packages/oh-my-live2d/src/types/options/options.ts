@@ -67,7 +67,7 @@ export interface Options {
   transitionTime?: number;
 
   /**
-   * 公共舞台样式, 优先级低于模型选项中的舞台样式, 详见: [舞台样式](./ModelOptions#stagestyle)
+   * 公共舞台样式, 作用于所有模型的舞台样式, 优先级低于模型选项中的舞台样式
    */
   stageStyle?: CommonStyleType;
 

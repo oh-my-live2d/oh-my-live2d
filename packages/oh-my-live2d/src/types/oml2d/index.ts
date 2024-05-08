@@ -1,4 +1,4 @@
-import { DefaultOptions } from '../index.js';
+import type { Options } from '../index.js';
 
 export interface Oml2dProperties {
   /**
@@ -9,19 +9,19 @@ export interface Oml2dProperties {
    * 当前模型的索引值
    */
   modelIndex: number;
+
+  /**
+   * 配置选项, 用户传入选项与默认选项合并之后的值
+   */
+  options: Options;
 }
 
 export interface Oml2dMethods {
   /**
-   * 配置选项, 用户传入选项与默认选项合并之后的值
-   */
-  options: DefaultOptions;
-
-  /**
    * 提示信息
-   * @param message
-   * @param duration
-   * @param priority
+   * @param message 提示信息
+   * @param duration 提示持续时间, 单位: 毫秒
+   * @param priority 提示优先级, 数字越大优先级越高
    * @returns
    */
   tipsMessage: (message: string, duration: number, priority: number) => void;
@@ -48,13 +48,17 @@ export interface Oml2dMethods {
 
   /**
    * 设置舞台大小
-   * @param size
+   * @param size 舞台大小
+   * @param size.width 宽度
+   * @param size.height 高度
    */
   setStageStyle: (size: { width?: number; height?: number }) => void;
 
   /**
    * 设置模型位置
    * @param position
+   * @param position.x x轴
+   * @param position.y y轴
    */
   setModelPosition: (position: { x?: number; y?: number }) => void;
 
@@ -92,33 +96,39 @@ export interface Oml2dMethods {
 
   /**
    * 弹出状态条并保持打开状态
-   * @param content
-   * @param color
+   * @param content 状态条内容
+   * @param color 状态条颜色
    */
   statusBarOpen: (content?: string, color?: string) => void;
 
   /**
-   * 收起状态条
+   * 关闭状态条
+   * @param content 状态条内容
+   * @param delay 延迟时间, 单位: 毫秒
+   * @param color 状态条颜色
+   * @returns
    */
-  statusBarClose: (content?: string, color?: string, delay?: number) => void;
+  statusBarClose: (content?: string, delay?: number, color?: string) => void;
 
   /**
    * 弹出状态条, 一段时间后自动收起
-   * @param content
-   * @param delay
-   * @param color
+   * @param content 状态条内容
+   * @param delay 延迟时间, 单位: 毫秒
+   * @param color 状态条颜色
    */
   statusBarPopup: (content?: string, delay?: number, color?: string) => void;
 
   /**
    * 设置状态条点击事件
-   * @param fn
+   * @param fn 点击事件回调
    */
   setStatusBarClickEvent: (fn: () => void | Promise<void>) => void;
 
   /**
    *  设置状态条hover事件
-   * @param events
+   * @param events 鼠标事件对象
+   * @param events.onIn 鼠标进入状态条时触发的回调
+   * @param events.onOut 鼠标离开状态条时触发的回调
    */
   setStatusBarHoverEvent: (events?: { onIn?: () => void | Promise<void>; onOut?: () => void | Promise<void> }) => void;
 
@@ -128,11 +138,62 @@ export interface Oml2dMethods {
    */
   statusBarClearEvents: () => void;
 
+  /**
+   * 加载当前模型的下一个衣服, 即:切换同个角色的不同模型
+   * @returns
+   */
   loadNextModelClothes: () => Promise<void>;
+
+  /**
+   * 加载随机模型
+   * @returns
+   */
+  loadRandomModel: () => Promise<void>;
+
+  /**
+   *
+   * @param name 模型名称
+   * @param clothesIndex 模型衣服索引
+   * @returns
+   */
+  loadModelByName: (name: string, clothesIndex?: number) => Promise<void>;
+
+  /**
+   * 设置当前模型的旋转角度
+   * @param rotation 模型旋转角度
+   * @returns
+   */
+  setModelRotation: (rotation: number) => void;
+
+  /**
+   *
+   * @param anchor 模型锚点
+   * @param anchor.x x轴
+   * @param anchor.y y轴
+   * @returns
+   */
+  setModelAnchor: (anchor: { x?: number; y?: number }) => void;
 }
 
 export interface Oml2dEvents {
+  /**
+   * 模型加载事件
+   * @param fn 加载结束的回调
+   * @returns
+   */
   onLoad: (fn: (status: 'loading' | 'success' | 'fail') => void | Promise<void>) => void | Promise<void>;
+
+  /**
+   * 舞台完全滑入事件
+   * @param fn  事件回调
+   * @returns
+   */
   onStageSlideIn: (fn: () => void | Promise<void>) => void | Promise<void>;
+
+  /**
+   * 舞台完全滑出事件
+   * @param fn 事件回调
+   * @returns
+   */
   onStageSlideOut: (fn: () => void | Promise<void>) => void | Promise<void>;
 }
