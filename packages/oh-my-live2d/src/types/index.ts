@@ -19,23 +19,17 @@ export type PixiLive2dDisplayModule = typeof import('pixi-live2d-display') & {
 
 export type PixiModule = typeof import('pixi.js');
 
-// export type MotionPreloadStrategy = PIXI_LIVE2D_DISPLAY_MODULE['MotionPreloadStrategy'];
-
 export type ApplicationType = typeof Application;
 
 export type CSSProperties = CSS.Properties;
 
-export type DefaultOptions = Omit<
-  DeepRequired<Options>,
-  'parentElement' | 'stageStyle' | 'models' | 'tips' | 'statusBar' | 'menus' | 'initialStatus'
-> & {
+export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'stageStyle' | 'models' | 'tips' | 'statusBar' | 'menus'> & {
   parentElement: HTMLElement;
   tips: DefaultTipsOptions;
   statusBar: DefaultStatusBarOptions;
   menus: DefaultMenusOptions;
   stageStyle?: CommonStyleType;
   models: ModelOptions[];
-  initialStatus?: 'sleep' | 'active';
 };
 
 export type DefaultTipsOptions = Omit<DeepRequired<TipsOptions>, 'style' | 'mobileStyle'> & {

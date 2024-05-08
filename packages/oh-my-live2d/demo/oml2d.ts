@@ -29,9 +29,11 @@ const oml2d = loadOml2d({
 oml2d.onLoad((status) => {
   console.log(status);
 });
+
 // oml2d.onStageSlideIn(() => {
 //   oml2d.loadNextModel();
 // });
+
 // oml2d.onStageSlideOut(() => {
 //   console.log('ssssssssss');
 // });

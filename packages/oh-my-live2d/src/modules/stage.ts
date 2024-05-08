@@ -6,6 +6,7 @@ import { WindowSizeType } from '../constants/index.js';
 import { CommonStyleType } from '../types/common.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, handleDockedPosition, setStyleForElement } from '../utils/index.js';
+import { setStatus } from '../utils/store.js';
 
 export class Stage {
   element?: HTMLElement;
@@ -98,6 +99,7 @@ export class Stage {
       setTimeout(() => {
         this.status = true;
         this.events.emit('stageSlideIn');
+        setStatus('active');
         resolve();
       }, this.transitionTime);
     });
@@ -120,7 +122,7 @@ export class Stage {
         setTimeout(() => {
           this.status = false;
           this.events.emit('stageSlideOut');
-
+          setStatus('sleep');
           resolve();
         }, this.transitionTime);
       }

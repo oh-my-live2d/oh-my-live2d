@@ -114,7 +114,6 @@ OhMyLive2d:
         #   function(wordTheDayData){
         #     return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
         #   }
-  # 具体方法请看: https://oml2d.com/guide/loadModel.html#oml2d-%E5%AE%9E%E4%BE%8B
   # then: |
   #   (oml2d)=>{
   #      setTimeout(() => {
@@ -123,4 +122,4 @@ OhMyLive2d:
   #   }
 ```
 
-如需自定义配置, 请在[配置选项](../options/Options.md) 中查阅详细配置内容.
+如需自定义配置, 请在[配置选项](../api/interfaces/Options.md) 中查阅详细配置内容.

@@ -36,7 +36,7 @@ module.exports = {
     'kind.typeParameter.singular': '类型参数',
     'kind.function.plural': '函数',
     'kind.function.singular': '函数',
-    'kind.parameter.singular': '参数',
+    'kind.parameter.singular': '参数名',
     'kind.parameter.plural': '参数:',
     'label.defaultValue': '默认值'
   }
