@@ -1,14 +1,18 @@
 import { loadOml2d } from '../dist/index.js';
 
-loadOml2d({
+const oml2d = loadOml2d({
   models: [
     {
-      path: 'https://model.oml2d.com/cat-black/model.json',
-      scale: 0.15,
-      position: [0, 20],
+      path: 'https://model.oml2d.com/HK416-1-normal/model.json',
+      position: [0, 60],
+      scale: 0.08,
       stageStyle: {
-        height: 350
+        height: 450
       }
     }
   ]
+});
+
+oml2d.onLoad((status) => {
+  console.log(status);
 });

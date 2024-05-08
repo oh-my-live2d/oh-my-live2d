@@ -25,19 +25,19 @@ import {
 } from '../utils/index.js';
 
 export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
-  store: Store;
-  globalStyle: GlobalStyle;
-  stage: Stage;
-  statusBar: StatusBar;
-  tips: Tips;
-  menus: Menus;
-  models: Models;
-  pixiApp?: PixiApp;
+  private store: Store;
+  private globalStyle: GlobalStyle;
+  private stage: Stage;
+  private statusBar: StatusBar;
+  private tips: Tips;
+  private menus: Menus;
+  private models: Models;
+  private pixiApp?: PixiApp;
   private currentModelIndex: number = 0;
-  currentModelClothesIndex: number = 0;
+  private currentModelClothesIndex: number = 0;
   version = __VERSION__;
   options: DefaultOptions;
-  events: Events;
+  private events: Events;
 
   constructor(options: Options) {
     this.events = new Events();
@@ -154,9 +154,8 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
 
   /**
    * 加载模型
-   * tip: 仅加载模型, 并不会显示模型; 若想显示模型, 则需要再 callback 里面执行一次 stage.slideIn 方法
    */
-  private async loadModel(callback: () => void): Promise<void> {
+  private async loadModel(): Promise<void> {
     this.tips.clear();
     await this.stage.slideOut();
 
@@ -186,8 +185,6 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
         this.stage.reloadStyle(this.models.modelSize);
         this.pixiApp?.resize();
         this.statusBar.hideLoading();
-
-        callback();
       });
   }
 
@@ -195,9 +192,8 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
    * 重新加载
    */
   async reloadModel(): Promise<void> {
-    await this.loadModel(() => {
-      this.stage.slideIn();
-    });
+    await this.loadModel();
+    this.stage.slideIn();
     void this.tips.idlePlayer?.start();
   }
 
@@ -209,9 +205,8 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
     this.modelClothesIndex = 0;
 
     this.statusBar.open(this.options.statusBar.switchingMessage);
-    await this.loadModel(() => {
-      this.stage.slideIn();
-    });
+    await this.loadModel();
+    this.stage.slideIn();
     void this.tips.idlePlayer?.start();
   }
 
@@ -226,9 +221,8 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
 
     this.statusBar.open(this.options.statusBar.switchingMessage);
 
-    await this.loadModel(() => {
-      this.stage.slideIn();
-    });
+    await this.loadModel();
+    this.stage.slideIn();
     void this.tips.idlePlayer?.start();
   }
 
@@ -242,9 +236,8 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
 
       this.statusBar.open(this.options.statusBar.switchingMessage);
 
-      await this.loadModel(() => {
-        this.stage.slideIn();
-      });
+      await this.loadModel();
+      this.stage.slideIn();
       void this.tips.idlePlayer?.start();
     }
   }
@@ -261,9 +254,8 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
 
       this.statusBar.open(this.options.statusBar.switchingMessage);
 
-      await this.loadModel(() => {
-        this.stage.slideIn();
-      });
+      await this.loadModel();
+      this.stage.slideIn();
       void this.tips.idlePlayer?.start();
     }
   }
@@ -279,9 +271,8 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
         this.modelClothesIndex = 0;
       }
 
-      await this.loadModel(() => {
-        this.stage.slideIn();
-      });
+      await this.loadModel();
+      this.stage.slideIn();
     }
   }
 
@@ -306,7 +297,7 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
     this.mount();
 
     // 加载模型
-    void this.loadModel(() => {
+    void this.loadModel().then(() => {
       if (this.options.initialStatus == 'sleep') {
         this.tips.clear();
         this.statusBar.open(this.options.statusBar.restMessage);

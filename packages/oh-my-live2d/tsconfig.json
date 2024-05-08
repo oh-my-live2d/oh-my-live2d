@@ -21,5 +21,4 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"]
-  // "exclude": ["test", "docs"]
 }
