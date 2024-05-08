@@ -16,7 +16,6 @@
     "lint": "pnpm lint:prettier && pnpm lint:eslint",
     "lint:eslint": "eslint --ext .ts --fix .",
     "lint:prettier": "prettier --check --write .",
-    "new-publish": "lerna publish from-package --yes",
     "prepare": "husky",
     "preview:new-version": "lerna version --dry-run",
     "release": "lerna publish from-package --yes"
