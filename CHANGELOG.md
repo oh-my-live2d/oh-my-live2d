@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.3](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.19.2...v0.19.3) (2024-05-09)
+
+### 🐛 Bug Fixes | Bug 修复
+
+- 调整每日一言提示内容格式, 去除了出处 ([1ade0be](https://github.com/oh-my-live2d/oh-my-live2d/commit/1ade0be00f1cb69069d00d7d6226db6ecc4b50c6)) by.@Hacxy
+- 修复模型索引记录错误导致模型加载失败的bug ([8491dcf](https://github.com/oh-my-live2d/oh-my-live2d/commit/8491dcf979d3b4c12b064cb743ff508714a7178e)) by.@Hacxy
+
 ## [0.19.2](https://github.com/oh-my-live2d/oh-my-live2d/compare/v0.19.1...v0.19.2) (2024-05-08)
 
 ### 🐛 Bug Fixes | Bug 修复
