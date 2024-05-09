@@ -35,7 +35,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "tsc && vite build",
     "dev": "vite build --watch",
     "demo": "vite serve demo",
     "demo:umd": "vite"
