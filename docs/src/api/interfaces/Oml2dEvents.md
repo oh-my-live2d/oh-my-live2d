@@ -12,27 +12,35 @@
 
 ### onLoad()
 
-> **onLoad**: (`fn`: (`status`: `"loading"` \| `"success"` \| `"fail"`) => `void` \| `Promise`\<`void`\>) => `void` \| `Promise`\<`void`\>
+> **onLoad**: (`fn`: (`status`: `"loading"` \| `"success"` \| `"fail"`) => `void` \| `Promise`\<`void`\>) => `void`
 
-模型加载事件
+模型加载事件, 加载成功不代表舞台可见, 如果需要在舞台完全可见时触发, 请在 [onStageSlideIn](#onstageslidein) 事件中执行操作.
+
+#### 用法:
+
+<<< @/usages/events.ts#onLoad
 
 #### 参数:
 
-| 参数名 | 类型                                                                                | 描述           |
-| :----- | :---------------------------------------------------------------------------------- | :------------- |
-| `fn`   | (`status`: `"loading"` \| `"success"` \| `"fail"`) => `void` \| `Promise`\<`void`\> | 加载结束的回调 |
+| 参数名 | 类型                                                                                | 描述                                                                                                                                                 |
+| :----- | :---------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fn`   | (`status`: `"loading"` \| `"success"` \| `"fail"`) => `void` \| `Promise`\<`void`\> | 加载结束的回调, 回调时会传入加载状态: 'loading' \|'success' \| 'fail'<br /><br /> loading: 正在加载模型<br /> success: 加载成功<br /> fail: 加载失败 |
 
 #### 返回值类型:
 
-`void` \| `Promise`\<`void`\>
+`void`
 
 ---
 
 ### onStageSlideIn()
 
-> **onStageSlideIn**: (`fn`: () => `void` \| `Promise`\<`void`\>) => `void` \| `Promise`\<`void`\>
+> **onStageSlideIn**: (`fn`: () => `void` \| `Promise`\<`void`\>) => `void`
 
 舞台完全滑入事件
+
+#### 用法:
+
+<<< @/usages/events.ts#onStageSlideIn
 
 #### 参数:
 
@@ -42,15 +50,19 @@
 
 #### 返回值类型:
 
-`void` \| `Promise`\<`void`\>
+`void`
 
 ---
 
 ### onStageSlideOut()
 
-> **onStageSlideOut**: (`fn`: () => `void` \| `Promise`\<`void`\>) => `void` \| `Promise`\<`void`\>
+> **onStageSlideOut**: (`fn`: () => `void` \| `Promise`\<`void`\>) => `void`
 
 舞台完全滑出事件
+
+#### 用法:
+
+<<< @/usages/events.ts#onStageSlideOut
 
 #### 参数:
 
@@ -60,4 +72,4 @@
 
 #### 返回值类型:
 
-`void` \| `Promise`\<`void`\>
+`void`

@@ -81,6 +81,7 @@ export interface Oml2dMethods {
 
   /**
    * 舞台滑入
+   *
    */
   stageSlideIn: () => Promise<void>;
 
@@ -208,23 +209,33 @@ export interface Oml2dMethods {
  */
 export interface Oml2dEvents {
   /**
-   * 模型加载事件
-   * @param fn 加载结束的回调
+   * 模型加载事件, 加载成功不代表舞台可见, 如果需要在舞台完全可见时触发, 请在 [onStageSlideIn](#onstageslidein) 事件中执行操作.
+   * @usage
+   * <<< @/usages/events.ts#onLoad
+   * @param fn 加载结束的回调, 回调时会传入加载状态: 'loading' |'success' | 'fail'
+   *
+   *  loading: 正在加载模型
+   *  success: 加载成功
+   *  fail: 加载失败
    * @returns
    */
-  onLoad: (fn: (status: 'loading' | 'success' | 'fail') => void | Promise<void>) => void | Promise<void>;
+  onLoad: (fn: (status: 'loading' | 'success' | 'fail') => void | Promise<void>) => void;
 
   /**
    * 舞台完全滑入事件
+   * @usage
+   * <<< @/usages/events.ts#onStageSlideIn
    * @param fn  事件回调
    * @returns
    */
-  onStageSlideIn: (fn: () => void | Promise<void>) => void | Promise<void>;
+  onStageSlideIn: (fn: () => void | Promise<void>) => void;
 
   /**
    * 舞台完全滑出事件
+   * @usage
+   * <<< @/usages/events.ts#onStageSlideOut
    * @param fn 事件回调
    * @returns
    */
-  onStageSlideOut: (fn: () => void | Promise<void>) => void | Promise<void>;
+  onStageSlideOut: (fn: () => void | Promise<void>) => void;
 }

@@ -1,7 +1,8 @@
 name: 构建文档
 on:
   push: # 监听调用时机为push事件
-    branches: ['main']
+    branches: ['docs']
+
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
