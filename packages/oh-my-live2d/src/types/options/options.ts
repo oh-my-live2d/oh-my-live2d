@@ -24,8 +24,6 @@ export interface Options {
    */
   mobileDisplay?: boolean;
   /**
-   * 导入类型, 这个选项的作用是从 libraryUrls 选项决定SDK加载地址, 默认使用全量导入: complete
-   * @default 'complete'
    * @deprecated 不再使用按需导入的方式,默认全量导入,该选项将在下个版本被移除
    */
   importType?: string;
