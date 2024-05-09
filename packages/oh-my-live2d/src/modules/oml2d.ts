@@ -7,7 +7,6 @@ import { Models } from './models.js';
 import { PixiApp } from './pixi.js';
 import { Stage } from './stage.js';
 import { StatusBar } from './status-bar.js';
-import { Store } from './store.js';
 import { Tips } from './tips.js';
 import { DEFAULT_OPTIONS } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
@@ -25,10 +24,9 @@ import {
   onChangeWindowSize,
   printProjectInfo
 } from '../utils/index.js';
-import { getStatus, setStatus } from '../utils/store.js';
+import { getModelClothesIndex, getModelIndex, getStatus, setModelClothesIndex, setModelIndex, setStatus } from '../utils/store.js';
 
 export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
-  private store: Store;
   private globalStyle: GlobalStyle;
   private stage: Stage;
   private statusBar: StatusBar;
@@ -36,27 +34,49 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   private menus: Menus;
   private models: Models;
   private pixiApp?: PixiApp;
-  private currentModelIndex: number = 0;
-  private currentModelClothesIndex: number = 0;
+  private _modelIndex: number = 0;
+  private _modelClothesIndex: number = 0;
   version = __VERSION__;
   options: DefaultOptions;
   private events: Events;
 
   constructor(options: Options) {
     this.events = new Events();
-    this.options = mergeOptions(DEFAULT_OPTIONS, options);
+    this.options = mergeOptions(DEFAULT_OPTIONS, options); // 合并配置项
+
     this.globalStyle = new GlobalStyle(this.options);
     this.stage = new Stage(this.options, this.events); // 实例化舞台
     this.statusBar = new StatusBar(this.options);
     this.tips = new Tips(this.options, this); // 提示框
     this.menus = new Menus(this.options, this); // 菜单
     this.models = new Models(this.options, this.events);
-    this.store = new Store();
-    this.modelIndex = this.store.getModelIndex();
-    this.modelClothesIndex = this.store.getModelClothesIndex();
+    this.modelIndex = getModelIndex();
+    this.modelClothesIndex = getModelClothesIndex();
     this.initialize();
   }
+  private set modelIndex(index: number) {
+    if (index > this.options.models.length - 1) {
+      index = 0;
+    }
+    this._modelIndex = index;
+    this.stage.modelIndex = index;
+    this.models.modelIndex = index;
+    setModelIndex(index);
+  }
 
+  get modelIndex(): number {
+    return this._modelIndex;
+  }
+
+  private set modelClothesIndex(index: number) {
+    this._modelClothesIndex = index;
+    this.models.modelClothesIndex = index;
+    setModelClothesIndex(index);
+  }
+
+  get modelClothesIndex(): number {
+    return this._modelClothesIndex;
+  }
   /**
    * 显示模型的 hit area 区域
    */
@@ -114,32 +134,11 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
     return !this.options.mobileDisplay && getWindowSizeType() === WindowSizeType.mobile;
   }
 
-  private set modelIndex(index: number) {
-    this.currentModelIndex = index;
-    this.stage.modelIndex = index;
-    this.models.modelIndex = index;
-    this.store.updateModelCurrentIndex(index);
-  }
-
-  get modelIndex(): number {
-    return this.currentModelIndex;
-  }
-
-  private set modelClothesIndex(index: number) {
-    this.currentModelClothesIndex = index;
-    this.models.modelClothesIndex = index;
-    this.store.updateModelCurrentClothesIndex(index);
-  }
-
-  get modelClothesIndex(): number {
-    return this.currentModelClothesIndex;
-  }
-
   /**
    * 创建
    */
   private create(): void {
-    this.store.updateModelInfo(this.options.models);
+    // this.store.updateModelInfo(this.options.models);
 
     this.stage.create();
 

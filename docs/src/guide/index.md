@@ -2,7 +2,7 @@
 
 **OhMyLive2D** 是一个应用于浏览器环境且开箱即用的**Live2D**组件, 它支持所有版本的Live2D模型, 使用方式足够简单并且高可自定义, 可以快速为您的个人网站添加Live2D看板娘, 使您的个人网站变得更具有特色.
 
-`OhMyLive2D` 的初衷是为了解决官方 Cubism SDK 在使用时还需要额外通过 `script` 标签外部引入以及使用和学习成本较高的缺点。而现在它在被 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display) 驱动的同时又提供了多种导入方式和按需导入的模式，以及更加方便自定义配置的 API。现在你完全可以在 **vite** 或者 **webpack** 中更便捷的使用它，并且无需手动导入其他任何依赖。
+`OhMyLive2D` 的初衷是为了解决官方 Cubism SDK 在使用时还需要额外通过 `script` 标签外部引入以及使用和学习成本较高的缺点。而现在它在被 [pixi-live2d-display](https://github.com/guansss/pixi-live2d-display) 驱动的同时又提供了多种导入方式以及更简单更方便自定义配置的 API。因为 `oh-my-live2d` 是纯 javascript，所以它可以完全独立运行在浏览器环境, 这意味着你可以在任意 web 框架或传统的原生 JS 开发的 web 项目中的使用它，并且无需再导入其他任何依赖和 css 样式资源, 真正做到了开箱即用.
 
 > [!TIP]  
 > **本项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入 😄**

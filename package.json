@@ -18,7 +18,8 @@
     "lint:prettier": "prettier --check --write .",
     "prepare": "husky",
     "preview:new-version": "lerna version --dry-run",
-    "release": "lerna publish from-package --yes"
+    "release": "lerna publish from-package --yes",
+    "test:vue": "pnpm -F vue-app run dev"
   },
   "nano-staged": {
     "**/*": "prettier --write --ignore-unknown",

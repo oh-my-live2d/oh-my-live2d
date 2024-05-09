@@ -1,18 +1,10 @@
 import { loadOml2d } from '../dist/index.js';
 
 const oml2d = loadOml2d({
-  initialStatus: 'active',
   models: [
     {
-      path: 'https://model.oml2d.com/HK416-1-normal/model.json',
-      position: [0, 60],
-      scale: 0.08,
-      stageStyle: {
-        height: 450
-      }
-    },
-    {
       path: 'https://model.oml2d.com/Senko_Normals/senko.model3.json',
+      showHitAreaFrames: true,
       position: [-10, 20]
     },
     {
@@ -23,12 +15,18 @@ const oml2d = loadOml2d({
         height: 300
       }
     }
-  ]
+  ],
+  tips: {
+    idleTips: {
+      wordTheDay: true
+    }
+  }
 });
 
 oml2d.onStageSlideIn(() => {
   oml2d.tipsMessage('模型加载成功！', 2000, 10);
 });
+
 // oml2d.onStageSlideIn(() => {
 //   oml2d.loadNextModel();
 // });

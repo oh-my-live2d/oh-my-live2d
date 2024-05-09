@@ -112,7 +112,7 @@ export const getWordTheDay = async (format?: (wordTheDayData: WordTheDayData) =>
     return format(data as unknown as WordTheDayData);
   }
 
-  return `${data.hitokoto}    -- ${data.from_who}`;
+  return `${data.hitokoto}`;
 };
 
 // 窗口大小的媒体查询
@@ -153,21 +153,6 @@ export const mergeOptions = (defaultOptions: DefaultOptions, options: Options): 
 
   return finalOptions as DefaultOptions;
 };
-
-// export const loadOml2dSDK: LoadOml2dSDK = async (importType, libraryUrls) => {
-//   await loadScript({
-//     url: libraryUrls[importType]!,
-//     id: `oml2d-${importType}`
-//   });
-
-//   window.PIXI.utils.skipHello();
-
-//   return {
-//     PIXI: window.PIXI,
-//     PixiLive2dDisplay: window.PIXI.live2d
-//     // HitAreaFrames: window.PIXI.live2d.HitAreaFrames
-//   };
-// };
 
 export const handleDockedPosition = (position: 'left' | 'right', value: number = 0, reverse: boolean = false): CSSProperties => {
   switch (position) {
