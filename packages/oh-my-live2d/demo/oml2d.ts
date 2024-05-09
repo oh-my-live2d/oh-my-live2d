@@ -26,10 +26,9 @@ const oml2d = loadOml2d({
   ]
 });
 
-oml2d.onLoad((status) => {
-  console.log(status);
+oml2d.onStageSlideIn(() => {
+  oml2d.tipsMessage('模型加载成功！', 2000, 10);
 });
-
 // oml2d.onStageSlideIn(() => {
 //   oml2d.loadNextModel();
 // });
