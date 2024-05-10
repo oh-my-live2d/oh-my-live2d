@@ -253,7 +253,9 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   async loadModelByName(name: string, clothesIndex?: number) {
     const targetIndex = this.options.models.findIndex((item) => item.name === name);
 
-    await this.loadModelByIndex(targetIndex, clothesIndex);
+    if (targetIndex >= 0) {
+      await this.loadModelByIndex(targetIndex, clothesIndex);
+    }
   }
 
   async loadNextModelClothes(): Promise<void> {
