@@ -3,6 +3,7 @@ import { getRandomArrayItem, isFunction, mergeDeep, setIntervalAsync } from 'tia
 import { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
+import { store } from '../store/index.js';
 import type { IdleTimer } from '../types/common.js';
 import type { CSSProperties, DefaultOptions, DefaultTipsOptions, ModelOptions, TipsOptions } from '../types/index.js';
 import {
@@ -25,10 +26,10 @@ export class Tips {
   private priority = 0; // 当前优先级
   private contentStyle: CSSProperties = {};
   private _tipsOptions: DefaultTipsOptions = DEFAULT_OPTIONS.tips;
-  constructor(
-    private options: DefaultOptions,
-    private oml2d: OhMyLive2D
-  ) {}
+  constructor(private oml2d: OhMyLive2D) {}
+  get options(): DefaultOptions {
+    return store.get().options;
+  }
 
   reload(stageElement: HTMLElement): void {
     this.clear();

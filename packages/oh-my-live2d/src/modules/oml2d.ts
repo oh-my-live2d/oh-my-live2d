@@ -1,4 +1,4 @@
-import { isArray } from 'tianjie';
+import { isNumber } from 'tianjie';
 
 import { Events } from './events.js';
 import { GlobalStyle } from './global-style.js';
@@ -8,23 +8,15 @@ import { PixiApp } from './pixi.js';
 import { Stage } from './stage.js';
 import { StatusBar } from './status-bar.js';
 import { Tips } from './tips.js';
-import { DEFAULT_OPTIONS } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
+import { store } from '../store/index.js';
 import { CommonStyleType } from '../types/common.js';
 import { EventFn, LoadEventFn } from '../types/events/index.js';
 import type { DefaultOptions } from '../types/index.js';
 import { Oml2dEvents, Oml2dMethods, Oml2dProperties } from '../types/oml2d/index.js';
 import type { Options } from '../types/options/index.js';
-import {
-  checkVersion,
-  getRandomIndex,
-  getWindowSizeType,
-  handleCommonStyle,
-  mergeOptions,
-  onChangeWindowSize,
-  printProjectInfo
-} from '../utils/index.js';
-import { getModelClothesIndex, getModelIndex, getStatus, setModelClothesIndex, setModelIndex, setStatus } from '../utils/store.js';
+import { checkVersion, getWindowSizeType, handleCommonStyle, onChangeWindowSize, printProjectInfo } from '../utils/index.js';
+import { getStatus, setStatus } from '../utils/store.js';
 
 export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   private globalStyle: GlobalStyle;
@@ -34,49 +26,32 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   private menus: Menus;
   private models: Models;
   private pixiApp?: PixiApp;
-  private _modelIndex: number = 0;
-  private _modelClothesIndex: number = 0;
   version = __VERSION__;
-  options: DefaultOptions;
   private events: Events;
 
   constructor(options: Options) {
     this.events = new Events();
-    this.options = mergeOptions(DEFAULT_OPTIONS, options); // 合并配置项
 
-    this.globalStyle = new GlobalStyle(this.options);
-    this.stage = new Stage(this.options, this.events); // 实例化舞台
-    this.statusBar = new StatusBar(this.options);
-    this.tips = new Tips(this.options, this); // 提示框
-    this.menus = new Menus(this.options, this); // 菜单
-    this.models = new Models(this.options, this.events);
-    this.modelIndex = getModelIndex();
-    this.modelClothesIndex = getModelClothesIndex();
+    store.dispatch('options/initialize', options);
+
+    this.globalStyle = new GlobalStyle();
+    this.stage = new Stage(this.events); // 实例化舞台
+    this.statusBar = new StatusBar();
+    this.tips = new Tips(this); // 提示框
+    this.menus = new Menus(this); // 菜单
+    this.models = new Models(this.events);
+
     this.initialize();
   }
-  private set modelIndex(index: number) {
-    if (index > this.options.models.length - 1) {
-      index = 0;
-    }
-    this._modelIndex = index;
-    this.stage.modelIndex = index;
-    this.models.modelIndex = index;
-    setModelIndex(index);
+
+  get options(): DefaultOptions {
+    return store.get().options;
   }
 
   get modelIndex(): number {
-    return this._modelIndex;
+    return store.get().modelIndex;
   }
 
-  private set modelClothesIndex(index: number) {
-    this._modelClothesIndex = index;
-    this.models.modelClothesIndex = index;
-    setModelClothesIndex(index);
-  }
-
-  get modelClothesIndex(): number {
-    return this._modelClothesIndex;
-  }
   /**
    * 显示模型的 hit area 区域
    */
@@ -138,8 +113,6 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
    * 创建
    */
   private create(): void {
-    // this.store.updateModelInfo(this.options.models);
-
     this.stage.create();
 
     this.pixiApp = new PixiApp(this.stage);
@@ -206,8 +179,7 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
    * 随机加载模型
    */
   async loadRandomModel(): Promise<void> {
-    this.modelIndex = getRandomIndex(this.options.models.length, this.modelIndex);
-    this.modelClothesIndex = 0;
+    // this.modelIndex = getRandomIndex(this.options.models.length, this.modelIndex);
 
     this.statusBar.open(this.options.statusBar.switchingMessage);
     await this.loadModel();
@@ -219,10 +191,7 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
    * 加载下个角色模型
    */
   async loadNextModel(): Promise<void> {
-    if (++this.modelIndex >= this.options.models.length) {
-      this.modelIndex = 0;
-    }
-    this.modelClothesIndex = 0;
+    store.dispatch('model/incIndex');
 
     this.statusBar.open(this.options.statusBar.switchingMessage);
 
@@ -235,16 +204,15 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
    * 通过模型索引值加载模型
    */
   async loadModelByIndex(index: number, clothesIndex?: number): Promise<void> {
-    if (index >= 0 && index < this.options.models.length) {
-      this.modelIndex = index;
-      this.modelClothesIndex = clothesIndex || 0;
+    store.dispatch('model/setIndex', index);
 
-      this.statusBar.open(this.options.statusBar.switchingMessage);
+    isNumber(clothesIndex) && store.dispatch('model/setClothesIndex', clothesIndex);
 
-      await this.loadModel();
-      await this.stage.slideIn();
-      void this.tips.idlePlayer?.start();
-    }
+    this.statusBar.open(this.options.statusBar.switchingMessage);
+
+    await this.loadModel();
+    await this.stage.slideIn();
+    void this.tips.idlePlayer?.start();
   }
 
   /**
@@ -257,17 +225,16 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
   }
 
   async loadNextModelClothes(): Promise<void> {
-    const path = this.options.models[this.modelIndex].path;
-
-    if (isArray(this.options.models[this.modelIndex].path) && this.options.models.length) {
-      if (++this.modelClothesIndex >= path.length) {
-        this.modelClothesIndex = 0;
-      }
-      await this.loadModel();
-      await this.stage.slideIn();
-    } else {
-      this.tips.notification('该模型没有其他衣服~', 5000, 3);
-    }
+    // const path = this.options.models[this.modelIndex].path;
+    // if (isArray(this.options.models[this.modelIndex].path) && this.options.models.length) {
+    //   if (++this.modelClothesIndex >= path.length) {
+    //     this.modelClothesIndex = 0;
+    //   }
+    //   await this.loadModel();
+    //   await this.stage.slideIn();
+    // } else {
+    //   this.tips.notification('该模型没有其他衣服~', 5000, 3);
+    // }
   }
 
   /**

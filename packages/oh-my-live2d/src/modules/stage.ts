@@ -3,6 +3,7 @@ import { mergeDeep } from 'tianjie';
 import type { Events } from './events.js';
 import { ELEMENT_ID, STAGE_DEFAULT_STYLE } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
+import { store } from '../store/index.js';
 import { CommonStyleType } from '../types/common.js';
 import type { CSSProperties, DefaultOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, handleDockedPosition, setStyleForElement } from '../utils/index.js';
@@ -15,10 +16,11 @@ export class Stage {
   private style: CSSProperties = {};
   private canvasStyle: CSSProperties = {};
   private currentModelIndex = 0;
-  constructor(
-    private options: DefaultOptions,
-    private events: Events
-  ) {}
+  constructor(private events: Events) {}
+
+  get options(): DefaultOptions {
+    return store.get().options;
+  }
 
   create(): void {
     this.element = createElement({ id: ELEMENT_ID.stage, tagName: 'div' });

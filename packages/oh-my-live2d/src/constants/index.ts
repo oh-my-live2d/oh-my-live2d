@@ -18,3 +18,8 @@ export enum MotionPreloadStrategy {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   NONE = 'NONE'
 }
+
+export const MODEL_INDEX = '__OML2D_MODEL_INDEX__';
+export const MODEL_CLOTHES_INDEX = '__OML2D_MODEL_CLOTHES_INDEX__';
+export const MODEL_PATH = '__OML2D_MODEL_PATH__';
+export const MODEL_KEY = '__OML2D_MODEL_KEY__';

@@ -3,7 +3,7 @@ import { isNumber, mergeDeep } from 'tianjie';
 
 import { WindowSizeType } from '../constants/index.js';
 import type { CommonStyleType, WordTheDayData } from '../types/common.js';
-import type { CSSProperties, DefaultOptions, ElementConfig, Options } from '../types/index.js';
+import type { CSSProperties, DefaultOptions, ElementConfig, ModelOptions, Options } from '../types/index.js';
 
 export * from './tips.js';
 
@@ -180,4 +180,28 @@ export const getRandomIndex = (length: number, currentIndex: number): number => 
   }
 
   return randomIndex;
+};
+
+export const getModelKey = (models: ModelOptions[]) => {
+  const pathList = models.map((model) => model.path);
+
+  return pathList.join(',');
+};
+
+export const setLocalStorage = (key: string, value: unknown): void => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
+export const getLocalStorage = (key: string): unknown => {
+  const value = localStorage.getItem(key);
+
+  return value ? JSON.parse(value) : undefined;
+};
+
+export const removeLocalStorage = (key: string): void => {
+  localStorage.removeItem(key);
+};
+
+export const clearLocalStorage = (): void => {
+  localStorage.clear();
 };

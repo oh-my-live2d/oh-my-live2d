@@ -5,52 +5,30 @@ import { getRandomArrayItem, isNumber } from 'tianjie';
 
 import type { Events } from './events.js';
 import { MotionPreloadStrategy, WindowSizeType } from '../constants/index.js';
-import type { DefaultOptions, ModelOptions } from '../types/index.js';
+import { store } from '../store/index.js';
+import type { ModelOptions } from '../types/index.js';
 import { getWindowSizeType } from '../utils/index.js';
 
 export class Models {
   model?: Live2DModel<InternalModel>; // 当前模型实例
-  private currentModelIndex: number = 0;
-  private currentClothesIndex: number = 0;
   private hitAreaFrames: HitAreaFrames;
-
-  constructor(
-    private options: DefaultOptions,
-    private events: Events
-  ) {
+  constructor(private events: Events) {
     this.hitAreaFrames = new HitAreaFrames();
-  }
 
-  get modelIndex(): number {
-    return this.currentModelIndex;
-  }
-
-  set modelIndex(index: number) {
-    this.currentModelIndex = index;
-  }
-
-  get modelClothesIndex(): number {
-    return this.currentClothesIndex;
-  }
-  set modelClothesIndex(index: number) {
-    this.currentClothesIndex = index;
+    store.on('model/setModelPath', (state) => {
+      console.log(state.modelPath, 'path change');
+    });
   }
 
   get currentModelOptions(): ModelOptions {
-    return this.options.models[this.modelIndex];
+    return store.get().currentModel;
   }
 
   create(): Promise<void> {
     return new Promise((resolve, reject) => {
       this.events.emit('load', 'loading');
 
-      let modelPath = this.currentModelOptions.path;
-
-      if (Array.isArray(modelPath)) {
-        modelPath = this.currentModelOptions.path[this.modelClothesIndex];
-      }
-
-      this.model = Live2DModel.fromSync(modelPath, {
+      this.model = Live2DModel.fromSync(store.get().modelPath, {
         motionPreload: (this.currentModelOptions.motionPreloadStrategy as MotionPreloadStrategy) || MotionPreloadStrategy.IDLE,
         onError: () => {
           this.events.emit('load', 'fail');

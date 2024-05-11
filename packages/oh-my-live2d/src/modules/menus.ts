@@ -3,6 +3,7 @@ import { isArray, isFunction, mergeDeep } from 'tianjie';
 import type { OhMyLive2D } from './oml2d.js';
 import { DEFAULT_OPTIONS, ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
+import { store } from '../store/index.js';
 import { Item } from '../types/common.js';
 import type { CSSProperties, DefaultMenusOptions, DefaultOptions, MenusOptions, ModelOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, handleDockedPosition, setStyleForElement } from '../utils/index.js';
@@ -13,11 +14,10 @@ export class Menus {
   private itemStyle: CSSProperties = {};
   private menuItemList: HTMLElement[] = [];
   private _menuOptions: DefaultMenusOptions = DEFAULT_OPTIONS.menus;
-
-  constructor(
-    private options: DefaultOptions,
-    private oml2d: OhMyLive2D
-  ) {}
+  constructor(private oml2d: OhMyLive2D) {}
+  get options(): DefaultOptions {
+    return store.get().options;
+  }
 
   reload(stageElement: HTMLElement): void {
     this.unmount();
@@ -150,12 +150,6 @@ export class Menus {
         this.setItemStyle(handleCommonStyle(this.menuOptions.mobileItemStyle || {}));
         break;
     }
-  }
-
-  // 更新
-  update(options: DefaultOptions): void {
-    this.options = options;
-    this.reloadStyle();
   }
 
   setStyle(style: CSSProperties): void {

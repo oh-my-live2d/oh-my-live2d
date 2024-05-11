@@ -2,6 +2,7 @@ import { isNumber, mergeDeep } from 'tianjie';
 
 import { ELEMENT_ID } from '../config/index.js';
 import { WindowSizeType } from '../constants/index.js';
+import { store } from '../store/index.js';
 import type { CSSProperties, DefaultOptions, DefaultStatusBarOptions } from '../types/index.js';
 import { createElement, getWindowSizeType, handleCommonStyle, handleDockedPosition, setStyleForElement } from '../utils/index.js';
 
@@ -18,8 +19,10 @@ export class StatusBar {
   private style: CSSProperties = {};
   private timer = 0;
   private status = false;
-  constructor(private options: DefaultOptions) {}
 
+  get options(): DefaultOptions {
+    return store.get().options;
+  }
   get statusBarOptions(): DefaultStatusBarOptions {
     return this.options.statusBar;
   }
