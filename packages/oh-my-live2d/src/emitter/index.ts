@@ -1,5 +1,11 @@
 import Emittery from 'emittery';
 
-const emitter = new Emittery();
+export interface Emitter {
+  stageSlideInStart: undefined;
+  stageSlideInEnd: undefined;
+  stageSlideOutStart: undefined;
+  stageSlideOutEnd: undefined;
+}
+const emitter = new Emittery<Emitter>();
 
 export default emitter;

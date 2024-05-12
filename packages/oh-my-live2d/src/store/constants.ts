@@ -12,9 +12,11 @@ export interface ModelState {
   modelPath: string;
 }
 
-export interface IState extends OptionsState, ModelState {}
+export interface OptionsEvents {
+  'options/initialize': Options;
+}
 
-export interface Events {
+export interface ModelEvents {
   'model/initialize': ModelOptions[];
   'model/incIndex': undefined;
   'model/decIndex': undefined;
@@ -24,6 +26,8 @@ export interface Events {
   'model/setClothesIndex': number;
   'model/incClothesIndex': undefined;
   'model/decClothesIndex': undefined;
-
-  'options/initialize': Options;
 }
+
+export interface IState extends OptionsState, ModelState {}
+
+export interface Events extends OptionsEvents, ModelEvents {}

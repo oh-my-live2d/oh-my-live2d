@@ -24,5 +24,5 @@ export const MODEL_CLOTHES_INDEX = '__OML2D_MODEL_CLOTHES_INDEX__';
 export const MODEL_PATH = '__OML2D_MODEL_PATH__';
 export const MODEL_KEY = '__OML2D_MODEL_KEY__';
 
-export const STAGE_ID = 'oml2dStage';
-export const STAGE_CLASS_NAME = 'oml2d_stage';
+export const STAGE_ID = 'oml2d-stage';
+export const CANVAS_ID = 'oml2d-canvas';
