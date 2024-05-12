@@ -34,6 +34,9 @@ export const model: StoreonModule<IState, Events> = (store) => {
     return { models, modelIndex, clothesIndex };
   });
 
+  // 设置模型尺寸
+  store.on('model/setModelSize', (_, { width, height }) => ({ modelHeight: height, modelWidth: width }));
+
   // 设置当前模型衣服索引
   store.on('model/setClothesIndex', (state, clothesIndex) => {
     setLocalStorage(MODEL_CLOTHES_INDEX, clothesIndex);

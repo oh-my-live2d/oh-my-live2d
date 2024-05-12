@@ -51,3 +51,47 @@ export const tipsShake = keyframes`
       transform: translate(-50%, 5%) scale(0.99);
     }
 `;
+
+export const statusBarLeftSlidein = keyframes`
+  0% {
+       transform: translateX(-130%);
+  }
+  100% {
+       transform: translateX(-25%);
+  }
+`;
+export const statusBarLeftSlideOut = keyframes`
+    0% {
+      transform: translateX(-25%);
+    }
+    100% {
+      transform: translateX(-130%);
+    }
+`;
+
+export const statusBarRightSlidein = keyframes`
+    0% {
+      transform: translateX(120%);
+    }
+    100% {
+      transform: translateX(8%);
+    }
+`;
+
+export const statusBarRightSlideOut = keyframes`
+    0% {
+      transform: translateX(8%);
+    }
+    100% {
+      transform: translateX(120%);
+    }
+`;
+
+export const loadingRotate = keyframes`
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+`;

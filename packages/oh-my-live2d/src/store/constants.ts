@@ -10,6 +10,8 @@ export interface ModelState {
   modelIndex: number;
   clothesIndex: number;
   modelPath: string;
+  modelWidth: number;
+  modelHeight: number;
 }
 
 export interface OptionsEvents {
@@ -26,6 +28,7 @@ export interface ModelEvents {
   'model/setClothesIndex': number;
   'model/incClothesIndex': undefined;
   'model/decClothesIndex': undefined;
+  'model/setModelSize': { width: number; height: number };
 }
 
 export interface IState extends OptionsState, ModelState {}

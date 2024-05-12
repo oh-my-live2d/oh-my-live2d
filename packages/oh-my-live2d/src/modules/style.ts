@@ -14,10 +14,12 @@ export class Style {
   }
 
   update(style: CSSProperties) {
+    // console.log(style);
     const styleObj = handleStyleProperties(style);
     const finalStyle = mergeDeep(this.style, styleObj);
 
     this.style = finalStyle;
+    console.log(finalStyle);
     setStyleByElement(this.element, finalStyle);
 
     return finalStyle;
