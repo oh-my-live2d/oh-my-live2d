@@ -5,6 +5,7 @@ import { Stage } from './stage.js';
 
 export class PixiApp {
   app: PIXI.Application;
+
   constructor(private stage: Stage) {
     window.PIXI = PIXI;
     window.PIXI.utils.skipHello();

@@ -27,6 +27,7 @@ export class Tips {
   private contentStyle: CSSProperties = {};
   private _tipsOptions: DefaultTipsOptions = DEFAULT_OPTIONS.tips;
   constructor(private oml2d: OhMyLive2D) {}
+
   get options(): DefaultOptions {
     return store.get().options;
   }

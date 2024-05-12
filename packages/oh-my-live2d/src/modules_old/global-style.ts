@@ -39,6 +39,7 @@ export class GlobalStyle {
     this.mount();
     this.reloadStyleSheet();
   }
+
   initializeStyle(): void {
     this.reloadStyleSheet();
   }

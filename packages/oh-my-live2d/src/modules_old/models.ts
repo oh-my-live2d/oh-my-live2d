@@ -5,6 +5,7 @@ import { getRandomArrayItem, isNumber } from 'tianjie';
 
 import type { Events } from './events.js';
 import { MotionPreloadStrategy, WindowSizeType } from '../constants/index.js';
+import emitter from '../emitter/index.js';
 import { store } from '../store/index.js';
 import type { ModelOptions } from '../types/index.js';
 import { getWindowSizeType } from '../utils/index.js';
@@ -14,6 +15,13 @@ export class Models {
   private hitAreaFrames: HitAreaFrames;
   constructor(private events: Events) {
     this.hitAreaFrames = new HitAreaFrames();
+
+    emitter.on('load', (state) => {
+      console.log(state, 'load');
+    });
+    emitter.on('load', (state) => {
+      console.log(state, 'load---2');
+    });
 
     store.on('model/setModelPath', (state) => {
       console.log(state.modelPath, 'path change');
@@ -27,6 +35,7 @@ export class Models {
   create(): Promise<void> {
     return new Promise((resolve, reject) => {
       this.events.emit('load', 'loading');
+      emitter.emit('load', 'loading');
 
       this.model = Live2DModel.fromSync(store.get().modelPath, {
         motionPreload: (this.currentModelOptions.motionPreloadStrategy as MotionPreloadStrategy) || MotionPreloadStrategy.IDLE,
@@ -39,6 +48,7 @@ export class Models {
       // 加载完成
       this.model.on('load', () => {
         this.events.emit('load', 'success');
+        emitter.emit('load', 'success');
         resolve();
       });
 

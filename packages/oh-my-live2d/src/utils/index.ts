@@ -73,26 +73,6 @@ export const createElement = (elConfig: ElementConfig): HTMLElement => {
   return el;
 };
 
-/**
- * 加载脚本
- * @param sdkInfo
- * @returns
- */
-export const loadScript = (sdkInfo: { url: string; id: string }): Promise<void> => {
-  return new Promise((resolve) => {
-    destroyElement(sdkInfo?.id);
-
-    const scriptElement = document.createElement('script');
-
-    scriptElement.id = sdkInfo?.id;
-    document.head.append(scriptElement);
-    scriptElement.src = sdkInfo?.url;
-    scriptElement.addEventListener('load', () => {
-      resolve();
-    });
-  });
-};
-
 // 检查版本
 export const checkVersion = async (): Promise<void> => {
   const result = await fetch('https://unpkg.com/oh-my-live2d@latest/package.json');
@@ -139,6 +119,7 @@ export const onChangeWindowSize = (fn: (windowSizeType: WindowSizeType) => void)
   });
 };
 
+// 销毁元素
 export const destroyElement = (id: string): void => {
   const el = document.getElementById(id);
 

@@ -1,6 +1,6 @@
 import { loadOml2d } from '../dist/index.js';
 
-const oml2d = loadOml2d({
+loadOml2d({
   models: [
     {
       path: ['https://model.oml2d.com/Senko_Normals/senko.model3.json', 'https://model.oml2d.com/Senko_Normals/senko.model3.json'],
@@ -22,9 +22,9 @@ const oml2d = loadOml2d({
   // }
 });
 
-oml2d.onStageSlideIn(() => {
-  oml2d.tipsMessage('模型加载成功！', 2000, 10);
-});
+// oml2d.onStageSlideIn(() => {
+//   oml2d.tipsMessage('模型加载成功！', 2000, 10);
+// });
 
 // oml2d.onStageSlideIn(() => {
 //   oml2d.loadNextModel();
