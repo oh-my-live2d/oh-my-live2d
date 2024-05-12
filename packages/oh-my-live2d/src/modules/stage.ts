@@ -1,4 +1,5 @@
 import { Style } from './style.js';
+import { stageSlideIn } from '../styles/keyframes.js';
 import { createElement } from '../utils/element.js';
 
 export class Stage {
@@ -12,15 +13,18 @@ export class Stage {
       position: 'fixed',
       right: 'auto',
       bottom: 0,
-      zIndex: '9997'
-      // transform: 'translateY(130%)'
+      zIndex: '9997',
+      transform: 'translateY(130%)'
     });
 
     setTimeout(() => {
       this.style.update({
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
         width: 100,
-        height: 100
+        height: 100,
+        animationName: stageSlideIn,
+        animationDuration: `1000ms`,
+        animationFillMode: 'forwards'
       });
     }, 1000);
   }
