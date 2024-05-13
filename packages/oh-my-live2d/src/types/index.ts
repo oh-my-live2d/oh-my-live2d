@@ -21,7 +21,10 @@ export type PixiModule = typeof import('pixi.js');
 
 export type ApplicationType = typeof Application;
 
-export type CSSProperties = CSS.Properties;
+export type CSSProperties = Omit<CSS.Properties, 'width' | 'height'> & {
+  width?: number | string;
+  height?: number | string;
+};
 
 export type DefaultOptions = Omit<DeepRequired<Options>, 'parentElement' | 'stageStyle' | 'models' | 'tips' | 'statusBar' | 'menus'> & {
   parentElement: HTMLElement;

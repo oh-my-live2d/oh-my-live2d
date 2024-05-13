@@ -3,7 +3,7 @@ import { isNumber, mergeDeep } from 'tianjie';
 
 import { WindowSizeType } from '../constants/index.js';
 import type { CommonStyleType, WordTheDayData } from '../types/common.js';
-import type { CSSProperties, DefaultOptions, ElementConfig, Options } from '../types/index.js';
+import type { CSSProperties, DefaultOptions, ElementConfig, ModelOptions, Options } from '../types/index.js';
 
 export * from './tips.js';
 
@@ -73,26 +73,6 @@ export const createElement = (elConfig: ElementConfig): HTMLElement => {
   return el;
 };
 
-/**
- * 加载脚本
- * @param sdkInfo
- * @returns
- */
-export const loadScript = (sdkInfo: { url: string; id: string }): Promise<void> => {
-  return new Promise((resolve) => {
-    destroyElement(sdkInfo?.id);
-
-    const scriptElement = document.createElement('script');
-
-    scriptElement.id = sdkInfo?.id;
-    document.head.append(scriptElement);
-    scriptElement.src = sdkInfo?.url;
-    scriptElement.addEventListener('load', () => {
-      resolve();
-    });
-  });
-};
-
 // 检查版本
 export const checkVersion = async (): Promise<void> => {
   const result = await fetch('https://unpkg.com/oh-my-live2d@latest/package.json');
@@ -139,6 +119,7 @@ export const onChangeWindowSize = (fn: (windowSizeType: WindowSizeType) => void)
   });
 };
 
+// 销毁元素
 export const destroyElement = (id: string): void => {
   const el = document.getElementById(id);
 
@@ -180,4 +161,28 @@ export const getRandomIndex = (length: number, currentIndex: number): number => 
   }
 
   return randomIndex;
+};
+
+export const getModelKey = (models: ModelOptions[]) => {
+  const pathList = models.map((model) => model.path);
+
+  return pathList.join(',');
+};
+
+export const setLocalStorage = (key: string, value: unknown): void => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
+export const getLocalStorage = (key: string): unknown => {
+  const value = localStorage.getItem(key);
+
+  return value ? JSON.parse(value) : undefined;
+};
+
+export const removeLocalStorage = (key: string): void => {
+  localStorage.removeItem(key);
+};
+
+export const clearLocalStorage = (): void => {
+  localStorage.clear();
 };

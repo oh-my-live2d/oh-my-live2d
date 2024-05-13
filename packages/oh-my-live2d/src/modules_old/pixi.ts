@@ -3,7 +3,7 @@ import * as PIXI from 'pixi.js';
 
 import { Stage } from './stage.js';
 
-export class Pixi {
+export class PixiApp {
   app: PIXI.Application;
 
   constructor(private stage: Stage) {
@@ -20,16 +20,16 @@ export class Pixi {
     });
   }
 
-  mountModel(model?: Live2DModel<InternalModel>): void {
+  mount(model?: Live2DModel<InternalModel>): void {
     if (model) {
       this.clearAppStage();
       this.app.stage.addChild(model);
     } else {
-      console.error('没有找到模型');
+      console.error('挂载模型失败');
     }
   }
 
-  clearModel(): void {
+  unMount(): void {
     this.clearAppStage();
   }
 

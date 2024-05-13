@@ -1,224 +1,145 @@
-import { isNumber, mergeDeep } from 'tianjie';
+import { isNumber } from 'tianjie';
 
-import { ELEMENT_ID } from '../config/index.js';
-import { WindowSizeType } from '../constants/index.js';
-import type { CSSProperties, DefaultOptions, DefaultStatusBarOptions } from '../types/index.js';
-import { createElement, getWindowSizeType, handleCommonStyle, handleDockedPosition, setStyleForElement } from '../utils/index.js';
+import { Style } from './style.js';
+import { STATUS_BAR_ID } from '../constants/index.js';
+import emitter from '../emitter/index.js';
+import { store } from '../store/index.js';
+import { icon, loading } from '../styles/icon.js';
+import { statusBarLeftSlideOut, statusBarLeftSlidein } from '../styles/keyframes.js';
+import { createElement } from '../utils/element.js';
 
-export type HoverActionParams = {
-  content: string;
-};
-
-/**
- * 状态条
- */
 export class StatusBar {
-  element?: HTMLElement;
+  element: HTMLElement;
+  style: Style;
 
-  private style: CSSProperties = {};
-  private timer = 0;
-  private status = false;
-  constructor(private options: DefaultOptions) {}
-
-  get statusBarOptions(): DefaultStatusBarOptions {
-    return this.options.statusBar;
+  private timer: number | undefined;
+  private status: boolean = false; // 状态, true为显示, false为隐藏
+  constructor() {
+    this.element = this.create();
+    this.style = new Style(this.element);
+    this.initialize();
   }
 
-  create(): void {
-    if (!this.options.statusBar.disable) {
-      this.element = createElement({ id: ELEMENT_ID.statusBar, tagName: 'div', innerText: '' });
-    }
+  get options() {
+    return store.get().options;
   }
 
-  mount(): void {
-    if (this.element) {
-      this.options.parentElement.append(this.element);
-    }
+  get statusBarOptions() {
+    return store.get().options.statusBar;
   }
 
-  reloadStyle(): void {
-    this.style = {};
-
-    switch (getWindowSizeType()) {
-      case WindowSizeType.pc:
-        this.setStyle(handleCommonStyle(mergeDeep(handleDockedPosition(this.options.dockedPosition), this.options.statusBar.style || {})));
-        break;
-      case WindowSizeType.mobile:
-        this.setStyle(
-          handleCommonStyle(mergeDeep(handleDockedPosition(this.options.dockedPosition), this.options.statusBar.mobileStyle || {}))
-        );
-        break;
-    }
+  initialize() {
+    this.registerListeners();
   }
 
-  // 初始化样式
-  initializeStyle(): void {
-    this.setColor(this.options.primaryColor);
-    this.reloadStyle();
+  create() {
+    const el = createElement({
+      id: STATUS_BAR_ID,
+      tagName: 'div',
+      style: {
+        backgroundColor: this.options.primaryColor,
+        minWidth: '20px',
+        minHeight: '50px',
+        position: 'absolute',
+        transform: 'translateX(-130%)',
+        bottom: '80px',
+        padding: '7px 5px',
+        zIndex: '9998',
+        borderStyle: 'solid',
+        borderColor: '#fff',
+        fontWeight: 'bold',
+        borderRadius: '5px',
+        borderWidth: '2px',
+        boxShadow: '0 0 5px #999',
+        color: '#fff',
+        display: 'flex',
+        alignItems: 'center',
+        textAlign: 'center',
+        // flexWrap: 'wrap',
+        // wordWrap: 'revert',
+        fontSize: '14px',
+        writingMode: 'vertical-lr',
+        cursor: 'pointer',
+        left: 0
+      }
+    });
+
+    return el;
   }
 
-  // 卸载
-  unMount(): void {
-    this.element?.remove();
+  showLoading() {
+    const text = `
+    <div style="margin-bottom:3px;">${this.statusBarOptions.loadingMessage}</div>
+    <svg class="${icon} ${loading}" aria-hidden="true">
+      <use xlink:href=#${this.statusBarOptions.loadingIcon}></use>
+    </svg>
+    `;
+
+    this.style.update({
+      minHeight: '60px'
+    });
+
+    this.popup(text, false, this.options.primaryColor);
   }
 
-  // 重新挂载
-  reMounte(): void {
-    this.unMount();
-    this.mount();
+  loadSuccess() {
+    this.popup(this.statusBarOptions.loadSuccessMessage, 0, this.options.primaryColor);
   }
 
-  /**
-   * 设置样式
-   * @param style
-   */
-  setStyle(style: CSSProperties): void {
-    if (this.element) {
-      this.style = mergeDeep(this.style, style);
-      setStyleForElement(style, this.element);
-    }
+  loadFailed() {
+    this.slideOut();
+    this.statusBarOptions.loadFailMessage, 0, this.statusBarOptions.errorColor;
   }
 
-  private slideIn(): Promise<void> {
+  slideIn(): Promise<void> {
     return new Promise((resolve) => {
       if (this.status) {
         resolve();
       }
-      {
-        this.setStyle({
-          animationName: `oml2d-status-bar-${this.options.dockedPosition}-slide-in`,
-          animationDuration: `${this.statusBarOptions.transitionTime}ms`,
-          animationFillMode: 'forwards'
-        });
-        setTimeout(() => {
-          this.status = true;
-          resolve();
-        }, this.statusBarOptions.transitionTime);
-      }
+      this.style.update({
+        animationName: statusBarLeftSlidein,
+        animationDuration: `${this.statusBarOptions.transitionTime}ms`,
+        animationFillMode: 'forwards'
+      });
+      setTimeout(() => {
+        this.status = true;
+        resolve();
+      }, this.statusBarOptions.transitionTime);
     });
   }
 
-  private slideOut(): Promise<void> {
+  slideOut(): Promise<void> {
     return new Promise((resolve) => {
       if (!this.status) {
         resolve();
-      } else {
-        this.setStyle({
-          animationName: `oml2d-status-bar-${this.options.dockedPosition}-slide-out`,
-          animationDuration: `${this.statusBarOptions.transitionTime}ms`,
-          animationFillMode: 'forwards'
+      }
+      this.style.update({
+        animationName: statusBarLeftSlideOut,
+        animationDuration: `${this.statusBarOptions.transitionTime}ms`,
+        animationFillMode: 'forwards'
+      });
+      setTimeout(() => {
+        this.status = false;
+        this.style.update({
+          minHeight: '30px'
         });
-        setTimeout(() => {
-          this.status = true;
-          resolve();
-        }, this.statusBarOptions.transitionTime);
-      }
+        resolve();
+      }, this.statusBarOptions.transitionTime);
     });
   }
-
-  showLoading(): void {
-    void this.open(
-      `
-      <div style="margin-bottom:3px;">${this.statusBarOptions.loadingMessage}</div>
-      <svg class="oml2d-icon oml2d-loading" aria-hidden="true">
-        <use xlink:href=#${this.statusBarOptions.loadingIcon}></use>
-      </svg>
-    `
-    );
-  }
-
-  hideLoading(): void {
-    this.popup(this.statusBarOptions.loadSuccessMessage, 1000);
-  }
-
-  setHoverEvent(events?: { onIn?: () => void | Promise<void>; onOut?: () => void | Promise<void> }): void {
-    if (this.element) {
-      this.element.onmouseover = events?.onIn || null;
-      this.element.onmouseout = events?.onOut || null;
-    }
-  }
-
-  setClickEvent(onClick: (() => void) | (() => Promise<void>)): void {
-    if (this.element) {
-      this.element.onclick = onClick;
-    }
-  }
-
-  // 清除hover
-  clearHoverEvent(): void {
-    if (this.element) {
-      this.element.onmouseover = null;
-      this.element.onmouseout = null;
-    }
-  }
-
-  // 清除点击事件
-  clearClickEvent(): void {
-    if (this.element) {
-      this.element.onclick = null;
-    }
-  }
-
-  rest(): void {
-    this.popup(this.statusBarOptions.restMessage, this.statusBarOptions.restMessageDuration);
-  }
-
-  /**
-   * 专门处理加载失败, 需要传入一个重新加载的方法
-   * @param reloadFn
-   */
-  loadingError(reloadFn: () => void): void {
-    this.setHoverEvent({
-      onIn: () => {
-        this.setContent(this.statusBarOptions.reloadMessage);
-      },
-      onOut: () => {
-        this.setContent(this.statusBarOptions.loadFailMessage);
-      }
-    });
-
-    // 设置点击事件
-    this.setClickEvent(() => {
-      void reloadFn();
-    });
-
-    // 弹出状态提示
-    void this.open(this.statusBarOptions.loadFailMessage, this.options.statusBar.errorColor);
-  }
-
-  get stateColor(): { info: string; error: string } {
-    return {
-      info: this.options.primaryColor,
-      error: this.options.statusBar.errorColor
-    };
-  }
-
   setColor(color: string): void {
     if (!color) {
       return;
     }
-    this.setStyle({ backgroundColor: color });
+    this.style.update({ backgroundColor: color });
   }
 
-  open(content?: string, color = this.options.primaryColor): void {
-    this.popup(content, false, color);
-  }
-
-  close(content?: string, color = this.options.primaryColor, delay = 0): void {
-    this.popup(content, delay, color);
-  }
-
-  /**
-   * 状态条弹出, 自动收起, delay为false时不收起
-   * @param message
-   * @param state
-   * @param delay
-   */
   popup(message?: string, delay: number | false = 0, color = this.options.primaryColor): void {
     clearTimeout(this.timer);
     this.setColor(color);
     if (message) {
-      this.setContent(message);
+      // this.setContent();
+      this.element.innerHTML = message;
     }
 
     void this.slideIn();
@@ -230,9 +151,20 @@ export class StatusBar {
     }
   }
 
-  setContent(content: string): void {
-    if (this.element) {
-      this.element.innerHTML = content;
-    }
+  // 注册监听器
+  private registerListeners() {
+    emitter.on('modelLoad', (state) => {
+      switch (state) {
+        case 'loading':
+          this.showLoading();
+          break;
+        case 'fail':
+          this.loadFailed();
+          break;
+        case 'success':
+          this.loadSuccess();
+          break;
+      }
+    });
   }
 }

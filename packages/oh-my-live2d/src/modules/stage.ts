@@ -1,131 +1,121 @@
-import { mergeDeep } from 'tianjie';
-
-import type { Events } from './events.js';
-import { ELEMENT_ID, STAGE_DEFAULT_STYLE } from '../config/index.js';
-import { WindowSizeType } from '../constants/index.js';
-import { CommonStyleType } from '../types/common.js';
-import type { CSSProperties, DefaultOptions } from '../types/index.js';
-import { createElement, getWindowSizeType, handleCommonStyle, handleDockedPosition, setStyleForElement } from '../utils/index.js';
-import { setStatus } from '../utils/store.js';
+import { StatusBar } from './status-bar.js';
+import { Style } from './style.js';
+import { Tips } from './tips.js';
+import { CANVAS_ID, STAGE_ID } from '../constants/index.js';
+import emitter from '../emitter/index.js';
+import { store } from '../store/index.js';
+import { stageSlideIn, stageSlideOut } from '../styles/keyframes.js';
+import { createElement } from '../utils/element.js';
 
 export class Stage {
-  element?: HTMLElement;
-  canvasElement?: HTMLCanvasElement;
-  status = false;
-  private style: CSSProperties = {};
-  private canvasStyle: CSSProperties = {};
-  private currentModelIndex = 0;
-  constructor(
-    private options: DefaultOptions,
-    private events: Events
-  ) {}
+  element: HTMLElement;
+  canvasElement: HTMLCanvasElement;
+  style: Style;
+  canvasStyle: Style;
+  constructor() {
+    this.element = this.createStageElement();
+    this.canvasElement = this.createStageCanvas();
+    this.style = new Style(this.element);
+    this.canvasStyle = new Style(this.canvasElement);
 
-  create(): void {
-    this.element = createElement({ id: ELEMENT_ID.stage, tagName: 'div' });
-    this.canvasElement = createElement({ id: ELEMENT_ID.canvas, tagName: 'canvas' }) as HTMLCanvasElement;
+    this.initialize();
   }
 
-  set modelIndex(index: number) {
-    this.currentModelIndex = index;
+  get options() {
+    return store.get().options;
   }
 
-  get modelIndex(): number {
-    return this.currentModelIndex;
+  initialize() {
+    this.registerListeners();
+    this.mountController();
   }
 
-  mount(): void {
-    if (this.element && this.canvasElement) {
-      this.element.append(this.canvasElement);
-      this.options.parentElement.append(this.element);
-    }
+  mountController() {
+    const statusBar = new StatusBar();
+
+    const tips = new Tips();
+
+    this.element.append(statusBar.element, tips.element);
   }
 
-  reloadStyle(style: CommonStyleType = {}): void {
-    style = mergeDeep(style, this.options.stageStyle);
-    style = mergeDeep(style, handleDockedPosition(this.options.dockedPosition));
-    switch (getWindowSizeType()) {
-      case WindowSizeType.mobile:
-        style = mergeDeep(style, this.options.models?.[this.modelIndex]?.mobileStageStyle || {});
-        break;
-      case WindowSizeType.pc:
-        style = mergeDeep(style, this.options.models?.[this.modelIndex]?.stageStyle || {});
-        break;
-    }
-
-    this.setStyle(handleCommonStyle(mergeDeep(STAGE_DEFAULT_STYLE, style)));
-  }
-
-  unMount(): void {
-    this.element?.remove();
-  }
-
-  reMount(): void {
-    this.unMount();
-    this.mount();
-  }
-
-  setStyle(style: CSSProperties, callback?: () => void): void {
-    if (this.element) {
-      this.style = {};
-      this.style = mergeDeep(this.style, style);
-      setStyleForElement(this.style, this.element);
-      this.setCanvasStyle({ width: '100%', height: '100%', zIndex: '9998', position: 'relative' });
-      callback?.();
-    }
-  }
-
-  setCanvasStyle(style: CSSProperties): void {
-    if (this.canvasElement) {
-      this.canvasStyle = mergeDeep(this.canvasStyle, style);
-      setStyleForElement(this.canvasStyle, this.canvasElement);
-    }
-  }
-
-  get transitionTime(): number {
-    return this.options.transitionTime;
-  }
-
-  /**
-   * 滑入
-   */
-  slideIn(): Promise<void> {
-    this.setStyle({
-      animationName: 'oml2d-stage-slide-in',
-      animationDuration: `${this.transitionTime}ms`,
-      animationFillMode: 'forwards'
-    });
-
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        this.status = true;
-        this.events.emit('stageSlideIn');
-        setStatus('active');
-        resolve();
-      }, this.transitionTime);
-    });
-  }
-
-  /**
-   * 滑出
-   */
-  slideOut(): Promise<void> {
-    return new Promise<void>((resolve) => {
-      if (!this.status) {
-        resolve();
-      } else {
-        this.setStyle({
-          animationName: 'oml2d-stage-slide-out',
-          animationDuration: `${this.transitionTime}ms`,
-          animationFillMode: 'forwards'
-        });
-
-        setTimeout(() => {
-          this.status = false;
-          this.events.emit('stageSlideOut');
-          setStatus('sleep');
-          resolve();
-        }, this.transitionTime);
+  createStageElement() {
+    const el = createElement({
+      id: STAGE_ID,
+      tagName: 'div',
+      style: {
+        width: '0px',
+        height: '0px',
+        position: 'fixed',
+        right: 'auto',
+        bottom: 0,
+        zIndex: '9997'
       }
+    });
+
+    document.body.appendChild(el);
+
+    return el;
+  }
+
+  createStageCanvas() {
+    const canvas = createElement({
+      tagName: 'canvas',
+      id: CANVAS_ID,
+      style: {
+        width: '100%',
+        height: '100%',
+        zIndex: '9998',
+        position: 'relative',
+        transform: 'translateY(130%)'
+      }
+    });
+
+    this.element.appendChild(canvas);
+
+    return canvas as HTMLCanvasElement;
+  }
+
+  slideIn(): Promise<void> {
+    return new Promise((resolve) => {
+      emitter.emit('stageSlideInStart');
+
+      this.canvasStyle.update({
+        animationName: stageSlideIn,
+        animationDuration: `${this.options.transitionTime}ms`,
+        animationFillMode: 'forwards'
+      });
+
+      setTimeout(() => {
+        emitter.emit('stageSlideOutEnd');
+        resolve();
+      }, this.options.transitionTime);
+    });
+  }
+
+  slideOut(): Promise<void> {
+    return new Promise((resolve) => {
+      emitter.emit('stageSlideOutStart');
+
+      this.canvasStyle.update({
+        animationName: stageSlideOut,
+        animationDuration: `${this.options.transitionTime}ms`,
+        animationFillMode: 'forwards',
+        transform: 'translateY(130%)'
+      });
+
+      setTimeout(() => {
+        emitter.emit('stageSlideOutEnd');
+        resolve();
+      }, this.options.transitionTime);
+    });
+  }
+
+  registerListeners() {
+    store.on('model/setModelSize', (state) => {
+      this.style.update({
+        width: state.modelWidth,
+        height: state.modelHeight
+      });
     });
   }
 }

@@ -1,11 +1,14 @@
 import { ELEMENT_ID, generateGlobalStyle } from '../config/index.js';
+import { store } from '../store/index.js';
 import { DefaultOptions } from '../types/index.js';
 import { createElement } from '../utils/index.js';
 
 // 全局样式
 export class GlobalStyle {
   styleSheet?: HTMLElement;
-  constructor(private options: DefaultOptions) {}
+  get options(): DefaultOptions {
+    return store.get().options;
+  }
 
   /**
    * 创建
@@ -36,6 +39,7 @@ export class GlobalStyle {
     this.mount();
     this.reloadStyleSheet();
   }
+
   initializeStyle(): void {
     this.reloadStyleSheet();
   }
