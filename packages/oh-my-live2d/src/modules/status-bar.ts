@@ -1,3 +1,5 @@
+import { isNumber } from 'tianjie';
+
 import { Style } from './style.js';
 import { STATUS_BAR_ID } from '../constants/index.js';
 import emitter from '../emitter/index.js';
@@ -9,15 +11,19 @@ import { createElement } from '../utils/element.js';
 export class StatusBar {
   element: HTMLElement;
   style: Style;
-  status: boolean = false; // 状态, true为显示, false为隐藏
+
+  private timer: number | undefined;
+  private status: boolean = false; // 状态, true为显示, false为隐藏
   constructor() {
     this.element = this.create();
     this.style = new Style(this.element);
     this.initialize();
   }
+
   get options() {
     return store.get().options;
   }
+
   get statusBarOptions() {
     return store.get().options.statusBar;
   }
@@ -33,7 +39,7 @@ export class StatusBar {
       style: {
         backgroundColor: this.options.primaryColor,
         minWidth: '20px',
-        minHeight: '60px',
+        minHeight: '50px',
         position: 'absolute',
         transform: 'translateX(-130%)',
         bottom: '80px',
@@ -49,36 +55,40 @@ export class StatusBar {
         display: 'flex',
         alignItems: 'center',
         textAlign: 'center',
-        flexWrap: 'wrap',
+        // flexWrap: 'wrap',
+        // wordWrap: 'revert',
         fontSize: '14px',
         writingMode: 'vertical-lr',
         cursor: 'pointer',
         left: 0
-      },
-      innerHtml: 'asdasd'
+      }
     });
 
     return el;
   }
 
   showLoading() {
-    this.element.innerHTML = `
+    const text = `
     <div style="margin-bottom:3px;">${this.statusBarOptions.loadingMessage}</div>
     <svg class="${icon} ${loading}" aria-hidden="true">
       <use xlink:href=#${this.statusBarOptions.loadingIcon}></use>
     </svg>
     `;
 
-    this.slideIn();
+    this.style.update({
+      minHeight: '60px'
+    });
+
+    this.popup(text, false, this.options.primaryColor);
   }
 
   loadSuccess() {
-    this.element.innerHTML = this.statusBarOptions.loadSuccessMessage;
-    this.slideOut();
+    this.popup(this.statusBarOptions.loadSuccessMessage, 0, this.options.primaryColor);
   }
+
   loadFailed() {
-    this.element.innerHTML = this.statusBarOptions.loadFailMessage;
     this.slideOut();
+    this.statusBarOptions.loadFailMessage, 0, this.statusBarOptions.errorColor;
   }
 
   slideIn(): Promise<void> {
@@ -110,9 +120,35 @@ export class StatusBar {
       });
       setTimeout(() => {
         this.status = false;
+        this.style.update({
+          minHeight: '30px'
+        });
         resolve();
       }, this.statusBarOptions.transitionTime);
     });
+  }
+  setColor(color: string): void {
+    if (!color) {
+      return;
+    }
+    this.style.update({ backgroundColor: color });
+  }
+
+  popup(message?: string, delay: number | false = 0, color = this.options.primaryColor): void {
+    clearTimeout(this.timer);
+    this.setColor(color);
+    if (message) {
+      // this.setContent();
+      this.element.innerHTML = message;
+    }
+
+    void this.slideIn();
+
+    if (isNumber(delay)) {
+      this.timer = setTimeout(() => {
+        void this.slideOut();
+      }, delay + this.statusBarOptions.transitionTime);
+    }
   }
 
   // 注册监听器

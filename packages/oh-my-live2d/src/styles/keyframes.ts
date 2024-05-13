@@ -57,12 +57,12 @@ export const statusBarLeftSlidein = keyframes`
        transform: translateX(-130%);
   }
   100% {
-       transform: translateX(-25%);
+       transform: translateX(-30%);
   }
 `;
 export const statusBarLeftSlideOut = keyframes`
     0% {
-      transform: translateX(-25%);
+      transform: translateX(-30%);
     }
     100% {
       transform: translateX(-130%);
