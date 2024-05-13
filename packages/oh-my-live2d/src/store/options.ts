@@ -8,7 +8,8 @@ export const options: StoreonModule<IState, Events> = (store) => {
   store.on('options/initialize', (_, options) => {
     const finalOptions = mergeOptions(DEFAULT_OPTIONS, options);
 
-    store.dispatch('model/initialize', options.models);
+    store.dispatch('model/initialize', finalOptions.models);
+    store.dispatch('tips/initialize', finalOptions.tips);
 
     return { options: finalOptions };
   });

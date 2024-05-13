@@ -36,7 +36,7 @@
   ],
   "scripts": {
     "build": "tsc && vite build",
-    "dev": "vite build --watch --mode development",
+    "dev": "vite build --watch --sourcemap --mode development",
     "demo": "vite serve demo",
     "demo:umd": "vite"
   },

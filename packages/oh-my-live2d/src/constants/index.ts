@@ -27,3 +27,5 @@ export const MODEL_KEY = '__OML2D_MODEL_KEY__';
 export const STAGE_ID = 'oml2d-stage';
 export const CANVAS_ID = 'oml2d-canvas';
 export const STATUS_BAR_ID = 'oml2d-status-bar';
+export const TIPS_ID = 'oml2d-tips';
+export const TIPS_CONTENT_ID = 'oml2d-tips-content';

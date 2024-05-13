@@ -5,7 +5,8 @@ import { CSSProperties } from '../types/style/index.js';
 import { handleStyleProperties, setStyleByElement } from '../utils/style.js';
 
 export class Style {
-  style: CSS.Properties = {};
+  private style: CSS.Properties = {};
+
   constructor(
     private element: HTMLElement,
     style: CSSProperties = {}
@@ -14,12 +15,10 @@ export class Style {
   }
 
   update(style: CSSProperties) {
-    // console.log(style);
     const styleObj = handleStyleProperties(style);
     const finalStyle = mergeDeep(this.style, styleObj);
 
     this.style = finalStyle;
-    console.log(finalStyle);
     setStyleByElement(this.element, finalStyle);
 
     return finalStyle;

@@ -1,7 +1,11 @@
-import { DefaultOptions, ModelOptions, Options } from '../types/index.js';
+import { DefaultOptions, ModelOptions, Options, TipsOptions } from '../types/index.js';
 
 export interface OptionsState {
   options: DefaultOptions;
+}
+
+export interface TipsOptionsState {
+  tips: TipsOptions | ((currentModel: ModelOptions, modelIndex: number) => TipsOptions);
 }
 
 export interface ModelState {
@@ -31,6 +35,10 @@ export interface ModelEvents {
   'model/setModelSize': { width: number; height: number };
 }
 
-export interface IState extends OptionsState, ModelState {}
+export interface TipsEvents {
+  'tips/initialize': TipsOptions | ((currentModel: ModelOptions, modelIndex: number) => TipsOptions);
+}
 
-export interface Events extends OptionsEvents, ModelEvents {}
+export interface IState extends OptionsState, ModelState, TipsOptionsState {}
+
+export interface Events extends OptionsEvents, ModelEvents, TipsEvents {}

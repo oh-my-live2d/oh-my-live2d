@@ -1,5 +1,6 @@
 import { StatusBar } from './status-bar.js';
 import { Style } from './style.js';
+import { Tips } from './tips.js';
 import { CANVAS_ID, STAGE_ID } from '../constants/index.js';
 import emitter from '../emitter/index.js';
 import { store } from '../store/index.js';
@@ -16,6 +17,7 @@ export class Stage {
     this.canvasElement = this.createStageCanvas();
     this.style = new Style(this.element);
     this.canvasStyle = new Style(this.canvasElement);
+
     this.initialize();
   }
 
@@ -31,7 +33,9 @@ export class Stage {
   mountController() {
     const statusBar = new StatusBar();
 
-    this.element.append(statusBar.element);
+    const tips = new Tips();
+
+    this.element.append(statusBar.element, tips.element);
   }
 
   createStageElement() {

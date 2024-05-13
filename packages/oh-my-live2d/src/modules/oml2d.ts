@@ -7,11 +7,12 @@ export class OhMyLive2D {
   private stage: Stage;
   private pixi: Pixi;
   private model: Model;
-
+  // private tips: Tips;
   constructor() {
     this.stage = new Stage();
     this.pixi = new Pixi(this.stage);
     this.model = new Model(this.pixi);
+    console.log('OhMyLive2D initialized');
 
     this.initialize();
     this.registerListeners();
