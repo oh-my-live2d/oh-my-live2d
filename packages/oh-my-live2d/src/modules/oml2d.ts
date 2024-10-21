@@ -81,14 +81,14 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
    * 显示模型的 hit area 区域
    */
   showModelHitAreaFrames() {
-    this.models.removeHitAreaFrames();
+    this.models.addHitAreaFrames();
   }
 
   /**
    * 隐藏模型的 hit area 区域
    */
   hideModelHitAreaFrames() {
-    this.models.addHitAreaFrames();
+    this.models.removeHitAreaFrames();
   }
 
   /**
@@ -426,5 +426,18 @@ export class OhMyLive2D implements Oml2dProperties, Oml2dMethods, Oml2dEvents {
     window.document.oncopy = (): void => {
       this.tips.copy();
     };
+  }
+  /**
+   * 随机设置表情
+   */
+  setRandomExpression() {
+    this.models.randomExpression();
+  }
+  /**
+   * 设置表情
+   * @param value
+   */
+  setExpression(value: string | number): void {
+    this.models.expression(value);
   }
 }
