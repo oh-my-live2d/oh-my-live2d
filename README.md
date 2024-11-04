@@ -122,6 +122,20 @@
   <img src="https://contrib.rocks/image?repo=oh-my-live2d/oh-my-live2d" />
 </a>
 
+## 赞赏
+
+<img height="200" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/IMG_0249.JPG"/>
+
+> 打赏时如果备注了 Github 用户名称以及项目名称, 之后将会出现在鸣谢列表中, 备注格式: 项目名称:用户明. 备注示例: oml2d: hacxy
+
+## 鸣谢
+
+非常感谢以下为本项目赞助过的所有人:
+
+<a href="https://github.com/Chen-Yulin">
+<img  height="40" src="https://avatars.githubusercontent.com/u/81513548?v=4"/>
+<a/>
+
 ## 讨论
 
 - 微信群:
@@ -136,20 +150,6 @@
 ## Project Status
 
 ![Alt](https://repobeats.axiom.co/api/embed/b603e73fc87261ea004a095fe8937e5b738d979a.svg 'Repobeats analytics image')
-
-## 赞赏
-
-<img height="150" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/IMG_0249.JPG"/>
-
-> 打赏时如果留言 Github 用户名称以及项目名称, 之后将会出现在鸣谢列表中, 备注示例: oml2d: hacxy
-
-## 鸣谢
-
-非常感谢以下为本项目赞助过的所有人:
-
-<a href="https://github.com/Chen-Yulin">
-<img  height="40" src="https://avatars.githubusercontent.com/u/81513548?v=4"/>
-<a/>
 
 ## 开源许可
 
