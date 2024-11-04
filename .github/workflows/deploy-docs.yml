@@ -1,7 +1,7 @@
 name: 构建文档
 on:
   push: # 监听调用时机为push事件
-    branches: ['docs']
+    branches: ['main']
 
 jobs:
   deploy-docs:
