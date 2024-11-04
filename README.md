@@ -126,7 +126,8 @@
 
 <img height="200" src="https://raw.githubusercontent.com/hacxy/hacxy/main/images/IMG_0249.JPG"/>
 
-> 打赏时如果备注了 Github 用户名称以及项目名称, 之后将会出现在鸣谢列表中, 备注格式: 项目名称:用户明. 备注示例: oml2d: hacxy
+> 打赏时如果备注了 Github 用户名称以及项目名称, 之后将会出现在鸣谢列表中, 备注格式: 打赏的项目名称: 你的用户名称.  
+> 备注示例: oml2d: hacxy
 
 ## 鸣谢
 
