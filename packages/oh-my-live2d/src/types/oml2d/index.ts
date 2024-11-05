@@ -238,4 +238,13 @@ export interface Oml2dEvents {
    * @returns
    */
   onStageSlideOut: (fn: () => void | Promise<void>) => void;
+  /**
+   * 随机设置表情
+   */
+  setRandomExpression: () => void;
+  /**
+   * 设置表情
+   * @param value 表情序号或名称
+   */
+  setExpression: (value: string | number) => void;
 }
