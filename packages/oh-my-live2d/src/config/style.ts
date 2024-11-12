@@ -153,7 +153,7 @@ export const STAGE_DEFAULT_STYLE: CommonStyleType = {
   right: 'auto',
   bottom: 0,
   zIndex: '9997',
-  transform: 'translateY(130%)'
+  transform: 'translateY(0%)'
 };
 
 export const TIPS_DEFAULT_STYLE: CommonStyleType = {
