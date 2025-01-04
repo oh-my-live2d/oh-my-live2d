@@ -76,6 +76,7 @@
 - <https://theme.sugarat.top>
 - <https://asev.gitee.io>
 - <https://docs.kisssssssss.space/setting/live2d>
+- <https://being.leafyee.xyz> & <https://github.com/LeafYeeXYZ/DigitalLife>
 
 **征集更多案例, 欢迎您的PR😋**
 
