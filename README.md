@@ -11,9 +11,6 @@
 
 **通过 [查阅文档](https://oml2d.hacxy.cn) 以了解更多详细使用教程。**
 
-> [!TIP]  
-> **项目目前正处于积极维护状态, 欢迎志同道合的伙伴加入😄**
-
 ## 先决条件
 
 - 支持 **WebGL** 和 **ES6** 的浏览器
@@ -46,7 +43,7 @@
   OML2D.loadOml2d({
     models: [
       {
-        path: 'https://model.oml2d.com/HK416-1-normal/model.json',
+        path: 'https://model.hacxy.cn/HK416-1-normal/model.json',
         position: [0, 60],
         scale: 0.08,
         stageStyle: {
@@ -62,10 +59,10 @@
 
 ## 更多支持
 
-- [在 VitePress 中使用](https://oml2d.com/guide/vitepress.html)
-- [在 VuePress2 中使用](https://oml2d.com/guide/vuepress.html)
-- [通过 VitePlugin 方式使用](https://oml2d.com/guide/vite.html)
-- [在 Hexo 中使用](https://oml2d.com/guide/hexo.html)
+- [在 VitePress 中使用](https://oml2d.hacxy.cn/guide/vitepress.html)
+- [在 VuePress2 中使用](https://oml2d.hacxy.cn/guide/vuepress.html)
+- [通过 VitePlugin 方式使用](https://oml2d.hacxy.cn/guide/vite.html)
+- [在 Hexo 中使用](https://oml2d.hacxy.cn/guide/hexo.html)
 
 ## 案例
 
@@ -153,10 +150,10 @@
 
 ![Alt](https://repobeats.axiom.co/api/embed/b603e73fc87261ea004a095fe8937e5b738d979a.svg 'Repobeats analytics image')
 
-## 开源许可
+## License
 
-- [MIT](https://github.com/oh-my-live2d/oh-my-live2d/blob/main/LICENSE)
+[MIT](./LICENSE) License &copy; 2023-PRESENT [Hacxy](https://github.com/hacxy)
 
 ## 免责声明
 
-本仓库所有模型文件均来源于网络, 仅供参考和学习, 严禁用于任何商业盈利项目, 所有以盈利为目的而使用本仓库的模型资源的行为均与仓库创建者无关, 仓库中每个模型的所有权均属于这个模型的作者或创作团队, 若侵权请联系: hacxy.97@outlook.com 及时删除
+本仓库所有模型文件均来源于网络, 仅供参考和学习, 严禁用于任何商业盈利项目, 所有以盈利为目的而使用本仓库的模型资源的行为均与仓库创建者无关, 仓库中每个模型的所有权均属于这个模型的作者或创作团队, 若侵权请联系: hacxy.js@outlook.com 及时删除
