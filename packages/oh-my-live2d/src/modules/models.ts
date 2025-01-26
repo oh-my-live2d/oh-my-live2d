@@ -180,4 +180,16 @@ export class Models {
 
     this.playMotion(motion || '');
   }
+  /**
+   * 随机设置表情
+   */
+  randomExpression(): void {
+    this.model?.expression();
+  }
+  /**
+   * 随机表情
+   */
+  expression(value: number | string): void {
+    this.model?.expression(value);
+  }
 }
