@@ -7,8 +7,10 @@ jobs:
   deploy-docs:
     runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
     steps:
-      - name: 拉取代码
-        uses: actions/checkout@v4
+      - name: 拉取代码 # 步骤名字
+        uses: actions/checkout@master # 使用 actions/checkout 库拉取最新源码
+        with:
+          fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
 
       - name: 安装 pnpm
         uses: pnpm/action-setup@v2
@@ -16,7 +18,7 @@ jobs:
           version: 9
 
       - name: 设置 Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: pnpm
