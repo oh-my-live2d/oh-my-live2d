@@ -62,20 +62,15 @@ const blogTheme = getThemeConfig({
         type: 'text',
         content: '欢迎大家加群&私信交流'
       },
-      { type: 'text', content: '↓ 微信群 ------ QQ群 ↓' },
+      { type: 'text', content: '↓ 微信群 ↓' },
       {
         type: 'image',
-        src: 'https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/wxq.png',
+        src: 'https://hacxy-1259720482.cos.ap-hongkong.myqcloud.com/images/202501261035599.png',
         style: 'display: inline-block;width:46%;padding-right:6px'
       },
       {
-        type: 'image',
-        src: 'https://loclink-1259720482.cos.ap-beijing.myqcloud.com/image/202403111755979.png',
-        style: 'display: inline-block;width:46%;padding-left:6px'
-      },
-      {
         type: 'text',
-        content: '微信群二维码失效请联系作者'
+        content: '由于域名到期, 本站已迁移至: https://oml2d.hacxy.cn'
       },
       {
         type: 'text',
